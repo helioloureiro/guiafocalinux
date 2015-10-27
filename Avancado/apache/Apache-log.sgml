@@ -1,0 +1,303 @@
+<sect id="s-apache-log">Sistema de Log do Apache
+ <p>
+O <prgn>Apache</prgn> é bem flexível na especificação do que será registrado em 
+seus arquivos de log, possibilitando utilizar um arquivo de log único, diversos 
+arquivos de logs registrando cada evento ocorrido no sistema (conexão, navegador, 
+bloqueio de acesso, erros, etc) incluindo os campos que deseja em cada arquivo e 
+a ordem dos campos em cada um deles. 
+ <p>
+Enfim qualquer coisa pode ser especificada de forma que atenda as suas 
+necessidades particulares de logging. 
+
+
+<sect1 id="s-apache-log-agentlog">AgentLog
+ <p>
+<tt>AgentLog arquivo/pipe</tt>: Indica o nome do arquivo que registrará o nome 
+do navegador que está acessando a página (conteúdo do cabeçalho 
+<tt>User-Agent</tt>). É possível usar o pipe "|" para direcionar os erros para 
+um programa de formatação ou processamento.
+
+<![ %OBS [
+<strong>ATENÇÃO</strong>: Se um programa for usado como pipe, ele será executado 
+sob o usuário que iniciou o <prgn>apache</prgn>. Revise o código fonte do 
+programa para ter certeza que não contém falhas que possam comprometer a 
+segurança de seu sistema. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>AgentLog /var/log/apache/agent.log</tt><p> ]]>
+
+
+<sect1 id="s-apache-log-errorlog">ErrorLog
+ <p>
+<tt>ErrorLog arquivo/pipe</tt> - Especifica o arquivo que registrará as 
+mensagens de erro do servidor <prgn>Apache</prgn>. É possível usar o pipe 
+"|" para direcionar os erros para um programa de formatação ou processamento.
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>ErrorLog /var/log/apache/errors.log</tt> ]]>
+
+
+<sect1 id="s-apache-log-customlog">CustomLog
+ <p>
+Permite especificar onde os logs serão gravados para os arquivos 
+de logs personalizados. 
+<![ %DESCRICAOD [ Esta diretiva também aceita apelidos definidos 
+pela diretiva <em>LogFormat</em>. ]]>
+ <p>
+<tt>CustomLog [arquivo/pipe] [formato/nome]</tt>
+ <p>
+<![ %OPCOES [
+ Onde:
+ <taglist compact>
+  <tag><em>arquivo/pipe</em></tag>
+  <item>
+Arquivo de log personalizado ou pipe.
+
+  <tag><em>formato/nome</em></tag>
+  <item>
+Especifica o formato do arquivo de log (da mesma forma que o especificado 
+na opção <em>LogFormat</em>). Deverá ser especificado entre "aspas" caso 
+tiver espaços. Veja <ref id="s-apache-log-logformat"> para detalhes. 
+ </taglist> ]]>
+Ao invés de especificar o formato, também é possível usar um apelido definido 
+pela opção <em>LogFormat</em> (<ref id="s-apache-log-logformat">), neste caso 
+os parâmetros definidos pelo <em>LogFormat</em> para "nome" serão atribuídos 
+a diretiva <em>CustomLog</em>. 
+<![ %EXEMPLO [
+ <p>
+Exemplos: 
+<list compact>
+ <item><tt>CustomLog /var/log/apache/common.log "%h %l %u %t \"%r\" %>s %b"</tt> 
+ <item><tt>CustomLog /var/log/apache/common.log common</tt>
+</list>
+]]>
+
+<sect1 id="s-apache-log-refererlog">RefererLog
+ <p>
+<tt>RefererLog [arquivo/pipe]</tt>: Indica que arquivo/pipe registrará os campos 
+Referer do cabeçalho HTTP. Esta diretiva é mantida por compatibilidade com 
+o servidor web NCSA 1.4.
+ <p>
+A configuração padrão do <prgn>Apache</prgn> usa uma diretiva alternativa 
+para a especificação do <em>referer</em> que é a seguinte:
+<example>
+LogFormat "%{Referer}i -> %U" referer
+CustomLog /var/log/apache/referer.log referer
+</example>
+
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>RefererLog /var/log/apache/referer.log</tt> ]]>
+
+
+<sect1 id="s-apache-log-rewritelog">RewriteLog
+ <p>
+<tt>RewriteLog: [arquivo/pipe]</tt>: Indica o arquivo/pipe que registrará qualquer 
+regravação de URL feita pelo <prgn>Apache</prgn>. 
+
+<![ %OBS [
+ <p>
+<strong>OBS</strong>: Não é recomendável direcionar o nome de arquivo para 
+<file>/dev/null</file> como forma de desativar este log, porque o módulo de 
+regravação não cria a saída para um arquivo de log, ele cria a saída de log 
+internamente. Isto somente deixará o servidor lento. Para desativar este 
+registro, simplesmente remova/comente a diretiva RewriteLog ou use a opção
+RewriteLogLevel 0. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>RewriteLog "/usr/local/var/apache/logs/rewrite.log</tt> ]]>
+
+
+<sect1 id="s-apache-log-rewriteloglevel">RewriteLogLevel
+ <p>
+<tt>RewriteLogLevel [num]</tt>: Especifica os detalhes que serão incluídos no 
+registro da opção RewriteLog, os valores permitidos estão entre 0 e 9. Se 
+for usado 0, o registro do RewriteLog é totalmente desativado (esta é a padrão). 
+
+<![ %OBS [ 
+<strong>OBS</strong>: Qualquer valor acima de 2 deixa o servidor Web cada vez 
+mais lento devido ao processamento e a quantidade de detalhes registrados no 
+arquivo especificado por <em>RewriteLog</em>. ]]>
+
+
+<sect1 id="s-apache-log-scriptlog">ScriptLog
+ <p>
+<tt>ScriptLog [arquivo]</tt>: Especifica o nome do arquivo de log que 
+receberá as mensagens de erros gerados por scripts CGI executados no servidor. 
+Esta opção é controlada pelo módulos <em>mod_cgi</em>.
+ <p>
+Os arquivos de log serão abertos por um sub-processo rodando com as 
+permissões do usuário especificado na diretiva "user".
+
+<![ %OBS [
+ <p>
+<strong>OBS</strong>: Esta opção somente é recomendada como depuradora de 
+scripts CGI, não para uso contínuo em servidores ativos. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>ScriptLog /var/log/apache/cgiscripts.log</tt> ]]>
+
+
+<sect1 id="s-apache-log-scriptlogbuffer">ScriptLogBuffer
+ <p>
+<tt>ScriptLogBuffer</tt>: Especifica o tamanho do cabeçalho PUT ou POST 
+gravado no arquivo especificado por <em>ScriptLog</em>. O valor padrão é 
+1024 bytes. Esta opção é controlada pelo módulos <em>mod_cgi</em>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>ScriptLogBuffer 512</tt> ]]>
+
+
+<sect1 id="s-apache-log-scriptloglength">ScriptLogLength
+ <p>
+<tt>ScriptLogLength: [tamanho]</tt>: Especifica o tamanho máximo do arquivo 
+de log gerado pela opção ScriptLog. O valor padrão é 10385760 bytes (10.3MB). 
+Esta opção é controlada pelo módulos <em>mod_cgi</em>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>ScriptLogLength 1024480</tt> ]]>
+
+
+<sect1 id="s-apache-log-logformat">LogFormat
+ <p>
+<tt>LogFormat</tt>: Define os campos padrões do arquivo gerado pela opção 
+<em>TransferLog</em>.
+O seu formato é o seguinte:
+ <p>
+<tt>LogFormat [formato] [nome]</tt>
+ <p>
+Quando o formato não é especificado, assume o valor padrão 
+<tt>%h %l %u %t \"%r\" %s %b</tt>. A especificação do [<em>nome</em>] 
+permite que você utilize o formato especificado em uma opção <em>CustomLog</em> 
+ou outra diretiva <em>LogFormat</em>, facilitando a especificação do formato do 
+log. 
+ <p>
+Os seguintes formatos são válidos:
+<list compact>
+ <item><tt>%b</tt> - Bytes enviados, excluindo cabeçalhos HTTP.
+ <item><tt>%f</tt> - Nome do arquivo.
+ <item><tt>%{FOOBAR}e</tt> - O conteúdo da variável de ambiente FOOBAR.
+ <item><tt>%h</tt> - Máquina cliente.
+ <item><tt>%a</tt> - Endereço IP da máquina cliente.
+ <item><tt>%A</tt> - Endereço IP local. Muito útil em virtual hostings.
+ <item><tt>%{Foobar}i</tt> - O conteúdo de Foobar: linhas de cabeçalho na requisição
+ enviada ao servidor.
+ <item><tt>%l</tt> - O nome de login remoto enviado pelo identd (se fornecido).
+ <item><tt>%{Foobar}n</tt> - O conteúdo de "FooBar" de outro módulo.
+ <item><tt>%{Foobar}o:</tt> - O conteúdo de Foobar: linhas de cabeçalho na resposta.
+ <item><tt>%p</tt> - A porta do servidor servindo a requisição.
+ <item><tt>%P</tt> - A identificação do processo filho que serviu a requisição. 
+ <item><tt>%r</tt> - A primeira linha da requisição.
+ <item><tt>%s</tt> - Status. Para requisições que foram redirecionadas. 
+ internamente. Este é o status de uma requisição *original*. Use %s para a última.
+ <item><tt>%t</tt> - Hora, no formato do arquivo de log (formato inglês padrão).
+ <item><tt>%{format}t</tt> - Hora, no formato definido por strftime.
+ <item><tt>%T</tt> - O tempo necessário para servir a requisição, em segundos. 
+ <item><tt>%u</tt> - Usuário remoto (através do auth, pode ser falso se o status de 
+ retorno (%s) for 401).
+ <item><tt>%U</tt> - O caminho da URL requisitada.
+ <item><tt>%v</tt> - O nome canônico definido por <em>ServerName</em> que serviu a 
+ requisição.
+ <item><tt>%V</tt> - O nome do servidor de acordo com a configuração de 
+<em>UseCanonicalName</em>. 
+</list> 
+<![ %EXEMPLO [
+ <p>
+Exemplos:
+<example>
+ LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %T %v" full
+ LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %P %T" debug
+ LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+ LogFormat "%h %l %u %t \"%r\" %>s %b" common
+ LogFormat "%{Referer}i -> %U" referer
+ LogFormat "%{User-agent}i" agent
+</example> ]]>
+
+
+<sect1 id="s-apache-log-transferlog">TransferLog
+ <p>
+<tt>TransferLog [arquivo/pipe]</tt>: Indica o arquivo que armazenará as 
+transferências entre o servidor http e o cliente. Ela cria o arquivo de log 
+com o formato definido pela opção <em>LogFormat</em> mais recente (sem 
+a especificação do nome associado a diretiva) ou o formato 
+padrão CLF do log do <prgn>Apache</prgn>. 
+<![ %DESCRICAOD [ <p> Se omitido, o arquivo não será gerado ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>TransferLog /var/log/apache/transferências.log</tt> ]]>
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Se esta não é uma opção muito utilizada 
+na administração de seus sistemas, é recomendável o uso da 
+diretiva <em>CustomLog</em> (veja <ref id="s-apache-log-customlog">) para 
+evitar confusões futuras.
+]]>
+
+<sect1 id="s-apache-log-loglevel">LogLevel
+ <p>
+Define o nível de alerta das mensagens que serão gravadas no arquivo 
+especificado pela diretiva <em>ErrorLog</em>. Quando não é especificado, 
+assume o nível "error" como padrão. Abaixo os parâmetros aceitos em sua 
+respectiva ordem de importância: 
+<list compact>
+ <item><tt>emerg</tt> - O sistema está inutilizável. 
+ <item><tt>alert</tt> - A ação deve ser tomada imediatamente. 
+ <item><tt>crit</tt> - Condições críticas. 
+ <item><tt>error</tt> - Condições de erro. 
+ <item><tt>warn</tt> - Condições de alerta. 
+ <item><tt>notice</tt> - Condição normal mas significante. 
+ <item><tt>info</tt> - Mensagens informativas. 
+ <item><tt>debug</tt> - Mensagens do nível de depuração. 
+</list>
+
+<![ %OBS [
+ <p>
+Note que os níveis são os mesmos usados pelo <prgn>syslog</prgn>. ]]>
+Quando um nível particular é especificado, as mensagens de todos os níveis de 
+maior importância também serão registrados. Por exemplo, se o nível "info" for 
+especificado, as mensagens com os níveis de "notice" e "warn" também serão 
+registradas. É recomendado o uso de um nível de no mínimo <em>crit</em>.
+
+
+<sect1 id="s-apache-log-anonylogmail">Anonymous_LogEmail
+ <p>
+Se estiver como "on" a senha digitada será registrada no arquivo especificado 
+por <em>ErrorLog</em>. Esta diretiva é <em>ativada</em> por padrão. 
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>Anonymous_LogEmail off</tt> ]]>
+
+
+<sect1 id="s-apache-log-cookielog">CookieLog
+ <p>
+Especifica o arquivo que será usado para registrar os cookies
+
+<![ %OBS [
+ <p>
+<strong>OBS1</strong>: Caso o caminho do arquivo não for especificado nas 
+diretivas, será assumido <em>DocumentRoot</em> como diretório padrão.
+ <p>
+<strong>OBS2</strong>: Caso esteja usando o pipe, o dono do processo será 
+o mesmo que iniciou o servidor WEB Apache. Tenha certeza do funcionamento 
+do programa para não comprometer o seu sistema, e cuide para que ele 
+não possa ser modificado indevidamente por outros usuários. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>CookieLog /var/log/apache/cookies.log</tt> ]]>
+
+
+<sect1 id="s-apache-log-webalizer">Relatório gráfico de acesso ao sistema
+ <p>
+O programa <prgn>webalizer</prgn> poderá ser instalado para gerar 
+um relatório gráfico com a estatísticas de visitas por ano/mes/dia/hora usando 
+os dados do <file>access.log</file>. Outra interessante característica são as
+estatísticas de códigos http (veja <ref id="s-apache-httpcodes">), onde é 
+possível saber a quantidade de links quebrados existentes em nosso servidor 
+(estes poderão ser detectados usando o pacote de análise de sites 
+<package>linbot</package>). O <prgn>webalizer</prgn> também é compatível com os 
+formatos de log do <prgn>squid</prgn> e <prgn>proftpd</prgn>. Na distribuição 
+<prgn>Debian</prgn> ele pode ser instalado a partir do pacote 
+<package>webalizer</package> e gera um relatório geral quando é executado sem 
+opções. 
+
+

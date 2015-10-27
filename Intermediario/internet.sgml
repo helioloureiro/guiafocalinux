@@ -1,0 +1,327 @@
+<chapt id="inter">Conectando seu computador a Internet
+ <p>
+Este capítulo descreve como configurar seu sistema para se conectar a Internet, 
+navegar, enviar/receber mensagens, etc.
+
+
+    <![ %DEBIAN [ 
+<sect id="inter-conectando">Conectando-se a Internet
+
+<sect1 id="inter-conectando-adsl">Conectando através de ADSL
+ <p>
+A conexão através de banda larga em sistemas <prgn>Debian</prgn> 
+é realizada através do programa <prgn>pppoeconf</prgn> ou 
+modificando manualmente os arquivos de configuração em <file>/etc/ppp</file>.
+Esta seção explicará como configurar a conexão em modo bridge e assume
+que você já tem o modem conectado e sua placa de rede configurada. Para criar 
+uma conexão internet através do <prgn>pppoeconf</prgn> entre como 
+usuário root no sistema, digite <tt>pppoeconf</tt> e siga os passos de 
+configuração:
+<enumlist>
+ <item>
+Na primeira tela, ele perguntará se deseja que o modem seja detectado
+automaticamente. Selecione sim. O sistema procurará e detectará o 
+modem no sistema (assegure-se que ele esteja ligado durante essa etapa).
+ <item>
+Ao detectar o modem siga adiante e informe o nome de usuário para conexão
+
+ <item>
+Em seguida informe a senha usada para autenticação
+
+ <item>
+Nas próximas telas, selecione o valor padrão para MTU e MSS (a não ser que
+seu provedor DSL solicite a alteração).
+
+ <item>
+Na tela sobre se a conexão deve ser iniciada na inicialização do sistema,
+selecione "Sim".
+ 
+</enumlist>
+
+
+<sect1 id="inter-conectando-ppp">Conectando através de Internet Discada
+ <p>
+Para conectar usando internet discada é utilizada a placa de Fax-Modem.
+A conexão através de sistemas <prgn>Debian</prgn> é fácil, e todo 
+o trabalho de configuração pode ser feito através do 
+programa <prgn>pppconfig</prgn> ou modificando manualmente os arquivos 
+em <file>/etc/ppp</file>. Para criar uma conexão internet através do 
+<prgn>pppconfig</prgn>, entre como usuário root no sistema, digite 
+<tt>pppconfig</tt> e siga os passos de configuração (esta configuração 
+serve para usuários domésticos e assume que você possui o kernel com 
+suporte a PPP): 
+<enumlist>
+ <item>
+No primeiro menu, escolha a opção <tt>Create</tt> para criar uma nova conexão. 
+As outras opções disponíveis são <tt>Change</tt> para modificar uma 
+conexão a Internet criada anteriormente, <tt>Delete</tt> para apagar uma 
+conexão. A opção <tt>Quit</tt> sai do programa. 
+
+ <item>
+Agora o sistema perguntará qual será o nome da conexão que será criada. 
+O nome <tt>provider</tt> é o padrão, e será usado caso digite 
+<tt>pon</tt> para iniciar uma conexão internet sem nenhum argumento. 
+
+ <item>
+O próximo passo é especificar como os servidores de nomes serão 
+acessados. Escolha <tt>Static</tt> se não tiver nenhum tipo de 
+rede local ou <tt>None</tt> para usar os servidores especificados 
+no arquivo <file>/etc/resolv.conf</file>. 
+ <p>
+Aperte a tecla <tt>TAB</tt> e tecle <tt>ENTER</tt> para seguir para 
+o próximo passo. 
+
+ <item>
+Agora digite o endereço do servidor DNS especificado pelo seu provedor 
+de acesso. Um servidor DNS converte os nomes como 
+<tt>www.blablabla.com.br</tt> para o endereço IP correspondente para 
+que seu computador possa fazer conexão. 
+ <p>
+Tecle <tt>ENTER</tt> para seguir para o próximo passo. 
+
+ <item>
+Você pode digitar um endereço de um segundo computador que será usado na 
+resolução de nomes DNS. Siga as instruções anteriores caso tiver um 
+segundo servidor de nomes ou <tt>ENTER</tt> para continuar. 
+
+ <item>
+Agora você precisará especificar qual é o método de autenticação 
+usado pelo seu provedor de acesso. O <em>Password Autentication 
+Protocol</em> é usado pela maioria dos provedores de acesso. Desta 
+forma escolha a opção <tt>PAP</tt>
+
+ <item>
+Agora entre com o seu login no provedor de acesso, ou seja, o nome 
+para acesso ao sistema que escolheu no momento que fez sua assinatura. 
+
+ <item>
+Agora especifique a sua senha.
+
+ <item>
+O próximo passo será especificar a taxa de transmissão da porta serial 
+do micro. O valor de 115200 deve funcionar com todas as configurações 
+mais recentes. 
+
+ <p>
+Uma configuração serial DTE detalhada pode ser feita com a ferramenta 
+<prgn>setserial</prgn>.
+
+ <item>
+Agora será necessário selecionar o modo de discagem usado pelo seu 
+fax-modem. Escolha <tt>tone</tt> para linha digital e <tt>pulse</tt> 
+se possuir uma linha telefônica analógica. 
+ <p>
+Pressione <tt>TAB</tt> e tecle <tt>ENTER</tt> para prosseguir. 
+
+ <item>
+Agora digite o número do telefone para fazer conexão com o seu provedor 
+de acesso. 
+
+ <item>
+O próximo passo será a identificação do seu fax-modem, escolha <tt>YES</tt> 
+para que seja utilizada a auto-detecção ou <tt>NO</tt> para especificar a 
+localização do seu fax-modem manualmente.
+
+ <item>
+Se você quiser especificar mais detalhes sobre sua configuração, como 
+strings de discagem, tempo de desconexão, auto-discagem, etc., faça isto 
+através do menu <tt>Advanced</tt>. 
+ <p>
+Escolha a opção <tt>Finished</tt> para salvar a sua configuração e 
+retornar ao menu principal. Escolha a opção <tt>Quit</tt> para sair 
+do programa. 
+
+</enumlist>
+Pronto! todos os passos para você se conectar a Internet estão concluídos, 
+basta digitar <tt>pon</tt> para se conectar e <tt>poff</tt> para se 
+desconectar da Internet. Caso tenha criado uma conexão com o nome diferente 
+de <tt>provider</tt> você terá que especifica-la no comando 
+<prgn>pon</prgn> (por exemplo, <tt>pon provedor2</tt>). 
+ <p>
+A conexão pode ser monitorada através do comando <prgn>plog</prgn> e 
+os pacotes enviados/recebidos através do <prgn>pppconfig</prgn>. 
+ <p>
+Para uma navegação mais segura, é recomendável que leia e compreenda alguns 
+ítens que podem aumentar consideravelmente a segurança do seu sistema em 
+<ref id="rede-seg">, <ref id="rede-seg-tcpd-a">, <ref id="rede-seg-tcpd-d">. 
+A seção <ref id="rede-dns-a-resolv"> pode ser também útil. 
+
+    ]]>
+
+
+<sect id="inter-navegando">Navegando na Internet
+ <p>
+Existem diversos tipos de navegadores web para <prgn>GNU/Linux</prgn> e 
+a escolha depende dos recursos que pretende utilizar (e do poder de 
+processamento de seu computador). 
+ <p>
+Para navegar na Internet com muitos recursos, você pode usar o 
+navegador <prgn>Firefox</prgn>, ele suporta plug-ins, extensões
+adicionais, java, flash, etc. Você também tem a escolha do 
+<prgn>Mozilla</prgn> que inspirou a criação do <prgn>Netscape</prgn> 
+e outros navegadores derivados. 
+ <p>
+O <prgn>dillo</prgn> é uma boa alternativa 
+para aqueles que desejam um navegador em modo gráfico, mas eles 
+não tem suporte a Java e Frames. 
+ <p>
+Os usuários e administradores de servidores que operam em modo 
+texto e precisam de navegadores para testes, podem optar pelo 
+<prgn>Lynx</prgn> ou o <prgn>links</prgn>. Uma listagem mais 
+detalhada e recursos requeridos por cada navegador podem ser 
+encontrados em <ref id="aplic-b-internet">. 
+
+
+<sect id="inter-emails-r">Recebimento de E-Mails através do <prgn>fetchmail</prgn>
+ <p>
+É o programa mais tradicional no recebimento de mensagens através dos 
+serviços <em>pop3</em>, <em>imap</em>, <em>pop2</em>, etc. no 
+<prgn>GNU/Linux</prgn>. Ele pega as mensagens de seu servidor <em>pop3</em> 
+e as entrega ao MDA local ou nos arquivos de e-mails dos usuários do 
+sistema em <file>/var/mail</file>
+ <p>
+Todo o funcionamento do <prgn>fetchmail</prgn> é controlado pelo arquivo 
+<file>~/.fetchmailrc</file>. Segue abaixo um modelo padrão deste arquivo: 
+<example>
+ poll pop3.seuprovedor.com.br protocol pop3
+   user gleydson password sua_senha keep fetchall is gleydson here
+ 
+</example>
+Este arquivo é lido pelo <prgn>fetchmail</prgn> na ordem que foi 
+escrito. Veja a explicação abaixo sobre o arquivo exemplo: 
+<list compact> 
+ <item>
+A palavra <tt>poll</tt> especifica o servidor de onde suas mensagens 
+serão baixadas, o servidor especificado no exemplo é 
+<tt>pop3.seuprovedor.com.bt</tt>. A palavra <tt>skip</tt> pode ser 
+especificada, mas as mensagens no servidor especificado por <tt>skip</tt> 
+somente serão baixadas caso o nome do servidor de mensagens for 
+especificado através da linha de comando do <prgn>fetchmail</prgn>. 
+
+ <item>
+<tt>protocol</tt> é o protocolo que será usado para a transferência de 
+mensagens do servidor. O <prgn>fetchmail</prgn> utilizará a auto-detecção 
+de protocolo caso este não seja especificado. 
+
+ <item>
+<tt>user</tt> define o nome do usuário no servidor 
+pop3.seuprovedor.com.br, que no exemplo acima é <tt>gleydson</tt>.
+
+ <item>
+<tt>password</tt> define a senha do usuário <tt>gleydson</tt> (acima), 
+especificada como <tt>sua_senha</tt> no exemplo. 
+ 
+  <item>
+<tt>keep</tt> é opcional e serve para não apagar as mensagens do 
+servidor após baixa-las (útil para testes e acesso a uma única 
+conta de e-mail através de vários locais, como na empresa e sua 
+casa por exemplo). 
+
+ <item>
+<tt>fetchall</tt> baixa todas as mensagens do provedor marcadas como 
+lidas e não lidas. 
+
+ <item>
+<tt>is gleydson here</tt> é um modo de especificar que as mensagens 
+obtidas de <tt>pop3.seuprovedor.com.br</tt> do usuário 
+<tt>gleydson</tt> com a senha <tt>sua_senha</tt> serão entregues para 
+o usuário local <tt>gleydson</tt> no diretório <file>/var/mail/gleydson</file>.  
+ <p>
+As palavras <tt>is</tt> e <tt>here</tt> são completamente ignoradas pelo 
+<prgn>fetchmail</prgn>, servem somente para dar um tom de linguagem natural 
+na configuração do programa e da mesma forma facilitar a compreensão da 
+configuração. 
+
+</list>
+Se possuir várias contas no servidor <tt>pop3.seuprovedor.com.br</tt>, 
+não é necessário repetir toda a configuração para cada conta, ao invés 
+disso especifique somente os outros usuários do mesmo servidor: 
+<example>
+poll pop3.seuprovedor.com.br protocol pop3
+ user gleydson password sua_senha keep fetchall is gleydson here
+ user conta2 password sua_senha2 fetchall is gleydson here
+ user conta3 password sua_senha3 fetchall is gleydson here
+ 
+</example>
+Note que todos os e-mails das contas <tt>gleydson</tt>, <tt>conta2</tt> e 
+<tt>conta3</tt> do servidor de mensagens <tt>pop3.seuprovedor.com.br</tt> 
+são entregues ao usuário local <tt>gleydson</tt> (arquivo 
+<file>/var/mail/gleydson</file>). 
+ <p>
+Agora você pode usar um programa MUA como o <prgn>mutt</prgn> ou <prgn>pine
+</prgn> para ler localmente as mensagens. O armazenamento de mensagens 
+no diretório <file>/var/mail</file> é preferido pois permite a utilização 
+de programas de notificação de novos e-mais como o 
+<prgn>comsat</prgn>, <prgn>mailleds</prgn>, <prgn>biff</prgn>, etc. 
+ <p> 
+Também é possível utilizar um processador de mensagens ao invés do MTA para 
+a entrega de mensagens. O programa <prgn>procmail</prgn> é um exemplo de 
+processador de mensagens rápido e funcional que pode separar as mensagens em 
+arquivos de acordo com sua origem, destino, assunto, enviar respostas 
+automáticas, listas de discussão, envio de arquivos através de requisição, 
+etc. Veja <ref id="inter-procmail"> para detalhes. 
+ <p>
+Para mais detalhes sobre outras opções específicas de outros protocolos, 
+checagem de mensagens, criptografia, etc, veja a página de manual do 
+<prgn>fetchmail</prgn>. 
+
+
+<sect1 id="inter-procmail">Processamento de mensagens através do procmail
+ <p>
+O processamento de mensagens pode ser usado para inúmeras finalidades, dentre 
+elas a mais comum é separar uma mensagem em arquivos/diretórios de acordo com 
+sua origem, prioridade, assuntos, destinatário, conteúdo, etc., 
+programar auto-respostas, programa de férias, servidor de arquivos, 
+listas de discussão, etc. 
+ <p>
+O <prgn>procmail</prgn> é um programa que reúne estas funções e permitem 
+muito mais, dependendo da habilidades e conhecimento das ferramentas 
+<prgn>GNU/Linux</prgn> para saber integra-las corretamente. Toda a operação 
+do <prgn>procmail</prgn> é controlada pelo arquivo 
+<file>/etc/procmailrc</file> e <file>~/.procmailrc</file>. Abaixo um 
+modelo do arquivo <file>~/.procmailrc</file> usado para enviar todas 
+as mensagens contendo a palavra <tt>GNU/Linux</tt> no assunto para o 
+arquivo <file>mensagens-linux</file>:
+<example>
+PATH=/usr/bin:/bin:/usr/local/bin:
+MAILDIR=$HOME/Mail
+DEFAULT=$MAILDIR/mbox
+LOGFILE=$MAILDIR/log
+
+:0: 
+* ^Subject:.*Linux
+mensagens-linux
+
+</example>
+A variável de ambiente <file>MAILDIR</file> especifica o diretório que 
+serão armazenadas as mensagens e logs das operações do 
+<prgn>procmail</prgn>. A variável <file>DEFAULT</file> especifica a 
+caixa de correio padrão onde todas as mensagens que não se encaixam nas 
+descrições do filtro do <file>procmailrc</file> serão enviadas. 
+A variável <file>LOGFILE</file> especifica o arquivo que registrará todas 
+as operações realizadas durante o processamento de mensagens do 
+<prgn>procmail</prgn>. 
+ <p>
+O arquivo <file>mensagens-linux</file> é criado dentro do diretório 
+especificado por <file>MAILDIR</file>.
+ <p>
+Para que o <prgn>procmail</prgn> entre em ação toda vez que as mensagens 
+forem baixadas via <prgn>fetchmail</prgn>, é preciso modificar o arquivo 
+<file>.fechmailrc</file> e incluir a linha 
+<tt>mda /usr/bin/procmail -d %T</tt> no final do arquivo e retirar as 
+linhas <tt>is [usuáriolocal] here</tt> para que o processamento das 
+mensagens seja feita pelo MDA local (neste caso, o <prgn>procmail</prgn>). 
+ <p>
+Se quiser que o <prgn>procmail</prgn> seja executado pelo MDA local, basta 
+criar um arquivo <file>~/.forward</file> no diretório do usuário e incluir 
+a linha <tt>exec /usr/bin/procmail</tt> (note que em algumas implementações 
+do <prgn>exim</prgn>, o <prgn>procmail</prgn> é executado automaticamente 
+caso um arquivo <file>~/.procmailrc</file> seja encontrado,  caso contrário 
+será necessário adicionar a linha "/usr/bin/procmail" ao arquivo 
+<file>~/.forward</file> (somente <prgn>exim</prgn>).  
+ <p>
+Para mais detalhes, veja a página de manual do <prgn>procmail</prgn>, 
+<prgn>procmailrc</prgn> e HOWTOs relacionados com e-mails no 
+<prgn>GNU/Linux</prgn>. 
+
+

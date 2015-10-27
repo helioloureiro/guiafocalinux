@@ -1,0 +1,32 @@
+\select@language {brazilian}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Considera\c c\~oes sobre o n\IeC {\'\i }vel Avan\c cado}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Pr\'e-requisitos para a utiliza\c c\~ao deste guia}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}O Linux}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Algumas Caracter\IeC {\'\i }sticas do Linux}{3}{subsection.1.3.1}
+\contentsline {chapter}{\numberline {2}Explica\c c\~oes B\'asicas}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Monitorando os logs}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Destruindo arquivos/parti\c c\~oes de forma segura}{7}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Curingas}{8}{section.2.2}
+\contentsline {chapter}{\numberline {3}Servidor telnet}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introdu\c c\~ao}{11}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Vers\~ao}{11}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Caracter\IeC {\'\i }sticas}{11}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Ficha t\'ecnica}{12}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Requerimentos de Hardware}{12}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Arquivos de log criados pelo servidor telnet}{12}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Instala\c c\~ao}{12}{subsection.3.1.6}
+\contentsline {subsection}{\numberline {3.1.7}Iniciando o servidor/reiniciando/recarregando a configura\c c\~ao}{12}{subsection.3.1.7}
+\contentsline {subsection}{\numberline {3.1.8}Op\c c\~oes de linha de comando}{13}{subsection.3.1.8}
+\contentsline {section}{\numberline {3.2}Controle de acesso}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Recomenda\c c\~oes}{13}{section.3.3}
+\contentsline {section}{\numberline {3.4}Fazendo conex\~oes ao servidor telnet}{14}{section.3.4}
+\contentsline {chapter}{\numberline {4}Ap\^endice}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Sobre este guia}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Sobre o Autor}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}Refer\^encias de aux\IeC {\'\i }lio ao desenvolvimento do guia}{16}{section.4.3}
+\contentsline {section}{\numberline {4.4}Onde encontrar a vers\~ao mais nova do guia?}{17}{section.4.4}
+\contentsline {section}{\numberline {4.5}Colaboradores do Guia}{17}{section.4.5}
+\contentsline {section}{\numberline {4.6}Marcas Registradas}{18}{section.4.6}
+\contentsline {section}{\numberline {4.7}Futuras vers\~oes}{18}{section.4.7}
+\contentsline {section}{\numberline {4.8}Chave P\'ublica PGP}{19}{section.4.8}

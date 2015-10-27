@@ -1,0 +1,577 @@
+<chapt id="etc">Principais arquivos de configuração do diretório <file>/etc</file>
+ <p>
+Este capítulo descreve a função, parâmetros e exemplos de utilização de 
+alguns arquivos/diretórios de configuração em <file>/etc</file>. 
+Estes arquivos estão disponíveis por padrão na instalação 
+básica do <prgn>GNU/Linux</prgn>, o que assegura um máximo de aproveitamento 
+deste capítulo. Não serão descritos aqui arquivos de configuração específicos 
+de servidores ou daemons (com exceção do <prgn>inetd</prgn>). 
+ 
+
+<sect id="etc-alternatives">Diretório <file>/etc/alternatives</file>
+ <p>
+Este diretório contém links para diversos aplicativos padrões utilizados pelo 
+sistema. Dentre eles são encontrados links para o <file>editor</file> do sistema 
+e o <file>xterm</file> padrão usado pelo sistema. 
+ <p>
+Por exemplo, se você quiser usar o editor <prgn>jed</prgn> ao invés do 
+<prgn>ae</prgn> ou <prgn>vi</prgn>, remova o link <file>editor</file> 
+com o comando <tt>rm editor</tt>, localize o arquivo executável do 
+<prgn>jed</prgn> com <tt>which jed</tt> e crie um link para ele 
+<tt>ln -s /usr/bin/jed editor</tt>. De agora em diante o editor padrão 
+usado pela maioria dos aplicativos será o <prgn>jed</prgn>. 
+
+
+<sect id="etc-devpts">Arquivo <file>/etc/default/devpts</file>
+ <p>
+Este arquivo contém algumas configurações para os pseudo terminais em 
+<file>/dev/pts</file>. 
+
+
+<sect id="etc-rcs">Arquivo <file>/etc/default/rcS</file>
+ <p>
+Contém variáveis padrões que alteram o comportamento de inicialização dos 
+scripts em <file>/etc/rcS.d</file> 
+ <p>
+Por exemplo, se quiser menos mensagens na inicialização do sistema, ajuste 
+o valor da variável <file>VERBOSE</file> para <tt>no</tt>. 
+<![ %OBS [
+ <p>
+OBS: Somente modifique aquilo que tem certeza do que está fazendo, um valor 
+modificado incorretamente poderá causar falhas na segurança de sua rede ou 
+no sistemas de arquivos do disco. ]]>
+
+
+<sect id="etc-config">Arquivo <file>/etc/console-tools/config</file>
+ <p>
+Este arquivo contém configurações padrões do pacote <package>console-tools</package> 
+para as fontes de tela e mapas de teclado usados pelo sistema. A fonte 
+de tela é especificada neste arquivo (as fontes disponíveis no sistema 
+estão localizadas em <file>/usr/share/consolefonts</file>). 
+ <p>
+Os arquivos de mapa de teclados estão localizados no diretório
+<file>/usr/share/keymaps/</file>. 
+
+ 
+<sect id="etc-menu-methods">Diretório <file>/etc/menu-methods</file>
+ <p>
+Este diretório contém uma lista de arquivos que são executados pelo 
+programa <prgn>update-menu</prgn> para criar os menus dos programas. 
+
+
+<sect id="etc-menu-translate">Arquivo <file>/etc/menu-methods/translate_menus
+</file>
+ <p>
+Este arquivo permite fazer a tradução de nomes de menus, identificação ou 
+títulos usados no ambiente gráfico. 
+
+
+<sect id="etc-networks">Diretório <file>/etc/network</file>
+ <p>
+Este diretório contém as configurações das interfaces (placas) de rede do 
+sistema e outras opções úteis para a configuração/segurança da rede. 
+
+
+<sect id="etc-network-interfaces">Arquivo <file>/etc/network/interfaces</file>
+ <p>
+Este é o arquivo de configuração usado pelos programas <prgn>ifup</prgn> e 
+<prgn>ifdown</prgn>, respectivamente para ativar e desativas as 
+interfaces de rede. 
+ <p>
+O que estes utilitários fazem na realidade é carregar os utilitários 
+<prgn>ifconfig</prgn> e <prgn>route</prgn> através dos argumentos 
+passados do arquivo <file>/etc/network/interfaces</file>, permitindo 
+que o usuário iniciante configure uma interface de rede com mais 
+facilidade. 
+ <p>
+Abaixo um exemplo do arquivo <file>interfaces</file> é o seguinte:
+<example>
+iface eth0 inet static
+   address 192.168.1.1
+   netmask 255.255.255.0 
+   network 192.168.1.0
+   broadcast 192.168.1.255
+
+</example>
+As interfaces e roteamentos são configurados na ordem que aparecem neste 
+arquivo. Cada configuração de interface inicia com a palavra chave 
+<tt>iface</tt>. A próxima palavra é o nome da interface que deseja configurar 
+(da mesma forma que é utilizada pelos comandos <prgn>ifconfig</prgn> e 
+<prgn>route</prgn>). Você pode também usar <tt>IP aliases</tt> especificando 
+<file>eth0:0</file> mas tenha certeza que a interface real (<file>eth0</file>) 
+é inicializada antes. 
+ <p>
+A próxima palavra especifica a familia de endereços da interface; Escolha 
+<tt>inet</tt> para a rede TCP/IP, <tt>ipx</tt> para interfaces IPX e 
+<tt>IPv6</tt> para interfaces configuradas com o protocolo IPV6. 
+ <p>
+A palavra <tt>static</tt> especifica o método que a interface será 
+configurada, neste caso é uma interface com endereço estático (fixo). 
+ <p>
+Outros métodos e seus parâmetros são especificados abaixo (traduzido da 
+página do arquivo <prgn>interfaces</prgn>): 
+<taglist>
+ <tag>O método <em>loopback</em></tag>
+ <item>
+É usado para configurar a interface <em>loopback</em> (lo) IPv4. 
+
+ <tag>O método <em>static</em></tag>
+ <item>
+É usado para configurar um endereço IPv4 fixo para a interface. As opções 
+que podem ser usadas com o métodos <em>static</em> são as seguintes 
+(opções marcadas com * no final são requeridas na configuração): 
+
+ <taglist compact>
+  <tag>address <em>endereço</em> *</tag>
+  <item>
+Endereço IP da Interface de rede (por exemplo, 192.168.1.1).
+
+  <tag>netmask <em>máscara</em> *</tag>
+  <item>
+Máscara de rede da Interface de rede (por exemplo, 255.255.255.0).
+
+  <tag>broadcast <em>endereço</em></tag>
+  <item>
+Endereço de Broadcast da interface (por exemplo, 192.168.1.255). 
+
+  <tag>network <em>endereço</em></tag>
+  <item>
+Endereço da rede (por exemplo, 192.168.0.0).
+
+  <tag>gateway <em>endereço</em></tag>
+  <item>
+Endereço do gateway padrão (por exemplo, 192.168.1.10). O gateway é o endereço 
+do computador responsável por conectar o seu computador a outra rede. Use 
+somente se for necessário em sua rede. 
+
+ </taglist>
+
+<tag>O método <em>dhcp</em></tag>
+ <item>
+Este método é usado para obter os parâmetros de configuração através de 
+um servidor DHCP da rede através das ferramentas: <prgn>dhclient</prgn>, 
+<prgn>pump</prgn> (somente Kernels 2.2.x) ou <prgn>dpcpcp</prgn> 
+(somente kernels 2.0.x e 2.2.x)
+ 
+ <taglist compact>
+  <tag>hostname <em>nome</em></tag>
+  <item>
+Nome da estação de trabalho que será requisitado. (pump, dhcpcd)
+
+  <tag>leasehours <em>leasttime</em></tag>
+  <item>
+Lease time preferida em horas (pump)
+
+  <tag>leasetime <em>leasetime</em></tag>
+  <item>
+Lease time preferida em segundos (dhcpcd)
+
+  <tag>vendor <em>vendedor</em></tag>
+  <item>
+Identificador do vendedor (dhcpcd)
+
+  <tag>client <em>identificação</em></tag>
+  <item>
+Identificação do cliente (dhcpcd)
+
+ </taglist>
+Exemplo:
+<example>
+iface eth0 inet dhcp
+ leasehours 6
+ client estacao 10
+</example>
+
+<tag>O método <em>bootp</em></tag> 
+ <item>
+Este método pode ser usado para obter um endereço via <prgn>bootp</prgn>:
+
+ <taglist compact>
+  <tag>bootfile <file>arquivo</file></tag>
+  <item>
+Diz ao servidor para utilizar <file>arquivo</file> como arquivo 
+de inicialização
+
+  <tag>server <em>endereço</em></tag>
+  <item>
+Especifica o endereço do servidor <prgn>bootp</prgn>. 
+
+  <tag>hwaddr <em>endereço</em></tag>
+  <item>
+Usa <em>endereço</em> como endereço de hardware no lugar do endereço 
+original. 
+
+</taglist>
+
+</taglist>
+Algumas opções se aplicam a todas as interfaces e são as seguintes:
+<taglist compact>
+ <tag>noauto</tag>
+ <item>
+Não configura automaticamente a interface quando o <prgn>ifup</prgn> ou 
+<prgn>ifdown</prgn> são executados com a opção <tt>-a</tt> (normalmente 
+usada durante a inicialização ou desligamento do sistema).
+
+ <tag>pre-up <tt>comando</tt></tag>
+ <item>
+Executa o <tt>comando</tt> antes da inicialização da interface. 
+
+ <tag>up <tt>comando</tt></tag>
+ <item>
+Executa o <tt>comando</tt> após a interface ser iniciada. 
+
+
+ <tag>down <tt>comando</tt></tag>
+ <item>
+Executa o <tt>comando</tt> antes de desativar a interface. 
+
+ <tag>pre-down <tt>comando</tt></tag>
+ <item>
+Executa o <tt>comando</tt> após desativar a interface. 
+
+</taglist>
+Os comandos que são executados através das opções <em>up</em>, <em>pre-up</em> 
+e <em>down</em> podem aparecer várias vezes na mesma interface, eles são 
+executados na seqüência que aparecem. Note que se um dos comandos 
+falharem, nenhum dos outros será executado. Você pode ter certeza que os 
+próximos comandos serão executados adicionando <tt>|| true</tt> ao final 
+da linha de comando. 
+
+
+<sect id="etc-networks-options">Arquivo <file>/etc/networks/options</file>
+ <p>
+Este arquivo contém opções que serão aplicadas as interfaces de rede 
+durante a inicialização do sistema. 
+<![ %DESCRICAOD [ Este arquivo é lido pelo script de inicialização 
+<file>/etc/init.d/network</file> que verifica os valores e aplica as 
+modificações apropriadas no kernel. ]]>
+
+
+<sect id="etc-pam">Diretório <file>/etc/pam.d</file>
+ <p>
+Este diretório possui arquivos de configuração de diversos módulos PAM 
+existentes em seu sistema. 
+
+
+<sect id="etc-ppp">Diretório <file>/etc/ppp</file>
+ <p>
+Contém arquivos de configuração usados pelo daemon pppd para fazer uma 
+conexão com uma rede PPP externa, criados manualmente ou através do 
+<prgn>pppconfig</prgn>. 
+
+
+<sect id="etc-security">Diretório <file>/etc/security</file>
+ <p>
+Este diretório contém arquivos para controle de segurança e limites que 
+serão aplicados aos usuários do sistema. O funcionamento de muitos 
+dos arquivos deste diretório depende de modificações nos arquivos 
+em <file>/etc/pam.d</file> para habilitar as funções de controle, 
+acesso e restrições. 
+
+
+<sect id="etc-security-access">Arquivo <file>/etc/security/access.conf</file>
+ <p>
+É lido no momento do login do usuário e permite definir quem terá acesso 
+ao sistema e de onde tem permissão de acessar sua conta. O formato deste 
+arquivo são 3 campos separados por <tt>:</tt>, cada linha contendo uma 
+regra de acesso. 
+ <p>
+O primeiro campo deve conter o caracter <tt>+</tt> ou <tt>-</tt> para definir 
+se aquela regra permitirá (+) ou bloqueará(-) o acesso do usuário. 
+ <p>
+O segundo campo deve conter uma lista de logins, grupos, usuário@computador ou 
+a palavra <tt>ALL</tt> (confere com tudo) e <tt>EXCEPT</tt> (excessão). 
+ <p>
+O terceiro campo deve conter uma lista de terminais tty (para logins locais), 
+nomes de computadores, nomes de domínios (iniciando com um <tt>.</tt>), 
+endereço IP de computadores ou endereço IP de redes (finalizando com <tt>.</tt>). 
+Também pode ser usada a palavra <tt>ALL</tt>, <tt>LOCAL</tt> e <tt>EXCEPT</tt> 
+(atinge somente máquinas locais conhecidas pelo sistema). 
+<![ %EXEMPLO [
+ <p>
+Abaixo um exemplo do <file>access.conf</file>
+<example>
+# Somente permite o root entrar em tty1
+#
+-:ALL EXCEPT root:tty1
+
+# bloqueia o logins do console a todos exceto whell, shutdown e sync.
+#
+-:ALL EXCEPT wheel shutdown sync:console
+
+# Bloqueia logins remotos de contas privilegiadas (grupo wheel).
+#
+-:wheel:ALL EXCEPT LOCAL .win.tue.nl
+
+# Algumas contas não tem permissão de acessar o sistema de nenhum lugar:
+#
+-:wsbscaro wsbsecr wsbspac wsbsym wscosor wstaiwde:ALL
+
+# Todas as outras contas que não se encaixam nas regras acima, podem acessar de 
+# qualquer lugar
+
+</example> ]]>
+
+
+<sect id="etc-securith-limits">Arquivo <file>/etc/security/limits.conf</file>
+ <p>
+Defini limites de uso dos recursos do sistema para cada usuário ou grupos de 
+usuários. Os recursos são descritos em linhas da seguinte forma: 
+<example>
+#&lt;dominio&gt;          &lt;tipo&gt;  &lt;item&gt;  &lt;valor&gt;
+</example>
+O <tt>domínio</tt> pode ser um nome de usuário, um grupo (especificado como 
+<tt>@grupo</tt>) ou o curinga <tt>*</tt>. 
+ <p>
+O <tt>tipo</tt> pode ser <tt>soft</tt> para o limite mínimos e 
+<tt>hard</tt> para o limite máximo. O campo <tt>item</tt> pode 
+ser um dos seguintes: 
+<list compact>
+<item><tt>core</tt> - limita o tamanho do arquivo core (KB)
+<item><tt>data</tt> - tamanho máximo de dados (KB)
+<item><tt>fsize</tt> - Tamanho máximo de arquivo (KB)
+<item><tt>memlock</tt> - Espaço máximo de endereços bloqueados na memória (KB)
+<item><tt>nofile</tt> - Número máximo de arquivos abertos
+<item><tt>rss</tt> - Tamanho máximo dos programas residentes (KB)
+<item><tt>stack</tt> - Tamanho máximo de pilha (KB)
+<item><tt>cpu</tt> - Tempo máximo usado na CPU (MIN)
+<item><tt>nproc</tt> - Número máximo de processos
+<item><tt>as</tt> - Limite de espaço de endereços
+<item><tt>maxlogins</tt> - Número máximo de logins deste usuário
+<item><tt>priority</tt> - Prioridade que os programas deste usuário serão 
+executados
+</list>
+<![ %EXEMPLO [
+ <p>
+Abaixo um exemplo de arquivo <file>/etc/security/limits.conf</file>:
+<example> 
+#&lt;dominio&gt;      &lt;tipo&gt;  &lt;item&gt;         &lt;valor&gt;
+
+*               soft    core            0
+*               hard    rss             10000
+@student        hard    nproc           20
+@faculty        soft    nproc           20
+@faculty        hard    nproc           50
+ftp             hard    nproc           0
+@student        -       maxlogins       4
+</example> ]]>
+
+
+<sect id="etc-crontab">Arquivo <file>/etc/crontab</file>
+ <p>
+Arquivo que contém a programação de programas que serão executados em 
+horários/datas programadas. 
+ <p>
+Veja <ref id="manut-cron"> para mais detalhes sobre o formato 
+deste arquivo e outras opções. 
+
+
+<sect>Arquivo <file>/etc/fstab</file>
+ <p>
+Contém detalhes para a montagem dos sistemas de arquivos do sistema. 
+<![ %INIC-INTER [ Veja <ref id="disc-fstab"> para detalhes 
+sobre o formato deste arquivo. ]]>
+
+
+<sect>Arquivo <file>/etc/group</file>
+ <p>
+Lista de grupos existentes no sistema. Veja <ref id="cmdc-incluirgrupo"> 
+para mais detalhes sobre o formato deste arquivo. 
+
+
+<sect id="etc-gshadow">Arquivo <file>/etc/gshadow</file>
+ <p>
+Senhas ocultas dos grupos existentes no sistema (somente o usuário 
+<tt>root</tt> pode ter acesso a elas). Use o utilitário 
+<prgn>shadowconfig</prgn> para ativar/desativar o suporte a 
+senhas ocultas. 
+
+
+<sect>Arquivo <file>/etc/host.conf</file>
+ <p>
+Veja <ref id="rede-dns-a-hostconf">. 
+
+
+<sect>Arquivo <file>/etc/hostname</file>
+ <p>
+Arquivo lido pelo utilitário <prgn>hostname</prgn> para definir o nome de 
+sua estação de trabalho. 
+
+
+<sect>Arquivo <file>/etc/hosts</file>
+ <p>
+Banco de dados DNS estático que mapeia o nome ao endereço IP da estação 
+de trabalho (ou vice versa). Veja <ref id="rede-dns-a-hosts"> para mais 
+detalhes sobre o formato deste arquivo. 
+
+
+<sect>Arquivo <file>/etc/hosts.allow</file>
+ <p>
+Controle de acesso do wrapper TCPD que permite o acesso de determinadas de 
+determinados endereços/grupos aos serviços da rede. Veja 
+<ref id="rede-seg-tcpd-a"> para detalhes sobre o formato deste arquivo. 
+
+
+<sect>Arquivo <file>/etc/hosts.deny</file>
+ <p>
+Controle de acesso do wrapper TCPD que bloqueia o acesso de determinados 
+endereços/grupos aos serviços da rede. Este arquivo é somente lido caso o 
+<file>/etc/hosts.allow</file> não tenha permitido acesso aos serviços que 
+contém. Um valor padrão razoavelmente seguro que pode ser usado neste 
+arquivo que serve para a maioria dos usuários domésticos é:
+<example>
+ALL: ALL
+</example>
+caso o acesso ao serviço não tenha sido bloqueado no <file>hosts.deny</file>, 
+o acesso ao serviço é permitido. 
+ <p>
+Veja <ref id="rede-seg-tcpd-d"> para detalhes sobre o formato deste arquivo. 
+
+
+<sect>Arquivo <file>/etc/hosts.equiv</file>
+ <p>
+Veja <ref id="rede-seg-tcpd-e">. 
+
+
+<sect>Arquivo <file>/etc/inetd.conf</file>
+ <p>
+Veja <ref id="rede-servicos-inetd-c">. 
+
+
+<sect id="etc-inittab">Arquivo <file>/etc/inittab</file>
+ <p> 
+Este é o arquivo de configuração utilizado pelo programa <prgn>init</prgn> 
+para a inicialização do sistema. Para mais detalhes sobre o formato 
+deste arquivo, consulte a página de manual do <em>inittab</em>. 
+
+
+<sect id="etc-inputrc">Arquivo <file>/etc/inputrc</file>
+ <p>
+Este arquivo contém parâmetros para a configuração do teclado. 
+<![ %INIC-INTER [ Veja o final da seção <ref id="cfg-acentuacao-t"> 
+e a página de manual do <em>inputrc</em> para mais detalhes. ]]>
+
+
+<sect id="etc-issue">Arquivo <file>/etc/issue</file>
+ <p>
+Contém um texto ou mensagem que será mostrada antes do login do sistema. 
+
+
+<sect id="etc-issue-n">Arquivo <file>/etc/issue.net</file>
+ <p>
+Mesma utilidade do <file>/etc/issue</file> mas é mostrado antes do 
+login de uma seção <prgn>telnet</prgn>. Outra diferença é que este 
+arquivo aceita os seguintes tipos de variáveis: 
+<list compact>
+ <item><tt>%t</tt> - Mostra o terminal tty atual. 
+ <item><tt>%h</tt> - Mostra o nome de domínio completamente qualificado (FQDN).
+ <item><tt>%D</tt> - Mostra o nome do domínio NIS.
+ <item><tt>%d</tt> - Mostra a data e hora atual. 
+ <item><tt>%s</tt> - Mostra o nome do Sistema Operacional.
+ <item><tt>%m</tt> - Mostra o tipo de hardware do computador. 
+ <item><tt>%r</tt> - Mostra a revisão do Sistema Operacional.
+ <item><tt>%v</tt> - Mostra a versão do Sistema Operacional. 
+ <item><tt>%%</tt> - Mostra um simples sinal de porcentagem (%). 
+</list>
+
+ 
+<sect>Arquivo <file>/etc/lilo.conf</file>
+ <p>
+Arquivo de configuração do gerenciador de partida <prgn>lilo</prgn>. Veja 
+<ref id="boot-lilo"> e <ref id="boot-lilo-exemplo">. 
+
+
+<sect id="etc-login-d">Arquivo <file>/etc/login.defs</file>
+ <p>
+Definições de configuração para o pacote login
+
+
+<sect>Arquivo <file>/etc/modules</file>
+ <p>
+Veja <ref id="kern-arquivos-modules">. 
+
+
+<sect>Arquivo <file>/etc/modules.conf</file>
+ <p>
+Veja <ref id="kern-arquivos-modulesconf">.  
+
+
+<sect id="etc-motd">Arquivo <file>/etc/motd</file>
+ <p>
+Mostra um texto ou mensagem após o usuário se logar com sucesso no sistema. 
+Também é usado pelo telnet, ftp, e outros servidores que requerem autenticação 
+do usuário (nome e senha). 
+
+
+<sect id="etc-mtab">Arquivo <file>/etc/mtab</file>
+ <p>
+Lista os sistemas de arquivos montados atualmente no sistema. Sua função é 
+idêntica ao <file>/proc/mounts</file>. 
+
+
+<sect>Arquivo <file>/etc/networks</file>
+ <p>
+Veja <ref id="rede-dns-a-networks">. 
+
+
+<sect id="etc-passwd">Arquivo <file>/etc/passwd</file>
+ <p>
+É o arquivo mais cobiçado por Hackers porque contém os dados pessoais 
+do usuário como o login, uid, telefone e senha (caso seu sistema esteja 
+usando senhas ocultas, a senha terá um <tt>*</tt> no lugar e as senhas reais 
+estarão armazenadas no arquivo <file>/etc/shadow</file>). 
+
+
+<sect id="etc-printcap">Arquivo <file>/etc/printcap</file>
+ <p>
+Banco de dados de configuração da impressora, usado por daemons 
+de impressão como o <prgn>lpr</prgn> e <prgn>lprng</prgn>. 
+
+
+<sect>Arquivo <file>/etc/protocols</file>
+ <p>
+Veja <ref id="rede-outros-protocols">. 
+
+
+<sect>Arquivo <file>/etc/resolv.conf</file>
+ <p>
+Veja <ref id="rede-dns-a-resolv">. 
+
+
+<sect id="serial-c">Arquivo <file>/etc/serial.conf</file>
+ <p>
+Configurações das portas seriais do sistema. Veja a página de manual do 
+<em>serial.conf</em> e a página de manual do utilitário 
+<prgn>setserial</prgn> para detalhes de como configurar adequadamente a 
+taxa de transmissão serial conforme seu dispositivo. 
+
+
+<sect>Arquivo <file>/etc/services</file>
+ <p>
+Veja <ref id="rede-outros-services">. 
+
+
+<sect id="etc-shadow">Arquivo <file>/etc/shadow</file>
+ <p>
+Este arquivo armazena as senhas criptografadas caso estiver usando o recurso 
+de senhas ocultas. Este arquivo somente pode ser lido pelo usuário 
+<tt>root</tt>.  
+
+
+<sect id="etc-shells">Arquivo <file>/etc/shells</file>
+ <p>
+Contém uma lista de interpretadores de comando (shells) válidos no sistema. 
+
+
+<sect id="etc-syslog-c">Arquivo <file>/etc/syslog.conf</file>
+ <p>
+Contém configurações para definir o que será registrado nos arquivos de 
+log em <file>/var/log</file> do sistema. Veja a página de manual 
+<em>syslog.conf</em> e dos programas <prgn>klog</prgn> e <prgn>syslogd</prgn> 
+para entender o formato usado neste arquivo. 
+
+
+<sect id="etc-timezones">Arquivo <file>/etc/timezone</file>
+ <p>
+Contém a sua localização para cálculo correto do seu fuso-horário local. 
+

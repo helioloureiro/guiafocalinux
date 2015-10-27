@@ -1,0 +1,73 @@
+<chapt id="compil">Compilação
+ <p>
+Este capítulo explica o que é compilação, os principais compiladores e 
+como compilar programas e principalmente o Kernel do <prgn>GNU/Linux</prgn> 
+com o objetivo de personaliza-lo de acordo com os dispositivos usados 
+em seu computador e/ou os recursos que planeja utilizar. 
+
+
+<sect id="compil-descricao">O que é compilação?
+ <p>
+É a transformação de um programa em código fonte (programa escrito pelo 
+programador) em linguagem de máquina (programa executável). 
+<![ %DESCRICAOD [ 
+ <p>
+Existem centenas de linguagens de programação diferentes umas 
+das outras, cada uma oferece recursos específicos para atender 
+melhor uma necessidade ou características particulares, algumas 
+são voltadas para bancos de dados, outras somente para a criação 
+de interfaces comunicação (<em>front-ends</em>), aprendizado, etc. 
+Cada linguagem de programação possui comandos específicos que desempenham 
+alguma função, mas todas trabalham com variáveis de memória para a 
+manipulação de dados de entrada/processamento. ]]>
+
+
+<sect id="compil-compilador">Compilador
+ <p>
+É o programa que converte o programa feito pelo programador em 
+linguagem de máquina. Após o processo de compilação o programa 
+estará pronto para ser executado como um arquivo binário. 
+ <p>
+Existem muitos compiladores no ambiente <prgn>GNU/Linux</prgn>, um 
+dos mais usados é o <prgn>gcc</prgn>, o compilador para linguagem C. 
+
+
+    <![ %CONSTRUCAO [ 
+
+<sect id="compil-kernel">Descrição das opções de compilação do kernel
+ <p>
+Esta seção descreve detalhadamente o significado de cada uma das opções 
+de compilação do kernel <prgn>GNU/Linux</prgn> durante o passo 
+de compilação. As explicações são feitas usando o método de 
+seleção em modo texto <tt>make config</tt>, mas você não encontrará 
+dificuldades para converte-las para <tt>make menuconfig</tt> ou 
+<tt>make xconfig</tt>, o modo <tt>make config</tt> funciona em 
+qualquer situação. 
+ <p>
+O objetivo principal desta seção é esclarecer dúvidas sobre o que 
+significa cada opção e ajuda-lo a decidir sobre o que precisa para 
+compilar seu kernel personalizado. O código fonte usado 
+é o 2.2.15 e as opções apresentadas aqui podem ser diferentes ou 
+simplesmente não existir em outras versões do kernel. 
+ <p>
+Para selecionar alternativas, você pode usar S,N,M ou ?:
+<list compact>
+ <item>
+<tt>Y</tt> inclui o suporte ao kernel (compilado diretamente no kernel)
+ <item>
+<tt>N</tt> o suporte ao dispositivo não será incluído
+ <item>
+<tt>M</tt> o suporte será incluído como módulo (que poderá ser carregado e 
+descarregado da memória automaticamente ou manualmente, veja 
+<ref id="kern-modulos">) 
+ <item> 
+<tt>?</tt> mostra uma tela de ajuda com explicações básicas sobre a questão. 
+</list>
+Mesmo se você tenha um kernel estável (com um número central par - 2.6.xx.xx por 
+exemplo), a primeira pergunta é se deseja incluir suporte a dispositivos 
+experimentais. Isto não significa que ativando isto derrubará seu sistema ou 
+coisa do tipo, mas que ainda não foram totalmente integrados ao kernel ou não 
+ativam todas as funções requisitadas. O kernel possui métodos para lidar com 
+instabilidades no sistema. 
+
+    ]]>

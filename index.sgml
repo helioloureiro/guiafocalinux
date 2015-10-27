@@ -1,0 +1,171 @@
+<!doctype debiandoc public "-//DebianDoc//DTD DebianDoc//EN" [
+
+<!-- Definições de entities dinâmicas usadas no Foca Linux -->
+<!entity % dinamic    SYSTEM "dinamicas.ent"> %dinamic;
+<!entity % definicoes SYSTEM "padroes.ent"  > %definicoes;
+<!entity % urldata    SYSTEM "urls.ent"     > %urldata;
+
+<!-- Arquivos separados contendo o texto do Documento -->
+<!--                Versão Iniciante                       -->
+<!entity introducao         SYSTEM "Iniciante/introducao.sgml"         >
+<!entity basico             SYSTEM "Iniciante/basico.sgml"             >
+<!entity discos             SYSTEM "Iniciante/discos.sgml"             >
+<!entity ajuda              SYSTEM "Iniciante/ajuda.sgml"              >
+<!entity migrando           SYSTEM "Iniciante/migrando.sgml"           >
+<!entity comandos-arquivo   SYSTEM "Iniciante/comandos-arquivo.sgml"   >
+<!entity comandos-contas    SYSTEM "Iniciante/comandos-contas.sgml"    >
+<!entity comandos-diretorio SYSTEM "Iniciante/comandos-diretorio.sgml" >
+<!entity comandos-diversos  SYSTEM "Iniciante/comandos-diversos.sgml"  >
+<!entity comandos-rede      SYSTEM "Iniciante/comandos-rede.sgml"      >
+<!entity configurando       SYSTEM "Iniciante/configurando.sgml"       >
+<!entity redir              SYSTEM "Iniciante/redir.sgml"              >
+<!entity run                SYSTEM "Iniciante/run.sgml"                >
+<!entity impressao          SYSTEM "Iniciante/impressao.sgml"          >
+<!entity x11                SYSTEM "Iniciante/x11.sgml"                >
+<!entity permissoes         SYSTEM "Iniciante/permissoes.sgml"         >
+<!entity apendice           SYSTEM "Iniciante/apendice.sgml"           >
+
+<!--                  Versão Intermediário                     -->
+<!entity aplicativos        SYSTEM "Intermediario/aplicativos.sgml"    >
+<!entity bootloaders        SYSTEM "Intermediario/bootloaders.sgml"    >
+<!entity compactadores      SYSTEM "Intermediario/compactadores.sgml"  >
+<!entity compilacao         SYSTEM "Intermediario/compilacao.sgml"     >
+<!entity debian             SYSTEM "Intermediario/debian.sgml"         >
+<!entity dpkg               SYSTEM "Intermediario/dpkg.sgml"           >
+<!entity hardware           SYSTEM "Intermediario/hardware.sgml"       >
+<!entity kernel             SYSTEM "Intermediario/kernel.sgml"         >
+<!entity log                SYSTEM "Intermediario/log.sgml"            >
+<!entity manutencao         SYSTEM "Intermediario/manutencao.sgml"     >
+<!entity internet           SYSTEM "Intermediario/internet.sgml"       >
+<!entity personalizacao     SYSTEM "Intermediario/personalizacao.sgml" >
+<!entity tasks              SYSTEM "Intermediario/tasks.sgml"          >
+<!entity etc                SYSTEM "Intermediario/etc.sgml"            >
+<!entity rede               SYSTEM "Intermediario/rede.sgml"           >
+
+<!--                  Versão Avançado                         -->
+<!entity % apache	SYSTEM "Avancado/apache/Apache-INDEX.sgml"> %apache;
+<!entity % cfgrede      SYSTEM "Avancado/conf-rede/CFGRede-INDEX.sgml"> %cfgrede;
+<!entity % iptables     SYSTEM "Avancado/iptables-firewall/iptables-INDEX.sgml"> %iptables;
+<!entity % contas       SYSTEM "Avancado/gerenc-contas/contas-INDEX.sgml"> %contas;
+<!entity % restricoes   SYSTEM "Avancado/restr-seguranca/restricoes-INDEX.sgml"> %restricoes;
+<!entity % criptografia SYSTEM "Avancado/criptografia/Cripto-INDEX.sgml"> %criptografia;
+<!entity % ident        SYSTEM "Avancado/identd/Ident-INDEX.sgml"> %ident;
+<!entity % telnet       SYSTEM "Avancado/telnet/telnet-INDEX.sgml"> %telnet;
+<!entity % ssh          SYSTEM "Avancado/ssh/ssh-INDEX.sgml"> %ssh;
+<!entity % pop3         SYSTEM "Avancado/pop3/pop3-INDEX.sgml"> %pop3;
+<!entity % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
+<!entity % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
+
+<!-- 
+Guia Foca GNU/Linux
+
+Estilo de tags adotadas neste documento:
+- Nome de Programa, nome de comando - <prgn>
+- Nome de pacote                    - <package>
+- Saída de comando, entrada no 
+  teclado, parâmetros e comandos    - <tt>
+- Nome de arquivo, diretório        - <file>
+- Parte em destaque no texto        - <em>
+- Aviso de observação, atenção, etc - <strong>
+- Nome de variável                  - <var>
+  
+Copyleft 1999-2010, Gleydson Mazioli da Silva <gleydson@cipsga.org.br>
+-->
+]>
+
+ <debiandoc>
+ <book>
+
+  <titlepag>
+   <title>Guia Foca GNU/Linux</title>
+   <author>
+    <name>Gleydson Mazioli da Silva</name>
+    <email>gleydson@guiafoca.org</email>
+   </author>
+   <version>Versão &VERSAO; - &DATADOC;</version>
+
+  <abstract>
+Este documento tem por objetivo ser uma referência ao aprendizado do 
+usuário e um guia de consulta, operação e configuração de sistemas Linux 
+(e outros tipos de *ix). A última versão deste guia pode ser encontrada 
+na <url id="&url-manual-www;" name="Página Oficial do Foca GNU/Linux">. 
+Novas versões são lançadas com uma freqüência mensal e você pode receber 
+avisos de novos lançamentos deste guia preenchendo um formulário na página 
+Web. 
+  </abstract>
+  
+   <copyright>
+    <copyrightsummary>
+     Copyright &copy; 1999-&ULTIMOANO; - Gleydson Mazioli da Silva.
+    </copyrightsummary>
+    <p>
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+published by the Free Software Foundation;
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+   </copyright>
+  </titlepag>
+
+<!-- A ordem dos capítulos abaixo pode ser modificada, desta forma, a ordem 
+     que eles aparecem no guia também será modificada --> 
+<toc sect2>
+  &introducao;
+  &basico;
+  <![ %INTER-AVANC [ &hardware; ]]>
+  <![ %INIC-INTER [ &migrando; ]]>
+  <![ %INIC-INTER [ &discos; ]]>
+  <![ %INTERMEDIARIO [ &bootloaders; ]]>
+  <![ %INIC-INTER [ &run; ]]>
+  <![ %INIC-INTER [ &comandos-diretorio; ]]>
+  <![ %INIC-INTER [ &comandos-arquivo; ]]>
+  <![ %INIC-INTER [ &comandos-diversos; ]]>
+  <![ %INIC-INTER [ &comandos-rede; ]]>
+  <![ %INIC-INTER [ &comandos-contas; ]]>
+  <![ %INIC-INTER [ &permissoes; ]]>
+  <![ %INIC-INTER [ &redir; ]]>
+  <![ %INTER-AVANC [ &rede; ]]>
+  <![ %AVANCADO [ &d-cfgrede1; ]]>
+  <![ %INTERMEDIARIO [ &kernel; ]]>
+  <![ %INTER-AVANC [ &log; ]]>
+  <![ %INTERMEDIARIO [ &compactadores; ]]>
+  <![ %INTER-AVANC [ <![ %DEBIAN [ &debian; ]]> ]]>
+  <![ %INTERMEDIARIO [ <![ %DEBIAN [ &dpkg; ]]> ]]>
+  <![ %INTER-AVANC [ &personalizacao; ]]>
+  &impressao;
+  <![ %INTERMEDIARIO [ &configurando; ]]>
+  <![ %INTERMEDIARIO [ &tasks; ]]>
+  <![ %INTERMEDIARIO [ &compilacao; ]]>
+  <![ %INTERMEDIARIO [ &manutencao; ]]>
+  <![ %INTERMEDIARIO [ &etc; ]]>
+  <![ %INTERMEDIARIO [ &internet; ]]>
+  <![ %INIC-INTER [ &x11; ]]>
+
+  <![ %AVANCADO [
+ &fw-iptables1; &fw-iptables2; &fw-iptables3; &fw-iptables4; &fw-iptables5; \
+              &fw-iptables6; &fw-iptables7; &fw-iptables8;
+ &d-contas1; 
+ &s-apache1; &s-apache2; &s-apache3; &s-apache4; &s-apache5; &s-apache6; \
+              &s-apache7; &s-apache8; &s-apache9; &s-apache10;
+<![ %CONSTRUCAO [ 
+  &s-bind1; 
+  &s-dhcp1; 
+ ]]>
+ &s-ident1; 
+ &s-telnet1;
+ &s-ssh1; &s-ssh2; &s-ssh3;
+ &s-pop3-1; 
+ &s-cvs1; &s-cvs2; &s-cvs3; &s-cvs4; &s-cvs5; &s-cvs6;
+ &s-samba1; &s-samba2; &s-samba3; &s-samba4; &s-samba5; &s-samba6; &s-samba7; \
+ &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
+ &d-restricoes1;
+ &d-cripto1;
+ 
+  ]]>
+  <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
+       de aplicativos de rede que ele contém -->
+  <![ %INTERMEDIARIO [ &aplicativos; ]]>
+  <![ %INIC-INTER [ &ajuda; ]]>
+  &apendice;
+
+ </book>

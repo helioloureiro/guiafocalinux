@@ -1,0 +1,47 @@
+<!-- 
+Este arquivo contém padrões que podem ser usados para personalizar sua 
+cópia do guia. Eles serão usados na hora da geração do documento marcando 
+as seções para inclusão (INCLUDE) ou não (IGNORE) na versão final. 
+Pelo menos uma deve ser incluída! 
+-->
+
+<!-- Conteúdo da versão que será gerada -->
+<!entity % DESCRICAOD     "INCLUDE">
+<!entity % OPCOES         "INCLUDE">
+<!entity % EXEMPLO        "INCLUDE">
+<!entity % OBS            "INCLUDE">
+
+
+<!-- 
+Estas entities abaixo serão usadas por materiais que devem estar em ambas 
+as versões INICIANTE/INTERMEDIÁRIO ou INTERMEDIÁRIO/AVANÇADO do guia e 
+utilizarão as entities "INIC-INTER" e "INTER-AVANC". 
+-->
+<![ %INICIANTE [     <!entity % INIC-INTER   "INCLUDE"> ]]>
+<![ %INTERMEDIARIO [ <!entity % INIC-INTER   "INCLUDE"> ]]>
+                     <!entity % INIC-INTER   "IGNORE">
+
+<![ %INTERMEDIARIO [ <!entity % INTER-AVANC  "INCLUDE"> ]]>
+<![ %AVANCADO [      <!entity % INTER-AVANC  "INCLUDE"> ]]>
+                     <!entity % INTER-AVANC  "IGNORE">
+ 
+
+<!-- Indica se as partes em construção serão ou não incluídas -->
+<!entity % CONSTRUCAO    "IGNORE">
+
+
+<!-- Indica se os dados/capítulos referentes a distribuição serão incluídos -->
+<!-- dependendo das condições acima. Escolha somente uma! -->
+<!entity % DEBIAN        "INCLUDE">
+
+<!-- Número de pacotes da distribução Debian -->
+<!entity DEBNUMPACKAGES "25000">
+
+<!-- Dados variáveis -->
+<!entity ULTIMOANO "2010">
+
+<!-- Seleciona a versão adequada ao guia Foca Linux de acordo com as opções -->
+<!-- escolhidas -->
+<![ %AVANCADO [      <!entity VERSAO "6.43"> ]]>
+<![ %INTERMEDIARIO [ <!entity VERSAO "5.65"> ]]>
+<![ %INICIANTE [     <!entity VERSAO "4.22"> ]]>

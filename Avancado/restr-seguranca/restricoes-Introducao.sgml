@@ -1,0 +1,1678 @@
+<chapt id="d-restr">Restrições de acesso, recursos e serviços
+ <p>
+Este capítulo documenta diversos métodos de fazer restrições de contas, limitação 
+de acesso interno/externo, de recursos por usuários/grupos, login, tempo máximo 
+ocioso, e outros modos para limitar o uso de recursos do sistema. Também são 
+descritos métodos para aumentar a segurança do acesso físico a seu servidor 
+e maneiras de restringir o uso de serviços disponíveis no sistema. 
+ <p>
+Se você deseja restringir o acesso de máquinas na rede ou portas específicas em 
+sua máquina <![ %CAPJUNTOS [, veja também  <ref id="fw-iptables"> ]]>. 
+
+ 
+<sect id="d-restr-bash">Limitando recursos no <prgn>bash</prgn>
+
+<sect1 id="d-restr-bash-readonly">Uso do comando readonly para exportar variáveis
+ <p>
+Variáveis exportadas na forma comum podem ser modificadas a qualquer momento 
+pelo usuário, e isso pode trazer problemas de acordo com o tipo de sistema 
+que administramos. A definição da variável como somente leitura (readonly) evita 
+a maioria destes problemas: 
+ <p>
+<example>
+readonly TESTE="123"
+
+</example>
+A variável <var>TESTE</var> não poderá ser modificada ou excluída. 
+Com isto o administrador pode "bloquear" a modificação de variáveis que controlam 
+o funcionamento de determinados recursos do interpretador de comandos (alguns 
+deles serão vistos ainda nesta seção). 
+
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Algumas variáveis de controle de ambientes ambiente 
+do interpretador de comandos já são iniciadas com valores somente leitura 
+(como as variáveis <var>EUID</var> e <var>PPID</var>)
+ <p>
+<strong>OBS2:</strong> Variáveis exportadas como somente leitura em shell 
+scripts são mantidas até a finalização do script e depois liberadas. ]]>
+
+
+<sect1 id="d-restr-homedir">Restrições nos diretórios de usuários e root
+ <p>
+O controle de acesso a diretórios de usuários é importante quando desejamos que 
+outras pessoas não tenham acesso ao diretório de outros usuários, violando a
+privacidade do mesmo e obtendo acesso a partes indesejáveis, principalmente do 
+usuário <tt>root</tt>. É recomendado 
+restringir o acesso somente ao <tt>dono</tt> e <tt>grupo</tt> do usuário, bloqueando 
+o acesso a outros tipos de usuários: 
+<example>
+chmod 2750 /root
+chmod 2750 /home/usuario
+
+</example>
+O exemplo acima permitirá o acesso do diretório <file>/root</file> e 
+<file>/home/usuario</file> somente ao usuário e grupo que pertencem. Este 
+processo pode ser facilitado na criação dos diretórios de usuários 
+em <file>/home</file> especificando a variável: <var>DIR_MODE=0750</var> no 
+arquivo <file>/etc/adduser.conf</file>.
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Algumas distribuições de <prgn>Linux</prgn> garantem o 
+acesso livre a diretórios de usuários por padrão pois alguns daemons 
+que requerem acesso a diretório de usuários rodam sob outros usuários ao invés 
+do root. Um bom exemplo é a utilização do recurso "UserDir" do <prgn>Apache</prgn> 
+para servir requisições como <file>http://servidor.org/~usuario</file>. 
+ <p>
+A restrição de diretório home neste caso bloqueará o acesso do servidor web 
+<prgn>Apache</prgn> ao diretório <file>/home/usuario/public_html</file>. 
+Mesmo assim, uma alternativa para garantir a utilização da restrição é incluir 
+o usuário do servidor web <prgn>Apache</prgn> (<tt>www-data</tt>) no grupo 
+"usuario" (que possui acesso ao diretório <file>/home/usuario</file>): 
+<example>
+adduser www-data usuario
+
+</example> 
+Isto garantirá que o servidor <prgn>Apache</prgn> continue servindo as 
+requisições dentro do diretório <file>/home/usuario</file>, com acesso 
+garantido via grupo. O mesmo principio pode ser aplicado em outros programas, 
+apenas leve em consideração que se um cracker tomar conta do processo que 
+tem acesso ao seu diretório home restrito, ele certamente também terá 
+acesso. ]]>
+
+
+<sect1 id="d-restr-bash-restricted">Restrições básicas do shell bash com bash -r/--restricted, rbash
+ <p>
+Quando o <prgn>bash</prgn> é iniciado com o parâmetro <tt>-r</tt>, 
+<tt>--restricted</tt> ou como <prgn>rbash</prgn>, o shell restringe o uso dos 
+seguintes recursos em sua seção: 
+<list compact>
+ <item>
+Usar o comando <prgn>cd</prgn> para mudar de diretório. 
+ <item>
+Definindo, modificar ou apagar a variáveis <var>SHELL</var>, <var>PATH</var>, 
+<var>ENV</var>, <var>BASH_ENV</var>. 
+ <item>
+Nomes de comandos que contém <file>/</file>
+ <item>
+Especificar um nome de arquivo contendo uma <file>/</file> como argumento para 
+o comando <prgn>builtin</prgn> (embutido no interpretador de comandos). 
+ <item>
+Especificar uma <file>/</file> como argumento a opção <em>-p</em> no comando 
+<prgn>hash</prgn> (embutido no interpretador de comandos). 
+ <item>
+Importar a definição de funções do ambiente do shell atual. 
+ <item>
+Analisar o valor da variável <var>SHELLOPTS</var> do ambiente do shell atual. 
+ <item>
+Redirecionando a saída padrão usando os operadores de 
+redirecionamento <tt>&gt;</tt>, <tt>&gt;|</tt>, <tt>&lt;&gt;</tt>, <tt>&gt;&</tt>, 
+<tt>&&gt</tt>; e <tt>&gt;&gt;</tt>. 
+ <item>
+Usando o comando embutido <prgn>exec</prgn> para substituir o shell por outro 
+comando. 
+ <item>
+Usar as opções <em>-f</em> ou <em>-d</em> com o comando <prgn>enable</prgn> 
+(embutido no interpretador de comandos).
+ <item>
+Especificar a opção <em>-p</em> ao comando interno <prgn>command</prgn>.
+ <item>
+Desativar o modo restrito com <tt>set +r</tt> ou <tt>set +o restricted</tt>
+*
+</list>
+Estas restrições são ativadas após a leitura dos arquivos de
+inicialização do interpretador de comandos. O shell restrito desliga 
+as restrições quando um shell script é executado. 
+
+
+<sect1 id="d-restr-bash-logoutocioso">Finalizando consoles inativos
+ <p>
+A variável <var>TMOUT</var> determina o tempo de inatividade de um shell para que 
+ele seja terminado. 
+<example>
+export TMOUT=600
+
+</example>
+Terminará o <prgn>bash</prgn> caso nenhum comando seja executado no período de 
+600 segundos (5 minutos). Veja <ref id="d-restr-bash-readonly"> como complemento. 
+
+
+<sect1 id="d-restr-bash-logging">Desabilitando o registro de comandos digitados
+ <p>
+Todos os comandos que digitamos em uma seção do shell são registrados no arquivo 
+<file>~/.bash_history</file>, as seguintes variáveis fazem seu controle: 
+<list compact>
+ <item><var>HISTFILE</var> - Nome do arquivo que armazenará o histórico de 
+ comandos. O padrão é <file>~/.bash_history</file>. Caso não seja especificado, 
+ os comandos não serão gravados após finalizar o shell. 
+ <item><var>HISTSIZE</var> - Define o número de comandos que o arquivo de histórico
+ poderá armazenar, o padrão é 500.
+ <item><var>HISTFILESIZE</var> - Define o número máximo de linhas no arquivo 
+ de histórico. 
+</list>
+Se você possui muitos usuários em seu sistema, é recomendado ajustar estas 
+variáveis como somente leitura para que o usuário não desative o logging 
+por qualquer motivo (veja <ref id="d-restr-bash-readonly">). 
+
+
+<sect1 id="d-restr-bash-desshell">Desabilitando serviços de shell para usuários
+ <p>
+Existem casos onde o usuário precisa estar cadastrado no sistema mas não 
+precisa ter acesso a uma conta de login válida (como um sistema servidor 
+de e-mail ou outros serviços). Neste caso a desabilitação dos serviços de 
+shell aumentará um pouco a segurança do sistema, mesmo conseguindo 
+acesso a conta/senha estará impedido de entrar no sistema (pelo menos 
+terá um pouco mais dificuldade para conseguir isso). 
+ <p>
+Um programa que é muito usado para desabilitar o shell exibindo uma mensagem 
+ao usuário que fez a tentativa é o <prgn>falselogin</prgn>. Ele deve ser colocado 
+como o "shell padrão" no arquivo <file>/etc/passwd</file> e exibirá a mensagem 
+contida no arquivo <file>/etc/falselogin.conf</file> quando o login para 
+aquele usuário for tentado. Esta operação pode ser facilitada usando a variável 
+<var>DSHELL=/usr/bin/falselogin</var> no arquivo <file>/etc/adduser.conf</file>. 
+ <p>
+Uma forma alternativa de desativar o serviço de login de TODOS os 
+usuários (exceto o <tt>root</tt> e os já logados no sistema) é criar um 
+arquivo chamado <file>/etc/nologin</file> e colocando uma mensagem dentro 
+dele, que será exibida quando tentarem efetuar o login no sistema. 
+
+<![ %OBS [ 
+ <p>
+<strong>OBS:</strong> Tome cuidado ao usar esta alternativa, este método deve 
+ser usado somente em caso de <strong>EMERGÊNCIA</strong>, as distribuições 
+<prgn>Linux</prgn> usam este método para bloquear o login de outros usuários 
+durante o processo de inicialização, removendo assim que o processo é terminado. 
+Esteja consciente disso. ]]>
+ <p>
+Em alguns casos, o uso do PAM pra desabilitar os serviços de login pode 
+ser mais adequado (veja <ref id="d-restr-pam-login">).
+
+
+<sect id="d-restr-pam">Limitação de recursos usando PAM
+ <p>
+Plugglable Autentication Modules (Módulos de autenticação plugáveis) são um 
+conjunto de bibliotecas usadas para fazer autenticação, gerenciamento de 
+contas, controle de recursos dos usuários no sistema, em adição ao tradicional 
+sistema de acesso baseado em usuários/grupos. Este recurso permite 
+modificar a forma que um aplicativo autentica e 
+define recursos para o usuário sem necessidade de 
+recompilar o aplicativo principal. Os recursos que desejamos controlar 
+restrições via PAM são especificados individualmente por serviços nos arquivos 
+correspondentes em <file>/etc/pam.d</file> e então os arquivos correspondentes 
+em <file>/etc/security</file> são usados para controlar tais restrições. 
+ <p>
+Nesta seção assumirei explicações dirigidas aos recursos controlados pelos 
+arquivos em <file>/etc/security</file> A maioria das explicações são baseadas 
+em testes e nos próprios exemplos dos arquivos de configuração do PAM. 
+
+
+<sect1 id="d-restr-pam-suporte">Descobrindo se um determinado programa tem suporte a PAM
+ <p>
+Um método simples de se determinar se um programa binário possui suporte a PAM é 
+executando o comando: 
+<example>
+ldd [programa]
+
+</example> 
+Por exemplo:
+<example>
+ldd /bin/login
+
+libcrypt.so.1 => /lib/libcrypt.so.1 (0x4001c000)
+libpam.so.0 => /lib/libpam.so.0 (0x40049000)
+libpam_misc.so.0 => /lib/libpam_misc.so.0 (0x40051000)
+libdl.so.2 => /lib/libdl.so.2 (0x40054000)
+libc.so.6 => /lib/libc.so.6 (0x40058000)
+/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+
+</example>
+Caso a biblioteca <file>libpam</file> for listada, o programa tem suporte 
+a PAM compilado. Programas que não possuem suporte a PAM deverão 
+ter o código fonte modificado inserindo as funções para tratamento dos módulos 
+de autenticação. 
+
+
+<sect1 id="d-restr-pam-policy">Definindo uma política padrão restritiva
+ <p>
+A política padrão do PAM é especificado em 
+<file>/etc/pam.d/other</file> e define o que acontecerá caso nenhum dos arquivos 
+de controle de serviço em <file>/etc/pam.d</file> confiram com o serviço em 
+questão. Normalmente o módulo <file>pam_unix.so</file> é usado para fazer a 
+política padrão, para deixar o sistema mais seguro, utilize a seguinte 
+configuração no arquivo <file>/etc/pam.d/other</file>: 
+<example>
+auth     required       /usr/lib/security/pam_warn.so
+auth     required       /usr/lib/security/pam_deny.so
+account  required       /usr/lib/security/pam_deny.so
+password required       /usr/lib/security/pam_warn.so
+password required       /usr/lib/security/pam_deny.so
+session  required       /usr/lib/security/pam_deny.so
+
+</example> 
+O módulo <file>pam_deny.so</file> é responsável por fazer o bloqueio, e o 
+<file>pam_warn</file> envia avisos ao <prgn>syslog</prgn> (facilidade <em>auth</em> 
+nível <em>notice</em>) caso serviços módulos PAM que 
+necessitem do serviço de autenticação sejam bloqueados 
+(isto não é feito automaticamente pelo <file>pam_deny.so</file>). 
+<![ %OBS [ 
+ <p>
+<strong>OBS:</strong> Esta configuração poderá causar bloqueio em muitas coisas 
+caso possua módulos de autenticação mau configurados. Esteja certo de utilizar 
+o módulo <file>pam_warn.so</file> (antes do <file>pam_deny.so</file>) nas 
+diretivas restritivas para entender qual é o problema através da análise dos 
+arquivos de logs. ]]>
+ <p>
+Mais detalhes sobre a configuração de módulos de autenticação poderão ser 
+encontrados no endereço 
+<url id="&url-pamauth-doc-ftp;"> 
+e <url id="&url-pamauth-doc-www;">.
+
+
+<sect1 id="d-restr-pam-login">Restringindo/Bloqueando o login
+ <p>
+Isto é controlado pelo arquivo <file>/etc/security/access.conf</file>. O formato
+deste arquivo consistem em três campos separados por ":":
+<list compact>
+ <item><tt>Primeiro campo</tt> - Garante ("+") ou bloqueia ("-") o acesso 
+caso as condições nos outros campos confiram. 
+
+ <item><tt>Segundo campo</tt> - Contém o login, grupo. O formato 
+<em>usuário@computador</em> pode ser usado para conferir com usuários que 
+acessam de determinadas máquinas. Caso existam mais de um parâmetro, estes 
+devem ser separados usando espaços. As palavras chave <tt>ALL</tt> (todos) e 
+<tt>EXCEPT</tt> (exceção) e console também podem ser usadas. 
+
+ <item><tt>Terceiro campo</tt> - Lista de terminais (tty - na forma listada pelo
+<prgn>ttyname</prgn>), nomes de máquinas, nomes de domínios (começando com "."), 
+endereços IP ou FQDN, porção de rede (finalizando com um "."). As palavras chave  
+<tt>ALL</tt> (todos) e <tt>LOCAL</tt> (máquinas na mesma rede) também podem ser 
+usadas. 
+</list>
+
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> - A configuração padrão do <file>access.conf</file> é 
+garantir o acesso a todos os usuários, através de qualquer lugar (permissiva). 
+ <p>
+<strong>OBS2:</strong>: Mesmo se existir uma regra autorizando o acesso ao 
+usuário, as restantes serão verificadas em busca de uma que bloqueie o 
+acesso do usuário. Se nenhuma regra conferir, o usuário terá acesso 
+garantido. 
+ <p>
+<strong>OBS3:</strong> - O nome de grupo somente é checado quando nenhum 
+nome de usuário confere com nenhum usuário logado no sistema. 
+ <p>
+<strong>OBS4:</strong> - Grupos/usuários NIS podem ser especificados precedendo o 
+nome do usuário ou grupo por uma "@". ]]>
+ <p>
+Abaixo uma configuração restrita de <file>/etc/security/access.conf</file>: 
+<example>
+#
+# Desabilita o login de todos os usuários EXCETO o root no terminal tty1
+-:ALL EXCEPT root:tty1
+
+# Permite o login no console de todos os usuários especificados.
++:gleydson root:console
+
+# Conexões vindas da rede *.debian.org e *.debian.org.br de usuários pertencendo 
+# ao grupo operadores são consideradas seguras (exceto para o usuário root).
++:operadores EXCEPT root: .debian.org .debian.org.br
+
+# Qualquer outra tentativa de acesso não definida acima é bloqueada imediatamente.
+-: ALL: ALL
+</example>
+
+
+<sect1 id="d-restr-pam-root">Restringindo o acesso a root no su
+ <p>
+A restrição de acesso a usuário <tt>root</tt> pelo PAM funciona permitindo que 
+somente alguns usuários que pertençam a um grupo criado pelo administrador 
+possam se tornar o superusuário usando o comando <prgn>su</prgn>. Esta 
+restrição funciona até mesmo para os usuários que possuem a senha correta 
+de root, retornando uma mensagem de login ou senha incorretos. Isto é 
+extremamente útil para restrições de acesso.
+ <p>
+Um outro ponto positivo é caso ocorra um possível acesso não autorizado em 
+seu sistema ou um daemon seja corrompido e o atacante cair em um shell, ele não 
+poderá obter <tt>root</tt> na máquina pois o UID do daemon provavelmente não 
+terá autorização. A distribuição <prgn>Debian</prgn>, em especial, possui grupos 
+e nomes de usuários organizados de forma a permitir segurança e separação 
+total caso utilize este mecanismo. 
+ <p>
+Este recurso se mostra bem eficiente para proteger a integridade da máquina até 
+mesmo no comprometimento de máquinas que possui a senha semelhante, somente se 
+usado em conjunto com as restrições de acesso de outros serviços remotos (como o 
+<prgn>ssh</prgn>, <prgn>ftp</prgn>, etc). O guia Foca documenta as formas de 
+restrição e seu impacto na segurança da máquina nos capítulos do nível 
+Avançado (veja o índice para buscar o capítulo correspondente ao que deseja 
+proteger).
+ <p>
+Para configurar esta restrição, siga os seguintes passos:
+<list compact>
+ <item>
+Crie um grupo onde os usuários cadastrados terão acesso <tt>root</tt>. Por exemplo, 
+<tt>usuarios-su</tt> (ou algo mais discreto).
+ <item>
+Edite o arquivo <file>/etc/pam.d/su</file>. Insira a seguinte linha (caso
+não existir) no arquivo de configuração:
+
+<example>
+auth       required   pam_wheel.so group=usuarios-su
+</example>
+O que ela faz é usar o módulo <file>pam_wheel.so</file> requerendo que os 
+usuários pertençam ao grupo <file>usuarios-su</file>. Salve e saia do editor.
+
+ <item>
+Ainda como usuário <tt>root</tt>, adicione os usuários que terão acesso a root
+no grupo <file>usuarios-su</file>. Recomendo que adicione seu usuário primeiro, 
+principalmente se estiver fazendo acesso remoto, pois se acontecer uma queda 
+no link não ficará sem acesso root por cair na restrição :-)
+
+ <item>
+Tente pegar o <tt>root</tt> com outros usuários que não pertençam ao grupo 
+<file>usuarios-su</file> estes simplesmente terão o acesso negado.
+
+</list>
+
+
+<sect1 id="d-restr-pam-time">Restrições de serviços PAM baseados em dia/hora
+ <p>
+Estas restrições são controladas pelo arquivo <file>/etc/security/time.conf</file>, 
+a sintaxe deste arquivo é quatro campos separados por ";":
+<list>
+ <item><tt>Primeiro campo</tt> - Nome do serviço PAM que será controlado 
+(um dos serviços contidos em <file>/etc/pam.d</file>).
+
+ <item><tt>Segundo campo</tt> - Lista de nomes de terminais que a regra que 
+aplicará. O sinal "&" tem a função <em>and</em>, "|" tem a função <em>or</em> 
+e "!" especifica uma exceção. 
+
+ <item><tt>Terceiro campo</tt> - Nome de usuários afetados pela regra. O 
+ sinal "&" tem a função <em>and</em>, "|" tem a função <em>or</em> e "!" 
+ especifica uma exceção. 
+ <![ %OBS [
+  <p>
+ <strong>OBS:</strong> O "*" poderá ser usado somente no primeiro, 
+ segundo ou terceiro campo em uma mesma regra. ]]>
+
+ <item><tt>Quarto campo</tt> - DiaSemana/faixa-de-horas que a restrição se aplicará. 
+O dia da semana é especificado em duas letras:
+ <list compact>
+  <item><tt>Mo</tt> - Segunda-feira
+  <item><tt>Tu</tt> - Terça-feira
+  <item><tt>We</tt> - Quarta-feira
+  <item><tt>Th</tt> - Quinta-feira
+  <item><tt>Fr</tt> - Sexta-feira
+  <item><tt>Sa</tt> - Sábado
+  <item><tt>Su</tt> - Domingo
+  <item><tt>Wk</tt> - Todos os dias da semana
+  <item><tt>Wd</tt> - Somente sábado e domingo (fim de semana)
+  <item><tt>Al</tt> - Todos os dias
+ </list>
+O sinal "!" especifica uma exceção. A faixa de horas é especificada após o 
+dia no formato HHMM-HHMM. Por exemplo:
+<example>
+MoTuWe0000-2400 - Segundas, terças e quartas 
+MoFrSu0800-1900- - Segundas, sextas e domingo das 08:00 da manha as 19:00 da noite.
+FrFr0500-0600 - Não será realizada na sexta (especificações repetidas são anuladas) 
+                de 05:00 as 06:00.
+WkWe0731-1456 - Todos os dias da semana a partir de Quarta de 07:31 da manhã as 
+                14:56 da tarde.
+AlMo0000-2400 - Todos os dias da semana, exceto segunda-feira.
+</example> 
+</list>
+Por padrão o acesso é garantido a todos os usuários. 
+Abaixo um exemplo de restrições usando o <file>/etc/security/time.conf</file>:
+<example>
+# Bloqueia o login do usuário user1 ou user2 em qualquer tty, a restrição 
+# durante todos os dias de 00:00 as 06:30
+login;tty*;user1|user2;!Al0000-0630
+
+# Bloqueia o acesso do usuário root ao serviço login nos terminais tty* 
+# (e não nos terminais ttyp*) nos finais de semana.
+login;tty* & !ttyp*;root;!Wd0000-2400
+
+# O usuário 1 não poderá efetuar o login as terças feiras de 00:00 as 06:00
+login;!tty*;user1;Tu0000-0600
+
+</example>
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Mesmo se existir uma regra autorizando o acesso ao 
+usuário, as restantes serão verificadas em busca de uma que bloqueie o 
+acesso do usuário. Se nenhuma regra conferir, o usuário terá acesso 
+garantido. 
+ <p>
+<strong>OBS2:</strong> Quando as restrições de tempo são ativadas no 
+<file>/etc/security/time.conf</file>, o daemon <prgn>logoutd</prgn> 
+poderá ser ativado manualmente (através de <file>/etc/init.d/logoutd</file>) 
+para monitora as restrições neste arquivo, forçando o logout de usuário de 
+acordo com as configurações do <file>/etc/security/time.conf</file>. Isto 
+ocorrerá automaticamente na próxima vez que iniciar o sistema 
+(a distribuição detecta a presença de restrições de tempo no 
+arquivo <file>/etc/security/time.conf</file> para decidir se 
+deve ou não carregar este daemon). 
+ <p>
+Quando não está em execução, os limites de tempo são verificados 
+somente no login do usuário, ele poderá ultrapassar este tempo sem ser 
+desconectado do sistema. ]]>
+
+
+<sect1 id="d-restr-pam-group">Permitindo acesso a grupos extras
+ <p>
+Este recurso é controlado pelo arquivo <file>/etc/security/group.conf</file>. 
+Este arquivo é composto por 5 campos separados por ";" (os 4 primeiros são os 
+mesmos explicados em <ref id="d-restr-pam-time">. O 5o campo contém um ou mais 
+grupos (separados por espaços ou vírgulas) que serão adicionados aos grupos do 
+usuário quando as condições dos campos anteriores conferirem. 
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Se o usuário escrever um programa que chama um 
+interpretador de comandos e der a permissão SGID (chmod g+s programa), 
+ele terá acesso àquele grupo na hora que quiser. Restrinja o uso 
+de grupos somente a usuários de confiança ou crie grupos específicos para 
+evitar problemas. ]]>
+ <p>
+Exemplo de configuração do arquivo <file>/etc/security/group.conf</file>:
+<example>
+# Permite que o usuário gleydson tenha acesso ao grupo floppy efetuando o login
+# entre 08:00 da manha e 19:00 da noite
+login;tty*;gleydson;Al0800-1900;floppy
+
+# Todos os usuários podem ter acesso ao grupo games e sound aos sábados e domingos
+login;tty*;*;SaSu0000-2400;sound games
+
+# Todos os usuários podem ter acesso ao grupo games e sound todos os dias 
+# de 18:00 as 05:00 da manhã (fora do horário de expediente ;-)
+login;tty*;*;Al1800-0500;sound,games
+
+# Backups são permitidos fora do horário de expediente (para não sobrecarregar 
+# a CPU e evitar o uso excessivo de disco). 
+login;tty*;gleydson;Al1830-2400;backup
+
+</example>
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Mesmo que uma regra confira com o usuário, as 
+outras também serão verificadas para garantir acesso grupos extras. 
+ <p>
+<strong>OBS2:</strong> O padrão na maioria das distribuições é limitar
+o número máximo de grupos do usuário para 32. Caso precise aumentar este 
+limite, será necessário recompilar o kernel (e também a glibc, se necessário)
+para aceitar um número maior modificando a variável <var>ngroup</var>.
+]]>
+
+
+<sect1 id="d-restr-pam-limits">Limitação de recursos do shell
+ <p>
+Estas restrições são especificadas no arquivo <file>/etc/security/limits.conf</file>. 
+Seu formato consiste em 4 campos separados por ou ou mais espaços:
+<list>
+ <item><tt>Primeiro campo</tt> - Especifica o nome de usuário, um nome de 
+grupo (@grupo) ou um "*" especificando que as restrições nos outros campos se 
+aplicam a todos os grupos e todos os usuários. 
+
+ <item><tt>Segundo campo</tt> - Tipo de restrição:
+  <list compact>
+   <item><tt>soft</tt> - Limite suave de bloqueio. 
+   <item><tt>hard</tt> - Limite rígido de bloqueio. 
+   <item><tt>-</tt> - Quando o tipo de restrição não se aplica ao Ítem que deseja 
+restringir o acesso. 
+  </list>
+  Quando somente o limite "hard" (rígido) é especificado, o limite suave 
+  assume o mesmo valor. 
+
+ <item><tt>Terceiro campo</tt> - Ítem que deseja restringir o acesso:
+  <list compact>
+   <item><tt>core</tt> - Limita o tamanho do arquivo core (KB)
+   <item><tt>data</tt> - Tamanho máximo de arquivo de dados (KB)
+   <item><tt>fsize</tt> - Tamanho máximo de arquivo (KB)
+   <item><tt>memlock</tt> - Tamanho máximo do espaço de endereços bloqueado 
+   na memória (KB)
+   <item><tt>nofile</tt> - Número máximo de arquivos abertos
+   <item><tt>rss</tt> - Tamanho máximo residente (KB)
+   <item><tt>stack</tt> - Tamanho máximo da pilha (KB)
+   <item><tt>cpu</tt> - Tempo máximo de uso da CPU (MIN)
+   <item><tt>nproc</tt> - Número máximo de processos
+   <item><tt>as</tt> - Limite de espaço de endereços
+   <item><tt>maxlogins</tt> - Número máximo de logins
+   <item><tt>priority</tt> - Prioridade de execução de processos de usuários
+  </list>
+
+ <item><tt>Quarto campo</tt> - Especifica o valor do campo anterior
+</list>
+Os limites aplicados ao usuário podem ser visualizados através do 
+comando <tt>ulimit -S -a</tt> (para listar limites suaves - soft) e 
+<tt>ulimit -H -a</tt> (para listar limites rígidos - hard). Caso o 
+parâmetro <em>-S</em> ou <em>-H</em> sejam omitidos, os limites listados
+serão os suaves (soft). 
+Um exemplo de <file>/etc/security/limits.conf</file> (retirado da 
+distribuição <prgn>Debian GNU/Linux</prgn>:
+<example>
+*               soft    core            0
+*               hard    rss             10000
+@student        hard    nproc           20
+@faculty        soft    nproc           20
+@faculty        hard    nproc           50
+ftp             hard    nproc           0
+@student        -       maxlogins       4
+gleydson        -       maxlogins       2
+
+</example>
+
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Estas permissões passam a ter efeito no momento que o 
+usuário se conecta ao sistema, e não quando elas são modificadas no arquivo 
+<file>/etc/security/limits.conf</file>. ]]>
+
+
+<sect id="d-restr-grupos">Restrições de acesso a programas/diretórios/arquivos usando grupos
+ <p>
+Usuários podem ter o acesso liberado a diretórios/arquivos execução de 
+programas de acordo com o grupo que pertencem. Este é um recurso valioso 
+na administração de sistemas <prgn>Unix</prgn> que se bem usado, aumenta 
+as restrições de acesso e segurança no acesso/utilização de programas em 
+um ambiente de trabalho. 
+Usuários de sistema tendem a usar o usuário <tt>root</tt> para fazer tarefas como 
+conexão com internet, utilização da placa de som, modem, etc. e as vezes 
+nem sabem que isso pode ser feito através do mesmo usuário adicionando este a um 
+grupo específico. 
+ <p>
+Esta tarefa pode ser feita com o comando <tt>adduser usuário grupo</tt> 
+ou editando manualmente os arquivos <file>/etc/group</file> e 
+<file>/etc/gshadow</file>. Podemos ter as seguintes situações facilitadas 
+com o uso de grupos: 
+<list compact>
+ <item>
+Usar a placa de som. Os dispositivos usados pela placa de som como 
+<file>/dev/audio</file>, <file>/dev/dsp</file>, <file>/dev/sndstat</file>, 
+etc. normalmente tem permissão leitura/gravação para o usuário <tt>root</tt> e 
+grupo <tt>audio</tt> (cheque com o comando <tt>ls -la /dev/audio</tt>). Para 
+autorizar determinados usuários usar a placa de som basta adiciona-los neste 
+grupo: <tt>adduser usuario audio</tt>. 
+
+ <item>
+Conectar a Internet. Normalmente o utilitário ppp tem as permissões SUID 
+<tt>root</tt> e grupo <tt>dip</tt>. Adicionamos o usuário a este grupo: 
+<tt>adduser usuario dip</tt>. Agora ele poderá conectar/desconectar a 
+internet sem a intervenção do usuário <tt>root</tt>. 
+<![ %OBS [
+ <p>
+<strong>OBS</strong> Certamente o usuário terá acesso aos arquivos 
+de configuração da discagem do <prgn>ppp</prgn> e conseqüentemente a senha 
+de conexão internet, e esta senha é a mesma usada no e-mail primário do 
+provedor (com o mesmo nome da conta). Esta mesma situação pode acontecer 
+com outros programas que autorize o acesso a grupos, é importante que 
+conheça bem as permissões do programa e entender se existem riscos. ]]>
+ <item>
+Utilizar o modem. Um bom grupo para permitir a utilização do modem é 
+<tt>dialout</tt>. O dispositivo utilizado pelo modem (não seu link) 
+deve ter permissões leitura/gravação para o usuário <tt>root</tt> e 
+grupo <tt>dialout</tt>. Cadastrando o usuário neste grupo autorizará a 
+utilização do modem: <tt>adduser usuario dialout</tt>. 
+ <item>
+Permitir que diversos usuários compartilhem um mesmo diretório. Isto é 
+útil quando muitas pessoas estão desenvolvendo um mesmo projeto. Siga 
+estes passos: 
+<list compact>
+ <item>
+Crie um novo grupo no sistema: <prgn>groupadd gp1</prgn>, a opção <em>-g</em> 
+permite selecionar manualmente a GID. Opcionalmente você poderá usar um 
+grupo já existente no sistema (veja o arquivo <file>/etc/group</file>). 
+ <item>
+Crie o diretório que será usado para armazenar os arquivos deste grupo de usuários: 
+<file>mkdir projeto1</file>).
+ <item>
+Mude o dono/grupo do diretório: <tt>chown root.gp1 projeto1/</tt>
+ <item>
+De permissões de leitura/gravação para o dono/grupo do diretório, vamos 
+também incluir a permissão SGID para que todos os arquivos 
+criados dentro deste diretório pertençam ao mesmo grupo e não 
+ao grupo primário do usuário, assim todos os usuários terão 
+acesso: <tt>chmod 2770 projeto1</tt>
+ <item>
+Agora cadastre os usuários que deverão ter acesso ao diretório 
+<file>projeto1/</file> no grupo <tt>gp1</tt>, somente estes usuários 
+e o root terão acesso ao diretório (permissões 2770).
+ <item>
+É interessante também mudar a "umask" do usuário de <tt>022</tt> para 
+<tt>002</tt> (ou equivalente) para que os novos arquivos criados 
+tenham permissão de leitura/gravação para o grupo <tt>gp1</tt>. Caso 
+contrário, lembre-se de modificar as permissões de seus arquivos 
+manualmente. Um ótimo comando para fazer isso (sem afetar diretórios) é: 
+<tt>find . -type f -user usuario1 -exec chmod 0660 \{\} \;</tt>. 
+Este comando parece estranho mas é excelente! um <tt>chmod -R 0660</tt> 
+afetaria até os diretórios, imagine o caos. 
+</list>
+ 
+</list>
+A maioria das distribuições <prgn>Linux</prgn> vem com uma boa política de 
+grupos para permitir um controle eficaz de recurso. Se você quer saber 
+quais arquivos em seu sistema pertencem a determinado grupo (útil para 
+saber o que o usuário terá acesso se adiciona-lo àquele grupo) execute o 
+comando:
+<example>
+find / -group nome_do_grupo
+
+</example>
+
+
+<sect id="d-restr-sudo">Dando poderes de root para executar determinados programas
+ <p>
+A ferramenta ideal para isto é o <prgn>sudo</prgn>. Através dela é possível 
+permitir um usuário comum executar um comando como <prgn>root</prgn> e 
+registrar quando isto foi feito. É possível selecionar os usuários/grupos que 
+terão acesso e quais aplicativos que poderão ser usados, estas configurações 
+são feitas no arquivo <file>/etc/sudoers</file>. 
+ <p>
+Por exemplo, para o usuário "john" usar o comando <tt>shutdown</tt> para 
+desligar o computador: <tt>sudo shutdown -h now</tt>. 
+ <p>
+O <prgn>sudo</prgn> é um programa muito completo, tomaria 
+muitos Kilobytes neste guia. Recomendo dar uma lida na página de manual para 
+entender como as variáveis do arquivo de configuração funcionam. Mesmo 
+assim aqui vai um exemplo simples deste arquivo para iniciar rapidamente o uso 
+do <prgn>sudo</prgn>: 
+<example>
+# arquivo sudoers.
+#
+# Edite este arquivo com o comando 'visudo' como root 
+# 
+#
+
+# Especificação de máquinas. O primeiro campo (Host_Alias) diz que a variável 
+# LOCALSERVER será um nome/endereço de máquina
+Host_Alias	LOCALSERVER=192.168.0.1
+
+# Especificação de usuários. O primeiro campo (User_Alias) diz que a variável
+# NETMASTERS armazenará nomes de usuários
+User_Alias	NETMASTERS=gleydson, goodboy
+
+# Comandos. O primeiro campo (Cmnd_Alias) diz que a variável 
+# C_REDE contém comandos do sistema. Mais de um parâmetro
+# deve ser separado por vírgulas
+Cmnd_Alias	C_REDE=/sbin/ipchains, /sbin/iptables
+
+# Padrões que se aplicam aos usuários da variável NETMASTERS. O parâmetro
+# mail_always sempre envia um e-mail ao root avisando sobre o uso do 
+# sudo
+Defaults:NETMASTERS	mail_always
+
+# As linha que começam com o nome de usuário ou variável "User_Alias" 
+# definem o acesso aos recursos. O primeiro campo é o usuário, o segundo
+# o endereço de acesso (opcionalmente seguido de um sinal "=" para 
+# especificar opções adicionais) o terceiro o comando ou lista de comandos
+#
+# O usuário root não tem restrições
+root	ALL=(ALL) ALL
+
+# Permite que os usuários especificados na variável NETMASTERS 
+# acessando dos locais em LOCALSERVER utilizem os comandos 
+# em C_REDE (sem fornecer senha). 
+NETMASTERS	LOCALSERVER=NOPASSWD: C_REDE
+
+</example> 
+Edite este arquivo com o comando <prgn>visudo</prgn>, ele faz algumas checagens 
+para detectar problemas de configuração. Para listar os comandos disponíveis para 
+o usuário no <prgn>sudo</prgn>, utilize a opção <tt>-l</tt>, ex: <tt>sudo -l</tt>.
+
+
+<sect id="d-restr-su">Restringindo o comando <prgn>su</prgn>
+ <p>
+Restrições de acesso através de grupos, bloqueio de acesso, 
+acesso direto sem senha, etc. podem ser aplicados ao sudo via 
+seu arquivo de configuração PAM <file>/etc/pam.d/su</file>. 
+Abaixo um exemplo explicativo deste arquivo: 
+<example>
+# A configuração abaixo requer que o usuário seja membro do 
+# grupo adm para usar o 'su'. 
+# auth       required   pam_wheel.so group=adm
+
+# Membros do grupo acima não precisam fornecer senha, temos confiança neles.
+# auth       sufficient pam_wheel.so trust
+
+# Usuário que pertencem ao grupo "nosu" nunca deverão ter acesso ao 'su'
+# auth       required   pam_wheel.so deny group=nosu
+
+# O root não precisa fornecer senha ao 'su'
+auth       sufficient pam_rootok.so
+
+# Ativa as restrições PAM de /etc/security/limits.conf
+session    required   pam_limits.so
+
+# Isto ativa as restrições PAM de /etc/security/time.conf no 
+# comando 'su'
+account    requisite  pam_time.so
+
+# Módulos padrões de autenticação Unix
+auth       required   pam_unix.so
+account    required   pam_unix.so
+session    required   pam_unix.so
+
+</example>
+
+
+<sect id="d-restr-identd">Restrições baseadas em usuário/IP
+ <p>
+O serviço <prgn>identd</prgn> permite identificar os usuários 
+que estão realizando conexões TCP, adicionalmente esta característica é usada por 
+programas para fazer restrições para usuários em adição ao endereço de 
+origem/destino. A sintaxe usada nas diretivas de acesso é especificada na forma 
+<em>usuário@endereço</em>. 
+<![ %CAPJUNTOS [ O <ref id="s-ident"> explica 
+a configuração/utilização/vulnerabilidades e recomendações sobre este serviço. ]]>
+ <p>
+Diversos programas que possuem controle de acesso baseado em IP's/hosts 
+aceitam esta especificação, como o <prgn>exim</prgn>, <prgn>ircd</prgn>, 
+e o conhecido <prgn>tcpd</prgn>. 
+ <p>
+Segue um exemplo da utilização do <prgn>identd</prgn> com o arquivo 
+<file>hosts.allow</file>: 
+<example>
+# Permite o acesso ao serviço de telnet somente ao usuário gleydson conectando
+# a partir da máquina com IP 192.168.1.1
+in.telnetd: gleydson@192.168.1.1
+
+# Permite o acesso ao serviço ftp somente ao usuário gleydson conectando de 
+# qualquer máquina da rede 192.168.1.*
+in.ftpd: gleydson@192.168.1.
+
+</example>
+Note que a utilização do <prgn>identd</prgn> torna a utilização do serviço um 
+pouco mais restrita, somente conhecendo os "logins" de quem tem acesso ao 
+serviço, um cracker conseguirá ter acesso ao mesmo serviço naquele sistema 
+(este é um dos motivos que é recomendado sempre divulgar o mínimo 
+detalhes possíveis sobre o sistema para minimizar riscos de ataques). 
+ <p>
+<![ %CAPJUNTOS [Veja mais detalhes sobre o uso do <prgn>identd</prgn> em 
+<ref id="s-ident">.]]>
+
+
+<sect id="d-restr-ipmac">Restrições por MAC Address/IP
+ <p>
+Esta proteção oferece uma barreira maior se segurança contra IPs spoofing 
+evitando que pessoas mal intencionadas façam um IP spoofing da máquina 
+para obter acessos privilegiados que somente o detentor original do MAC/IP 
+teria. Recomendo não levar em consideração que isto seja a solução definitiva
+contra IP spoofing, pois é possível falsificar o MAC address de uma interface 
+para tomar outra identidade. 
+ <p>
+Este método poderá ser aplicado para fornecer um maior laço de confiança
+por hardware entre as máquinas que compõem uma rede de servidores. Ele 
+também evita mesmo que uma máquina configurada de forma errônea tenha 
+acesso indevido ao servidor ou em uma situação extrema, se torne o gateway 
+da rede.
+ <p>
+Para restringir as conexões para uma máquina <prgn>Linux</prgn> 
+por MAC address, utilize o firewall <prgn>iptables</prgn>. Com ele 
+será permitido fazer a restrição por serviços, criando uma barreira 
+bastante chata para crackers tentarem se conectar a um serviço. 
+<![ %CAPJUNTOS [ Como referência, leia a seção <ref id="fw-iptables-mod-mac">.]]>
+ <p>
+Outra situação é a restrição por par MAC/IP usando o próprio cache 
+arp da máquina, usando entradas estáticas de endereços. Um exemplo 
+deste uso é quando você é extremamente paranóico ou quando uma rede que 
+utiliza algum método de autenticação baseado no <file>rhosts</file> (como 
+é o caso do sistema de backup do <prgn>Amanda</prgn>), então é importante 
+dizer para as máquinas servidoras, qual o MAC address/IP privilegiado que 
+terá o acesso ao usuário para conexão sem senha. 
+ <p>
+O local padronizado para definir um MAC estático (e bastante desconhecido 
+da maioria dos administradores de sistemas) é o <file>/etc/ethers</file>. 
+O formato deste arquivo é o <tt>MAC Address</tt> e <tt>IP</tt> separados 
+por espaço, cada linha com uma nova entrada de MAC Address. Veja o exemplo: 
+<example>
+00:03:47:AA:AA:AB       www.focalinux.org.br
+00:03:47:BB:AA:BA       www2.focalinux.org.br
+00:03:47:BB:AA:BB       192.168.0.1
+
+</example>
+Caso não conheça o formato do endereço de MAC Address, os três primeiros 3 campos
+definem o fabricante da placa de rede, e os 3 últimos é uma identificação 
+única do fabricante para a Placa, ou seja, NENHUMA placa de rede fabricada tem o
+mesmo MAC Address físico. 
+ <p>
+Para que o comando <prgn>arp</prgn> crie as entradas estáticas no seu cache ARP, 
+será necessário executar o comando <tt>arp -f /etc/ethers</tt>. Este comando 
+poderá ser colocado em algum script ou diretório de inicialização de sua 
+distribuição para que seja executado automaticamente (como por exemplo, no
+<file>/etc/rc.boot</file> da <prgn>Debian</prgn>). Digitando <tt>arp</tt> você 
+verá as linhas definidas no arquivo <file>/etc/ethers</file> marcadas com as 
+opção (flag) <tt>M</tt> (manual/permanente). Outra forma de verificar, é 
+usando o <tt>arp -a máquina</tt> ou somente <tt>arp -a</tt>. As máquinas 
+especificadas estaticamente (manualmente) terão o nome <tt>PERM</tt> 
+listados (cache arp permanente).
+
+<![ %OBS [ 
+ <p>
+<strong>OBS:</strong> Como deve ter notado, a restrição por MAC Address implica 
+em um aumento no trabalho de gerenciamento das configurações. Assim, planeje-se 
+para que esta tarefa não seja desgastante, crie programas para realizar 
+atualizações dinâmicas estudando a estrutura de sua rede e como suas máquinas 
+se comunicam para não ter problemas obscuros quando tiver que fazer uma simples 
+modificação em uma interface de rede :)
+ <p>
+Uma boa configuração restritiva requer análise sobre os impactos na rede.
+]]>
+
+
+<sect id="d-restr-inetd">Desabilitando serviços não usados no Inetd
+ <p>
+Desative todos os serviços que não serão utilizados no arquivo 
+<file>/etc/inetd.conf</file>, isto diminui bastante as possibilidades 
+de ataques em seu sistema. Os nomes de serviços são os parâmetros especificados 
+na primeira coluna do arquivo <file>/etc/inetd.conf</file> (por exemplo, 
+talk, ircd, pop3, auth, smtp). 
+ <p>
+Para desativar serviços neste arquivo, ponha o símbolo "#" no inicio 
+das linhas que deseja comentar e execute um <tt>killall -HUP inetd</tt>. 
+Alternativamente, o comando <tt>update-inetd</tt> pode ser usado para 
+facilitar esta tarefa: 
+<example>
+update-inetd --disable finger,talk,time,daytime
+
+update-inetd --disable 
+
+</example>
+Este comando envia automaticamente o sinal de reinicio (HUP) ao <prgn>inetd</prgn>. 
+O serviço poderá ser novamente ativado substituindo a opção <em>--disable</em> 
+por <em>--enable</em> ou retirando o trecho "#&lt;off&gt;#" no começo da linha 
+do serviço do <file>/etc/inetd.conf</file>. 
+
+
+<sect id="d-restr-authinseg">Evitando o uso de <file>hosts.equiv</file> e <file>.rhosts</file>
+ <p>
+O arquivo <file>hosts.equiv</file> contém uma lista de usuários 
+autorizados/desautorizados que podem fazer uso dos serviços "r*" sem fornecer uma 
+senha (como <prgn>rsh</prgn>, <prgn>rcp</prgn>, <prgn>rexec</prgn>, etc)
+<![ %CAPJUNTOS [, veja <ref id="rede-seg-tcpd-e">]]>. É muito fácil falsificar 
+um nome de usuário para obter acesso aos privilégios de outro usuário usando 
+este recurso. 
+ <p>
+Os arquivos <file>~/.rhosts</file>, <file>~/.shosts</file> tem o funcionamento 
+parecido com o <file>hosts.equiv</file> mas contém somente dois campos, o primeiro 
+especificando o nome do computador (FQDN) e o segundo o nome do usuário 
+que tem permissão de acesso sem fornecer senha. Ele garantirá este acesso ao 
+usuário e máquina remota especificada neste arquivo. Se for definido somente 
+o nome do computador, o nome de usuário deverá ser o mesmo do local para que 
+o acesso sem senha seja garantido. É recomendável restringir o acesso a estes 
+arquivos somente ao usuário/grupo quando for realmente necessário. Um exemplo 
+de <file>~/.rhosts</file>: 
+<example>
+maquina1.dominio.com.br usuario1
+maquina2.dominio.com.br usuario2
+
+</example>
+O uso destes dois mecanismos e dos serviços "r*" são desencorajados! (o último 
+por usar transferência de dados não criptografadas). 
+<![ %CAPJUNTOS [ Veja <ref id="s-ssh"> para uma alternativa melhor.]]> 
+Utilize estes dois mecanismos somente se deseja 
+facilidade no gerenciamento e se sua rede seja absolutamente confiável 
+e a segurança de dados não seja prioridade pra você... 
+
+
+<sect id="d-restr-shutdown">Restringindo o uso do shutdown
+ <p>
+Por padrão todos que tem acesso ao console do sistema podem efetuar o 
+reinicio do computador pressionando CTRL+ALT+DEL. Estas teclas de 
+combinação são definidas pela linha
+<example>
+ca:12345:ctrlaltdel:/sbin/shutdown -r now
+
+</example>
+do arquivo <file>/etc/inittab</file>. 
+A opção <em>-a</em> (access) do <prgn>shutdown</prgn> restringe 
+isto, permitindo somente o reinicio do sistema caso um dos 
+usuários cadastrados no arquivo <file>/etc/shutdown.allow</file> 
+estejam logados no console. Caso nenhum usuário autorizado 
+esteja logado, a mensagem <tt>shutdown: no authorized users logged in</tt> 
+é exibida no console local. 
+ <p>
+O arquivo <file>/etc/shutdown.allow</file> deve conter um usuário por 
+linha e 32 no máximo. 
+ <p>
+A mesma linha do <file>/etc/inittab</file> pode ser modificada para a 
+seguinte:
+<example>
+ca:12345:ctrlaltdel:/sbin/shutdown -a -t5 -r now
+
+</example>
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Se a opção <em>-a</em> seja especificada e o arquivo 
+<file>/etc/shutdown.allow</file> não existe, a opção <em>-a</em> é ignorada. ]]>
+
+
+<sect id="d-restr-proc">Restringindo o acesso ao sistema de arquivos /proc
+ <p>
+O patch <em>restricted proc fs</em> é um dos melhores para realizar esta 
+tarefa. Restringindo o acesso ao sistema de arquivos <file>/proc</file> 
+evita que o usuário normal tenha acesso aos detalhes sobre processos de outros 
+(com <tt>ps aux</tt>) ou acesso a detalhes de processos de outros usuários 
+existentes nos subdiretórios numéricos (equivalentes a PID) em 
+<file>/proc</file>. Abaixo algumas características do patch 
+<em>restricted proc fs</em>: 
+<list compact>
+ <item>
+É pequeno, rápido e faz poucas modificações no fonte do kernel.
+ <item>
+Seu método de funcionamento é baseado nas restrições de dono/grupo 
+(nativas de ambiente <prgn>Unix</prgn>). 
+ <item>
+Restringe a visualização de processos só dos usuários. Adicionalmente 
+será especificada uma GID para o diretório <file>/proc</file>, qualquer 
+usuário que pertença ao grupo especificado poderá visualizar todos os 
+processos e entrar em qualquer diretório do kernel (sem restrições, como 
+se não tivesse o patch). 
+ <item>
+Muito estável e confiável. 
+</list>
+Este patch deve ser baixado de <url id="&url-restrictedproc-www;">, existem 
+versões para os kernels da série 2.2 e 2.4, baixe e aplique o patch, na 
+configuração do kernel ative a opção <tt>Restricted Proc fs support</tt>. 
+Compile e instale seu kernel. 
+ <p>
+No arquivo <file>/etc/fstab</file> inclua um grupo para a montagem do sistema 
+de arquivos <file>/proc</file> (vamos usar o grupo <tt>adm</tt> com a GID 4): 
+<example>
+# /etc/fstab: informações estáticas do sistemas de arquivos.
+#
+# &lt;Sist. Arq.&gt;    &lt;Ponto Mont.&gt;  &lt;tipo&gt;  &lt;opções&gt;       &lt;dump&gt; &lt;passo&gt;
+  proc            /proc          proc    defaults,gid=4   0       0
+
+</example>
+Após reiniciar o sistema, execute o comando <tt>ls -lad /proc</tt> note que 
+o grupo do diretório <file>/proc</file> será modificado para <tt>adm</tt>. 
+Agora entre como um usuário e execute um <tt>ps aux</tt>, somente seus 
+processos serão listados. Para autorizar um usuário específico ver todos 
+os processos (ter acesso novamente ao diretório <file>/proc</file>), 
+inclua este no grupo que usou no arquivo <file>/etc/fstab</file>: 
+<example>
+adduser usuario adm
+
+</example>
+Após efetuar o usuário já estará pertencendo ao grupo <tt>adm</tt> 
+(confira digitando <tt>groups</tt>), e poderá ver novamente os 
+processos de todos os usuários com o comando <tt>ps aux</tt>. 
+
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Incluir um usuário no grupo <tt>adm</tt> É PERIGOSO, 
+porque este usuário poderá ter acesso a arquivo/diretórios que pertençam a 
+este grupo, como os arquivos/diretórios em <file>/var/log</file>. Se esta não 
+é sua intenção, crie um grupo independente como <tt>restrproc</tt> para controlar 
+quem terá acesso ao diretório <file>/proc</file>: <tt>addgroup restrproc</tt>. 
+ <p>
+<strong>OBS2:</strong> Se a opção <tt>gid</tt> não for especificada para 
+a montagem de <file>/proc</file> no <file>/etc/fstab</file>, o grupo 
+<tt>root</tt> será usado como padrão. NUNCA adicione usuários 
+ao grupo <tt>root</tt>, use o método da observação acima para permitir outros 
+usuários ver todos os processos em execução. 
+ <p>
+<strong>OBS3</strong> Caso o servidor <prgn>identd</prgn> esteja sendo usado 
+na máquina servidora, será necessário roda-lo com a mesma GID do diretório 
+<file>/proc</file> para que continue funcionando. Se ele é executado 
+como daemon, adicione a opção <em>-g GRUPO</em> no script que inicia o 
+serviço em <file>/etc/init.d</file> e reinicie o daemon. 
+Caso ele seja iniciado via inetd, faça a seguinte modificação no arquivo 
+<file>/etc/inetd.conf</file> (assumindo o uso do <prgn>oidentd</prgn>): 
+<example>
+#:INFO: Info services
+auth		stream	tcp	nowait.40	nobody.adm	/usr/sbin/oidentd oidend -q -i -t 40
+
+</example>
+<![ %CAPJUNTOS [ Veja <ref id="s-ident"> para detalhes sobre este serviço. ]]> ]]>
+
+
+<sect id="d-restr-quotas">Limitando o uso de espaço em disco (quotas)
+ <p>
+O sistema de <prgn>quotas</prgn> é usado para limitar o espaço 
+em disco disponível a usuários/grupo. O uso de partições independentes 
+para o diretório <file>/home</file> e outros montados separadamente não 
+é muito eficaz porque muitos usuários serão prejudicados se a partição 
+for totalmente ocupada e alguns possuem requerimentos de uso maior do que 
+outros. 
+ <p>
+O suporte a <em>Quotas</em> deve estar compilado no kernel (seção 
+<em>FileSystems</em>) e o sistema de arquivos deverá ser do tipo <em>ext2</em> 
+ou <em>XFS</em> para funcionar. 
+
+
+<sect1 id="d-restr-quotas-install">Instalando o sistema de quotas
+ <p>
+Abaixo o passo a passo para a instalação de quotas em seu sistema:
+<enumlist compact>
+ <item>
+Recompile seu kernel com suporte a quota. Habilite a opção "Quota support" na 
+seção "FileSystems" na configuração de recursos do seu kernel. 
+
+ <item>
+Instale o pacote <package>quota</package> no sistema 
+(<tt>apt-get install quota</tt>). 
+
+ <item>
+Habilite a quota para os sistemas de arquivos que deseja restringir no arquivo 
+<file>/etc/fstab</file>: 
+<example>
+/dev/hda1    /boot ext2     defaults                   1  1
+/dev/hda3    /     ext2     defaults,usrquota          1  2
+/dev/hda4    /usr  ext2     defaults,grpquota          1  3
+/dev/hda5    /pub  ext2     defaults,usrquota,grpquota 1  4
+
+</example>
+O sistema de arquivos <file>/dev/hda1</file> não terá suporte a quota, 
+<file>/dev/hda3</file> terá suporte a quotas de usuários (<em>usrquota</em>), 
+<file>/dev/hda4</file> terá suporte a quotas de grupos (<em>grpquota</em>) e 
+<file>/dev/hda5</file> terá suporte a ambos. Por padrão é assumido que os 
+arquivos de controle de quota estão localizados no ponto de montagem 
+da partição com os nomes <file>quota.user</file> e <file>quota.group</file>.
+<![ %CONSTRUCAO [
+para a versão 2 do <prgn>quota</prgn> ou <file>quota.user</file> e 
+<file>quota.group</file> para a versão 1 do <prgn>quota</prgn>. O 
+utilitário <prgn>convertquota</prgn> pode ser usado para 
+converter os bancos de dados do <prgn>quota</prgn> da versão 
+1 para a versão 2. ]]>
+
+ <item>
+Agora será necessário criar os arquivos <file>quota.user</file> e 
+<file>quota.group</file> no ponto de montagem de cada partição <em>ext2</em> 
+acima que utilizará o recurso de quotas. 
+O arquivo <file>quota.user</file> controla as quotas de usuários e 
+<file>quota.group</file> controla as quotas de grupos. 
+<list compact>
+ <item>
+Crie um arquivo vazio <file>quota.user</file> em <file>/</file> (terá suporte 
+somente a quota de usuários, veja a opção de montagem no <file>/etc/fstab</file>): 
+<tt>touch /quota.user</tt> ou <tt>echo -n &gt;/quota.user</tt>. 
+
+ <item>
+Crie um arquivo vazio <file>quota.group</file> em <file>/usr</file> (terá suporte 
+somente a quota de grupos):
+<tt>touch /usr/quota.group</tt> ou <tt>echo -n &gt;/usr/quota.group</tt>. 
+
+ <item>
+Crie um arquivo vazio <file>quota.user</file> e <file>quota.group</file> em 
+<file>/pub</file> (este sistema de arquivos tem suporte a ambos os tipos 
+de quota): 
+<tt>touch /pub/quota.user /pub/quota.group</tt>. 
+
+</list>
+Por motivos de segurança, as permissões dos arquivos de controle de quota 
+<file>quota.user</file> e <file>quota.group</file> devem ser leitura/gravação 
+ao usuário <tt>root</tt> e sem permissões para grupo/outros usuários: 
+<tt>chmod 0600 /quota.user /quota.group</tt>. 
+<![ %OBS [
+ <p>
+<strong>OBS: </strong> Se deseja utilizar o quota versão 1, certifique-se 
+que não existem os arquivos chamados <file>aquota.user</file> e 
+<file>aquota.group</file> no diretório raíz de sua partição. 
+Se eles estiverem disponíveis, os utilitários de quota utilizarão esta versão
+como padrão, atualmente o kernel 2.4 possui somente suporte a quota versão 1. 
+ <p>
+A versão 2 do quota checa corrompimento dos arquivos de dados de quota e 
+trabalha mais rápido em partições grandes. São necessários patches da série 
+"ac" (Alan Cox) para usar a versão 2 do quota. ]]>
+
+ <item>
+Entre em modo monousuário <tt>init 1</tt>, desmonte os sistemas 
+de arquivos que utilizarão a quota e monte-os novamente (isto serve 
+para ativar as opções de quota). Alternativamente, execute <tt>umount -a</tt> 
+(para desmontar todos os sistemas de arquivos) e <tt>mount -a</tt> para 
+remontar todos. 
+ <p>
+Se você ativou as quotas para o sistema de arquivos <file>/</file> (como 
+em nosso exemplo) será necessário reiniciar o sistema. 
+
+ <item>
+O próximo passo é scanear o disco para criar os dados para as 
+partições com suporte a quota (ativadas no <file>/etc/fstab</file>): 
+<example>
+ quotacheck -augv
+</example>
+O parâmetro <em>-a</em> diz para checar todas as partições com suporte a 
+quota no arquivo <file>/etc/mtab</file>, <em>-u</em> para checar 
+quotas de usuários, <em>-g</em> para checar grupos e <em>-v</em> para 
+mostrar o progresso da checagem da partição. 
+ <p>
+Na primeira execução é mostrado uma mensagem de erro de arquivo 
+<file>quota.user</file>/<file>quota.group</file> corrompido, mas isto 
+é normal porque o arquivo anterior tem tamanho 
+zero. Estes nomes também servem para o <prgn>quotacheck</prgn> "auto-detectar" a 
+versão do sistema de quota usada no sistema de arquivos. 
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Certamente será necessário "forçar" a remontagem como 
+somente leitura do sistema de arquivos <file>/</file> com a opção <em>-m</em> 
+para o <prgn>quotacheck</prgn> criar as configurações de quota nesta partição. ]]>
+
+ <item>
+Agora resta ativar o suporte as quotas de disco em todas as partições 
+(<em>-a</em>) com recurso de quota especificado (no <file>/etc/mtab</file>): 
+<example>
+ quotaon -augv
+ 
+</example>
+As opções possuem o mesmo significado do comando <prgn>quotacheck</prgn>. 
+O utilitário <prgn>quotaoff</prgn> serve para desativar quotas 
+de usuários e usa as mesmas opções do <prgn>quotaon</prgn>. Estes três 
+utilitários somente podem ser usados pelo usuário <tt>root</tt>. 
+As opções de quota podem ser especificadas independente para cada sistema 
+de arquivos: 
+<example>
+# Ativa o suporte a quota em /pub (somente grupos de usuários no momento).
+quotaon -gv /pub
+
+# Ativa as quotas de usuários em /pub
+quotaon -uv /pub
+
+# Desativa as quotas de grupos em /pub (deixando somente a de usuários ativa)
+quotaoff -gv /pub
+
+</example>
+
+</enumlist>
+A atualização de quotas durante a gravação/exclusão de arquivos 
+é feita automaticamente. O utilitário <prgn>quotacheck</prgn> 
+deverá ser executado sempre que o sistema de quotas for 
+desativado (por não haver atualização automática dos dados de 
+uso de disco) ou quando ocorrerem falhas de disco. 
+ <p>
+Na distribuição <prgn>Debian</prgn> o <prgn>quotacheck</prgn> é disparado 
+sempre que necessário após as situações de checagem de disco. As quotas 
+de todas as partições também são ativadas automaticamente 
+pelo script <file>/etc/init.d/quota</file> e <file>/etc/init.d/quotarpc</file>. 
+ <p>
+Em sistemas que utilizam NFS e possuem sistemas de arquivos exportados em 
+<file>/etc/exports</file>, o daemon <prgn>rpc.rquotad</prgn> deverá ser 
+carregado. Sua função é fornecer os detalhes de <prgn>quota</prgn> dos 
+sistemas de arquivos locais exportados para as máquinas clientes. 
+
+
+<sect1 id="d-restr-quotas-editando">Editando quotas de usuários/grupos 
+ <p>
+O programa <prgn>edquota</prgn> é usado pelo <tt>root</tt> para editar as 
+quotas de usuários/grupos. 
+Por padrão, todos os usuários/grupos do sistema não possuem quotas. Sua 
+sintaxe é a seguinte
+ <p>
+<tt>edquota [<em>opções</em>] [<em>usuário/grupo</em>]</tt>
+ <p>
+As opções podem ser: 
+<taglist>
+ <tag>-u</tag> 
+  <item>
+ Edita a quota do usuário especificado (esta é a padrão). 
+ 
+ <tag>-g</tag>
+  <item>
+ Edita a quota de grupo especificado.
+ 
+ <tag>-r</tag>
+  <item>
+ Permite editar a quota de sistemas de arquivos remotos através do 
+ daemon <prgn>rpc.rquotad</prgn>.
+
+ <tag>-p [usuário/grupo]</tag>
+  <item>
+Usa os valores especificados para o <em>usuário/grupo</em> para definir 
+a nova quota, sem necessidade de entrar no modo de edição. 
+
+ <tag>-t</tag>
+  <item>
+Permite modificar o valor de tolerância dos limites que ultrapassam 
+<em>soft</em> até que sejam bloqueados. Durante o tempo de tolerância, 
+serão enviados somente avisos sobre a quota ultrapassada sem 
+bloquear totalmente a gravação de arquivos (até que o limite 
+<em>hard</em> seja atingido ou o tempo de tolerância seja ultrapassado). 
+ 
+</taglist>
+Quando a quota <em>soft</em> do usuário/grupo é estourada, a mensagem 
+"warning: user disk quota excedeed" será exibida. Quando a quota 
+<em>hard</em> é ultrapassada, a gravação atual é interrompida 
+e a mensagem "write failed, user disk limit reatched" é 
+mostrada ao usuário. Nenhuma nova gravação que ultrapasse a quota 
+<em>hard</em> é permitida  Por exemplo, para modificar a quota do 
+usuário gleydson: <tt>edquota gleydson</tt>
+<example>
+Disk quotas for user gleydson (uid 1000): 
+  Filesystem                   blocks       soft       hard     inodes     soft
+    hard
+  /dev/hda5                    504944     500100     600000      10868        15000
+       20000
+</example>
+O editor de textos usado poderá ser modificado através da variável 
+<var>$EDITOR</var>. Abaixo a explicação destes campos: 
+<list compact>
+ <item><tt>Filesystem</tt> - Sistema de arquivos que terá a quota do usuário/grupo 
+editada. As restrições se aplicam individualmente de acordo com o sistema de 
+arquivos. 
+
+ <item><tt>blocks</tt> - Número máximo de blocos (especificado em Kbytes) que 
+ o usuário possui atualmente. O usuário <tt>gleydson</tt> está usando atualmente 
+ 504944 Kbytes. 
+ <list compact> 
+  <item><tt>soft</tt> - Restrição mínima de espaço em disco usado. Atualmente 
+ 500100 Kb. 
+  <item><tt>hard</tt> - Limite máximo aceitável de uso em disco para o usuário/grupo 
+ sendo editado. 600000 Kb atualmente. O sistema de quotas nunca deixará este 
+ limite ser ultrapassado.  
+ </list>
+ <item><tt>inodes</tt> - Número máximo de arquivos que o usuário possui atualmente 
+ na partição especificada. O usuário <tt>gleydson</tt> possui atualmente 
+ 10868 arquivos na partição <file>/pub</file>. 
+ <list compact>
+  <item><tt>soft</tt> - Restrição mínima de número de arquivos que o usuário/grupo 
+ possui no disco. Atualmente em 15.000.
+  <item><tt>hard</tt> - Restrição máxima de número de arquivos que o usuário/grupo
+ possui no disco. Atualmente em 20.000.
+ </list>
+</list>
+Para desativar as restrições coloque "0" no campo <em>soft</em> ou <em>hard</em>. 
+Quando o limite <em>soft</em> é atingido, o usuário é alertado por ter 
+ultrapassado sua quota com a mensagem "warning: user quota excedeed" 
+(quota do usuário excedida). O programa <prgn>setquota</prgn> é uma programa 
+não-interativo para edição de quotas para ser usado diretamente na linha de 
+comando ou em shell scripts.
+ <p>
+Após ultrapassar o limite <em>soft</em>, começa a contagem do tempo para que este 
+passe a valer como limite <em>hard</em> (o máximo aceitável e que nunca poderá 
+ser ultrapassado). O comando <tt>edquota -t</tt> serve para modificar estes 
+valores na partição especificada: 
+<example>
+Grace period before enforcing soft limits for users: 
+Time units may be: days, hours, minutes, or seconds
+  Filesystem             Block grace period     Inode grace period
+  /dev/hda5                  2days                  7days
+
+</example>
+Abaixo a explicação destes campos: 
+<list compact>
+ <item><tt>Filesystem</tt> - Sistema de arquivos que terá o período de tolerância 
+ modificado.
+ <item>
+<tt>Block grade period</tt> - Tempo máximo de tolerância para usuários/grupos que 
+ultrapassaram sua quota <em>soft</em> de espaço em disco antes de passar a 
+valer como <em>hard</em>. No exemplo, o usuário tem 2 dias para excluir possíveis 
+arquivos ou contactar o administrador para redimensionar o tamanho de quota. 
+O valor padrão é 7 dias.
+
+ <item>
+<tt>Inode grade period</tt> - Tempo máximo de tolerância para usuários/grupos que 
+ultrapassaram sua quota <em>soft</em> de número de arquivos gravados antes de 
+passar a valer como <em>hard</em>. No exemplo, o usuário tem 7 dias para excluir 
+possíveis arquivos ou contactar o administrador para analisar seu tamanho de 
+quota. O valor padrão é 7 dias.
+</list>
+
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> - O comando <prgn>quotacheck</prgn> deverá ser executado 
+na partição sempre que novas restrições/limites forem editados com o 
+<prgn>edquota</prgn>. Isto atualiza os arquivos <file>quota.user</file> e 
+<file>quota.group</file>. Lembre-se de desativar o sistema de quotas 
+(<tt>quotaoff -ugv /partição</tt>) antes de executar este comando (para 
+liberar totalmente a partição, <prgn>quotacheck</prgn> remonta a partição 
+somente para leitura quando é executado). Por este motivo é recomendável 
+fazer isso em modo monousuário. 
+ <p>
+<strong>OBS2:</strong> Quando o limite <em>soft</em> (suave) é excedido, o 
+sistema começará a lhe mostrar mensagens alertando a passagem do limite 
+(para lhe dar tempo de eliminar arquivos ou não ser pego desprevenido 
+com o bloqueio de gravação) porque o limite <em>hard</em> (rígido) nunca 
+poderá ser ultrapassado. 
+ <p>
+<strong>OBS3:</strong> - O tempo de tolerância restante ao usuário/grupo 
+quando a quota é ultrapassada poder ser visualizada com o comando 
+<prgn>quota</prgn> (veja <ref id="d-restr-quotas-checando">). 
+ <p>
+<strong>OBS4:</strong> - Quando o usuário exclui seus arquivos e volta 
+a ficar abaixo dos limites <em>soft</em> da quota, o tempo de tolerância 
+é resetado aos valores padrões (especificados por <tt>edquota -t</tt>. 
+ <p>
+<strong>OBS5:</strong> - As quotas de espaço em disco podem ser definidas 
+automaticamente para os novos usuários adicionados ao sistema colocando o 
+espaço em disco na variável <var>QUOTAUSER=numero</var> do arquivo 
+<file>/etc/adduser.conf</file>. Isto será equivalente a digitar o comando 
+<tt>edquota -q QUOTA novo_usuário</tt>.
+]]>
+
+
+<sect1 id="d-restr-quotas-mudtodos">Modificando a quota de todos os usuários de uma vez
+ <p>
+Editar manualmente a quota de cada usuário é uma tarefa trabalhosa quando 
+se está instalando quotas e possui muitos usuários, existe uma maneira mais 
+fácil de fazer isso usando o próprio <prgn>edquota</prgn> e um usuário com 
+a quota já definida. Por exemplo, instalamos quota em nosso sistema e queremos 
+que todos os 300 usuários tenham a quota de usuário de 10MB e de grupo de 
+15MB:
+<enumlist compact>
+ <item>
+Criamos um usuário com esta quota usando o <prgn>edquota</prgn> 
+(como descrito em <ref id="d-restr-quotas-editando">). Como exemplo 
+usaremos o usuário <tt>teste_user</tt>. Use o comando 
+<tt>quota teste_user</tt> para verificar se as quotas para este 
+usuário está correta.
+
+ <item>
+Criamos um script que modifique a quota padrão de todos os usuários
+do sistema de uma só vez:
+<example>
+#!/bin/sh
+cd /home
+for USUARIO in *
+do
+edquota -u ${USUARIO} -p teste_user
+
+done
+
+</example>
+Pronto, verifique a quota de todos os usuários com o comando <tt>repquota -a</tt>.
+
+</enumlist>
+
+
+<sect1 id="d-restr-quotas-checando">Verificando a quota disponível ao usuário
+ <p>
+Execute o comando <prgn>quota</prgn> mostra os limites de usuários/grupos e a 
+tolerância restante antes do limite <em>soft</em> se tornar rígido. Abaixo alguns 
+exemplos descritivos deste comando: 
+<example>
+quota
+
+Disk quotas for user gleydson (uid 1234): 
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+      /dev/hda5  504944* 500100  600000   00:05   10868       0       0        
+      
+</example>
+Os campos tem o seguinte significado: 
+<list compact>
+ <item>
+<tt>Filesystem</tt> - Sistema de arquivos. 
+ <item>
+<tt>blocks</tt> - Número de blocos usados atualmente na partição (em Kb). 
+O "*" indica que o limite foi ultrapassado. Atualmente em 504944.
+ <list compact>
+  <item>
+ <tt>quota</tt> - Limite suave (<em>soft</em>) de espaço na partição que o 
+ usuário/grupo possui. Atualmente 500100. O valor 0 indica 
+ que o usuário/grupo não possui restrições. 
+  <item>
+ <tt>limit</tt> - Limite máximo (<em>hard</em>) de espaço na partição 
+ que o usuário/grupo possui. Atualmente em 600000. O valor 0 indica
+ que o usuário/grupo não possui restrições. 
+  <item>
+ <tt>grace</tt> - Tolerância antes que o limite <em>soft</em> passe a 
+ valer como <em>hard</em> quando o espaço em disco é ultrapassado. Este usuário 
+ tem 5 minutos restantes para que isto ocorra. Quando o valor <em>soft</em> volta 
+ a ficar abaixo da quota, a tolerância é resetada. 
+  <p>
+ O parâmetro "none" indica que o tempo de tolerância expirou (caso existam 
+ limitações de quota que foram ultrapassadas) ou que o usuário/grupo não 
+ possui restrições. Veja se existe um "*" no campo <tt>blocks</tt>. 
+ </list>
+ <item>
+<tt>files</tt> - Número máximo de arquivos que usuário/grupo possui atualmente 
+na partição. Um "*' indica que o limite foi ultrapassado. Atualmente em 10868. 
+ <list compact>
+  <item>
+ <tt>quota</tt> - Limite suave (<em>soft</em>) de número de arquivos na 
+ partição que o usuário/grupo possui. Atualmente ilimitado. 
+  <item>
+ <tt>limit</tt> - Limite máximo (<em>hard</em>) de número de arquivos na 
+ partição que o usuário/grupo possui. Atualmente ilimitado. 
+  <item>
+ <tt>grace</tt> - Tolerância antes que o limite <em>soft</em> passe a valer 
+ como <em>hard</em> para o número de arquivos ultrapassados. Como não existe 
+ quota para número de arquivos, não existe tolerância. A tolerância é resetada 
+ aos valores padrões quando o valor <em>soft</em> volta a ficar abaixo da quota. 
+ </list>
+</list>
+A quota de outros usuários/grupos podem ser visualizadas especificando as 
+opções <em>-u</em> (padrão) e <em>-g</em> na linha de comando respectivamente. 
+A opção <em>-v</em> permite visualizar quotas em sistemas de arquivos não alocados 
+e <em>-q</em> mostra somente uma mensagem dizendo se o usuário está ou não dentro
+de sua quota: 
+<example>
+quota -u usuario
+
+quota -uq usuario
+
+quota -g users
+
+</example> 
+Por motivos de segurança, você não poderá visualizar as quotas de outros usuários 
+e grupos que não pertence (exceto para o usuário <tt>root</tt>).
+
+
+<sect1 id="d-restr-quotas-todas">Verificando a quota de todos os usuários/grupos 
+ do sistema
+ <p>
+Quando precisamos verificar o uso de quotas de todos os usuários/grupos do sistema 
+o <prgn>quota</prgn> se torna incômodo e pouco prático. O comando 
+<prgn>repquota</prgn> lista está disponível ao administrador para facilitar 
+esta tarefa. Sua listagem é organizada por partições listando dados adicionais 
+como <tt>grace time</tt> e aceita as mesmas opções dos utilitários 
+<prgn>quotaon</prgn> e <prgn>quotaoff</prgn>. Primeiro são listados as 
+restrições de usuários e depois de grupos para a partição. 
+(tolerância) 
+
+As opções aceitas por este utilitário tem o mesmo 
+significado das opções do <prgn>quotaon</prgn> e <prgn>quotaoff</prgn>:
+<example>
+repquota -aug
+
+*** Report for user quotas on device /dev/hda3
+Block grace time: 7days; Inode grace time: 7days
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+root      --   29160       0       0   none    9970     0     0   none
+daemon    --      64       0       0             22     0     0       
+man       --     944       0       0             65     0     0       
+mail      --    4960       0       0            823     0     0       
+news      --       4       0       0              1     0     0       
+gleydson  --   31032       0       0           6956     0     0       
+testuser  --      16       0       0              4     0     0       
+anotheruser --    16       0       0              4     0     0       
+nobody    --    2344       0       0              2     0     0       
+
+*** Report for user quotas on device /dev/hda5
+Block grace time: 2days; Inode grace time: 7days
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+root      --   16052       0       0   none    6443     0     0   none
+gleydson  +-    4944  500100  600000   none   10868     0     0       
+
+*** Report for group quotas on device /dev/hda5
+Block grace time: 7days; Inode grace time: 7days
+                        Block limits                File limits
+Group           used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+root      --   20308       0       0   none     636     0     0   none
+src       --   11404       0       0            660     0     0       
+users     --    1756       0       0           6561     0     0       
+gleydson  --    3452       0       0           9307     0     0       
+
+</example>
+Um sinal de "+-" no segundo campo indica quota ultrapassada ou no espaço em 
+disco, "-+' em número de arquivos e "++" em ambos. Como vimos acima, o 
+este comando também lista o número de arquivos e bytes pertencentes a 
+cada usuário na partição (mesmo não sendo monitorado pelas restrições de 
+quota), isto ajuda a monitorar ações suspeitas com a excedência de espaço 
+em disco de determinados usuários/grupos do sistema. Um exemplo é alguém 
+que esteja fora da quota e abusando de seu usuário/grupo para uso excessivo 
+de espaço em disco sem seu conhecimento. 
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Este utilitário pode ser executado por qualquer usuário 
+no sistema e mostrar o uso de quotas de usuários/grupos que não deveria ter 
+acesso. É recomendado deve ter permissões de leitura/gravação 
+somente para o usuário <tt>root</tt> e sem permissões para grupo/outros 
+usuários. ]]>
+
+
+<sect1 id="d-restr-quotas-warn">Avisando usuários sobre o estouro de quota
+ <p>
+Avisos sobre quota ultrapassada podem ser enviadas automaticamente a todos 
+os usuários pelo utilitário <prgn>warnquota</prgn>. 
+Ele poderá ser executado periodicamente através do <prgn>cron</prgn> 
+(por padrão isto é feito diariamente na distribuição <prgn>Debian</prgn> 
+pelo script <file>/etc/cron.daily/quota</file>). 
+Dados adicionais sobre o envio das mensagens devem ser especificados no 
+arquivo <file>/etc/warnquota.conf</file> seu formato é o seguinte:
+<example>
+# Programa usado para enviar as mensagens
+MAIL_CMD 	= "/usr/sbin/sendmail -t"
+# Campo de origem da mensagem
+FROM 		= "root@localhost"
+# but they don't have to be:
+SUBJECT 	= Quota excedida
+CC_TO 		= "root@localhost"
+SUPPORT 	= "root@localhost"
+PHONE 		= "5555-2525"
+#
+
+</example>
+O e-mail é enviado aos usuários (e usuários que pertencem a grupos com a 
+quota excedida) com o seguinte formato:
+<example>
+From: root@localhost
+To: gleydson@debian.gms.com.br
+Cc: root@localhost
+Reply-To: root@localhost
+Subject: Quota Excedida
+Date: Sat, 22 Sep 2001 14:27:38 -0400
+
+Hi,
+
+We noticed that you are in violation with the quotasystem
+used on this system. We have found the following violations:
+
+
+                        Block limits               File limits
+Filesystem           used    soft    hard  grace    used  soft  hard  grace
+/dev/hda5      +-  504944  500100  600000   none   10868     0     0       
+
+
+We hope that you will cleanup before your grace period expires.
+
+Basically, this means that the system thinks you are using more disk space
+on the above partition(s) than you are allowed.  If you do not delete files
+and get below your quota before the grace period expires, the system will
+prevent you from creating new files.
+
+For additional assistance, please contact us at root@localhost
+or via phone at 5555-2525.
+
+</example>
+
+
+<![ %CAPJUNTOS [
+<sect>Suporte a senhas ocultas
+ <p>
+Veja <ref id="d-contas-segsenhas-shadow">.
+
+
+<sect>Suporte a senhas md5
+ <p>
+Veja <ref id="d-contas-segsenhas-md5">.
+]]>
+
+<sect id="d-restr-hardware">Restrições no hardware do sistema
+ <p>
+As restrições descritas aqui são úteis para diminuir as chances de um 
+ataque por acesso físico ser realizado com sucesso no sistema que 
+desejamos proteger. 
+ <p>
+Ter um sistema totalmente seguro é praticamente impossível, mas existem 
+diversas maneiras de se dificultar as coisas. 
+
+
+<sect1 id="d-restr-hardware-bios">BIOS do sistema
+ <p>
+Algumas restrições podem ser configuradas na para diminuir as chances de 
+se obter acesso <tt>root</tt> (usando métodos conhecidos de recuperação 
+via disquete/CD inicializável) ou simplesmente aumentar nossa confiança 
+no sistema: 
+<list>
+ <item>
+Coloque uma senha para entrada no Setup da máquina, compartilhe esta 
+senha <strong>somente</strong> com as pessoas que tem poder de root 
+(ou seja, pessoal de confiança que administra a máquina). 
+
+ <item>
+Mude a seqüencia de partida para somente sua unidade de disco rígido 
+que contém o sistema operacional. As BIOS trazem convenções de DOS para 
+especificar o método de partida, então <em>Only C</em> quer dizer somente 
+o primeiro disco rígido, <em>SCSI</em> tentar dispositivos SCSI primeiro, 
+etc. Isso pode variar de acordo com o modelo de sua BIOS. 
+
+</list>
+Com os dois ítens acima qualquer um ficará impedido de inicializar o sistema 
+a partir de um disco de recuperação ou entrar no Setup para modificar a 
+ordem de procura do sistema operacional para dar a partida via disquetes.
+
+
+<sect1 id="d-restr-hardware-floppy">Retirada da unidade de disquetes
+ <p>
+Como não é seguro confiar nas restrições de senha da BIOS (qualquer 
+um com conhecimentos de hardware e acesso físico a máquina pode 
+abrir o gabinete e dar um curto na bateria que mantém os dados na 
+CMOS ou aterrar o pino de sinal da CMOS), a retirada da unidade de 
+disquetes é recomendada, isso dificultará bastante as coisas. 
+
+
+<sect1 id="d-restr-hardware-netboot">Placas de rede com eprom de boot
+ <p>
+Evite a utilização de placas de rede com recursos de boot via EPROM no 
+servidor, um servidor dhcp/bootp/tftp poderá ser configurado sem problemas 
+por um cracker na rede (caso a BIOS esteja com a ordem inadequada de procura 
+de discos) e o ataque se dar com mais "sofisticação" e rapidez. 
+
+
+<sect1 id="d-restr-hardware-lilo">Protegendo o LILO
+ <p>
+A opção <em>passwd=senha</em> e <em>restricted</em> poderão ser usadas na 
+seção da imagem que desejamos proteger. Respectivamente pedem 
+uma senha para a inicialização do sistema e caso argumentos como 
+<em>root=single</em> sejam usados para conseguir acesso 
+<tt>root</tt> sem fornecer senha. 
+ <p>
+E deixe somente as permissões de acesso ao usuário <tt>root</tt> (caso 
+contrário sua senha poderá ser vista por qualquer usuário) e modifique 
+os atributos deste arquivo para imutável para que nem mesmo o 
+<tt>root</tt> possa modifica-lo: <tt>chattr +i /etc/lilo.conf</tt>.
+
+
+<sect1 id="d-restr-hardware-harddisk">Disco rígido
+ <p>
+O disco rígido do servidor poderá se retirado como alternativa 
+para se ter acesso aos dados armazenados. Isto poderá ser dificultado com 
+o uso de lacres de disco ou outras maneiras de dificultar mais esta tarefa 
+(mais parafusos, armazenamento em partes de difícil manipulação do HD, etc) 
+qualquer coisa que possa lhe fazer ganhar tempo e despertar suspeitas para 
+evitar o sucesso desta alternativa (ousada). 
+ <p>
+Dados importantes ou confidenciais poderão ser armazenados em um sistema de 
+arquivos criptografados e serem montados somente pelos administradores 
+que possuem acesso físico ao sistema. O algoritmo <em>Serpent</em> é muito 
+forte na proteção de dados além de possuir um ótimo desempenho. 
+Patches de criptografia poderão ser aplicados no kernel para ativação deste 
+recurso <![ %CAPJUNTOS [ (veja <ref id="d-cripto-criptofs">) ]]> para 
+detalhes. 
+ <p>
+Sensores podem ser ligados na carcaça do HD como forma de disparar um pequeno 
+alarme embutido no gabinete do servidor, se você gosta de eletrônica poderá 
+montar um destes facilmente para chamar a atenção alimentado por fonte/baterias 
+em um circuito de emergência, e poderá acomodar sua caixa em uma segunda "carcaça 
+de fonte" apenas para desviar suspeitas. Um circuito interno de câmeras também 
+é uma boa alternativa para monitorar a movimentação. 
+ <p>
+Esquemas de segurança dependendo do porte da organização e dos dados que se 
+desejam proteger deverão ser elaborados e postos em prática. Todos os métodos 
+imagináveis deverão ser considerados de acordo com as possibilidades do 
+ambiente. 
+
+

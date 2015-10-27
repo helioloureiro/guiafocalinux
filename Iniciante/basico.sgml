@@ -1,0 +1,880 @@
+<chapt id="bas">Explicações Básicas
+ <p>
+Este capítulo traz explicações sobre os principais componentes 
+existentes no computador e do sistema operacional <prgn>Linux</prgn>. 
+
+
+    <![ %INICIANTE [
+<sect id="basico-hardsoft">Hardware e Software
+ <p>
+<em>Hardware</em> - Significa parte física do computador (disquete, 
+pen-drive, impressoras, monitores, placa mãe, placa de fax, discos rígidos, etc).
+ <p>
+<em>Software</em> - São os programas usados no computador 
+(sistema operacional, processador de textos, planilha, banco de dados, 
+scripts, comandos, etc). 
+
+
+<sect id="basico-arquivo">Arquivos
+ <p>
+É onde gravamos nossos dados. Um arquivo pode conter um texto feito por 
+nós, uma música, programa, planilha, etc.
+ <p>
+Cada arquivo deve ser identificado por um <tt>nome</tt>, assim ele pode ser 
+encontrado facilmente quando desejar usa-lo. Se estiver fazendo um 
+trabalho de história, nada melhor que salva-lo com o nome 
+<file>historia</file>. Um arquivo pode ser binário ou texto (para detalhes 
+veja <ref id="basico-arquivo-bintext">).
+ <p>
+O <prgn>GNU/Linux</prgn> é <em>Case Sensitive</em> ou seja, ele diferencia letras 
+<em>maiúsculas</em> e <em>minúsculas</em> nos arquivos. O arquivo 
+<file>historia</file> é completamente diferente de <file>Historia</file>. 
+Esta regra também é válido para os <em>comandos</em> e <em>diretórios</em>. 
+Prefira, sempre que possível, usar letras minúsculas para identificar seus  
+arquivos, pois quase todos os comandos do sistema estão em  
+<em>minúsculas</em>.
+ <p>
+Um arquivo oculto no <prgn>GNU/Linux</prgn> é identificado por um "." no inicio 
+do nome (por exemplo, <file>.bashrc</file>). Arquivos ocultos não aparecem 
+em listagens normais de diretórios, deve ser usado o comando <tt>ls -a</tt> 
+para também listar arquivos ocultos.
+
+
+<sect1 id="basico-arquivo-tipos">Extensão de arquivos
+ <p>
+A extensão serve para identificar o tipo do arquivo. A extensão são as 
+letras após um "." no nome de um arquivo, explicando melhor: 
+<list>
+ <item>
+<file>relatório<strong>.txt</strong></file> - O <tt>.txt</tt> indica que o 
+conteúdo é um arquivo texto.
+ <item>
+<file>script<strong>.sh</strong></file> - Arquivo de Script (interpretado 
+por <file>/bin/sh</file>).
+ <item>
+<file>system<strong>.log</strong></file> - Registro de algum programa no 
+sistema.
+ <item>
+<file>arquivo<strong>.gz</strong></file> - Arquivo compactado pelo utilitário 
+<prgn>gzip</prgn>.
+ <item>
+<file>index<strong>.html</strong></file> - Página de Internet (formato  
+Hypertexto).
+</list>
+A extensão de um arquivo também ajuda a saber o que precisamos fazer para 
+abri-lo. Por exemplo, o arquivo <file>relatório.txt</file> é um texto simples 
+e podemos ver seu conteúdo através do comando <ref id="comandos-cat">, já  
+o arquivo <file>index.html</file> contém uma página de Internet e  
+precisaremos de um navegador para poder visualiza-lo (como o  
+<prgn>lynx</prgn>, <prgn>Firefox</prgn> ou o <prgn>Konqueror</prgn>).
+ <p> 
+A extensão (na maioria dos casos) não é requerida pelo sistema operacional 
+<prgn>GNU/Linux</prgn>, mas é conveniente o seu uso para determinarmos facilmente 
+o tipo de arquivo e que programa precisaremos usar para abri-lo.
+
+
+<sect1 id="basico-arquivo-tamanho">Tamanho de arquivos
+ <p>
+A unidade de medida padrão nos computadores é o <tt>bit</tt>. A um 
+conjunto de 8 bits nós chamamos de <tt>byte</tt>. 
+Cada arquivo/diretório possui um tamanho, que indica o espaço que ele ocupa 
+no disco e isto é medido em <tt>bytes</tt>. 
+O byte representa uma letra. Assim, se você criar um arquivo vazio e escrever  
+o nome <tt>Linux</tt> e salvar o arquivo, este terá o tamanho de 5 bytes. 
+Espaços em branco e novas linhas também ocupam bytes. 
+ <p>
+Além do byte existem as medidas Kbytes, Mbytes, Gbytes. Os prefixos K (quilo), 
+M (mega), G (giga), T (tera) etc. vêem da matemática. O "K" significa multiplicar 
+por 10^3, o "M" por 10^6, e assim por diante. Esta letras servem para facilitar 
+a leitura em arquivos de grande tamanho. Um arquivo de 1K é a mesma coisa de um 
+arquivo de 1024 bytes. Uma forma que pode inicialmente lhe ajudar a lembrar: K 
+vem de Kilo que é igual a 1000 - 1Kilo é igual a 1000 gramas certo?. 
+ <p>
+Da mesma forma 1Mb (ou 1M) é igual a um arquivo de 1024K ou 1.048.576 bytes  
+ <p>
+1Gb (ou 1G) é igual a um arquivo de 1024Mb ou 1048576Kb ou 1.073.741.824 bytes
+(1 Gb é igual a 1.073.741.824 bytes, são muitos números!). Deu pra  
+notar que é mais fácil escrever e entender como 1Gb do que 1.073.741.824 bytes :-)
+ <p>
+A lista completa em ordem progressiva das unidades de medida é a seguinte:
+<example>
+Símbolo	10^	2^	Nome
+
+K	 3	10	Quilo
+M	 6	20	Mega
+G	 9	30	Giga
+T	12	40	Tera
+P	15	50	Peta
+E	18	60	Eta
+Z	21	70	Zetta
+Y	24	80	Yotta
+
+</example>
+
+
+<sect1 id="basico-arquivo-bintext">Arquivo texto e binário
+ <p>
+Quanto ao tipo, um arquivo pode ser de texto ou binário:
+<taglist>
+ <tag><tt>texto</tt></tag>
+ <item>
+Seu conteúdo é compreendido pelas pessoas. Um arquivo texto pode 
+ser uma carta, um script, um programa de computador escrito pelo 
+programador, arquivo de configuração, etc. 
+
+ <tag><tt>binário</tt></tag>
+ <item>
+Seu conteúdo somente pode ser entendido por computadores. Contém caracteres 
+incompreensíveis para pessoas normais. Um arquivo binário é gerado através 
+de um arquivo de programa (digitado pela pessoa que o criou, o programador) através de um processo 
+chamado de <tt>compilação</tt>. Compilação é basicamente a conversão de um 
+programa em linguagem humana  para a linguagem de máquina.
+</taglist>
+
+
+<sect id="basico-diretorio">Diretório
+ <p>
+Diretório é o local utilizado para armazenar conjuntos arquivos para melhor 
+organização e localização. O diretório, como o arquivo, também é 
+"<em>Case Sensitive</em>" (diretório <file>/teste</file> é completamente  
+diferente do diretório <file>/Teste</file>). 
+ <p>
+<![ %OBS [ Não podem existir dois arquivos com o <tt>mesmo</tt> nome em 
+um diretório, ou um sub-diretório com um mesmo nome de um arquivo em um 
+mesmo diretório. ]]>
+ <p>
+Um diretório nos sistemas <prgn>Linux/UNIX</prgn> são especificados por uma 
+"<em>/</em>" e não uma "<em>\</em>" como é feito no <prgn>DOS</prgn>. 
+Para detalhes sobre como criar um diretório, veja o comando 
+<prgn>mkdir</prgn> (<ref id="comando-mkdir">).
+
+
+<sect1 id="basico-diretorio-raiz">Diretório Raíz
+ <p>
+Este é o diretório principal do sistema. Dentro dele estão todos 
+os diretórios do sistema. O diretório Raíz é representado por uma 
+"<em>/</em>", assim se você digitar o comando <tt>cd /</tt> você  
+estará acessando este diretório. 
+ <p>
+Nele estão localizados outros diretórios como o <file>/bin, /sbin, /usr,  
+/usr/local, /mnt, /tmp, /var, /home,</file> etc. Estes são chamados de  
+<em>sub-diretórios</em> pois estão dentro do diretório "<file>/</file>".  
+A estrutura de <em>diretórios</em> e <em>sub-diretórios</em> pode ser  
+identificada da seguinte maneira:
+<list compact>
+<item>
+/
+<item>
+/bin
+<item>
+/sbin
+<item>
+/usr
+<item>
+/usr/local
+<item>
+/mnt
+<item>
+/tmp
+<item>
+/var
+<item>
+/home
+</list>
+A estrutura de diretórios também é chamada de <tt>Árvore de Diretórios</tt> 
+porque é parecida com uma <em>árvore</em> de cabeça para baixo. 
+<![ %OBS [
+Cada diretório do sistema tem seus respectivos arquivos que são armazenados 
+conforme regras definidas pela <em>FHS</em> (<em>FileSystem Hierarchy 
+Standard - Hierarquia Padrão do Sistema de Arquivos</em>) versão 2.0, 
+definindo que tipo de arquivo deve ser armazenado em cada diretório. ]]>
+
+
+<sect1 id="basico-diretorio-atual">Diretório atual
+ <p>
+É o diretório em que nos encontramos no momento. Você pode digitar 
+<tt>pwd</tt> (veja <ref id="comando-pwd">) para verificar qual é seu 
+diretório atual. 
+ <p>
+O diretório atual também é identificado por um "." (ponto). O 
+comando comando <tt>ls .</tt> pode ser usado para listar seus arquivos 
+(é claro que isto é desnecessário porque se não digitar nenhum diretório, 
+o comando <prgn>ls</prgn> listará o conteúdo do diretório atual). 
+
+
+<sect1 id="basico-diretorio-home">Diretório home
+ <p>
+Também chamado de diretório de usuário. Em sistemas <prgn>GNU/Linux</prgn> cada 
+usuário (inclusive o root) possui seu próprio diretório onde poderá armazenar 
+seus programas e arquivos pessoais. 
+ <p>
+Este diretório está localizado em <file>/home/[login]</file>, neste caso 
+se o seu login for "joao" o seu diretório home será <file>/home/joao</file>. 
+O diretório home também é identificado por um <tt>~</tt>(til), você pode 
+digitar tanto o comando <tt>ls /home/joao</tt> como <tt>ls ~</tt> para 
+listar os arquivos de seu diretório home. 
+ <p>
+O diretório home do usuário root (na maioria das distribuições 
+<prgn>GNU/Linux</prgn>) está localizado em <file>/root</file>.
+ <p>
+Dependendo de sua configuração e do número de usuários em seu sistema, o 
+diretório de usuário pode ter a seguinte forma: 
+<file>/home/[1letra_do_nome]/[login]</file>, neste caso se o seu login for "joao" 
+o seu diretório home será <file>/home/j/joao</file>.
+
+
+<sect1 id="basico-diretorio-superior">Diretório Superior
+ <p>
+O diretório superior (Upper Directory) é identificado por <tt>..</tt> 
+(2 pontos). 
+ <p>
+Caso estiver no diretório <file>/usr/local</file> e quiser listar os 
+arquivos do diretório <file>/usr</file> você pode digitar, <tt>ls ..</tt> 
+Este recurso também pode ser usado para copiar, mover 
+arquivos/diretórios, etc.
+
+
+<sect1 id="basico-diretorio-anterior">Diretório Anterior
+ <p>
+O diretório anterior é identificado por "-". É útil para retornar 
+ao último diretório usado. 
+ <p>
+Se estive no diretório <file>/usr/local</file> e digitar <tt>cd /lib</tt>, 
+você pode retornar facilmente para o diretório <file>/usr/local</file> 
+usando <tt>cd -</tt>.
+
+
+<sect1 id="basico-diretorio-caminho">Caminho na estrutura de diretórios
+ <p>
+São os diretórios que teremos que percorrer até chegar no arquivo ou 
+diretório que que procuramos. Se desejar ver o arquivo 
+<file>/etc/hosts</file> você tem duas opções:
+
+<enumlist compact>
+ <item>
+Mudar o diretório padrão para <file>/etc</file> com o comando 
+<tt>cd /etc</tt> e usar o comando <tt>cat hosts</tt>
+
+ <item>
+Usar o comando <prgn>"cat"</prgn> especificando o caminho completo na 
+estrutura de diretórios e o nome de arquivo: <tt>cat 
+/etc/hosts</tt>.
+</enumlist>
+
+As duas soluções acima permitem que você veja o arquivo <file>GPL</file>. A
+diferença entre as duas é a seguinte:
+
+<list compact>
+ <item>
+Na primeira, você muda o diretório padrão para <file>/usr/doc/copyright</file> 
+(confira digitando <tt>pwd</tt>) e depois o comando <tt>cat GPL</tt>.  
+Você pode ver os arquivos de <file>/usr/doc/copyright</file> com o comando 
+<prgn>"ls"</prgn>.
+ <p>
+<file>/usr/doc/copyright</file> é o caminho de diretório que devemos 
+percorrer para chegar até o arquivo <file>GPL</file>. 
+
+ <item>
+Na segunda, é digitado o caminho completo para o <prgn>"cat"</prgn> 
+localizar o arquivo <file>GPL</file>: <tt>cat /usr/doc/copyright/GPL</tt>. 
+Neste caso, você continuará no diretório padrão (confira digitando <tt>pwd
+</tt>). 
+Digitando <tt>ls</tt>, os arquivos do diretório atual serão listados.
+</list>
+O <em>caminho de diretórios</em> é necessário para dizer ao sistema  
+operacional onde encontrar um arquivo na "árvore" de diretórios. 
+
+
+  <![ %EXEMPLO [
+<sect1 id="basico-diretorio-exemplo">Exemplo de diretório
+ <p>
+Um exemplo de diretório é o seu diretório de usuário, todos seus arquivos 
+essenciais devem ser colocadas neste diretório. Um diretório pode conter 
+outro diretório, isto é útil quando temos muitos arquivos e queremos 
+melhorar sua organização. Abaixo um exemplo de uma empresa que precisa 
+controlar os arquivos de Pedidos que emite para as fábricas: 
+ <p>
+/pub/vendas - diretório principal de vendas
+/pub/vendas/mes01-1999 - diretório contendo vendas do mês 01/1999
+/pub/vendas/mes02-2009 - diretório contendo vendas do mês 02/2009
+/pub/vendas/mes01-2010 - diretório contendo vendas do mês 03/2010
+ <p>
+<file>mes01-99, mes02-2009, mes01-2010</file> são diretórios usados para 
+armazenar os arquivos de pedidos do mês e ano correspondente. Isto é essencial 
+para organização, pois se todos os pedidos fossem colocados diretamente no 
+diretório vendas, seria muito difícil encontrar o arquivo do cliente "João" 
+do mês 01/2009.
+ <p>
+Você deve ter reparado que usei a palavra <em>sub-diretório</em> para  
+mes01-1999, mes02-2009 e mes01-2010, porque que eles estão dentro do diretório 
+vendas. Da mesma forma, <file>vendas</file> é um sub-diretório de <file>pub
+</file>.
+  ]]>
+
+
+<sect1 id="basico-diretorio-estrutura">Estrutura básica de diretórios do 
+Sistema Linux
+ <p>
+O sistema <prgn>GNU/Linux</prgn> possui a seguinte estrutura básica de 
+diretórios organizados segundo o FHS (Filesystem Hierarchy Standard):
+<taglist>
+ <tag><file>/bin</file></tag>
+ <item>
+Contém arquivos programas do sistema que são usados com freqüência pelos 
+usuários. 
+
+ <tag><file>/boot</file></tag>
+ <item>
+Contém arquivos necessários para a inicialização do sistema. 
+
+ <tag><file>/cdrom</file></tag>
+ <item>
+Ponto de montagem da unidade de CD-ROM.
+
+ <tag><file>/media</file></tag>
+ <item>
+Ponto de montagem de dispositivos diversos do sistema (rede, pen-drives, CD-ROM 
+em distribuições mais novas).
+
+ <tag><file>/dev</file></tag>
+ <item>
+Contém arquivos usados para acessar dispositivos (periféricos) existentes no 
+computador. 
+
+ <tag><file>/etc</file></tag>
+ <item>
+Arquivos de configuração de seu computador local. 
+
+ <tag><file>/floppy</file></tag>
+ <item>
+Ponto de montagem de unidade de disquetes 
+
+ <tag><file>/home</file></tag>
+ <item>
+Diretórios contendo os arquivos dos usuários. 
+
+ <tag><file>/lib</file></tag>
+ <item>
+Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel. 
+
+ <tag><file>/lost+found</file></tag>
+ <item>
+Local para a gravação de arquivos/diretórios recuperados pelo utilitário 
+<prgn>fsck.ext2</prgn>. Cada partição possui seu próprio diretório <file>
+lost+found</file>. 
+
+ <tag><file>/mnt</file></tag>
+ <item>
+Ponto de montagem temporário. 
+
+ <tag><file>/proc</file></tag>
+ <item>
+Sistema de arquivos do kernel. Este diretório não existe em seu disco rígido, 
+ele é colocado lá pelo kernel e usado por diversos programas que fazem sua 
+leitura, verificam configurações do sistema ou modificar o funcionamento de  
+dispositivos do sistema através da alteração em seus arquivos. 
+
+ <tag><file>/sys</file></tag>
+ <item>
+Sistema de arquivos do kernel. Este diretório não existe em seu disco rígido, 
+ele é colocado lá pelo kernel e usado por diversos programas que fazem sua 
+leitura, verificam configurações do sistema ou modificar o funcionamento de  
+dispositivos do sistema através da alteração em seus arquivos. 
+
+ <tag><file>/root</file></tag>
+ <item>
+Diretório do usuário <tt>root</tt>.
+
+ <tag><file>/sbin</file></tag>
+ <item>
+Diretório de programas usados pelo superusuário (root) para administração e  
+controle do funcionamento do sistema. 
+
+ <tag><file>/tmp</file></tag>
+ <item>
+Diretório para armazenamento de arquivos temporários criados por programas. 
+
+ <tag><file>/usr</file></tag>
+ <item>
+Contém maior parte de seus programas. Normalmente acessível somente como 
+leitura. 
+
+ <tag><file>/var</file></tag>
+ <item>
+Contém maior parte dos arquivos que são gravados com freqüência pelos 
+programas do sistema, e-mails, spool de impressora, cache, etc. 
+</taglist>
+
+
+<sect id="basico-nomeando">Nomeando Arquivos e Diretórios
+ <p>
+No <prgn>GNU/Linux</prgn>, os arquivos e diretórios pode ter o tamanho de até  
+<em>255</em> letras. Você pode identifica-lo com uma extensão (um conjunto 
+de letras separadas do nome do arquivo por um "."). 
+ <p>
+Os programas executáveis do <prgn>GNU/Linux</prgn>, ao contrário dos programas 
+de <prgn>DOS</prgn> e <prgn>Windows</prgn>, não são executados a partir de  
+extensões <file>.exe, .com</file> ou <file>.bat</file>. O <prgn>GNU/Linux</prgn> 
+(como todos os sistemas POSIX) usa a <em>permissão de execução</em> de arquivo 
+para identificar se um arquivo pode ou não ser executado. 
+ <p>
+No exemplo anterior, nosso trabalho de história pode ser identificado 
+mais facilmente caso fosse gravado com o nome <file>trabalho.text</file> 
+ou <file>trabalho.txt</file>. Também é permitido gravar o arquivo com o 
+nome <file>Trabalho de Historia.txt</file> mas não é recomendado gravar 
+nomes de arquivos e diretórios com espaços. Porque será necessário 
+colocar o nome do arquivo entre "aspas" para acessa-lo (por exemplo, 
+<tt>cat "Trabalho de Historia.txt"</tt>). 
+Ao invés de usar espaços, prefira <em>capitalizar</em> o arquivo (usar 
+letras maiúsculas e minúsculas para identifica-lo): 
+<file>TrabalhodeHistoria.txt</file>. 
+
+
+<sect id="basico-comandos">Comandos
+ <p>
+Comandos são ordens que passamos ao sistema operacional para executar uma 
+determinada tarefa. 
+ <p>
+Cada comando tem uma função específica, devemos saber a função de cada 
+comando e escolher o mais adequado para fazer o que desejamos, por exemplo: 
+<list compact>
+ <item>
+<prgn>ls</prgn> - Mostra arquivos de diretórios
+ <item>
+<prgn>cd</prgn> - Para mudar de diretório
+</list>
+Este guia tem uma lista de vários comandos organizados por 
+categoria com a explicação sobre o seu funcionamento e as opções 
+aceitas (incluindo alguns exemplos). 
+ <p>
+É sempre usado um espaço depois do comando para separá-lo de uma opção ou 
+parâmetro que será passado para o processamento. Um comando pode 
+receber opções e parâmetros: 
+<taglist compact>
+ <tag><em>opções</em></tag>
+ <item>
+As <em>opções</em> são usadas para controlar como o comando será executado,  
+por exemplo, para fazer uma listagem mostrando o <em>dono, grupo, tamanho dos 
+arquivos</em> você deve digitar <tt>ls -l</tt>.
+ <p>
+Opções podem ser passadas ao comando através de um "-" ou "--":
+ <taglist>
+  <tag>-</tag>
+  <item>
+Opção identificada por uma letra. Podem ser usadas mais de uma opção com  
+um único hífen. O comando <tt>ls -l -a</tt> é a mesma coisa de 
+<tt>ls -la</tt>
+
+  <tag>--</tag>
+  <item>
+Opção identificada por um nome. Também chamado de opção extensa. O 
+comando <tt>ls --all</tt> é equivalente 
+a <tt>ls -a</tt>.
+ </taglist>
+Pode ser usado tanto "-" como "--", mas há casos em que somente "-" ou "--" 
+esta disponível. 
+
+ <tag>parâmetros</tag>
+ <item>
+Um parâmetro identifica o <em>caminho, origem, destino, entrada padrão</em>  
+ou <em>saída padrão</em> que será passada ao comando. 
+ <p>
+Se você digitar: <tt>ls /usr/share/doc/copyright</tt>, <file>/usr/share/doc/copyright 
+</file> será o parâmetro passado ao comando <prgn>ls</prgn>, neste caso  
+queremos que ele liste os arquivos do diretório <em>/usr/share/doc/copyright</em>.
+ <p>
+É normal errar o nome de comandos, mas não se preocupe, quando isto acontecer 
+o sistema mostrará a mensagem <tt>command not found</tt> (comando não 
+encontrado) e voltará ao aviso de comando. As mensagens de erro não fazem 
+nenhum mal ao seu sistema, somente dizem que algo deu errado para que você 
+possa corrigir e entender o que aconteceu.
+  
+No <prgn>GNU/Linux</prgn>, você tem a possibilidade de criar comandos  
+personalizados usando outros comandos mais simples (isto será visto  
+mais adiante). Os comandos se encaixam em duas categorias: <em>Comandos 
+Internos</em> e <em>Comandos Externos</em>. 
+</taglist>
+<![ %EXEMPLO [
+ <p>
+Por exemplo: <tt>"ls -la /usr/share/doc"</tt>, <tt>ls</tt> é o comando, 
+<tt>-la</tt> é a opção passada ao comando, e <tt><file>/usr/share/doc</file></tt> é 
+o diretório passado como parâmetro ao comando <tt>ls</tt>. ]]>
+
+
+<sect1 id="basico-comandos-internos">Comandos Internos
+ <p>
+São comandos que estão localizados dentro do interpretador de comandos 
+(normalmente o <prgn>Bash</prgn>) e não no disco. Eles são carregados 
+na memória RAM do computador junto com o interpretador de comandos. 
+ <p>
+Quando executa um comando, o interpretador de comandos verifica primeiro se 
+ele é um <em>Comando Interno</em> caso não seja é verificado se é um <em>Comando 
+Externo</em>. 
+ <p>
+Exemplos de comandos internos são: <tt>cd, exit, echo, bg, fg, source, help</tt>
+
+
+<sect id="basico-comandos-externos">Comandos Externos
+ <p>
+São comandos que estão localizados no disco. Os comandos são procurados no 
+disco usando o ordem do <tt>PATH</tt> e executados assim que encontrados. 
+ <p>
+Para detalhes veja <ref id="run-path">.
+ 
+
+<sect id="basico-avisocmd">Aviso de comando (Prompt)
+ <p>
+Aviso de comando (ou Prompt), é a linha mostrada na tela para <em>digitação  
+de comandos</em> que serão passados ao <tt>interpretador de comandos</tt> 
+para sua execução. 
+ <p>
+A posição onde o comando será digitado é marcado um "traço" piscante 
+na tela chamado de <em>cursor</em>. Tanto em shells texto como 
+em gráficos é necessário o uso do cursor para sabermos onde iniciar a 
+digitação de textos e nos orientarmos quanto a posição na tela. 
+ <p>
+O aviso de comando do usuário <tt>root</tt> é identificado por uma 
+"#" (tralha), e o aviso de comando de usuários é identificado 
+pelo símbolo "$". Isto é padrão em sistemas <prgn>UNIX</prgn>. 
+ <p>
+Você pode retornar comandos já digitados pressionando as teclas <tt>Seta para 
+cima</tt> / <tt>Seta para baixo</tt>.
+ <p>
+A tela pode ser rolada para baixo ou para cima segurando a tecla 
+<tt>SHIFT</tt> e pressionando <tt>PGUP</tt> ou <tt>PGDOWN</tt>. Isto é útil 
+para ver textos que rolaram rapidamente para cima. 
+ <p>
+Abaixo algumas dicas sobre a edição da linha de comandos (não é necessário 
+se preocupar em decora-los): 
+<list>
+ <item>
+Pressione a tecla <tt>Back Space</tt> ("<strong>&lt;--</strong>") para apagar  
+um caracter à esquerda do cursor.
+ <item>
+Pressione a tecla <tt>Del</tt> para apagar o caracter acima do cursor.
+ <item>
+Pressione <tt>CTRL</tt>+<tt>A</tt> para mover o cursor para o inicio da 
+linha de comandos.
+ <item>
+Pressione <tt>CTRL</tt>+<tt>E</tt> para mover o cursor para o fim da 
+linha de comandos.
+ <item>
+Pressione <tt>CTRL</tt>+<tt>U</tt> para apagar o que estiver à esquerda do 
+cursor. O conteúdo apagado é copiado para uso com <tt>CTRL</tt>+<tt>y</tt>. 
+ <item>
+Pressione <tt>CTRL</tt>+<tt>K</tt> para apagar o que estiver à direita do 
+cursor. O conteúdo apagado é copiado para uso com <tt>CTRL</tt>+<tt>y</tt>. 
+ <item>
+Pressione <tt>CTRL</tt>+<tt>L</tt> para limpar a tela e manter o texto 
+que estiver sendo digitado na linha de comando (parecido com o comando 
+<prgn>clear</prgn>). 
+ <item>
+Pressione <tt>CTRL</tt>+<tt>Y</tt> para colocar o texto que foi apagado 
+na posição atual do cursor.
+</list>
+
+    ]]>
+
+
+<![ %AVANCADO [
+<sect id="basico-monitlogs">Monitorando os logs
+ <p>
+Os arquivos e diretórios de logs residem em <file>/var/log</file> e registram tudo 
+o que acontecem com o kernel, com os daemons e utilitários do sistema. Eles são 
+muito importantes tanto para monitorar o que acontece com o seu sistema 
+como para ajudar na solução de problemas diversos. É comum programas
+como o servidor web, e-mail, mensagens instantaneas, firewall, irc, banco
+de dados, gravarem os arquivos de log em diretórios próprios dentro
+de <file>/var/log/programa</file>, desta forma evitam misturar seus arquivos
+com os de log do sistema residentes em <file>/var/log</file>.
+ <p>
+Acostume-se a olhar constantemente os arquivos de log em seu sistema, isto 
+pode ser importante para encontrar possíveis falhas de segurança, tentativa 
+de acesso ao sistema e, principalmente, solucionar problemas (principalmente 
+os mais complicados). <![ %CAPJUNTOS [ Leia <ref id="log"> para mais detalhes. ]]>
+
+
+<sect1 id="basico-delarquivos">Destruindo arquivos/partições de forma segura
+ <p>
+Esta seção tem a intenção de conscientizar o administrador do uso
+devido de técnicas para garantir que dados sensíveis sejam apagados de
+forma um pouco mais segura em seu sistema.
+ <p>
+Quando um arquivo é apagado, apenas a entrada na tabela de inodes
+é mexida, e ele pode ainda ser recuperado com o <prgn>debugfs</prgn> e
+um pouco de paciência e engenharia. O mesmo acontece com as partições,
+que podem ser recuperadas com facilidade (isto é explicado no
+nível Intermediário do guia). Esta recuperação é proporcionada
+pelas regras de funcionamento do sistema de arquivos e do
+esquema de particionamento, ou seja, são permitidas pelo SO.
+ <p>
+Vou um pouco mais além: O disco rígido é uma mídia magnética e  
+opera de forma mecânica para ler/gravar dados. Quando um arquivo
+é apagado, seja por qualquer motivo, ainda é possível recupera-lo.
+O que permite isto é porque o HD nem sempre tem a precisão de gravar
+<strong>exatamente</strong> no mesmo lugar (pois a cabeça é movida
+mecanicamente), gravando em trilhas microscópicamente vizinhas a
+anterior. Então a imagem do arquivo que foi apagada continua lá.
+Segundo ouvi falar, a NASA possui recursos para recuperar até 60
+regravações posteriores no disco. É claro que isto pode ocorrer
+em pouco tempo, dependendo do tamanho de sua partição e se esta
+for uma <file>/var/spool</file> em um servidor de e-mails :-)
+ <p>
+Baseado nesta teoria, você poderá apagar os dados de forma
+destrutiva usando o programa <prgn>shred</prgn>, que regrava o
+arquivo repetidamente com dados aleatórios. Sua sintaxe é
+a seguinte:
+<example>
+shred -n 70 -v -u arquivo
+
+</example>
+Isto faz com que ele regrava o conteúdo do <file>arquivo</file> 70
+vezes com dados aleatórios. O <em>-u</em> trunca e remove o arquivo
+após concluído.
+ <p>
+Note que o uso de dados aleatórios serve para destruir as possibilidades
+de uma recuperação simples, este é o motivo de se recomendar sempre
+o uso de <file>/dev/urandom</file> ao invés de <file>/dev/zero</file> para
+destruição de arquivos.
+<![ %OBS [
+ <p>
+<strong>OBS1: </strong> Saiba exatamente o que está fazendo pois estes
+procedimentos servem para dificultar ao máximo a recuperação de dados.
+ <p>
+<strong>OBS2: </strong> Devido as tecnologias de sistemas que utilizam
+journaling (<em>XFS</em>, <em>EXT3</em>, <em>EXT4</em>, <em>JFS</em> e 
+<em>ReiserFS</em>) e sistemas RAID, o <prgn>shred</prgn> não funcionará. 
+O <prgn>shred</prgn> também não funcionará com sistemas de arquivos via rede 
+(<em>NFS</em>, <em>SMB</em>, etc.). Se procura alguma forma de proteger seus 
+dados, mesmo que apagados, utilize um método de criptografia como o 
+<em>DM-CRYPTO</em>, <em>crypto-loop</em>, <em>gpg</em>, etc.
+ <p>
+<strong>OBS3: </strong> Caso esteja usando um sistema de arquivos
+criptografado, estes procedimentos são quase desnecessários
+(dependendo do nível de segurança e algorítmos que você utiliza).
+]]>
+
+    ]]>
+
+
+    <![ %INIC-INTER [
+<sect id="basico-interpcmd">Interpretador de comandos
+ <p>
+Também conhecido como "shell". É o programa responsável em interpretar 
+as instruções enviadas pelo usuário e seus programas ao sistema  
+operacional (o kernel). 
+<![ %DESCRICAOD [ Ele que executa comandos lidos do dispositivo 
+de entrada padrão (teclado) ou de um arquivo executável. É a principal 
+ligação entre o usuário, os programas e o kernel. O <prgn>GNU/Linux</prgn> 
+possui diversos tipos de interpretadores de comandos, entre eles posso 
+destacar o <prgn>bash, ash, csh, tcsh, sh, </prgn> etc. Entre eles o mais 
+usado é o <prgn>bash</prgn>. O interpretador de comandos do DOS, por exemplo, 
+é o <file>command.com</file>. ]]>
+ <p>
+Os comandos podem ser enviados de duas maneiras para o interpretador: 
+<tt>interativa</tt> e <tt>não-interativa</tt>:
+<taglist>
+ <tag><tt>Interativa</tt></tag>
+ <item>
+Os comandos são digitados no aviso de comando e passados ao interpretador de  
+comandos um a um. Neste modo, o computador depende do usuário para executar 
+uma tarefa, ou próximo comando. 
+
+ <tag><tt>Não-interativa</tt></tag>
+ <item>
+São usados arquivos de comandos criados pelo usuário (scripts) para o 
+computador executar os comandos na ordem encontrada no arquivo. Neste modo, 
+o computador executa os comandos do arquivo um por um e dependendo do término 
+do comando, o script pode checar qual será o próximo comando que será  
+executado e dar continuidade ao processamento. 
+ <p>
+Este sistema é útil quando temos que digitar por várias vezes seguidas um  
+mesmo comando ou para compilar algum programa complexo.
+</taglist>
+ <p>
+O shell <prgn>Bash</prgn> possui ainda outra característica interessante: 
+A completação dos nomes. Isto é feito pressionando-se a tecla 
+<tt>TAB</tt>. Por exemplo, se digitar "ls tes" e pressionar &lt;tab&gt;, 
+o <prgn>Bash</prgn> localizará todos os arquivos que iniciam com "tes" e 
+completará o restante do nome. Caso a completação de nomes encontre mais do 
+que uma expressão que satisfaça a pesquisa, ou nenhuma, é emitido um beep. 
+Se você apertar novamente a tecla TAB imediatamente depois do beep, o 
+interpretador de comandos irá listar as diversas possibilidades que 
+satisfazem a pesquisa, para que você possa escolher a que lhe interessa.
+A completação de nomes funciona sem problemas para comandos internos. 
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>ech</tt> (pressione <tt>TAB</tt>). 
+         <tt>ls /vm</tt>(pressione <tt>TAB</tt>) ]]>
+
+
+<sect id="basico-terminal">Terminal Virtual (console)
+ <p>
+Terminal (ou console) é o teclado e tela conectados em seu computador. O 
+<prgn>GNU/Linux</prgn> faz uso de sua característica <em>multi-usuária</em>  
+usando os "terminais virtuais". Um terminal virtual é uma segunda seção 
+de trabalho completamente independente de outras, que pode ser acessada 
+no computador local ou remotamente via <prgn>telnet, rsh, rlogin,</prgn> 
+etc. 
+ <p>
+No <prgn>GNU/Linux</prgn>, em modo texto, você pode acessar outros terminais 
+virtuais segurando a tecla <tt>ALT</tt> e pressionando <tt>F1 a F6</tt>. 
+Cada tecla de função corresponde a um número de terminal do 1 ao 6 (o 
+sétimo é usado por padrão pelo ambiente gráfico X). O <prgn>GNU/Linux</prgn> 
+possui mais de  63 terminais virtuais, mas apenas 6 estão disponíveis 
+inicialmente por motivos de economia de memória RAM 
+<![ %INTERMEDIARIO [ (cada terminal virtual ocupa aproximadamente 
+350 Kb de memória RAM, desative a quantidade que não estiver usando para 
+liberar memória RAM para uso de outros programas!) ]]>. 
+ <p>
+Se estiver usando o modo gráfico, você deve segurar <tt>CTRL</tt>+
+<tt>ALT</tt> enquanto pressiona uma tela de &lt;F1&gt; a &lt;F6&gt;. 
+Para voltar ao modo gráfico, pressione <tt>CTRL</tt>+<tt>ALT</tt>+
+&lt;F7&gt;.
+
+<![ %EXEMPLO [
+ <p>
+Um exemplo prático: Se você estiver usando o sistema no Terminal 1 com o 
+nome "joao" e desejar entrar como  "root" para instalar algum programa, 
+segure <tt>ALT</tt> enquanto pressiona &lt;F2&gt; para abrir o segundo  
+terminal virtual e faça o login como "root". Será aberta uma nova seção  
+para o usuário "root" e você poderá retornar a hora que quiser para o  
+primeiro terminal pressionando <tt>ALT</tt>+&lt;F1&gt;. ]]>
+    ]]>
+
+
+    <![ %INICIANTE [
+<sect id="basico-login">Login
+ <p>
+Login é a entrada no sistema quando você digita seu <em>nome</em> e 
+<em>senha</em>. Por enquanto vou manter o seu suspense sobre o que é 
+o <em>logout</em>. 
+
+
+<sect id="basico-logout">Logout
+ <p>
+Logout é a saída do sistema. A saída do sistema é feita pelos comandos 
+<prgn>logout</prgn>, <prgn>exit</prgn>, <tt>CTRL</tt>+<tt>D</tt>, ou  
+quando o sistema é reiniciado ou desligado.
+    ]]>
+
+
+<sect id="basico-curingas">Curingas
+ <p>
+Curingas (ou referência global) é um recurso usado para especificar um ou  
+mais arquivos ou diretórios do sistema de uma só vez. Este é um recurso 
+permite que você faça a filtragem do que será listado, copiado, apagado, etc. 
+São usados 4 tipos de curingas no <prgn>GNU/Linux</prgn>: 
+<list>
+ <item>
+"*" - Faz referência a um nome completo/restante de um  
+arquivo/diretório. 
+
+ <item>
+"?" - Faz referência a uma letra naquela posição.
+
+ <item>
+<tt>[padrão]</tt> - Faz referência a uma faixa de caracteres de um arquivo/diretório.
+Padrão pode ser:
+ <list compact>
+  <item>
+<tt>[a-z][0-9]</tt> - Faz referência a caracteres de <tt>a</tt> até <tt>z</tt> 
+seguido de um caracter de <tt>0</tt> até <tt>9</tt>.
+  <item>
+<tt>[a,z][1,0]</tt> - Faz a referência aos caracteres <tt>a</tt> e <tt>z</tt> 
+seguido de um caracter <tt>1</tt> ou <tt>0</tt> naquela posição.
+  <item>
+<tt>[a-z,1,0]</tt> - Faz referência a intervalo de caracteres de <tt>a</tt> 
+até <tt>z</tt> ou <tt>1</tt> ou <tt>0</tt> naquela posição.
+ </list>
+A procura de caracteres é "Case Sensitive" assim se você deseja que sejam 
+localizados todos os caracteres alfabéticos você deve usar <tt>[a-zA-Z]</tt>. 
+ <p>
+Caso a expressão seja precedida por um <tt>^</tt>, faz referência a qualquer 
+caracter exceto o da expressão. Por exemplo <tt>[^abc]</tt> faz referência  
+a qualquer caracter exceto <tt>a</tt>, <tt>b</tt> e <tt>c</tt>. 
+ <item>
+<tt>{padrões}</tt> - Expande e gera strings para pesquisa de padrões de um arquivo/diretório.
+ <list compact>
+  <item>
+ <tt>X{ab,01}</tt> -  Faz referência a seqüencia de caracteres <tt>Xab</tt> ou <tt>X01</tt>
+  <item>
+ <tt>X{a-z,10}</tt> Faz referencia a seqüencia de caracteres X<tt>a-z</tt> 
+e <tt>X10</tt>.
+ </list>
+</list>
+O que diferencia este método de expansão dos demais é que a existência do 
+arquivo/diretório é opcional para geração do resultado. Isto é útil para 
+a criação de diretórios.
+Lembrando que os 4 tipos de curingas ("*", "?", "[]", "{}") 
+podem ser usados juntos. 
+
+<![ %EXEMPLO [
+Para entender melhor vamos a prática:
+ <p>
+Vamos dizer que tenha 5 arquivo no diretório <file>/usr/teste</file>: 
+<file>teste1.txt, teste2.txt, teste3.txt, teste4.new, teste5.new</file>.
+ <p>
+Caso deseje listar <strong>todos</strong> os arquivos do diretório  
+<file>/usr/teste</file> você pode usar o coringa "*" para  
+especificar todos os arquivos do diretório:
+ <p>
+<tt>cd /usr/teste</tt> e <tt>ls *</tt> ou <tt>ls /usr/teste/*</tt>. 
+<p>
+Não tem muito sentido usar o comando <prgn>ls</prgn> com "*" porque 
+todos os arquivos serão listados se o <prgn>ls</prgn> for usado sem 
+nenhum Coringa. 
+ <p>
+Agora para listar todos os arquivos <file>teste1.txt, teste2.txt, teste3.txt 
+</file> com excessão de <file>teste4.new</file>, <file>teste5.new</file>,  
+podemos usar inicialmente 3 métodos:
+ <p>
+<enumlist compact>
+ <item>
+Usando o comando <tt>ls *.txt</tt> que pega todos os arquivos que 
+começam com qualquer nome e terminam com <file>.txt</file>.
+
+ <item>
+Usando o comando <tt>ls teste?.txt</tt>, que pega todos os arquivos que 
+começam com o nome <file>teste</file>, tenham qualquer caracter no lugar 
+do coringa <tt>?</tt> e terminem com <file>.txt</file>. Com o exemplo 
+acima <tt>teste*.txt</tt> também faria a mesma coisa, mas se também 
+tivéssemos um arquivo chamado <file>teste10.txt</file> este também 
+seria listado. 
+
+ <item>
+Usando o comando <tt>ls teste[1-3].txt</tt>, que pega todos os arquivos 
+que começam com o nome <file>teste</file>, tenham qualquer caracter entre 
+o número 1-3 no lugar da 6a letra e terminem com <file>.txt</file>. Neste 
+caso se obtém uma filtragem mais exata, pois o coringa <em>?</em> especifica 
+qualquer caracter naquela posição e [] especifica números, letras ou 
+intervalo que será usado.
+</enumlist>
+<p>
+Agora para listar somente <file>teste4.new</file> e <file>teste5.new</file> 
+podemos usar os seguintes métodos:
+<enumlist compact>
+ <item>
+<tt>ls *.new</tt> que lista todos os arquivos que terminam 
+com <file>.new</file>
+
+ <item>
+<tt>ls teste?.new</tt> que lista todos os arquivos que 
+começam com <file>teste</file>, contenham qualquer caracter na posição 
+do coringa <em>?</em> e terminem com <file>.new</file>.
+
+ <item> 
+<tt>ls teste[4,5].*</tt> que lista todos os arquivos 
+que começam com <file>teste</file> contenham números de 4 e 5 naquela 
+posição e terminem com qualquer extensão.
+</enumlist>
+
+Existem muitas outras formas de se fazer a mesma coisa, isto depende do 
+gosto de cada um. O que pretendi fazer aqui foi mostrar como especificar 
+mais de um arquivo de uma só vez. O uso de curingas será útil ao copiar 
+arquivos, apagar, mover, renomear, e nas mais diversas partes do 
+sistema. Alias esta é uma característica do <prgn>GNU/Linux</prgn>: permitir 
+que a mesma coisa possa ser feita com liberdade de várias maneiras 
+diferentes. ]]>
+
+

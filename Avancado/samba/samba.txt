@@ -1,0 +1,249 @@
+Desenvolvimento temporário para o Samba
+
+Restrição de data/hora de acesso dos usuários ao servidor SAMBA 
+(utilizando PAM). Certamente é necessário utilizar 
+obey pam restrictions = yes no smb.conf. Fazer uma referência na
+parte do guia de segurança que faz referência a PAM para abordar este 
+assunto.
+
+Mostrando conexões ao samba
+---------------------------
+smbstatus
+
+
+Tamanho de nomes
+
+O tamanho máximo de nomes NetBIOS é de 16 caracteres. Os 15 primeiros
+identificam o nome e o último identifica o nível do serviço. Abaixo 
+segue alguns dos níveis:
+
+
+
+
+Windows For Workgroups 3.11
+---------------------------
+
+Instalando o Suporte a TCP/IP no Windows 3.11
+---------------------------------------------
+Para esta versão do Windows fazer acesso a rede SAMBA e 
+também ser acessado, será necessário instalar o suporte a 
+rede TCP/IP, pois esta versão somente vem com suporte ao 
+protoco NetBEUI.
+
+Baixe o programa de instalação de 
+
+ftp://ftp.microsoft.com/bussys/clients/wfw/TCP32B.EXE
+
+Para instalar, entre no grupo de programas "Rede", depois 
+"Configurações de Rede, Dispositivos de Rede, Adicionar Protocolo e 
+especifique o caminho do arquivo TCP32B.exe.
+
+Após a instalação, reinicie seu computador e configure a máquina
+Windows de forma adequada para acessar sua rede (veja ******************).
+
+
+Desativando o cache de senhas no Windows 3.11
+---------------------------------------------
+
+A gravação de senhas no cache do sistema é um risco que permite que 
+usuários maliciosos que tenham se apoderado da senha que o usuário 
+utiliza para se logar no sistema, faça uso e acesse os mapeamentos 
+da máquina. Para desativar esta característica do WFW 3.11 e fazer 
+com que ele peça a senha cada vez que for usar o compartilhamento, 
+faça os seguintes passos:
+
+Mapeamentos no Windows: Adicione a linha <tt>PasswordCaching=no</tt> na 
+seção [NETWORK] do arquivo system.ini. Caso os compartilhamentos sejam 
+mapeados para uma letra de unidade local no DOS usando o comando 
+<prgn>net</prgn>, use a seguinte sintaxe: 
+<tt>net use \\servidor\pasta senha \savepw:no</tt>.
+
+
+Correção do bug que permite o acesso a todo o conteúdo do HD
+------------------------------------------------------------
+
+Após realizar a instalação do driver TCP para Windows 3.11, será 
+necessário corrigir um bug relacionado com a segurança de compartilhamento
+deste sistema. 
+
+O bug permite que máquinas usando o smbclient acessem todo o conteúdo do 
+HD, quando é compartilhado apenas uma pasta. Para corrigir 
+ o Vserver.386
+
+Baixe a correção de:
+
+http://download.microsoft.com/download/wfw311/NetFile/1/WFW/EN-US/wfwvsrvr.exe
+
+Após copiar o arquivo da localização indicada, clique em cima dele para 
+descompactar o arquivo Vserver.386, saia do WFW3.11 e copie o novo 
+arquivo para o diretório \windows\system para corrigir o problema.
+ 
+<![ %OBS [ 
+ <p>
+Este bug somente deixa vulnerável a máquina WFW 3.11 a máquinas Unix da 
+rede.
+]]>.
+
+----------------------------------------------------------------------
+
+Windows 95
+
+Criptografia melhorada para o cache de senhas do Windows.
+---------------------------------------------------------
+
+Aferam: Windows 95 e Windows 95 OSR/1
+
+Estas correções melhoram um pouco o sistema de armazenamento de senhas 
+utilizadas por estas versões, que teve seu sistema de criptografia 
+simples divulgado na Internet.
+
+Estas correções também consertam um bug do servive Pack 1 e OEM SR1 que ocorre 
+no Mspwl32.dll quando dois usuários possuem contas na máquina Windows 95 e se 
+as oito primeiras letras do nome deste usuário forem idênticas, o primeiro 
+arquivo de senhas é sobrescrito, apagando o primeiro usuário.
+
+
+http://download.microsoft.com/download/win95/Update/95/w95/EN-US/mspwlupd.exe
+
+
+
+Correção do bug que permite o acesso a todo o conteúdo do HD
+------------------------------------------------------------
+
+Afeta: Windows 95 (primeira versão)
+
+O bug permite que máquinas usando o smbclient acessem todo o conteúdo do 
+HD enviando comandos maliciosos que são aceitos pelo Windows, quando é 
+compartilhado apenas uma pasta. Este bug afeta os arquivos Nwserver.vxd 
+e Vserver.vxd
+
+Baixe a correção de:
+
+http://download.microsoft.com/download/win95upg/sp/1/w95/en-us/setup.exe
+
+Após copiar o arquivo da localização indicada, clique em cima dele para 
+descompactar o arquivo Vserver.386, saia do WFW3.11 e copie o novo 
+arquivo para o diretório \windows\system para corrigir o problema.
+ 
+<![ %OBS [ 
+ <p>
+Este bug somente deixa vulnerável a máquina WFW 3.11 a máquinas Unix da 
+rede.
+]]>.
+
+
+Usando o servidor NT como um servidor de autenticação
+-----------------------------------------------------
+
+encrypt passwords = Yes
+security = server
+password server = "NetBIOS_name_of_PDC"
+
+
+When Microsoft changed the default password mode, they dropped support for caching of the plain text password. This means that when the registry parameter is changed to re-enable use of plain text passwords it appears to work, but when a dropped mapping attempts to revalidate it will fail if the remote authentication server does not support encrypted passwords. This means that it is definitely not a good idea to re-enable plain text password support in such clients.
+
+
+Suporte a impressão
+
+A partir da versão 2.2, o samba suporta completamente o mecanismo de 
+impressão pipe SPOOLSS do Windows NT. Entre as vantagens do uso deste 
+recurso estão o download e instalação automática dos drivers de 
+impressão para a máquina cliente, suporte a listas de controle de acesso 
+na impressão, chamadas nativas MS-RPC.
+
+Para suportar o novo estilo de impressão com suporte a download de drivers, 
+é preciso configurar o compartilhamento de impressão print$
+(e não printer$ que foi o método padrão usado no SAMBA vindo dos dos 
+tempos do Windows 3.11/Windows 95).
+
+O uso do parâmetro antigo "printer driver location" e "printer driver" usado
+para especificar a localização de drivers em compartilhamentos $printer devem
+ser evitados.
+
+Para suportar o upload de drivers usando o compartilhamento print$
+
+
+---------------------------------------------
+[global]
+    ; members of the ntadmin group should be able
+    ; to add drivers and set printer properties
+    ; root is implicitly a 'printer admin'
+    printer admin = @ntadmin
+
+[print$]
+    path = /usr/local/samba/printers
+    guest ok = yes
+    browseable = yes
+    read only = yes
+    ; since this share is configured as read only, then we need
+    ; a 'write list'.  Check the file system permissions to make
+    ; sure this account can copy files to the share.  If this
+    ; is setup to a non-root account, then it should also exist
+    ; as a 'printer admin'
+    write list = @ntadmin,root
+
+-------------------------------------------
+
+Como o compartilhamento print$ é criado como somente leitura, é 
+*NECESSÁRIO* especificar uma lista de quem tem acesso a gravação
+(write list).
+
+Depois crie a estrutura de diretórios dentro do diretório 
+especificado no parâmetro "path=" do compartilhamento print$
+
+
+WIN40            "Windows NT x86"
+W32X86           "Windows 95/98"
+W32ALPHA         "Windows NT Alpha_AXP"
+W32MIPS          "Windows NT R4000"
+W32PPC           "Windows NT PowerPC"
+
+
+Para adicionar uma nova impressora, você precisa ser o usuário root ou 
+o usuário deverá estar na lista definida em "printer admin".
+
+
+Para testar, entre no NT com a conta que permite acesso a adminsitração de 
+impressoras, entre em "Ambiente de rede", localize a máquina samba na listagem 
+e verifique se a listagem de impressoras na máquina samba conferem com o 
+compartilhamento de impressoras da máquina.
+
+
+Windows for Workgroups
+----------------------
+
+Não utilize o endereço final de broadcasting como "0", pois o Windows for 
+Workgroups não conseguirá fazer a resolução de nomes NetBIOS. Caso seja 
+realmente necessário, você deverá evitar o uso de broadcasting e instalar 
+um servidor WINS na rede e o endereço deste servidor WINS no arquivo 
+<file>lmhosts</file>, contornando este problema.
+
+
+Browsing na rede
+--------------------------
+
+Esta função é controlada pelo nmbd que fica ativo o tempo todo para disponibilizar os recursos da maquina na rede, participar de eleições NetBIOS (veja ******), fazer logon
+de máquinas, etc.
+
+A função de brosing na rede é feita utilizando o compartilhamento IPC$. Este 
+compartilhamento possui acesso público somente leitura e utiliza o usuário 
+"guest" antes de disponibilizar seus recursos. Como deve ter percebido, é necessário 
+especificar uma ID de usuário que será usada para usuário guest, ou a navegação de 
+recursos no sistema (ou na rede, dependendo da configuração do SAMBA) não funcionará.
+
+OBS: A função de browsing poderá não funcionar corretamente caso a máquina não consiga
+resolver nomes NetBIOS para endereços IP.
+
+
+
+O compartilhamento que lista os recursos disponíveis na máquina é o IPC$
+
+
+Sinais de KILL
+--------------
+
+A maneira correta de finalizar um servidor nmbd é usando o sinal 15 (TERM) pois 
+fecha corretamente o banco de dados de nomes usado pelo nmbd para resolução.
+Use o sinal 9 (KILL) somente em último caso. O mesmo não é necessário com o smbd pois
+ele faz a leitura do arquivo de configuração /etc/samba/smb.conf sempre que é 
+iniciado e para finalizar um processo smbd, basta fechar a conexão com o servidor SAMBA.

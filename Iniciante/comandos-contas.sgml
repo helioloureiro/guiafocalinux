@@ -1,0 +1,614 @@
+<chapt id="cmdc">Comandos para manipulação de contas
+ <p>
+Este capítulo traz comandos usados para manipulação de conta de usuários e 
+grupos em sistemas <prgn>GNU/Linux</prgn>. Entre os assuntos descritos aqui  
+estão adicionar usuários ao sistema, adicionar grupos, incluir usuários  
+em grupos existentes, etc.
+
+
+<sect id="cmdc-adduser">adduser
+ <p>
+Adiciona um usuário ou grupo no sistema. Por padrão, quando um novo usuário é 
+adicionado, é criado um grupo com o mesmo nome do usuário. Opcionalmente 
+o <prgn>adduser</prgn> também pode ser usado para adicionar um usuário a 
+um grupo (veja <ref id="cmdc-incluirgrupo">).
+<![ %DESCRICAOD [ Será criado um diretório home com o nome do usuário (a não
+ser que o novo usuário criado seja um usuário do sistema) e este receberá uma  
+identificação. A identificação do usuário (UID) escolhida será a primeira  
+disponível no sistema especificada de acordo com a faixa de UIDS de  
+usuários permitidas no arquivo de configuração <file>/etc/adduser.conf</file>. 
+Este é o arquivo que contém os padrões para a criação de novos usuários no  
+sistema. ]]>
+ <p>
+<tt>adduser [<em>opções</em>] [<em>usuário/grupo</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>usuário/grupo</em></tag>
+ <item>
+Nome do novo usuário que será adicionado ao sistema.
+
+ <tag><em>opções</em></tag>
+ <tag>-disable-passwd</tag>
+ <item>
+Não executa o programa <prgn>passwd</prgn> para escolher a senha e somente 
+permite o uso da conta após o usuário escolher uma senha.
+
+ <tag>--force-badname</tag>
+ <item>
+Desativa a checagem de senhas ruins durante a adição do novo usuário. Por 
+padrão o <prgn>adduser</prgn> checa se a senha pode ser facilmente adivinhada. 
+
+ <tag>--group</tag>
+ <item>
+Cria um novo grupo ao invés de um novo usuário. A criação de grupos também 
+pode ser feita pelo comando <prgn>addgroup</prgn>.
+
+ <tag>-uid [num]</tag>
+ <item>
+Cria um novo usuário com a identificação [num] ao invés de procurar o 
+próximo UID disponível.
+
+ <tag>-gid [num]</tag>
+ <item>
+Faz com que o usuário seja parte do grupo [gid] ao invés de pertencer a um 
+novo grupo que será criado com seu nome. Isto é útil caso deseje permitir 
+que grupos de usuários possam ter acesso a arquivos comuns.
+ <p>
+Caso estiver criando um novo grupo com <prgn>adduser</prgn>, a identificação 
+do novo grupo será [num].
+
+ <tag>--home [dir]</tag>
+ <item>
+Usa o diretório [dir] para a criação do diretório home do usuário ao invés 
+de usar o especificado no arquivo de configuração 
+<file>/etc/adduser.conf</file>.
+
+ <tag>--ingroup [nome]</tag>
+ <item>
+Quando adicionar um novo usuário no sistema, coloca o usuário no grupo [nome] 
+ao invés de criar um novo grupo.
+
+ <tag>--quiet</tag>
+ <item>
+Não mostra mensagens durante a operação.
+
+ <tag>--system</tag>
+ <item>
+Cria um usuário de sistema ao invés de um usuário normal.  
+</taglist>
+]]>
+Os dados do usuário são colocados no arquivo <file>/etc/passwd</file> após sua 
+criação e os dados do grupo são colocados no arquivo <file>/etc/group</file>. 
+
+<![ %OBS [
+ <p>
+OBSERVAÇÃO: Caso esteja usando senhas ocultas (shadow passwords), as senhas  
+dos usuários serão colocadas no arquivo <file>/etc/shadow</file> e as senhas  
+dos grupos no arquivo <file>/etc/gshadow</file>. Isto aumenta mais a  
+segurança do sistema porque somente o usuário <tt>root</tt> pode ter acesso a  
+estes arquivos, ao contrário do arquivo <file>/etc/passwd</file> que possui  
+os dados de usuários e devem ser lidos por todos. ]]>
+
+
+<sect id="cmdc-addgroup">addgroup
+ <p>
+Adiciona um novo grupo de usuários no sistema. As opções usadas são as mesmas 
+do <ref id="cmdc-adduser">.
+ <p>
+<tt>addgroup [<em>usuário/grupo</em>] [<em>opções</em>]</tt>
+
+
+<sect id="cmdc-passwd">passwd
+ <p>
+Modifica a parametros e senha de usuário. 
+<![ %DESCRICAOD [ Um usuário somente pode alterar a senha de sua conta, mas 
+o superusuário (<tt>root</tt>) pode alterar a senha de qualquer conta de  
+usuário, inclusive a data de validade da conta, etc. Os donos de grupos  
+também podem alterar a senha do grupo com este comando. 
+ <p>
+Os dados da conta do usuário como nome, endereço, telefone, também podem ser 
+alterados com este comando. ]]>
+ <p>
+<tt>passwd [<em>usuário</em>] [<em>opções</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>usuário</em></tag>
+ <item>
+Nome do usuário que terá sua senha alterada. 
+
+ <tag><em>opções</em></tag>
+ <tag>-e</tag>
+ <item>
+Força a expiração de senha para a conta especificada.
+
+ <tag>-k</tag>
+ <item>
+Somente altera a senha se a conta estiver expirada.
+
+<![ %INTER-AVANC [ 
+ <tag>-x [dias]</tag>
+ <item>
+Especifica o número máximo de dias que a senha poderá ser usada. Após terminar 
+o prazo, a senha deverá ser modificada. 
+
+ <tag>-i</tag>
+ <item>
+Desativa a conta caso o usuário não tenha alterado sua senha após o tempo 
+especificado por -x. 
+
+ <tag>-n [dias]</tag>
+ <item>
+Especifica o número mínimo de dias para a senha ser alterada. O usuário não 
+poderá mudar sua senha até que [dias] sejam atingidos desde a última alteração 
+de senha.
+
+ <tag>-w [num]</tag>
+ <item>
+Número de dias antecedentes que o usuário receberá o alerta para mudar sua 
+senha. O alerta ocorre [num] dias antes do limite da opção -x, avisando ao 
+usuários quantos dias restam para a troca de sua senha.
+
+ <tag>-l [nome]</tag>
+ <item>
+Bloqueia a conta do usuário [nome]. Deve ser usada pelo root. O bloqueio 
+da conta é feito acrescentando um caracter a senha para que não confira com 
+a senha original. 
+
+ <tag>-u [nome]</tag>
+ <item>
+Desbloqueia a conta de um usuário bloqueada com a opção -l.
+ 
+ <tag>-S [nome]</tag>
+ <item>
+Mostra o status da conta do usuário [nome]. A primeira parte é o nome do 
+usuário seguido de L(conta bloqueada), NP(sem senha), ou P (com senha), 
+a terceira parte é a data da última modificação da senha, a quarta parte é
+a período mínimo, máximo, alerta e o período de inatividade para a senha. ]]>
+
+</taglist>
+]]>
+Procure sempre combinar letras maiúsculas, minúsculas, e números ao escolher 
+suas senhas. Não é recomendado escolher palavras normais como sua senha pois 
+podem ser vulneráveis a ataques de dicionários cracker. Outra recomendação 
+é utilizar <em>senhas ocultas</em> em seu sistema (<em>shadow password</em>). 
+<![ %OBS [
+ <p>
+Você deve ser o dono da conta para poder modificar a senhas. O usuário root  
+pode modificar/apagar a senha de qualquer usuário. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>passwd root</tt>. ]]>
+
+
+<sect id="cmdc-gpasswd">gpasswd
+ <p>
+Modifica parametros e senha de grupo. 
+<![ %DESCRICAOD [ Um usuário somente pode alterar a senha de seu grupo, mas 
+o superusuário (<tt>root</tt>) pode alterar a senha de qualquer grupo de  
+usuário, inclusive definir o administrador do grupo. ]]>
+ <p>
+<tt>gpasswd [<em>opções</em>] [<em>usuario</em>] [<em>grupo</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>usuário</em></tag>
+ <item>
+Nome do usuário/grupo que terá sua senha alterada. 
+
+ <tag><em>opções</em></tag>
+ <tag>-r <em>usuario</em> <em>grupo</em></tag>
+ <item>
+Remove a senha de grupo.
+
+ <tag>-R <em>usuario</em> <em>grupo</em></tag>
+ <item>
+Desativa o acesso do grupo usando o comando <prgn>newgrp</prgn>.
+
+ <tag>-a <em>usuario</em> <em>grupo</em></tag>
+ <item>
+Adiciona o usuário no grupo especificado.
+
+ <tag>-d <em>usuario</em> <em>grupo</em></tag>
+ <item>
+Apaga o usuário do gurpo especificado.
+
+<![ %INTER-AVANC [ 
+ <tag>-A [usuario] [grupo]</tag>
+ <item>
+Define que o <em>[usuario]</em> será o administrador do <em>[grupo]</em>.
+
+ <tag>-M  [usuario] [grupo]</tag>
+ <item>
+Define os usuários que fazem parte do <em>grupo</em> e suas permissões.
+ ]]>
+
+</taglist>
+
+]]>
+
+Quando o grupo não possui senha, somente quem faz parte do grupo pode utilizar 
+o comando new-grp. 
+<![ %OBS [
+ <p>
+Você deve ser o dono da conta para poder modificar a senhas. O usuário root  
+pode modificar/apagar a senha de qualquer usuário. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>gpasswd grupo</tt>, <tt>gpasswd -a gleydson grupo</tt>. ]]>
+
+
+<sect id="cmdc-newgrp">newgrp
+ <p>
+Altera a identificação de grupo do usuário. 
+<![ %DESCRICAOD [ Para retornar a identificação anterior, digite <tt>exit</tt>
+e tecle <tt>Enter</tt>. Para executar um comando com outra identificação de 
+grupo de usuário, use o comando <ref id="cmdc-sg">. ]]>
+ <p>
+<tt>newgrp <em>-</em> [<em>grupo</em>]</tt>
+ <p>
+Onde:
+<taglist compact>
+ <tag><em>-</em></tag>
+ <item>
+Se usado, inicia um novo ambiente após o uso do comando <prgn>newgrp</prgn> 
+(semelhante a um novo login no sistema), caso contrário, o ambiente atual 
+do usuário é mantido.
+
+ <tag><em>grupo</em></tag>
+ <item>
+Nome do grupo ou número do grupo que será incluído.
+
+</taglist>
+Quando este comando é usado, é pedida a senha do grupo que deseja acessar. 
+Caso a senha do grupo esteja incorreta ou não exista senha definida, a 
+execução do comando é negada. A listagem dos grupos que pertence atualmente 
+pode ser feita usando o comando <ref id="cmdc-id">.
+
+
+<sect id="cmdc-userdel">userdel
+ <p>
+Apaga um usuário do sistema. 
+<![ %DESCRICAOD [ Quando é usado, este comando apaga todos os dados 
+da conta especificado dos arquivos de contas do sistema. ]]>
+ <p>
+<tt>userdel [<em>-r</em>] [<em>usuário</em>]</tt>
+<![ %OPCOES [
+ <p>
+ Onde:
+<taglist compact>
+ <tag>-r</tag><item>Apaga também o diretório HOME do usuário. 
+</taglist> ]]>
+<![ %OBS [
+ <p>
+OBS: Note que uma conta de usuário não poderá ser removida caso ele estiver 
+no sistema, pois os programas podem precisar ter acesso aos dados dele 
+(como UID, GID) no <file>/etc/passwd</file>. ]]> 
+
+
+<sect id="cmdc-groupdel">groupdel
+ <p>
+Apaga um grupo do sistema. 
+<![ %DESCRICAOD [ Quando é usado, este comando apaga todos os dados 
+do grupo especificado dos arquivos de contas do sistema. ]]>
+ <p>
+<tt>groupdel [<em>grupo</em>]</tt>
+ <p>
+Tenha certeza que não existem arquivos/diretórios criados com o grupo 
+apagado através do comando <prgn>find</prgn>. 
+<![ %OBS [
+ <p>
+OBS: Você não pode remover o grupo primário de um usuário. Remova o usuário 
+primeiro. ]]>
+
+
+  <![ %INTER-AVANC [ 
+<sect id="cmdc-lastlog">lastlog
+ <p>
+Mostra o último login dos usuários cadastrados no sistema. 
+<![ %DESCRICAOD [ É mostrado o nome usado no login, o terminal onde ocorreu 
+a conexão e a hora da última conexão. Estes dados são obtidos através da  
+pesquisa e formatação do arquivo <file>/var/log/lastlog</file>. Caso o 
+usuário não tenha feito login, é mostrada a mensagem <tt>** Never 
+logged in **</tt>]]>
+ <p>
+<tt>lastlog [<em>opções</em>]</tt> 
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>opções</em></tag>
+ <tag>-t [dias]</tag>
+ <item>
+Mostra somente os usuários que se conectaram ao sistema nos últimos [dias].
+
+ <tag>-b [dias]</tag>
+ <item>
+Mostra somente os usuários que se conectaram antes de [dias].
+
+ <tag>-u [nome]</tag>
+ <item>
+Mostra somente detalhes sobre o usuário [nome].
+</taglist>
+]]>
+A opção -t substitui a opção -u caso sejam usadas. 
+
+
+<sect id="cmdc-last">last
+ <p>
+Mostra uma listagem de entrada e saída de usuários no sistema. 
+<![ %DESCRICAOD [ São mostrados os seguintes campos na listagem: 
+<list>
+ <item>
+Nome do usuário
+ <item>
+Terminal onde ocorreu a conexão/desconexão 
+ <item>
+O hostname (caso a conexão tenha ocorrido remotamente) ou console (caso tenha 
+ocorrido localmente).
+ <item>
+A data do login/logout, a hora do login/down se estiver fora do sistema/
+still logged in se ainda estiver usando o sistema
+ <item>
+Tempo (em Horas:Minutos) que esteve conectado ao sistema.
+</list>
+A listagem é mostrada em ordem inversa, ou seja, da data mais atual para a 
+mais antiga. A listagem feita pelo <prgn>last</prgn> é obtida de 
+<file>/var/log/wtmp</file>. ]]>
+ <p>
+<tt>last [<em>opções</em>]</tt>
+<![ %OPCOES [
+ <p>
+Onde:
+<taglist compact>
+ <tag><em>opções</em></tag>
+ <tag>-n [num]</tag>
+ <item>
+Mostra [num] linhas. Caso não seja usada, todas as linhas são mostradas.
+
+ <tag>-R</tag>
+ <item>
+Não mostra o campo HostName.
+
+ <tag>-a</tag>
+ <item>
+Mostra o hostname na última coluna. Será muito útil se combinada com a opção 
+-d.
+
+ <tag>-d</tag>
+ <item>
+Usa o DNS para resolver o IP de sistemas remotos para nomes DNS. 
+
+ <tag>-x</tag>
+ <item>
+Mostra as entradas de desligamento do sistema e alterações do nível de 
+execução do sistema.
+
+</taglist>
+]]>
+ <p>
+O comando <prgn>last</prgn> pode ser seguido de um argumento que será 
+pesquisado como uma expressão regular durante a listagem. 
+<![ %OBS [
+ <p>
+O comando <prgn>last</prgn> usa o arquivo <file>/var/log/wtmp</file> para 
+gerar sua listagem, mas alguns sistemas podem não possuir este arquivo. 
+O arquivo <file>/var/log/wtmp</file> somente é usado caso existir. Você 
+pode cria-lo com o comando <tt>"echo -n >/var/log/wtmp"</tt> ou 
+<tt>touch /var/log/wtmp</tt>. ]]>
+
+<![ %EXEMPLO [
+ <p>
+<list compact>
+ <item><tt>last</tt> - Mostra a listagem geral
+ <item><tt>last -a</tt> - Mostra a listagem geral incluindo o nome da máquina
+ <item><tt>last gleydson</tt> - Mostra somente atividades do usuário gleydson
+ <item><tt>last reboot</tt> - Mostra as reinicializações do sistema
+ <item><tt>last tty1</tt> - Mostra todas as atividades no tty1
+</list> ]]>    
+
+    ]]>
+
+<sect id="cmdc-sg">sg
+ <p>
+Executa um comando com outra identificação de grupo. 
+<![ %DESCRICAOD [ A identificação do grupo de usuário é modificada 
+somente durante a execução do comando. 
+Para alterar a identificação de grupo durante sua seção shell, use o comando 
+<ref id="cmdc-newgrp">. ]]> 
+ <p>
+<tt>sg [<em>-</em>] [<em>grupo</em>] [<em>comando</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><tt>-</tt></tag>
+ <item>
+Se usado, inicia um novo ambiente durante o uso do comando (semelhante a um  
+novo login e execução do comando), caso contrário, o ambiente atual do  
+usuário é mantido.
+
+ <tag><tt>grupo</tt></tag>
+ <item>
+Nome do grupo que o comando será executado.
+ 
+ <tag><tt>comando</tt></tag>
+ <item>
+Comando que será executado. O comando será executado pelo bash. 
+
+</taglist>
+]]>
+Quando este comando é usado, é pedida a senha do grupo que deseja acessar. 
+Caso a senha do grupo esteja incorreta ou não exista senha definida, a 
+execução do comando é negada. 
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>sg root ls /root</tt> ]]>
+
+
+<sect id="cmdc-incluirgrupo">Adicionando o usuário a um grupo extra
+ <p>
+Para adicionar um usuário em um novo grupo e assim permitir que ele acesse 
+os arquivos/diretórios que pertencem àquele grupo, você deve estar como 
+root e editar o arquivo <file>/etc/group</file> com o comando <prgn>vigr</prgn>. 
+Este arquivo possui o seguinte formato:
+ <p>
+NomedoGrupo:senha:GID:usuários
+ <p>
+Onde:
+<taglist>
+ <tag>NomedoGrupo</tag>
+ <item>
+É o nome daquele grupo de usuários.
+ 
+ <tag>senha</tag>
+ <item>
+Senha para ter acesso ao grupo. Caso esteja utilizando senhas ocultas para 
+grupos, as senhas estarão em <file>/etc/gshadow</file>.
+
+ <tag>GID</tag>
+ <item>
+Identificação numérica do grupo de usuário.
+
+ <tag>usuarios</tag>
+ <item>
+Lista de usuários que também fazem parte daquele grupo. Caso exista mais de 
+um nome de usuário, eles devem estar separados por vírgula.
+</taglist>
+Deste modo para acrescentar o usuário "joao" ao grupo <tt>audio</tt> para 
+ter acesso aos dispositivos de som do Linux, acrescente o nome no final 
+da linha:
+"audio:x:100:joao". Pronto, basta digitar <tt>logout</tt> e 
+entrar novamente com seu nome e senha, você estará fazendo parte do 
+grupo <tt>audio</tt> (confira digitando <tt>groups</tt> ou <tt>id</tt>).
+ <p>
+Outros nomes de usuários podem ser acrescentados ao grupo <tt>audio</tt> 
+bastando separar os nomes com vírgula. Você também pode usar o 
+comando <prgn>adduser</prgn> da seguinte forma para adicionar 
+automaticamente um usuário a um grupo:
+<example>
+adduser joao audio
+
+</example>
+Isto adicionaria o usuário "joao" ao grupo <tt>audio</tt> da mesma forma 
+que fazendo-se a edição manualmente.
+
+
+<sect id="cmdc-chfn">chfn
+ <p>
+Muda os dados usados pelo comando <ref id="cmdn-finger">.
+ <p>
+<tt>chfn [<em>usuário</em>] [<em>opções</em>]</tt>
+ <p>
+Onde:
+<taglist compact>
+ <tag><em>usuário</em></tag>
+ <item>
+Nome do usuário.
+
+ <tag><em>opções</em></tag>
+ <tag>-f [nome]</tag>
+ <item>
+Adiciona/altera o nome completo do usuário.
+
+ <tag>-r [nome]</tag>
+ <item>
+Adiciona/altera o número da sala do usuário.
+
+ <tag>-w [tel]</tag>
+ <item>
+Adiciona/altera o telefone de trabalho do usuário.
+
+ <tag>-h [tel]</tag>
+ <item>
+Adiciona/altera o telefone residencial do usuário.
+
+ <tag>-o [outros]</tag>
+ <item>
+Adiciona/altera outros dados do usuário.
+</taglist>
+Caso o nome que acompanha as opções (como o nome completo) contenha espaços, 
+use "" para identifica-lo.
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>chfn -f "Nome do Usuário root" root</tt> ]]>
+
+
+<sect id="cmdc-id">id
+ <p>
+Mostra a identificação atual do usuário, grupo primário e outros grupos que 
+pertence.
+ <p>
+<tt>id [<em>opções</em>] [<em>usuário</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>usuário</em></tag>
+ <item>
+É o usuário que desejamos ver a identificação, grupos primários e 
+complementares.
+
+ <tag><em>opções</em></tag>
+ <tag>-g, --group</tag>
+ <item>
+Mostra somente a identificação do grupo primário.
+ 
+ <tag>-G, --groups</tag>
+ <item>
+Mostra a identificação de outros grupos que pertence.
+
+ <tag>-n, --name</tag>
+ <item>
+Mostra o nome do usuário e grupo ao invés da identificação numérica.
+
+ <tag>-u, --user</tag>
+ <item>
+Mostra somente a identificação do usuário (user ID).
+
+ <tag>-r, --real</tag>
+ <item>
+Mostra a identificação real de usuário e grupo, ao invés da efetiva. Esta  
+opção deve ser usada junto com uma das opções: -u, -g, ou -G.
+</taglist>
+]]>
+Caso não sejam especificadas opções, <prgn>id</prgn> mostrará todos os dados 
+do usuário.
+<![ %EXEMPLO [ 
+ <p>
+Exemplo: <tt>id</tt>, <tt>id --user</tt>, <tt>id -r -u</tt>. ]]>
+
+
+<sect id="cmdc-logname">logname
+ <p>
+Mostra seu login (username).
+ <p>
+<tt>logname</tt>
+
+
+<sect id="cmdc-users">users
+ <p>
+Mostra os nomes de usuários usando atualmente o sistema. 
+<![ %DESCRICAOD [ Os nomes de usuários são mostrados através de espaços 
+sem detalhes adicionais, para ver maiores detalhes sobre os usuários, 
+veja os comandos <ref id="cmdc-id"> e <ref id="cmdn-who">.  ]]>
+ <p>
+<tt>users</tt>
+ <p>
+Os nomes de usuários atualmente conectados ao sistema são obtidos do arquivo 
+<file>/var/log/wtmp</file>.
+
+
+<sect id="cmdc-groups">groups
+ <p>
+Mostra os grupos que o usuário pertence.
+ <p>
+<tt>groups [<em>usuário</em>]</tt>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>groups</tt>, <tt>groups root</tt> ]]>
+

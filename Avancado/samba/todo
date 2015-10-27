@@ -1,0 +1,35 @@
+Organização:
+
+- Exemplo de arquivo /etc/lmhosts
+
+Configuração de exemplo
+configuração do nível de acesso por compartilhamento
+configuração do nível de acesso de usuário
+nível de acesso por servidor
+
+
+http://localhost/doc/samba-doc/htmldocs/using_samba/ch01_04.html
+http://us1.samba.org/samba/whatsnew/samba-2.2.6.html
+
+testprns
+The testprns utility supports testing printer names defined in your printcap> file used by Samba.
+
+smbstatus
+The smbstatus tool provides access to information about the current connections to smbd.
+
+nmblookup
+The nmblookup tools allows NetBIOS name queries to be made from a UNIX host.
+
+make_smbcodepage
+The make_smbcodepage utility provides a means of creating SMB code page definition files for your smbd server.
+
+smbpasswd
+
+swat: Samba Web Administration Tool
+libpam-smbpass: pluggable authentication module for SMB password
+        database.
+	libsmbclient: Shared library that allows applications to talk to SMB servers.
+libsmbclient-dev: libsmbclient shared libraries.
+winbind: Service to resolve user and group information from a Windows NT 
+		        server.
+

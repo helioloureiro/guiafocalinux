@@ -1,0 +1,100 @@
+<chapt id="x11">X Window (ambiente gráfico)
+ <p>
+Este capítulo do guia traz explicações sobre o ambiente gráfico X Window System. 
+
+
+<sect id="x11-descricao">O que é X Window?
+ <p>
+É um sistema gráfico de janelas que roda em uma grande faixa de 
+computadores, máquinas gráficas e diferentes tipos de máquinas e 
+plataformas Unix. Pode tanto ser executado em máquinas locais como 
+remotas através de conexão em rede. 
+ 
+
+<sect id="x11-estrutura">A organização do ambiente gráfico X Window
+ <p>
+Em geral o ambiente gráfico X Window é dividido da seguinte forma:
+<list>
+ <item>
+<tt>O Servidor X</tt> - É o programa que controla a exibição dos gráficos 
+na tela, mouse e teclado. Ele se comunica com os programas cliente através 
+de diversos métodos de comunicação. 
+ <p>
+O servidor X pode ser executado na mesma máquina que o programa cliente 
+esta sendo executado de forma transparente ou através de uma máquina  
+remota na rede. 
+
+ <item>
+<tt>O gerenciador de Janelas</tt> - É o programa que controla a aparência da 
+aplicação. Os gerenciadores de janelas (window managers) são programas que 
+atuam entre o servidor X e a aplicação. Você pode alternar de um gerenciador 
+para outro sem fechar seus aplicativos. 
+ <p>
+Existem vários tipos de gerenciadores de janelas disponíveis no mercado 
+entre os mais conhecidos posso citar o <prgn>Window Maker (feito por 
+um Brasileiro)</prgn>, o <prgn>After Step</prgn>, <prgn>Gnome</prgn>, 
+<prgn>KDE</prgn>, <prgn>twm</prgn> (este vem por padrão quando o 
+servidor X é instalado), <prgn>Enlightenment</prgn>, <prgn>IceWm</prgn>, etc.
+ <p>
+A escolha do seu gerenciador de janelas é pessoal, depende muito do gosto de 
+cada pessoa e dos recursos que deseja utilizar. 
+
+ <item>
+<tt>A aplicação cliente</tt> - É o programa sendo executado.
+</list>
+Esta organização do ambiente gráfico X traz grandes vantagens de gerenciamento 
+e recursos no ambiente gráfico UNIX, uma vez que tem estes recursos você pode 
+executar seus programas em computadores remotos, mudar totalmente a aparência 
+de um programa sem ter que fecha-lo (através da mudança do gerenciador de 
+janelas), etc. 
+
+
+<sect id="x11-iniciando">Iniciando o X
+ <p>
+O sistema gráfico X pode ser iniciado de duas maneiras: 
+<list>
+ <item>
+<tt>Automática</tt> - Usando um gerenciador de seção como <prgn>xdm</prgn>,
+<prgn>gdm</prgn> ou <prgn>wdm</prgn> que apresenta uma tela pedindo nome e 
+senha para entrar no sistema (login). Após entrar no sistema, o X executará 
+um dos gerenciadores de janelas configurados. 
+
+ <item>
+<tt>Manual</tt> - Através do comando <prgn>startx</prgn>, ou 
+<prgn>xinit</prgn> 
+<![ %INTERMEDIARIO [ (note que o <prgn>startx</prgn> e <prgn>xstart</prgn> 
+são scripts que fazem uma configuração completa do ambiente e em algumas 
+distribuições também o procedimento de configuração de autenticação do 
+ambiente antes de executar o <prgn>xinit</prgn>) ]]>. 
+
+Neste caso o usuário deve entrar com seu nome e senha para entrar 
+no modo texto e então executar um dos comandos acima. 
+Após executar um dos comandos acima, o servidor X será iniciado e 
+executará um dos gerenciadores de janelas configurados no sistema. 
+</list>
+
+
+<sect id="x11-servidor">Servidor X
+ <p>
+Como dito acima, o servidor X controla o teclado, mouse e a exibição dos 
+gráficos em sua tela. Para ser executado, precisa ser configurado através 
+do arquivo 
+<![ %DEBIAN [ <file>/etc/X11/xorg.conf</file>, usando <tt>dpkg-reconfigure xserver-xorg</tt>, ]]>
+ou usando o utilitário <prgn>xf86cfg</prgn> (modo texto).
+ <p>
+A finalização do servidor X é feita através do pressionamento simultâneo 
+das teclas <tt>CTRL</tt>, <tt>ALT</tt>, <tt>Back Space</tt>. O servidor X é 
+imediatamente terminado e todos os gerenciadores de janelas e programas 
+clientes são fechados. 
+ <p>
+CUIDADO: Sempre utilize a opção de saída de seu gerenciador de janelas 
+para encerrar normalmente uma seção X11 e salve os trabalhos que estiver 
+fazendo antes de finalizar uma seção X11. A finalização do servidor X 
+deve ser feita em caso de emergência quando não se sabe o que fazer 
+para sair de um gerenciador de janelas ou de um programa mal comportado. 
+<![ %INIC-INTER [ 
+ <p>
+Recomendo fazer a leitura de <ref id="run-fechando"> caso estiver 
+em dúvidas de como finalizar um programa mal comportado ou que não sabe 
+como sair. ]]> 
+

@@ -1,0 +1,227 @@
+<sect id="s-ssh-cliente">Usando aplicativos clientes
+ <p>
+Esta seção explicará o uso dos utilitários <prgn>ssh</prgn>, <prgn>scp</prgn> e 
+<prgn>sftp</prgn>. 
+
+
+<sect1 id="s-ssh-cliente-ssh">ssh
+ <p>
+Esta é a ferramenta usada para seções de console remotos. O arquivo de 
+configuração de usuários é <file>~/.ssh/config</file> e o arquivo 
+global <file>/etc/ssh/ssh_config</file>. Para conectar a um servidor ssh remoto: 
+<example>
+ssh usuario@ip/nome_do_servidor_ssh
+
+</example>
+Caso o nome do usuário seja omitido, seu login atual do sistema será usado.
+O uso da opção <em>-C</em> é recomendado para ativar o modo de compactação dos 
+dados (útil em conexões lentas). A opção <em>-l usuário</em> pode ser usada para 
+alterar a identificação de usuário (quando não é usada, o login local é usado como 
+nome de usuário remoto). Uma porta alternativa pode ser especificada usando a 
+opção <em>-p porta</em> (a 22 é usada por padrão). 
+ <p>
+Na primeira conexão, a chave pública do servidor remoto será gravada em 
+<file>~/.ssh/know_hosts</file> ou <file>~/.ssh/know_hosts2</file> (dependendo 
+da versão do servidor <prgn>ssh</prgn> remoto, veja 
+<ref id="s-ssh-server-protodiff">), e verificada a cada conexão como 
+checagem de segurança para se certificar que o servidor não foi alvo de 
+qualquer ataque ou modificação não autorizada das chaves. Por padrão, o 
+cliente utilizará o protocolo ssh versão 1, a opção <em>-2</em> permite usar 
+o protocolo versão 2. 
+ <p>
+Variáveis de ambiente personalizadas para o <prgn>ssh</prgn> poderão ser definidas 
+no arquivo <file>~/.ssh/environment</file>. Comandos que serão executados somente 
+na conexão ssh em <file>~/.ssh/rc</file> e <file>/etc/ssh/sshrc</file> caso 
+contrário será executado o <prgn>xauth</prgn> por padrão. 
+<![ %OBS [
+ <p>
+<strong>OBS: </strong> Para utilizar autenticação Rhosts/Rhosts+RSA (arquivos 
+<file>~/.rhosts</file>/<file>~/.shosts</file>) o programa <prgn>ssh</prgn> 
+deverá ter permissões SUID root e conectará usando 
+portas baixas (menores que 1024). ]]>
+
+<example>
+Exemplos:
+# Conecta-se ao servidor remoto usando o login do usuário atual
+ssh ftp.sshserver.org
+
+# Conecta-se ao servidor remoto usando o login john (via ssh versão 2)
+ssh -2 ftp.sshserver.org -l john
+
+# Conecta-se ao servidor remoto usando compactação e o login john
+ssh ftp.sshserver.org -C -l john
+
+# Semelhante ao exemplo acima, usando o formato "login@ip"
+ssh john@ftp.sshserver.org -C
+
+# Conecta-se ao servidor remoto usando compactação, o login john, 
+# ativa o redirecionamento do agente de autenticação (-A) e redirecionamento 
+# de conexões X11 (-X). Veja a próxima seção para entender como o 
+# suporte a redirecionamento de conexões do X funciona. 
+ssh ftp.sshserver.org -C -A -X -l john
+
+</example>
+
+
+<sect2 id="s-ssh-cliente-ssh-Xforward">Redirecionamento de conexões do X
+ <p>
+O redirecionamento de conexões do X Window poderá ser habilitado em 
+<file>~/.ssh/config</file> ou <file>/etc/ssh/ssh_config</file> ou 
+usando as opções <em>-A -X</em> na linha de comando do <prgn>ssh</prgn> 
+(as opções <em>-a</em> e <em>-x</em> desativam as opções acima 
+respectivamente). Uma variável <var>$DISPLAY</var> é criada 
+automaticamente para fazer o redirecionamento ao servidor X local. 
+ <p>
+Ao executar um aplicativo remoto, a conexão é redirecionada a um 
+DISPLAY proxy criado pelo ssh (a partir de <tt>:10</tt>, por padrão) que 
+faz a conexão com o display real do X (:0), ou seja, ele pulará os métodos 
+de autenticação <prgn>xhost</prgn> e cookies. 
+Por medidas de segurança é recomendável habilitar o redirecionamento 
+individualmente somente se você confia no administrador do sistema remoto. 
+ <p>
+<example>
+# Exemplo de configuração do ssh_config
+
+# Permite Redirecionamento de conexões para o próprio computador (nomes de 
+# máquinas podem ser especificadas). 
+Host 127.0.0.1
+    ForwardAgent yes
+    ForwardX11 yes
+
+# Opções específicas do cliente para conexões realizadas a 192.168.1.4 usando 
+# somente o protocolo 2
+Host 192.168.1.4
+   # As 2 linhas abaixo ativam o redirecionamento de conexões do X
+   ForwardAgent yes
+   ForwardX11 yes
+   PasswordAuthentication yes
+   Port 22
+   Protocol 2
+   Cipher blowfish
+
+# Opções específicas do cliente para conexões realizadas a 192.168.1.5 usando 
+# somente o protocolo 1
+Host 192.168.1.5
+   # As 2 linhas abaixo desativam o redirecionamento de conexões do X
+   ForwardAgent no
+   ForwardX11 no
+   PasswordAuthentication yes
+   Port 22
+   Protocol 1
+   Cipher blowfish
+
+#   CheckHostIP yes
+#   RhostsAuthentication no
+#   RhostsRSAAuthentication yes
+#   RSAAuthentication yes
+#   FallBackToRsh no
+#   UseRsh no
+#   BatchMode no
+#   StrictHostKeyChecking yes
+#   IdentityFile ~/.ssh/identity
+#   IdentityFile ~/.ssh/id_dsa
+#   IdentityFile ~/.ssh/id_rsa1
+#   IdentityFile ~/.ssh/id_rsa2
+#   EscapeChar ~
+
+</example>
+
+
+<sect2 id="s-ssh-cliente-ssh-win">Cliente ssh para Windows
+ <p>
+O <prgn>putty</prgn> é um cliente ssh Win32 que possui suporte 
+aos protocolos versão 1 e 2 do ssh, aceita compactação além de 
+funcionar também como cliente <prgn>telnet</prgn>. Seu tamanho é 
+pequeno, apenas um executável e requer 220KB de espaço em disco. 
+Ele pode ser baixado de 
+<url id="&url-putty-www;">. 
+ <p>
+Outra alternativa é o <prgn>MindTerm</prgn>, este é baseado em 
+Java e pode inclusive ser executado como um applet em uma página 
+web. Este programa é encontrado em <url id="&url-mindterm-www;">.
+
+
+<sect1 id="s-ssh-cliente-scp">scp
+ <p>
+Permite a cópia de arquivos entre o cliente/servidor ssh. A sintaxe usada por 
+este comando é a seguinte: 
+ <p>
+<tt>scp [<em>origem</em>] [<em>destino</em>]</tt>
+ <p>
+Os parâmetros de <em>origem</em> e <em>destino</em> são semelhantes ao do 
+comando <prgn>cp</prgn> mas possui um formato especial quando é especificado 
+uma máquina remota: 
+<list compact>
+ <item>
+<tt>Um caminho padrão</tt> - Quando for especificado um arquivo local. Por 
+exemplo: <file>/usr/src/arquivo.tar.gz</file>. 
+
+ <item>
+<tt>usuario@host_remoto:/diretório/arquivo</tt> - Quando desejar copiar o 
+arquivo de/para um servidor remoto usando sua conta de usuário. 
+Por exemplo: <tt>gleydson@ftp.debian.org:~/arqs</tt>. 
+
+</list>
+A opção <em>-C</em> é recomendável para aumentar a taxa de transferência de dados
+usando compactação. Caso a porta remota do servidor <prgn>sshd</prgn> seja diferente 
+de 22, a opção <em>-P porta</em> deverá ser especificada (é "P" maiúscula mesmo, 
+pois a <em>-p</em> é usada para preservar permissões/data/horas dos arquivos 
+transferidos). 
+<example>
+Exemplos:
+# Para copiar um arquivo local chamado /pub/teste/script.sh para 
+# meu diretório pessoal em ftp.sshserver.org
+scp -C /pub/teste/script.sh gleydson@ftp.sshserver.org:~/
+
+# Para fazer a operação inversa a acima (copiando do servidor remoto para o local) 
+# é só inverter os parâmetros origem/destino: 
+scp -C gleydson@ftp.sshserver.org:~/script.sh /pub/teste
+
+# Para copiar o arquivo local chamado /pub/teste/script.sh para 
+# o diretório /scripts dentro do meu diretório pessoal em ftp.sshserver.org 
+# com o nome teste.sh
+scp -C /pub/teste/script.sh gleydson@ftp.sshserver.org:~/scripts/teste.sh
+
+# O exemplo abaixo faz a transferência de arquivos entre 2 computadores remotos: 
+# O arquivo teste.sh é lido do servidor server1.ssh.org e copiado para 
+# server2.ssh.org (ambos usando o login gleydson)
+scp -C gleydson@server1.ssh.org:~/teste.sh gleydson@server2.ssh.org:~/
+
+</example>
+
+
+<sect2 id="s-ssh-cliente-scp-win">Cliente scp para Windows
+ <p>
+O <prgn>pscp</prgn> faz a tarefa equivalente ao <prgn>scp</prgn> no 
+windows, e pode ser baixado de 
+<url id="&url-putty-www;">. 
+
+
+<sect1 id="s-ssh-cliente-sftp">sftp
+ <p>
+Permite realizar transferência de arquivos seguras através do protocolo 
+ssh. A conexão e transferências são realizadas através da porta 22 (ainda 
+não é possível modificar a porta padrão). A sintaxe 
+para uso deste comando é a seguinte: 
+ <p>
+<tt>sftp usuario@host_remoto</tt>
+ <p>
+Compactação pode ser especificada através da opção <em>-C</em>. Um 
+arquivo contendo os comandos usados na seção <prgn>sftp</prgn> poderá se 
+especificado através da opção <em>-b arquivo</em> para automatizar tarefas. 
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Para desativar o servidor <prgn>sftp</prgn>, remova a linha 
+<tt>SubSystem sftp /usr/lib/sftp-server</tt> (que inicializa o sub-sistema 
+ftp) do arquivo <file>/etc/ssh/sshd_config</file> e reinicie o servidor 
+<prgn>sshd</prgn>. 
+ <p>
+<strong>OBS2:</strong> O suporte ao programa <prgn>sftp</prgn> somente 
+está disponível ao protocolo ssh versão 2 e superiores.
+ <p>
+<strong>OBS3:</strong> Algumas opções comuns do cliente <prgn>ftp</prgn> padrão 
+(como <em>mget</em>) ainda não estão disponíveis ao <prgn>sftp</prgn>. Veja 
+a página de manual para detalhe sobre as opções disponíveis. ]]> 
+
+
+

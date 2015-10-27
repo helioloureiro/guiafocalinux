@@ -1,0 +1,93 @@
+<!--
+Este arquivo contém as URLs que serão usadas na geração do guia Foca GNU/Linux.
+Caso encontre uma URL ou endereço FTP que esteja desatualizado ou deseje 
+incluir sua página, favor entre em contato com o autor do manual pelo 
+E-Mail: gleydson@guiafoca.org
+-->
+<!entity url-manual-www         "http://www.guiafoca.org">
+
+<!-- URLs de páginas Internet das distribuições Linux -->
+<!entity url-debian-www         "http://www.debian.org/">
+<!entity url-ubuntu-www         "http://www.ubuntu.com/">
+<!entity url-redhat-www         "http://www.redhat.com/">
+<!entity url-slackware-www      "http://www.slackware.com/">
+<!entity url-suse-www           "http://www.suse.com/">
+<!entity url-fedora-www         "http://fedora.redhat.com/">
+<!entity url-mandriva-www         "http://www.mandriva.com/">
+
+<!-- URLs de Servidores FTP das distribuições Linux acima -->
+<!entity url-debian-ftp         "ftp://ftp.debian.org/">
+<!entity url-ubuntu-ftp         "http://www.ubuntu.com/getubuntu/download/">
+<!entity url-redhat-ftp         "ftp://ftp.redhat.com/">
+<!entity url-slackware-ftp      "ftp://ftp.slackwarebrasil.org/linux/slackware/">
+<!entity url-suse-ftp           "ftp://ftp.suse.com/">
+<!entity url-fedora-ftp         "http://download.fedora.redhat.com/pub/fedora/linux/core/2/i386/iso/">
+<!entity url-mandriva-ftp       "http://www.mandriva.com/">
+
+
+<!-- URLs de Páginas Internet Citadas no guia -->
+<!entity url-linux-www          "http://www.linux.org/">
+<!entity url-linuxtrix-www      "http://www.br-linux.org/">
+<!entity url-bakuri-www         "http://www.geocities.com/bakurih/">
+<!entity url-olinux-www         "http://www.olinux.com.br/">
+<!entity url-linuxcounter-www   "http://counter.li.org/">
+<!entity url-ldpbr-www          "http://www.tldp.org/">
+<!entity url-metalab-www        "http://metalab.unc.edu/">
+<!entity url-themes-www         "http://www.themes.org/">
+<!entity url-cipsga-www         "http://www.cipsga.org.br/">
+<!entity url-debianbr-www       "http://www.debianbrasil.org/">
+<!entity url-linuxsecuritybr-www "http://www.linuxsecurity.com.br/">
+<!entity url-noticiaslinux-www  "http://www.noticiaslinux.com.br/">
+<!entity url-oreillsafari-www   "http://www.oreill.com/safari/">
+
+<!-- E-Mail dos responsáveis pelas páginas Acima -->
+<!entity email-linux-resp          "webmaster@linux.org">
+<!entity email-linuxtrix-resp      "brain@matrix.com.br">
+<!entity email-bakuri-resp         "bakurih@yahoo.com">
+<!entity email-olinux-resp         "baptista@linuxsolutions.com.br">
+<!entity email-linuxcounter-resp   "harald@alvestrand.no">
+<!entity email-ldpbr-resp          "ricardo@conectiva.com.br">
+<!entity email-sunsite-resp        "webmaster@sunsite.unc.edu">
+<!entity email-themes-resp         "webmaster@themes.org">
+<!entity email-cipsga-resp         "email@dvalois.net">
+<!entity email-debianbr-resp       "debian-br@listas.cipsga.org.br">
+<!entity email-noticiaslinux-resp  "deivison@noticiaslinux.com.br">
+
+
+<!-- Endereços de servidores HTTP diversos citados no guia -->
+<!entity url-debian-bts-www      "http://bugs.debian.org/">
+<!entity url-netcraft-www        "http://www.netcraft.com/">
+
+<!entity url-apache-bug-report   "http://www.apache.org/bug_report.html/">
+<!entity url-apache-dev          "http://dev.apache.org/">
+<!entity url-ebtables-www        "http://users.pandora.be/bart.de.schuymer/ebtables/">
+<!entity url-mit-keyserver-www   "http://pgp.ai.mit.edu">
+<!entity url-wincvs-down        "http://telia.dl.sourceforge.net/sourceforge/cvsgui/WinCvs13b13.zip">
+<!entity url-python-win-down      "http://starship.python.net/crew/mhammond/downloads/win32all-153.exe">
+<!entity url-maccvs-down        "http://telia.dl.sourceforge.net/sourceforge/cvsgui/MacCvsX-3.3a1-1.dmg">
+<!entity url-cvs-down           "http://www.cvshome.org/">
+
+<!entity url-netfilter-www           "http://netfilter.filewatcher.org">
+<!entity url-netfilter-dev           "http://lists.samba.org">
+<!entity url-qpopper-www             "http://www.eudora.com/qpopper/">
+<!entity url-pamauth-doc-ftp           "ftp://ftp.us.kernel.org/pub/linux/libs/pam/Linux-PAM-html/pam.html">
+<!entity url-pamauth-doc-www           "http://www.kernel.org/pub/linux/libs/pam/pre/doc/rfc86.0.txt.gz">
+<!entity url-restrictedproc-www           "http://noc.res.cmu.edu/proc">
+<!entity url-rfc-www                    "http://rfc.net">
+
+<!entity url-putty-www            "http://www.chiark.greenend.org.uk/~sgtatham/putty/">
+<!entity url-mindterm-www         "http://www.mindbright.se/mindterm/">
+<!entity url-grub-www             "http://www.gnu.org/software/grub/">
+<!entity url-cdcontrol-www        "http://cdcontrol.sourceforge.net/">
+<!entity url-mplayer-www          "http://mplayer.sourceforge.net/">
+<!entity url-bladeenc-www         "http://bladeenc.mp3.no/">
+<!entity url-rfc-791              "http://www.rfc-editor.org/rfc/rfc791.txt">
+<!entity url-rfc-792              "http://www.rfc-editor.org/rfc/rfc792.txt">
+<!entity url-rfc-793              "http://www.rfc-editor.org/rfc/rfc793.txt">
+<!entity url-rfc-768              "http://www.rfc-editor.org/rfc/rfc768.txt">
+
+
+<!-- Endereços de servidores FTP diversos citados no guia -->
+<!entity url-kernel-ftp          "ftp://ftp.kernel.org/">
+<!entity url-ldp-ftp             "ftp://metalab.unc.edu/pub/Linux/docs/HOWTO/">
+

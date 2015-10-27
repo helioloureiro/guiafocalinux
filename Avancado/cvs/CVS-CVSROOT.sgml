@@ -1,0 +1,107 @@
+<sect id="s-cvs-cvsroot">Arquivos administrativos em CVSROOT
+ <p>
+Esta seção descreve a função de cada um dos arquivos administrativos, isto 
+pode ser útil na configuração e personalização do CVS e de seu repositório.
+ <p>
+Para não alongar muito o capítulo, procurei colocar uma breve descrição da 
+função de cada um deles, o comentários e exemplos existentes nos arquivos
+oferecem uma boa compreensão do seu conteúdo.
+
+
+<sect1 id="s-cvs-cvsroot-config"><file>config</file>
+ <p>
+Este arquivo é segue os padrões do arquivos de configuração e possui alguns parâmetros
+que controlam o comportamento do CVS. Segue uma lista deles:
+<taglist compact>
+ <tag><var>SystemAuth</var></tag>
+  <item>
+Define se será utilizado a autenticação via <file>/etc/passwd</file> quando o 
+método <em>pserver</em> for utilizado. Note que se o arquivo <file>passwd</file> 
+for criado no <file>CVSROOT</file>, o <var>SystemAuth</var> será definido 
+automaticamente para <tt>no</tt>. 
+ <p>
+Exemplo: <tt>SystemAuth=yes</tt>.
+
+ <tag><var>LockDir</var></tag>
+  <item>
+Especifica o diretório onde serão gravados os arquivos de lock. Caso não seja
+especificado, será usado o diretório do CVS. 
+ <p>
+Exemplo: <tt>LockDir=/var/lock/cvs</tt>
+
+ <tag><var>TopLevelAdmin</var></tag>
+  <item>
+Permite criar ou não um diretório chamado <file>CVS</file> no root do 
+diretório de trabalho durante o <tt>cvs checkout</tt>.
+
+ <tag><var>LogHistory</var></tag>
+  <item>
+Utiliza opções para especificar o que será registrado nos arquivos de log 
+do <tt>CVS</tt>. 
+ <list compact>
+  <item><tt>TOFEWGCMAR</tt> ou <tt>all</tt>
+   <p>
+Registra todas as operações nos logs do <prgn>cvs</prgn>.
+
+  <item><tt>TMAR</tt>
+   <p>
+Registra todas as operações que modificam os arquivos <file>",v"</file>
+
+ </list>
+</taglist>
+
+
+<sect1 id="s-cvs-cvsroot-modules"><file>modules</file>
+ <p>
+Especifica opções e programas externos que serão usados durante a execução 
+de comandos no repositório CVS.
+
+
+<sect1 id="s-cvs-cvsroot-cvswrappers"><file>cvswrappers</file>
+ <p>
+Este arquivo define ações de controle de características de arquivos, 
+de acordo com seu nome.
+ <p>
+Pode ser também definidas ações através de arquivos <file>.cvswrappers</file>.
+
+
+<sect1 id="s-cvs-cvsroot-commitinfo"><file>commitinfo</file>
+ <p>
+Define programas para fazer uma checagem baseada no diretório e dizer se o 
+commit é permitido.
+
+
+<sect1 id="s-cvs-cvsroot-verifymsg"><file>verifymsg</file>
+ <p>
+Especifica o programa usado para verificar as mensagens de log.
+
+
+<sect1 id="s-cvs-cvsroot-loginfo"><file>loginfo</file>
+ <p>
+Programa que é executado após o commit. Ele pode ser usado para tratar a mensagem 
+de log e definir onde ela será gravada/enviada, etc.
+
+
+<sect1 id="s-cvs-cvsroot-cvsignore"><file>cvsignore</file>
+ <p>
+Tudo que constar neste arquivo não será gravado (commit) no cvs. Referências 
+globais podem ser usadas para especificar estes arquivos. Veja a info 
+page do cvs para detalhes sober seu formato. 
+ <p>
+Pode também ser especificado através de arquivos <file>.cvsignore</file>.
+
+
+<sect1 id="s-cvs-cvsroot-checkoutlist"><file>checkoutlist</file>
+ <p>
+Especifica os arquivos que deseja manter sobre o controle do CVS que 
+se encontram em <file>CVSROOT</file>. Se adicionar um script adicional, 
+ou qualquer outro arquivo no diretório <file>CVSROOT</file> ele deverá 
+constar neste arquivo. 
+
+
+<sect1 id="s-cvs-cvsroot-history"><file>history</file>
+ <p>
+É usado para registrar detalhes do comando <em>history</em> do CVS.
+
+
+

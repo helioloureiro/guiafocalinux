@@ -1,0 +1,749 @@
+<sect id="s-samba-c">Configuração de Clientes NetBEUI
+ <p>
+Este capítulo documenta a configuração de máquinas clientes NetBEUI, requerimentos
+de cada configuração e documenta os passos necessários para ter o cliente
+se comunicando perfeitamente com o seu servidor. Serão explicadas tanto a 
+configuração de <em>grupo de trabalho</em> como de <em>domínio</em> e como 
+a configuração é compatível entre <prgn>Linux</prgn> e <prgn>Windows</prgn>, 
+estas explicações são perfeitamente válidas para configurar clientes que 
+acessem servidores <prgn>Windows</prgn>.
+
+
+<sect1 id="s-samba-c-wfw-lman">Considerações sobre o Windows for Workgroups e LanManager
+ <p>
+Sistemas com implementações NetBIOS mais antigos, como o <prgn>Windows for 
+Workgroups</prgn> (Windows 3.11) e o <prgn>Lan Manager</prgn> (DOS), enviam 
+somente a senha para acesso ao compartilhamento, desta forma, para o acesso ser 
+autorizado pelo <prgn>samba</prgn>, você deverá especificar a diretiva 
+<em>user = usuario</em> para que a senha confira com o usuário local do sistema. 
+A senha enviada também é em formato texto plano. Este problema não ocorre no 
+Windows 95 e superiores, que enviam o nome de usuário que efetuou o logon junto 
+com a respectiva senha.
+ <p>
+Se a segurança do seu samba depende de senhas criptografadas, será necessário 
+utilizar a diretiva <tt>"include = outro_arquivo_de_configuração.%m</tt> para 
+definir configurações específicas de acesso para estas máquinas. 
+ <p>
+Outro detalhe que deve ser lembrado é que o <prgn>Windows for Workgroups</prgn>
+envia sempre a senha em MAIÚSCULAS, então é preciso configurar o SAMBA para 
+tentar combinações de maiúsculas/minúsculas usando o 
+parâmetro <em>mangle case</em> e <em>default case</em> na seção global 
+do <file>smb.conf</file>.
+
+
+<sect1 id="s-samba-c-workgroup">Configurando clientes em Grupo de Trabalho
+ <p>
+Para configurar o cliente para fazer parte de um <em>grupo de trabalho</em>, 
+é necessário apenas que tenha em mãos o <tt>nome do grupo de trabalho</tt> 
+(workgroup) que os clientes farão parte e o nome de uma outra máquina que 
+faz parte do mesmo grupo (para testes iniciais). Com estes dados em mãos, 
+selecione na lista abaixo o nome do cliente que deseja configurar para 
+incluir no grupo de trabalho: 
+<list compact>
+<![ %CONSTRUCAO [ <item><ref id="s-samba-c-workgroup-wfw"> ]]>
+ <item><ref id="s-samba-c-workgroup-w9x">
+<![ %CONSTRUCAO [ <item><ref id="s-samba-c-workgroup-wME"> ]]>
+ <item><ref id="s-samba-c-workgroup-wXPHome">
+ <item><ref id="s-samba-c-workgroup-wXPprofessional">
+ <item><ref id="s-samba-c-workgroup-wXPServer">
+ <item><ref id="s-samba-c-workgroup-NTWorkstation">
+ <item><ref id="s-samba-c-workgroup-NTServer">
+ <item><ref id="s-samba-c-workgroup-w2kProfessional">
+ <item><ref id="s-samba-c-workgroup-w2kServer">
+ <item><ref id="s-samba-c-workgroup-linux">
+
+</list>
+
+<![ %CONSTRUCAO [
+<sect2 id="s-samba-c-workgroup-wfw">Windows 3.11
+ <p>
+Em workgroup ]]>
+
+
+<sect2 id="s-samba-c-workgroup-w9x">Windows 9X
+ <p>
+Estas configurações são válidas para clientes Windows 95, Windows 95OSR/2, 
+Windows 98. Caso utilize o <prgn>Windows 95</prgn> (qualquer uma das 
+séries) é aconselhável atualizar a stack TCP/IP e NetBEUI para corrigir 
+alguns problemas que podem deixar sua máquina vulnerável na versão 
+que acompanha o WinSock do Windows 95. 
+ <p>
+Para tornar uma máquina parte do grupo de trabalho, siga os seguintes passos:
+<list compact>
+ <item>Entre nas propriedades de rede no Painel de Controle
+ <item>Instale o Cliente para redes Microsoft (caso não esteja instalado).
+ <item>Instale o Protocolo TCP/IP. Você também pode instalar o protocolo
+NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que é o usado pelo
+<prgn>SAMBA</prgn> além de ter um melhor desempenho, permitir integração com
+servidores WINS, etc.
+ <item>Clique em "Protocolo TCP/IP" e em Propriedades. Clique na tab
+"NetBIOS" e marque a opção "Desejo ativar o NetBIOS através do TCP/IP".
+Caso esta caixa esteja em cinza, então está tudo certo também.
+ <item>Clique na tab "Identificação" e coloque lá o nome que identificará o 
+computador (até 15 caracteres) e o nome do grupo de trabalho que ele fará
+parte(por exemplo "workgroup", "suporte", etc) . No campo "Descrição do 
+Computador", coloque algo que identifique a máquina na rede (por exemplo, 
+"Computador da área de suporte").
+ <item>Clique na tab "Controle de Acesso" e marque o "Controle de 
+acesso a nível de compartilhamento" (a não ser que tenha configurado um 
+servidor que mantenha um controle de nível de usuário na rede para as 
+máquinas fora do domínio). 
+ <item>
+Clique em OK até reiniciar o computador. 
+</list>
+A máquina cliente agora faz parte do grupo de trabalho! Tente acessar 
+um outro computador da rede e navegar através do ambiente de rede. Caso 
+a lista de máquinas demore em aparecer, tente acessar diretamente pelo nome do 
+computador, usando o seguinte formato: "\\computador"
+
+<![ %CONSTRUCAO [
+<sect2 id="s-samba-c-workgroup-wME">Windows ME
+ <p>
+Em workgroup
+Em domínio ]]>
+
+
+<sect2 id="s-samba-c-workgroup-wXPHome">Windows XP Home Edition
+ <p>
+Siga as instruções de <ref id="s-samba-c-workgroup-wXPprofessional">.
+
+
+<sect2 id="s-samba-c-workgroup-wXPprofessional">Windows XP Professional Edition
+ <p>
+<list compact>
+ <item>
+Logue como administrador do sistemas local.
+ <item>
+Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
+de sistema será aberta.
+ <item>
+No campo <em>Descrição do Computador</em>, coloque algo que descreva a 
+máquina (opcional).
+ <item>
+Clique na TAB <em>Nome do Computador</em> e no botão <em>Alterar</em> na 
+parte de baixo da janela.
+ <item>
+No campo <em>nome do computador</em>, coloque um nome de no máximo 15 
+caracteres para identificar a máquina na rede.
+ <item>
+Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
+trabalho</em> na caixa de diálogo.
+ <item>
+Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
+trabalho. Será necessário reiniciar a máquina.
+</list>
+
+<sect2 id="s-samba-c-workgroup-wXPServer">Windows XP Server Edition
+ <p>
+Siga as instruções de <ref id="s-samba-c-workgroup-wXPprofessional">.
+
+
+<sect2 id="s-samba-c-workgroup-NTWorkstation">Windows NT WorkStation
+ <p>
+Veja <ref id="s-samba-c-dominio-NTServer">.
+
+
+<sect2 id="s-samba-c-workgroup-NTServer">Windows NT Server
+ <p>
+<list compact>
+ <item>
+Clique no item <tt>Rede</tt> do painel de controle.
+ <item>
+Na tab <tt>Serviços</tt>, confira se os serviços <tt>Estação de trabalho</tt>,
+<tt>Interface de NetBIOS</tt> e <tt>Serviços TCP/IP simples</tt> estão instalados. 
+Caso não estejam, faça sua instalação usando o botão <tt>Adicionar</tt>
+nesta mesma janela.
+ <item>
+Na tab <tt>Protocolos</tt>, verifique se os protocolos <em>NetBEUI</em> e <em>TCP/IP</em> 
+estão instalados. Caso não estejam, faça sua instalação clicando 
+no botão <tt>Adicionar</tt> nesta mesma janela.
+ <item>
+Na tab identificação, clique no botão <tt>Alterar</tt>
+ <item>
+Na janela que se abrirá, coloque o nome do computador
+no campo <tt>Nome do Computador</tt>
+ <item>
+Clique em <tt>Grupo de trabalho</tt> e escreva
+o nome do grupo de trabalho em frente.
+ <item>
+Clique em <tt>OK</tt> até voltar.
+ <item>
+Pronto, seu computador agora faz parte do grupo de trabalho.
+</list>
+
+
+<sect2 id="s-samba-c-workgroup-w2kProfessional">Windows 2000 Professional
+ <p>
+<list compact>
+ <item>
+Logue como administrador do sistemas local.
+ <item>
+Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
+de sistema será aberta. Clique em "Computador" e então no botão
+"Propriedades".
+ <item>
+No campo <em>nome do computador</em>, coloque um nome de no máximo 15 
+caracteres para identificar a máquina na rede.
+ <item>
+Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
+trabalho</em> na caixa de diálogo.
+ <item>
+Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
+trabalho. Será necessário reiniciar a máquina.
+</list>
+
+
+<sect2 id="s-samba-c-workgroup-w2kServer">Windows 2000 Server
+ <p>
+<list compact>
+ <item>
+Logue como administrador do sistemas local.
+ <item>
+Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
+de sistema será aberta. Clique em "Descrição de rede" e então no botão
+"Propriedades".
+ <item>
+No campo <em>nome do computador</em>, coloque um nome de no máximo 15 
+caracteres para identificar a máquina na rede.
+ <item>
+Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
+trabalho</em> na caixa de diálogo.
+ <item>
+Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
+trabalho. Será necessário reiniciar a máquina.
+</list>
+
+
+<sect2 id="s-samba-c-workgroup-linux">Linux
+ <p>
+Os aplicativos <prgn>smbclient</prgn> e <prgn>smbmount</prgn> 
+são usados para navegação e montagem dos discos e impressoras 
+compartilhadas em máquinas <prgn>Linux</prgn>. Se você procura
+programas de navegação gráficos, como o <em>Ambiente de Rede</em> 
+do <prgn>Windows</prgn> ou mais poderosos, veja <ref id="s-samba-c-graficos">. 
+Como complemento, também é explicado o programa
+<prgn>nmblookup</prgn> para resolução de endereços NetBIOS em 
+IP e vice-versa e a forma que as funções de máquinas são 
+definidas em uma rede NetBEUI.
+
+
+<sect3 id="s-samba-c-workgroup-linux-smbmount">smbmount
+ <p>
+O <prgn>smbmount</prgn> é uma ferramenta que permite a 
+montagem de um disco compartilhado por uma máquina NetBEUI remota 
+como uma partição. Veja alguns exemplos:
+<taglist compact>
+ <tag>smbmount //servidor/discoc /mnt/discoc</tag>
+  <item>
+Monta o compartilhamento de <em>//servidor/discoc</em> em 
+<file>/mnt/discoc</file> usando o nome de usuário atual. 
+Será pedido uma senha para acessar o conteúdo do compartilhamento,
+caso ele seja público, você pode digitar qualquer senha ou 
+simplesmente pressionar enter.
+
+ <tag>smbmount //servidor/discoc /mnt/discoc -N</tag>
+  <item>
+Semelhante ao comando cima, com a diferença que o parâmetro
+<tt>-N</tt> não pergunta por uma senha. Isto é ideal para 
+acessar compartilhamentos anônimos.
+
+ <tag>smbmount //servidor/discoc /mnt/discoc -o username=gleydson,workgroup=teste</tag>
+  <item>
+Semelhante aos anteriores, mas acessa o compartilhamento usando 
+<em>gleydson</em> como nome de usuário e <em>teste</em> como grupo de trabalho.
+Este método é ideal para redes que tem o nível de acesso por usuário ou 
+para acessar recursos compartilhados em um domínio.
+
+</taglist>
+
+<sect3 id="s-samba-c-workgroup-linux-smbclient">smbclient
+ <p>
+O <prgn>smbclient</prgn> é uma ferramenta de navegação em servidores SAMBA. 
+Ao invés dela montar o compartilhamento como um disco local, você poderá 
+navegar na estrutura do servidor de forma semelhante a um cliente FTP e 
+executar comandos como <tt>ls</tt>, <tt>get</tt>, <tt>put</tt> para 
+fazer a transferência de arquivos entre a máquina remota e a máquina 
+local. Também é através dele que é feita a interface com impressoras
+compartilhadas remotamente. Veja exemplos do uso do <prgn>smbclient</prgn>:
+<taglist compact>
+ <tag>smbclient -L samba1</tag>
+  <item>
+Lista todos os compartilhamentos existentes (<tt>-L</tt>) no servidor 
+<file>samba1</file>. 
+
+ <tag>smbclient //samba1/discoc</tag>
+  <item>
+Acessa o conteúdo do compartilhamento <tt>discoc</tt> no servidor <tt>samba1</tt>.
+
+ <tag>smbclient //samba1/discoc -N</tag>
+  <item>
+Idêntico ao acima, mas não utiliza senha (ideal para compartilhamentos com 
+acesso anônimo).
+
+ <tag>smbclient //samba1/discoc -I 192.168.1.2</tag>
+  <item>
+Se conecta ao compartilhamento usando o endereço IP <file>192.168.1.2</file> 
+ao invés da resolução de nomes. 
+
+ <tag>smbclient //samba1/discoc -U gleydson -W teste</tag>
+  <item>
+Se conecta ao compartilhamento como usuário <tt>gleydson</tt> usando o 
+grupo de trabalho <tt>teste</tt>.
+
+ <tag>smbclient //samba1/discoc -U gleydson%teste1 -W teste</tag>
+  <item>
+Idêntico ao acima, mas também envia a senha <tt>teste1</tt> para fazer 
+a conexão diretamente.
+
+</taglist>
+Caso receba a mensagem <tt>NT Status Access Denied</tt>, isto quer 
+dizer que não possui direitos de acesso adequados para listas ou 
+acessar os compartilhamentos da máquina. Nesse caso, utilize as 
+opções <tt>-U usuário</tt> e <tt>-W grupo/domínio</tt> para fazer 
+acesso com uma conta válida de usuário existente na máquina.
+<![ %OBS [
+ <p>
+<strong>OBS: </strong>Note que a ordem das opções faz diferença no 
+<prgn>smbmount</prgn>. ]]>
+
+
+<sect3 id="s-samba-c-workgroup-linux-nmblookup">nmblookup
+ <p>
+Esta é uma ferramenta usada para procurar nomes de cliente 
+usando o endereço IP, procurar um IP usando o nome e listar 
+as características de cada cliente. Veja alguns exemplos:
+<taglist compact>
+ <tag>nmblookup -A 127.0.0.1</tag>
+  <item>
+ Lista o nome e as opções usadas pelo servidor <file>127.0.0.1</file>
+ 
+ <tag>nmblookup servidor</tag>
+  <item>
+ Resolve o endereço IP da máquina <tt>servidor</tt>.
+
+</taglist>
+A listagem exibida pela procura de IP do <prgn>nmblookup</prgn> possui 
+códigos hexadecimais e cada um deles possui um significado especial no 
+protocolo NetBEUI. Segue a explicação de cada um:
+<taglist compact>
+ <tag>Identificação da máquina</tag>
+  <item>
+   <list compact>
+    <item>
+COMPUTADOR&lt;00&gt;= O serviço NetBEUI está sendo executado na máquina.
+    <item>
+COMPUTADOR&lt;03&gt; = Nome genérico da máquina (nome NetBIOS).
+    <item>
+COMPUTADOR&lt;20&gt; = Serviço LanManager está sendo executado na máquina.
+   </list>
+
+ <tag>Identificação de grupos/domínio</tag>
+  <item>
+   <list compact>
+    <item>
+GRUPO_TRABALHO&lt;1d&gt; - &lt;GRUPO&gt; = Navegador Local de Domínio/Grupo.
+    <item>
+GRUPO_TRABALHO&lt;1b&gt; = Navegador Principal de Domínio.
+    <item>
+GRUPO_TRABALHO&lt;03&gt; - &lt;GRUPO&gt; = Nome Genérico registrado por todos os membros do grupo de trabalho.
+    <item>
+GRUPO_TRABALHO&lt;1c&gt; - &lt;GRUPO&gt; = Controladores de Domínio / Servidores de logon na rede.
+    <item>
+GRUPO_TRABALHO&lt;1e&gt; - &lt;GRUPO&gt; = Resolvedores de Nomes Internet (<tt>WINS</tt>).
+   </list>
+</taglist>
+Estes códigos podem lhe ser úteis para localizar problemas mais 
+complicados que possam ocorrer durante a configuração de um servidor.
+
+
+<sect1 id="s-samba-c-dominio">Configurando clientes em Domínio
+ <p>
+Para configurar qualquer um dos cliente abaixo para fazer parte de um 
+domínio de rede, é necessário apenas que tenha em mãos os seguintes
+dados:
+<list compact>
+ <item>Nome do controlador de domínio PDC
+ <item>Nome do domínio
+ <item>Nome de usuário e senha que foram cadastrados no servidor.
+ <item>Acesso administrador no SERVIDOR PDC (SAMBA, NT, etc).
+ <item>Cria uma conta de máquina no domínio (no caso da máquina
+ser um Windows NT, Windows XP, Windows 2k ou Linux). Veja 
+<ref id="s-samba-dom-contasmac"> para maiores detalhes.
+</list>
+Como o Windows 3.11, Windows 95, Windows 98, Windows ME não possuem
+uma conta de máquina, eles nunca serão um membro real de um domínio, 
+podendo sofrer um name spoofing e terem a identidade roubada. Mesmo 
+assim, eles terão pleno acesso aos recursos do domínio e uma 
+configuração mais fácil que os demais clientes.
+Com estes dados em mãos, selecione na lista abaixo o nome do cliente
+que deseja integrar no grupo de trabalho:
+<list compact>
+<![ %CONSTRUCAO [ <item><ref id="s-samba-c-workgroup-wfw"> ]]>
+ <item><ref id="s-samba-c-workgroup-w9x">
+<![ %CONSTRUCAO [ <item><ref id="s-samba-c-workgroup-wME"> ]]>
+ <item><ref id="s-samba-c-workgroup-wXPHome">
+ <item><ref id="s-samba-c-workgroup-wXPprofessional">
+ <item><ref id="s-samba-c-workgroup-wXPServer">
+ <item><ref id="s-samba-c-workgroup-NTWorkstation">
+ <item><ref id="s-samba-c-workgroup-NTServer">
+ <item><ref id="s-samba-c-workgroup-w2kProfessional">
+ <item><ref id="s-samba-c-workgroup-w2kServer">
+ <item><ref id="s-samba-c-workgroup-linux">
+
+</list>
+<![ %OBS [ 
+ <p>
+<strong>OBS:</strong> O Windows 2000 apresenta algumas dificuldades em 
+entrar na rede do SAMBA 2.2, sendo necessário o uso do SAMBA TNG 2.2.x 
+para aceitar o logon de estações Windows 2000.
+]]>
+
+<![ %CONSTRUCAO [
+<sect2 id="s-samba-c-dominio-wfw">Windows 3.11
+ <p>
+Em workgroup ]]>
+
+
+<sect2 id="s-samba-c-dominio-w9x">Windows 9X
+ <p>
+Estas configurações são válidas para clientes Windows 95, Windows 95OSR/2, 
+Windows 98. Caso utilize o <prgn>Windows 95</prgn> (qualquer uma das 
+séries) é aconselhável atualizar a stack TCP/IP e NetBEUI para corrigir 
+alguns problemas que podem deixar sua máquina vulnerável na versão 
+que acompanha o WinSock do Windows 95. 
+ <p>
+Para tornar uma máquina parte do domínio, siga os seguintes passos:
+<list compact>
+ <item>Entre nas propriedades de rede no Painel de Controle
+ <item>Instale o Cliente para redes Microsoft (caso não esteja instalado).
+ <item>Instale o Protocolo TCP/IP. Você também pode instalar o protocolo 
+NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que é o usado pelo 
+<prgn>SAMBA</prgn> além de ter um melhor desempenho, permitir integração com 
+servidores WINS, etc.
+ <item>Clique em "Cliente para redes Microsoft", marque a opção 
+"Efetuar logon no domínio do Windows NT". Coloque o nome do domínio
+que irá configurar o cliente para fazer parte na caixa "Domínio do Windows NT"
+(por exemplo, "suporte"). Na parte de baixo da caixa de diálogo, você 
+poderá escolher como será o método para restaurar as conexões de rede. 
+Inicialmente, recomendo que utilize a "Efetuar logon e restaurar as 
+conexões de rede" que é mais útil para depurar problemas (possíveis erros 
+serão mostrados logo que fizer o logon no domínio). 
+ <p>
+Adeque esta configuração as suas necessidades quando estiver funcionando :)
+ <item>Clique em "Protocolo TCP/IP" e em Propriedades. Clique na tab
+"NetBIOS" e marque a opção "Desejo ativar o NetBIOS através do TCP/IP".
+Caso esta caixa esteja em cinza, então está tudo certo também.
+ <item>Clique na tab "Identificação" e coloque lá o nome que identificará o 
+computador (até 15 caracteres). 
+ <item>Digite o nome de um grupo de trabalho que a máquina fará parte 
+no campo "Grupo de Trabalho" (por exemplo "workgroup", "suporte", etc). 
+Este campo somente será usado caso o logon no domínio NT não seja feito 
+com sucesso. No campo "Descrição do Computador", coloque algo que 
+identifique a máquina na rede (por exemplo, "Computador da área de 
+suporte").
+<item>Clique na tab "Controle de Acesso" e marque o "Controle de 
+acesso a nível de usuário e especifique o nome da máquina que 
+serve a lista de usuários, que normalmente é a mesma do PDC. 
+ <item>
+Clique em OK até reiniciar o computador. 
+</list>
+Quando for mostrada a tela pedindo o nome/senha, preencha com os dados 
+da conta de usuário que criou no servidor. No campo domínio, coloque 
+o domínio que esta conta de usuário pertence e tecle &lt;Enter&gt;. 
+Você verá o script de logon em ação (caso esteja configurado) e a 
+máquina cliente agora faz parte do domínio! Tente acessar 
+um outro computador da rede e navegar através do ambiente de rede. Caso 
+a lista de máquinas demore em aparecer, tente acessar diretamente pelo nome do 
+computador, usando o seguinte formato: "\\computador"
+
+
+<![ %CONSTRUCAO [
+<sect2 id="s-samba-c-dominio-wME">Windows ME
+ <p>
+Em workgroup
+Em domínio ]]>
+
+
+<sect2 id="s-samba-c-dominio-wXPHome">Windows XP Home Edition
+ <p>
+Não é possível fazer o <prgn>Windows XP Home Edition</prgn> ser parte de 
+um domínio, por causa de limitações desta versão.
+
+
+<sect2 id="s-samba-c-dominio-wXPprofessional">Windows XP Professional Edition
+ <p>
+<list compact>
+ <item>
+Primeiro, siga todos os passos para ingressar a máquina em um grupo de trabalho 
+como documentado em <ref id="s-samba-c-workgroup-wXPprofessional">.
+ <item>
+Atualize o registro para permitir a entrada no domínio:
+  <enumlist compact>
+   <item>
+Copie o seguinte conteúdo para o arquivo <file>WinXP-Dom.reg</file>:
+   <example>
+REGEDIT4
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\netlogon\parameters
+"RequireSignOrSeal"=dword:00000000
+"SignSecureChannel"=dword:00000000
+
+   </example>
+   <item>
+Execute o comando <tt>regedit WinXP-Dom.reg</tt> no cliente XP.
+  </enumlist>
+
+ <item>
+Entre nos ítens (em seqüencia) Painel de controle/Ferramentas Administrativas/
+Política de segurança local/políticas locais e depois em "opções de segurança".
+Na janela de opções de segurança, desative as opções "Encriptar digitalmente ou 
+assinar um canal seguro (sempre)", "Desativar modificações de senha na conta de máquina"
+e "Requer chave de seção forte (Windows 2000 ou superior)."
+ <item>
+Reinicie a máquina.
+ <item>
+Após reiniciar a máquina, volte na tela de alteração de identificação de máquina na rede.
+ <item>
+Clique com o mouse em "Domínio" e digite o nome do domínio na caixa de diálogo.
+ <item>
+Na tela seguinte, será lhe pedido o nome de usuário e senha com poderes administrativos que podem inserir/remover máquinas do domínio.
+ <item>
+Clique em OK e aguarde a mensagem confirmando sua entrada no domínio. Será necessário reiniciar a máquina após concluir este passo.
+</list>
+
+
+<sect2 id="s-samba-c-dominio-wXPServer">Windows XP Server Edition
+ <p>
+Siga os procedimentos documentados em <ref id="s-samba-c-dominio-wXPprofessional">
+
+
+<sect2 id="s-samba-c-dominio-NTWorkstation">Windows NT WorkStation
+ <p>
+Veja os passos em <ref id="s-samba-c-dominio-NTServer">.
+
+
+<sect2 id="s-samba-c-dominio-NTServer">Windows NT Server
+ <p>
+<list compact>
+ <item>
+Clique no item <tt>Rede</tt> do painel de controle.
+ <item>
+Na tab <tt>Serviços</tt>, confira se os serviços <tt>Estação de trabalho</tt>,
+<tt>Interface de NetBIOS</tt> e <tt>Serviços TCP/IP simples</tt> estão instalados. 
+Caso não estejam, faça sua instalação usando o botão <tt>Adicionar</tt>
+nesta mesma janela.
+ <item>
+Na tab <tt>Protocolos</tt>, verifique se os protocolos <em>NetBEUI</em> e <em>TCP/IP</em> 
+estão instalados. Caso não estejam, faça sua instalação clicando 
+no botão <tt>Adicionar</tt> nesta mesma janela.
+ <item>
+Na tab identificação, clique no botão <tt>Alterar</tt>
+ <item>
+Na janela que se abrirá, coloque o nome do computador
+no campo <tt>Nome do Computador</tt>
+ <item>
+Clique em <tt>Dominio</tt> e escreva o nome do domínio que deseja entrar.
+ <item>
+Para criar uma <em>conta de máquina</em> no domínio, clique em <tt>criar uma 
+conta de computador no domínio</tt> e coloque na parte de baixo o 
+nome do usuário sua senha. O usuário deverá ter poderes para 
+adicionar máquinas no domínio.
+Caso a conta de máquina não seja criada, o Windows NT será como 
+um Windows 95/98 na rede, sem a segurança que seu nome NetBIOS 
+não seja usado por outros (veja <ref id="s-samba-dom-contasmac">). 
+ <item>
+Clique em OK até voltar.
+ <item>
+Pronto, seu computador agora faz parte do domínio.
+
+</list>
+
+
+<sect2 id="s-samba-c-dominio-w2kProfessional">Windows 2000 Professional
+ <p>
+Siga os passos descritos em <ref id="s-samba-c-dominio-w2kServer">.
+
+
+<sect2 id="s-samba-c-dominio-w2kServer">Windows 2000 Server
+ <p>
+<list compact>
+ <item>
+Primeiro, siga todos os passos para ingressar a máquina em um grupo de trabalho 
+como documentado em <ref id="s-samba-c-workgroup-w2kServer">.
+ <item>
+Após reiniciar a máquina, volte na tela de alteração de identificação de máquina na rede.
+ <item>
+Clique com o mouse em "Domínio" e digite o nome do domínio na caixa de diálogo.
+ <item>
+Na tela seguinte, será lhe pedido o nome de usuário e senha com poderes administrativos que podem inserir/remover máquinas do domínio.
+ <item>
+Clique em OK e aguarde a mensagem confirmando sua entrada no domínio. Será necessário reiniciar a máquina após concluir este passo.
+</list>
+Caso não consiga trocar a senha do Windows 2000 no servidor PDC, desative a 
+opção <tt>unix password sync</tt>.
+
+<sect2 id="s-samba-c-dominio-linux">Linux
+ <p>
+<list compact>
+ <item>
+Entre no sistema como usuário <em>root</em>.
+ <item>
+Instale o <prgn>SAMBA</prgn> caso não esteja ainda instalado.
+ <item>
+Edite o arquivo de configuração do samba <file>/etc/samba/smb.conf</file>, 
+será necessário modificar as seguintes linhas na seção <em>[global]</em>: 
+<example>
+[global]
+ workgroup = nome_domínio
+ security = domain
+ password server = nome_pdc nome_bdc
+ encrypt passwords = true
+
+</example>
+Onde:
+<list compact>
+ <item>
+<tt>workgroup</tt> - Nome do domínio que deseja fazer parte.
+ <item>
+<tt>security</tt> - Nível de segurança. Nesta configuração, utilize "domain".
+ <item>
+<tt>password server</tt> - Nome da máquina PDC, BDC. Também poderá ser 
+usado <tt>*</tt>, assim o <prgn>SAMBA</prgn> tentará descobrir o 
+servidor PDC e BDC automaticamente, da mesma forma usada pelo 
+<prgn>Windows</prgn>.
+ <item>
+<tt>encrypt passwords</tt> - Diz se as senhas serão encriptadas ou não. Sempre
+utilize senhas criptografadas para colocar uma máquina em um domínio.
+</list>
+Reinicie o servidor <prgn>SAMBA</prgn> após estas modificações.
+ <item>
+Execute o comando: <tt>smbpasswd -j domínio -r PDC/BDC -U usuario_admin</tt>.
+Onde:
+<list compact>
+ <item><tt>domínio</tt> - Domínio que deseja fazer o logon
+ <item><tt>PDC/BDC</tt> - Nome da máquina PDC/BDC do domínio. Em alguns casos, 
+pode ser omitido.
+ <item><tt>usuario_admin</tt> - Usuário com poderes administrativos para ingressara
+a máquina no domínio.
+</list>
+ <item>
+Se tudo der certo, após executar este comando, você verá a mensagem:
+<example>
+Joined domain "domínio".
+</example>
+</list>
+Se sua configuração não funcionou, revise com atenção todos os ítens acima. 
+Verifique se a conta de máquina foi criada no servidor e se o <prgn>SAMBA</prgn>
+na máquina cliente foi reiniciado. De também uma olhada em 
+<ref id="s-samba-c-dominio-erros">.
+<![ %OBS [
+ <p>
+<strong>OBS: </strong>O SAMBA envia primeiramente um usuário/senha falso para 
+verificar se o servidor rejeita o acesso antes de enviar o par de nome/senha 
+corretos. Por este motivo, seu usuário pode ser bloqueado após um determinado 
+número de tentativas em alguns servidores mais restritivos.
+]]>
+
+Para acessar os recursos compartilhados, veja 
+<ref id="s-samba-c-workgroup-linux">. Note que não é obrigatório 
+realizar as configurações acima para acessar os recursos de uma máquina em 
+domínio, basta apenas que autentique com seu nome de usuário/senha no 
+domínio e que ela seja autorizada pelo PDC. 
+
+
+<sect1 id="s-samba-c-dominio-erros">Erros conhecidos durante o logon do cliente
+ <p>
+Esta seção contém os erros mais comuns e a forma de correção da maioria dos 
+problemas que ocorrem quando um cliente SAMBA tenta entrar em domínio.
+<list compact>
+ <item>
+<tt>error creating domain user: NT_STATUS_ACCESS_DENIED</tt> - A conta de máquina
+no domínio não foi criada. Veja <ref id="s-samba-dom-contasmac"> para mais 
+detalhes.
+
+ <item>
+<tt>NT_STATUS_NO_TRUST_SAM_ACCOUNT</tt> - Não existe conta de máquina no 
+<prgn>Windows NT</prgn> para autenticar uma máquina no domínio. Esta 
+mensagem é mostrada quando a máquina SAMBA é cliente de um domínio NT.
+
+ <item>
+<tt>error setting trust account password: NT_STATUS_ACCESS_DENIED</tt> - A senha 
+para criação de conta na máquina está incorreta ou a conta utilizada não tem
+permissões para ingressar uma máquina no domínio (veja 
+<ref id="s-samba-dom-admin">). Caso esteja usando um cliente SAMBA, verifique 
+se o parâmetro <tt>encrypt passwords</tt> está ativado. 
+ <item>
+<tt>A senha informada não está correta ou o acesso ao seu servidor de logon foi 
+negado</tt> - Verifique primeiro os logs de acessos do sistema. Caso o SAMBA 
+esteja sendo executado via <prgn>inetd</prgn>, verifique se a configuração 
+padrão é restritiva e se o acesso está sendo negado pelos arquivos do tcp 
+wrappers <file>hosts.allow</file> e <file>hosts.deny</file>.
+
+ <item>
+<tt>não existem servidores de logon no domínio</tt> - Verifique se o parâmetro 
+<tt>domain logons = yes</tt> foi usado para permitir o logon em domínio. 
+</list>
+
+
+<sect1 id="s-samba-c-graficos">Programas de navegação gráficos
+ <p>
+O <prgn>smbclient</prgn>, <prgn>nmblookup</prgn> e <prgn>smbmount</prgn>
+são ferramentas extremamente poderosas auxiliando bastante o administrador
+na tarefa de configuração de sua rede e resolver problemas. Para o uso
+no dia a dia ou quando não é necessária a operação via console, você pode 
+utilizar uma das alternativas abaixo que são front-ends a estas ferramentas
+e facilitam o trabalho de navegação na rede.
+
+
+<sect2 id="s-samba-c-graficos-linneighborhood">linneighborhood
+ <p>
+Cliente SAMBA baseado em GTK, muito leve e possibilita a navegação 
+entre os grupos máquinas em forma de árvore. Ele também permite a 
+montagem de compartilhamentos remotos. Caso precise de recursos mais 
+complexos e autenticação, recomendo o <ref id="s-samba-c-graficos-tksmb">.
+
+
+<sect2 id="s-samba-c-graficos-tksmb">TkSmb
+ <p>
+Cliente SAMBA baseado em TCL/TK. Seu ponto forte é a navegação nos 
+recursos da máquina ao invés da rede completa, possibilitando 
+autenticação em domínio/grupo de trabalho, montagem de recursos, etc.
+
+
+<sect1 id="s-samba-c-conf">Cliente de configuração gráficos
+ <p>
+São ferramentas que permitem a configuração do samba usando a 
+interface gráfica. Isto facilita bastante o processo, principalmente
+se estiver em dúvidas em algumas configurações, mas como todo bom 
+administrador UNIX sabe, isto não substitui o conhecimento sobre o 
+funcionamento de cada opção e ajustes e organização feita diretamente
+no arquivo de configuração.
+
+
+<sect2 id="s-samba-c-conf-gnosamba">gnosamba
+ <p>
+Ferramenta de configuração gráfica usando o GNOME. Com ele é possível 
+definir configurações localmente. Ele ocupa pouco espaço em disco, e 
+se você gosta de GTK, este é o recomendado.
+ <p>
+As opções do SAMBA são divididas em categorias facilitando sua 
+localização e uso.
+
+
+<sect2 id="s-samba-c-conf-swat">swat
+ <p>
+Ferramenta de administração via web do samba. Este é um daemon que 
+opera na porta 901 da máquina onde o servidor samba foi instalado. 
+A configuração é feita através de qualquer navegador acessando 
+<tt>http://ip_do_servidor:901</tt> e logando-se como usuário root
+(o único com poderes para escrever no arquivo de configuração).
+ <p>
+Esta ferramenta vem evoluindo bastante ao decorrer dos meses e 
+é a recomendada para a configuração do servidor SAMBA remotamente. 
+Seu modo de operação divide-se em <em>básico</em> e <em>avançado</em>.
+No modo <tt>básico</tt>, você terá disponível as opções mais comuns 
+e necessárias para compartilhar recursos na rede.
+O modo <tt>avançado</tt> apresenta praticamente todos os parâmetros 
+aceitos pelo servidor samba (restrições, controle de acesso, 
+otimizações, etc.).
+

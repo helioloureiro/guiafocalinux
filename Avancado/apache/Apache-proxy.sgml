@@ -1,0 +1,217 @@
+<sect id="s-apache-proxy">Configurando o Apache como servidor proxy
+ <p>
+O <prgn>Apache</prgn> pode ser configurado  para funcionar como servidor 
+proxy transparente para sua rede interna, possibilitando inclusive o 
+uso de cache de disco. É possível se fazer conexões HTTP (incluindo SSL) e FTP.
+<![ %DESCRICAOD [ Através desta característica também é possível 
+usar uma das características mais interessante desse servidor web: o 
+redirecionamento de conexões para uma determinada URL para uma outra 
+máquina, que pode ser um outro host remoto ou uma máquina da 
+rede interna (não acessível diretamente via Internet). ]]>
+ <p>
+O primeiro passo é ativar o módulo de proxy no arquivo <file>httpd.conf</file>, 
+basta descomentar a linha:
+<example>
+# LoadModule proxy_module /usr/lib/apache/1.3/libproxy.so
+</example>
+
+O seguinte bloco pode ser colocado no final do arquivo <file>httpd.conf</file>
+para configurar um servidor proxy para realizar conexões diretas 
+(sem o uso de cache) e permitir o uso de servidores proxy em sua rede: 
+<example>
+# Suporte a Proxy
+#
+&lt;IfModule mod_proxy.c&gt;
+  ProxyRequests off
+  ProxyRemote * http://debian:3128
+  ProxyBlock microsoft.com microsoft.com.br
+  NoProxy 192.168.1.0/24
+  ProxyDomain .gms.com.br
+
+# Ativa/Desativa a manipulação de cabeçalhos HTTP/1.1 "Via:".
+# 
+# ("Full" adiciona a versão do servidor Apache; "Block" remove todos os cabeçalhos 
+# de saída "Via:")
+# Escolha uma das opções: Off | On | Full | Block
+#
+#ProxyVia On
+#&lt;/IfModule&gt;
+</example>
+Segue a explicação de cada uma das diretivas acima:
+<taglist compact>
+ <tag>ProxyRequests [<em>on/off</em>]</tag>
+ <item>
+Ativa (on) ou Desativa (off) o serviço de proxy do servidor Apache. Note que o 
+módulo <file>libproxy.so</file> deve estar carregado para que o bloco 
+&lt;IfModule libproxy.c&gt; seja processado. A desativação desta diretiva não 
+afeta a diretiva <em>ProxyPass</em>.
+
+ <tag>ProxyRemote [<em>origem</em>] [<em>URL</em>]</tag>
+ <item>
+Esta opção é útil para fazer o Apache redirecionar suas requisições
+para outro servidor proxy (como o <prgn>squid</prgn> ou o gateway da 
+rede, caso o Apache estiver sendo executado em uma máquina interna). 
+A <em>origem</em> pode ser uma URL completa (como http://www.debian.org), 
+uma URL parcial (como ftp, http) ou "*" para que o redirecionamento seja 
+sempre usado. 
+
+ <tag>ProxyBlock [<em>padrão</em>]</tag>
+ <item>
+Permite bloquear o acesso a endereços que contenham o <em>padrão</em> especificado. 
+Podem ser especificadas palavras, máquinas, domínios, URLs separados por espaços. 
+O <prgn>Apache</prgn> fará a resolução DNS no caso de endereços IP e fará o 
+cache para requisições futuras.
+
+
+ <tag>NoProxy [<em>endereços</em>]</tag>
+ <item>
+Permite especificar endereços Internos que não serão redirecionados para 
+o servidor proxy especificado por <em>ProxyRemote</em>. Podem ser usados 
+nomes de máquinas, endereços IP, subredes ou domínios separados por espaços. 
+
+ <tag>ProxyDomain [<em>endereço</em>]</tag>
+ <item>
+Especifica o endereço que será adicionado a URL caso seja recebida uma 
+requisição que contenha somente um nome de máquina. É útil em redes 
+Internas.
+
+</taglist>
+Note que quando o suporte a proxy não está ativado no <prgn>Apache</prgn>, 
+qualquer endereço de URL externa levará a página definida pela diretiva
+<em>DocumentRoot</em>. Isto deixará de funcionar após configurar o 
+serviço de proxy.
+ <p>
+O uso do cache é interessante para acelerar as requisições http da rede 
+interna para a rede externa, desta forma, se uma requisição foi feita 
+anteriormente, será descarregado o arquivo do disco rígido e assim 
+evitar uma nova conexão externa (isto libera a rede para outras coisas). Para
+configurar um cache no serviço proxy, adicione as seguintes linhas no 
+final do bloco anterior de proxy: 
+<example>
+  # As linhas abaixo ativam o cache do apache, o cache não funcionará ao menos que
+  # CacheRoot seja especificado
+  CacheRoot /var/spool/apache
+  CacheForceCompletion 70
+  CacheSize 5
+  CacheGcInterval 3
+  CacheDefaultExpire 5
+  CacheMaxExpire 300
+  NoCache 192.168.1.0/24 a_domain.com outrodomínio.com.br outro.dominio.net
+</example>
+Cada diretiva acima possui o seguinte significado:
+<taglist compact>
+ <tag>CacheRoot</tag>
+ <item>
+Diretório base onde serão criados os outros diretórios de cache. O cache 
+só será ativado se esta diretiva for definida.
+
+ <tag>CacheForceCompletion [<em>num</em>]</tag>
+ <item>
+Se uma transferência for cancelada e passar de <em>num</em>%, o 
+<prgn>Apache</prgn> continuará a transferência e armazenará o 
+arquivo no cache. O valor padrão é 90.
+
+ <tag>CacheSize [<em>num</em>]</tag>
+ <item>
+Define o tamanho máximo do diretório de cache do <prgn>Apache</prgn>, 
+em KB. Não especifique um valor que tome mais de 70% do espaço em disco. 
+O valor padrão é 5.
+ 
+ <tag>CacheGcInterval [<em>num</em>]</tag>
+ <item>
+Define o tempo que o cache será checado em busca de arquivos maiores que 
+o total do cache. Arquivos que ultrapassem o tamanho do cache são 
+automaticamente eliminados.
+
+ <tag>CacheDefaultExpire [<em>num</em>]</tag>
+ <item>
+Define o tempo que os documentos ficarão no cache, se foram 
+transferidos através de protocolos que não suportam horas de expiração. 
+O valor padrão é 1 hora.
+
+ <tag>CacheMaxExpire [<em>num</em>]</tag>
+ <item>
+Define o tempo que os documentos permanecerão armazenados no 
+cache (em horas). Esta opção ignora a hora de expiração do 
+documento (caso fornecida). O valor padrão é 24 horas.
+
+ <tag>NoCache [<em>endereços</em>]</tag>
+ <item>
+Permite especificar lista de palavras, máquinas, domínios, IP's que não
+serão armazenados no cache do <prgn>Apache</prgn>. Caso seja usado
+<tt>NoCache *</tt> o cache será desativado completamente. Note que 
+o cache também pode ser desativado comentando a diretiva
+<em>CacheRoot</em>.
+
+</taglist>
+Se você desejar um servidor cache mais flexível, rápido, dinâmico, 
+configurável (com possibilidade de uso de restrições baseadas em URL, tempo de 
+acesso, autenticação), instale o <prgn>squid</prgn> e configure o 
+<prgn>apache</prgn> para fazer forward de conexões para ele 
+(<ref id="s-apache-proxy-redir">). 
+
+
+<sect1 id="s-apache-proxy-access">Controlando o acesso ao servidor proxy
+ <p>
+Incluir o bloco abaixo no arquivo <file>access.conf</file> para 
+definir o acesso dos serviços de proxy nas redes desejadas (se a sua configuração
+for aberta como padrão isto pode ser opcional):
+<example>
+# Acesso aos serviços proxy do apache
+&lt;Directory proxy:*&gt;
+    Order deny,allow
+    Deny from all
+    Allow from .seudominio.com.br
+&lt;/Directory&gt;
+</example>
+Para explicações sobre o processo de bloqueio acima, veja 
+<ref id="s-apache-acesso-restr-autor">. 
+
+
+<sect1 id="s-apache-proxy-redir">Redirecionamento de conexões no Apache
+ <p>
+Este recurso do <prgn>Apache</prgn> é interessante para criar clusters 
+de servidores em sua rede interna. O que ele faz é pegar uma requisição
+a um determinado endereço e redireciona-lo a outra máquina e as respostas
+são repassadas ao servidor web (para o cliente a mesma máquina esta
+atendendo a requisição, para você o processamento das requisições esta 
+sendo distribuído internamente na rede). 
+ <p>
+As seguintes diretivas são usadas para realizar o redirecionamento de
+conexões:
+
+<em>ProxyPass</em> e <em>ProxyPassReverse</em>
+
+<taglist compact>
+ <tag>ProxyPass [<em>diretório_da_url</em> [<em>outro_servidor:/diretório</em>]</tag>
+ <item>
+A <em>ProxyPass</em> permite que a URL seja redirecionada para o servidor 
+local e diretório especificado. Por exemplo, assumindo que o endereço principal de 
+nosso servidor é <file>&url-manual-www;</file> e desejamos que a URL
+<file>&url-manual-www;/download</file> seja atendida por uma máquina
+localizada na nossa rede privada com o endereço <file>http://192.168.1.54</file>. 
+Basta incluir a linha:
+<example>
+ProxyPass /download http://192.168.1.54
+</example>
+Qualquer requisição externa a <file>&url-manual-www;/download/iniciante
+</file> será atendida por <file>http://192.168.1.54/iniciante</file>. 
+
+ <tag>ProxyPassRemote [<em>diretório_da_url</em> [<em>outro_servidor:/diretório</em>]</tag>
+ <item>
+Esta diretiva permite modificar o cabeçalho <tt>Location</tt> nas mensagens 
+de respostas de redirecionamento enviadas pelo <prgn>Apache</prgn>. Isto 
+permite que o endereço retornado seja o do servidor (que faz a interface 
+externa com o cliente) e não da máquina do redirecionamento. 
+<example>
+ProxyPass        /download http://192.168.1.54
+ProxyPassReverse /download http://192.168.1.54
+</example>
+Se a máquina <file>192.168.1.54</file> redirecionar a URL para 
+<file>http://192.168.1.54/download/iniciante</file>, a resposta 
+será modificada para <file>&url-manual-www;/download/iniciante</file> 
+antes de ser retornada ao cliente. 
+
+</taglist>
+
+

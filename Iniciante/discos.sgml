@@ -1,0 +1,1641 @@
+<chapt id="disc">Discos e Partições
+ <p>
+Este capítulo traz explicações de como manipular discos rígidos e partições 
+no sistema <prgn>GNU/Linux</prgn> e como acessar seus discos de CD-ROM e 
+partições <prgn>DOS</prgn>, <prgn>Windows 9X/XP/Vista/Seven</prgn> no <prgn>GNU/Linux</prgn>. 
+<![ %INTERMEDIARIO [ 
+ <p>
+Também será ensinado como formatar uma partição ou arquivo em formato
+<tt>EXT2</tt>, <tt>EXT3</tt>, <tt>reiserfs</tt>, <tt>xfs</tt> e 
+usar a ferramenta <prgn>mkswap</prgn> (para criar uma partição ou arquivo de 
+memória virtual). 
+]]>
+
+
+<sect id="disc-particoes">Partições
+ <p>
+São divisões existentes no disco rígido que marcam onde começa onde termina 
+um sistema de arquivos. As partições nos permitem usar mais de 
+um sistema operacional no mesmo computador (como o <prgn>GNU/Linux</prgn>, 
+<prgn>Windows</prgn> e <prgn>DOS</prgn>), ou dividir o disco rígido em 
+uma ou mais partes para ser usado por um único sistema operacional ou 
+até mesmo por diferentes arquiteturas (32 e 64 bits). 
+
+    <![ %INTER-AVANC [ 
+<![ %DESCRICAOD [ 
+ <p>
+Para gravar os dados, o disco rígido deve ser primeiro 
+particionado (usando o <prgn>cfdisk</prgn>, <prgn>parted</prgn>, 
+<prgn>diskdruid</prgn>, <prgn>fdisk</prgn>), escolher o tipo da partição 
+(<em>Linux Native</em>, <em>Linux Swap</em>, etc) e depois aquela partição deve ser 
+formatada com o <prgn>mkfs.ext3</prgn> (veja <ref id="disc-ext3">). 
+ <p>
+Após criada e formatada, a partição será automaticamente identificada como 
+um dispositivo no diretório <file>/dev</file> 
+<![ %INIC-INTER [ (veja <ref id="disc-id">) ]]>.
+e deverá ser montada 
+<![ %INIC-INTER [ (<ref id="disc-montagem">) ]]> para permitir seu uso 
+no sistema. ]]>
+ <p>
+Uma partição de disco não interfere em outras partições existentes, por 
+este motivo é possível usar o <prgn>Windows</prgn>, <prgn>GNU/Linux</prgn> 
+e qualquer outro sistema operacional no mesmo disco. Para escolher qual 
+deles será inicializado, veja <ref id="boot">. 
+ <p>
+Para particionar (dividir) o disco rígido em uma ou mais partes é necessário 
+o uso de um programa de particionamento. Os programas mais conhecidos para 
+particionamento de discos no <prgn>GNU/Linux</prgn> são <prgn>fdisk</prgn>, 
+<prgn>cfdisk</prgn> e o <prgn>Disk Druid</prgn>. 
+<![ %OBS [ 
+ <p>
+Lembre-se: 
+ <list compact>
+  <item>
+Quando se apaga uma partição, você estará apagando TODOS os 
+arquivos existentes nela! 
+  <item>
+A partição do tipo <em>Linux Native</em> (Tipo 83) é a usada para 
+armazenar arquivos no <prgn>GNU/Linux</prgn>, tanto ext2, ext3, 
+ext4, reiserfs, xfs, etc. Para detalhes veja <ref id="disc-ext2">. 
+  <item>
+A partição do tipo <em>Linux Swap</em> (Tipo 82) é usada como memória 
+virtual. Para detalhes veja <ref id="disc-swap">. 
+  <item>
+Em sistemas novos, é comum encontrar o <prgn>Windows</prgn> 
+instalado em uma partição que consome TODO o espaço do disco 
+rígido. Uma solução para instalar o <prgn>GNU/Linux</prgn> é apagar 
+a partição <prgn>Windows</prgn> e criar três com tamanhos menores 
+(uma para o <prgn>Windows</prgn>, uma para o <prgn>GNU/Linux</prgn> 
+e outra para a <em>Memória Virtual do Linux (SWAP)</em>. Ou 
+criar apenas 2 se você não quiser mais saber mais do <prgn>Windows</prgn> 
+;-)
+ <p>
+A outra solução é usar o <prgn>parted</prgn> (e <prgn>gparted</prgn> sua versão gráfica),
+que trabalha com <tt>FAT16</tt>, <tt>FAT32</tt>, <tt>NTFS</tt>. 
+Esta técnica também é chamada de <tt>Reparticionamento não destrutivo</tt> (e o outro 
+obviamente <tt>Reparticionamento destrutivo</tt>). Para sistemas que foram
+formatados em <prgn>Windows XP</prgn> e superiores, é possível que o <prgn>parted</prgn>
+não consiga redimensionar o sistema, neste caso você pode reparticionar 
+usando ferramentas como o <prgn>ntfsresize</prgn> ou 
+<tt>Partition Magic</tt> (para <prgn>Windows</prgn>).
+ </list>
+]]> 
+ <p>
+Para mais detalhes sobre discos, partições ou como particionar seu disco, 
+veja algum bom documento sobre particionamento (como a página de manual 
+e documentação do <prgn>fdisk</prgn>, <prgn>cfdisk</prgn>, <prgn>parted</prgn> 
+ou <prgn>Disk Druid</prgn>). 
+
+
+<sect id="disc-sistarq">Sistema de Arquivos
+ <p>
+É criado durante a "formatação" da partição de disco (quando se 
+usa o comando <prgn>mkfs.ext3</prgn>). 
+Após a formatação toda a estrutura para leitura/gravação/permissões de 
+arquivos e diretórios pelo sistema operacional estará pronta 
+para ser usada. 
+Normalmente este passo é feito durante a instalação de sua 
+distribuição <prgn>GNU/Linux</prgn>. 
+ <p>
+Cada sistema de arquivos tem uma característica em particular mas 
+seu propósito é o mesmo: Oferecer ao sistema operacional a 
+estrutura necessária para ler/gravar os arquivos/diretórios. 
+ <p>
+Entre os sistemas de arquivos existentes posso citar: 
+<list compact>
+ <item>
+<tt>Ext2</tt> - Usado em partições <em>Linux Nativas</em> para o 
+armazenamento de arquivos. É identificado pelo código 83. Seu tamanho 
+deve ser o suficiente para acomodar todo os arquivos e programas 
+que deseja instalar no <prgn>GNU/Linux</prgn> (você encontra isto no 
+manual de sua distribuição). Você deverá usar preferencialmente o 
+<tt>ext3</tt> para a instalação de seu sistema operacional. 
+Para detalhes veja <ref id="disc-ext2">. 
+ <item>
+<tt>Ext3</tt> - Este sistema de arquivos possui melhorias em relação ao 
+ext2, como destaque o recurso de jornaling e suporte a arquivos de até
+16Gb. Ele também é identificado pelo tipo 83 e totalmente compatível com 
+o ext2 em estrutura. O journal 
+mantém um log de todas as operações no sistema de arquivos, caso aconteça 
+uma queda de energia elétrica (ou qualquer outra anormalidade que interrompa o 
+funcionamento do sistema), o <prgn>fsck</prgn> verifica o sistema de arquivos 
+no ponto em que estava quando houve a interrupção, evitando a demora para 
+checar todo um sistema de arquivos (que pode levar minutos em sistemas 
+de arquivos muito grandes). Para detalhes veja <ref id="disc-ext3">.
+ <item>
+<tt>Reiserfs</tt> - Possui os mesmos recursos do ext3, mas seu design é bastante
+diferente. Bastante recomendavel para sistemas que possuem muitos arquivos
+pequenos (servidor web, etc). Possui o tempo de recuperação em caso de queda
+de energia menor que o ext3. Para detalhes veja <ref id="disc-reiserfs">.
+ <item>
+<tt>Swap</tt> - Usado em partições <em>Linux Swap</em> para oferecer 
+memória virtual ao sistema. Note que é altamente recomendado o uso de 
+uma partição Swap no sistema (principalmente se você tiver menos que 
+16MB de memória RAM). Este tipo de partição é identificado pelo 
+código 82. Para detalhes veja <ref id="disc-swap">. 
+ <item>
+<tt>proc</tt> - Sistema de arquivos do kernel (veja <ref id="disc-proc">). 
+ <item>
+<tt>FAT12</tt> - Usado em disquetes no <prgn>DOS</prgn>. Não possui suporte a 
+permissões, journaling.
+ <item>
+<tt>FAT16</tt> - Usado no <prgn>DOS</prgn> e oferece suporte 
+até discos de 2GB. Não possui suporte a permissões e journaling.
+ <item>
+<tt>FAT32</tt> - Também usado no <prgn>DOS</prgn> e oferece suporte 
+a discos de até 2 Terabytes. Não possui suporte a permissões e journaling.
+<tt>NTFS</tt> - Formato nativo de discos de sistemas operacionais
+Windows XP e superiores. Possui suporte a permissões de acesso e 
+compactação nativa.
+</list>
+
+
+<sect id="disc-ext2">Partição EXT2 (Linux Native)
+ <p>
+A partição <tt>EXT2</tt> é o tipo usado para criar o 
+sistema de arquivos <prgn>Linux Native</prgn> 
+usado para armazenar o sistema de arquivos <tt>EXT2</tt> (após 
+a formatação) e permitir o armazenamento de dados. Para detalhes 
+de como criar uma partição EXT2 veja <ref id="disc-ext2-criando-p">. 
+ <p>
+Este tipo de partição é normalmente identificado pelo código 83 nos 
+programas de particionamento de disco. Note que também 
+é possível criar um sistema de arquivos <tt>EXT2</tt> em um arquivo 
+(ao invés de uma partição) que poderá ser montado e acessado 
+normalmente pelo sistema de arquivos (veja <ref id="disc-ext2-criando-a">.  
+ <p>
+Logo que foi inventado, o <prgn>GNU/Linux</prgn> utilizava o sistema de 
+arquivos <em>Minix</em> (e consequentemente uma partição <em>Minix</em>) 
+para o armazenamento de arquivos. Com a evolução do desenvolvimento, foi 
+criado o padrão <em>EXT</em> (<em>Extended Filesystem</em>) e logo 
+evoluiu para o <em>EXT2</em> (<em>Second Extended Filesystem</em>). O
+padrão mais usado nos dias de hoje é o <em>EXT3</em> devido ao 
+Journaling (será abordado no próximo capítulo). 
+ <p>
+Entre as vantagens do EXT2 para armazenamento de arquivos estão: 
+é o mais rápido devido ao não uso de journaling (principalmente para
+Netbooks e dispositivos flash), não se fragmenta tão 
+facilmente pois permite a localização do melhor lugar onde o arquivo 
+se encaixa no disco, etc. Isto é útil para grandes ambientes multiusuário 
+onde várias pessoas gravam/apagam arquivos o tempo todo. 
+
+
+<sect1 id="disc-ext2-criando-p">Criando um sistema de arquivos EXT2 em uma 
+partição 
+ <p>
+O utilitário usado para formatar uma partição <tt>EXT2</tt> é o 
+<prgn>mkfs.ext2</prgn>. Após terminar este passo, seu sistema 
+de arquivos <tt>EXT2</tt> estará pronto para ser usado. 
+ <p>
+Após particionar seu disco rígido e criar uma (ou várias) partições 
+<tt>EXT2</tt>, use o comando:
+ <p>
+<tt>mkfs.ext2 /dev/sda?</tt>
+ <p>
+Onde a "?" em <tt>sda?</tt> significa o número da partição que será 
+formatada. A identificação da partição é mostrada durante o particionamento 
+do disco, anote se for o caso. <tt>sda</tt> normalmente é o primeiro disco 
+rígido SATA, <tt>sdb</tt> é o segundo disco rígido SATA. Discos IDE 
+normalmente são identificados por <tt>hda?</tt>, <tt>hdb?</tt>, etc. 
+<![ %INIC-INTER [ Para detalhes sobre a identificação de discos, veja 
+<ref id="disc-id">. ]]> 
+ <p>
+Algumas opções são úteis ao <prgn>mkfs.ext2</prgn>:
+<list>
+ <item>
+<tt>-c</tt> Procura blocos danificados na partição antes de criar o 
+sistema de arquivos.
+ <item>
+<tt>-L NOME</tt> Coloca um nome (label) no sistema de arquivos.
+ <item>
+<tt>-b NUM</tt> Define o tamanho do bloco, em bytes. 
+ <item>
+<tt>-m NUM</tt> Define a porcentagem de espaço em disco reservada
+para manutenção (por padrão reservado para o root, mas isto é alterável).
+</list>
+Agora para acessar a partição deverá ser usado o comando: 
+<tt>mount /dev/sda? /mnt -t ext2</tt> <p>
+<![ %INIC-INTER [ Para mais detalhes veja <ref id="disc-montagem">. ]]>
+<![ %OBS [
+  <p>
+Note que é possível criar um sistema de arquivos no disco rígido 
+sem criar uma partição usando <file>/dev/sda</file>, 
+<file>/dev/sdb</file>, etc. <strong>EVITE FAZER ISSO!</strong> 
+Como não estará criando uma partição, o disco estará divido de 
+maneira incorreta, você não poderá apagar o sistema de arquivos 
+completamente do disco caso precise (lembre-se que você não criou 
+uma partição), e a partição possui uma assinatura apropriada que 
+identifica o sistema de arquivos. 
+ <p>
+O espaço padrão reservado na partição para o usuário root é de 
+5%. Em sistemas com partições maiores que 10Gb, isso pode representar
+uma grande quantidade de espaço em disco não utilizada por outros
+usuários. Veja a opção <tt>-m</tt> sobre como fazer esta modificação.
+Caso já tenha criado a partição, isto pode ser feito no <prgn>tune2fs</prgn> 
+com a opção <tt>-m</tt>.
+]]>
+
+
+<sect1 id="disc-ext2-criando-a">Criando um sistema de arquivos EXT2 em um 
+arquivo
+ <p>
+É possível criar um sistema de arquivos EXT2 em um arquivo que poderá 
+ser montado e acessado normalmente como se fosse uma partição normal. 
+Isto é possível por causa do recurso <tt>loop</tt> oferecido pelo kernel do 
+<prgn>GNU/Linux</prgn>. Os dispositivos de <tt>loop</tt> estão disponíveis no 
+diretório <file>/dev</file> com o nome <file>loop?</file> (normalmente 
+estão disponíveis 8 dispositivos de <tt>loop</tt>). 
+ <p>
+Isto é possível usando o comando <prgn>dd</prgn> e o <prgn>mkfs.ext2</prgn>. 
+Veja passo a passo como criar o sistema de arquivos <tt>EXT2</tt> em um 
+arquivo:
+<enumlist>
+ <item>
+Use o comando <tt>dd if=/dev/zero of=/tmp/arquivo-ext2 bs=1024 count=10000</tt> 
+para criar um arquivo <file>arquivo-ext2</file> vazio de 10Mb de tamanho em 
+<file>/tmp</file>. Você pode modificar os parâmetros de <tt>of</tt> para 
+escolher onde o arquivo será criado, o tamanho do arquivo poderá ser 
+modificado através de <tt>count</tt>
+ <item>
+Formate o arquivo com <tt>mkfs.ext2 /tmp/arquivo-ext2</tt>. Ele primeiro 
+dirá que o arquivo <file>arquivo-ext2</file> não é um dispositivo de 
+bloco especial (uma partição de disco) e perguntará se deve continuar, 
+responda com <tt>y</tt>. 
+ <p>
+O sistema de arquivos EXT2 será criado em <file>/tmp/arquivo-ext2</file> e 
+estará pronto para ser usado. 
+ <item>
+Monte o arquivo <file>arquivo-ext2</file> com o comando: 
+<tt>mount /tmp/arquivo-ext2 /mnt -o loop=/dev/loop1</tt>. Note que foi usado 
+o parâmetro <tt>-o loop</tt> para dizer ao comando <prgn>mount</prgn> 
+para usar os recursos de <tt>loop do kernel</tt> para montar o 
+sistema de arquivos. 
+ <item>
+Confira se o sistema de arquivos <tt>EXT2</tt> em <file>arquivo-ext2</file> 
+foi realmente montado no sistema de arquivos digitando <tt>df -T</tt>. 
+<![ %INIC-INTER [ Para detalhes, veja <ref id="cmdv-df">. ]]>
+</enumlist> 
+Pronto! o que você gravar para <file>/mnt</file> será gravado dentro do 
+arquivo <file>/tmp/arquivo-ext2</file>. Como foi criado um sistema de 
+arquivos <tt>EXT2</tt> em <file>arquivo-ext2</file>, você poderá usar 
+todos os recursos da partição <tt>EXT2</tt> normal, como permissões 
+de arquivos e diretórios, links simbólicos, etc. 
+ <p>
+O uso da opção <tt>loop=/dev/loop1</tt> permite que o dispositivo 
+<file>/dev/loop1</file> seja associado ao arquivo 
+<file>/arquivo-ext2</file> e assim permitir sua montagem e uso no 
+sistema. 
+<![ %OBS [
+ <p>
+<list compact>
+ <item>
+Você poderá usar apenas <tt>-o loop</tt> com o comando <prgn>mount</prgn>, 
+assim o kernel gerenciará automaticamente os dispositivos de <tt>loop</tt>.
+ <item>
+Caso faça isto manualmente, lembre-se de usar dispositivos <tt>/dev/loop?</tt> 
+diferentes para cada arquivo que montar no sistema. Pois cada um faz 
+referência a um único arquivo. 
+</list> ]]> 
+
+
+<sect id="disc-journal">Journaling
+ <p>
+O sistema de journaling grava qualquer operação que será feita no disco em uma 
+área especial chamada "journal", assim se acontecer algum problema durante 
+alterações no disco, ele pode voltar ao estado anterior do arquivo, ou finalizar 
+a operação. 
+ <p>
+Desta forma, o journal acrescenta ao sistema de arquivos o suporte a alta 
+disponibilidade e maior tolerância a falhas. Após uma falha de energia, por 
+exemplo, o journal é analisado durante a montagem do sistema de arquivos e 
+todas as operações que estavam sendo feitas no disco são verificadas. Dependendo 
+do estado da operação, elas podem ser desfeitas ou finalizadas. O retorno do 
+servidor é praticamente imediato (sem precisar a enorme espera da execução do 
+fsck em partições maiores que 10Gb), garantindo o rápido retorno dos serviços 
+da máquina. 
+ <p>
+Outra situação que pode ser evitada é com inconsistências no sistema de arquivos
+do servidor após a situação acima, fazendo o servidor ficar em estado 
+'single user' e esperando pela intervenção do administrador. Este capítulo do 
+guia explica a utilização de journaling usando o sistema de arquivos <em>ext3</em> 
+e <em>reiserfs</em> (veja <ref id="disc-ext3"> para detalhes).
+
+
+<sect id="disc-ext3">Partição EXT3 (Linux Native)
+ <p>
+O sistema de arquivos <em>ext3</em> faz parte da nova geração extended 
+file system do <prgn>Linux</prgn>, sendo o padrão atual e tem como seu 
+maior benefício o suporte a journaling e armazenamento eficiente de 
+arquivos com até 16Gb de tamanho. 
+ <p>
+O uso deste sistema de arquivos comparado ao <em>ext2</em>, na maioria dos 
+casos, melhora o desempenho do sistema de arquivos através da gravação seqüencial 
+dos dados na área de metadados e acesso mhash a sua árvore de diretórios. Mas
+pode trazer impactos na performance no caso de dispositivos de memória flash 
+e quando utiliza arquivos para armazenar o sistema de arquivos.
+ <p>
+A estrutura da partição <prgn>ext3</prgn> é semelhante a <prgn>ext2</prgn>, o 
+journaling é feito em um arquivo chamado <file>.journal</file> que fica 
+oculto pelo código <em>ext3</em> na raiz da partição (desta forma ele não poderá ser 
+apagado, comprometendo o funcionamento do sistema). A estrutura idêntica 
+da partição <em>ext3</em> com a <em>ext2</em> torna mais fácil a manutenção
+do sistema, já que todas as ferramentas para recuperação <em>ext2</em> 
+funcionarão sem problemas.
+
+
+<sect1 id="disc-ext3-criando-p">Criando um sistema de arquivos EXT3 em uma partição
+  <p>
+Para criar uma partição <em>ext3</em>, utilize o comando
+<prgn>mkfs.ext3</prgn> ou o <prgn>mkfs.ext2</prgn> junto com 
+a opção <em>-j</em>. 
+<![ %DESCRICAOD [ As opções usadas pelo <prgn>mkfs.ext3</prgn> são 
+idênticas a do <prgn>mkfs.ext2</prgn> (documentado em 
+<ref id="disc-ext2-criando-p">). A única vantagem desta ferramenta comparada
+ao <prgn>mkfs.ext2</prgn> é que a opção <em>-j</em> é automaticamente 
+adicionada a linha de comando para criar um sistema de arquivos com journal. 
+Se você é daqueles que querem ter um controle maior sobre o tamanho do 
+arquivo de journal, use a opção <em>-J [tam]</em> (onde tamanho é o tamanho 
+em Megabytes). ]]>
+ <p>
+Quando uma partição <em>ext3</em> é criada, o arquivo <file>.journal</file> é 
+criado no raíz da partição, sendo usado para gravar os metadados das transações 
+de journaling. A estrutura da partição ext2 não difere em nada da ext3, a não 
+ser este arquivo e a opção "has_journal" que é passada a partição. 
+ <p>
+Por exemplo, para criar uma partição ext3 em <file>/dev/sda1</file>:
+<example>
+ mkfs.ext3 /dev/sda1
+
+ou
+
+ mkfs.ext2 -j /dev/sda1
+</example>
+Basta agora montar a partição com o comando <tt>mount /dev/sda1 /teste -t ext3</tt>
+(para montar a partição em <file>/teste</file>. Após isto, modifique o 
+<file>/etc/fstab</file> para montar a partição como <em>ext3</em> quando o 
+<prgn>Linux</prgn> for iniciado. <![ %INIC-INTER [ Para mais detalhes veja 
+<ref id="disc-montagem">. ]]>). Caso o suporte a <em>ext3</em> tenha sido 
+compilado no kernel, ele tentará detectar e montar a partição como 
+<em>ext3</em>, caso contrário, ele usará <em>ext2</em>. 
+ <p>
+Sua partição agora está montada como <em>ext3</em>, para conferir digite:
+<tt>df -T</tt>.
+<![ %OBS [
+ <p>
+<strong>OBS: </strong> Quando criar um sistema de arquivos <em>ext3</em> em
+uma partição raíz (<tt>/</tt>), tenha certeza de incluir o suporte a 
+<em>ext3</em> embutido no kernel, caso contrário a partição será montada 
+como <em>ext2</em>.
+]]>
+
+
+<sect1 id="disc-ext3-criando-a">Criando um sistema de arquivos EXT3 em um arquivo
+ <p>
+As instruções para criar um sistema de arquivos <tt>ext3</tt> em 
+um arquivo não difere muito das instruções de 
+<ref id="disc-ext2-criando-a">, apenas utilize a opção <em>-j</em> ou 
+<em>-J [tamanho_em_mb]</em> (como explicado em <ref id="disc-ext3-criando-p">).
+
+
+<sect1 id="disc-ext3-conv2-3">Fazendo a conversão do sistema de arquivos EXT2 para EXT3
+ <p>
+Se você já possui um uma partição <em>ext2</em> e deseja converte-la para 
+<em>ext3</em> isto poderá ser feito facilmente, de forma segura (sem qualquer
+risco de perda de dados) e você poderá voltar para o sistema ext2 caso 
+deseje (veja <ref id="disc-ext3-conv3-2">).
+ <p>
+Primeiro, execute o comando <prgn>tune2fs</prgn> na partição que deseja converter 
+com a opção <em>-j</em> ou <em>-J [tamanho_journal]</em> para adicionar o 
+suporte a Journaling na partição. Este comando poderá ser executado com segurança 
+em uma partição <em>ext2</em> montada, após converter remontar a partição usando
+os comandos <tt>umount /particao</tt> e <tt>mount /particao</tt>. 
+ <p>
+Após a conversão para <em>ext3</em> é desnecessária a checagem periódica do 
+sistema de arquivos (que por padrão é após 20 montagens e a cada 30 dias). Você 
+pode desativar a checagem após o número máximo de montagens com a opção 
+<em>-c [num_vezes]</em>, e o número de dias máximos antes de verificar novamente 
+com a opção <em>-i [num_dias]</em> (o uso de 0 desativa). Por exemplo:
+<example>
+tune2fs -c 0 -i 90 /dev/sda2
+</example>
+Desativa a checagem após número máximo de montagens (<tt>-c 0</tt>) e diz para 
+a partição ser verificada a cada 90 dias (<tt>-i 90</tt>). 
+ <p>
+O último passo é modificar o <file>/etc/fstab</file> para que a partição seja 
+montada como <em>ext3</em> na inicialização e depois desmontar (<tt>umount
+/dev/sda2</tt> e remonta-la (mount /dev/sda2) para usar o suporte <em>ext3</em>. 
+Confira se ela está usando <em>ext3</em> usando o comando <tt>df -T</tt>.
+<![ %OBS [
+ <p>
+<strong>OBS: </strong> Caso a partição convertida para <em>ext3</em> seja 
+a raíz (<tt>/</tt>), tenha certeza de incluir o suporte a <em>ext3</em> embutido
+no kernel, caso contrário, a partição será montada como <em>ext2</em>. ]]>
+
+
+<sect1 id="disc-ext3-conv3-2">Convertendo de EXT3 para EXT2
+ <p>
+Remover o suporte a <em>ext3</em> de uma partição é simples, rápido e 
+seguro. Execute os seguintes passos:
+<enumlist compact>
+  <item>
+Execute o comando <tt>tune2fs -O^has_journal /dev/sdxx</tt> na partição que 
+deseja remover o Journal. Este comando poderá ser executado em uma partição
+montada.
+  <item>
+Modifique o <file>/etc/fstab</file> e altere a partição para <em>ext2</em>.
+  <item>
+Desmonte e monte novamente a partição com os comandos: <tt>umount /dev/hdxx</tt> e 
+<tt>mount /dev/sdxx</tt>. 
+  <item>
+Pronto! a partição agora é novamente uma partição <em>ext2</em> normal, 
+confira digitando <tt>df -T</tt>.
+
+</enumlist>
+Pronto, o suporte a <em>ext3</em> foi removido do seu sistema e agora poderá 
+usar a partição como <em>ext2</em> normalmente (confira digitando <tt>df -T</tt>). 
+
+
+<sect1 id="disc-e2label">Nomeando uma partição de disco ext2/ext3
+ <p>
+O comando <prgn>e2label</prgn> é usado para esta função.
+ <p>
+<tt>e2label [<em>dispositivo</em>] [<em>nome</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>dispositivo</em></tag>
+ <item>
+Partição que terá o nome modificado
+
+ <tag><em>nome</em></tag>
+ <item>
+Nome que será dado a partição (máximo de 16 caracteres). Caso seja usado um 
+nome de volume com espaços, ele deverá ser colocado entre "aspas". 
+</taglist> ]]>
+Se não for especificado um nome, o nome atual da partição será mostrado. O 
+nome da partição também pode ser visualizado através do comando 
+<prgn>dumpe2fs</prgn> (veja <ref id="disc-dumpe2fs">). 
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>e2label /dev/sda1 FocaLinux</tt>, 
+<tt>e2label /dev/sda1 "Foca Linux" </tt> ]]>
+
+
+<sect1 id="disc-mklost+found">Criando o diretório especial <file>lost+found</file>
+ <p>
+O utilitário <prgn>mklost+found</prgn> cria o diretório especial 
+<file>lost+found</file> no diretório atual. 
+<![ %DESCRICAOD [ O diretório <file>lost+found</file> é criado 
+automaticamente após a formatação da partição com o <prgn>mkfs.ext2</prgn>, 
+a função deste diretório é pré-alocar os blocos de arquivos/diretório durante 
+a execução do programa <prgn>fsck.ext2</prgn> na recuperação de um sistema de 
+arquivos (veja <ref id="manut-checagem">). Isto garante que os blocos 
+de disco não precisarão ser diretamente alocados durante a checagem. ]]>
+ <p>
+<tt>mklost+found</tt>
+<![ %OBS [
+ <p>
+OBS: Este comando só funciona em sistemas de arquivos ext2/3/4 ]]>
+
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>cd /tmp;mklost+found;ls -a</tt> ]]>
+
+
+<sect1 id="disc-dumpe2fs">dumpe2fs
+ <p>
+Mostra detalhes sobre uma partição <prgn>Linux</prgn>. 
+ <p>
+<tt>dumpe2fs [<em>opções</em>] [<em>partição</em>]</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>partição</em></tag>
+ <item>
+Identificação da partição que será usada. 
+
+ <tag><em>opções</em></tag>
+ <tag>-b</tag>
+ <item>
+Mostra somente os blocos marcado como defeituosos no sistema de arquivos 
+especificado.
+ 
+</taglist> ]]>
+Este comando lista diversas opções úteis do sistema de arquivos como o 
+tipo do sistema de arquivos, características especiais, número de inodos, 
+blocos livres, tamanho do bloco, intervalo entre checagens automáticas, etc.
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>dumpe2fs /dev/sda1</tt>, <tt>dumpe2fs -b /dev/sda1</tt> ]]>
+
+
+<sect1 id="disc-ext2xarquivo">Partição EXT2 ou Arquivo?
+ <p>
+Criar uma partição <tt>EXT2</tt> ou um arquivo usando o <tt>loop</tt>? 
+Abaixo estão algumas considerações:
+<list compact>
+ <item>
+A partição <tt>EXT2</tt> é o método recomendado para a instalação do 
+<prgn>GNU/Linux</prgn>. 
+ <item>
+O desempenho da partição <tt>EXT2</tt> é bem melhor se comparado ao 
+arquivo porque é acessada diretamente pelo Kernel (SO). 
+ <item>
+O arquivo <tt>EXT2</tt> é útil para guardarmos dados confidenciais em 
+disquetes ou em qualquer outro lugar no sistema. Você pode perfeitamente 
+gravar seus arquivos confidenciais em um arquivo chamado 
+<file>libBlaBlaBla-2.0</file> no diretório <file>/lib</file> e ninguém 
+nunca suspeitará deste arquivo (acho que não...). Também é possível 
+criptografa-lo para que mesmo alguém descobrindo que aquilo não é 
+uma lib, não poder abri-lo a não ser que tenha a senha (isto é coberto 
+no documento <file>Loopback-encripted-filesystem.HOWTO</file>). 
+ <item>
+O uso do arquivo <tt>EXT2</tt> é útil quando você está perdendo espaço 
+na sua partição <tt>EXT2</tt> e não quer re-particionar seu disco 
+pois teria que ser feita uma re-instalação completa e tem muito espaço 
+em um partição de outro SO (como o Windows). 
+ <p>
+Você poderia facilmente copiar o conteúdo de <file>/var</file>, por 
+exemplo, para o arquivo <tt>EXT2</tt> <file>ext2-l</file> criado 
+no diretório Raíz do Windows, apagar o conteúdo de <file>/var</file> 
+(liberando muito espaço em disco) e então montar <file>ext2-l</file> 
+como <file>/var</file>. A partir de agora, tudo o que for gravado 
+em <file>/var</file> será na realidade gravado no arquivo 
+<file>ext2-l</file>. 
+ <p>
+Para o sistema acessar o arquivo, deve passar pelo sistema 
+de arquivos <tt>loop</tt> e <tt>FAT32</tt>, isto 
+causa um desempenho menor. 
+</list>
+
+
+<sect id="disc-reiserfs">Sistema de arquivos reiserfs
+ <p>
+Este é um sistema de arquivos alternativo ao <em>ext2/3/4</em> que também 
+possui suporte a journaling. Entre suas principais características, estão 
+que ele possui tamanho de blocos variáveis, suporte a arquivos maiores que 
+2 Gigabytes e o acesso mhash a árvore de diretórios é um pouco mais rápida 
+que o <em>ext3</em>.
+ <p>
+Para utilizar <prgn>reiserfs</prgn>, tenha certeza que seu kernel possui 
+o suporta habilitado (na seção <tt>File Systems</tt>) e instale o pacote
+<prgn>reiserfsprogs</prgn> que contém utilitários para formatar, verificar 
+este tipo de partição.
+
+
+<sect1 id="disc-reiserfs-criando-p">Criando um sistema de arquivos reiserfs em uma partição
+  <p>
+Para criar uma partição <em>reiserfs</em>, primeiro instale o 
+pacote <package>reiserfsprogs</package> (<tt>apt-get install reiserfsprogs</tt>).
+ <p>
+Para criar uma partição <em>reiserfs</em>, primeiro crie uma partição 
+<em>ext2</em> normal, e então use o comando:
+ <p>
+<tt>mkreiserfs /dev/sda?</tt>
+ <p>
+Onde a "?" em <tt>sda?</tt> significa o número da partição que será 
+formatada com o sistema de arquivos <em>reiserfs</em>. A identificação 
+da partição é mostrada durante o particionamento do disco, anote se 
+for o caso. <tt>sda</tt> é o primeiro disco rígido SATA, 
+<tt>sdb</tt> é o segundo disco rígido SATA. Discos IDE são identificados por 
+<tt>hda?</tt>, <tt>hdb?</tt>, etc. 
+<![ %INIC-INTER [ Para detalhes sobre a identificação de discos, veja 
+<ref id="disc-id">. ]]> 
+ <p>
+Algumas opções são úteis ao <prgn>mkreiserfs</prgn>:
+<list>
+ <item>
+<tt>-s [num]</tt> - Especifica o tamanho do arquivo de journal em blocos. O 
+valor mínimo é 513 e o máximo 32749 Kb. O valor padrão é 8193.
+ <item>
+<tt>-l [NOME]</tt> - Coloca um nome (label) no sistema de arquivos.
+ <item>
+<tt>-f</tt> - Força a execução do <prgn>mkreiserfs</prgn>.
+ <item>
+<tt>-d</tt> - Ativa a depuração durante a execução do <prgn>mkreiserfs</prgn>.
+</list>
+Agora para acessar a partição deverá ser usado o comando: 
+<tt>mount /dev/sda? /mnt -t reiserfs</tt> <p>
+<![ %INIC-INTER [ Para mais detalhes veja <ref id="disc-montagem">. ]]>
+<![ %OBS [
+  <p>
+Note que é possível criar um sistema de arquivos no disco rígido 
+sem criar uma partição usando <file>/dev/sda</file>, 
+<file>/dev/sdb</file>, etc. usando a opção <tt>-f</tt>
+<strong>EVITE FAZER ISSO!</strong> Como não estará criando uma 
+partição, o disco estará preparado para uso de maneira incorreta, você não 
+poderá apagar o sistema de arquivos completamente do disco caso 
+precise (lembre-se que você não criou uma partição), e a partição 
+possui uma assinatura apropriada que identifica o sistema de arquivos. ]]>
+
+
+<sect1 id="disc-reiserfs-criando-a">Criando um sistema de arquivos reiserfs em um arquivo
+ <p>
+O sistema de arquivos <prgn>reiserfs</prgn> também poderá ser criado em um 
+arquivo, usando os mesmos benefícios descritos em <ref id="disc-ext2-criando-a">. 
+Para fazer isso execute os seguintes passos em seqüência:
+<enumlist>
+ <item>
+Use o comando <tt>dd if=/dev/zero of=/tmp/arquivo-reiserfs bs=1024 count=33000</tt> 
+para criar um arquivo <file>arquivo-reiserfs</file> vazio de 33Mb de tamanho em 
+<file>/tmp</file>. Você pode modificar os parâmetros de <tt>of</tt> para 
+escolher onde o arquivo será criado, o tamanho do arquivo poderá ser 
+modificado através de <tt>count</tt>. Note que o tamanho mínimo do arquivo 
+deve ser de 32Mb, devido aos requerimentos do <prgn>reiserfs</prgn>.
+ <item>
+Formate o arquivo com <tt>mkreiserfs -f /tmp/arquivo-reiserfs</tt>. Ele primeiro 
+dirá que o arquivo <file>arquivo-reiserfs</file> não é um dispositivo de 
+bloco especial (uma partição de disco) e perguntará se deve continuar, 
+responda com <tt>y</tt>. 
+ <p>
+O sistema de arquivos ReiserFS será criado em <file>/tmp/arquivo-reiserfs</file> e 
+estará pronto para ser usado. 
+ <item>
+Monte o arquivo <file>arquivo-reiserfs</file> com o comando: 
+<tt>mount /tmp/arquivo-reiserfs /mnt -t reiserfs -o loop=/dev/loop1</tt>. 
+Note que foi usado o parâmetro <tt>-o loop</tt> para dizer ao comando 
+<prgn>mount</prgn> para usar os recursos de <tt>loop do kernel</tt> para 
+montar o sistema de arquivos. O parâmetro <tt>-t reiserfs</tt> poderá ser 
+omitido, se desejar.
+ <item>
+Confira se o sistema de arquivos <tt>ReiserFS</tt> em <file>arquivo-reiserfs</file> 
+foi realmente montado no sistema de arquivos digitando <tt>df -T</tt>. 
+<![ %INIC-INTER [ Para detalhes, veja <ref id="cmdv-df">. ]]>
+</enumlist> 
+Pronto! o que você gravar para <file>/mnt</file> será gravado dentro do 
+arquivo <file>/tmp/arquivo-reiserfs</file>. Você poderá usar todos os 
+recursos de um sistema de arquivos <tt>reiserfs</tt> como permissões de 
+arquivos e diretórios, links simbólicos, etc. 
+ <p>
+O uso da opção <tt>loop=/dev/loop1</tt> permite que o dispositivo 
+<file>/dev/loop1</file> seja associado ao arquivo 
+<file>/arquivo-reiserfs</file> e assim permitir sua montagem e uso no 
+sistema. 
+<![ %OBS [
+ <p>
+<list compact>
+ <item>
+Você poderá usar apenas <tt>-o loop</tt> com o comando <prgn>mount</prgn>, 
+assim o kernel gerenciará automaticamente os dispositivos de <tt>loop</tt>.
+ <item>
+Caso faça isto manualmente, lembre-se de usar dispositivos <tt>/dev/loop?</tt> 
+diferentes para cada arquivo que montar no sistema. Pois cada um faz 
+referência a um único arquivo. 
+</list> ]]> 
+
+
+<sect id="disc-swap">Partição Linux Swap (Memória Virtual)
+ <p>
+Este tipo de partição é usado para oferecer o suporte a <em>memória 
+virtual</em> ao <prgn>GNU/Linux</prgn> em adição a <em>memória RAM</em> 
+instalada no sistema. Este tipo de partição é identificado pelo 
+tipo 82 nos programas de particionamento de disco para <prgn>
+Linux</prgn>. Para detalhes de como criar uma partição 
+<tt>Linux Swap</tt> veja <ref id="disc-swap-criando-p">. 
+ <p>
+Somente os dados na memória RAM são processados pelo processador, por 
+ser mais rápida. Desta forma quando você está executando um programa e a 
+memória RAM começa a encher, o <prgn>GNU/Linux</prgn> move automaticamente 
+os dados que não estão sendo usados para a partição Swap 
+e libera a memória RAM para a continuar carregando os dados necessários 
+pelo. Quando os dados movidos para a partição Swap são solicitados, o 
+<prgn>GNU/Linux</prgn> move os dados da partição Swap para a Memória. Por 
+este motivo a partição Swap também é chamada <tt>de Troca</tt> ou 
+<tt>memória virtual</tt>. 
+ <p>
+A partição swap é otimizada para permitir alta velocidade 
+para mover dados da memória RAM para ela e vice versa. 
+Note também que é possível criar o 
+sistema de arquivos <em>Swap</em> em um arquivo ao invés de uma 
+partição (veja <ref id="disc-swap-criando-a">). 
+
+
+<sect1 id="disc-swap-criando-p">Criando sistema de arquivos Swap em uma 
+partição
+ <p>
+O programa usado para formatar uma partição Swap é o <prgn>mkswap</prgn>. 
+Seu uso é simples: 
+ <p>
+<tt>mkswap /dev/sda?</tt>
+ <p>
+<![ %INIC-INTER [ Novamente veja <ref id="disc-id"> caso não souber 
+identificar seus discos e partições. ]]> O nome do dispositivo da 
+partição <tt>Swap</tt> pode ser visualizado através de seu programa 
+de particionamento, você pode usar o comando <tt>fdisk -l /dev/sda</tt> 
+para listar as partições no primeiro disco rígido e assim verificar qual 
+dispositivo corresponde a partição Swap. 
+ <p>
+A opção <tt>-c</tt> também pode ser usada com o <prgn>mkswap</prgn> 
+para checar se existem agrupamentos danificados na partição. A opção
+<tt>-v1</tt> permite a criação da swap usando mais de 128Mb (esta 
+opção é a padrão).
+ <p>
+Com a partição Swap formatada, use o comando:
+<tt>swapon /dev/sda?</tt> para ativar a partição Swap 
+(lembre-se de substituir ? pelo número de sua partição Swap).  
+<![ %OBS [
+ <p>
+Observações:
+ <p>
+Versões antigas do kernel do <prgn>GNU/Linux</prgn> 2.0.xx e anteriores somente 
+suportavam partições Swap de até 128MB. Nos novos kernels foi introduzida uma
+nova versão da swap. Para converter a swap antiga para uma nova versão
+reformate-a usando <prgn>mkswap -v1 /dev/sda?</prgn> (onde <file>/dev/sda?</file>
+especifica sua partição swap, obtida com o <tt>fdisk -l /dev/sda</tt>).
+ <p>
+Se utilizar mais que 1 partição <tt>Swap</tt>, pode ser útil o uso da 
+opção <tt>-p NUM</tt> que especifica a prioridade em que a partição Swap 
+será usada. Pode ser usado um valor de prioridade entre 0 e 32767, partições 
+com número maior serão usadas primeiro, sendo que na montagem automática 
+através de "mount -a" podem ser designados números negativos. 
+ <p>
+Procure usar o número maior para partições mais rápidas (elas serão acessadas 
+primeiro) e números maiores para partições mais lentas. ]]> 
+Caso precise desativar a partição Swap, use o comando: 
+<tt>swapoff /dev/sda?</tt>. 
+
+
+<sect1 id="disc-swap-criando-a">Criando um sistema de arquivos Swap em um 
+arquivo
+ <p>
+Também é possível criar um arquivo que poderá ser usado como memória 
+virtual. Veja passo a passo como fazer isso:
+<enumlist>
+ <item>
+Use o comando <tt>dd if=/dev/zero of=/tmp/troca bs=1024 count=64000</tt> 
+para criar um arquivo chamado <file>troca</file> vazio de 64Mb de tamanho em 
+<file>/tmp</file>. Você pode modificar os parâmetros de <tt>of</tt> para 
+escolher onde o arquivo será criado, o tamanho do arquivo poderá ser 
+modificado através de <tt>count</tt>.
+ <item>
+Execute <tt>mkswap /tmp/troca</tt> para formatar o arquivo. Após concluir 
+este passo, o sistema de arquivos <tt>Swap</tt> estará criado e pronto 
+para ser usado. 
+ <item>
+Digite <tt>sync</tt> para sincronizar os buffers para o disco, assim
+você não terá problemas em um servidor com muito I/O.
+ <item>
+Ative o arquivo de troca com o comando <tt>swapon /tmp/troca</tt>. 
+ <item>
+Confira se o tamanho da memória virtual foi modificado digitando 
+<tt>cat /proc/meminfo</tt> ou <tt>free</tt>. 
+</enumlist>
+<![ %OBS [
+ <p>
+Observações:
+<list compact>
+ <item>
+Podem ser usadas partições de troca e arquivos de troca juntos, 
+sem problemas. 
+ <item>
+Caso seu sistema já tenha uma partição de <tt>Swap</tt>, é 
+recomendável deixar o acesso ao arquivo <tt>Swap</tt> com uma 
+prioridade menor (usando a opção -p NUM com o comando <prgn>swapon</prgn>). 
+</list> ]]>
+
+
+<sect1 id="disc-swap-swapxarquivo">Partição Swap ou Arquivo?
+ <p>
+Criar uma partição de Troca ou um arquivo de troca? Abaixo 
+algumas vantagens e desvantagens:
+<list>
+ <item>
+A partição Swap é mais rápida que o arquivo Swap pois é 
+acessada diretamente pelo Kernel. Se o seu computador 
+tem pouca memória (menos que 512Mb) ou você tem certeza que 
+o sistema recorre freqüentemente a memória virtual para 
+executar seus programas, é recomendável usar uma partição Swap. 
+ <item>
+O arquivo de troca permite que você crie somente uma partição 
+<tt>Linux Native</tt> e crie o arquivo de troca na partição 
+<tt>EXT2</tt>. 
+ <item>
+Você pode alterar o tamanho do arquivo de troca facilmente apagando 
+e criando um novo arquivo como descrito em <ref id="disc-swap-criando-a">. 
+ <item>
+É possível criar um arquivo de troca em outros tipos de partições como 
+<tt>FAT16</tt>, <tt>FAT32</tt>, <tt>NTFS</tt>, etc. 
+ <item>
+O arquivo de troca estará disponível somente após o sistema de arquivos 
+que o armazena (<tt>ext2</tt>, <tt>fat32</tt>, etc) estar montado. Isto 
+é um problema para sistemas com pouca memória que dependem do arquivo de 
+troca desde sua inicialização. 
+</list>
+ 
+
+<sect id="disc-proc">O sistema de arquivos <file>/proc</file>
+ <p>
+É o sistema de arquivos do Kernel do <prgn>GNU/Linux</prgn>. Ele 
+oferece um método de ler, gravar e modificar dinamicamente os 
+parâmetros do kernel, muito útil para pessoas que gostam de entender
+como as coisas funcionam (como eu) e programas de configuração. 
+A modificação dos arquivos do diretório 
+<file>/proc</file> é o método mais usado para modificar a configuração 
+do sistema e muitos programas também dependem deste diretório para 
+funcionar. 
+ <p>
+Nele você tem todo o controle do que o seus sistema operacional 
+está fazendo, a configuração dos hardwares, interrupções, 
+sistema de arquivos montado, execução de programas, memória do 
+sistema, rede, etc. 
+ <p>
+Agora entre no diretório <file>/proc</file> digite <tt>ls</tt> e veja 
+a quantidade de arquivos e diretórios que ele possui, dê uma passeada 
+por eles. Abaixo a descrição de alguns deles (todos podem ser visualizados 
+pelo comando <prgn>cat</prgn>):
+<list compact>
+ <item>
+<tt>Diretórios com números</tt> - Estes identificam os parâmetros de 
+um processo em execução. Por exemplo, se o PID (identificação do 
+processo) do <prgn>inetd</prgn> for <tt>115</tt>, você pode entrar 
+no diretório <tt>115</tt> e verificar as opções usadas para execução 
+deste programa através de cada arquivos existente dentro do 
+diretório. Alguns são:
+ <list compact>
+  <item>
+<file>cmdline</file> - O que foi digitado para iniciar o processo (pode 
+também ter sido iniciado através de um programa ou pelo kernel). 
+  <item>
+<file>environ</file> - Variáveis de Ambiente existentes no momento da 
+execução do processo. 
+  <item>
+<file>status</file> - Dados sobre a execução do Processo (PID, status 
+da execução do programa, memória consumida, memória executável, UID, 
+GID, etc).
+ </list>
+ <item>
+<file>apm</file> - Dados sobre o gerenciamento de energia
+ <item>
+<file>cmdline</file> - Linha de comando usada para inicializar o Kernel 
+<prgn>GNU/Linux</prgn>. Os parâmetros são passados através do programa de 
+inicialização, como o <prgn>LILO</prgn>, <prgn>LOADLIN</prgn>, 
+<prgn>SYSLINUX</prgn>. 
+ <item>
+<file>cpuinfo</file> - Detalhes sobre a CPU do sistema 
+ <item>
+<file>devices</file> - Dispositivos usados no sistema 
+ <item>
+<file>dma</file> - Canais de DMA usados por dispositivos 
+ <item>
+<file>filesystems</file> - Sistemas de arquivos em uso atualmente 
+ <item>
+<file>interrupts</file> - Interrupções usadas por dispositivos 
+ <item>
+<file>ioports</file> - Portas de Entrada e Saída usadas pelos dispositivos 
+do sistema 
+ <item>
+<file>kcore</file> - Este arquivo corresponde a toda a memória RAM em seu 
+sistema. Seu tamanho é correspondente a memória RAM do micro 
+ <item>
+<file>kmsg</file> - Permite visualizar mensagens do Kernel (use o comando 
+<tt>cat &lt; kmsg</tt> para visualiza-lo e pressione CTRL+C para cancelar 
+ <item>
+<file>loadavg</file> - Média de Carga do sistema 
+ <item>
+<file>meminfo</file> - Dados de utilização da memória do sistema 
+ <item>
+<file>misc</file> - Outras configurações 
+ <item>
+<file>modules</file> - Módulos atualmente carregados no kernel 
+ <item>
+<file>mounts</file> - Sistemas de Arquivos atualmente montados 
+ <item>
+<file>pci</file> - Detalhes sobre dispositivos PCI do sistema 
+ <item>
+<file>rtc</file> - Relógio em Tempo real do sistema 
+ <item>
+<file>uptime</file> - Tempo de execução do sistema 
+ <item>
+<file>version</file> - Versão atual do Kernel, programa usado na compilação, 
+etc 
+ <item>
+Diretório <file>net</file> - Dados sobre a rede do sistema 
+ <item>
+Diretório <file>sys</file> - Dados sobre outras áreas do sistema 
+ <item>
+Diretório <file>scsi</file> - Detalhes sobre dispositivos SCSI do sistema 
+</list>
+Note que o diretório <file>proc</file> e os arquivos existentes dentro 
+dele estão localizados no diretório raiz (<file>/</file>), mas não 
+ocupa nenhum espaço no disco rígido. 
+
+
+<sect id="disc-lvm">LVM - Logical Volume Manager
+ <p>
+O <prgn>lvm</prgn> (<em>Logical Volume Manager</em>) faz a associação
+entre dispositivos/partições físicas (incluindo discos RAID, MO, 
+mass storages diversos, MD, e loop) e dispositivos lógicos. O método
+tradicional faz a alocação de todo espaço físico ao tamanho da partição 
+do disco (o método tradicional), o que traz muito trabalho quando o espaço
+esgota, cópia de dados ou planejamento de uso de máquina (que pode mudar 
+com o passar do tempo). O sistema de <prgn>lvm</prgn> soluciona os seguintes 
+problemas:
+<list compact>
+ <item>
+Uso eficaz de disco, principalmente quando há pouco espaço
+para criação de partições independentes.
+ <item>
+Permite aumentar/diminuir dinamicamente o tamanho das partições sem 
+reparticionamento do disco rígido usando o espaço livre em outras 
+partições ou utilizando o espaço livre reservado para o uso do LVM.
+ <item>
+Uma partição de disco é identificada por um nome de volume e não pelo
+dispositivo. Você pode então se referir aos volumes como: usuários, vendas, 
+diretoria, etc.
+ <item>
+Sua divisão em 3 camadas possibilita a adição/remoção de mais discos de 
+um conjunto caso seja necessário mais espaço em volumes, etc.
+ <item>
+Permite selecionar o tamanho do cluster de armazenamento e a forma
+que eles são acessados entre os discos, possibilitando garantir a 
+escolha da melhor opção dependendo da forma que os dados serão manipulados 
+pelo servidor.
+ <item>
+Permite snapshots dos volumes do disco rígido.
+</list>
+As 3 camadas do LVM são agrupadas da seguinte forma:
+<list compact>
+ <item>
+<tt>PV (Phisical Volume)</tt> - Corresponde a todo o disco rígido/partição 
+ ou dispositivo de bloco que será adicionado ao LVM. Os aplicativos que 
+ manipulam o volume físico, começam com as letras <file>pv*</file>. 
+ O espaço disponível no PV é dividido em PE (Phisical Extends, ou 
+ extensões físicas). O valor padrão do PE é de 4MB, possibilitando
+ a criação de um VG de 256Gb.
+  <p>
+ Por exemplo: <file>/dev/hda1</file>
+
+ <item>
+<tt>VG (Volume Group)</tt> - Corresponde ao grupo de volumes físicos que 
+fazem parte do LVM. Do grupo de volume são alocados os espaços para 
+criação dos volumes lógicos. Os aplicativos que manipulam o o grupo de 
+volume, começam com as letras <file>vg*</file>. 
+ <p>
+Por exemplo: <file>/dev/lvmdisk0</file>
+
+<tt>LV (Logical Volume)</tt> - Corresponde a partição lógica criada pelo LVM 
+para gravação de dados. ao invés de ser identificada por nomes de dispositivos, 
+podem ser usados nomes comuns para se referir as partições (tmp,usr,etc.). O 
+Volume lógico é a área onde o sistema de arquivo é criado para gravação
+de dados, seria equivalente a partição em um sistema <em>SEM LVM</em> só que 
+lógica ao invés de física. O volume lógico tem seu espaço dividido em 
+LE (Logical Extends, ou extensões lógicas) que correspondem aos PE's alocados.
+ <p>
+Exemplos: <file>/dev/lvmdisk/usr</file>, <file>/dev/lvmdisk/tmp</file>, etc.
+</list>
+
+
+<sect1 id="disc-lvm-graph">Representação gráfica do LVM
+ <p>
+Desenvolvi este desenho para representar a idéia de organização
+de um sistema LVM para o guia Foca GNU/Linux e apresentar a 
+descrição prática da coisa:
+<example>
++------[ Grupo de Volume (VG) - lvmdsk ]------+
+| +--[ PV - hda1 ]---+ +--[ PV - hdb1 ]--+    |
+| | PE PE PE PE PE PE| | PE PE PE PE PE  |    |
+| +------------------+ +-----------------+    |
+|    |  |                   |        |        |
+|    |  | +-----------------+        |        |
+|    |  +----------------+           |        |
+|    |    |              |           |        |
+|  +-[ LV - var ]-+    +-[ LV - home ]-+      |
+|  | LE LE LE LE  |    | LE LE LE LE   |      |
+|  +--------------+    +---------------+      |
++---------------------------------------------+
+
+</example>
+O gráfico acima representa a seguinte situação:
+<enumlist compact>
+ <item>
+Nós temos dois volumes físicos representados por <file>hda1</file> e 
+<file>hdb1</file>. Cada um desses volumes físicos tem um Phisical Extend
+(PE) de 4M (o padrão). 
+ <item>
+Estes dois volumes físicos acima representam o espaço total do grupo de volume
+<em>lvmdisk</em> em <file>/dev/lvmdisk</file>.
+
+ <item>
+Do grupo de volume <em>lvmdisk</em> são criados
+dois volumes lógicos chamados <em>var</em> e <em>home</em>, estando
+disponíveis para particionamento através de 
+<file>/dev/lvmdisk/var</file> e <file>/var/lvmdisk/home</file>.
+</enumlist>
+Na prática, o espaço do volume lógico é definido alocando-se alguns
+Phisical Extends (PE) dos volumes físicos como logical extends
+(LE) dos volumes lógicos. Desta forma, o tamanho de todos os 
+PEs e LEs existentes dentro de um mesmo grupo de volume devem 
+ser iguais.
+
+
+<sect1 id="disc-lvm-perf">Performance do LVM
+ <p>
+Um sistema com LVM tem sua performance um pouco reduzida quanto ao acesso
+a disco, devido as camadas adicionais de acesso aos dados, sendo 
+afetadas operações em caracteres e inteligentes de acesso a dados. 
+ <p>
+Entretanto, a performance de leitura/gravação de blocos é melhorada 
+consideravelmente após a adoção do LVM. O LVM também garante que o 
+sistema não mostre sintomas de paradas durante o esvaziamento de 
+cache de disco, mantendo sempre uma certa constância na transferência 
+de dados mesmo em operações pesadas de I/O no disco. Depende de 
+você avaliar estes pontos e considerar sua adoção.
+
+
+<sect1 id="disc-lvm-install">Instalando LVM em seu sistema
+ <p>
+Nesta seção não tenho a intenção de cobrir todos os detalhes técnicos 
+da implantação do LVM, a idéia aqui é fornecer uma referência básica
+e prática para uso em qualquer sistema normal (desconsiderando 
+usos críticos). A idéia aqui é mostrar de forma prática como 
+implantar LVM em sua máquina e preparar seu uso nos discos. 
+ <p>
+Antes de começar, retire QUALQUER CD que estiver inserido na unidade de CD-ROM, pois 
+eles podem causar erro no <file>pvscan</file>, <file>pvdisplay</file>, etc.
+<enumlist compact>
+ <item>
+No particionamento, defina as partições do tipo 8E (Linux LVM). 
+A partição Linux LVM é exatamente igual a Linux Native (82), a 
+única vantagem é que o LVM utilizará auto detecção para saber
+quais partições ele deve utilizar no <file>pvscan</file>.
+
+ <item>
+Instale o pacote <package>lvm2</package> e uma imagem de kernel 2.4 ou
+2.6 que tenha suporte a LVM, ou compile seu próprio kernel (caso goste 
+de máquinas turbinadas :-)
+
+ <item>
+Execute o <prgn>pvscan</prgn> para detectar as partições marcadas
+como LVM e criar sua configuração em <file>/etc/lvmtab.d</file>.
+ <p>
+<strong>OBS:</strong> É normal o sistema procurar dispositivos
+de CD-ROM durante a execução do <prgn>pvscan</prgn>, apenas não 
+deixe um CD na unidade para evitar grandes sustos se estiver 
+desatento com os passos :-)
+ <item>
+Rode o <prgn>pvcreate</prgn> no disco ou partição para dizer que ela será 
+um volume físico do LVM: <tt>pvcreate /dev/sda1</tt> ou <tt>pvcreate /dev/sda</tt>
+ <p>
+Em caso de dúvida sobre qual é a partição LVM, digite: <tt>fdisk -l /dev/sda</tt>
+(supondo que <file>/dev/sda</file> é o disco rígido que está configurando o LVM).
+
+ <item>
+Rode o pvdisplay /dev/hda1 para verificar se o volume físico foi 
+criado. Recomendo que deixe a partição raíz (<tt>/</tt>) de fora do 
+LVM para não ter futuros problemas com a manutenção do seu sistema, 
+a menos que tenha muitas opções de inicialização com suporte a LVM
+em mãos :-)
+
+ <item>
+Crie o grupo de volume na partição <tt>vgcreate lvmdisk /dev/sda1 /dev/sdb7</tt>.
+Note que partições de discos diferentes podem fazer parte de um mesmo
+grupo de volume (VG) do LVM. Caso use o <tt>devfs</tt> ou em algumas
+versões do <tt>udev</tt>, será preciso usar o caminho completo do dispositivo 
+ao invés do link: 
+<tt>vgcreate lvmdisk /dev/ide/host0/bus0/target0/lun0/part1</tt>
+ <p>
+O valor padrão do "Phisical Extend" é de 4MB mas pode ser 
+alterado pelo parâmetro "-s tamanho", assim o tamanho máximo 
+do grupo de volume será de 256GB (4MB * 64.000 extends que são 
+suportados por volume lógico). Os valores do Phisical Extend
+(PE) pode ser de 8k a 16GB. Não é possível modificar o tamanho do 
+PE após ele ser definido.
+
+ <item>
+Verifique o grupo de volume (VG) recém criado com o comando:
+<prgn>vgdisplay</prgn> ou <prgn>vgdisplay /dev/sda7</prgn>. Atente para 
+a linha "Free PE / tamanho", que indica o espaço livre restante para criar 
+os volumes lógicos  (LV). 
+ <item>
+Crie o volume lógico (LV) com o comando: <tt>lvcreate -L1500 -ntmp lvmdisk</tt>
+Que vai criar uma partição LVM de 1500MB (1,5GB) com o nome <em>tmp</em> 
+(acessível por <file>/var/lvmdisk/tmp</file>) dentro do grupo <em>lvmdisk</em>. 
+Você deverá fazer isso com as outra partições.
+ <item>
+Agora resta criar um sistema de arquivos (<em>ext3</em>, <em>reiserfs</em>, 
+<em>xfs</em>, <em>jfs</em>, etc) como faria com qualquer partição física
+normal:
+ <p>
+<tt>mkfs.ext3 /dev/lvmdisk/tmp</tt> ou
+<tt>mkfs.reiserfs /dev/lvmdisk/tmp</tt>
+</enumlist>
+<![ %OBS [
+ <p>
+<strong>OBS:</strong> Caso deseje montar automaticamente o volume LVM, coloque 
+o caminho completo do LVM ao invés do volume físico no <file>/etc/fstab</file>:
+<file>/dev/lvmdisk/tmp</file>.
+]]>
+
+
+<sect1 id="disc-lvm-grow">Aumentando o tamanho de um volume lógico
+ <p>
+O processo para aumentar o tamanho do volume lógico consiste em 
+primeiro aumentar o tamanho do VG com o <prgn>lvextend</prgn> e 
+depois ajustar o tamanho do sistema de arquivos:
+<example>
+# Aumenta o espaço do volume lógico tmp para 1G
+lvextend -L1G /dev/lvmdisk/tmp
+
+# Aumenta em 200MB o espaço no volume lógico tmp
+lvextend -L+200M /dev/lvmdisk/tmp
+
+</example> 
+As unidades <tt>Kk,Mm,Gg,Tt</tt> podem ser usadas para especificar o 
+espaço. Após modificar o volume lógico, será preciso 
+aumentar o tamanho do sistema de arquivos para ser exatamente 
+igual ao tamanho do LV. Isto depende do seu sistema de arquivos: 
+
+<taglist compact>
+ <tag>ext2/3</tag>
+  <item>
+resize2fs /dev/lvmdisk/tmp
+ <p>
+O <em>ext2/3</em> ainda vem com o utilitário <prgn>e2fsadm</prgn> que 
+executa os dois comandos (<prgn>lvextend</prgn> e <prgn>resize2fs</prgn>) 
+de uma só vez: <tt>e2fsadm -L+1G /dev/lvmdisk/tmp</tt>
+ <p>
+<strong>OBS: </strong> Você deverá desmontar o sistema de arquivos 
+antes de alterar o tamanho de um sistema de arquivos <em>ext2</em> ou 
+<em>ext3</em>. Em kernels da serie 2.6.17 e superiores, a alteração pode 
+ser feita on-line (devido ao patch ext2online incorporado ao kernel).
+
+ <tag>reiserfs</tag>
+  <item>
+resize_reiserfs -f /dev/lvmdisk/tmp
+ <p>
+O tamanho do sistema de arquivos <prgn>reiserfs</prgn> poderá ser
+modificado on-line, assim não precisa parar seu servidor para esta
+operação.
+
+ <tag>xfs</tag>
+  <item>
+xfs_growfs /tmp
+ <p>
+Note que deve ser especificado o ponto de montagem ao invés do 
+dispositivo. O sistema de arquivos deverá ser montado antes de 
+ser modificado e incluido no <file>/etc/fstab</file>. 
+</taglist>
+
+
+<sect1 id="disc-lvm-shrink">Diminuindo um volume lógico
+ <p>
+Para diminuir o tamanho de um volume lógico, certifique-se de 
+ter calculado o espaço corretamente para acomodar todos os dados
+que já existem na partição. A diferença para o processo de 
+aumentar o LV é que primeiramente o sistema de arquivos é reduzido primeiro 
+e depois o LV (pois o LV que acomoda o sistema de arquivos):
+
+<taglist compact>
+ <tag>ext2/3/4</tag>
+  <item>
+<tt>resize2fs /dev/lvmdisk/tmp 4G</tt> e depois
+<tt>lvreduce -L-1G /dev/lvmdisk/tmp</tt>
+ <p>
+Podem ser usados K, M ou G para especificar o novo tamanho. Caso esteja 
+usando um kernel 2.6.17 ou superior, o tamanho poderá ser ajustado
+com o sistema de arquivos on-line (sem desmontar).
+
+ <tag>reiserfs</tag>
+  <item>
+<tt>resize_reiserfs -s-1G /dev/lvmdisk/tmp</tt> e depois
+<tt>lvreduce -L-1G /dev/lvmdisk/tmp</tt>
+ <p>
+O tamanho do sistema de arquivos <prgn>reiserfs</prgn> poderá ser
+modificado on-line, assim não precisa parar seu servidor para a 
+modificação.
+
+ <tag>xfs</tag>
+  <item>
+Não é possível diminuir o tamanho de um sistema de arquivos XFS em 
+sua versão atual (12/2006).
+</taglist>
+
+    ]]>
+
+
+    <![ %INIC-INTER [ 
+<sect id="disc-formatando">Formatando Pen-drives/Disquetes
+ <p>
+As subseções seguintes explicarão maneiras de formatar seu pen-drive, 
+memória flash, e outras tecnologias (incluindo disquetes) para
+serem usados no <prgn>GNU/Linux</prgn> e <prgn>DOS/Windows</prgn>. 
+
+
+<sect1 id="disc-formatando-l">Formatando pen-drives para serem usados no Linux
+ <p>
+Para formatar pen-drives para serem usados no <prgn>GNU/Linux</prgn> use o 
+comando: 
+ <p>
+<tt>mkfs.ext2 [<em>-c</em>] [<em>/dev/sde1</em>]</tt>
+ <p>
+Em alguns sistemas você deve usar <prgn>mke2fs</prgn> no lugar de 
+<prgn>mkfs.ext2</prgn>. A opção <tt>-c</tt> faz com que o 
+<prgn>mkfs.ext2</prgn> procure por blocos danificados no pen-drive. 
+Caso deseje formatar um disquete, especifique o dispositivo 
+<file>/dev/fd0</file> ao inves de <file>/dev/sdb1</file>. 
+ <p>
+Note que o nome de dispositivo que é conectado varia de acordo com o 
+sistema e quantidade de discos rígidos que sua máquina possui portanto 
+tenha <em>ATENCÃO</em> para não formatar o dispositivo incorreto (que 
+pode ser justamente seu disco disco rígido principal). Para maior segurança, 
+ao identificar o pen-drive, digite <tt>dmesg</tt> ao conectar o 
+pen-drive para visualizar o dispositivo correto ou fique atento as mensagens
+do console que mostrará o dispositivo que foi associado ao pen-drive.
+
+<![ %OBS [ 
+ <p>
+OBS: Este comando cria um sistema de arquivos <em>ext2</em> no pen-drive
+e permite usar características como permissões de acesso e outras. Isto 
+também faz com que o pen-drive NÃO possa ser lido pelo <prgn>DOS/Windows</prgn>. 
+Para formatar um pen-drive
+no <prgn>GNU/Linux</prgn> usando o <em>FAT16</em> ou <em>FAT32</em> 
+(compatível com o DOS/Windows) veja próxima seção. ]]>
+<![ %EXEMPLO [
+ <p>
+Exemplo: <tt>mkfs.ext2 -c /dev/sde1</tt> ]]>
+
+
+<sect1 id="disc-formatando-d">Formatando pen-drives compatíveis com o 
+Windows
+ <p>
+A formatação de pen-drives para serem usados no <prgn>Windows</prgn> 
+é feita usando o comando <prgn>mkfs.msdos</prgn> que é geralmente incluído no 
+pacote <package>dosfstools</package>. 
+<![ %DESCRICAOD [ O <prgn>mkfs.msdos</prgn> permite tanto a criação de 
+sistemas de arquivos FAT16 ou FAT32. ]]>
+ <p>
+<tt>mkfs.msdos [opções] [<em>dispositivo</em>]</tt> 
+ <p>
+<![ %OPCOES [
+<taglist compact>
+ <tag><em>dispositivo</em></tag>
+  <item>
+ Pen-drive que será formatado. Normalmente <file>/dev/sdb1</file> 
+ (dependendo do dispositivo detectado via comando <tt>dmesg</tt>). 
+  
+ <tag><em>opções</em></tag>
+ <tag>-F [num]</tag>
+  <item>
+ Especifica o tipo de FAT que será usado na formatação. Podem ser usados os 
+ valores 12 (para formatação usando FAT12, limitado a 12MB), 16 (para 
+ formatação usando FAT16, limitado a 2Gb) e 32 (para formatação 
+ FAT32, limitado a 128Gb).
+ 
+ <tag>-n [nome]</tag>
+  <item>
+ Atribui o <tt>[nome]</tt> de volume ao dispositivo.
+ 
+ <tag>-c</tag>
+  <item>
+ Faz uma pesquisa por bad blocks antes da criação do sistema de arquivos
+ no dispositivo. Os setores defeituosos encontrados serão automaticamente 
+ marcados para não serem utilizadas. 
+ 
+<![ %INTERMEDIARIO [
+
+ <tag>-m [arquivo_mensagem]</tag>
+  <item>
+ Especifica o arquivo que contém a mensagem que será exibida ao 
+ usuário caso o disco não seja inicializável. A mensagem não pode
+ exceder 418 bytes.
+]]>
+
+</taglist>
+]]>
+Note que não se deve montar o pen-driv / disquete para formata-lo. 
+<![ %EXEMPLO [
+ <p>
+Segue abaixo exemplos de como formatar seu pen-drive <prgn>mkfs.msdos</prgn>:
+<list compact>
+ <item>
+<tt>mkfs.msdos /dev/sdc1</tt> - Formata o pen-drive no terceiro dispositivo
+SCSI Genérico, como FAT32 e usando os valores padrões. 
+
+ <item>
+<tt>mkfs.msdos -F 16  /dev/sdc1</tt> - Faz a mesma coisa que o acima, mas 
+formata o pen-drive como FAT16. 
+
+ <item>
+<tt>mkfs.msdos -n teste -F 16 /dev/sdc1</tt> - 
+Formata o pen-drive no terceiro dispositivo SCSI genérico, como FAT16 e 
+cria o nome de volume <tt>teste</tt>. 
+</list>  ]]>
+
+
+<sect1 id="disc-formatando-g">Programas de Formatação Gráficos
+ <p>
+Além de programas de formatação em modo texto, existem outros para 
+ambiente gráfico (X11) que permitem fazer a mesma tarefa. 
+ <p>
+Entre os diversos programas destaco o <prgn>gfloppy</prgn> que além de 
+permitir selecionar se o disquete será formatado para o 
+<prgn>GNU/Linux</prgn> (ext2), <prgn>DOS</prgn> (FAT12) e permite selecionar 
+a capacidade e formatação rápida do disco. 
+
+
+<sect id="disc-pontomontagem">Pontos de Montagem
+ <p>
+O <prgn>GNU/Linux</prgn> acessa as partições existente em seus discos rígidos 
+e disquetes através de diretórios. Os diretórios que são usados para  
+acessar (montar) partições são chamados de <em>Pontos de Montagem</em>. 
+Para detalhes sobre montagem de partições, veja <ref id="disc-montagem">. 
+ <p>
+No <prgn>DOS</prgn> cada letra de unidade (C:, D:, E:) identifica uma 
+partição de disco, no <prgn>GNU/Linux</prgn> os pontos de montagem fazem 
+parte da grande estrutura do sistema de arquivos raiz. 
+<![ %INTERMEDIARIO [
+ <p>
+Existem muitas vantagens de se usar <em>pontos de montagem</em> ao 
+invés de unidade de disco para identificar partições (método usado 
+no <prgn>Windows</prgn>): 
+
+<list compact>
+ <item>
+Você pode montar a partição no diretório que quiser. 
+ <item>
+Em caso de um sistema de arquivos cheio, você pode copiar o 
+conteúdo de um grande diretório para outro sistema de arquivos, 
+apagar o conteúdo do diretório original e montar o disco onde 
+foram copiados os arquivos naquele local (caso não use um 
+sistema de LVM).
+ <item>
+Reduz riscos de corrompimento do sistema operacional. Caso isto aconteça, 
+será necessário apenas restaurar o backup do sistema de arquivos afetado.
+ <item>
+Tempo de boot reduzido quando um sistema de arquivos for verificado por 
+ferramentas como o <prgn>fsck</prgn>.
+ <item>
+O uso de <em>pontos de montagem</em> torna o gerenciamento mais 
+flexível.
+ <item>
+A adição de novas partições ou substituição de discos rígidos não 
+afeta a ordem de identificação dos discos e pontos de montagem (como 
+não acontece no <prgn>DOS</prgn>). 
+
+</list> ]]>
+
+
+<sect id="disc-id">Identificação de discos e partições em sistemas Linux
+ <p>
+No <prgn>GNU/Linux</prgn>, os dispositivos existentes em seu computador 
+(como discos rígidos, pen-drives, flash, disquetes,, tela, portas de 
+impressora, modem, etc) 
+são identificados por um arquivo referente a este dispositivo no diretório 
+<file>/dev</file>. 
+ <p>
+A identificação de discos rígidos no <prgn>GNU/Linux</prgn> é feita da seguinte 
+forma: 
+<example>
+/dev/sda1
+|    | ||
+|    | ||_Número que identifica o número da partição no disco rígido.
+|    | |
+|    | |_Letra que identifica o disco rígido (a=primeiro, b=segundo, etc...).
+|    |
+|    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, sd=IDE, xt=MFM).
+|
+|_Diretório onde são armazenados os dispositivos existentes no sistema.
+</example>
+
+Abaixo algumas identificações de discos e partições em sistemas Linux: 
+<list>
+ <item><em>/dev/fd0</em> - <tt>Primeira unidade de disquetes</tt>.
+ <item><em>/dev/fd1</em> - <tt>Segunda unidade de disquetes</tt>.
+ <item><em>/dev/sda</em> - <tt>Primeiro disco rígido na primeira 
+controladora SATA ou SCSI</tt>.
+ <item><em>/dev/sda1</em> - <tt>Primeira partição do primeiro disco rígido 
+SATA ou</tt>.
+ <item><em>/dev/sdb</em> - <tt>Segundo disco rígido na primeira controladora 
+SATA ou SCSI</tt>.
+ <item><em>/dev/sdb1</em> - <tt>Primeira partição do segundo disco rígido 
+SATA ou SCSI</tt>.
+ <item><em>/dev/sr0</em> - <tt>Primeiro CD-ROM SATA ou SCSI</tt>.
+ <item><em>/dev/sr1</em> - <tt>Segundo CD-ROM SATA ou SCSI</tt>.
+ <item><em>/dev/hda</em> - <tt>Primeiro disco rígido na primeira controladora 
+IDE do micro (primary master)</tt>.
+ <item><em>/dev/hda1</em> - <tt>Primeira partição do primeiro disco rígido 
+IDE</tt>.
+ <item><em>/dev/hdb</em> - <tt>Segundo disco rígido na primeira controladora 
+IDE do micro (primary slave)</tt>.
+ <item><em>/dev/hdb1</em> - <tt>Primeira partição do segundo disco rígido 
+IDE</tt>.
+ <item><em>/dev/xda</em> - <tt>Primeiro disco rígido XT</tt>.
+ <item><em>/dev/xdb</em> - <tt>Segundo disco rígido XT</tt>.
+</list>
+As letras de identificação de discos rígidos podem ir além de <tt>sdb</tt>, 
+por exemplo, caso utilize pen-drives, memória  flash, as unidades serão 
+detectadas como <tt>sdc</tt>, <tt>sdd</tt> e assim por diante.
+ <p>
+É importante entender como os discos e partições são identificados no  
+sistema, pois será necessário usar os parâmetros corretos para 
+monta-los.
+
+
+<sect id="disc-montagem">Montando (acessando) uma partição de disco
+ <p>
+Você pode acessar uma partição de disco usando o comando <prgn>mount</prgn>. 
+ <p>
+<tt>mount [<em>dispositivo</em>] [<em>ponto de montagem</em>] [<em>opções</em>]
+</tt>
+ <p>
+<![ %OPCOES [
+Onde:
+<taglist compact>
+ <tag><em>dispositivo</em></tag>
+ <item>
+Identificação da unidade de disco/partição que deseja acessar (como 
+<tt>/dev/hda1</tt> (disco rígido) ou <tt>/dev/fd0</tt> (primeira unidade 
+de disquetes). 
+
+ <tag><em>ponto de montagem</em></tag>
+ <item>
+Diretório de onde a <em>unidade de disco/partição</em> será acessado. O 
+diretório deve estar vazio para montagem de um sistema de arquivo. Normalmente 
+é usado o diretório <file>/mnt</file> para armazenamento de pontos de montagem 
+temporários.
+
+ <tag><em>opções</em></tag>
+ <tag>-t [tipo]</tag>
+ <item>
+Tipo do sistema de arquivos usado pelo <em>dispositivo</em>. São aceitos os
+sistemas de arquivos:
+ <list compact>
+  <item>
+<em>ext2</em> - Para partições <prgn>GNU/Linux</prgn> usando o 
+Extended File System versão 2 (a mais comum).
+  <item>
+<em>ext3</em> - Para partições <prgn>GNU/Linux</prgn> usando 
+o Extended File System versão 3, com suporte a journaling.
+  <item>
+<em>ext4</em> - Para partições <prgn>GNU/Linux</prgn> usando 
+o Extended File System versão 4, com suporte a journaling.
+  <item>
+<em>reiserfs</em> - Para partições reiserfs, com suporte a journaling.
+  <item>
+<em>xfs</em> - Para partições xfs, com suporte a journaling.
+  <item>
+<em>vfat</em> - Para partições <prgn>Windows 95</prgn> que utilizam nomes  
+extensos de arquivos e diretórios.
+  <item>
+<em>msdos</em> - Para partições <prgn>DOS</prgn> normais.
+  <item>
+<em>iso9660</em> - Para montar unidades de <prgn>CD-ROM</prgn>. É o padrão.
+ </list>
+Na maioria das vezes, caso o sistema de arquivos não seja especificado, o 
+<prgn>mount</prgn> utilizará a auto-detecção e montará a partição usando o 
+sistema de arquivos correto. Para mais detalhes sobre opções usadas com cada 
+sistema de arquivos, veja a página de manual <em>mount</em>.
+
+ <tag>-r </tag>
+ <item>
+Caso for especificada, monta a partição somente para leitura.
+ 
+ <tag>-w </tag>
+ <item>
+Caso for especificada, monta a partição como leitura/gravação. É o padrão.
+</taglist>
+]]>
+Existem muitas outras opções que podem ser usadas com o comando <prgn>mount
+</prgn>, mas aqui procurei somente mostrar o básico para "montar" seus 
+discos e partições no <prgn>GNU/Linux</prgn> (para mais opções, veja a página 
+de manual do <tt>mount</tt>). Caso você digitar <tt>mount</tt> 
+sem parâmetros, serão mostrados os sistemas de arquivos atualmente montados 
+no sistema. Esta mesma listagem pode ser vista em <file>/etc/mtab</file>.
+<![ %EXEMPLO [ A remontagem de partição também é muito útil, especialmente 
+após reparos nos sistema de arquivos do disco rígido. Veja alguns exemplos 
+de remontagem abaixo. ]]>
+ <p>
+É necessário permissões de root para montar partições, a não ser que 
+tenha especificado a opção <tt>user</tt> no arquivo <file>/etc/fstab</file> 
+(veja <ref id="disc-fstab">). 
+
+<![ %EXEMPLO [
+ <p>
+Exemplo de Montagem:
+<list compact>
+ <item>
+Montar uma partição Windows (vfat) de <file>/dev/sda1</file> em <file>/mnt
+</file> somente para leitura: <tt>mount /dev/sda1 /mnt -r -t vfat</tt>
+ <item>
+Montar um pen-drive detectado em <file>/dev/sdc1</file> em <file>/mnt
+</file>: <tt>mount /dev/sdc1 /mnt -t vfat</tt>
+ <item>
+Montar uma partição DOS localizada em um segundo disco rígido <file>/dev/hdb1
+</file> em <file>/mnt</file>: <tt>mount /dev/hdb1 /mnt -t msdos</tt>.
+ <item>
+Remontar a partição raíz como somente leitura:
+<tt>mount -o remount,ro /</tt>
+ <item>
+Remontar a partição raíz como <em>leitura/gravação</em> (a opção -n é usada 
+porque o <prgn>mount</prgn> não conseguirá atualizar o arquivo 
+<file>/etc/mtab</file> devido ao sistema de arquivos <file>/</file> estar 
+montado como somente leitura atualmente: 
+<tt>mount -n -o remount,rw /</tt>.
+</list> ]]>
+
+
+<sect1 id="disc-fstab">fstab
+ <p>
+O arquivo <file>/etc/fstab</file> permite que as partições do sistema 
+sejam montadas facilmente especificando somente o dispositivo ou o 
+ponto de montagem. Este arquivo contém parâmetros sobre as 
+partições que são lidos pelo comando <prgn>mount</prgn>. Cada linha 
+deste arquivo contém a partição que desejamos montar, o ponto de montagem, 
+o sistema de arquivos usado  pela partição e outras opções. 
+<file>fstab</file> tem a seguinte forma: 
+ <p>
+<example>
+Sistema_de_arquivos Ponto_de_Montagem Tipo    Opções           dump ordem
+/dev/sda1           /                 ext3    defaults           0    1
+/dev/sda2           /boot             ext3    defaults           0    2
+/dev/sda3           /dos              msdos   defaults,noauto,rw 0    0
+/dev/hdg            /cdrom            iso9660 defaults,noauto    0    0
+</example>
+Onde:
+<taglist compact>
+ <tag>Sistema de Arquivos</tag>
+ <item>
+Partição que deseja montar.
+
+ <tag>Ponto de montagem</tag>
+ <item>
+Diretório do <prgn>GNU/Linux</prgn> onde a partição montada será acessada.
+
+ <tag>Tipo</tag>
+ <item>
+Tipo de sistema de arquivos usado na partição que será montada. Para 
+partições <prgn>GNU/Linux</prgn> use <em>ext3</em>, <em>reiserfs</em>,
+<em>xfs</em> (de acordo com o tipo de partição selecionada durante a 
+formatação), para partições <prgn>DOS</prgn> (sem nomes extensos de 
+arquivos) use <em>msdos</em>, para partições <prgn>Win 95</prgn> (com 
+suporte a nomes extensos de arquivos) use <em>vfat</em>, para unidades 
+de CD-ROM use <em>iso9660</em>.
+
+ <tag>Opções</tag>
+ <item>
+Especifica as opções usadas com o sistema de arquivos. Abaixo, algumas
+opções de montagem para ext2/3/4 (a lista completa pode ser encontrada 
+na página de manual do <prgn>mount</prgn>):
+<list compact>
+ <item>
+<tt>defaults</tt> - Utiliza valores padrões de montagem.
+ <item>
+<tt>noauto</tt> - Não monta os sistemas de arquivos durante a inicialização 
+(útil para CD-ROMS e disquetes).
+ <item> 
+<tt>ro</tt> - Monta como somente leitura.
+ <item>
+<tt>user</tt> -  Permite que usuários montem o sistema de arquivos (não 
+recomendado por motivos de segurança).
+ <item>
+<tt>sync</tt> é recomendado para uso com discos removíveis (disquetes, 
+zip drives, nfs, etc) para que os dados sejam gravados imediatamente na 
+unidade (caso não seja usada, você deve usar o comando <ref id="cmdv-sync"> 
+antes de retirar o disquete da unidade. 
+</list>
+
+ <tag>dump</tag>
+  <item>
+ Especifica a frequência de backup feita com o programa <prgn>dump</prgn> 
+ no sistema de arquivos. 0 desativa o backup. 
+
+ <tag>Ordem</tag>
+ <item>
+Define a ordem que os sistemas de arquivos serão verificados na inicialização 
+do sistema. Se usar 0, o sistema de arquivos não é verificado. O sistema de 
+arquivos raíz que deverá ser verificado primeiro é o raíz "/" 
+<![ %INTERMEDIARIO [ (a não ser que você tenha um sistema de arquivos de 
+outro tipo que não é montado dentro do diretório raíz e possui seu 
+suporte embutido no kernel) ]]>. 
+</taglist>
+Após configurar o <file>/etc/fstab</file>, basta digitar o comando 
+<tt>mount /dev/hdg</tt> ou <tt>mount /cdrom</tt> para que a 
+unidade de CD-ROM seja montada. Você deve ter notado que não é necessário 
+especificar o sistema de arquivos da partição pois o <prgn>mount</prgn> 
+verificará se ele já existe no <file>/etc/fstab</file> e caso existir, 
+usará as opções especificadas neste arquivo. 
+Para maiores detalhes veja as páginas de manual <file>fstab</file> e 
+<prgn>mount</prgn>. 
+
+
+<sect id="disc-desmontagem">Desmontando uma partição de disco
+ <p>
+Utilize o comando <prgn>umount</prgn> para desmontar um sistema de 
+arquivos que foi montado com o <prgn>mount</prgn>. Você deve ter 
+permissões de root para desmontar uma partição.
+ <p>
+<tt>umount [<em>dispositivo</em>/<em>ponto de montagem</em>]</tt>
+ <p>
+Você pode tanto usar <tt>umount /dev/sda1</tt> como <tt>umount /mnt</tt> 
+para desmontar um sistema de arquivos <file>/dev/sda1</file> montado em 
+<file>/mnt</file>.
+<![ %OBS [
+ <p>
+<em>Observação:</em> O comando <prgn>umount</prgn> executa o <prgn>sync</prgn> 
+automaticamente no momento da desmontagem, para garantir que todos os 
+dados ainda em memória RAM sejam salvos. ]]>
+ 
+    ]]>
+    

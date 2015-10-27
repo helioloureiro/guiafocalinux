@@ -1,0 +1,282 @@
+<sect id="s-apache-vhosts">Virtual Hosts
+ <p>
+Virtual Hosts (sites virtuais) é um recurso que permite servir mais de um 
+site no mesmo servidor. Podem ser usadas diretivas específicas para o controle 
+do site virtual, como nome do administrador, erros de acesso a página, controle 
+de acesso e outros dados úteis para personalizar e gerenciar o site. 
+Existem 2 métodos de virtual hosts: 
+<list compact>
+ <item>
+<tt>Virtual Hosts baseados em IP</tt> - Requer um endereço IP diferente 
+para cada site. Este poderá ser um IP real (da interface de rede) ou um 
+apelido <![ %CAPJUNTOS [ (veja <ref id="cfgrede-ipalias">)]]>, o que 
+interessa é que deve haver um endereço IP diferente para cada site. O número 
+de sites servidos estará limitado a quantidade de endereços IP disponíveis em 
+sua classe de rede. Veja <ref id="s-apache-vhosts-ip"> para detalhes de como 
+construir um virtual host deste tipo. 
+ <p>
+O <prgn>apache</prgn> foi um dos primeiros servidores web a incluir suporte a 
+virtual hosts baseados em IP. 
+ 
+ <item>
+<tt>Virtual Hosts baseados em nome</tt> - Este utiliza nomes para 
+identificar os sites servidos e requerem somente um endereço IP. 
+Desta maneira é possível servir um número ilimitado de sites virtuais. 
+O navegador do cliente deve suportar os cabeçalhos necessários para 
+garantir o funcionamento deste recurso (praticamente todos os navegadores 
+atuais possuem este suporte). Veja <ref id="s-apache-vhosts-nome"> para 
+detalhes de como construir um virtual host deste tipo. 
+
+</list>
+As explicações desta seção são baseadas na documentação do <prgn>Apache</prgn>. 
+
+
+<sect1 id="s-apache-vhosts-ip">Virtual hosts baseados em IP
+ <p>
+Existem duas maneiras de rodar este tipo de host virtual: Através 
+de daemons <prgn>httpd</prgn> separados ou em um único daemon 
+<prgn>httpd</prgn> usando a diretiva &lt;VirtualHost&gt;. 
+ <p>
+As vantagens do uso de <em>daemons separados</em> para servir requisições é 
+a proteção sob <em>UID</em> e <em>GID</em> diferente dos outros 
+servidores, assim o administrador do <em>site1</em> não terá acesso 
+ao <file>httpd.conf</file>, página do <file>site2</file> (porque 
+ele estará rodando sob uma <em>UID</em> e <em>GID</em> diferentes 
+e o acesso é restrito). Para usar este método, especifique a opção 
+<em>-f [arquivo_cfg]</em> para utilizar um arquivo de configuração 
+personalizado e a diretiva <em>Listen endereço:porta</em> para dizer onde 
+o servidor aguardará as requisições. 
+ <p>
+As vantagens do uso de um <em>mesmo daemon</em> para servir as requisições são: 
+quando não há problema se os administradores de outros sites tenham acesso 
+ao mesmo arquivo de configuração ou quando há a necessidade de servir muitas 
+requisições de uma só vez (quanto menos servidores web estiverem em execução, 
+melhor o desempenho do sistema). Abaixo um exemplo de configuração 
+de virtual hosts servindo os sites <tt>www.site1.com.br</tt> e 
+<tt>www.site2.com.br</tt>: 
+<example>
+ServerAdmin webmaster@site.com.br
+
+&lt;VirtualHost www.site1.com.br&gt;
+ ServerName www.site1.com.br
+ ServerAdmin site1@site1.com.br
+ DocumentRoot /var/www/www_site1_com_br
+ TransferLog /var/log/apache/site1/access.log
+ ErrorLog /var/log/apache/site1/error.log
+ User www-data
+ Group www-data
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost www.site2.com.br&gt;
+ ServerName www.site2.com.br
+ DocumentRoot /var/www/www_site2_com_br
+ CustomLog /var/log/apache/site2/access.log combined
+ ErrorLog /var/log/apache/site2/error.log
+&lt;/VirtualHost&gt;
+
+</example>
+Qualquer diretiva dentro de &lt;VirtualHost&gt; controlarão terão efeito 
+no site virtual especificado. Quando uma diretiva não for especificada 
+dentro de &lt;VirtualHost&gt;, serão usados os valores padrões 
+especificados no arquivo de configuração do <prgn>Apache</prgn> 
+(como a diretiva <em>ServerAdmin webmaster@site.com.br</em> que será usado 
+como padrão na configuração de <em>www.site2.com.br</em>). 
+ <p>
+Digite <tt>apache -S</tt> para ver suas configurações de virtual hosts 
+atual. 
+<![ %OBS [
+ <p>
+<strong>OBS1:</strong> Desative a diretiva <tt>UseCanonicalName off</tt>
+quando utilizar o recurso de máquinas virtuais, esta diretiva faz 
+que o nome do servidor retornado usando o valor em <tt>ServerName</tt> 
+quando o cliente digita um endereço qualquer. 
+ <p>
+<strong>OBS2:</strong> Utilize sempre que possível endereços IP em 
+configurações críticas, assim os serviços não serão tão vulneráveis 
+a possíveis falsificações ou erros. <![ %CAPJUNTOS [ Veja 
+<ref id="rede-dns-a-hostconf"> e <ref id="fw-iptables-outras-ipspoof">. ]]>
+Leia também a seção <ref id="s-apache-vhosts-dnssec">. 
+ <p>
+<strong>OBS3:</strong> Não permita que outros usuários a não ser o 
+root e o dono do processo <prgn>Apache</prgn> (especificado pela 
+diretiva <em>User</em>) tenham acesso de gravação aos logs gerados 
+pelo servidor, pois os dados podem ser apagados ou criados links 
+simbólicos para binários do sistema que serão destruídos quando o 
+<prgn>Apache</prgn> gravar dados. Alguns binários e bibliotecas são 
+essenciais para o funcionamento do sistema. ]]>
+
+
+<sect1 id="s-apache-vhosts-nome">Virtual hosts baseados em nome
+ <p>
+Este método é idêntico ao baseado em IP, em especial adicionamos a 
+diretiva <em>NameVirtualHost</em> para dizer qual é o endereço 
+IP do servidor que está servindo os virtual hosts baseados em 
+nome. Veja o exemplo de configuração: 
+<example>
+NameVirtualHost 200.200.200.10:80
+
+&lt;VirtualHost _default_:80 200.200.200.10:80&gt;
+ ServerName www.site.com.br
+ ServerAdmin admin@site.com.br
+ DocumentRoot /var/www
+ TransferLog /var/log/apache/access.log
+ ErrorLog /var/log/apache/error.log
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 200.200.200.10&gt;
+ ServerName www.site1.com.br
+ ServerAdmin admin1@site1.com.br
+ DocumentRoot /var/www/www_site1_com_br
+ TransferLog /var/log/apache/site1/access.log
+ ErrorLog /var/log/apache/site1/error.log
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost 200.200.200.10&gt;
+ ServerName www.site2.com.br
+ ServerAdmin admin2@site2.com.br
+ DocumentRoot /var/www/www_site2_com_br
+ TransferLog /var/log/apache/site2/access.log
+ ErrorLog /var/log/apache/site2/error.log
+&lt;/VirtualHost&gt;
+
+</example>
+A diretiva <em>NameVirtualHost</em> diz que será usado virtual hosts 
+baseados em nome servidos pela máquina com IP <tt>200.200.200.10</tt>. 
+Os parâmetros dentro do bloco das diretivas &lt;VirtualHost &gt; são 
+específicas somente no site virtual especificado, caso contrário os valores 
+padrões definidos no arquivo de configuração serão usados. Caso nenhum 
+virtual host confira com a configuração, o virtualhost <em>_default_</em>
+será usado.
+ <p>
+Digite <tt>apache -S</tt> para ver suas configurações de virtual hosts 
+atual. Se sua intenção é criar um grande número de virtual hosts que serão 
+servidos pela mesma máquina, o uso da expansão <tt>%0</tt> e diretivas 
+<tt>VirtualDocumentRoot</tt> e <tt>VirtualScriptAlias</tt> são recomendados: 
+<example>
+NameVirtualHost 200.200.200.10:80
+
+&lt;VirtualHost 200.200.200.10&gt;
+ VirtualDocumentRoot /var/www/%0
+ VirtualScriptAlias /var/www/%0/cgi-bin
+ TransferLog log/apache/site1/access.log
+ ErrorLog log/apache/site1/error.log
+&lt;/VirtualHost&gt;
+
+</example>
+Agora crie os diretórios em <file>/var/www</file> correspondentes aos 
+nomes de domínios que serão servidos por sua máquina: 
+<tt>mkdir /var/www/www.site1.com.br</tt>, 
+<tt>mkdir /var/www/www.site2.com.br</tt>. Note que sua máquina deverá 
+estar com o DNS configurado para responder por estes domínios 
+<![ %CONSTRUCAO [ (veja ************) ]]>.
+
+<![ %OBS [
+ <p>
+<strong>ATENÇÃO</strong> É importante que os endereços especificados nas 
+diretivas <em>ServerName</em> (<tt>www.site1.com.br</tt>) resolvam o 
+endereço IP da diretiva <em>VirtualHost</em> (<file>200.200.200.10</file>). 
+Isto deve ser feito via DNS <![ %CONSTRUCAO [ (veja **********) ]]> ou nos arquivos 
+<file>/etc/hosts</file>. 
+ <p>
+<strong>OBS1:</strong> Utilize sempre que possível endereços IP em 
+configurações críticas, assim os serviços não serão tão vulneráveis 
+a possíveis falsificações ou erros. <![ %CAPJUNTOS [ Veja 
+<ref id="rede-dns-a-hostconf"> e <ref id="fw-iptables-outras-ipspoof">. ]]> 
+Leia também a seção <ref id="s-apache-vhosts-dnssec">. 
+ <p>
+<strong>OBS2:</strong> Não permita que outros usuários a não ser o 
+root e o dono do processo <prgn>Apache</prgn> (especificado pela 
+diretiva <em>User</em>) tenha acesso de gravação aos logs gerados 
+pelo servidor. Pois os dados podem ser apagados ou criados links 
+para binários do sistema que serão destruídos quando o apache 
+gravar dados para os logs. Alguns binários e bibliotecas são 
+essenciais para o funcionamento do sistema. ]]>
+
+
+<sect1 id="s-apache-vhosts-dnssec">Segurança no uso de IP's em Virtual Hosts
+ <p>
+Quando você está colocando um nome na diretiva de configuração do 
+seu virtual hosts, está assumindo que ele resolverá o endereço IP 
+corretamente (como <tt>www.site1.com.br</tt> =&gt; <tt>200.200.200.10</tt>). 
+Se por algum motivo o servidor DNS for modificado (por outra pessoa que tem 
+acesso a isto), o endereço IP resolvido para o site 
+<tt>www.site1.com.br</tt> poderá ser modificado para <tt>200.200.200.20</tt>, 
+isto redirecionará as requisições para outra máquina ao invés da máquina 
+correta. Este tipo de ataque é chamado "DNS Spoofing" e o uso de endereço 
+IP (ao invés de nomes) praticamente evita que isto aconteça. Esta situação 
+pode acontecer com a diretiva abaixo:
+<example>
+&lt;VirtualHost www.gms.com.br&gt;
+ ServerName www.gms.com.br
+ ServerAdmin gleydson@guiafoca.org
+ DocumentRoot /var/www/www_gms_com_br
+&lt;/VirtualHost&gt;
+
+</example>
+Outra situação, que impede o funcionamento do servidor Web, é quando o 
+servidor DNS está em manutenção ou por algum outro motivo não 
+pode resolver o endereço IP de um nome especificado (como <tt>www.site1.com.br</tt>). 
+O <prgn>apache</prgn> precisa saber qual é o seu endereço IP para ser executado. 
+Veja a próxima modificação: 
+<example>
+&lt;VirtualHost 192.168.1.1&gt;
+ ServerName www.gms.com.br
+ ServerAdmin gleydson@guiafoca.org
+ DocumentRoot /var/www/www_gms_com_br
+&lt;/VirtualHost&gt;
+
+</example>
+Na configuração acima usamos o IP do servidor para especificar o virtual host. 
+O <prgn>apache</prgn> tentará fazer o DNS reverso para determinar qual nome 
+é servido por aquele endereço IP (<tt>www.site1.com.br</tt>). Se ele falhar, 
+somente a seção &lt;VirtualHost&gt; correspondente será desativada. Isto 
+já é uma melhoria sobre a primeira configuração. O nome do servidor 
+na diretiva <em>ServerName</em> garante que o servidor responda com o 
+nome correto. 
+ <p>
+Para evitar ataques baseados em DNS siga os seguintes procedimentos de 
+segurança:
+<enumlist compact>
+
+ <item>
+Preferencialmente utilize o arquivo <file>/etc/hosts</file> para a resolução 
+de nomes em máquinas locais (principalmente quando existe somente um administrador). 
+É um método que evita diversas consultas ao servidor DNS (que pode deixar o 
+acesso lento) e este arquivo é gerenciado pelo usuário <tt>root</tt>, isto 
+evita o acesso de qualquer usuário para a falsificação de endereços. 
+ <p>
+Este arquivo também é útil caso a pesquisa DNS falhe (quando a ordem de pesquisa 
+for do servidor DNS para o arquivo <file>hosts</file> no arquivo 
+<file>/etc/host.conf</file>), pois de qualquer forma o nome será resolvido e 
+o servidor <prgn>Apache</prgn> será executado. 
+
+ <item>
+Evite dar poderes a outros administradores manipularem seu próprio 
+domínio DNS, não há nada que possa impedi-lo de modificar o endereço "X" para 
+ser servido pelo IP "Y" desviando o tráfego para seu próprio servidor web. 
+Se isto não for possível, siga as dicas abaixo para diminuir possíveis 
+problemas. 
+
+ <item>
+Utilize endereços IP na diretiva &lt;VirtualHost&gt;. 
+
+ <item>
+Use endereços IP na diretiva <em>Listen</em>.
+
+ <item>
+Use um endereço IP na diretiva <em>BindAddress</em>.
+ 
+ <item>
+Sempre utilize o parâmetro <em>ServerName</em> em todas as 
+diretivas &lt;VirtualHost&gt;, isto evita o retorno incorreto 
+de nomes (que pode evitar/revelar fraudes). 
+
+ <item>
+Quando utilizar virtual hosts, crie uma diretiva &lt;VirtualHost _default_L:*&gt; 
+usando uma diretiva <em>DocumentRoot</em> que não aponte para lugar algum. 
+Esta diretiva será acessada quando nenhuma diretiva 
+<em>VirtualHost</em> servir a requisição, conferindo com o endereço/ip. 
+
+</enumlist>
+
+

@@ -1,0 +1,269 @@
+<chapt id="s-ssh">Servidor ssh
+ <p>
+Este capítulo documenta a instalação, configuração e personalização do 
+servidor de shell seguro <prgn>sshd</prgn>, além de explicar as vantagens 
+da utilização dos serviços criptográficos. A utilização do programa cliente 
+<prgn>ssh</prgn> também é explicada, além de utilitários usados para geração 
+de chaves pública/privada para o <prgn>ssh</prgn> (autenticação RSA/DAS - o que é, 
+vantagens), cópia de arquivos e métodos de autenticação usando o método de chave 
+pública/privada RSA. 
+ <p>
+Ambas as versões 1 e 2 do ssh são documentadas neste capítulo. Opções específicas 
+do protocolo 1 ou 2 do ssh serão destacadas. 
+
+
+<sect id="s-ssh-intro">Introdução
+ <p>
+O serviço de <prgn>ssh</prgn> permite fazer o acesso remoto ao console de 
+sua máquina, em outras palavras, você poderá acessar sua máquina como se 
+estivesse conectado localmente ao seu console (substituindo o 
+<prgn>rlogin</prgn> e <prgn>rsh</prgn>). A principal diferença com relação 
+ao serviço <prgn>telnet</prgn> padrão, <prgn>rlogin</prgn> e <prgn>rsh</prgn> 
+é que toda a comunicação entre cliente/servidor é feita de forma encriptada 
+usando chaves públicas/privadas RSA para criptografia garantindo uma 
+transferência segura de dados. 
+ <p>
+A velocidade do console remoto conectado via Internet é excelente (melhor que 
+a obtida pelo <prgn>telnet</prgn> e serviços r*) dando a impressão de uma 
+conexão em tempo real (mesmo em links discados de 9.600 KB/s), a compactação 
+dos dados também pode ser ativada para elevar ainda mais a velocidade entre 
+cliente-servidor ssh. Além do serviço de acesso 
+remoto, o <prgn>scp</prgn> possibilita a transferência/recepção segura 
+de arquivos (substituindo o <prgn>rcp</prgn>). 
+ <p>
+Em conexões sem criptografia (rsh, rlogin) os dados trafegam de 
+forma desprotegida e caso exista algum sniffer instalado em sua rota com 
+a máquina destino, todo o que fizer poderá ser capturado (incluindo senhas). 
+
+
+<sect1 id="s-ssh-versao">Versão
+ <p>
+É assumido que esteja usando a versão 2.0 do <prgn>ssh</prgn>. As explicações 
+contidas aqui podem funcionar para versões posteriores, mas é recomendável que 
+leia a documentação sobre modificações no programa (changelog) em busca de 
+mudanças que alterem o sentido das explicações fornecidas aqui. 
+
+
+<sect1 id="s-ssh-historia">História
+ <p>
+O <prgn>openSSH</prgn> (explicado neste capítulo) é baseado na última versão 
+livre do implementação de Tatu Ylonen com todos os algoritmos patenteados 
+(para bibliotecas externas) removidos, todos as falhas de segurança corrigidas, 
+novas características e muitas outras melhorias. O openSSH foi 
+criado por Aaron Campbell, Bob Beck, Markus Friedl, Niels Provos, Theo de Raadt 
+e Dug Song. 
+
+
+<sect1 id="s-ssh-contribuindo">Contribuindo
+ <p>
+A Home page principal é 
+<url id="http://www.unixuser.org/~haruyama/security/openssh/index.html">. 
+Falhas, correções e sugestões podem ser enviadas para a lista de discussão 
+<email>openssh-unix-dev@mindrot.org</email> (aberta a postagens de usuários não 
+inscritos). 
+
+
+<sect1 id="s-ssh-caracteristicas">Características
+ <p>
+Abaixo as principais características do serviço <prgn>ssh</prgn> 
+(<prgn>Openssh</prgn>). 
+<list compact> 
+ <item>Conexão de dados criptografada entre cliente/servidor.
+ <item>Cópia de arquivos usando conexão criptografada.
+ <item>Suporte a ftp criptografado (sftp).
+ <item>Suporte a compactação de dados entre cliente/servidor.
+ <item>Controle de acesso das interfaces servidas pelo servidor <prgn>ssh</prgn>.
+ <item>Suporte a controle de acesso tcp wrappers.
+ <item>Autenticação usando um par de chaves pública/privada RSA ou DSA.
+ <item>Algoritmo de criptografia livre de patentes.
+ <item>Suporte a PAM.
+ <item>Suporte a caracteres ANSI (cores e códigos de escape especiais no console). 
+</list>
+
+
+<sect1 id="s-ssh-ficha">Ficha técnica
+ <p>
+Pacote: <package>ssh</package>
+ <p>
+Utilitários:
+<list compact>
+ <item>
+<tt>ssh</tt> - Cliente ssh (console remoto). 
+
+ <item>
+<tt>slogin</tt> - Link simbólico para o programa <prgn>ssh</prgn>. 
+
+ <item>
+<tt>sshd</tt> - Servidor de shell seguro ssh.
+
+ <item>
+<tt>scp</tt> - Programa para transferência de arquivos entre cliente/servidor
+
+ <item>
+<tt>ssh-keygen</tt> - Gera chaves de autenticação para o ssh
+
+ <item>
+<tt>sftp</tt> - Cliente ftp com suporte a comunicação segura. 
+
+ <item>
+<tt>sftp-server</tt> - Servidor ftp com suporte a comunicação segura. 
+
+ <item>
+<tt>ssh-add</tt> - Adiciona chaves de autenticação DSA ou RSA ao programa de 
+autenticação. 
+
+ <item>
+<tt>ssh-agent</tt> - Agente de autenticação, sua função é armazenar a chave 
+privada para autenticação via chave pública (DSA ou RSA). 
+
+ <item>
+<tt>ssh-keyscan</tt> - Scaneia por chaves públicas de autenticação de hosts especificados. O principal objetivo é ajudar na construção do arquivo local 
+<file>know_hosts</file>. 
+
+ <item>
+<tt>ssh-copy-id</tt> - Usado para instalação do arquivo <file>identity.pub</file> 
+em uma máquina remota. 
+ 
+</list>
+Arquivos de configuração:
+<list compact>
+ <item>
+<file>/etc/ssh/sshd_config</file> - Arquivo de configuração do 
+servidor ssh.
+ <item>
+<file>/etc/ssh/ssh_config</file> - Arquivo de configuração do cliente ssh. 
+ <item>
+<file>~/.ssh/config</file> - Arquivo de configuração pessoal do cliente ssh. 
+</list>
+
+
+<sect1 id="s-ssh-hwreq">Requerimentos de Hardware
+ <p>
+É recomendado no mínimo 6MB de memória RAM para a execução do serviço 
+<prgn>ssh</prgn> mais o kernel do <prgn>Linux</prgn>. Este 
+limite deve ser redimensionado para servidores de acesso dedicado, 
+uma quantidade de 64MB deve ser confortável para centenas de usuários 
+conectados simultaneamente (o que raramente acontece). 
+ <p>
+<![ %CAPJUNTOS [ Veja também <ref id="d-restr"> para configuração de 
+restrições usando PAM. ]]>
+O <prgn>ssh</prgn> que acompanha a distribuição <prgn>Debian</prgn> 
+vem com o suporte a tcp wrappers compilado por padrão. 
+
+
+<sect1 id="s-ssh-logs">Arquivos de log criados pelo servidor ssh
+ <p>
+Detalhes sobre a execução do servidor <prgn>sshd</prgn> (como inicio, 
+autenticação e término) são enviadas ao <prgn>syslog</prgn> do sistema. 
+A <em>prioridade</em> e <em>nível</em> são definidos no arquivo de 
+configuração <file>/etc/ssh/sshd_config</file> (veja 
+<ref id="s-ssh-server-sshd_config">). 
+
+
+<sect1 id="s-ssh-install">Instalação do servidor openSSH
+ <p>
+<tt>apt-get install ssh</tt>. 
+ <p>
+Por padrão o servidor <prgn>sshd</prgn> é instalado como daemon, também 
+é possível executa-lo via <prgn>inetd</prgn> mas isto não é aconselhável porque 
+o servidor gera uma chave aleatória de seção toda vez que é iniciado, isto podendo 
+levar vários segundos (quando é usada a versão 1 do protocolo ssh, veja 
+<ref id="s-ssh-server-protodiff">). 
+
+
+<sect1 id="s-ssh-rodando">Iniciando o servidor/reiniciando/recarregando a 
+configuração
+ <p>
+O arquivo que controla o funcionamento do daemon do <prgn>ssh</prgn> é 
+controlado pelo arquivo <file>/etc/init.d/ssh</file>. 
+ <p>
+A execução do <prgn>ssh</prgn> através de <prgn>inetd</prgn> é 
+automática quando é feita uma requisição para a porta <em>22</em>. 
+
+
+<sect1 id="s-ssh-opcoescmd">Opções de linha de comando
+ <p>
+Opções de linha de comando do servidor <prgn>sshd</prgn>: 
+<list compact>
+ <item>
+<tt>-b bits</tt> - Especifica o número de bits da chave do servidor (768 por padrão). 
+ 
+ <item>
+<tt>-d</tt> - Modo de depuração - O servidor envia detalhes sobre seu funcionamento 
+aos logs do sistema e não é executado em segundo plano. Ele também responderá 
+conexões pelo mesmo processo. Podem ser usadas no máximo 3 opções <em>-d</em> para 
+aumentar os detalhes de depuração. 
+
+ <item>
+<tt>-f arquivo_configuração</tt> Indica um arquivo de configuração alternativo 
+(por padrão é usado <file>/etc/ssh/sshd_config</file>). O <prgn>ssh</prgn> pode 
+ser configurado através de opções de linha de comando mas requer um arquivo 
+de configuração para ser executado. Opções de linha de comando substituem as 
+especificadas no arquivo de configuração. 
+
+ <item>
+<tt>-g segundos</tt> - Especifica o tempo máximo para a digitação de 
+senha de acesso. Após o tempo especificado o servidor encerra a conexão. 
+O valor padrão é 600 segundos e 0 desativa este recurso. 
+
+ <item>
+<tt>-h arquivo_chave</tt> - Diz qual arquivo contém a chave privada local. 
+O padrão é <file>/etc/ssh/ssh_host_key</file> e somente o usuário <tt>root</tt> 
+deve ter permissões de leitura neste arquivo. Será necessário especificar esta 
+opção caso o <prgn>sshd</prgn> não esteja sendo executado como usuário <tt>root</tt>. 
+ <p>
+É possível ter múltiplos arquivos de chaves para os protocolos 1 e 2 do ssh.
+
+ <item>
+<tt>-i</tt> - Indica que o servidor <prgn>sshd</prgn> será executado pelo 
+<prgn>inetd</prgn>. Isto não é aconselhável porque o servidor gerará a 
+chave aleatória de seção toda vez que for iniciado e isto pode levar alguns 
+segundos. Esta opção pode se tornar viável com o uso do protocolo 2 ou criando 
+chaves pequenas como 512 bytes (no ssh 1), mas a segurança criptográfica também 
+será diminuída. Veja as diferenças entre os dois protocolos em 
+<ref id="s-ssh-server-protodiff">. 
+
+<item>
+<tt>-k segundos</tt> - Especifica a freqüência da geração de novas chaves do 
+daemon <prgn>sshd</prgn>. O valor padrão é 3600 segundos e 0 desativa 
+este recurso. 
+<![ %OBS [ 
+ <p>
+<strong>ATENÇÃO:</strong> NÃO desative este recurso!!! Esta opção traz a 
+segurança que uma nova chave gerada de servidor será gerada constantemente (esta 
+chave é enviada junto com a chave pública quando o cliente conecta e fica 
+residente na memória volátil), assim mesmo que um cracker consiga obtê-la 
+interceptando as conexões, será praticamente impossível tentar qualquer coisa. 
+Valores menores tendem a aumentar ainda mais a segurança. ]]>
+
+ <item>
+<tt>-p porta</tt> - Especifica a porta que o daemon <prgn>sshd</prgn> atenderá 
+as requisições. Por padrão é usada a porta 22.
+
+ <item>
+<tt>-q</tt> - Nenhuma mensagem será enviada ao <prgn>syslog</prgn> do sistema. 
+
+ <item>
+<tt>-u tam</tt> - Especifica o tamanho do campo de nome do computador que será 
+armazenado no arquivo <file>utmp</file>. A opção <em>u0</em> faz somente endereços 
+IP serem gravados. 
+
+ <item>
+<tt>-D</tt> - Quando usada não faz o <prgn>sshd</prgn> iniciar em segundo plano. 
+
+ <item>
+<tt>-V versão_cliente</tt> - Assume que o cliente possui a versão ssh especificada 
+(1 ou 2) e não faz os testes de identificação de protocolo. 
+
+ <item>
+<tt>-4</tt> - Força o uso do protocolo IP tradicional (IPv4). 
+
+ <item>
+<tt>-6</tt> - Força o uso da nova geração do protocolo IP (IPv6). 
+</list>
+A maioria das opções são realmente úteis para modificar o comportamento do 
+servidor <prgn>ssh</prgn> sem mexer em seu arquivo de configuração (para 
+fins de testes) ou para executar um servidor <prgn>ssh</prgn> pessoal, que 
+deverá ter arquivos de configuração específicos. 
+
+

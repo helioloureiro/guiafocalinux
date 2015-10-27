@@ -1,0 +1,58 @@
+<sect id="s-apache-errordocument">Definindo documentos de erro personalizados
+ <p>
+Documentos de erros personalizados são definidos através da diretiva 
+<em>ErrorDocument</em>. É possível especificar códigos de erros que 
+serão atendidos por certos documentos ou colocar esta diretiva dentro 
+de blocos de controle de acesso &lt;Directory&gt;, &lt;Location&gt; ou 
+&lt;VirtualHost&gt; para que tenham mensagens de erro personalizadas, 
+ao invés da padrão usada pelo servidor <prgn>httpd</prgn>. 
+ <p>
+<tt>ErrorDocument [<em>código de erro</em>] [<em>documento</em>]</tt>
+ <p>
+<![ %OPCOES [
+ <p>
+Onde:
+<taglist compact>
+ <tag><em>código de erro</em></tag>
+ <item>
+Código de erro da mensagem (veja <ref id="s-apache-httpcodes"> como referência).
+O código de erro <em>401</em> deve referir-se a um arquivo local. 
+
+ <tag><em>documento</em></tag>
+ <item>
+Documento, mensagem de erro ou redirecionamento que será usado no servidor caso 
+aquele código de erro seja encontrado:
+
+</taglist> ]]>
+Para definir uma mensagem de erro padrão para todo servidor web, basta 
+colocar a diretiva <em>ErrorDocument</em> fora das diretivas 
+que controlam o acesso a diretórios e virtual hosts (o inicio do 
+arquivo <file>httpd.conf</file> é ideal).
+
+<![ %EXEMPLO [
+ <p>
+Exemplos:
+<list compact>
+ <item>
+<tt>ErrorDocument 404 /cgi-bin/erros404.pl</tt> - Direciona para um script em 
+Perl que manda um e-mail ao administrador falando sobre o link quebrado e 
+envia o usuário a uma página de erro padrão.
+ <item>
+<tt>ErrorDocument 404 /naoencontrada.html</tt> - Direciona o usuário para 
+o arquivo <file>naoencontrada.html</file> (dentro de <em>DocumentRoot</em>) 
+quando ocorrer o erro 404. Note que o diretório <file>/</file> levado em 
+consideração é o especificado pela diretiva <em>DocumentRoot</em>.
+ <item>
+<tt>ErrorDocument 500 "Erro Interno no servidor"</tt> - Mostra a mensagem 
+na tela quando ocorrer o erro 500.
+ <item>
+<tt>ErrorDocument 401 /obtendoacesso.html</tt> - Direciona o usuário ao arquivo 
+explicando como obter acesso ao sistema. 
+ <item>
+<tt>ErrorDocument 503 &url-manual-www;/servicos.html</tt> - Redireciona
+o usuário a URL especificada. 
+ <item>
+<tt>ErrorDocument 403 "Acesso negado"</tt> - Mostra a mensagem na tela no 
+caso de erros 403.
+</list> ]]>
+
