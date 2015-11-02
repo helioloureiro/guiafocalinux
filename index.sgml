@@ -55,6 +55,8 @@
 <!entity % pop3         SYSTEM "Avancado/pop3/pop3-INDEX.sgml"> %pop3;
 <!entity % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
 <!entity % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
+<!entity % git          SYSTEM "Avancado/git/git-index.sgml"> %git;
+<!entity % systemd      SYSTEM "Avancado/systemd/systemd-index.sgml"> %systemd;
 
 <!-- 
 Guia Foca GNU/Linux
