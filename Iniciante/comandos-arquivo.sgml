@@ -1,33 +1,33 @@
-<chapt id="cmd">Comandos para manipulação de Arquivos
+<chapt id="cmd">Comandos para manipulaÃ§Ã£o de Arquivos
  <p>
-Abaixo, comandos utilizados para manipulação de arquivos. 
+Abaixo, comandos utilizados para manipulaÃ§Ã£o de arquivos. 
  
 
 <sect id="comandos-cat">cat 
  <p>
-Mostra o conteúdo de um arquivo binário ou texto.
+Mostra o conteÃºdo de um arquivo binÃ¡rio ou texto.
  <p>
-<tt>cat [opções] [<em>diretório/arquivo</em>] [<em>diretório1/arquivo1</em>]</tt>
+<tt>cat [opÃ§Ãµes] [<em>diretÃ³rio/arquivo</em>] [<em>diretÃ³rio1/arquivo1</em>]</tt>
  <p>
 <![ %OPCOES [
 <taglist compact>
- <tag><em>diretório/arquivo</em></tag>
+ <tag><em>diretÃ³rio/arquivo</em></tag>
  <item>
-Localização do arquivo que deseja visualizar o conteúdo.
+LocalizaÃ§Ã£o do arquivo que deseja visualizar o conteÃºdo.
  
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  
  <tag>-n, --number</tag>
  <item>
-Mostra o número das linhas enquanto o conteúdo do arquivo é mostrado.
+Mostra o nÃºmero das linhas enquanto o conteÃºdo do arquivo Ã© mostrado.
  
  <tag>-s, --squeeze-blank</tag>
  <item>
-Não mostra mais que uma linha em branco entre um parágrafo e outro.
+NÃ£o mostra mais que uma linha em branco entre um parÃ¡grafo e outro.
  
  <tag>-</tag>
  <item>
-Lê a entrada padrão.
+LÃª a entrada padrÃ£o.
 </taglist>
 ]]>
 O comando <prgn>cat</prgn> trabalha com arquivos texto. Use o comando  
@@ -40,18 +40,18 @@ Exemplo: <tt>cat /usr/doc/copyright/GPL</tt> ]]>
 
 <sect id="comando-tac">tac
  <p>
-Mostra o conteúdo de um arquivo binário ou texto (como o <prgn>cat</prgn>) só 
+Mostra o conteÃºdo de um arquivo binÃ¡rio ou texto (como o <prgn>cat</prgn>) sÃ³ 
 que em ordem inversa.
  <p>
-<tt>tac [opções] [<em>diretório/arquivo</em>] [<em>diretório1/arquivo1</em>]</tt>
+<tt>tac [opÃ§Ãµes] [<em>diretÃ³rio/arquivo</em>] [<em>diretÃ³rio1/arquivo1</em>]</tt>
 <![ %OPCOES [
  <p>
 <taglist compact>
- <tag><em>diretório/arquivo</em></tag>
+ <tag><em>diretÃ³rio/arquivo</em></tag>
  <item>
-Localização do arquivo que deseja visualizar o conteúdo
+LocalizaÃ§Ã£o do arquivo que deseja visualizar o conteÃºdo
  
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  
  <tag>-s [string]</tag>
  <item>
@@ -59,7 +59,7 @@ Usa o [string] como separador de registros.
  
  <tag>-</tag>
  <item>
-Lê a entrada padrão.
+LÃª a entrada padrÃ£o.
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -69,38 +69,38 @@ Exemplo: <tt>tac /usr/doc/copyright/GPL</tt>. ]]>
 
 <sect id="comando-rm">rm
  <p>
-Apaga arquivos. Também pode ser usado para apagar diretórios e sub-diretórios 
+Apaga arquivos. TambÃ©m pode ser usado para apagar diretÃ³rios e sub-diretÃ³rios 
 vazios ou que contenham arquivos.
  <p>
-<tt>rm [<em>opções</em>][<em>caminho</em>][<em>arquivo/diretório</em>]  
-[<em>caminho1</em>][<em>arquivo1/diretório1</em>]</tt>
+<tt>rm [<em>opÃ§Ãµes</em>][<em>caminho</em>][<em>arquivo/diretÃ³rio</em>]  
+[<em>caminho1</em>][<em>arquivo1/diretÃ³rio1</em>]</tt>
  <p>
 <![ %OPCOES [
 onde:
 <taglist compact>
  <tag><em>caminho</em></tag>
  <item>
-Localização do arquivo que deseja apagar. Se omitido, assume que o arquivo 
-esteja no diretório atual.
+LocalizaÃ§Ã£o do arquivo que deseja apagar. Se omitido, assume que o arquivo 
+esteja no diretÃ³rio atual.
 
- <tag><em>arquivo/diretório</em></tag>
+ <tag><em>arquivo/diretÃ³rio</em></tag>
  <item>
-Arquivo que será apagado.
+Arquivo que serÃ¡ apagado.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  
  <tag>-i, --interactive</tag>
  <item>
-Pergunta antes de remover, esta é ativada por padrão.
+Pergunta antes de remover, esta Ã© ativada por padrÃ£o.
 
  <tag>-v, --verbose</tag>
  <item>
-Mostra os arquivos na medida que são removidos.
+Mostra os arquivos na medida que sÃ£o removidos.
 
  <tag>-r, --recursive</tag>
  <item>
-Usado para remover arquivos em sub-diretórios. Esta opção também pode ser 
-usada para remover sub-diretórios.
+Usado para remover arquivos em sub-diretÃ³rios. Esta opÃ§Ã£o tambÃ©m pode ser 
+usada para remover sub-diretÃ³rios.
 
  <tag>-f, --force</tag>
  <item>
@@ -108,35 +108,35 @@ Remove os arquivos sem perguntar.
 
  <tag>-- arquivo</tag>
   <item>
-Remove arquivos/diretórios que contém caracteres especiais. O separador
+Remove arquivos/diretÃ³rios que contÃ©m caracteres especiais. O separador
 "--" funciona com todos os comandos do shell e permite que os caracteres 
 especiais como "*", "?", "-", etc. sejam interpretados como caracteres 
 comuns.
 
 </taglist>
 ]]>
-Use com atenção o comando <prgn>rm</prgn>, uma vez que os arquivos e  
-diretórios forem apagados, eles não poderão ser mais recuperados.
+Use com atenÃ§Ã£o o comando <prgn>rm</prgn>, uma vez que os arquivos e  
+diretÃ³rios forem apagados, eles nÃ£o poderÃ£o ser mais recuperados.
 <![ %EXEMPLO [
  <p>
 Exemplos:
 <list compact>
  <item>
-<tt>rm teste.txt</tt> - Apaga o arquivo <file>teste.txt</file> no diretório 
+<tt>rm teste.txt</tt> - Apaga o arquivo <file>teste.txt</file> no diretÃ³rio 
 atual.
  <item>
-<tt>rm *.txt</tt> - Apaga todos os arquivos do diretório atual que 
+<tt>rm *.txt</tt> - Apaga todos os arquivos do diretÃ³rio atual que 
 terminam com <file>.txt</file>.
  <item>
-<tt>rm *.txt teste.novo</tt> - Apaga todos os arquivos do diretório atual 
-que terminam com <file>.txt</file> e também o arquivo <file>teste.novo</file>.
+<tt>rm *.txt teste.novo</tt> - Apaga todos os arquivos do diretÃ³rio atual 
+que terminam com <file>.txt</file> e tambÃ©m o arquivo <file>teste.novo</file>.
  <item>
-<tt>rm -rf /tmp/teste/*</tt> - Apaga todos os arquivos e sub-diretórios do 
-diretório <file>/tmp/teste</file> mas mantém o sub-diretório 
+<tt>rm -rf /tmp/teste/*</tt> - Apaga todos os arquivos e sub-diretÃ³rios do 
+diretÃ³rio <file>/tmp/teste</file> mas mantÃ©m o sub-diretÃ³rio 
 <file>/tmp/teste</file>. 
  <item>
-<tt>rm -rf /tmp/teste</tt> - Apaga todos os arquivos e sub-diretórios do 
-diretório <file>/tmp/teste</file>, inclusive <file>/tmp/teste</file>. 
+<tt>rm -rf /tmp/teste</tt> - Apaga todos os arquivos e sub-diretÃ³rios do 
+diretÃ³rio <file>/tmp/teste</file>, inclusive <file>/tmp/teste</file>. 
  <item>
 <tt>rm -f -- --arquivo--</tt> - Remove o arquivo de nome <file>--arquivo--</file>.
 </list> ]]>
@@ -146,22 +146,22 @@ diretório <file>/tmp/teste</file>, inclusive <file>/tmp/teste</file>.
  <p>
 Copia arquivos.
  <p>
-<tt>cp [<em>opções</em>] [<em>origem</em>] [<em>destino</em>]</tt>
+<tt>cp [<em>opÃ§Ãµes</em>] [<em>origem</em>] [<em>destino</em>]</tt>
  <p>
 <![ %OPCOES [
 onde:
 <taglist compact>
  <tag><em>origem</em></tag>
  <item>
-Arquivo que será copiado. Podem ser especificados mais de um arquivo para 
+Arquivo que serÃ¡ copiado. Podem ser especificados mais de um arquivo para 
 ser copiado usando "Curingas" (veja <ref id="basico-curingas">).
 
  <tag><em>destino</em></tag>
  <item>
-O caminho ou nome de arquivo onde será copiado. Se o destino for um diretório, 
-os arquivos de origem serão copiados para dentro do diretório.
+O caminho ou nome de arquivo onde serÃ¡ copiado. Se o destino for um diretÃ³rio, 
+os arquivos de origem serÃ£o copiados para dentro do diretÃ³rio.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  
  <tag>i, --interactive</tag>
  <item>
@@ -169,49 +169,49 @@ Pergunta antes de substituir um arquivo existente.
 
  <tag>-f, --force</tag>
  <item>
-Não pergunta, substitui todos os arquivos caso já exista.
+NÃ£o pergunta, substitui todos os arquivos caso jÃ¡ exista.
 
  <tag>-r</tag>
  <item>
-Copia arquivos dos diretórios e subdiretórios da origem para o destino. 
-É recomendável usar -R ao invés de -r.  
+Copia arquivos dos diretÃ³rios e subdiretÃ³rios da origem para o destino. 
+Ã‰ recomendÃ¡vel usar -R ao invÃ©s de -r.  
 
  <tag>-R, --recursive</tag>
  <item>
-Copia arquivos e sub-diretórios (como a opção -r) e também os arquivos 
+Copia arquivos e sub-diretÃ³rios (como a opÃ§Ã£o -r) e tambÃ©m os arquivos 
 especiais FIFO e dispositivos. 
 
  <tag>-v, --verbose</tag>
  <item>
-Mostra os arquivos enquanto estão sendo copiados.
+Mostra os arquivos enquanto estÃ£o sendo copiados.
 
 <![ %INTERMEDIARIO [
  <tag>-s, --simbolic-link</tag>
  <item>
-Cria link simbólico ao invés de copiar.
+Cria link simbÃ³lico ao invÃ©s de copiar.
 
  <tag>-l, --link</tag>
  <item>
-Faz o link no destino ao invés de copiar os arquivos.
+Faz o link no destino ao invÃ©s de copiar os arquivos.
 
  <tag>-p, --preserve</tag>
  <item>
-Preserva atributos do arquivo, se for possível.
+Preserva atributos do arquivo, se for possÃ­vel.
 
  <tag>-u, --update</tag>
  <item>
-Copia somente se o arquivo de origem é mais novo que o arquivo de destino ou 
-quando o arquivo de destino não existe.
+Copia somente se o arquivo de origem Ã© mais novo que o arquivo de destino ou 
+quando o arquivo de destino nÃ£o existe.
 
  <tag>-x</tag>
  <item>
-Não copia arquivos que estão localizados em um sistema de arquivos diferente 
-de onde a cópia iniciou.
+NÃ£o copia arquivos que estÃ£o localizados em um sistema de arquivos diferente 
+de onde a cÃ³pia iniciou.
 ]]>
 </taglist>
 ]]>
 O comando <prgn>cp</prgn> copia arquivos da ORIGEM para o DESTINO. Ambos  
-origem e destino terão o mesmo conteúdo após a cópia. 
+origem e destino terÃ£o o mesmo conteÃºdo apÃ³s a cÃ³pia. 
 
 <![ %EXEMPLO [
  <p>
@@ -223,67 +223,67 @@ Copia o arquivo <file>teste.txt</file> para <file>teste1.txt</file>.
 
  <tag><tt>cp teste.txt /tmp</tt></tag>
  <item>
-Copia o arquivo <file>teste.txt</file> para dentro do diretório 
+Copia o arquivo <file>teste.txt</file> para dentro do diretÃ³rio 
 <file>/tmp</file>.
 
  <tag><tt>cp * /tmp</tt></tag>
  <item>
-Copia todos os arquivos do diretório atual para <file>/tmp</file>.
+Copia todos os arquivos do diretÃ³rio atual para <file>/tmp</file>.
 
  <tag><tt>cp /bin/* .</tt></tag>  
  <item>
-Copia todos os arquivos do diretório <file>/bin</file> para o diretório 
+Copia todos os arquivos do diretÃ³rio <file>/bin</file> para o diretÃ³rio 
 em que nos encontramos no momento.
 
  <tag><tt>cp -R /bin /tmp</tt></tag>
  <item>
-Copia o diretório <file>/bin</file> e todos os arquivos/sub-diretórios 
-existentes para o diretório <file>/tmp</file>.
+Copia o diretÃ³rio <file>/bin</file> e todos os arquivos/sub-diretÃ³rios 
+existentes para o diretÃ³rio <file>/tmp</file>.
 
  <tag><tt>cp -R /bin/* /tmp</tt></tag>
  <item>
-Copia todos os arquivos do diretório <file>/bin</file> (exceto o diretório 
-<file>/bin</file>) e todos os arquivos/sub-diretórios existentes dentro 
+Copia todos os arquivos do diretÃ³rio <file>/bin</file> (exceto o diretÃ³rio 
+<file>/bin</file>) e todos os arquivos/sub-diretÃ³rios existentes dentro 
 dele para <file>/tmp</file>.
 
  <tag><tt>cp -R /bin /tmp</tt></tag>
  <item>
-Copia todos os arquivos e o diretório <file>/bin</file> para <file>/tmp</file>.
+Copia todos os arquivos e o diretÃ³rio <file>/bin</file> para <file>/tmp</file>.
 
 </taglist> ]]>
 
 
 <sect id="comando-mv">mv
  <p>
-Move ou renomeia arquivos e diretórios. 
-<![ %DESCRICAOD [ O processo é semelhante ao do comando <prgn>cp</prgn> mas 
-o arquivo de origem é apagado após o término da cópia. ]]>
+Move ou renomeia arquivos e diretÃ³rios. 
+<![ %DESCRICAOD [ O processo Ã© semelhante ao do comando <prgn>cp</prgn> mas 
+o arquivo de origem Ã© apagado apÃ³s o tÃ©rmino da cÃ³pia. ]]>
  <p>
-<tt>mv [<em>opções</em>] [<em>origem</em>] [<em>destino</em>]</tt>
+<tt>mv [<em>opÃ§Ãµes</em>] [<em>origem</em>] [<em>destino</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag><em>origem</em></tag>
  <item>
-Arquivo/diretório de origem.
+Arquivo/diretÃ³rio de origem.
 
  <tag><em>destino</em></tag>
  <item>
-Local onde será movido ou novo nome do arquivo/diretório.
+Local onde serÃ¡ movido ou novo nome do arquivo/diretÃ³rio.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>-f, --force</tag>
  <item>
 Substitui o arquivo de destino sem perguntar.
 
  <tag>-i, --interactive</tag>
  <item>
-Pergunta antes de substituir. É o padrão.
+Pergunta antes de substituir. Ã‰ o padrÃ£o.
 
  <tag>-v, --verbose</tag>
  <item>
-Mostra os arquivos que estão sendo movidos.
+Mostra os arquivos que estÃ£o sendo movidos.
 
 <![ %INTERMEDIARIO [
  <tag>-u, --update</tag>
@@ -293,8 +293,8 @@ Move somente arquivos antigos, ou novos arquivos.
 </taglist>
 ]]>
 O comando <prgn>mv</prgn> copia um arquivo da <em>ORIGEM</em> para o  
-<em>DESTINO</em> (semelhante ao <prgn>cp</prgn>), mas após a cópia, o  
-arquivo de <em>ORIGEM</em> é apagado.
+<em>DESTINO</em> (semelhante ao <prgn>cp</prgn>), mas apÃ³s a cÃ³pia, o  
+arquivo de <em>ORIGEM</em> Ã© apagado.
 
 <![ %EXEMPLO [
  <p>
@@ -307,12 +307,12 @@ Muda o nome do arquivo <file>teste.txt</file> para <file>teste1.txt</file>.
  <tag><tt>mv teste.txt /tmp</tt></tag>
  <item>
 Move o arquivo teste.txt para <file>/tmp</file>. Lembre-se que o arquivo de 
-origem é apagado após ser movido.
+origem Ã© apagado apÃ³s ser movido.
  
  <tag><tt>mv teste.txt teste.new</tt> (supondo que <file>teste.new</file> 
-já exista)</tag>
+jÃ¡ exista)</tag>
  <item>
 Copia o arquivo <file>teste.txt</file> por cima de <file>teste.new</file> e 
-apaga <file>teste.txt</file> após terminar a cópia.
+apaga <file>teste.txt</file> apÃ³s terminar a cÃ³pia.
 </taglist> ]]>
 

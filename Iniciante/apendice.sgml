@@ -1,225 +1,225 @@
-<chapt id="apend">Apêndice
+<chapt id="apend">ApÃªndice
  <p>
-Este capítulo contém considerações sobre o guia Foca GNU/Linux. 
+Este capÃ­tulo contÃ©m consideraÃ§Ãµes sobre o guia Foca GNU/Linux. 
 
 
 <sect id="apend-sobre">Sobre este guia
  <p>
-O guia Foca foi criado em 12 de Novembro de 1999. A versão que está lendo
-tem o objetivo de servir como referência a usuários 
-<![ %INICIANTE [ <em>Iniciantes</em> e que estão tendo o primeiro contato 
+O guia Foca foi criado em 12 de Novembro de 1999. A versÃ£o que estÃ¡ lendo
+tem o objetivo de servir como referÃªncia a usuÃ¡rios 
+<![ %INICIANTE [ <em>Iniciantes</em> e que estÃ£o tendo o primeiro contato 
 com o sistema operacional <prgn>GNU/Linux</prgn>, ]]>
-<![ %INTERMEDIARIO [ <em>Intermediários</em> que já conhecem o básico sobre 
-o funcionamento deste sistema operacional e já estão acostumados com os 
-comandos, execução de programas e diretórios, ]]>
-<![ %AVANCADO [ <em>Avançados</em> que já dominam grande parte do 
+<![ %INTERMEDIARIO [ <em>IntermediÃ¡rios</em> que jÃ¡ conhecem o bÃ¡sico sobre 
+o funcionamento deste sistema operacional e jÃ¡ estÃ£o acostumados com os 
+comandos, execuÃ§Ã£o de programas e diretÃ³rios, ]]>
+<![ %AVANCADO [ <em>AvanÃ§ados</em> que jÃ¡ dominam grande parte do 
 sistema operacional e procuram aprender mais sobre os seus detalhes e 
-configurações especiais ]]> ou com referência de consulta rápida. Uma 
-versão que abrange um diferente nível de aprendizado ou mais completa pode 
-ser baixada de <url id="&url-manual-www;" name="Página Oficial do guia Foca GNU/Linux">.
+configuraÃ§Ãµes especiais ]]> ou com referÃªncia de consulta rÃ¡pida. Uma 
+versÃ£o que abrange um diferente nÃ­vel de aprendizado ou mais completa pode 
+ser baixada de <url id="&url-manual-www;" name="PÃ¡gina Oficial do guia Foca GNU/Linux">.
  <p>
-A versão que esta lendo agora foi gerada com as seguintes opções: 
+A versÃ£o que esta lendo agora foi gerada com as seguintes opÃ§Ãµes: 
 <list compact>
-<![ %DESCRICAOD [ <item> Descrição detalhada de comandos ]]> 
-<![ %OPCOES [  <item> Opções usadas em comandos e programas ]]>
-<![ %OBS [ <item> Observações sobre comandos e configurações ]]>
-<![ %EXEMPLO [ <item> Exemplos para a melhor compreensão do assunto discutido. 
+<![ %DESCRICAOD [ <item> DescriÃ§Ã£o detalhada de comandos ]]> 
+<![ %OPCOES [  <item> OpÃ§Ãµes usadas em comandos e programas ]]>
+<![ %OBS [ <item> ObservaÃ§Ãµes sobre comandos e configuraÃ§Ãµes ]]>
+<![ %EXEMPLO [ <item> Exemplos para a melhor compreensÃ£o do assunto discutido. 
 ]]> 
-<![ %CONSTRUCAO [ <item> Partes em construção ]]>
+<![ %CONSTRUCAO [ <item> Partes em construÃ§Ã£o ]]>
 </list>
 
-e contém o(s) nível(is) de aprendizado (Iniciante, Intermediário e Avançado): 
+e contÃ©m o(s) nÃ­vel(is) de aprendizado (Iniciante, IntermediÃ¡rio e AvanÃ§ado): 
 <list compact>
 <![ %INICIANTE [     <item> Iniciante ]]>
-<![ %INTERMEDIARIO [ <item>Intermediário ]]>
-<![ %AVANCADO [      <item> Avançado ]]>
+<![ %INTERMEDIARIO [ <item>IntermediÃ¡rio ]]>
+<![ %AVANCADO [      <item> AvanÃ§ado ]]>
 </list>
 
-O <em>Foca GNU/Linux</em> é atualizado frequentemente, por este motivo 
-recomendo que assine um dos canais de comunicação para ser informado 
-de novas versões:
+O <em>Foca GNU/Linux</em> Ã© atualizado frequentemente, por este motivo 
+recomendo que assine um dos canais de comunicaÃ§Ã£o para ser informado 
+de novas versÃµes:
 <list compact>
  <item>
 Assinar o Twitter do focalinux <email>@focalinux</email>
  <item>
-Assinar o RSS presente na página do guia e atualizações.
+Assinar o RSS presente na pÃ¡gina do guia e atualizaÃ§Ãµes.
  <item>
-A ficha do aviso de atualizações na página 
-web em <url id="&url-manual-www;" name="Página Oficial do guia Foca GNU/Linux"> no 
-fim da página principal. Após 
-preencher a ficha do aviso de atualizações, eu te enviarei um e-mail 
-sobre o lançamento de novas versões do guia e o que foi modificado, 
-desta forma você poderá decidir em copia-la caso a nova versão contém 
-modificações que considera importantes. 
+A ficha do aviso de atualizaÃ§Ãµes na pÃ¡gina 
+web em <url id="&url-manual-www;" name="PÃ¡gina Oficial do guia Foca GNU/Linux"> no 
+fim da pÃ¡gina principal. ApÃ³s 
+preencher a ficha do aviso de atualizaÃ§Ãµes, eu te enviarei um e-mail 
+sobre o lanÃ§amento de novas versÃµes do guia e o que foi modificado, 
+desta forma vocÃª poderÃ¡ decidir em copia-la caso a nova versÃ£o contÃ©m 
+modificaÃ§Ãµes que considera importantes. 
 </list>
  <p>
-Versões diferentes deste guia podem ser geradas a partir do código fonte 
-SGML ou obtidas através da home page principal (para detalhes veja 
+VersÃµes diferentes deste guia podem ser geradas a partir do cÃ³digo fonte 
+SGML ou obtidas atravÃ©s da home page principal (para detalhes veja 
 <ref id="apend-homepage">). 
 
 
 <sect id="apend-autor">Sobre o Autor
  <p>
-Gleydson Mazioli da Silva é Capixaba, nascido em Vila Velha.
-Amante de eletrônica desde criança, foi atraido para a informática através da 
+Gleydson Mazioli da Silva Ã© Capixaba, nascido em Vila Velha.
+Amante de eletrÃ´nica desde crianÃ§a, foi atraido para a informÃ¡tica atravÃ©s da 
 curiosidade em funcionamento e reparo de hardware.
  <p>
 Se dedica ao sistema <prgn>Linux</prgn> desde 1997. determinado na 
-realização de testes de ferramentas e sistemas avaliando pontos fortes 
+realizaÃ§Ã£o de testes de ferramentas e sistemas avaliando pontos fortes 
 e fracos de cada uma. Logo que iniciou em <prgn>Linux</prgn> passou a 
-estudar exaustivamente aspectos técnicos de distribuições e rede 
+estudar exaustivamente aspectos tÃ©cnicos de distribuiÃ§Ãµes e rede 
 em <prgn>Linux</prgn>/<prgn>BSD</prgn>.
  <p>
 Entre coisas que gosta de fazer/implementar em <prgn>Linux</prgn>:
-possibilidade de pesquisa e atualização de conhecimento constante, automatização
-e tomada inteligente de decisões, níveis de segurança da informação (tanto físico e lógico), 
-firewalls, virtualização, redes virtuais, integração de sistemas, forense 
-computacional, documentação de processos, desenvolvimento de ferramentas GPL 
-para a comunidade, depuração, desenvolvimento de documentações, etc.
+possibilidade de pesquisa e atualizaÃ§Ã£o de conhecimento constante, automatizaÃ§Ã£o
+e tomada inteligente de decisÃµes, nÃ­veis de seguranÃ§a da informaÃ§Ã£o (tanto fÃ­sico e lÃ³gico), 
+firewalls, virtualizaÃ§Ã£o, redes virtuais, integraÃ§Ã£o de sistemas, forense 
+computacional, documentaÃ§Ã£o de processos, desenvolvimento de ferramentas GPL 
+para a comunidade, depuraÃ§Ã£o, desenvolvimento de documentaÃ§Ãµes, etc.
  <p>
-Um dos desenvolvedores da distribuição <em>Liberdade</em>, <em>CAETECT</em>,
-<em>Debian-BR</em> e desenvolvedor oficial da distribuição <em>Debian</em>.
-Atuou como tradutor do LDP-BR, traduzindo vários HOW-TOs importantes para 
-a comunidade Linux Brasileira. É um dos administradores do projeto 
-CIPSGA, cuidando de uma infinidade de serviços que o projeto oferece a 
+Um dos desenvolvedores da distribuiÃ§Ã£o <em>Liberdade</em>, <em>CAETECT</em>,
+<em>Debian-BR</em> e desenvolvedor oficial da distribuiÃ§Ã£o <em>Debian</em>.
+Atuou como tradutor do LDP-BR, traduzindo vÃ¡rios HOW-TOs importantes para 
+a comunidade Linux Brasileira. Ã‰ um dos administradores do projeto 
+CIPSGA, cuidando de uma infinidade de serviÃ§os que o projeto oferece a 
 comunidade que deseja estrutura para hospedar, fortalecer e manter 
 projetos em software livre.
  <p>
-Trabalhou para algumas empresas do Espírito Santo, no Governo Federal e de 
-estados na implantação de sistemas em software livre. Atualmente atua como
-gerente de tecnologia da Spirit Linux, uma empresa focada na inovação, 
-avaliação e integração de ferramentas de código aberto junto a seus clientes.
+Trabalhou para algumas empresas do EspÃ­rito Santo, no Governo Federal e de 
+estados na implantaÃ§Ã£o de sistemas em software livre. Atualmente atua como
+gerente de tecnologia da Spirit Linux, uma empresa focada na inovaÃ§Ã£o, 
+avaliaÃ§Ã£o e integraÃ§Ã£o de ferramentas de cÃ³digo aberto junto a seus clientes.
  <p>
-Concorda com certificações, mas destaca que o mais importante é aproveitar a 
-oportunidade dada pela certificação para estudo e auto avaliação de seus 
-pontos fracos e assim procurar melhora-los. Possui certificação LPI nível 3 
-e um ISO9001 internacional em Administração Linux, como primeiro no ranking 
+Concorda com certificaÃ§Ãµes, mas destaca que o mais importante Ã© aproveitar a 
+oportunidade dada pela certificaÃ§Ã£o para estudo e auto avaliaÃ§Ã£o de seus 
+pontos fracos e assim procurar melhora-los. Possui certificaÃ§Ã£o LPI nÃ­vel 3 
+e um ISO9001 internacional em AdministraÃ§Ã£o Linux, como primeiro no ranking 
 Brasileiro.
  <p>
 E-mail: E-mail: <email>gleydson@guiafoca.org</email>, Twitter: <email>@gleydsonmazioli</email>.
 
 
-<sect id="apend-ref">Referências de auxílio ao desenvolvimento do guia
+<sect id="apend-ref">ReferÃªncias de auxÃ­lio ao desenvolvimento do guia
  <p>
 <list compact>
  <item>
-As seções sobre comandos/programas foram construídas após uso, teste e 
-observação do comportamento das opções dos comandos/programas, help on line, 
-páginas de manual, info pages e documentação técnica do sistema. 
+As seÃ§Ãµes sobre comandos/programas foram construÃ­das apÃ³s uso, teste e 
+observaÃ§Ã£o do comportamento das opÃ§Ãµes dos comandos/programas, help on line, 
+pÃ¡ginas de manual, info pages e documentaÃ§Ã£o tÃ©cnica do sistema. 
  <item>
 How-tos do Linux (principalmente o <em>Networking Howto</em>, 
 <em>Security-Howto</em>) ajudaram a formar a base de desenvolvimento do guia e 
-desenvolver algumas seções (versões <em>Intermediário</em> e <em>Avançado</em> 
+desenvolver algumas seÃ§Ãµes (versÃµes <em>IntermediÃ¡rio</em> e <em>AvanÃ§ado</em> 
 somente).
  <item>
-Todos os exemplos e seções descritivas do guia são de minha autoria. 
-<![ %AVANCADO [ Quanto a exemplos de configurações e utilização de programas, 
-será citada a origem que foram baseados não desmerecendo o trabalho de seus 
+Todos os exemplos e seÃ§Ãµes descritivas do guia sÃ£o de minha autoria. 
+<![ %AVANCADO [ Quanto a exemplos de configuraÃ§Ãµes e utilizaÃ§Ã£o de programas, 
+serÃ¡ citada a origem que foram baseados nÃ£o desmerecendo o trabalho de seus 
 autores.
  <item>
-Uso de programas e macetes aprendidos no dia a dia para gerenciar máquinas, 
+Uso de programas e macetes aprendidos no dia a dia para gerenciar mÃ¡quinas, 
 controlar redes e automatizar sistemas. 
  <item>
-As seções do nível avançado foram construídas com base em testes e 
-usando metodologia própria com o objetivo de oferecer uma documentação
-objetiva e clara ao administrador de rede, auxiliando-o na tomada de decisões
-para solução de problemas. Partes extraidas de outras documentações no 
-nível Avançado terão as referências explicitamente citadas em seus 
-respectivos capítulos.
+As seÃ§Ãµes do nÃ­vel avanÃ§ado foram construÃ­das com base em testes e 
+usando metodologia prÃ³pria com o objetivo de oferecer uma documentaÃ§Ã£o
+objetiva e clara ao administrador de rede, auxiliando-o na tomada de decisÃµes
+para soluÃ§Ã£o de problemas. Partes extraidas de outras documentaÃ§Ãµes no 
+nÃ­vel AvanÃ§ado terÃ£o as referÃªncias explicitamente citadas em seus 
+respectivos capÃ­tulos.
 ]]>
  <item>
-Manual de Instalação da <em>Debian GNU/Linux</em> - Os capítulos contendo 
-materiais extraídos do manual de instalação da Debian são muito úteis e 
-explicativos, seria desnecessário reescrever um material como este. O texto 
-é claro e didaticamente organizado, o documento aborda detalhes técnicos 
-úteis sobre hardwares em geral e o Linux ausentes nos manuais de outras 
-distribuições Linux.
+Manual de InstalaÃ§Ã£o da <em>Debian GNU/Linux</em> - Os capÃ­tulos contendo 
+materiais extraÃ­dos do manual de instalaÃ§Ã£o da Debian sÃ£o muito Ãºteis e 
+explicativos, seria desnecessÃ¡rio reescrever um material como este. O texto 
+Ã© claro e didaticamente organizado, o documento aborda detalhes tÃ©cnicos 
+Ãºteis sobre hardwares em geral e o Linux ausentes nos manuais de outras 
+distribuiÃ§Ãµes Linux.
 </list>
 
 
-<sect id="apend-homepage">Onde encontrar a versão mais nova do guia?
+<sect id="apend-homepage">Onde encontrar a versÃ£o mais nova do guia?
  <p>
-Novas versões deste guia, avisos de lançamento, outros níveis de  
-aprendizado (Iniciante, Intermediário e Avançado), versões para 
-outras distribuições Linux podem ser encontradas em: 
-<url id="&url-manual-www;" name="Página Oficial do guia Foca GNU/Linux">. 
+Novas versÃµes deste guia, avisos de lanÃ§amento, outros nÃ­veis de  
+aprendizado (Iniciante, IntermediÃ¡rio e AvanÃ§ado), versÃµes para 
+outras distribuiÃ§Ãµes Linux podem ser encontradas em: 
+<url id="&url-manual-www;" name="PÃ¡gina Oficial do guia Foca GNU/Linux">. 
  <p>
-Se quiser receber notificações de novas versões, use uma das 
+Se quiser receber notificaÃ§Ãµes de novas versÃµes, use uma das 
 formas a seguir:
 <list compact>
  <item>
  por E-Mail: envie uma mensagem para <email>gleydson@guiafoca.org</email> 
- pedindo para ser incluído na lista de atualizações do guia ou preencha o 
-formulário encontrado no final da Home Page do guia. 
+ pedindo para ser incluÃ­do na lista de atualizaÃ§Ãµes do guia ou preencha o 
+formulÃ¡rio encontrado no final da Home Page do guia. 
  <item>
  Twitter: Assine o Twitter do guia Foca: @focalinux
  <item>
- RSS: Assine o RSS na página oficial do guia (citado acima) para receber 
- atualizações e novidades.
+ RSS: Assine o RSS na pÃ¡gina oficial do guia (citado acima) para receber 
+ atualizaÃ§Ãµes e novidades.
 </list>
 
 
 <sect id="apend-colaboradores">Colaboradores do Guia
  <p>
-Entre as principais colaborações até a versão atual, posso citar as seguintes: 
+Entre as principais colaboraÃ§Ãµes atÃ© a versÃ£o atual, posso citar as seguintes: 
 <list>
  <item>
 <tt>Djalma Valois <email>djalma@cipsga.org.br</email></tt> - Pela
 atual hospedagem do Foca GNU/Linux. Estou muito feliz vendo o Foca GNU/Linux 
-fazendo parte de um projeto tão positivo como o CIPSGA é para o 
+fazendo parte de um projeto tÃ£o positivo como o CIPSGA Ã© para o 
 crescimento e desenvolvimento do software livre nacional. 
 
  <item>
-<tt>Bakurih <email>bakurih@yahoo.com</email></tt> - Revisão inicial do 
-guia, após suas primeiras versões.
+<tt>Bakurih <email>bakurih@yahoo.com</email></tt> - RevisÃ£o inicial do 
+guia, apÃ³s suas primeiras versÃµes.
 
  <item>
-<tt>Eduardo Marcel Maçan <email>macan@debian.org</email></tt> - Pela
-antiga hospedagem, na época do site metainfo.
+<tt>Eduardo Marcel MaÃ§an <email>macan@debian.org</email></tt> - Pela
+antiga hospedagem, na Ã©poca do site metainfo.
 
  <item>
 <tt>Michelle Ribeiro <email>michelle@cipsga.org.br</email></tt> - 
-Por dispensar parte de seu atencioso tempo enviando revisões e sugestões 
-que estão melhorando bastante a qualidade do guia. Entre eles 
+Por dispensar parte de seu atencioso tempo enviando revisÃµes e sugestÃµes 
+que estÃ£o melhorando bastante a qualidade do guia. Entre eles 
 detalhes que passaram despercebidos durante muito tempo no guia 
-e página principal. 
+e pÃ¡gina principal. 
  <p>
-E também por cuidar do fonte do guia ;-)
+E tambÃ©m por cuidar do fonte do guia ;-)
 
  <item>
-<tt>Augusto Campos <email>brain@matrix.com.br</email></tt> - Descrição  
-sobre a distribuição <prgn>Suse</prgn> 
+<tt>Augusto Campos <email>brain@matrix.com.br</email></tt> - DescriÃ§Ã£o  
+sobre a distribuiÃ§Ã£o <prgn>Suse</prgn> 
 <![ %INICIANTE [ em <ref id="introducao-distrib"> ]]>.
 
  <item>
 <tt>Paulo Henrique Baptista de Oliveira <email>baptista@linuxsolutions.com.br
-</email></tt> - Pelo apoio moral oferecido durante os freqüentes lançamentos 
-do guia, acompanhamento e divulgação. 
+</email></tt> - Pelo apoio moral oferecido durante os freqÃ¼entes lanÃ§amentos 
+do guia, acompanhamento e divulgaÃ§Ã£o. 
 
  <item>
 <tt>Diego Abadan <email>diego@hipernet.ufsc.br</email></tt> - Envio de 
-correções significativas, novos endereços de listas de discussão. 
+correÃ§Ãµes significativas, novos endereÃ§os de listas de discussÃ£o. 
 
  <item>
 <tt>Alexandre Costa <email>alebyte@bol.com.br</email></tt> - Envio de 
-centenas de patches ortográficos nas versões Iniciante e Intermediário
-do guia que passaram desapercebidas durante várias versões do guia... 
+centenas de patches ortogrÃ¡ficos nas versÃµes Iniciante e IntermediÃ¡rio
+do guia que passaram desapercebidas durante vÃ¡rias versÃµes do guia... 
 
  <item>
 <tt>Christoph Simon <email>ciccio@prestonet.com.br</email></tt> - Pela 
-pesquisa e a gigantesca coletânea de textos sobre o Linux enviada. Eles 
-estão sendo muito úteis tanto para mim quanto no desenvolvimento do guia. 
+pesquisa e a gigantesca coletÃ¢nea de textos sobre o Linux enviada. Eles 
+estÃ£o sendo muito Ãºteis tanto para mim quanto no desenvolvimento do guia. 
 
  <item>
 <tt>Gustavo Noronha <email>dockov@zaz.com.br</email></tt> - Vem enviando 
-freqüentes correções, contribuições construtivas ao desenvolvimento além 
+freqÃ¼entes correÃ§Ãµes, contribuiÃ§Ãµes construtivas ao desenvolvimento alÃ©m 
 de apoio ao desenvolvimento do guia . 
-Vale a pena destaca-lo por sua atual dedicação junto a distribuição 
-Debian/GNU, sua tradução e a comunidade Open Source. 
+Vale a pena destaca-lo por sua atual dedicaÃ§Ã£o junto a distribuiÃ§Ã£o 
+Debian/GNU, sua traduÃ§Ã£o e a comunidade Open Source. 
 
  <item>
 <tt>Pedro Zorzenon Neto <email>pzn@debian.org</email></tt> - Envio de 
-diversas atualizações para o nível Avançado, principalmente sobre o 
+diversas atualizaÃ§Ãµes para o nÃ­vel AvanÃ§ado, principalmente sobre o 
 firewall iptables.
  
 </list>
@@ -227,39 +227,39 @@ firewall iptables.
 
 <sect id="apend-mr">Marcas Registradas
  <p>
-Todas as marcas registradas citadas neste guia são propriedades de seus 
+Todas as marcas registradas citadas neste guia sÃ£o propriedades de seus 
 respectivos autores.
 
 
-<sect id="apend-new">Futuras versões
+<sect id="apend-new">Futuras versÃµes
  <p>
-Estes são os materiais que pretendo adicionar em futuras versões do guia:
+Estes sÃ£o os materiais que pretendo adicionar em futuras versÃµes do guia:
 <list>
  <item>
-Acrescentar mais detalhes sobre o sistema gráfico X-Window.
+Acrescentar mais detalhes sobre o sistema grÃ¡fico X-Window.
 
  <item>
-Entre outros ítens que venho estudando para verificar se encaixam no 
+Entre outros Ã­tens que venho estudando para verificar se encaixam no 
 perfil do guia. 
 </list>
-Esta é uma futura implementação que venho estudando para acompanhar o 
-crescimento do guia. Sugestões são bem vindas e podem ser enviadas para 
+Esta Ã© uma futura implementaÃ§Ã£o que venho estudando para acompanhar o 
+crescimento do guia. SugestÃµes sÃ£o bem vindas e podem ser enviadas para 
 <email>gleydson@guiafoca.org</email>.
 
 
-<sect id="apend-pgp">Chave Pública PGP
+<sect id="apend-pgp">Chave PÃºblica PGP
  <p>
-Chaves PGP são usadas para criptografar arquivos, e-mails ou 
+Chaves PGP sÃ£o usadas para criptografar arquivos, e-mails ou 
 qualquer outra coisa que desejamos que somente uma pessoa tenha 
-acesso. O PGP segue o padrão de chave pública/privada; a chave 
-pública é distribuída a todos e a chave privada permanece na 
-posse do criador para que ele seja o único a ter acesso aos 
-dados criptografados após digitar a "frase de acesso" correta. 
+acesso. O PGP segue o padrÃ£o de chave pÃºblica/privada; a chave 
+pÃºblica Ã© distribuÃ­da a todos e a chave privada permanece na 
+posse do criador para que ele seja o Ãºnico a ter acesso aos 
+dados criptografados apÃ³s digitar a "frase de acesso" correta. 
  <p>
-Minha chave PGP segue abaixo, ela também pode ser encontrada em 
-<url id="&url-mit-keyserver-www;">. Se você deseja saber mais 
+Minha chave PGP segue abaixo, ela tambÃ©m pode ser encontrada em 
+<url id="&url-mit-keyserver-www;">. Se vocÃª deseja saber mais 
 sobre o PGP, recomendo um excelente documento encontrado 
-na seção <tt>Apostilas</tt> em <url id="&url-cipsga-www;"> 
+na seÃ§Ã£o <tt>Apostilas</tt> em <url id="&url-cipsga-www;"> 
 <example>
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.0.6 (GNU/Linux)

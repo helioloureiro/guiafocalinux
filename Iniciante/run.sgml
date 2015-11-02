@@ -1,35 +1,35 @@
-<chapt id="run">Execução de programas
+<chapt id="run">ExecuÃ§Ã£o de programas
  <p>
-Este capítulo explica como executar programas no <prgn>GNU/Linux</prgn> e o 
-uso das ferramentas de controle de execução dos programas. 
+Este capÃ­tulo explica como executar programas no <prgn>GNU/Linux</prgn> e o 
+uso das ferramentas de controle de execuÃ§Ã£o dos programas. 
 
 
     <![ %INICIANTE [ 
 <sect id="run-prgn">Executando um comando/programa 
  <p>
-Para executar um comando, é necessário que ele tenha permissões de execução 
+Para executar um comando, Ã© necessÃ¡rio que ele tenha permissÃµes de execuÃ§Ã£o 
 (veja <ref id="perm-tipos"> e <ref id="comando-ls">) e que esteja no 
 caminho de procura de arquivos (veja <ref id="run-path">).
  <p>
-No aviso de comando <em>#</em>(root) ou <em>$</em>(usuário), digite o nome do 
-comando e tecle Enter. O programa/comando é executado e 
-receberá um número de identificação (chamado de PID - Process Identification), 
-este número é útil para identificar o processo no sistema e assim ter um 
-controle sobre sua execução (será visto mais adiante neste capítulo).
+No aviso de comando <em>#</em>(root) ou <em>$</em>(usuÃ¡rio), digite o nome do 
+comando e tecle Enter. O programa/comando Ã© executado e 
+receberÃ¡ um nÃºmero de identificaÃ§Ã£o (chamado de PID - Process Identification), 
+este nÃºmero Ã© Ãºtil para identificar o processo no sistema e assim ter um 
+controle sobre sua execuÃ§Ã£o (serÃ¡ visto mais adiante neste capÃ­tulo).
 <![ %INTERMEDIARIO [ 
  <p>
-Todo o programa recebe uma identificação de usuário (UID) quando é executado 
-o que determina quais serão suas permissões de acesso durante sua 
-execução. O programa normalmente usa o UID do usuário que o executou ou o 
-usuário configurado pelo bit de permissão de acesso SUID caso estiver 
-definido. Existem também programas que são executados como root e modificam 
-sua identificação de usuário para algum que tenha menos privilégios no 
+Todo o programa recebe uma identificaÃ§Ã£o de usuÃ¡rio (UID) quando Ã© executado 
+o que determina quais serÃ£o suas permissÃµes de acesso durante sua 
+execuÃ§Ã£o. O programa normalmente usa o UID do usuÃ¡rio que o executou ou o 
+usuÃ¡rio configurado pelo bit de permissÃ£o de acesso SUID caso estiver 
+definido. Existem tambÃ©m programas que sÃ£o executados como root e modificam 
+sua identificaÃ§Ã£o de usuÃ¡rio para algum que tenha menos privilÃ©gios no 
 sistema (como o <prgn>Apache</prgn>, por exemplo). Para maiores detalhes 
 veja <ref id="perm">. 
 ]]>
  <p>
 Todo o programa executado no <prgn>GNU/Linux</prgn> roda sob o controle das 
-permissões de acesso. Recomendo ver mais tarde o <ref id="perm">. 
+permissÃµes de acesso. Recomendo ver mais tarde o <ref id="perm">. 
 
 <![ %EXEMPLO [
  <p>
@@ -38,88 +38,88 @@ Exemplos de comandos: <tt>ls</tt>, <tt>df</tt>, <tt>pwd</tt>. ]]>
 
 <sect id="run-path">path
  <p>
-Path é o caminho de procura dos arquivos/comandos executáveis. O path 
-(caminho) é armazenado na variável de ambiente <file>PATH</file>. Você 
-pode ver o conteúdo desta variável com o comando <tt>echo $PATH</tt>. 
+Path Ã© o caminho de procura dos arquivos/comandos executÃ¡veis. O path 
+(caminho) Ã© armazenado na variÃ¡vel de ambiente <file>PATH</file>. VocÃª 
+pode ver o conteÃºdo desta variÃ¡vel com o comando <tt>echo $PATH</tt>. 
 <![ %EXEMPLO [
  <p>
 Por exemplo, o caminho <tt>/usr/local/bin:/usr/bin:/bin:/usr/bin/X11</tt> 
-significa que se você digitar o comando <tt>ls</tt>, o interpretador de 
-comandos iniciará a procura do programa <prgn>ls</prgn> no diretório 
-<file>/usr/local/bin</file>, caso não encontre o arquivo no diretório 
+significa que se vocÃª digitar o comando <tt>ls</tt>, o interpretador de 
+comandos iniciarÃ¡ a procura do programa <prgn>ls</prgn> no diretÃ³rio 
+<file>/usr/local/bin</file>, caso nÃ£o encontre o arquivo no diretÃ³rio 
 <file>/usr/local/bin</file> ele inicia a procura em <file>/usr/bin</file>, 
-até que encontre o arquivo procurado. ]]>
+atÃ© que encontre o arquivo procurado. ]]>
  <p>
-Caso o interpretador de comandos chegue até o último diretório do path e 
-não encontre o arquivo/comando digitado, é mostrada a seguinte mensagem: 
+Caso o interpretador de comandos chegue atÃ© o Ãºltimo diretÃ³rio do path e 
+nÃ£o encontre o arquivo/comando digitado, Ã© mostrada a seguinte mensagem: 
  <p>
-<tt>bash: ls: command not found</tt> (comando não encontrado).
+<tt>bash: ls: command not found</tt> (comando nÃ£o encontrado).
  <p>
-O caminho de diretórios vem configurado na instalação do Linux, mas pode 
+O caminho de diretÃ³rios vem configurado na instalaÃ§Ã£o do Linux, mas pode 
 ser alterado no arquivo <file>/etc/profile</file>. Caso deseje alterar o 
-caminho para todos os usuários, este arquivo é o melhor lugar, pois ele é 
-lido por todos os usuários no momento do login.
+caminho para todos os usuÃ¡rios, este arquivo Ã© o melhor lugar, pois ele Ã© 
+lido por todos os usuÃ¡rios no momento do login.
  <p>
-Caso um arquivo/comando não esteja localizado em nenhum dos diretórios do 
-path, você deve executa-lo usando um <tt>./</tt> na frente do comando.
+Caso um arquivo/comando nÃ£o esteja localizado em nenhum dos diretÃ³rios do 
+path, vocÃª deve executa-lo usando um <tt>./</tt> na frente do comando.
  <p>
-Se deseja alterar o <tt>path</tt> para um único usuário, modifique o 
-arquivo <file>.bash_profile</file> em seu diretório de usuário (home). 
+Se deseja alterar o <tt>path</tt> para um Ãºnico usuÃ¡rio, modifique o 
+arquivo <file>.bash_profile</file> em seu diretÃ³rio de usuÃ¡rio (home). 
 <![ %OBS [
  <p>
-<strong>OBSERVAÇÃO: </strong>
-Por motivos de segurança, não inclua o diretório atual <prgn>$PWD</prgn> no 
+<strong>OBSERVAÃ‡ÃƒO: </strong>
+Por motivos de seguranÃ§a, nÃ£o inclua o diretÃ³rio atual <prgn>$PWD</prgn> no 
 <tt>path</tt>.]]>
 
     ]]>
 
 
     <![ %INIC-INTER [
-<sect id="run-tipos">Tipos de Execução de comandos/programas
+<sect id="run-tipos">Tipos de ExecuÃ§Ã£o de comandos/programas
  <p>
 Um programa pode ser executado de duas formas: 
 <enumlist compact>
  <item>
-<tt>Primeiro Plano</tt> - Também chamado de <em>foreground</em>. Quando você 
-deve esperar o término da execução de um programa para executar um novo 
-comando. Somente é mostrado o aviso de comando após o término de execução do 
+<tt>Primeiro Plano</tt> - TambÃ©m chamado de <em>foreground</em>. Quando vocÃª 
+deve esperar o tÃ©rmino da execuÃ§Ã£o de um programa para executar um novo 
+comando. Somente Ã© mostrado o aviso de comando apÃ³s o tÃ©rmino de execuÃ§Ã£o do 
 comando/programa.
 
  <item>
-<tt>Segundo Plano</tt> - Também chamado de <em>background</em>. Quando você 
-não precisa esperar o término da execução de um programa para executar um 
-novo comando. Após iniciar um programa em <em>background</em>, é mostrado 
-um número PID (identificação do Processo) e o aviso de comando é 
+<tt>Segundo Plano</tt> - TambÃ©m chamado de <em>background</em>. Quando vocÃª 
+nÃ£o precisa esperar o tÃ©rmino da execuÃ§Ã£o de um programa para executar um 
+novo comando. ApÃ³s iniciar um programa em <em>background</em>, Ã© mostrado 
+um nÃºmero PID (identificaÃ§Ã£o do Processo) e o aviso de comando Ã© 
 novamente mostrado, permitindo o uso normal do sistema. 
  <p>
 O programa executado em background continua sendo executado internamente. 
-Após ser concluído, o sistema retorna uma mensagem de pronto acompanhado 
-do número PID do processo que terminou. 
+ApÃ³s ser concluÃ­do, o sistema retorna uma mensagem de pronto acompanhado 
+do nÃºmero PID do processo que terminou. 
 </enumlist>
  <p>
 Para iniciar um programa em <tt>primeiro plano</tt>, basta digitar seu nome 
 normalmente. Para iniciar um programa em <tt>segundo plano</tt>, 
-acrescente o caracter <tt>"&"</tt> após o final do comando.
+acrescente o caracter <tt>"&"</tt> apÃ³s o final do comando.
 
 <![ %OBS [
  <p>
-OBS: Mesmo que um usuário execute um programa em segundo plano e saia do 
-sistema, o programa continuará sendo executado até que seja concluído ou 
-finalizado pelo usuário que iniciou a execução (ou pelo usuário root).  ]]>
+OBS: Mesmo que um usuÃ¡rio execute um programa em segundo plano e saia do 
+sistema, o programa continuarÃ¡ sendo executado atÃ© que seja concluÃ­do ou 
+finalizado pelo usuÃ¡rio que iniciou a execuÃ§Ã£o (ou pelo usuÃ¡rio root).  ]]>
  
 <![ %EXEMPLO [
  <p>
 Exemplo:
 <tt>find / -name boot.b &</tt>
  <p>
-O comando será executado em segundo plano e deixará o sistema livre para 
-outras tarefas. Após o comando <prgn>find</prgn> terminar, será mostrada 
+O comando serÃ¡ executado em segundo plano e deixarÃ¡ o sistema livre para 
+outras tarefas. ApÃ³s o comando <prgn>find</prgn> terminar, serÃ¡ mostrada 
 uma mensagem. ]]>
 
 
-<sect id="run-seq">Executando programas em seqüência
+<sect id="run-seq">Executando programas em seqÃ¼Ãªncia
  <p>
-Os comandos podem ser executados em seqüência (um após o término do outro) se 
+Os comandos podem ser executados em seqÃ¼Ãªncia (um apÃ³s o tÃ©rmino do outro) se 
 os separarmos com ";". Por exemplo: 
 <tt>echo primeiro;echo segundo;echo terceiro</tt> 
 
@@ -128,69 +128,69 @@ os separarmos com ";". Por exemplo:
 
 <sect id="run-ps">ps
  <p>
-Algumas vezes é útil ver quais processos estão sendo executados no 
-computador. O comando <prgn>ps</prgn> faz isto, e também nos mostra qual 
-usuário executou o programa, hora que o processo foi iniciado, etc.
+Algumas vezes Ã© Ãºtil ver quais processos estÃ£o sendo executados no 
+computador. O comando <prgn>ps</prgn> faz isto, e tambÃ©m nos mostra qual 
+usuÃ¡rio executou o programa, hora que o processo foi iniciado, etc.
  <p>
-<tt>ps [<em>opções</em>]</tt>
+<tt>ps [<em>opÃ§Ãµes</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>a</tag>
  <item>
-Mostra os processos criados por você e de outros usuários do sistema.
+Mostra os processos criados por vocÃª e de outros usuÃ¡rios do sistema.
 
  <tag>x</tag>
  <item>
-Mostra processos que não são controlados pelo terminal.
+Mostra processos que nÃ£o sÃ£o controlados pelo terminal.
 
  <tag>u</tag>
  <item>
-Mostra o nome de usuário que iniciou o processo e hora em que o processo 
+Mostra o nome de usuÃ¡rio que iniciou o processo e hora em que o processo 
 foi iniciado.
 
  <tag>m</tag>
  <item>
-Mostra a memória ocupada por cada processo em execução.
+Mostra a memÃ³ria ocupada por cada processo em execuÃ§Ã£o.
 
  <tag>f</tag>
  <item>
-Mostra a árvore de execução de comandos (comandos que são chamados por outros 
+Mostra a Ã¡rvore de execuÃ§Ã£o de comandos (comandos que sÃ£o chamados por outros 
 comandos).
 
  <tag>e</tag>
  <item>
-Mostra variáveis de ambiente no momento da inicialização do processo.
+Mostra variÃ¡veis de ambiente no momento da inicializaÃ§Ã£o do processo.
 
  <tag>w</tag>
  <item>
-Mostra a continuação da linha atual na próxima linha ao invés de cortar o 
-restante que não couber na tela.
+Mostra a continuaÃ§Ã£o da linha atual na prÃ³xima linha ao invÃ©s de cortar o 
+restante que nÃ£o couber na tela.
 
  <![ %INTERMEDIARIO [ 
  <tag>--sort:<em>[coluna]</em></tag>
  <item>
-Organiza a saída do comando <prgn>ps</prgn> de acordo com a coluna escolhida. 
-Você pode usar as colunas <tt>pid, utime, ppid, rss, size, user, 
+Organiza a saÃ­da do comando <prgn>ps</prgn> de acordo com a coluna escolhida. 
+VocÃª pode usar as colunas <tt>pid, utime, ppid, rss, size, user, 
 priority</tt>. 
  <p>
 Pode ser especificada uma listagem em ordem inversa especificando 
 <tt>--sort:[-coluna]</tt>. 
-Para mais detalhes e outras opções, veja a página de manual. 
+Para mais detalhes e outras opÃ§Ãµes, veja a pÃ¡gina de manual. 
  ]]>
 
 </taglist>
 ]]>
-As opções acima podem ser combinadas para resultar em uma listagem mais 
-completa. Você também pode usar pipes "|" para <tt>filtrar</tt> a saída 
+As opÃ§Ãµes acima podem ser combinadas para resultar em uma listagem mais 
+completa. VocÃª tambÃ©m pode usar pipes "|" para <tt>filtrar</tt> a saÃ­da 
 do comando <prgn>ps</prgn>. 
 <![ %INIC-INTER [ Para detalhes, veja <ref id="redir-pipe">. ]]>
  <p>
-Ao contrário de outros comandos, o comando <prgn>ps</prgn> não precisa do 
-hífen "-" para especificar os comandos. Isto porque ele não utiliza opções 
-longas e não usa parâmetros.
+Ao contrÃ¡rio de outros comandos, o comando <prgn>ps</prgn> nÃ£o precisa do 
+hÃ­fen "-" para especificar os comandos. Isto porque ele nÃ£o utiliza opÃ§Ãµes 
+longas e nÃ£o usa parÃ¢metros.
 <![ %EXEMPLO [
  <p>
 Exemplos:
@@ -199,24 +199,24 @@ Exemplos:
 
 <sect id="run-top">top
  <p>
-Mostra os programas em execução ativos, parados, tempo usado na CPU, detalhes 
-sobre o uso da memória RAM, Swap, disponibilidade para execução de programas 
+Mostra os programas em execuÃ§Ã£o ativos, parados, tempo usado na CPU, detalhes 
+sobre o uso da memÃ³ria RAM, Swap, disponibilidade para execuÃ§Ã£o de programas 
 no sistema, etc.
 <![ %DESCRICAOD [
  <p>
-<prgn>top</prgn> é um programa que continua em execução mostrando  
-continuamente os processos que estão rodando em seu computador e os  
+<prgn>top</prgn> Ã© um programa que continua em execuÃ§Ã£o mostrando  
+continuamente os processos que estÃ£o rodando em seu computador e os  
 recursos utilizados por eles. Para sair do <prgn>top</prgn>, pressione  
 a tecla <tt>q</tt>. ]]>
  <p>
-<tt>top [<em>opções</em>]</tt>
+<tt>top [<em>opÃ§Ãµes</em>]</tt>
  <p>
 <![ %OPCOES [ 
 Onde:
 <taglist compact>
  <tag>-d [tempo]</tag>
  <item>
-Atualiza a tela após o [tempo] (em segundos).
+Atualiza a tela apÃ³s o [tempo] (em segundos).
  
  <tag>-s</tag>
  <item>
@@ -228,22 +228,22 @@ Inicia o <prgn>top</prgn> ignorando o tempo de processos zumbis.
 
  <tag>-c</tag>
  <item>
-Mostra a linha de comando ao invés do nome do programa.
+Mostra a linha de comando ao invÃ©s do nome do programa.
 </taglist>
 ]]>
 A ajuda sobre o <prgn>top</prgn> pode ser obtida dentro do programa  
-pressionando a tecla <tt>h</tt> ou pela página de manual (<tt>man top</tt>).
+pressionando a tecla <tt>h</tt> ou pela pÃ¡gina de manual (<tt>man top</tt>).
  <p>
-Abaixo algumas teclas úteis:
+Abaixo algumas teclas Ãºteis:
 <list>
  <item>
-<tt>espaço</tt> - Atualiza imediatamente a tela.
+<tt>espaÃ§o</tt> - Atualiza imediatamente a tela.
 
  <item>
 <tt>CTRL</tt>+<tt>L</tt> - Apaga e atualiza a tela.
 
  <item>
-<tt>h</tt> - Mostra a tela de ajuda do programa. É mostrado todas as teclas 
+<tt>h</tt> - Mostra a tela de ajuda do programa. Ã‰ mostrado todas as teclas 
 que podem ser usadas com o <prgn>top</prgn>.
 
  <item>
@@ -254,58 +254,58 @@ que podem ser usadas com o <prgn>top</prgn>.
 
  <item>
 <tt>k</tt> - Finaliza um processo - semelhante ao comando <prgn>kill</prgn>. 
-Você será perguntado pelo número de identificação do processo (PID). Este 
-comando não estará disponível caso esteja usando o <prgn>top</prgn> com a 
-opção <tt>-s</tt>.
+VocÃª serÃ¡ perguntado pelo nÃºmero de identificaÃ§Ã£o do processo (PID). Este 
+comando nÃ£o estarÃ¡ disponÃ­vel caso esteja usando o <prgn>top</prgn> com a 
+opÃ§Ã£o <tt>-s</tt>.
  
  <item>
-<tt>n</tt> - Muda o número de linhas mostradas na tela. Se 0 for especificado, 
-será usada toda a tela para listagem de processos.
+<tt>n</tt> - Muda o nÃºmero de linhas mostradas na tela. Se 0 for especificado, 
+serÃ¡ usada toda a tela para listagem de processos.
 </list>
 
 
-<sect id="run-controle">Controle de execução de processos
+<sect id="run-controle">Controle de execuÃ§Ã£o de processos
  <p>
-Abaixo algumas comandos e métodos úteis para o controle da execução de 
+Abaixo algumas comandos e mÃ©todos Ãºteis para o controle da execuÃ§Ã£o de 
 processos no <prgn>GNU/Linux</prgn>.
 
 
-<sect1 id="run-break">Interrompendo a execução de um processo
+<sect1 id="run-break">Interrompendo a execuÃ§Ã£o de um processo
  <p>
-Para cancelar a execução de algum processo <tt>rodando em primeiro plano</tt>, 
-basta pressionar as teclas <tt>CTRL</tt>+<tt>C</tt>. A execução do programa 
-será cancelada e será mostrado o aviso de comando. Você também pode usar o 
+Para cancelar a execuÃ§Ã£o de algum processo <tt>rodando em primeiro plano</tt>, 
+basta pressionar as teclas <tt>CTRL</tt>+<tt>C</tt>. A execuÃ§Ã£o do programa 
+serÃ¡ cancelada e serÃ¡ mostrado o aviso de comando. VocÃª tambÃ©m pode usar o 
 comando <ref id="run-kill"> para interromper um processo sendo executado.
 
 
-<sect1 id="run-pausa">Parando momentaneamente a execução de um processo
+<sect1 id="run-pausa">Parando momentaneamente a execuÃ§Ã£o de um processo
  <p>
-Para parar a execução de um processo rodando em primeiro plano, basta 
-pressionar as teclas <tt>CTRL</tt>+<tt>Z</tt>. O programa em execução 
-será pausado e será mostrado o número de seu job e o aviso de comando.
+Para parar a execuÃ§Ã£o de um processo rodando em primeiro plano, basta 
+pressionar as teclas <tt>CTRL</tt>+<tt>Z</tt>. O programa em execuÃ§Ã£o 
+serÃ¡ pausado e serÃ¡ mostrado o nÃºmero de seu job e o aviso de comando.
  <p>
-Para retornar a execução de um comando pausado, use <ref id="run-fg"> 
+Para retornar a execuÃ§Ã£o de um comando pausado, use <ref id="run-fg"> 
 ou <ref id="run-bg">.
  <p>
-O programa permanece na memória no ponto de processamento em que parou 
-quando ele é interrompido. Você pode usar outros comandos ou rodar outros 
-programas enquanto o programa atual está interrompido.
+O programa permanece na memÃ³ria no ponto de processamento em que parou 
+quando ele Ã© interrompido. VocÃª pode usar outros comandos ou rodar outros 
+programas enquanto o programa atual estÃ¡ interrompido.
 
 
 <sect1 id="run-ver-backgrounds">jobs
  <p>
-O comando <prgn>jobs</prgn> mostra os processos que estão parados 
-ou rodando em <em>segundo plano</em>. Processos em segundo plano são 
-iniciados usando o símbolo <tt>"&"</tt> no final da linha de comando 
-<![ %INIC-INTER [ (veja <ref id="run-tipos">) ]]> ou através do 
+O comando <prgn>jobs</prgn> mostra os processos que estÃ£o parados 
+ou rodando em <em>segundo plano</em>. Processos em segundo plano sÃ£o 
+iniciados usando o sÃ­mbolo <tt>"&"</tt> no final da linha de comando 
+<![ %INIC-INTER [ (veja <ref id="run-tipos">) ]]> ou atravÃ©s do 
 comando <prgn>bg</prgn>. 
  <p>
 <tt>jobs</tt>
  <p>
-O número de identificação de cada processo parado ou em segundo plano 
-(job), é usado com os comandos <ref id="run-fg"> e <ref id="run-bg">.
+O nÃºmero de identificaÃ§Ã£o de cada processo parado ou em segundo plano 
+(job), Ã© usado com os comandos <ref id="run-fg"> e <ref id="run-bg">.
 Um processo interrompido pode ser finalizado usando-se o comando
-<tt>kill %[num]</tt>, onde <tt>[num]</tt> é o número do processo obtido
+<tt>kill %[num]</tt>, onde <tt>[num]</tt> Ã© o nÃºmero do processo obtido
 pelo comando <prgn>jobs</prgn>.
 
 
@@ -313,16 +313,16 @@ pelo comando <prgn>jobs</prgn>.
  <p>
 Permite fazer um programa rodando em segundo plano ou parado, rodar em 
 primeiro plano. 
-Você deve usar o comando <prgn>jobs</prgn> para pegar o número do processo 
-rodando em segundo plano ou interrompida, este número será passado ao 
+VocÃª deve usar o comando <prgn>jobs</prgn> para pegar o nÃºmero do processo 
+rodando em segundo plano ou interrompida, este nÃºmero serÃ¡ passado ao 
 comando <prgn>fg</prgn> para ativa-lo em primeiro plano.  
  <p>
-<tt>fg [<em>número</em>]</tt>
+<tt>fg [<em>nÃºmero</em>]</tt>
  <p>
-Onde <em>número</em> é o número obtido através do comando <prgn>jobs</prgn>. 
+Onde <em>nÃºmero</em> Ã© o nÃºmero obtido atravÃ©s do comando <prgn>jobs</prgn>. 
  <p>
-Caso seja usado sem parâmetros, o <prgn>fg</prgn> utilizará o último programa 
-interrompido (o maior número obtido com o comando <prgn>jobs</prgn>). 
+Caso seja usado sem parÃ¢metros, o <prgn>fg</prgn> utilizarÃ¡ o Ãºltimo programa 
+interrompido (o maior nÃºmero obtido com o comando <prgn>jobs</prgn>). 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>fg 1</tt>. ]]>
@@ -331,52 +331,52 @@ Exemplo: <tt>fg 1</tt>. ]]>
 <sect1 id="run-bg">bg
  <p>
 Permite fazer um programa rodando em primeiro plano ou parado, rodar em 
-segundo plano. Para fazer um programa em primeiro plano rodar em segundo, é 
-necessário primeiro interromper a execução do comando com <tt>CTRL</tt>+
-<tt>Z</tt>, será mostrado o número da tarefa interrompida, use este número 
-com o comando <prgn>bg</prgn> para iniciar a execução do comando em 
+segundo plano. Para fazer um programa em primeiro plano rodar em segundo, Ã© 
+necessÃ¡rio primeiro interromper a execuÃ§Ã£o do comando com <tt>CTRL</tt>+
+<tt>Z</tt>, serÃ¡ mostrado o nÃºmero da tarefa interrompida, use este nÃºmero 
+com o comando <prgn>bg</prgn> para iniciar a execuÃ§Ã£o do comando em 
 segundo plano. 
  <p>
-<tt>bg [<em>número</em>]</tt>
+<tt>bg [<em>nÃºmero</em>]</tt>
  <p>
-Onde: <em>número</em> número do programa obtido com o pressionamento das 
-teclas <tt>CTRL</tt>+<tt>Z</tt> ou através do comando <prgn>jobs</prgn>. 
+Onde: <em>nÃºmero</em> nÃºmero do programa obtido com o pressionamento das 
+teclas <tt>CTRL</tt>+<tt>Z</tt> ou atravÃ©s do comando <prgn>jobs</prgn>. 
 
 
 <sect1 id="run-kill">kill
  <p>
 Permite enviar um sinal a um comando/programa. 
-<![ %DESCRICAOD [ Caso seja usado sem parâmetros, o <prgn>kill</prgn> 
-enviará um sinal de término ao processo sendo executado. ]]>
+<![ %DESCRICAOD [ Caso seja usado sem parÃ¢metros, o <prgn>kill</prgn> 
+enviarÃ¡ um sinal de tÃ©rmino ao processo sendo executado. ]]>
  <p>
-<tt>kill [<em>opções</em>] [<em>sinal</em>] [<em>número</em>]</tt>
+<tt>kill [<em>opÃ§Ãµes</em>] [<em>sinal</em>] [<em>nÃºmero</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde: 
 <taglist compact>
- <tag><em>número</em></tag>
+ <tag><em>nÃºmero</em></tag>
  <item>
-É o número de identificação do processo obtido com o 
-comando <ref id="run-ps">. Também pode ser o número após o sinal de <tt>%</tt> 
+Ã‰ o nÃºmero de identificaÃ§Ã£o do processo obtido com o 
+comando <ref id="run-ps">. TambÃ©m pode ser o nÃºmero apÃ³s o sinal de <tt>%</tt> 
 obtido pelo comando <prgn>jobs</prgn> para matar uma tarefa interrompida. 
 Veja <ref id="run-ver-backgrounds">.
   
  <tag><em>sinal</em></tag>
   <item>
-Sinal que será enviado ao processo. Se omitido usa <tt>-15</tt> como padrão. 
+Sinal que serÃ¡ enviado ao processo. Se omitido usa <tt>-15</tt> como padrÃ£o. 
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>-9</tag>
  <item>
-Envia um sinal de destruição ao processo ou programa. Ele é terminado 
+Envia um sinal de destruiÃ§Ã£o ao processo ou programa. Ele Ã© terminado 
 imediatamente sem chances de salvar os dados ou apagar os arquivos 
-temporários criados por ele. 
+temporÃ¡rios criados por ele. 
 </taglist>
 ]]>
-Você precisa ser o dono do processo ou o usuário root para termina-lo ou 
-destruí-lo. Você pode verificar se o processo foi finalizado através do 
+VocÃª precisa ser o dono do processo ou o usuÃ¡rio root para termina-lo ou 
+destruÃ­-lo. VocÃª pode verificar se o processo foi finalizado atravÃ©s do 
 comando <prgn>ps</prgn>. Os tipos de sinais aceitos pelo <prgn>GNU/Linux</prgn> 
-são explicados em detalhes em <ref id="run-sinais">. 
+sÃ£o explicados em detalhes em <ref id="run-sinais">. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>kill 500</tt>, <tt>kill -9 500</tt>, <tt>kill %1</tt>. ]]>
@@ -384,9 +384,9 @@ Exemplo: <tt>kill 500</tt>, <tt>kill -9 500</tt>, <tt>kill %1</tt>. ]]>
 
 <sect1 id="run-killall">killall
  <p>
-Permite finalizar processos através do nome. 
+Permite finalizar processos atravÃ©s do nome. 
  <p>
-<tt>killall [<em>opções</em>] [<em>sinal</em>] [<em>processo</em>]</tt>
+<tt>killall [<em>opÃ§Ãµes</em>] [<em>sinal</em>] [<em>processo</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
@@ -397,13 +397,13 @@ Nome do processo que deseja finalizar
 
  <tag><em>sinal</em></tag>
   <item>
-Sinal que será enviado ao processo (pode ser obtido usando a opção 
+Sinal que serÃ¡ enviado ao processo (pode ser obtido usando a opÃ§Ã£o 
 <tt>-i</tt>).
 
- <tag><em>opções</em></tag>    
+ <tag><em>opÃ§Ãµes</em></tag>    
  <tag>-i</tag>
   <item>
-Pede confirmação sobre a finalização do processo.
+Pede confirmaÃ§Ã£o sobre a finalizaÃ§Ã£o do processo.
 
  <tag>-l</tag>
   <item>
@@ -411,7 +411,7 @@ Lista o nome de todos os sinais conhecidos.
 
  <tag>-q</tag>
   <item>
-Ignora a existência do processo.
+Ignora a existÃªncia do processo.
 
  <tag>-v</tag>
   <item>
@@ -419,13 +419,13 @@ Retorna se o sinal foi enviado com sucesso ao processo.
 
  <tag>-w</tag>
   <item>
-Finaliza a execução do <prgn>killall</prgn> somente após finalizar 
+Finaliza a execuÃ§Ã£o do <prgn>killall</prgn> somente apÃ³s finalizar 
 todos os processos. 
     
  </taglist>
 ]]>
 Os tipos de sinais aceitos pelo <prgn>GNU/Linux</prgn> 
-são explicados em detalhes na <ref id="run-sinais">. 
+sÃ£o explicados em detalhes na <ref id="run-sinais">. 
 <![ %EXEMPLO [ 
  <p>
 Exemplo: <tt>killall -HUP inetd</tt> ]]>
@@ -433,106 +433,106 @@ Exemplo: <tt>killall -HUP inetd</tt> ]]>
 
 <sect1 id="run-killall5">killall5
  <p>
-Envia um sinal de finalização para todos os processos sendo executados.
+Envia um sinal de finalizaÃ§Ã£o para todos os processos sendo executados.
  <p>
 <tt>killall5 [<em>sinal</em>]</tt>
 
 
 <sect1 id="run-sinais">Sinais do Sistema
  <p>
-Retirado da página de manual <tt>signal</tt>. O <prgn>GNU/Linux</prgn> 
-suporta os sinais listados abaixo. Alguns números de sinais são 
+Retirado da pÃ¡gina de manual <tt>signal</tt>. O <prgn>GNU/Linux</prgn> 
+suporta os sinais listados abaixo. Alguns nÃºmeros de sinais sÃ£o 
 dependentes de arquitetura. 
  <p>
 Primeiro, os sinais descritos no <em>POSIX 1</em>:
 <example>
-Sinal   Valor     Ação    Comentário
+Sinal   Valor     AÃ§Ã£o    ComentÃ¡rio
 ---------------------------------------------------------------------------
 HUP        1        A      Travamento detectado no terminal de controle ou 
-                           finalização do processo controlado
-INT        2        A      Interrupção através do teclado
-QUIT       3        C      Sair através do teclado
-ILL        4        C      Instrução Ilegal
-ABRT       6        C      Sinal de abortar enviado pela função abort
-FPE        8        C      Exceção de ponto Flutuante
-KILL       9       AEF     Sinal de destruição do processo
-SEGV      11        C      Referência Inválida de memória
+                           finalizaÃ§Ã£o do processo controlado
+INT        2        A      InterrupÃ§Ã£o atravÃ©s do teclado
+QUIT       3        C      Sair atravÃ©s do teclado
+ILL        4        C      InstruÃ§Ã£o Ilegal
+ABRT       6        C      Sinal de abortar enviado pela funÃ§Ã£o abort
+FPE        8        C      ExceÃ§Ã£o de ponto Flutuante
+KILL       9       AEF     Sinal de destruiÃ§Ã£o do processo
+SEGV      11        C      ReferÃªncia InvÃ¡lida de memÃ³ria
 PIPE      13        A      Pipe Quebrado: escreveu para o pipe sem leitores
 ALRM      14        A      Sinal do Temporizador da chamada do sistema alarm
-TERM      15        A      Sinal de Término
-USR1   30,10,16     A      Sinal definido pelo usuário 1
-USR2   31,12,17     A      Sinal definido pelo usuário 2
+TERM      15        A      Sinal de TÃ©rmino
+USR1   30,10,16     A      Sinal definido pelo usuÃ¡rio 1
+USR2   31,12,17     A      Sinal definido pelo usuÃ¡rio 2
 CHLD   20,17,18     B      Processo filho parado ou terminado
-CONT   19,18,25            Continuar a execução, se interrompido
+CONT   19,18,25            Continuar a execuÃ§Ã£o, se interrompido
 STOP   17,19,23    DEF     Interromper processo
-TSTP   18,20,24     D      Interromper digitação no terminal
+TSTP   18,20,24     D      Interromper digitaÃ§Ã£o no terminal
 TTIN   21,21,26     D      Entrada do terminal para o processo em segundo plano
-TTOU   22,22,27     D      Saída do terminal para o processo em segundo plano
+TTOU   22,22,27     D      SaÃ­da do terminal para o processo em segundo plano
 
 </example>
 
-As letras da coluna <tt>Ação</tt> tem o seguinte significado:
+As letras da coluna <tt>AÃ§Ã£o</tt> tem o seguinte significado:
 <list compact>
-<item><tt>A</tt> - A ação padrão é terminar o processo.
-<item><tt>B</tt> - A ação padrão é ignorar o sinal.
-<item><tt>C</tt> - A ação padrão é terminar o processo e mostrar o core.
-<item><tt>D</tt> - A ação padrão é parar o processo. 
-<item><tt>E</tt> - O sinal não pode ser pego.
-<item><tt>F</tt> - O sinal não pode ser ignorado.
+<item><tt>A</tt> - A aÃ§Ã£o padrÃ£o Ã© terminar o processo.
+<item><tt>B</tt> - A aÃ§Ã£o padrÃ£o Ã© ignorar o sinal.
+<item><tt>C</tt> - A aÃ§Ã£o padrÃ£o Ã© terminar o processo e mostrar o core.
+<item><tt>D</tt> - A aÃ§Ã£o padrÃ£o Ã© parar o processo. 
+<item><tt>E</tt> - O sinal nÃ£o pode ser pego.
+<item><tt>F</tt> - O sinal nÃ£o pode ser ignorado.
 </list>
 
-Sinais não descritos no <em>POSIX 1</em> mas descritos na <em>SUSv2</em>: 
+Sinais nÃ£o descritos no <em>POSIX 1</em> mas descritos na <em>SUSv2</em>: 
 <example>
-Sinal     Valor     Ação     Comentário
+Sinal     Valor     AÃ§Ã£o     ComentÃ¡rio
 -------------------------------------------------------------------------
-BUS      10,7,10      C      Erro no Barramento (acesso incorreto da memória)
-POLL                  A      Evento executado em Pool (Sys V). Sinônimo de IO
+BUS      10,7,10      C      Erro no Barramento (acesso incorreto da memÃ³ria)
+POLL                  A      Evento executado em Pool (Sys V). SinÃ´nimo de IO
 PROF     27,27,29     A      Tempo expirado do Profiling
-SYS      12,-,12      C      Argumento inválido para a rotina (SVID)
-TRAP        5         C      Captura do traço/ponto de interrupção
-URG      16,23,21     B      Condição Urgente no soquete (4.2 BSD)
-VTALRM   26,26,28     A      Alarme virtual do relógio (4.2 BSD)
+SYS      12,-,12      C      Argumento invÃ¡lido para a rotina (SVID)
+TRAP        5         C      Captura do traÃ§o/ponto de interrupÃ§Ã£o
+URG      16,23,21     B      CondiÃ§Ã£o Urgente no soquete (4.2 BSD)
+VTALRM   26,26,28     A      Alarme virtual do relÃ³gio (4.2 BSD)
 XCPU     24,24,30     C      Tempo limite da CPU excedido (4.2 BSD)
 XFSZ     25,25,31     C      Limite do tamanho de arquivo excedido (4.2 BSD)
 
 </example>
 
 (Para os casos SIGSYS, SIGXCPU, SIGXFSZ, e em algumas arquiteturas 
-também o SIGGUS, a ação padrão do Linux para kernels 2.3.27 e superiores 
-é A (terminar), enquanto SYSv2 descreve C (terminar e mostrar dump core).)
+tambÃ©m o SIGGUS, a aÃ§Ã£o padrÃ£o do Linux para kernels 2.3.27 e superiores 
+Ã© A (terminar), enquanto SYSv2 descreve C (terminar e mostrar dump core).)
 
-Seguem vários outros sinais:
+Seguem vÃ¡rios outros sinais:
 <example>
-Sinal     Valor     Ação     Comentário
+Sinal     Valor     AÃ§Ã£o     ComentÃ¡rio
 --------------------------------------------------------------------
-IOT         6         C      Traço IOT. Um sinônimo para ABRT
+IOT         6         C      TraÃ§o IOT. Um sinÃ´nimo para ABRT
 EMT       7,-,7
 STKFLT    -,16,-      A      Falha na pilha do processador
-IO       23,29,22     A      I/O agora possível (4.2 BSD)
-CLD       -,-,18             Um sinônimo para CHLD
-PWR      29,30,19     A      Falha de força (System V)
-INFO      29,-,-             Um sinônimo para SIGPWR
+IO       23,29,22     A      I/O agora possÃ­vel (4.2 BSD)
+CLD       -,-,18             Um sinÃ´nimo para CHLD
+PWR      29,30,19     A      Falha de forÃ§a (System V)
+INFO      29,-,-             Um sinÃ´nimo para SIGPWR
 LOST      -,-,-       A      Perda do bloqueio do arquivo
 WINCH    28,28,20     B      Sinal de redimensionamento da Janela (4.3 BSD, Sun)
-UNUSED    -,31,-      A      Sinal não usado (será SYS)
+UNUSED    -,31,-      A      Sinal nÃ£o usado (serÃ¡ SYS)
 
 </example>
 
-O "-" significa que o sinal não está presente. Onde três valores são 
-listados, o primeiro é normalmente válido para o Alpha e Sparc, o do meio 
-para i386, PowerPc e sh, o último para o Mips. O sinal 29 é SIGINFO/SIGPWR 
+O "-" significa que o sinal nÃ£o estÃ¡ presente. Onde trÃªs valores sÃ£o 
+listados, o primeiro Ã© normalmente vÃ¡lido para o Alpha e Sparc, o do meio 
+para i386, PowerPc e sh, o Ãºltimo para o Mips. O sinal 29 Ã© SIGINFO/SIGPWR 
 em um Alpha mas SIGLOST em um Sparc.
 
     <![ %INTER-AVANC [
 <sect id="run-nohup">nohup
  <p>
-Executa um comando ignorando os sinais de interrupção.
-<![ %DESCRICAOD [ O comando poderá ser executado até mesmo em segundo 
+Executa um comando ignorando os sinais de interrupÃ§Ã£o.
+<![ %DESCRICAOD [ O comando poderÃ¡ ser executado atÃ© mesmo em segundo 
 plano caso seja feito o logout do sistema. ]]>
  <p>
-<tt>nohup [<em>comando que será executado</em>]</tt>
+<tt>nohup [<em>comando que serÃ¡ executado</em>]</tt>
  <p>
-As mensagens de saída do <prgn>nohup</prgn> são direcionadas para o arquivo  
+As mensagens de saÃ­da do <prgn>nohup</prgn> sÃ£o direcionadas para o arquivo  
 <file>$HOME/nohup.out</file>.
 <![ %EXEMPLO [
  <p>
@@ -541,25 +541,25 @@ Exemplo: <tt>nohup find / -uid 0 >/tmp/rootfiles.txt &</tt>. ]]>
 
 <sect id="run-nice">nice
  <p>
-Configura a prioridade da execução de um comando/programa. 
+Configura a prioridade da execuÃ§Ã£o de um comando/programa. 
  <p>
-<tt>nice [<em>opções</em>] [<em>comando/programa</em>]</tt>
+<tt>nice [<em>opÃ§Ãµes</em>] [<em>comando/programa</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>comando/programa</em></tag>
  <item>
-Comando/programa que terá sua prioridade ajustada.
+Comando/programa que terÃ¡ sua prioridade ajustada.
 
- <tag><em>opções</em></tag> 
+ <tag><em>opÃ§Ãµes</em></tag> 
  <tag>-n [numero]</tag>
  <item>
-Configura a prioridade que o programa será executado. Se um programa for 
-executado com maior prioridade, ele usará mais recursos do sistema para seu 
-processamento, caso tenha uma prioridade baixa, ele permitirá que outros  
-programas tenham preferência. A prioridade de execução de um 
-<em>programa/comando</em> pode ser ajustada de -20 (a mais alta) até 19 
+Configura a prioridade que o programa serÃ¡ executado. Se um programa for 
+executado com maior prioridade, ele usarÃ¡ mais recursos do sistema para seu 
+processamento, caso tenha uma prioridade baixa, ele permitirÃ¡ que outros  
+programas tenham preferÃªncia. A prioridade de execuÃ§Ã£o de um 
+<em>programa/comando</em> pode ser ajustada de -20 (a mais alta) atÃ© 19 
 (a mais baixa). 
 </taglist>
 ]]>
@@ -570,30 +570,30 @@ Exemplo: <tt>nice -n -19 find / -name apropos</tt>. ]]>
 
 <sect id="run-fuser">fuser
  <p>
-Permite identificar e fechar os processos que estão utilizando arquivos e 
+Permite identificar e fechar os processos que estÃ£o utilizando arquivos e 
 soquetes no sistema. 
  <p>
-<tt>fuser [<em>opções</em>] [<em>nome</em>]</tt>
+<tt>fuser [<em>opÃ§Ãµes</em>] [<em>nome</em>]</tt>
 <![ %OPCOES [
  <p>
  Onde:
 <taglist compact>
  <tag><em>nome</em></tag>
  <item>
-Especifica um nome de processo, diretório, arquivo, etc.
+Especifica um nome de processo, diretÃ³rio, arquivo, etc.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>-k</tag>
  <item>
 Finaliza os processos acessando o arquivo especificado. O sinal desejado 
-deve ser especificado com a opção <tt>-signal [num]</tt>, ou o sinal 
--9 será enviado como padrão. Não é possível matar o próprio processo 
+deve ser especificado com a opÃ§Ã£o <tt>-signal [num]</tt>, ou o sinal 
+-9 serÃ¡ enviado como padrÃ£o. NÃ£o Ã© possÃ­vel matar o prÃ³prio processo 
 <prgn>fuser</prgn>.
 
  <tag>-i</tag>
  <item>
-Pergunta antes de destruir um processo. Será ignorada caso a opção <tt>-k</tt> 
-não seja especificada.
+Pergunta antes de destruir um processo. SerÃ¡ ignorada caso a opÃ§Ã£o <tt>-k</tt> 
+nÃ£o seja especificada.
 
  <tag>-l</tag>
  <item>
@@ -602,12 +602,12 @@ Lista todos os nomes de sinais conhecidos.
  <tag>-m [nome]</tag>
  <item>
 Especifica um arquivo em um sistema de arquivos montado ou dispositivo de bloco 
-que está montado. Todos os processos acessando aquele sistema de arquivos 
-serão listados. Diretórios são mostrados seguidos de uma <tt>/</tt>
+que estÃ¡ montado. Todos os processos acessando aquele sistema de arquivos 
+serÃ£o listados. DiretÃ³rios sÃ£o mostrados seguidos de uma <tt>/</tt>
 
- <tag>-signal [número]</tag>
+ <tag>-signal [nÃºmero]</tag>
  <item>
-Usa o sinal especificado ao invés de -9 (SIGKILL) quando finalizar processos.
+Usa o sinal especificado ao invÃ©s de -9 (SIGKILL) quando finalizar processos.
 
  <tag>-u</tag>
  <item>
@@ -615,37 +615,37 @@ Acrescenta o nome do dono de cada processo ao PID.
 
  <tag>-v</tag>
  <item>
-Os processos são mostrados em um estilo idêntico ao <prgn>ps</prgn>. 
+Os processos sÃ£o mostrados em um estilo idÃªntico ao <prgn>ps</prgn>. 
 
 </taglist> ]]>
 
 
 <sect id="run-tload">tload 
  <p>
-Representa de forma gráfica a carga do sistema.
+Representa de forma grÃ¡fica a carga do sistema.
  <p>
-<tt>tload [<em>opções</em>]</tt>
+<tt>tload [<em>opÃ§Ãµes</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
- <tag><em>opções</em></tag>
- <tag>-s [número]</tag>
+ <tag><em>opÃ§Ãµes</em></tag>
+ <tag>-s [nÃºmero]</tag>
  <item>
-Mostra uma escala vertical com espaçamento especificado por [número]. É 
-recomendável o uso de números entre 1 e 10 para melhor visualização da 
+Mostra uma escala vertical com espaÃ§amento especificado por [nÃºmero]. Ã‰ 
+recomendÃ¡vel o uso de nÃºmeros entre 1 e 10 para melhor visualizaÃ§Ã£o da 
 escala.
 
- <tag>-d [número]</tag>
+ <tag>-d [nÃºmero]</tag>
  <item>
-Especifica o intervalo entre atualizações, em segundos.
+Especifica o intervalo entre atualizaÃ§Ãµes, em segundos.
 
 </taglist> ]]>
 
 
 <sect id="run-vmstat">vmstat
  <p>
-Mostra estatísticas sobre o uso da memória virtual do sistema.
+Mostra estatÃ­sticas sobre o uso da memÃ³ria virtual do sistema.
  <p>
 <tt>vmstat [<em>intervalo</em>] [<em>contagem</em>]</tt>
  <p>
@@ -654,60 +654,60 @@ Mostra estatísticas sobre o uso da memória virtual do sistema.
 <taglist compact>
  <tag><em>intervalo</em></tag>
  <item>
-Número especificado em segundos entre atualizações. 
+NÃºmero especificado em segundos entre atualizaÃ§Ãµes. 
 
  <tag><em>contagem</em></tag>
  <item>
-Número de vezes que será mostrado. 
+NÃºmero de vezes que serÃ¡ mostrado. 
 
 </taglist> ]]>
-Se não for especificado nenhum parâmetro, o <prgn>vmstat</prgn> mostra o status 
-da memória virtual e volta imediatamente para a linha de comando.
-A descrição dos campos do <prgn>vmstat</prgn> são as seguintes:
+Se nÃ£o for especificado nenhum parÃ¢metro, o <prgn>vmstat</prgn> mostra o status 
+da memÃ³ria virtual e volta imediatamente para a linha de comando.
+A descriÃ§Ã£o dos campos do <prgn>vmstat</prgn> sÃ£o as seguintes:
 
 <taglist compact>
 <tag><em>Processos</em></tag>
 <tag>r</tag>
 <item>
-Número de processos aguardando execução. 
+NÃºmero de processos aguardando execuÃ§Ã£o. 
 
 <tag>b</tag>
 <item>
-Número de processos em espera não interrompíveis.
+NÃºmero de processos em espera nÃ£o interrompÃ­veis.
 
 <tag>w</tag>
 <item>
-Número de processos extraídos do arquivo de troca ou caso contrário 
-em execução. 
+NÃºmero de processos extraÃ­dos do arquivo de troca ou caso contrÃ¡rio 
+em execuÃ§Ã£o. 
 
 <tag> </tag>  
-<tag><em>Memória</em></tag>
+<tag><em>MemÃ³ria</em></tag>
 <tag>swpd</tag>
 <item>
-A quantidade de memória virtual usada em Kb.
+A quantidade de memÃ³ria virtual usada em Kb.
 
 <tag>free</tag>
 <item>
-Quantidade de memória livre em Kb.
+Quantidade de memÃ³ria livre em Kb.
 
 <tag>buff</tag>
 <item>
-Quantidade de memória usada como buffer em Kb.
+Quantidade de memÃ³ria usada como buffer em Kb.
 
 
 <tag> </tag>
-<tag><em>Memória Virtual</em></tag> 
+<tag><em>MemÃ³ria Virtual</em></tag> 
 <tag>si</tag>
 <item>
-Quantidade de memória gravada para o disco Kb/s.
+Quantidade de memÃ³ria gravada para o disco Kb/s.
 
 <tag>so</tag>
 <item>
-Quantidade de memória retirada do disco em Kb/s.
+Quantidade de memÃ³ria retirada do disco em Kb/s.
 
 
 <tag> </tag>
-<tag><em>Entrada/Saída</em></tag>
+<tag><em>Entrada/SaÃ­da</em></tag>
 <tag>bi</tag>
 <item>
 Blocos enviados para um dispositivo de bloco (medido em blocos por segundo).
@@ -721,17 +721,17 @@ Blocos recebidos de um dispositivo de bloco (em blocos por segundo).
 <tag><em>Sistema</em></tag>
 <tag>in</tag>
 <item>
-Número de interrupções por segundo, incluindo o clock.
+NÃºmero de interrupÃ§Ãµes por segundo, incluindo o clock.
 
 <tag>cs</tag>
 <item>
-Número de mudanças de contexto por segundo.  
+NÃºmero de mudanÃ§as de contexto por segundo.  
 
 <tag> </tag>
 <tag><em>Porcentagem do total de tempo da CPU</em></tag>
 <tag>us</tag>
 <item>
-Tempo do usuário
+Tempo do usuÃ¡rio
 
 <tag>sy</tag>
 <item>
@@ -747,23 +747,23 @@ Tempo ocioso
  <p>
 Retorna o PID do processo especificado
  <p>
-<tt>pidof [<em>opções</em>] [<em>nome</em>]</tt>
+<tt>pidof [<em>opÃ§Ãµes</em>] [<em>nome</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>nome</em></tag>
  <item>
-Nome do processo que seja obter o número PID
+Nome do processo que seja obter o nÃºmero PID
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>-s</tag>
  <item>
 Retorna somente o primeiro PID encontrado.
 
  <tag>-x</tag>
  <item>
-Retorna o PID do do shell que está executando o script
+Retorna o PID do do shell que estÃ¡ executando o script
 
  <tag>-o [PID]</tag>
  <item>
@@ -774,10 +774,10 @@ palavras
 </taglist> ]]>
 <![ %OBS [
  <p>
-OBS: O programa <prgn>pidof</prgn> é um link simbólico ao programa 
+OBS: O programa <prgn>pidof</prgn> Ã© um link simbÃ³lico ao programa 
 <prgn>killall5</prgn>. Cuidado ao executar o <prgn>killall5</prgn> 
-as funções e opções são completamente diferentes dependendo da forma 
-como é chamado na linha de comando! (veja <ref id="run-killall5"> para 
+as funÃ§Ãµes e opÃ§Ãµes sÃ£o completamente diferentes dependendo da forma 
+como Ã© chamado na linha de comando! (veja <ref id="run-killall5"> para 
 detalhes.) ]]>
 <![ %EXEMPLO [
  <p>
@@ -786,22 +786,22 @@ Exemplo: <tt>pidof -s init</tt>]]>
 
 <sect id="run-pstree">pstree
  <p>
-Mostra a estrutura de processos em execução no sistema em forma de árvore. 
+Mostra a estrutura de processos em execuÃ§Ã£o no sistema em forma de Ã¡rvore. 
  <p>
-<tt>pstree [<em>opções</em>] [<em>pid</em>]</tt>
+<tt>pstree [<em>opÃ§Ãµes</em>] [<em>pid</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>pid</em></tag>
  <item>
-Número do processo que terá sua árvore listada. Se omitido, lista todos os 
+NÃºmero do processo que terÃ¡ sua Ã¡rvore listada. Se omitido, lista todos os 
 processos.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
  <tag>-a</tag>
  <item>
-Mostra opções passadas na linha de comando.
+Mostra opÃ§Ãµes passadas na linha de comando.
  
  <tag>-c</tag>
  <item>
@@ -809,7 +809,7 @@ Mostra toda a estrutura (inclusive sub-processos do processo pai).
 
  <tag>-G</tag>
  <item>
-Usa caracteres gráficos no desenho da árvore de processos.
+Usa caracteres grÃ¡ficos no desenho da Ã¡rvore de processos.
 
  <tag>-h</tag>
  <item>
@@ -821,23 +821,23 @@ Destaca o processo especificado.
 
  <tag>-l</tag>
  <item>
-Não faz quebra de linha
+NÃ£o faz quebra de linha
 
  <tag>-n</tag>
  <item>
-Classifica pelo número PID ao invés do nome.
+Classifica pelo nÃºmero PID ao invÃ©s do nome.
 
  <tag>-p</tag>
  <item>
-Mostra o número PID entre parênteses após o nome do processo.
+Mostra o nÃºmero PID entre parÃªnteses apÃ³s o nome do processo.
 
  <tag>-u</tag>
  <item>
-Mostra também o dono do processo.
+Mostra tambÃ©m o dono do processo.
 
  <tag>-U</tag>
  <item>
-Usa o conjunto de caracteres Unicode para o desenho da árvore. 
+Usa o conjunto de caracteres Unicode para o desenho da Ã¡rvore. 
 
 </taglist> ]]>
 
@@ -846,97 +846,97 @@ Usa o conjunto de caracteres Unicode para o desenho da árvore.
 
 
     <![ %INIC-INTER [ 
-<sect id="run-fechando">Fechando um programa quando não se sabe como sair
+<sect id="run-fechando">Fechando um programa quando nÃ£o se sabe como sair
  <p>
-Muitas vezes quando se esta iniciando no <prgn>GNU/Linux</prgn> você pode 
-executar um programa e talvez não saber como fecha-lo. Este 
-capítulo do guia pretende ajuda-lo a resolver este tipo de problema. 
+Muitas vezes quando se esta iniciando no <prgn>GNU/Linux</prgn> vocÃª pode 
+executar um programa e talvez nÃ£o saber como fecha-lo. Este 
+capÃ­tulo do guia pretende ajuda-lo a resolver este tipo de problema. 
  <p>
-Isto pode também ocorrer com programadores que estão construindo seus 
-programas e por algum motivo não implementam uma opção de saída, ou ela 
-não funciona! 
+Isto pode tambÃ©m ocorrer com programadores que estÃ£o construindo seus 
+programas e por algum motivo nÃ£o implementam uma opÃ§Ã£o de saÃ­da, ou ela 
+nÃ£o funciona! 
  <p>
 Em nosso exemplo vou supor que executamos um programa em desenvolvimento 
 com o nome <prgn>contagem</prgn> que conta o tempo em segundos a partir do 
-momento que é executado, mas que o programador esqueceu de colocar uma 
-opção de saída. Siga estas dicas para finaliza-lo: 
+momento que Ã© executado, mas que o programador esqueceu de colocar uma 
+opÃ§Ã£o de saÃ­da. Siga estas dicas para finaliza-lo: 
  <p>
 <enumlist>
  <item>
-Normalmente todos os programas <prgn>UNIX</prgn> (o <prgn>GNU/Linux</prgn> também 
-é um Sistema Operacional baseado no <prgn>UNIX</prgn>) podem ser interrompidos 
+Normalmente todos os programas <prgn>UNIX</prgn> (o <prgn>GNU/Linux</prgn> tambÃ©m 
+Ã© um Sistema Operacional baseado no <prgn>UNIX</prgn>) podem ser interrompidos 
 com o pressionamento das teclas <tt>&lt;CTRL&gt;</tt> e <tt>&lt;C&gt;</tt>. 
-Tente isto primeiro para finalizar um programa. Isto provavelmente não 
+Tente isto primeiro para finalizar um programa. Isto provavelmente nÃ£o 
 vai funcionar se estiver usando um Editor de Texto (ele vai entender como 
 um comando de menu). Isto normalmente funciona para 
-comandos que são executados e terminados sem a intervenção do usuário. 
+comandos que sÃ£o executados e terminados sem a intervenÃ§Ã£o do usuÃ¡rio. 
  <p>
-Caso isto não der certo, vamos partir para a força! ;-)
+Caso isto nÃ£o der certo, vamos partir para a forÃ§a! ;-)
  
  <item>
 Mude para um novo console (pressionando <tt>&lt;ALT&gt;</tt> e  
-<tt>&lt;F2&gt;</tt>), e faça o <em>login</em> como usuário <strong>root
+<tt>&lt;F2&gt;</tt>), e faÃ§a o <em>login</em> como usuÃ¡rio <strong>root
 </strong>.
 
  <item>
-Localize o PID (número de identificação do processo) usando o comando: 
-<tt>ps ax</tt>, aparecerão várias linhas cada uma com o número do processo 
-na primeira coluna, e a linha de comando do programa na última coluna. Caso 
-aparecerem vários processos você pode usar <tt>ps ax|grep contagem</tt>, 
-neste caso o <prgn>grep</prgn> fará uma filtragem da saída do comando 
+Localize o PID (nÃºmero de identificaÃ§Ã£o do processo) usando o comando: 
+<tt>ps ax</tt>, aparecerÃ£o vÃ¡rias linhas cada uma com o nÃºmero do processo 
+na primeira coluna, e a linha de comando do programa na Ãºltima coluna. Caso 
+aparecerem vÃ¡rios processos vocÃª pode usar <tt>ps ax|grep contagem</tt>, 
+neste caso o <prgn>grep</prgn> farÃ¡ uma filtragem da saÃ­da do comando 
 <tt>ps ax</tt> mostrando somente as linhas que tem a palavra "contagem". 
 Para maiores detalhes, veja o comando <ref id="cmdv-grep">.
 
  <item>
 Feche o processo usando o comando <tt>kill <em>PID</em></tt>, lembre-se de 
-substituir PID pelo número encontrado pelo comando <prgn>ps ax</prgn> acima.
+substituir PID pelo nÃºmero encontrado pelo comando <prgn>ps ax</prgn> acima.
  <p>
-O comando acima envia um sinal de término de execução para o processo (neste 
-caso o programa <prgn>contagem</prgn>). O sinal de término mantém a chance do 
-programa salvar seus dados ou apagar os arquivos temporários que criou e 
-então ser finalizado, isto depende do programa. 
+O comando acima envia um sinal de tÃ©rmino de execuÃ§Ã£o para o processo (neste 
+caso o programa <prgn>contagem</prgn>). O sinal de tÃ©rmino mantÃ©m a chance do 
+programa salvar seus dados ou apagar os arquivos temporÃ¡rios que criou e 
+entÃ£o ser finalizado, isto depende do programa. 
  
  <item>
 Alterne para o console onde estava executando o programa <prgn>contagem</prgn>
-e verifique se ele ainda está em execução. Se ele estiver parado mas o aviso 
-de comando não está disponível, pressione a tecla &lt;ENTER&gt;. 
-Freqüentemente acontece isto com o comando <prgn>kill</prgn>, você finaliza 
-um programa mas o aviso de comando não é mostrado até que se 
+e verifique se ele ainda estÃ¡ em execuÃ§Ã£o. Se ele estiver parado mas o aviso 
+de comando nÃ£o estÃ¡ disponÃ­vel, pressione a tecla &lt;ENTER&gt;. 
+FreqÃ¼entemente acontece isto com o comando <prgn>kill</prgn>, vocÃª finaliza 
+um programa mas o aviso de comando nÃ£o Ã© mostrado atÃ© que se 
 pressione &lt;ENTER&gt;. 
 
  <item>
-Caso o programa ainda não foi finalizado, repita o comando <prgn>kill</prgn> 
-usando a opção -9: <tt>kill -9 PID</tt>. Este comando envia um sinal de 
-DESTRUIÇÃO do processo, fazendo ele terminar "na marra"! 
+Caso o programa ainda nÃ£o foi finalizado, repita o comando <prgn>kill</prgn> 
+usando a opÃ§Ã£o -9: <tt>kill -9 PID</tt>. Este comando envia um sinal de 
+DESTRUIÃ‡ÃƒO do processo, fazendo ele terminar "na marra"! 
 
 </enumlist>
-Uma última dica: todos os programas estáveis (todos que acompanham as boas 
-distribuições <prgn>GNU/Linux</prgn>) tem sua opção de saída. Lembre-se que 
-quando finaliza um processo todos os dados do programa em execução podem 
+Uma Ãºltima dica: todos os programas estÃ¡veis (todos que acompanham as boas 
+distribuiÃ§Ãµes <prgn>GNU/Linux</prgn>) tem sua opÃ§Ã£o de saÃ­da. Lembre-se que 
+quando finaliza um processo todos os dados do programa em execuÃ§Ã£o podem 
 ser perdidos (principalmente se estiver em um editor de textos), mesmo 
-usando o <prgn>kill</prgn> sem o parâmetro <tt>-9</tt>. 
+usando o <prgn>kill</prgn> sem o parÃ¢metro <tt>-9</tt>. 
  <p>
-Procure a opção de saída de um programa consultando o help on line, as 
-páginas de manual, a documentação que acompanha o programa, info pages. 
+Procure a opÃ§Ã£o de saÃ­da de um programa consultando o help on line, as 
+pÃ¡ginas de manual, a documentaÃ§Ã£o que acompanha o programa, info pages. 
 Para detalhes de como encontrar a ajuda dos programas, veja o 
 <ref id="ajuda">
 
 
 <sect id="run-reset">Eliminando caracteres estranhos
  <p>
-As vezes quando um programa <tt>mal comportado</tt> é finalizado ou quando 
-você visualiza um arquivo binário através do comando <tt>cat</tt>, é possível 
+As vezes quando um programa <tt>mal comportado</tt> Ã© finalizado ou quando 
+vocÃª visualiza um arquivo binÃ¡rio atravÃ©s do comando <tt>cat</tt>, Ã© possÃ­vel 
 que o aviso de comando (prompt) volte com caracteres estranhos. 
  <p>
 Para fazer tudo voltar ao normal, basta digitar <tt>reset</tt> e teclar 
-<tt>ENTER</tt>. Não se preocupe, o comando <tt>reset</tt> não reiniciará 
-seu computador (como o botão reset do seu computador faz), ele apenas 
-fará tudo voltar ao normal. 
+<tt>ENTER</tt>. NÃ£o se preocupe, o comando <tt>reset</tt> nÃ£o reiniciarÃ¡ 
+seu computador (como o botÃ£o reset do seu computador faz), ele apenas 
+farÃ¡ tudo voltar ao normal. 
 <![ %OBS [ 
  <p>
-Note que enquanto você digitar <tt>reset</tt> aparecerão caracteres estranhos 
-ao invés das letras. Não se preocupe! Basta digitar corretamente e bater 
-<tt>ENTER</tt> e o aviso de comando voltará ao normal. ]]>
+Note que enquanto vocÃª digitar <tt>reset</tt> aparecerÃ£o caracteres estranhos 
+ao invÃ©s das letras. NÃ£o se preocupe! Basta digitar corretamente e bater 
+<tt>ENTER</tt> e o aviso de comando voltarÃ¡ ao normal. ]]>
 
     ]]>
 

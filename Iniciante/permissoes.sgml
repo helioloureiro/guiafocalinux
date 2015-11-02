@@ -1,183 +1,183 @@
-<chapt id="perm">Permissıes de acesso a arquivos e diretÛrios
+<chapt id="perm">Permiss√µes de acesso a arquivos e diret√≥rios
  <p>
-As permissıes de acesso protegem o sistema de 
-arquivos Linux do acesso indevido de pessoas ou programas n„o autorizados. 
+As permiss√µes de acesso protegem o sistema de 
+arquivos Linux do acesso indevido de pessoas ou programas n√£o autorizados. 
  <p>
-A permiss„o de acesso do <prgn>GNU/Linux</prgn> tambÈm impede que um programa 
-mal intencionado, por exemplo, apague um arquivo que n„o deve, envie arquivos 
-especiais para outra pessoa ou forneÁa acesso da rede para que outros usu·rios 
-invadam o sistema. O sistema <prgn>GNU/Linux</prgn> È muito seguro e como 
-qualquer outro sistema seguro e confi·vel impede que usu·rios mal 
+A permiss√£o de acesso do <prgn>GNU/Linux</prgn> tamb√©m impede que um programa 
+mal intencionado, por exemplo, apague um arquivo que n√£o deve, envie arquivos 
+especiais para outra pessoa ou forne√ßa acesso da rede para que outros usu√°rios 
+invadam o sistema. O sistema <prgn>GNU/Linux</prgn> √© muito seguro e como 
+qualquer outro sistema seguro e confi√°vel impede que usu√°rios mal 
 intencionados (ou iniciantes que foram enganados) instalem programas enviados 
 por terceiros sem saber para que eles realmente servem e causem danos 
-irreversÌveis em seus arquivos, seu micro ou sua empresa. 
+irrevers√≠veis em seus arquivos, seu micro ou sua empresa. 
  <p>
-Esta seÁ„o do guia, de inicio, pode ser um pouco dificil de se entender, 
-ent„o recomendo ler e ao mesmo tempo pr·tica-la para uma Ûtima 
-compreens„o. N„o se preocupe, tambÈm coloquei exemplos para 
-ajuda-lo a entender o sistema de permissıes de acesso do ambiente 
+Esta se√ß√£o do guia, de inicio, pode ser um pouco dificil de se entender, 
+ent√£o recomendo ler e ao mesmo tempo pr√°tica-la para uma √≥tima 
+compreens√£o. N√£o se preocupe, tamb√©m coloquei exemplos para 
+ajuda-lo a entender o sistema de permiss√µes de acesso do ambiente 
 <prgn>GNU/Linux</prgn>. 
 
 
-<sect id="perm-user-group">Donos, Grupos e outros usu·rios
+<sect id="perm-user-group">Donos, Grupos e outros usu√°rios
  <p>
-A idÈia b·sica da seguranÁa no sistema <prgn>GNU/Linux</prgn> È 
-definir o acesso aos arquivos por donos, grupos e outros usu·rios: 
+A id√©ia b√°sica da seguran√ßa no sistema <prgn>GNU/Linux</prgn> √© 
+definir o acesso aos arquivos por donos, grupos e outros usu√°rios: 
 <taglist compact>
  <tag><em>dono</em></tag>
  <item>
-… a pessoa que criou o arquivo ou o diretÛrio. O nome do dono do 
-arquivo/diretÛrio È o mesmo do usu·rio usado para entrar 
+√â a pessoa que criou o arquivo ou o diret√≥rio. O nome do dono do 
+arquivo/diret√≥rio √© o mesmo do usu√°rio usado para entrar 
 no sistema <prgn>GNU/Linux</prgn>. Somente o dono pode modificar as 
-permissıes de acesso do arquivo. 
+permiss√µes de acesso do arquivo. 
  <p>
-As permissıes de acesso do dono de um arquivo somente se aplicam ao 
-dono do arquivo/diretÛrio. A identificaÁ„o do dono tambÈm È chamada de 
+As permiss√µes de acesso do dono de um arquivo somente se aplicam ao 
+dono do arquivo/diret√≥rio. A identifica√ß√£o do dono tamb√©m √© chamada de 
 <tt>user id</tt> (UID). 
  <p>
-A identificaÁ„o de usu·rio ao qual o arquivo pertence 
-È armazenada no arquivo <file>/etc/passwd</file> e do grupo no 
-arquivo <file>/etc/group</file>. Estes s„o arquivos textos comuns e podem 
+A identifica√ß√£o de usu√°rio ao qual o arquivo pertence 
+√© armazenada no arquivo <file>/etc/passwd</file> e do grupo no 
+arquivo <file>/etc/group</file>. Estes s√£o arquivos textos comuns e podem 
 ser editados em qualquer editor de texto, mas utilize preferencialmente os 
 comandos <prgn>vipw</prgn> e <prgn>vigr</prgn> que executa procedimentos 
-adicionais de checagem de uids e grupos apÛs a alteraÁ„o. Tenha cuidado 
-para n„o modificar o campo que contÈm a senha do usu·rio encriptada (que pode 
-estar armazenada no arquivo <file>/etc/passwd</file> caso n„o estiver usando 
+adicionais de checagem de uids e grupos ap√≥s a altera√ß√£o. Tenha cuidado 
+para n√£o modificar o campo que cont√©m a senha do usu√°rio encriptada (que pode 
+estar armazenada no arquivo <file>/etc/passwd</file> caso n√£o estiver usando 
 senhas ocultas). 
 
 
  <tag><em>grupo</em></tag>
  <item>
-Permite que v·rios usu·rios diferentes tenham acesso a um 
-mesmo arquivo (j· que somente o dono poderia ter acesso ao arquivo). 
-Cada usu·rio pode fazer parte de um ou mais grupos e ent„o acessar 
-arquivos que pertenÁam ao mesmo grupo que o seu (mesmo que estes 
+Permite que v√°rios usu√°rios diferentes tenham acesso a um 
+mesmo arquivo (j√° que somente o dono poderia ter acesso ao arquivo). 
+Cada usu√°rio pode fazer parte de um ou mais grupos e ent√£o acessar 
+arquivos que perten√ßam ao mesmo grupo que o seu (mesmo que estes 
 arquivos tenham outro <em>dono</em>). 
  <p>
-Por padr„o, quando um novo usu·rio È criado e n„o especificar nenhum grupo, 
-ele pertencer· ao grupo de mesmo nome do seu grupo prim·rio (este comportamento
-È controlado pelo parametro <tt>USERGROUPS=yes</tt> do arquivo 
+Por padr√£o, quando um novo usu√°rio √© criado e n√£o especificar nenhum grupo, 
+ele pertencer√° ao grupo de mesmo nome do seu grupo prim√°rio (este comportamento
+√© controlado pelo parametro <tt>USERGROUPS=yes</tt> do arquivo 
 <file>/etc/adduser.conf</file>, veja <ref id="cmdc-id">). 
-A identificaÁ„o do grupo È chamada de <tt>GID (<em>group id</em>)</tt>.
+A identifica√ß√£o do grupo √© chamada de <tt>GID (<em>group id</em>)</tt>.
  <p>
-Um usu·rio pode pertencer a um ou mais grupos. Para detalhes de como 
-incluir o usu·rio em mais grupos veja <ref id="cmdc-incluirgrupo">.
+Um usu√°rio pode pertencer a um ou mais grupos. Para detalhes de como 
+incluir o usu√°rio em mais grupos veja <ref id="cmdc-incluirgrupo">.
 
  <tag><em>outros</em></tag>
  <item>
-… a categoria de usu·rios que n„o s„o donos ou n„o pertencem ao grupo 
+√â a categoria de usu√°rios que n√£o s√£o donos ou n√£o pertencem ao grupo 
 do arquivo. 
 </taglist>
-Cada um dos tipos acima possuem trÍs tipos b·sicos de permissıes de 
-acesso que ser„o vistas na prÛxima seÁ„o. 
+Cada um dos tipos acima possuem tr√™s tipos b√°sicos de permiss√µes de 
+acesso que ser√£o vistas na pr√≥xima se√ß√£o. 
 
 
-<sect id="perm-tipos">Tipos de Permissıes de Acesso
+<sect id="perm-tipos">Tipos de Permiss√µes de Acesso
  <p>
-Quanto aos tipos de permissıes que se aplicam ao <em>dono</em>, 
-<em>grupo</em> e <em>outros usu·rios</em>, temos 3 permissıes b·sicas: 
+Quanto aos tipos de permiss√µes que se aplicam ao <em>dono</em>, 
+<em>grupo</em> e <em>outros usu√°rios</em>, temos 3 permiss√µes b√°sicas: 
 <list compact>
  <item>
-<tt>r</tt> - Permiss„o de leitura para arquivos. Caso for um diretÛrio, 
-permite listar seu conte˙do (atravÈs do comando <prgn>ls</prgn>, por 
+<tt>r</tt> - Permiss√£o de leitura para arquivos. Caso for um diret√≥rio, 
+permite listar seu conte√∫do (atrav√©s do comando <prgn>ls</prgn>, por 
 exemplo).
  
  <item>
-<tt>w</tt> - Permiss„o de gravaÁ„o para arquivos. Caso for um diretÛrio, 
-permite a gravaÁ„o de arquivos ou outros diretÛrios dentro dele.
+<tt>w</tt> - Permiss√£o de grava√ß√£o para arquivos. Caso for um diret√≥rio, 
+permite a grava√ß√£o de arquivos ou outros diret√≥rios dentro dele.
  <p>
-Para que um arquivo/diretÛrio possa ser apagado, È necess·rio o 
-acesso a gravaÁ„o. 
+Para que um arquivo/diret√≥rio possa ser apagado, √© necess√°rio o 
+acesso a grava√ß√£o. 
 
  <item>
 <tt>x</tt> - Permite executar um arquivo (caso seja um programa 
-execut·vel). Caso seja um diretÛrio, permite que seja acessado 
-atravÈs do comando <prgn>cd</prgn> 
+execut√°vel). Caso seja um diret√≥rio, permite que seja acessado 
+atrav√©s do comando <prgn>cd</prgn> 
 <![ %INIC-INTER [ (veja <ref id="comando-cd"> para detalhes). ]]>
 </list>
-As permissıes de acesso a um arquivo/diretÛrio podem ser visualizadas com 
+As permiss√µes de acesso a um arquivo/diret√≥rio podem ser visualizadas com 
 o uso do comando <tt>ls -la</tt>. 
 <![ %INIC-INTER [ Para maiores detalhes veja <ref id="comando-ls">. ]]>
-As 3 letras (rwx) s„o agrupadas da seguinte forma:
+As 3 letras (rwx) s√£o agrupadas da seguinte forma:
 <example>
 -rwxr-xr--   gleydson   users  teste
 </example>
-Virou uma bagunÁa n„o? Vou explicar cada parte para entender o que quer 
+Virou uma bagun√ßa n√£o? Vou explicar cada parte para entender o que quer 
 dizer as 10 letras acima (da esquerda para a direita):
 <list>
  <item>
-A primeira letra diz qual È o tipo do arquivo. Caso tiver um "d" È um 
-diretÛrio, um "l" um link a um arquivo no sistema 
+A primeira letra diz qual √© o tipo do arquivo. Caso tiver um "d" √© um 
+diret√≥rio, um "l" um link a um arquivo no sistema 
 <![ %INIC-INTER [ (veja <ref id="cmdv-ln"> para detalhes) ]]>, 
-um "-" quer dizer que È um arquivo comum, etc.
+um "-" quer dizer que √© um arquivo comum, etc.
  
  <item>
-Da segunda a quarta letra (rwx) dizem qual È a permiss„o de acesso ao 
-<em>dono</em> do arquivo. Neste caso <em>gleydson</em> ele tem a permiss„o 
+Da segunda a quarta letra (rwx) dizem qual √© a permiss√£o de acesso ao 
+<em>dono</em> do arquivo. Neste caso <em>gleydson</em> ele tem a permiss√£o 
 de ler (r - read), gravar (w - write) e executar (x - execute) o arquivo 
 <file>teste</file>.
 
  <item>
-Da quinta a sÈtima letra (r-x) diz qual È a permiss„o de acesso ao 
-<em>grupo</em> do arquivo. Neste caso todos os usu·rios que pertencem 
-ao grupo <em>users</em> tem a permiss„o de ler (r), e 
-tambÈm executar (x) o arquivo <file>teste</file>.
+Da quinta a s√©tima letra (r-x) diz qual √© a permiss√£o de acesso ao 
+<em>grupo</em> do arquivo. Neste caso todos os usu√°rios que pertencem 
+ao grupo <em>users</em> tem a permiss√£o de ler (r), e 
+tamb√©m executar (x) o arquivo <file>teste</file>.
 
  <item>
-Da oitava a dÈcima letra (r--) diz qual È a permiss„o de acesso para 
-os <em>outros usu·rios</em>. Neste caso todos os usu·rios que n„o 
-s„o donos do arquivo <file>teste</file> tem a permiss„o somente para ler 
+Da oitava a d√©cima letra (r--) diz qual √© a permiss√£o de acesso para 
+os <em>outros usu√°rios</em>. Neste caso todos os usu√°rios que n√£o 
+s√£o donos do arquivo <file>teste</file> tem a permiss√£o somente para ler 
 o programa.
 </list>
 Veja o comando <ref id="perm-chmod"> para detalhes sobre 
-a mudanÁa das permissıes de acesso de arquivos/diretÛrios.
+a mudan√ßa das permiss√µes de acesso de arquivos/diret√≥rios.
 
 
-<sect id="perm-acessando">Etapas para acesso a um arquivo/diretÛrio
+<sect id="perm-acessando">Etapas para acesso a um arquivo/diret√≥rio
  <p>
-O acesso a um arquivo/diretÛrio È feito verificando primeiro se o usu·rio 
-que acessar· o arquivo È o seu <em>dono</em>, caso seja, as permissıes 
-de dono do arquivo s„o aplicadas. Caso n„o seja o <em>dono</em> do 
-arquivo/diretÛrio, È verificado se ele pertence ao grupo correspondente, caso 
-pertenÁa, as permissıes do <em>grupo</em> s„o aplicadas. Caso n„o pertenÁa ao  
-<em>grupo</em>, s„o verificadas as permissıes de acesso para os outros 
-usu·rios que n„o s„o <em>donos</em> e n„o pertencem ao <em>grupo</em> 
-correspondente ao arquivo/diretÛrio. 
+O acesso a um arquivo/diret√≥rio √© feito verificando primeiro se o usu√°rio 
+que acessar√° o arquivo √© o seu <em>dono</em>, caso seja, as permiss√µes 
+de dono do arquivo s√£o aplicadas. Caso n√£o seja o <em>dono</em> do 
+arquivo/diret√≥rio, √© verificado se ele pertence ao grupo correspondente, caso 
+perten√ßa, as permiss√µes do <em>grupo</em> s√£o aplicadas. Caso n√£o perten√ßa ao  
+<em>grupo</em>, s√£o verificadas as permiss√µes de acesso para os outros 
+usu√°rios que n√£o s√£o <em>donos</em> e n√£o pertencem ao <em>grupo</em> 
+correspondente ao arquivo/diret√≥rio. 
  <p>
-ApÛs verificar aonde o usu·rio se encaixa nas permissıes de acesso do 
-arquivo (se ele È o <em>dono</em>, pertence ao <em>grupo</em>, ou <em>outros 
-usu·rios</em>), È verificado se ele ter· permiss„o acesso para o que 
-deseja fazer (ler, gravar ou executar o arquivo), caso n„o tenha, o acesso 
-È negado, mostrando uma mensagem do tipo: "Permission denied" (permiss„o 
+Ap√≥s verificar aonde o usu√°rio se encaixa nas permiss√µes de acesso do 
+arquivo (se ele √© o <em>dono</em>, pertence ao <em>grupo</em>, ou <em>outros 
+usu√°rios</em>), √© verificado se ele ter√° permiss√£o acesso para o que 
+deseja fazer (ler, gravar ou executar o arquivo), caso n√£o tenha, o acesso 
+√© negado, mostrando uma mensagem do tipo: "Permission denied" (permiss√£o 
 negada). 
  <p>
-O que isto que dizer È que mesmo que vocÍ seja o dono do arquivo e 
-definir o acesso do <em>dono</em> (atravÈs do comando <prgn>chmod</prgn>) 
-como somente leitura (r) mas o acesso dos <em>outros usu·rios</em> como 
-leitura e gravaÁ„o, vocÍ somente poder· ler este arquivo mas os outros 
-usu·rios poder„o ler/grava-lo. 
+O que isto que dizer √© que mesmo que voc√™ seja o dono do arquivo e 
+definir o acesso do <em>dono</em> (atrav√©s do comando <prgn>chmod</prgn>) 
+como somente leitura (r) mas o acesso dos <em>outros usu√°rios</em> como 
+leitura e grava√ß√£o, voc√™ somente poder√° ler este arquivo mas os outros 
+usu√°rios poder√£o ler/grava-lo. 
  <p>
-As permissıes de acesso (leitura, gravaÁ„o, execuÁ„o) para donos, grupos 
-e outros usu·rios s„o independentes, permitindo assim um nÌvel de acesso 
+As permiss√µes de acesso (leitura, grava√ß√£o, execu√ß√£o) para donos, grupos 
+e outros usu√°rios s√£o independentes, permitindo assim um n√≠vel de acesso 
 diferenciado. Para maiores detalhes veja <ref id="perm-tipos">. 
 <![ %OBS [
  <p>
-Lembre-se: Somente o dono pode modificar as permissıes de um arquivo/diretÛrio! ]]>
+Lembre-se: Somente o dono pode modificar as permiss√µes de um arquivo/diret√≥rio! ]]>
  <p>
 Para mais detalhes veja os comandos <ref id="perm-chown"> e <ref id="perm-chgrp">. 
 
 
-<sect id="perm-exemplo">Exemplos pr·ticos de permissıes de acesso 
+<sect id="perm-exemplo">Exemplos pr√°ticos de permiss√µes de acesso 
  <p>
-Abaixo dois exemplos pr·ticos de permiss„o de acesso: 
+Abaixo dois exemplos pr√°ticos de permiss√£o de acesso: 
 <ref id="perm-exemplo-a"> e a <ref id="perm-exemplo-d">. 
-Os dois exemplos s„o explicados passo a passo para uma 
-perfeita compreens„o do assunto. Vamos a pr·tica!
+Os dois exemplos s√£o explicados passo a passo para uma 
+perfeita compreens√£o do assunto. Vamos a pr√°tica!
 
 
 <sect1 id="perm-exemplo-a">Exemplo de acesso a um arquivo
  <p>
-Abaixo um exemplo e explicaÁ„o das permissıes de acesso a um arquivo no 
+Abaixo um exemplo e explica√ß√£o das permiss√µes de acesso a um arquivo no 
 <prgn>GNU/Linux</prgn> (obtido com o comando <tt>ls -la</tt>, explicarei 
 passo a passo cada parte: 
  <p>
@@ -185,42 +185,42 @@ passo a passo cada parte:
 <taglist compact>
  <tag><tt>-rwxr-xr--</tt></tag>
  <item>
-Estas s„o as permissıes de acesso ao arquivo <file>teste</file>. Um 
-conjunto de 10 letras que especificam o tipo do arquivo, permiss„o do 
-dono do arquivo, grupo do arquivo e outros usu·rios. Veja a explicaÁ„o 
+Estas s√£o as permiss√µes de acesso ao arquivo <file>teste</file>. Um 
+conjunto de 10 letras que especificam o tipo do arquivo, permiss√£o do 
+dono do arquivo, grupo do arquivo e outros usu√°rios. Veja a explica√ß√£o 
 detalhada sobre cada uma abaixo:
  <taglist compact>
   <tag><strong>-</strong>rwxr-xr--</tag>
   <item>
 A primeira letra (do conjunto das 10 letras) determina o tipo do arquivos.  
-Se a letra for um <strong>d</strong> È um diretÛrio, e vocÍ poder· 
+Se a letra for um <strong>d</strong> √© um diret√≥rio, e voc√™ poder√° 
 acessa-lo usando o comando <prgn>cd</prgn>. Caso for um <strong>l</strong>  
-È um link simbÛlico para algum arquivo ou diretÛrio no sistema 
+√© um link simb√≥lico para algum arquivo ou diret√≥rio no sistema 
 <![ %INIC-INTER [ (para detalhes veja o comando <ref id="cmdv-ln"> ]]>. 
-Um <strong>-</strong> significa que È um arquivo normal.
+Um <strong>-</strong> significa que √© um arquivo normal.
 
   <tag>-<strong>rwx</strong>r-xr--</tag>
   <item>
-Estas 3 letras (da segunda a quarta do conjunto das 10 letras) s„o as  
-permissıes de acesso do <em>dono</em> do arquivo <file>teste</file>. 
-O dono (neste caso <em>gleydson</em>) tem a permiss„o para ler (r), gravar (w) 
+Estas 3 letras (da segunda a quarta do conjunto das 10 letras) s√£o as  
+permiss√µes de acesso do <em>dono</em> do arquivo <file>teste</file>. 
+O dono (neste caso <em>gleydson</em>) tem a permiss√£o para ler (r), gravar (w) 
 e executar (x) o arquivo <file>teste</file>.
 
   <tag>-rwx<strong>r-x</strong>r--</tag>
   <item>
-Estes 3 simbolos (do quinto ao sÈtimo do conjunto de 10) s„o as 
-permissıes de acesso dos usu·rios que pertencem ao <em>grupo user</em> 
-do arquivo <file>teste</file>. Os usu·rios que pertencem ao grupo 
-<em>user</em> tem a permiss„o somente para ler (r) e executar (x) o 
-arquivo <file>teste</file> n„o podendo modifica-lo ou apaga-lo. 
+Estes 3 simbolos (do quinto ao s√©timo do conjunto de 10) s√£o as 
+permiss√µes de acesso dos usu√°rios que pertencem ao <em>grupo user</em> 
+do arquivo <file>teste</file>. Os usu√°rios que pertencem ao grupo 
+<em>user</em> tem a permiss√£o somente para ler (r) e executar (x) o 
+arquivo <file>teste</file> n√£o podendo modifica-lo ou apaga-lo. 
 
   <tag>-rwxr-x<strong>r--</strong></tag>
   <item>
-Estes 3 simbolos (do oitavo ao dÈcimo) s„o as permissıes de acesso para 
-usu·rios que <strong>n„o</strong> s„o <em>donos</em> do arquivo  
-<file>teste</file> e que <strong>n„o</strong> pertencem ao grupo  
-<em>user</em>. Neste caso, estas pessoas somente ter„o a permiss„o 
-para ver o conte˙do do arquivo <file>teste</file>. 
+Estes 3 simbolos (do oitavo ao d√©cimo) s√£o as permiss√µes de acesso para 
+usu√°rios que <strong>n√£o</strong> s√£o <em>donos</em> do arquivo  
+<file>teste</file> e que <strong>n√£o</strong> pertencem ao grupo  
+<em>user</em>. Neste caso, estas pessoas somente ter√£o a permiss√£o 
+para ver o conte√∫do do arquivo <file>teste</file>. 
  </taglist>
 
  <tag><em>gleydson</em></tag>
@@ -237,337 +237,337 @@ Nome do arquivo.
 </taglist>
 
 
-<sect1 id="perm-exemplo-d">Exemplo de acesso a um diretÛrio
+<sect1 id="perm-exemplo-d">Exemplo de acesso a um diret√≥rio
  <p>
-Abaixo um exemplo com explicaÁıes das permissıes de acesso a um diretÛrio no 
+Abaixo um exemplo com explica√ß√µes das permiss√µes de acesso a um diret√≥rio no 
 <prgn>GNU/Linux</prgn>:
  <p>
 drwxr-x---  2  gleydson user    1024 nov 4 17:55 exemplo
 <taglist compact>
  <tag><tt>drwxr-x---</tt></tag>
  <item>
-Permissıes de acesso ao diretÛrio <file>exemplo</file>. … um conjunto de 10 
-letras que especificam o tipo de arquivo, permiss„o do dono do diretÛrio, 
-grupo que o diretÛrio pertence e permiss„o de acesso a outros usu·rios. Veja  
-as explicaÁıes abaixo:
+Permiss√µes de acesso ao diret√≥rio <file>exemplo</file>. √â um conjunto de 10 
+letras que especificam o tipo de arquivo, permiss√£o do dono do diret√≥rio, 
+grupo que o diret√≥rio pertence e permiss√£o de acesso a outros usu√°rios. Veja  
+as explica√ß√µes abaixo:
  <taglist compact>
   <tag><strong>d</strong>rwxr-x---</tag>
   <item>
 A primeira letra (do conjunto das 10) determina o tipo do arquivo. Neste 
-caso È um diretÛrio porque tem a letra <strong>d</strong>. 
+caso √© um diret√≥rio porque tem a letra <strong>d</strong>. 
 
   <tag>d<strong>rwx</strong>r-x---</tag>
   <item>
-Estas 3 letras (da segunda a quarta) s„o as permissıes de acesso do 
-<em>dono</em> do diretÛrio <file>exemplo</file>. 
-O dono do diretÛrio (neste caso <em>gleydson</em>) tem a permiss„o para 
-listar arquivos do diretÛrio (r), gravar arquivos no diretÛrio (w) e entrar  
-no diretÛrio (x). 
+Estas 3 letras (da segunda a quarta) s√£o as permiss√µes de acesso do 
+<em>dono</em> do diret√≥rio <file>exemplo</file>. 
+O dono do diret√≥rio (neste caso <em>gleydson</em>) tem a permiss√£o para 
+listar arquivos do diret√≥rio (r), gravar arquivos no diret√≥rio (w) e entrar  
+no diret√≥rio (x). 
 
   <tag>drwx<strong>r-x</strong>---</tag>
   <item>
-Estas 3 letras (da quinta a sÈtima) s„o as permissıes de acesso dos  
-usu·rios que pertencem ao <em>grupo user</em>. Os usu·rios que pertencem  
-ao grupo <em>user</em> tem a permiss„o somente para listar arquivos do  
-diretÛrio (r) e entrar no diretÛrio (x) <file>exemplo</file>. 
+Estas 3 letras (da quinta a s√©tima) s√£o as permiss√µes de acesso dos  
+usu√°rios que pertencem ao <em>grupo user</em>. Os usu√°rios que pertencem  
+ao grupo <em>user</em> tem a permiss√£o somente para listar arquivos do  
+diret√≥rio (r) e entrar no diret√≥rio (x) <file>exemplo</file>. 
 
   <tag>drwxr-x<strong>---</strong></tag>
   <item>
-Estes 3 simbolos (do oitavo ao dÈcimo) s„o as permissıes de acesso para  
-usu·rios que <strong>n„o</strong> s„o <em>donos</em> do diretÛrio 
-<file>exemplo</file> e que <strong>n„o</strong> pertencem ao grupo 
-<em>user</em>. Com as permissıes acima, nenhum usu·rio que se encaixe  
-nas condiÁıes de <em>dono</em> e <em>grupo</em> do diretÛrio tem a  
-permiss„o de acessa-lo. 
+Estes 3 simbolos (do oitavo ao d√©cimo) s√£o as permiss√µes de acesso para  
+usu√°rios que <strong>n√£o</strong> s√£o <em>donos</em> do diret√≥rio 
+<file>exemplo</file> e que <strong>n√£o</strong> pertencem ao grupo 
+<em>user</em>. Com as permiss√µes acima, nenhum usu√°rio que se encaixe  
+nas condi√ß√µes de <em>dono</em> e <em>grupo</em> do diret√≥rio tem a  
+permiss√£o de acessa-lo. 
  </taglist>
 
  <tag><em>gleydson</em></tag>
  <item>
-Nome do dono do diretÛrio <file>exemplo</file>.
+Nome do dono do diret√≥rio <file>exemplo</file>.
 
  <tag><em>user</em></tag>
  <item>
-Nome do grupo que diretÛrio <file>exemplo</file> pertence.
+Nome do grupo que diret√≥rio <file>exemplo</file> pertence.
 
  <tag><file>exemplo</file></tag>
  <item>
-Nome do diretÛrio.
+Nome do diret√≥rio.
 </taglist>
-Para detalhes de como alterar o dono/grupo de um arquivo/diretÛrio, veja 
+Para detalhes de como alterar o dono/grupo de um arquivo/diret√≥rio, veja 
 os comandos <ref id="perm-chmod">, <ref id="perm-chgrp"> e  
 <ref id="perm-chown">.
 
 <![ %OBS [ 
  <p>
-<strong>OBSERVA«’ES</strong>:
+<strong>OBSERVA√á√ïES</strong>:
 <list compact>
  <item>
-O usu·rio <tt>root</tt> n„o tem nenhuma restriÁ„o de acesso ao sistema.
+O usu√°rio <tt>root</tt> n√£o tem nenhuma restri√ß√£o de acesso ao sistema.
  <item>
-Se vocÍ tem permissıes de gravaÁ„o no diretÛrio e tentar apagar um arquivo 
-que vocÍ n„o tem permiss„o de gravaÁ„o, o sistema perguntar· se vocÍ 
-confirma a exclus„o do arquivo apesar do modo leitura. Caso vocÍ tenha 
-permissıes de gravaÁ„o no arquivo, o arquivo ser· apagado por padr„o sem 
-mostrar nenhuma mensagem de erro (a n„o ser que seja especificada a opÁ„o 
+Se voc√™ tem permiss√µes de grava√ß√£o no diret√≥rio e tentar apagar um arquivo 
+que voc√™ n√£o tem permiss√£o de grava√ß√£o, o sistema perguntar√° se voc√™ 
+confirma a exclus√£o do arquivo apesar do modo leitura. Caso voc√™ tenha 
+permiss√µes de grava√ß√£o no arquivo, o arquivo ser√° apagado por padr√£o sem 
+mostrar nenhuma mensagem de erro (a n√£o ser que seja especificada a op√ß√£o 
 -i com o comando <prgn>rm</prgn>).
  <item>
-Por outro lado, mesmo que vocÍ tenha permissıes de gravaÁ„o em um arquivo 
-mas n„o tenha permissıes de gravaÁ„o em um diretÛrio, a exclus„o do arquivo 
-ser· negada.
+Por outro lado, mesmo que voc√™ tenha permiss√µes de grava√ß√£o em um arquivo 
+mas n√£o tenha permiss√µes de grava√ß√£o em um diret√≥rio, a exclus√£o do arquivo 
+ser√° negada.
 </list>
-Isto mostra que È levado mais em consideraÁ„o a permiss„o de acesso do  
-diretÛrio do que as permissıes dos arquivos e sub-diretÛrios que ele contÈm. 
-Este ponto È muitas vezes ignorado por muitas pessoas e expıem seu sistema 
-a riscos de seguranÁa. Imagine o problema que algum usu·rio que n„o tenha 
-permiss„o de gravaÁ„o em um arquivo mas que a tenha no diretÛrio pode causar 
+Isto mostra que √© levado mais em considera√ß√£o a permiss√£o de acesso do  
+diret√≥rio do que as permiss√µes dos arquivos e sub-diret√≥rios que ele cont√©m. 
+Este ponto √© muitas vezes ignorado por muitas pessoas e exp√µem seu sistema 
+a riscos de seguran√ßa. Imagine o problema que algum usu√°rio que n√£o tenha 
+permiss√£o de grava√ß√£o em um arquivo mas que a tenha no diret√≥rio pode causar 
 em um sistema mal administrado. ]]>
 
 
-<sect id="perm-especiais">Permissıes de Acesso Especiais
+<sect id="perm-especiais">Permiss√µes de Acesso Especiais
  <p>
-Em adiÁ„o as trÍs permissıes b·sicas (rwx), existem permissıes de acesso 
-especiais (stX) que afetam os arquivos e diretÛrios: 
+Em adi√ß√£o as tr√™s permiss√µes b√°sicas (rwx), existem permiss√µes de acesso 
+especiais (stX) que afetam os arquivos e diret√≥rios: 
 <list compact>
  <item>
-<tt>s</tt> - Quando È usado na permiss„o de acesso do <em>Dono</em>, ajusta 
-a identificaÁ„o efetiva do usu·rio do processo durante a execuÁ„o de 
-um programa, tambÈm chamado de <em>bit setuid</em>. N„o tem efeito em 
-diretÛrios. 
+<tt>s</tt> - Quando √© usado na permiss√£o de acesso do <em>Dono</em>, ajusta 
+a identifica√ß√£o efetiva do usu√°rio do processo durante a execu√ß√£o de 
+um programa, tamb√©m chamado de <em>bit setuid</em>. N√£o tem efeito em 
+diret√≥rios. 
  <p>
-Quando <tt>s</tt> È usado na permiss„o de acesso do <em>Grupo</em>, 
-ajusta a identificaÁ„o efetiva do grupo do processo durante a execuÁ„o 
-de um programa, chamado de <em>bit setgid</em>. … identificado pela letra 
-<tt>s</tt> no lugar da permiss„o de execuÁ„o do grupo do arquivo/diretÛrio. 
-Em diretÛrios, forÁa que os arquivos criados dentro dele pertenÁam ao mesmo 
-grupo do diretÛrio, ao invÈs do grupo prim·rio que o usu·rio pertence. 
+Quando <tt>s</tt> √© usado na permiss√£o de acesso do <em>Grupo</em>, 
+ajusta a identifica√ß√£o efetiva do grupo do processo durante a execu√ß√£o 
+de um programa, chamado de <em>bit setgid</em>. √â identificado pela letra 
+<tt>s</tt> no lugar da permiss√£o de execu√ß√£o do grupo do arquivo/diret√≥rio. 
+Em diret√≥rios, for√ßa que os arquivos criados dentro dele perten√ßam ao mesmo 
+grupo do diret√≥rio, ao inv√©s do grupo prim√°rio que o usu√°rio pertence. 
  <p>
 Ambos <em>setgid</em> e <em>setuid</em> podem aparecer ao mesmo tempo no 
-mesmo arquivo/diretÛrio. A permiss„o de acesso especial <tt>s</tt> somente 
+mesmo arquivo/diret√≥rio. A permiss√£o de acesso especial <tt>s</tt> somente 
 pode aparecer no campo <em>Dono</em> e <em>Grupo</em>. 
 
  <item>
-<tt>S</tt> - IdÍntico a "s". Significa que n„o existe a permiss„o "x"
-(execuÁ„o ou entrar no diretÛrio) naquela posiÁ„o. Um exemplo È o 
-chmod 2760 em um diretÛrio.
+<tt>S</tt> - Id√™ntico a "s". Significa que n√£o existe a permiss√£o "x"
+(execu√ß√£o ou entrar no diret√≥rio) naquela posi√ß√£o. Um exemplo √© o 
+chmod 2760 em um diret√≥rio.
  
  <item>
 <tt>t</tt> - Salva a imagem do texto do programa no dispositivo swap, assim 
-ele ser· carregado mais rapidamente quando executado, tambÈm chamado de 
+ele ser√° carregado mais rapidamente quando executado, tamb√©m chamado de 
 <em>stick bit</em>. 
  <p>
-Em diretÛrios, impede que outros usu·rios removam arquivos dos quais n„o 
-s„o donos. Isto È chamado de colocar o diretÛrio em modo <tt>append-only</tt>. 
-Um exemplo de diretÛrio que se encaixa perfeitamente nesta condiÁ„o È o 
-<file>/tmp</file>, todos os usu·rios devem ter acesso para que seus 
-programas possam criar os arquivos tempor·rios l·, mas nenhum pode apagar 
+Em diret√≥rios, impede que outros usu√°rios removam arquivos dos quais n√£o 
+s√£o donos. Isto √© chamado de colocar o diret√≥rio em modo <tt>append-only</tt>. 
+Um exemplo de diret√≥rio que se encaixa perfeitamente nesta condi√ß√£o √© o 
+<file>/tmp</file>, todos os usu√°rios devem ter acesso para que seus 
+programas possam criar os arquivos tempor√°rios l√°, mas nenhum pode apagar 
 arquivos dos outros. 
-A permiss„o especial <tt>t</tt>, pode ser especificada somente 
-no campo outros usu·rios das permissıes de acesso. 
+A permiss√£o especial <tt>t</tt>, pode ser especificada somente 
+no campo outros usu√°rios das permiss√µes de acesso. 
 
  <item>
- <tt>T</tt> - IdÍntico a "t". Significa que n„o existe a permiss„o "x"
- naquela posiÁ„o (por exemplo, em um chmod 1776 em um diretÛrio).
+ <tt>T</tt> - Id√™ntico a "t". Significa que n√£o existe a permiss√£o "x"
+ naquela posi√ß√£o (por exemplo, em um chmod 1776 em um diret√≥rio).
 
  <item>
-<tt>X</tt> - Se vocÍ usar <tt>X</tt> ao invÈs de <tt>x</tt>, a permiss„o de 
-execuÁ„o somente È aplicada se o arquivo j· tiver permissıes de execuÁ„o. Em 
-diretÛrios ela tem o mesmo efeito que a permiss„o de execuÁ„o <tt>x</tt>. 
+<tt>X</tt> - Se voc√™ usar <tt>X</tt> ao inv√©s de <tt>x</tt>, a permiss√£o de 
+execu√ß√£o somente √© aplicada se o arquivo j√° tiver permiss√µes de execu√ß√£o. Em 
+diret√≥rios ela tem o mesmo efeito que a permiss√£o de execu√ß√£o <tt>x</tt>. 
 </list> 
 
 <![ %EXEMPLO [
  <p>
 <list>
  <item>
-Exemplo da permiss„o de acesso especial <tt>X</tt>:
+Exemplo da permiss√£o de acesso especial <tt>X</tt>:
  <enumlist compact>
 <item>Crie um arquivo <file>teste</file> (digitando <tt>touch teste</tt>) 
-e defina sua permiss„o para <tt>rw-rw-r--</tt> 
+e defina sua permiss√£o para <tt>rw-rw-r--</tt> 
 (<tt>chmod ug=rw,o=r teste</tt> ou <tt>chmod 664 teste</tt>). 
 <item>Agora use o comando <tt>chmod a+X teste</tt>
 <item>digite <tt>ls -l</tt>
-<item>Veja que as permissıes do arquivo n„o foram afetadas.
+<item>Veja que as permiss√µes do arquivo n√£o foram afetadas.
 <item>agora digite <tt>chmod o+x teste</tt>
-<item>digite <tt>ls -l</tt>, vocÍ colocou a permiss„o de execuÁ„o para os 
-outros usu·rios.
+<item>digite <tt>ls -l</tt>, voc√™ colocou a permiss√£o de execu√ß√£o para os 
+outros usu√°rios.
 <item>Agora use novamente o comando <tt>chmod a+X teste</tt> 
 <item>digite <tt>ls -l</tt>
-<item>Veja que agora a permiss„o de execuÁ„o foi concedida a todos os 
-usu·rios, pois foi verificado que o arquivo era execut·vel (tinha permiss„o 
-de execuÁ„o para outros usu·rios). 
+<item>Veja que agora a permiss√£o de execu√ß√£o foi concedida a todos os 
+usu√°rios, pois foi verificado que o arquivo era execut√°vel (tinha permiss√£o 
+de execu√ß√£o para outros usu√°rios). 
 <item>Agora use o comando <tt>chmod a-X teste</tt>
-<item>Ele tambÈm funcionar· e remover· as permissıes de execuÁ„o de todos os 
-usu·rios, porque o arquivo <file>teste</file> tem permiss„o de execuÁ„o 
+<item>Ele tamb√©m funcionar√° e remover√° as permiss√µes de execu√ß√£o de todos os 
+usu√°rios, porque o arquivo <file>teste</file> tem permiss√£o de execu√ß√£o 
 (confira digitando <tt>ls -l</tt>). 
 <item>Agora tente novamente o <tt>chmod a+X teste</tt> 
-<item>VocÍ deve ter reparado que a permiss„o de acesso especial <tt>X</tt> È 
-semelhante a <tt>x</tt>, mas somente faz efeito quanto o arquivo j· 
-tem permiss„o de execuÁ„o para o dono, grupo ou outros usu·rios. 
+<item>Voc√™ deve ter reparado que a permiss√£o de acesso especial <tt>X</tt> √© 
+semelhante a <tt>x</tt>, mas somente faz efeito quanto o arquivo j√° 
+tem permiss√£o de execu√ß√£o para o dono, grupo ou outros usu√°rios. 
 </enumlist>
 
-Em diretÛrios, a permiss„o de acesso especial <tt>X</tt> funciona da 
-mesma forma que <tt>x</tt>, atÈ mesmo se o diretÛrio n„o tiver nenhuma 
-permiss„o de acesso (<tt>x</tt>). 
+Em diret√≥rios, a permiss√£o de acesso especial <tt>X</tt> funciona da 
+mesma forma que <tt>x</tt>, at√© mesmo se o diret√≥rio n√£o tiver nenhuma 
+permiss√£o de acesso (<tt>x</tt>). 
 </list> ]]>
 
 
 <sect id="perm-root">A conta root
  <p>
-<em>Esta seÁ„o foi retirada do Manual de InstalaÁ„o da Debian</em>. 
+<em>Esta se√ß√£o foi retirada do Manual de Instala√ß√£o da Debian</em>. 
  <p>
-A conta root È tambÈm chamada de <em>super usu·rio</em>, este È um login  
-que n„o possui restriÁıes de seguranÁa. A conta root somente deve ser  
-usada para fazer a administraÁ„o do sistema, e usada o menor tempo  
-possÌvel. 
+A conta root √© tamb√©m chamada de <em>super usu√°rio</em>, este √© um login  
+que n√£o possui restri√ß√µes de seguran√ßa. A conta root somente deve ser  
+usada para fazer a administra√ß√£o do sistema, e usada o menor tempo  
+poss√≠vel. 
  <p>
-Qualquer senha que criar dever· conter de 6 a 8 caracteres (em 
-sistemas usando crypto) ou atÈ frases inteiras (caso esteja 
-usando MD5, que garante maior seguranÁa), e tambÈm poder· conter letras 
-mai˙sculas e min˙sculas, e tambÈm caracteres de pontuaÁ„o. Tenha um cuidado 
-especial quando escolher sua senha root, porque ela È a conta mais poderosa. 
-Evite palavras de dicion·rio ou o uso de qualquer outros dados pessoais que 
+Qualquer senha que criar dever√° conter de 6 a 8 caracteres (em 
+sistemas usando crypto) ou at√© frases inteiras (caso esteja 
+usando MD5, que garante maior seguran√ßa), e tamb√©m poder√° conter letras 
+mai√∫sculas e min√∫sculas, e tamb√©m caracteres de pontua√ß√£o. Tenha um cuidado 
+especial quando escolher sua senha root, porque ela √© a conta mais poderosa. 
+Evite palavras de dicion√°rio ou o uso de qualquer outros dados pessoais que 
 podem ser adivinhados. 
  <p>
-Se qualquer um lhe pedir senha root, seja extremamente cuidadoso. VocÍ  
-normalmente nunca deve distribuir sua conta root, a n„o ser que esteja  
+Se qualquer um lhe pedir senha root, seja extremamente cuidadoso. Voc√™  
+normalmente nunca deve distribuir sua conta root, a n√£o ser que esteja  
 administrando um computador com mais de um administrador do sistema. 
  <p>
-Utilize uma conta de usu·rio normal ao invÈs da conta root para 
-operar seu sistema. Porque n„o usar a conta root? Bem, uma raz„o para  
-evitar usar privilÈgios root È por causa da facilidade de se cometer  
-danos irrepar·veis como root. Outra raz„o È que vocÍ pode ser enganado  
-e rodar um programa <em>Cavalo de TrÛia</em> -- que È um programa que  
-obtÈm poderes do <em>super usu·rio</em> para comprometer a seguranÁa do 
-seu sistema sem que vocÍ saiba. 
+Utilize uma conta de usu√°rio normal ao inv√©s da conta root para 
+operar seu sistema. Porque n√£o usar a conta root? Bem, uma raz√£o para  
+evitar usar privil√©gios root √© por causa da facilidade de se cometer  
+danos irrepar√°veis como root. Outra raz√£o √© que voc√™ pode ser enganado  
+e rodar um programa <em>Cavalo de Tr√≥ia</em> -- que √© um programa que  
+obt√©m poderes do <em>super usu√°rio</em> para comprometer a seguran√ßa do 
+seu sistema sem que voc√™ saiba. 
 
 
 <sect id="perm-chmod">chmod
  <p>
-Muda a permiss„o de acesso a um arquivo ou diretÛrio. Com este comando vocÍ 
-pode escolher se usu·rio ou grupo ter· permissıes para ler, gravar, executar  
+Muda a permiss√£o de acesso a um arquivo ou diret√≥rio. Com este comando voc√™ 
+pode escolher se usu√°rio ou grupo ter√° permiss√µes para ler, gravar, executar  
 um arquivo ou arquivos. 
-<![ %DESCRICAOD [ Sempre que um arquivo È criado, seu dono È o usu·rio 
-que o criou e seu grupo È o grupo do usu·rio (exceto para diretÛrios 
-configurados com a permiss„o de grupo <tt>"s"</tt>, ser· visto adiante). ]]> 
+<![ %DESCRICAOD [ Sempre que um arquivo √© criado, seu dono √© o usu√°rio 
+que o criou e seu grupo √© o grupo do usu√°rio (exceto para diret√≥rios 
+configurados com a permiss√£o de grupo <tt>"s"</tt>, ser√° visto adiante). ]]> 
  <p>
-<tt>chmod [<em>opÁıes</em>] [<em>permissıes</em>] [<em>diretÛrio/arquivo</em>]</tt>
+<tt>chmod [<em>op√ß√µes</em>] [<em>permiss√µes</em>] [<em>diret√≥rio/arquivo</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>diretÛrio/arquivo</em></tag>
+ <tag><em>diret√≥rio/arquivo</em></tag>
  <item>
-DiretÛrio ou arquivo que ter· sua permiss„o mudada.
+Diret√≥rio ou arquivo que ter√° sua permiss√£o mudada.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-v, --verbose</tag>
  <item>
-Mostra todos os arquivos que est„o sendo processados.
+Mostra todos os arquivos que est√£o sendo processados.
 
  <tag>-f, --silent</tag>
  <item>
-N„o mostra a maior parte das mensagens de erro.
+N√£o mostra a maior parte das mensagens de erro.
 
  <tag>-c, --change</tag>
  <item>
-Semelhante a opÁ„o -v, mas sÛ mostra os arquivos que tiveram as permissıes 
+Semelhante a op√ß√£o -v, mas s√≥ mostra os arquivos que tiveram as permiss√µes 
 alteradas.
 
  <tag>-R, --recursive</tag>
  <item>
-Muda permissıes de acesso do <em>diretÛrio/arquivo</em> no diretÛrio atual e 
-sub-diretÛrios.
+Muda permiss√µes de acesso do <em>diret√≥rio/arquivo</em> no diret√≥rio atual e 
+sub-diret√≥rios.
 
- <tag><em>permissıes</em></tag>
+ <tag><em>permiss√µes</em></tag>
  <tag>ugoa+-=rwxXst</tag>
  <item>
  <list>
   <item>
-<em>ugoa</em> - Controla que nÌvel de acesso ser· mudado. Especificam, em 
-ordem, usu·rio (u), grupo (g), outros (o), todos (a). 
+<em>ugoa</em> - Controla que n√≠vel de acesso ser√° mudado. Especificam, em 
+ordem, usu√°rio (u), grupo (g), outros (o), todos (a). 
 
   <item>
-<em>+-=</em> - <em>+</em> coloca a permiss„o, <em>-</em> retira a 
-permiss„o do arquivo e <em>=</em> define a permiss„o exatamente como 
+<em>+-=</em> - <em>+</em> coloca a permiss√£o, <em>-</em> retira a 
+permiss√£o do arquivo e <em>=</em> define a permiss√£o exatamente como 
 especificado. 
 
   <item>
-rwx - <em>r</em> permiss„o de leitura do arquivo. <em>w</em> permiss„o 
-de gravaÁ„o. <em>x</em> permiss„o de execuÁ„o (ou acesso a diretÛrios).  
+rwx - <em>r</em> permiss√£o de leitura do arquivo. <em>w</em> permiss√£o 
+de grava√ß√£o. <em>x</em> permiss√£o de execu√ß√£o (ou acesso a diret√≥rios).  
  </list>
 
 </taglist>
 ]]>
-<prgn>chmod</prgn> n„o muda permissıes de links simbÛlicos, as permissıes 
-devem ser mudadas no arquivo alvo do link. TambÈm podem ser usados 
-cÛdigos numÈricos octais para a mudanÁa das permissıes de acesso a 
-arquivos/diretÛrios. Para detalhes veja <ref id="perm-octal">. 
+<prgn>chmod</prgn> n√£o muda permiss√µes de links simb√≥licos, as permiss√µes 
+devem ser mudadas no arquivo alvo do link. Tamb√©m podem ser usados 
+c√≥digos num√©ricos octais para a mudan√ßa das permiss√µes de acesso a 
+arquivos/diret√≥rios. Para detalhes veja <ref id="perm-octal">. 
 <![ %OBS [
  <p>
-DICA: … possÌvel copiar permissıes de acesso do arquivo/diretÛrio, 
-por exemplo, se o arquivo <file>teste.txt</file> tiver a permiss„o 
-de acesso <tt>r-xr-----</tt> e vocÍ digitar <tt>chmod o=u</tt>, 
-as permissıes de acesso dos outros usu·rios (o) ser„o idÍnticas ao 
-do dono (u). Ent„o a nova permiss„o de acesso do arquivo 
-<file>teste.txt</file> ser· <tt>r-xr--r-x</tt> ]]>
+DICA: √â poss√≠vel copiar permiss√µes de acesso do arquivo/diret√≥rio, 
+por exemplo, se o arquivo <file>teste.txt</file> tiver a permiss√£o 
+de acesso <tt>r-xr-----</tt> e voc√™ digitar <tt>chmod o=u</tt>, 
+as permiss√µes de acesso dos outros usu√°rios (o) ser√£o id√™nticas ao 
+do dono (u). Ent√£o a nova permiss√£o de acesso do arquivo 
+<file>teste.txt</file> ser√° <tt>r-xr--r-x</tt> ]]>
 <![ %EXEMPLO [
  <p>
-Exemplos de permissıes de acesso: 
+Exemplos de permiss√µes de acesso: 
 <taglist compact>
  <tag><tt>chmod g+r *</tt></tag>
  <item>
-Permite que todos os usu·rios que pertenÁam ao grupo dos arquivos (g) 
-tenham (+) permissıes de leitura (r) em todos os arquivos do diretÛrio 
+Permite que todos os usu√°rios que perten√ßam ao grupo dos arquivos (g) 
+tenham (+) permiss√µes de leitura (r) em todos os arquivos do diret√≥rio 
 atual.
  
  <tag><tt>chmod o-r teste.txt</tt></tag>
  <item>
-Retira (-) a permiss„o de leitura (r) do arquivo <file>teste.txt</file> para 
-os outros usu·rios (usu·rios que n„o s„o donos e n„o pertencem ao grupo 
+Retira (-) a permiss√£o de leitura (r) do arquivo <file>teste.txt</file> para 
+os outros usu√°rios (usu√°rios que n√£o s√£o donos e n√£o pertencem ao grupo 
 do arquivo <file>teste.txt</file>).
 
  <tag><tt>chmod uo+x teste.txt</tt></tag>
  <item>
-Inclui (+) a permiss„o de execuÁ„o do arquivo <file>teste.txt</file> para
-o dono e outros usu·rios do arquivo.
+Inclui (+) a permiss√£o de execu√ß√£o do arquivo <file>teste.txt</file> para
+o dono e outros usu√°rios do arquivo.
 
  <tag><tt>chmod a+x teste.txt</tt></tag>
  <item>
-Inclui (+) a permiss„o de execuÁ„o do arquivo <file>teste.txt</file> para 
-o dono, grupo e outros usu·rios.
+Inclui (+) a permiss√£o de execu√ß√£o do arquivo <file>teste.txt</file> para 
+o dono, grupo e outros usu√°rios.
 
  <tag><tt>chmod a=rw teste.txt</tt></tag>
  <item>
-Define a permiss„o de todos os usu·rios exatamente (=) para leitura 
-e gravaÁ„o do arquivo <file>teste.txt</file>. 
+Define a permiss√£o de todos os usu√°rios exatamente (=) para leitura 
+e grava√ß√£o do arquivo <file>teste.txt</file>. 
 
 </taglist> ]]>
 
 
 <sect id="perm-chgrp">chgrp
  <p>
-Muda o grupo de um arquivo/diretÛrio.
+Muda o grupo de um arquivo/diret√≥rio.
  <p>
-<tt>chgrp [<em>opÁıes</em>] [grupo] [arquivo/diretÛrio]</tt>
+<tt>chgrp [<em>op√ß√µes</em>] [grupo] [arquivo/diret√≥rio]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>grupo</em></tag>
  <item>
-Novo grupo do <em>arquivo/diretÛrio</em>.
+Novo grupo do <em>arquivo/diret√≥rio</em>.
 
- <tag><em>arquivo/diretÛrio</em></tag>
+ <tag><em>arquivo/diret√≥rio</em></tag>
  <item>
-Arquivo/diretÛrio que ter· o grupo alterado.
+Arquivo/diret√≥rio que ter√° o grupo alterado.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-c, --changes</tag>
  <item>
 Somente mostra os arquivos/grupos que forem alterados.
 
  <tag>-f, --silent</tag>
  <item>
-N„o mostra mensagens de erro para arquivos/diretÛrios que n„o puderam ser 
+N√£o mostra mensagens de erro para arquivos/diret√≥rios que n√£o puderam ser 
 alterados.
 
  <tag>-v, --verbose</tag>
@@ -576,38 +576,38 @@ Mostra todas as mensagens e arquivos sendo modificados.
 
  <tag>-R, --recursive</tag>
  <item>
-Altera os grupos de arquivos/sub-diretÛrios do diretÛrio atual.  
+Altera os grupos de arquivos/sub-diret√≥rios do diret√≥rio atual.  
 </taglist>
 ]]>
  
 
 <sect id="perm-chown">chown
  <p>
-Muda dono de um arquivo/diretÛrio. Opcionalmente pode tambÈm ser usado para 
+Muda dono de um arquivo/diret√≥rio. Opcionalmente pode tamb√©m ser usado para 
 mudar o grupo. 
  <p>
-<tt>chown [<em>opÁıes</em>] [dono.grupo] [diretÛrio/arquivo]</tt>
+<tt>chown [<em>op√ß√µes</em>] [dono.grupo] [diret√≥rio/arquivo]</tt>
  <p>
 <![ %OPCOES [
 onde:
 <taglist compact>
  <tag><em>dono.grupo</em></tag>
  <item>
-Nome do <em>dono.grupo</em> que ser· atribuÌdo ao <em>diretÛrio/arquivo</em>. 
-O grupo È opcional. 
+Nome do <em>dono.grupo</em> que ser√° atribu√≠do ao <em>diret√≥rio/arquivo</em>. 
+O grupo √© opcional. 
 
- <tag><em>diretÛrio/arquivo</em></tag>
+ <tag><em>diret√≥rio/arquivo</em></tag>
  <item>
-DiretÛrio/arquivo que o dono.grupo ser· modificado.
+Diret√≥rio/arquivo que o dono.grupo ser√° modificado.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-v, --verbose</tag>
  <item>
-Mostra os arquivos enquanto s„o alterados.
+Mostra os arquivos enquanto s√£o alterados.
 
  <tag>-f, --supress</tag>
  <item>
-N„o mostra mensagens de erro durante a execuÁ„o do programa.
+N√£o mostra mensagens de erro durante a execu√ß√£o do programa.
 
  <tag>-c, --changes</tag>
  <item>
@@ -615,15 +615,15 @@ Mostra somente arquivos que forem alterados.
 
  <tag>-R, --recursive</tag>
  <item>
-Altera dono e grupo de arquivos no diretÛrio atual e sub-diretÛrios.
+Altera dono e grupo de arquivos no diret√≥rio atual e sub-diret√≥rios.
 
 </taglist>
 ]]>
 O <em>dono.grupo</em> pode ser especificado usando o nome de grupo ou o  
-cÛdigo numÈrico correspondente ao grupo (GID). 
+c√≥digo num√©rico correspondente ao grupo (GID). 
 <![ %OBS [
  <p>
-VocÍ deve ter permissıes de gravaÁ„o no diretÛrio/arquivo para alterar 
+Voc√™ deve ter permiss√µes de grava√ß√£o no diret√≥rio/arquivo para alterar 
 seu dono/grupo. ]]>
 <![ %EXEMPLO [
  <p>
@@ -638,61 +638,61 @@ seu dono/grupo. ]]>
 
  <item>
 <tt>chown -R gleydson.focalinux *</tt> - Muda o dono/grupo dos arquivos do 
-diretÛrio atual e sub-diretÛrios para <tt>gleydson/focalinux</tt> (desde que 
-vocÍ tenha permissıes de gravaÁ„o no diretÛrios e sub-diretÛrios).
+diret√≥rio atual e sub-diret√≥rios para <tt>gleydson/focalinux</tt> (desde que 
+voc√™ tenha permiss√µes de grava√ß√£o no diret√≥rios e sub-diret√≥rios).
 </list> ]]>
 
 
-<sect id="perm-octal">Modo de permiss„o octal
+<sect id="perm-octal">Modo de permiss√£o octal
  <p>
-Ao invÈs de utilizar os modos de permiss„o <tt>+r</tt>, <tt>-r</tt>, etc, 
-pode ser usado o modo octal para se alterar a permiss„o de acesso a 
-um arquivo. O modo octal È um conjunto de oito n˙meros onde cada n˙mero 
+Ao inv√©s de utilizar os modos de permiss√£o <tt>+r</tt>, <tt>-r</tt>, etc, 
+pode ser usado o modo octal para se alterar a permiss√£o de acesso a 
+um arquivo. O modo octal √© um conjunto de oito n√∫meros onde cada n√∫mero 
 define um tipo de acesso diferente. 
  <p>
-… mais flexÌvel gerenciar permissıes de acesso usando o modo octal ao invÈs 
-do comum, pois vocÍ especifica diretamente a permiss„o do dono, grupo, outros 
-ao invÈs de gerenciar as permissıes de cada um separadamente. 
-Abaixo a lista de permissıes de acesso octal: 
+√â mais flex√≠vel gerenciar permiss√µes de acesso usando o modo octal ao inv√©s 
+do comum, pois voc√™ especifica diretamente a permiss√£o do dono, grupo, outros 
+ao inv√©s de gerenciar as permiss√µes de cada um separadamente. 
+Abaixo a lista de permiss√µes de acesso octal: 
 <list compact>
- <item><tt>0</tt> - Nenhuma permiss„o de acesso. Equivalente a -rwx.
- <item><tt>1</tt> - Permiss„o de execuÁ„o (x). 
- <item><tt>2</tt> - Permiss„o de gravaÁ„o (w).
- <item><tt>3</tt> - Permiss„o de gravaÁ„o e execuÁ„o (wx). Equivalente a permiss„o 2+1
- <item><tt>4</tt> - Permiss„o de leitura (r).
- <item><tt>5</tt> - Permiss„o de leitura e execuÁ„o (rx). Equivalente a permiss„o 4+1
- <item><tt>6</tt> - Permiss„o de leitura e gravaÁ„o (rw). Equivalente a permiss„o 4+2
- <item><tt>7</tt> - Permiss„o de leitura, gravaÁ„o e execuÁ„o. Equivalente a +rwx (4+2+1).
+ <item><tt>0</tt> - Nenhuma permiss√£o de acesso. Equivalente a -rwx.
+ <item><tt>1</tt> - Permiss√£o de execu√ß√£o (x). 
+ <item><tt>2</tt> - Permiss√£o de grava√ß√£o (w).
+ <item><tt>3</tt> - Permiss√£o de grava√ß√£o e execu√ß√£o (wx). Equivalente a permiss√£o 2+1
+ <item><tt>4</tt> - Permiss√£o de leitura (r).
+ <item><tt>5</tt> - Permiss√£o de leitura e execu√ß√£o (rx). Equivalente a permiss√£o 4+1
+ <item><tt>6</tt> - Permiss√£o de leitura e grava√ß√£o (rw). Equivalente a permiss√£o 4+2
+ <item><tt>7</tt> - Permiss√£o de leitura, grava√ß√£o e execu√ß√£o. Equivalente a +rwx (4+2+1).
 
 </list>
-O uso de um deste n˙meros define a permiss„o de acesso do <em>dono</em>, 
-<em>grupo</em> ou <em>outros usu·rios</em>. Um modo f·cil de entender 
-como as permissıes de acesso octais funcionam, È atravÈs da seguinte tabela: 
+O uso de um deste n√∫meros define a permiss√£o de acesso do <em>dono</em>, 
+<em>grupo</em> ou <em>outros usu√°rios</em>. Um modo f√°cil de entender 
+como as permiss√µes de acesso octais funcionam, √© atrav√©s da seguinte tabela: 
 <example>
 1 = Executar
 2 = Gravar
 4 = Ler
 
-* Para Dono e Grupo, multiplique as permissıes acima por x100 e x10.
+* Para Dono e Grupo, multiplique as permiss√µes acima por x100 e x10.
 </example>
 <![ %INTER-AVANC [ 
-e para as permissıes de acesso especiais: 
+e para as permiss√µes de acesso especiais: 
 <example>
 1000 = Salva imagem do texto no dispositivo de troca
-2000 = Ajusta o bit setgid na execuÁ„o
-4000 = Ajusta o bit setuid na execuÁ„o
+2000 = Ajusta o bit setgid na execu√ß√£o
+4000 = Ajusta o bit setuid na execu√ß√£o
 
 </example> 
 ]]>
 Basta agora fazer o seguinte:
 <list compact>
- <item>Somente permiss„o de execuÁ„o, use 1.  
- <item>Somente a permiss„o de leitura, use 4. 
- <item>Somente permiss„o de gravaÁ„o, use 2.
- <item>Permiss„o de leitura/gravaÁ„o, use 6 (equivale a 2+4 / Gravar+Ler). 
- <item>Permiss„o de leitura/execuÁ„o, use 5 (equivale a 1+4 / Executar+Ler).
- <item>Permiss„o de execuÁ„o/gravaÁ„o, use 3 (equivale a 1+2 / Executar+Gravar).
- <item>Permiss„o de leitura/gravaÁ„o/execuÁ„o, use 7 
+ <item>Somente permiss√£o de execu√ß√£o, use 1.  
+ <item>Somente a permiss√£o de leitura, use 4. 
+ <item>Somente permiss√£o de grava√ß√£o, use 2.
+ <item>Permiss√£o de leitura/grava√ß√£o, use 6 (equivale a 2+4 / Gravar+Ler). 
+ <item>Permiss√£o de leitura/execu√ß√£o, use 5 (equivale a 1+4 / Executar+Ler).
+ <item>Permiss√£o de execu√ß√£o/grava√ß√£o, use 3 (equivale a 1+2 / Executar+Gravar).
+ <item>Permiss√£o de leitura/grava√ß√£o/execu√ß√£o, use 7 
  (equivale a 1+2+4 / Executar+Gravar+Ler). 
  <![ %INTER-AVANC [ 
  <item>Salvar texto no dispositivo de troca, use 1000.
@@ -704,65 +704,65 @@ Basta agora fazer o seguinte:
  (equivale a 4000+2000 / setuid + setgid).
  ]]>
 </list>
-Vamos a pr·tica com alguns exemplos:
+Vamos a pr√°tica com alguns exemplos:
 <example>
 "chmod 764 teste"
 </example>
-Os n˙meros s„o interpretados da <strong>direita para a esquerda</strong> como 
-permiss„o de acesso aos <em>outros usu·rios</em> (4), <em>grupo</em> (6), e 
+Os n√∫meros s√£o interpretados da <strong>direita para a esquerda</strong> como 
+permiss√£o de acesso aos <em>outros usu√°rios</em> (4), <em>grupo</em> (6), e 
 <em>dono</em> (7).  
-O exemplo acima faz os <em>outros usu·rios</em> (4) terem acesso somente 
+O exemplo acima faz os <em>outros usu√°rios</em> (4) terem acesso somente 
 leitura (r) ao arquivo <file>teste</file>, o <em>grupo</em> (6) ter a  
-permiss„o de leitura e gravaÁ„o (w), e o <em>dono</em> (7) ter permiss„o 
-de leitura, gravaÁ„o e execuÁ„o (rwx) ao arquivo <file>teste</file>. 
+permiss√£o de leitura e grava√ß√£o (w), e o <em>dono</em> (7) ter permiss√£o 
+de leitura, grava√ß√£o e execu√ß√£o (rwx) ao arquivo <file>teste</file>. 
  <p>
 Outro exemplo:
 <example>
 "chmod 40 teste"
 </example>
-O exemplo acima define a permiss„o de acesso dos <em>outros usu·rios</em> 
-(0) como nenhuma, e define a permiss„o de acesso do <em>grupo</em> (4) como  
-somente leitura (r). Note usei somente dois n˙meros e ent„o a permiss„o de  
-acesso do <em>dono</em> do arquivo <tt>n„o</tt> È modificada (leia  
-as permissıes de acesso da direita para a esquerda!). 
-Para detalhes veja a lista de permissıes de acesso em modo octal no inicio 
-desta seÁ„o. 
+O exemplo acima define a permiss√£o de acesso dos <em>outros usu√°rios</em> 
+(0) como nenhuma, e define a permiss√£o de acesso do <em>grupo</em> (4) como  
+somente leitura (r). Note usei somente dois n√∫meros e ent√£o a permiss√£o de  
+acesso do <em>dono</em> do arquivo <tt>n√£o</tt> √© modificada (leia  
+as permiss√µes de acesso da direita para a esquerda!). 
+Para detalhes veja a lista de permiss√µes de acesso em modo octal no inicio 
+desta se√ß√£o. 
  <p>
 <example>
 "chmod 751 teste"
 </example>
-O exemplo acima define a permiss„o de acesso dos <em>outros usu·rios</em> (1) 
-para somente execuÁ„o (x), o acesso do <em>grupo</em> (5) como leitura e 
-execuÁ„o (rx) e o acesso do <em>dono</em> (7) como leitura, gravaÁ„o e 
-execuÁ„o (rwx). 
+O exemplo acima define a permiss√£o de acesso dos <em>outros usu√°rios</em> (1) 
+para somente execu√ß√£o (x), o acesso do <em>grupo</em> (5) como leitura e 
+execu√ß√£o (rx) e o acesso do <em>dono</em> (7) como leitura, grava√ß√£o e 
+execu√ß√£o (rwx). 
 <![ %INTER-AVANC [ 
  <p>
 <example>
 "chmod 4751 teste"
 </example>
-O exemplo acima define a permiss„o de acesso dos <em>outros usu·rios</em> 
-(1) para somente execuÁ„o (x), acesso do <em>grupo</em> (5) como leitura 
-e execuÁ„o (rx), o acesso do <em>dono</em> (7) como leitura, gravaÁ„o e 
-execuÁ„o (rwx) e ajusta o bit setgid (4) para o arquivo <file>teste</file>. 
+O exemplo acima define a permiss√£o de acesso dos <em>outros usu√°rios</em> 
+(1) para somente execu√ß√£o (x), acesso do <em>grupo</em> (5) como leitura 
+e execu√ß√£o (rx), o acesso do <em>dono</em> (7) como leitura, grava√ß√£o e 
+execu√ß√£o (rwx) e ajusta o bit setgid (4) para o arquivo <file>teste</file>. 
 ]]>  
 
 
 <sect id="perm-umask">umask
  <p>
-A umask (<em>user mask</em>) s„o 3 n˙meros que definem as permissıes iniciais 
-do <tt>dono</tt>, <tt>grupo</tt> e <tt>outros usu·rios</tt> que o arquivo/diretÛrio 
-receber· quando for criado ou copiado para um novo local. Digite 
-<tt>umask</tt> sem par‚metros para retornar o valor de sua umask atual. 
+A umask (<em>user mask</em>) s√£o 3 n√∫meros que definem as permiss√µes iniciais 
+do <tt>dono</tt>, <tt>grupo</tt> e <tt>outros usu√°rios</tt> que o arquivo/diret√≥rio 
+receber√° quando for criado ou copiado para um novo local. Digite 
+<tt>umask</tt> sem par√¢metros para retornar o valor de sua umask atual. 
  <p>
 A umask tem efeitos diferentes caso o arquivo que estiver sendo 
-criado for <em>bin·rio</em> (um programa execut·vel) ou <em>texto</em> 
+criado for <em>bin√°rio</em> (um programa execut√°vel) ou <em>texto</em> 
 <![ %INICIANTE [ (<ref id="basico-arquivo-bintext">) ]]>. 
-Veja a tabela a seguir para ver qual È a mais adequada a sua situaÁ„o: 
+Veja a tabela a seguir para ver qual √© a mais adequada a sua situa√ß√£o: 
 <example>
 ---------------------------------------------
-|       |        ARQUIVO       | DIRET”RIO  |
+|       |        ARQUIVO       | DIRET√ìRIO  |
 | UMASK |----------------------|            |
-|       |   Bin·rio  |  Texto  |            |
+|       |   Bin√°rio  |  Texto  |            |
 |------------------------------|------------|
 |   0   |    r-x     |   rw-   |    rwx     |
 |   1   |    r--     |   rw-   |    rw-     |
@@ -775,19 +775,19 @@ Veja a tabela a seguir para ver qual È a mais adequada a sua situaÁ„o:
 ---------------------------------------------
 </example>
 Um <em>arquivo texto</em> criado com o comando <tt>umask 012;touch texto.txt</tt> 
-receber· as permissıes <tt>-rw-rw-r--</tt>, pois 0 (dono) ter· permissıes 
-<tt>rw-</tt>, 1 (grupo), ter· permissıes <tt>rw-</tt> e 2 (outros usu·rios) 
-ter„o permissıes <tt>r--</tt>. Um <em>arquivo bin·rio</em> copiado com o comando 
-<tt>umask 012;cp /bin/ls /tmp/ls</tt> receber· as permissıes <tt>-r-xr--r-x</tt> 
+receber√° as permiss√µes <tt>-rw-rw-r--</tt>, pois 0 (dono) ter√° permiss√µes 
+<tt>rw-</tt>, 1 (grupo), ter√° permiss√µes <tt>rw-</tt> e 2 (outros usu√°rios) 
+ter√£o permiss√µes <tt>r--</tt>. Um <em>arquivo bin√°rio</em> copiado com o comando 
+<tt>umask 012;cp /bin/ls /tmp/ls</tt> receber√° as permiss√µes <tt>-r-xr--r-x</tt> 
 (confira com a tabela acima). 
  <p>
-Por este motivo È preciso atenÁ„o antes de escolher a umask, um 
-valor mal escolhido poderia causar problemas de acesso a arquivos, diretÛrios 
-ou programas n„o sendo executados. O valor padr„o da umask na maioria das 
-distribuiÁıes atuais È 022.
-A umask padr„o no sistema <![ %DEBIAN [ Debian ]]> È a <![ %DEBIAN [ 022 ]]>. 
+Por este motivo √© preciso aten√ß√£o antes de escolher a umask, um 
+valor mal escolhido poderia causar problemas de acesso a arquivos, diret√≥rios 
+ou programas n√£o sendo executados. O valor padr√£o da umask na maioria das 
+distribui√ß√µes atuais √© 022.
+A umask padr√£o no sistema <![ %DEBIAN [ Debian ]]> √© a <![ %DEBIAN [ 022 ]]>. 
  <p>
-A umask È de grande utilidade para programas que criam arquivos/diretÛrios 
-tempor·rios, desta forma pode-se bloquear o acesso de outros usu·rios desde 
-a criaÁ„o do arquivo, evitando recorrer ao <prgn>chmod</prgn>. 
+A umask √© de grande utilidade para programas que criam arquivos/diret√≥rios 
+tempor√°rios, desta forma pode-se bloquear o acesso de outros usu√°rios desde 
+a cria√ß√£o do arquivo, evitando recorrer ao <prgn>chmod</prgn>. 
 

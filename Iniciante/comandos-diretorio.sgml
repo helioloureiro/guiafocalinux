@@ -1,40 +1,40 @@
-<chapt id="cmdd">Comandos para manipulação de diretório
+<chapt id="cmdd">Comandos para manipulaÃ§Ã£o de diretÃ³rio
  <p>
-Abaixo comandos úteis para a manipulação de diretórios.
+Abaixo comandos Ãºteis para a manipulaÃ§Ã£o de diretÃ³rios.
 
 
 <sect id="comando-ls">ls
  <p>
-Lista os arquivos de um diretório.
+Lista os arquivos de um diretÃ³rio.
  <p>
-<tt>ls [<em>opções</em>] [<em>caminho/arquivo</em>] [<em>caminho1/arquivo1</em>] ...</tt>
+<tt>ls [<em>opÃ§Ãµes</em>] [<em>caminho/arquivo</em>] [<em>caminho1/arquivo1</em>] ...</tt>
  <p>
 <![ %OPCOES [
 onde:
 <taglist compact>
  <tag><em>caminho/arquivo</em></tag>
  <item>
-Diretório/arquivo que será listado.
+DiretÃ³rio/arquivo que serÃ¡ listado.
 
  <tag><em>caminho1/arquivo1</em></tag>
  <item>
-Outro Diretório/arquivo que será listado. Podem ser feitas várias listagens 
-de uma só vez.
+Outro DiretÃ³rio/arquivo que serÃ¡ listado. Podem ser feitas vÃ¡rias listagens 
+de uma sÃ³ vez.
 
- <tag><em>opções</em></tag>
+ <tag><em>opÃ§Ãµes</em></tag>
 
  <tag>-a, --all</tag>
  <item>
-Lista todos os arquivos (inclusive os ocultos) de um diretório.
+Lista todos os arquivos (inclusive os ocultos) de um diretÃ³rio.
 
  <tag>-A, --almost-all</tag>
  <item>
-Lista todos os arquivos (inclusive os ocultos) de um diretório, exceto o  
-diretório atual e o de nível anterior.
+Lista todos os arquivos (inclusive os ocultos) de um diretÃ³rio, exceto o  
+diretÃ³rio atual e o de nÃ­vel anterior.
 
  <tag>-B, --ignore-backups</tag>
  <item>
-Não lista arquivos que terminam com ~ (Backup).
+NÃ£o lista arquivos que terminam com ~ (Backup).
 
  <tag>--color=PARAM</tag>
  <item>
@@ -43,7 +43,7 @@ pode ser:
 
 <list compact>
  <item>
-<em>never</em> - Nunca lista em cores (mesma coisa de não usar o parâmetro  
+<em>never</em> - Nunca lista em cores (mesma coisa de nÃ£o usar o parÃ¢metro  
 --color).
  <item>
 <em>always</em> - Sempre lista em cores conforme o tipo de arquivo.
@@ -53,17 +53,17 @@ pode ser:
 
  <tag>-d, --directory</tag>
  <item>
-Lista os nomes dos diretórios ao invés do conteúdo.
+Lista os nomes dos diretÃ³rios ao invÃ©s do conteÃºdo.
 
  <tag>-f</tag>
  <item>
-Não classifica a listagem.
+NÃ£o classifica a listagem.
 
  <tag>-F</tag>
  <item>
-Insere um caracter após arquivos executáveis ('*'), diretórios ('/'), 
-soquete ('='), link simbólico ('@') e pipe ('|'). Seu uso é útil para 
-identificar de forma fácil tipos de arquivos nas listagens de diretórios. 
+Insere um caracter apÃ³s arquivos executÃ¡veis ('*'), diretÃ³rios ('/'), 
+soquete ('='), link simbÃ³lico ('@') e pipe ('|'). Seu uso Ã© Ãºtil para 
+identificar de forma fÃ¡cil tipos de arquivos nas listagens de diretÃ³rios. 
 
  <tag>-G, --no-group</tag>
  <item>
@@ -75,21 +75,21 @@ Mostra o tamanho dos arquivos em Kbytes, Mbytes, Gbytes.
 
  <tag>-H</tag>
  <item>
-Faz o mesmo que <tt>-h</tt>, mas usa unidades de 1000 ao invés de 1024 para 
+Faz o mesmo que <tt>-h</tt>, mas usa unidades de 1000 ao invÃ©s de 1024 para 
 especificar Kbytes, Mbytes, Gbytes. 
 
  <tag>-l</tag>
  <item>
-Usa o formato longo para listagem de arquivos. Lista as permissões, data de 
-modificação, donos, grupos, etc.
+Usa o formato longo para listagem de arquivos. Lista as permissÃµes, data de 
+modificaÃ§Ã£o, donos, grupos, etc.
 
  <tag>-n</tag>
  <item>
-Usa a identificação de usuário e grupo numérica ao invés dos nomes.
+Usa a identificaÃ§Ã£o de usuÃ¡rio e grupo numÃ©rica ao invÃ©s dos nomes.
 
  <tag>-L, --dereference</tag>
  <item>
-Lista o arquivo original e não o link referente ao arquivo.
+Lista o arquivo original e nÃ£o o link referente ao arquivo.
 
  <tag>-o</tag>
  <item>
@@ -97,42 +97,42 @@ Usa a listagem longa sem os donos dos arquivos (mesma coisa que -lG).
 
  <tag>-p</tag>
  <item>
-Mesma coisa que -F, mas não inclui o símbolo '*' em arquivos executáveis. Esta 
-opção é típica de sistemas <prgn>Linux</prgn>.
+Mesma coisa que -F, mas nÃ£o inclui o sÃ­mbolo '*' em arquivos executÃ¡veis. Esta 
+opÃ§Ã£o Ã© tÃ­pica de sistemas <prgn>Linux</prgn>.
 
  <tag>-R</tag>
  <item>
-Lista diretórios e sub-diretórios recursivamente.
+Lista diretÃ³rios e sub-diretÃ³rios recursivamente.
 
  <![ %INTERMEDIARIO [
  <tag>--full-time</tag>
  <item>
 Lista data e hora completa. 
 
- <tag>Classificação da listagem</tag>
+ <tag>ClassificaÃ§Ã£o da listagem</tag>
  <item>
-A listagem pode ser classificada usando-se as seguintes opções:
+A listagem pode ser classificada usando-se as seguintes opÃ§Ãµes:
 
  <taglist compact>
   <tag>-f</tag>
   <item>
-Não classifica, e usa -au para listar os arquivos.
+NÃ£o classifica, e usa -au para listar os arquivos.
  
   <tag>-r</tag>
   <item>
-Inverte a ordem de classificação.
+Inverte a ordem de classificaÃ§Ã£o.
 
   <tag>-c</tag>
   <item>
-Classifica pela data de alteração.
+Classifica pela data de alteraÃ§Ã£o.
 
   <tag>-X</tag>
   <item>
-Classifica pela extensão.
+Classifica pela extensÃ£o.
 
   <tag>-U</tag>
   <item>
-Não classifica, lista os arquivos na ordem do diretório.
+NÃ£o classifica, lista os arquivos na ordem do diretÃ³rio.
 
   <tag>-Z</tag>
   <item>
@@ -144,26 +144,26 @@ Exibe o contexto SELinux de cada arquivo.
 </taglist>
 ]]>
 Uma listagem feita com o comando <tt>ls -la</tt> normalmente 
-é mostrada da seguinte maneira:
+Ã© mostrada da seguinte maneira:
 <example>
 -rwxr-xr--  1  gleydson user    8192 nov 4 16:00 teste
 </example> 
-Abaixo as explicações de cada parte: 
+Abaixo as explicaÃ§Ãµes de cada parte: 
 
 <taglist compact>
  <tag><tt>-rwxr-xr--</tt></tag>
  <item>
-São as permissões de acesso ao arquivo teste. A primeira letra 
+SÃ£o as permissÃµes de acesso ao arquivo teste. A primeira letra 
 (da esquerda) identifica o tipo do arquivo, se tiver um <tt>d</tt> 
-é um diretório, se tiver um "-" é um arquivo normal. 
+Ã© um diretÃ³rio, se tiver um "-" Ã© um arquivo normal. 
  <p>
-As permissões de acesso é explicada em detalhes em 
+As permissÃµes de acesso Ã© explicada em detalhes em 
 <ref id="perm">. 
 
  <tag><tt>1</tt></tag>
  <item>
-Se for um diretório, mostra a quantidade de sub-diretórios  
-existentes dentro dele. Caso for um arquivo, será 1. 
+Se for um diretÃ³rio, mostra a quantidade de sub-diretÃ³rios  
+existentes dentro dele. Caso for um arquivo, serÃ¡ 1. 
 
  <tag><tt>gleydson</tt></tag>
  <item>
@@ -179,7 +179,7 @@ Tamanho do arquivo (em bytes).
 
  <tag><tt>nov</tt></tag>
  <item>
-Mês da criação/ última modificação do arquivo. 
+MÃªs da criaÃ§Ã£o/ Ãºltima modificaÃ§Ã£o do arquivo. 
 
  <tag><tt>4</tt></tag>
  <item>
@@ -188,8 +188,8 @@ Dia que o arquivo foi criado.
  <tag><tt>16:00</tt></tag>
  <item>
 Hora em que o arquivo foi criado/modificado. Se o arquivo foi  
-criado há mais de um ano, em seu lugar é mostrado o ano da 
-criação do arquivo. 
+criado hÃ¡ mais de um ano, em seu lugar Ã© mostrado o ano da 
+criaÃ§Ã£o do arquivo. 
 
  <tag><file>teste</file></tag>
  <item>
@@ -201,26 +201,26 @@ Nome do arquivo.
 Exemplos do uso do comando <prgn>ls</prgn>:
 <list compact>
  <item>
-<tt>ls</tt>            - Lista os arquivos do diretório atual.
+<tt>ls</tt>            - Lista os arquivos do diretÃ³rio atual.
  <item>
-<tt>ls /bin /sbin</tt> - Lista os arquivos do diretório /bin e /sbin
+<tt>ls /bin /sbin</tt> - Lista os arquivos do diretÃ³rio /bin e /sbin
  <item>
-<tt>ls -la /bin</tt>   - Listagem completa (vertical) dos arquivos do diretório /bin 
+<tt>ls -la /bin</tt>   - Listagem completa (vertical) dos arquivos do diretÃ³rio /bin 
 inclusive os ocultos.
 </list> ]]>
 
 
 <sect id="comando-cd">cd
  <p>
-Entra em um diretório. Você precisa ter a permissão de execução para 
-entrar no diretório.
+Entra em um diretÃ³rio. VocÃª precisa ter a permissÃ£o de execuÃ§Ã£o para 
+entrar no diretÃ³rio.
  <p>
-<tt>cd [<em>diretório</em>]</tt>
+<tt>cd [<em>diretÃ³rio</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
  <p>
-<em>diretório</em> - diretório que deseja entrar.
+<em>diretÃ³rio</em> - diretÃ³rio que deseja entrar.
 ]]>
 
 <![ %EXEMPLO [
@@ -228,46 +228,46 @@ onde:
 Exemplos:
 <list compact>
  <item>
-Usando <tt>cd</tt> sem parâmetros ou <tt>cd ~</tt>, você  
-retornará ao seu diretório de usuário (diretório home). 
+Usando <tt>cd</tt> sem parÃ¢metros ou <tt>cd ~</tt>, vocÃª  
+retornarÃ¡ ao seu diretÃ³rio de usuÃ¡rio (diretÃ³rio home). 
 
  <item>
-<tt>cd /</tt>, retornará ao diretório raíz.
+<tt>cd /</tt>, retornarÃ¡ ao diretÃ³rio raÃ­z.
  
  <item>
-<tt>cd -</tt>, retornará ao diretório anteriormente acessado. 
+<tt>cd -</tt>, retornarÃ¡ ao diretÃ³rio anteriormente acessado. 
 
  <item>
-<tt>cd ..</tt>, sobe um diretório. 
+<tt>cd ..</tt>, sobe um diretÃ³rio. 
 
  <item>
-<tt>cd ../[<em>diretório</em>]</tt>, sobe um diretório e entra 
-imediatamente no próximo (por exemplo, quando você está em <file>/usr/sbin 
-</file>, você digita <tt>cd ../bin</tt>, o comando <prgn>cd</prgn>  
-retorna um diretório (<file>/usr</file>) e entra imediatamente no  
-diretório <file>bin</file> (<file>/usr/bin</file>).
+<tt>cd ../[<em>diretÃ³rio</em>]</tt>, sobe um diretÃ³rio e entra 
+imediatamente no prÃ³ximo (por exemplo, quando vocÃª estÃ¡ em <file>/usr/sbin 
+</file>, vocÃª digita <tt>cd ../bin</tt>, o comando <prgn>cd</prgn>  
+retorna um diretÃ³rio (<file>/usr</file>) e entra imediatamente no  
+diretÃ³rio <file>bin</file> (<file>/usr/bin</file>).
 </list> ]]>
 
 
 <sect id="comando-pwd">pwd
  <p>
-Mostra o nome e caminho do diretório atual.
+Mostra o nome e caminho do diretÃ³rio atual.
  <p>
-Você pode usar o comando pwd para verificar em qual diretório se encontra 
-(caso seu aviso de comandos não mostre isso).
+VocÃª pode usar o comando pwd para verificar em qual diretÃ³rio se encontra 
+(caso seu aviso de comandos nÃ£o mostre isso).
 
 
 <sect id="comando-mkdir">mkdir
  <p>
-Cria um diretório no sistema. 
-<![ %DESCRICAOD [ Um diretório é usado para armazenar arquivos  
-de um determinado tipo. O diretório pode ser entendido como uma <em>pasta</em> 
-onde você guarda seus papeis (arquivos). Como uma pessoa organizada, você 
-utilizará uma pasta para guardar cada tipo de documento, da mesma forma você 
-pode criar um diretório <file>vendas</file> para guardar seus arquivos 
+Cria um diretÃ³rio no sistema. 
+<![ %DESCRICAOD [ Um diretÃ³rio Ã© usado para armazenar arquivos  
+de um determinado tipo. O diretÃ³rio pode ser entendido como uma <em>pasta</em> 
+onde vocÃª guarda seus papeis (arquivos). Como uma pessoa organizada, vocÃª 
+utilizarÃ¡ uma pasta para guardar cada tipo de documento, da mesma forma vocÃª 
+pode criar um diretÃ³rio <file>vendas</file> para guardar seus arquivos 
 relacionados com vendas naquele local. ]]>
  <p>
-<tt>mkdir [<em>opções</em>] [<em>caminho/diretório</em>] [<em>caminho1/diretório1</em>]</tt>
+<tt>mkdir [<em>opÃ§Ãµes</em>] [<em>caminho/diretÃ³rio</em>] [<em>caminho1/diretÃ³rio1</em>]</tt>
 <p>
 <![ %OPCOES [
 onde:
@@ -275,60 +275,60 @@ onde:
 <taglist compact>
  <tag><em>caminho</em></tag>
  <item>
-Caminho onde o diretório será criado.
+Caminho onde o diretÃ³rio serÃ¡ criado.
 
- <tag><em>diretório</em></tag>
+ <tag><em>diretÃ³rio</em></tag>
  <item>
-Nome do diretório que será criado.
+Nome do diretÃ³rio que serÃ¡ criado.
 
- <tag><em>opções:</em></tag>
+ <tag><em>opÃ§Ãµes:</em></tag>
 
  <tag>-p</tag>
  <item>
-Caso os diretórios dos níveis acima não existam, eles também serão criados.
+Caso os diretÃ³rios dos nÃ­veis acima nÃ£o existam, eles tambÃ©m serÃ£o criados.
 
  <tag>--verbose</tag>
  <item>
-Mostra uma mensagem para cada diretório criado. As mensagens de erro serão  
-mostradas mesmo que esta opção não seja usada.
+Mostra uma mensagem para cada diretÃ³rio criado. As mensagens de erro serÃ£o  
+mostradas mesmo que esta opÃ§Ã£o nÃ£o seja usada.
 </taglist>
 ]]>
-Para criar um novo diretório, você deve ter permissão de gravação. Por 
-exemplo, para criar um diretório em /tmp com o nome de <file>teste</file>  
-que será usado para gravar arquivos de teste, você deve usar o comando  
+Para criar um novo diretÃ³rio, vocÃª deve ter permissÃ£o de gravaÃ§Ã£o. Por 
+exemplo, para criar um diretÃ³rio em /tmp com o nome de <file>teste</file>  
+que serÃ¡ usado para gravar arquivos de teste, vocÃª deve usar o comando  
 <file>"mkdir /tmp/teste"</file>.
  <p>
-Podem ser criados mais de um diretório com um único comando (<tt>mkdir 
+Podem ser criados mais de um diretÃ³rio com um Ãºnico comando (<tt>mkdir 
 /tmp/teste /tmp/teste1 /tmp/teste2</tt>). 
 
 
 <sect id="comando-rmdir">rmdir
  <p>
-Remove um diretório do sistema. 
-<![ %DESCRICAOD [ Este comando faz exatamente o contrário do  
-<prgn>mkdir</prgn>. O diretório a ser removido deve estar vazio e  
-você deve ter permissão de gravação para remove-lo. ]]>
+Remove um diretÃ³rio do sistema. 
+<![ %DESCRICAOD [ Este comando faz exatamente o contrÃ¡rio do  
+<prgn>mkdir</prgn>. O diretÃ³rio a ser removido deve estar vazio e  
+vocÃª deve ter permissÃ£o de gravaÃ§Ã£o para remove-lo. ]]>
  <p>
-<tt>rmdir [<em>caminho/diretório</em>] [<em>caminho1/diretório1</em>]</tt>
+<tt>rmdir [<em>caminho/diretÃ³rio</em>] [<em>caminho1/diretÃ³rio1</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
 <taglist compact>
  <tag><em>caminho</em></tag>
  <item>
-Caminho do diretório que será removido.
- <tag><em>diretório</em></tag>
+Caminho do diretÃ³rio que serÃ¡ removido.
+ <tag><em>diretÃ³rio</em></tag>
  <item>
-Nome do diretório que será removido.
+Nome do diretÃ³rio que serÃ¡ removido.
 </taglist>
 ]]>
-É necessário que esteja um nível acima do diretório(s) que será(ão) 
-removido(s). Para remover diretórios que contenham arquivos, use o comando 
-<prgn>rm</prgn> com a opção <tt>-r</tt> (para maiores detalhes, veja 
+Ã‰ necessÃ¡rio que esteja um nÃ­vel acima do diretÃ³rio(s) que serÃ¡(Ã£o) 
+removido(s). Para remover diretÃ³rios que contenham arquivos, use o comando 
+<prgn>rm</prgn> com a opÃ§Ã£o <tt>-r</tt> (para maiores detalhes, veja 
 <ref id="comando-rm">).
 <![ %EXEMPLO [
  <p>
-Por exemplo, para remover o diretório <file>/tmp/teste</file> você deve 
-estar no diretório <file>tmp</file> e executar o comando <tt>rmdir teste
+Por exemplo, para remover o diretÃ³rio <file>/tmp/teste</file> vocÃª deve 
+estar no diretÃ³rio <file>tmp</file> e executar o comando <tt>rmdir teste
 </tt>. ]]>
 

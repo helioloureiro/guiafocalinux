@@ -1,36 +1,36 @@
-<chapt id="cfg">ConfiguraÁ„o do sistema
+<chapt id="cfg">Configura√ß√£o do sistema
  <p>
-Este capÌtulo traz explicaÁıes sobre algumas configuraÁıes ˙teis que 
+Este cap√≠tulo traz explica√ß√µes sobre algumas configura√ß√µes √∫teis que 
 podem ser feitas no sistema. Neste documento assumimos que o kernel do 
-seus sistema j· possui suporte a p·gina de cÛdigo 860 (Portuguesa) e o 
+seus sistema j√° possui suporte a p√°gina de c√≥digo 860 (Portuguesa) e o 
 conjunto de caracteres <tt>ISO-8859-1</tt>.  
 
  
     <![ %INIC-INTER [ 
-<sect id="cfg-acentuacao">AcentuaÁ„o
+<sect id="cfg-acentuacao">Acentua√ß√£o
  <p>
-Permite que o <prgn>GNU/Linux</prgn> use a acentuaÁ„o. A 
-acentuaÁ„o do modo texto È independente do modo gr·fico; vocÍ pode configurar  
+Permite que o <prgn>GNU/Linux</prgn> use a acentua√ß√£o. A 
+acentua√ß√£o do modo texto √© independente do modo gr√°fico; voc√™ pode configurar  
 tanto um como o outro ou ambos. Para maiores detalhes veja  
 <ref id="cfg-acentuacao-t"> e/ou <ref id="cfg-acentuacao-g">. 
 <![ %OBS [
  <p>
-Note que os mapas de teclado usados em modo texto s„o diferentes dos usados 
-em modo gr·fico. Geralmente os mapas de teclados para o modo gr·fico tem uma 
+Note que os mapas de teclado usados em modo texto s√£o diferentes dos usados 
+em modo gr√°fico. Geralmente os mapas de teclados para o modo gr√°fico tem uma 
 letra <tt>X</tt> no nome. ]]>
 
 
-<sect1 id="cfg-acentuacao-t">AcentuaÁ„o em modo Texto
+<sect1 id="cfg-acentuacao-t">Acentua√ß√£o em modo Texto
  <p>
 <![ %DEBIAN [
-Caso sua distribuiÁ„o <prgn>Debian</prgn> esteja acentuando corretamente no 
-modo texto vocÍ n„o precisar· ler esta seÁ„o. 
-Antes de prosseguir, verifique se vocÍ possui o pacote 
+Caso sua distribui√ß√£o <prgn>Debian</prgn> esteja acentuando corretamente no 
+modo texto voc√™ n√£o precisar√° ler esta se√ß√£o. 
+Antes de prosseguir, verifique se voc√™ possui o pacote 
 <package>console-data</package> instalado em seu sistema com o comando: 
-<tt>dpkg -l console-data</tt>. Caso n„o existam, alguns programas de 
-configuraÁ„o e arquivos de fontes n„o estar„o disponÌveis. 
+<tt>dpkg -l console-data</tt>. Caso n√£o existam, alguns programas de 
+configura√ß√£o e arquivos de fontes n√£o estar√£o dispon√≠veis. 
  <p>
-Siga os passos abaixo para colocar e acentuaÁ„o em funcionamento para o modo 
+Siga os passos abaixo para colocar e acentua√ß√£o em funcionamento para o modo 
 Texto na <prgn>Debian</prgn>: 
 <taglist>
  <tag><em>Mapa de Teclados</em></tag>
@@ -39,32 +39,32 @@ Texto na <prgn>Debian</prgn>:
  <taglist compact>
  <tag>Debian 4 ou 5</tag>
   <item>
-Digite <tt>dpkg-reconfigure console-data</tt>. ApÛs a tela inicial, selecione 
-a opÁ„o <tt>Selecionar o mapa de teclados da lista de arquiteturas</tt>, 
+Digite <tt>dpkg-reconfigure console-data</tt>. Ap√≥s a tela inicial, selecione 
+a op√ß√£o <tt>Selecionar o mapa de teclados da lista de arquiteturas</tt>, 
 <tt>qwerty</tt> e selecione os passos seguintes de acordo com seu tipo de 
 teclado: 
 <list compact>
  <item><tt>US american</tt> - Selecione <tt>US American</tt> na 
- lista de opÁıes e em seguida <tt>Standard</tt> e 
+ lista de op√ß√µes e em seguida <tt>Standard</tt> e 
  <tt>US International (ISO-8859-1)</tt>.
  <item><tt>ABNT2 (com cedilha)</tt> - Selecione <tt>Brazilian</tt> na 
- lista de opÁıes. 
+ lista de op√ß√µes. 
 </list>
 
 </taglist>
 
-ApÛs isso, o mapa de teclados correto ser· carregado de <file>/usr/share/keymaps</file>
-e ser· ativado no sistema.
+Ap√≥s isso, o mapa de teclados correto ser√° carregado de <file>/usr/share/keymaps</file>
+e ser√° ativado no sistema.
  <p>
-Se desejar usar o comando <tt>loadkeys</tt> manualmente , vocÍ precisa copiar 
-o mapa de teclados para um local conhecido no sistema, ent„o copie o 
+Se desejar usar o comando <tt>loadkeys</tt> manualmente , voc√™ precisa copiar 
+o mapa de teclados para um local conhecido no sistema, ent√£o copie o 
 arquivo <file>arquivo.kmap</file> para 
 <file>/usr/share/keymaps/i386/qwerty</file> (em sistemas Debian) ou 
 algum outro local apropriado. 
 <![ %INTERMEDIARIO [ Note que o arquivo pode ser compactado pelo 
 <prgn>gzip</prgn> e copiado para <file>/usr/share/keymaps/i386/qwerty</file> 
-que ser· lido sem problemas pelo sistema encarregado de configurar o teclado 
-e acentuaÁ„o. 
+que ser√° lido sem problemas pelo sistema encarregado de configurar o teclado 
+e acentua√ß√£o. 
 ]]>
 
 <tag><em>Configurando a fonte de Tela</em></tag>
@@ -73,32 +73,32 @@ Descomente a linha <tt>SCREEN_FONT=LatArCyrHeb-16</tt> e modifique-a para
 <tt>CONSOLE_FONT=lat1u-16.psf</tt> no arquivo <file>/etc/console-tools/config</file>. 
  <p>
 Esta linha diz ao sistema que <em>fonte</em> deve carregar para mostrar os 
-caracteres na tela. A fonte de caracteres deve ser compatÌvel com o idioma 
-local, pois nem todas suportam caracteres acentuados. A fonte preferÌvel 
-para exibir os caracteres acentuados usando padr„o ISO È a 
+caracteres na tela. A fonte de caracteres deve ser compat√≠vel com o idioma 
+local, pois nem todas suportam caracteres acentuados. A fonte prefer√≠vel 
+para exibir os caracteres acentuados usando padr√£o ISO √© a 
 <file>lat1u-16</file>, o <file>-16</file> no nome do arquivo significa o 
-tamanho da fonte. As fontes de tela est„o disponÌveis no diretÛrio 
+tamanho da fonte. As fontes de tela est√£o dispon√≠veis no diret√≥rio 
 <file>/usr/share/consolefonts</file>. 
  <p>
-Neste ponto vocÍ pode verificar se o seu sistema esta reconhecendo 
-corretamente a acentuaÁ„o entrando no editor de textos <prgn>ae</prgn> e 
-digitando: <tt>·„‚‡</tt>. Se todos os acentos apareceram corretamente, 
-parabÈns! vocÍ j· passou pela parte mais difÌcil. Agora o prÛximo passo È 
-a acentuaÁ„o no <prgn>Bash</prgn>.
+Neste ponto voc√™ pode verificar se o seu sistema esta reconhecendo 
+corretamente a acentua√ß√£o entrando no editor de textos <prgn>ae</prgn> e 
+digitando: <tt>√°√£√¢√†</tt>. Se todos os acentos apareceram corretamente, 
+parab√©ns! voc√™ j√° passou pela parte mais dif√≠cil. Agora o pr√≥ximo passo √© 
+a acentua√ß√£o no <prgn>Bash</prgn>.
 
-<tag><em>AcentuaÁ„o no aviso de comando (<prgn>bash</prgn>)</em></tag>
+<tag><em>Acentua√ß√£o no aviso de comando (<prgn>bash</prgn>)</em></tag>
  <item>
-Para acentuar no <prgn>Bash</prgn> (interpretador de comandos) È necess·rio 
-alterar o arquivo <file>/etc/inputrc</file> e fazer as seguintes modificaÁıes:
+Para acentuar no <prgn>Bash</prgn> (interpretador de comandos) √© necess√°rio 
+alterar o arquivo <file>/etc/inputrc</file> e fazer as seguintes modifica√ß√µes:
 
 <enumlist>
  <item>
-Descomente a linha: <tt>"#set convert-meta off"</tt> vocÍ faz isto apagando 
-o sÌmbolo "#" antes do nome. 
+Descomente a linha: <tt>"#set convert-meta off"</tt> voc√™ faz isto apagando 
+o s√≠mbolo "#" antes do nome. 
  <p>
-Um coment·rio faz com que o programa ignore linha(s) de comando. … muito 
-˙til para descrever o funcionamento de comandos/programas (vocÍ vai encontrar 
-muito isso no sistema <prgn>GNU/Linux</prgn>, tudo È muito bem documentado).
+Um coment√°rio faz com que o programa ignore linha(s) de comando. √â muito 
+√∫til para descrever o funcionamento de comandos/programas (voc√™ vai encontrar 
+muito isso no sistema <prgn>GNU/Linux</prgn>, tudo √© muito bem documentado).
 
  <item>
 Inclua a seguinte linha no final do arquivo:
@@ -106,7 +106,7 @@ Inclua a seguinte linha no final do arquivo:
 set meta-flag on
 
   <item>
-O conte˙do deste arquivo deve ficar assim:
+O conte√∫do deste arquivo deve ficar assim:
  <example>
 set convert-meta off
 set input-meta on
@@ -115,38 +115,38 @@ set output-meta on
 
  <item>
 Digite <tt>exit</tt> ou pressione <tt>CTRL</tt>+<tt>D</tt> para fazer o logout.
-Entre novamente no sistema para que as alteraÁıes faÁam efeito. 
+Entre novamente no sistema para que as altera√ß√µes fa√ßam efeito. 
 
 </enumlist>
 </taglist>
  <p>
-Pronto! vocÍ j· esta acentuando em modo texto!. Talvez seja necess·rio que 
-faÁa alguma alteraÁ„o em arquivos de configuraÁ„o de outros programas para 
+Pronto! voc√™ j√° esta acentuando em modo texto!. Talvez seja necess√°rio que 
+fa√ßa alguma altera√ß√£o em arquivos de configura√ß√£o de outros programas para 
 que possa acentuar corretamente (veja se existe algum arquivo com o nome 
-correspondente ao programa no diretÛrio <file>/etc</file>).
+correspondente ao programa no diret√≥rio <file>/etc</file>).
  <p>
-A distribuiÁ„o <prgn>Debian</prgn> tambÈm traz o utilit·rio <prgn>kbdconfig
-</prgn> que tambÈm faz a configuraÁ„o do mapa de teclados de forma 
+A distribui√ß√£o <prgn>Debian</prgn> tamb√©m traz o utilit√°rio <prgn>kbdconfig
+</prgn> que tamb√©m faz a configura√ß√£o do mapa de teclados de forma 
 interativa e gravando automaticamente o mapa de teclados em 
 <file>/etc/kbd/default.map.gz</file>. Se preferir usar o 
-<prgn>kbdconfig</prgn> ainda ser· necess·rio executar os passos acima para 
-habilitaÁ„o da fonte <file>lat1u-16</file> e acentuaÁ„o no <prgn>bash</prgn>. 
+<prgn>kbdconfig</prgn> ainda ser√° necess√°rio executar os passos acima para 
+habilita√ß√£o da fonte <file>lat1u-16</file> e acentua√ß√£o no <prgn>bash</prgn>. 
 
 ]]>
 
 
-<sect1 id="cfg-acentuacao-g">AcentuaÁ„o em modo gr·fico
+<sect1 id="cfg-acentuacao-g">Acentua√ß√£o em modo gr√°fico
  <p>
-A acentuaÁ„o no modo gr·fico È feita de maneira simples:
+A acentua√ß√£o no modo gr√°fico √© feita de maneira simples:
 <![ %DEBIAN [
 <taglist>
-<tag><em>ConfiguraÁ„o do mapa de teclados</em></tag>
+<tag><em>Configura√ß√£o do mapa de teclados</em></tag>
  <item>
 Execute o comando <tt>dpkg-reconfigure xserver-xorg</tt> e informe o 
-tipo de teclado quando perguntado pelo sistema de configuraÁ„o.
-A configuraÁ„o ser· gravada na seÁ„o <tt>InputDevice</tt> do arquivo
-<file>/etc/X11/xorg.conf</file> e poder· ser modificada manualmente 
-se necess·rio.
+tipo de teclado quando perguntado pelo sistema de configura√ß√£o.
+A configura√ß√£o ser√° gravada na se√ß√£o <tt>InputDevice</tt> do arquivo
+<file>/etc/X11/xorg.conf</file> e poder√° ser modificada manualmente 
+se necess√°rio.
 
 </taglist>
 ]]>
@@ -155,97 +155,97 @@ se necess·rio.
 
 
     <![ %INTER-AVANC [ 
-<sect id="cfg-cores">N˙mero de Cores do ambiente gr·fico
+<sect id="cfg-cores">N√∫mero de Cores do ambiente gr√°fico
  <p>
-O n˙mero de cores do ambiente gr·fico pode ser alterado facilmente. Normalmente
-as distribuiÁıes realizam a instalaÁ„o usando o padr„o VESA (que È compatÌvel 
-com qualquer placa de vÌdeo) usando 65.000 cores (16 bits), mas por usar
-VESA s„o deixados de lado recursos como aceleraÁ„o de hardware, XV, e recursos
-3D necess·rio pela maioria dos jogos e aplicativos de vÌdeo atuais. 
+O n√∫mero de cores do ambiente gr√°fico pode ser alterado facilmente. Normalmente
+as distribui√ß√µes realizam a instala√ß√£o usando o padr√£o VESA (que √© compat√≠vel 
+com qualquer placa de v√≠deo) usando 65.000 cores (16 bits), mas por usar
+VESA s√£o deixados de lado recursos como acelera√ß√£o de hardware, XV, e recursos
+3D necess√°rio pela maioria dos jogos e aplicativos de v√≠deo atuais. 
  <p>
-A configuraÁ„o apropriada do driver exige que vocÍ execute novamente o 
-procedimento de configuraÁ„o da distribuiÁ„o usando o comando
+A configura√ß√£o apropriada do driver exige que voc√™ execute novamente o 
+procedimento de configura√ß√£o da distribui√ß√£o usando o comando
 <tt>dpkg-reconfigure xserver-xorg</tt>.
  <p>
-Por exemplo, para configurar minha placa de vÌdeo Intel 810, È necess·rio
-selecionar o driver i810 na tela de seleÁ„o do driver de video do 
+Por exemplo, para configurar minha placa de v√≠deo Intel 810, √© necess√°rio
+selecionar o driver i810 na tela de sele√ß√£o do driver de video do 
 <tt>dpkg-reconfigure xserver-xorg</tt>. O programa <prgn>xresprobe</prgn>
-pode ser ˙til caso deseja fazer manualmente ajustes finos na configuraÁ„o do 
-<file>/etc/X11/xorg.conf</file>. O monitor tambÈm poder· ser configurado
+pode ser √∫til caso deseja fazer manualmente ajustes finos na configura√ß√£o do 
+<file>/etc/X11/xorg.conf</file>. O monitor tamb√©m poder√° ser configurado
 de acordo com o tamanho da tela (em polegadas). 
  <p>
-Com uma configuraÁ„o correta È possÌvel atingir atÈ 32 bits de cores 
-(pocket pixel) no X. A configuraÁ„o do X utiliza o <em>n˙mero de bits</em> 
-ao invÈs do n˙mero de cores na sua configuraÁ„o. Abaixo uma tabela 
+Com uma configura√ß√£o correta √© poss√≠vel atingir at√© 32 bits de cores 
+(pocket pixel) no X. A configura√ß√£o do X utiliza o <em>n√∫mero de bits</em> 
+ao inv√©s do n√∫mero de cores na sua configura√ß√£o. Abaixo uma tabela 
 comparativa: 
 <example>
-  Bits      N˙mero Max. Cores  MemÛria mÌnima requerida na Placa de VÌdeo
+  Bits      N√∫mero Max. Cores  Mem√≥ria m√≠nima requerida na Placa de V√≠deo
 -------     -----------------  -----------------------------------------
  4 bits         16 cores                          256Kb
  8 bits        256 cores                          512Kb
 16 bits      32.384/65536 cores                   1MB
-24 bits      16 milhıes de cores (pixel menor)    1MB
-32 bits      16 milhıes de cores                  1MB
+24 bits      16 milh√µes de cores (pixel menor)    1MB
+32 bits      16 milh√µes de cores                  1MB
 </example>
 <![ %OBS [ 
-Lembre-se que a tabela acima leva em consideraÁ„o a resoluÁ„o de vÌdeo de 
-640x480. Caso utilizar uma resoluÁ„o de 800x600, 1024x768 ou superior, os 
-requerimentos de <em>memÛria de vÌdeo</em> para mostrar o n˙mero de cores da 
-tabela acima ser„o maiores. Para mostrar 1024x768 - 16 milhıes de cores 
-ser„o necess·rios 2MB de memÛria de vÌdeo, por exemplo. A resoluÁ„o de 24 
-bits normalmente traz problemas em alguns chipsets, considere a utilizaÁ„o 
-da resoluÁ„o de 16 ou 32 bits. 
+Lembre-se que a tabela acima leva em considera√ß√£o a resolu√ß√£o de v√≠deo de 
+640x480. Caso utilizar uma resolu√ß√£o de 800x600, 1024x768 ou superior, os 
+requerimentos de <em>mem√≥ria de v√≠deo</em> para mostrar o n√∫mero de cores da 
+tabela acima ser√£o maiores. Para mostrar 1024x768 - 16 milh√µes de cores 
+ser√£o necess√°rios 2MB de mem√≥ria de v√≠deo, por exemplo. A resolu√ß√£o de 24 
+bits normalmente traz problemas em alguns chipsets, considere a utiliza√ß√£o 
+da resolu√ß√£o de 16 ou 32 bits. 
  <p>
-O uso de uma resoluÁ„o de vÌdeo como 800x600 ou superior, tambÈm depende 
-do monitor de vÌdeo. Nem todos os monitores VGA e SVGAs do mercado suportam  
-resoluÁıes acima de 640x480. 
+O uso de uma resolu√ß√£o de v√≠deo como 800x600 ou superior, tamb√©m depende 
+do monitor de v√≠deo. Nem todos os monitores VGA e SVGAs do mercado suportam  
+resolu√ß√µes acima de 640x480. 
  <p>
-OBS: Se tiver escolha, prefira placas de vÌdeo independentes da placa m„e. 
-Normalmente as placas de vÌdeo on-board usam parte da memÛria RAM como 
-memÛria de vÌdeo (memÛria compartilhada) e isto diminui a performance de 
-vÌdeo e a performance do sistema porque se vocÍ estiver usando 2MB de 
-memÛria de vÌdeo, ter· 2 MB a menos para executar seus programas. O preÁo 
-destas placas geralmente diminui na proporÁ„o do desempenho que oferecem. 
+OBS: Se tiver escolha, prefira placas de v√≠deo independentes da placa m√£e. 
+Normalmente as placas de v√≠deo on-board usam parte da mem√≥ria RAM como 
+mem√≥ria de v√≠deo (mem√≥ria compartilhada) e isto diminui a performance de 
+v√≠deo e a performance do sistema porque se voc√™ estiver usando 2MB de 
+mem√≥ria de v√≠deo, ter√° 2 MB a menos para executar seus programas. O pre√ßo 
+destas placas geralmente diminui na propor√ß√£o do desempenho que oferecem. 
  <p>
 ]]>
-Uma boa escolha para uma melhor qualidade e maior velocidade È 
-<em>16 bits</em>. O motivo disto È que quanto maior a qualidade e a 
-resoluÁ„o, mais tempo ser· levado para os pixels serem atualizados no monitor. 
+Uma boa escolha para uma melhor qualidade e maior velocidade √© 
+<em>16 bits</em>. O motivo disto √© que quanto maior a qualidade e a 
+resolu√ß√£o, mais tempo ser√° levado para os pixels serem atualizados no monitor. 
  
-Veja abaixo como configurar o n˙mero de cores para quem esta iniciando o 
+Veja abaixo como configurar o n√∫mero de cores para quem esta iniciando o 
 X-Window pelo modo texto e <prgn>XDM</prgn>.
 
 
-<sect1 id="cfg-cores-t">Configurando o n˙mero de cores para quem inicia pelo 
+<sect1 id="cfg-cores-t">Configurando o n√∫mero de cores para quem inicia pelo 
 prompt
  <p>
-ApÛs configurar corretamente a resoluÁ„o de vÌdeo aceita pelo seu 
+Ap√≥s configurar corretamente a resolu√ß√£o de v√≠deo aceita pelo seu 
 servidor X com <tt>dpkg-reconfigure xserver-xorg</tt> 
 (Debian 4.0) use o comando <tt>startx -- -bpp 8</tt> no lugar de <tt>startx</tt>. 
 Note que estou usando 256 cores como exemplo (veja a tabela acima), se quiser 
-usar mais cores e sua placa de vÌdeo tiver memÛria suficiente, use 
+usar mais cores e sua placa de v√≠deo tiver mem√≥ria suficiente, use 
 16, 24 ou 32. 
  <p>
-Uma maneira mais pr·tica de iniciar sempre com uma mesma resoluÁ„o È incluir um 
-<prgn>alias</prgn> no arquivo <file>.bashrc</file> em seu diretÛrio: 
+Uma maneira mais pr√°tica de iniciar sempre com uma mesma resolu√ß√£o √© incluir um 
+<prgn>alias</prgn> no arquivo <file>.bashrc</file> em seu diret√≥rio: 
 <tt>alias startx='startx -- -bpp 8'</tt>
 <p>
-Desta forma toda a vez que se digitar <tt>startx</tt>, ser· executado o 
+Desta forma toda a vez que se digitar <tt>startx</tt>, ser√° executado o 
 comando da direita do sinal de igual. 
 <![ %OBS [
  <p>
 OBS: Se alguma coisa der errado e a imagem aparecer distorcida ou simplesmente 
-n„o aparecer, n„o se desespere! Pressione simultaneamente 
-<tt>CTRL+ALT+Back Space</tt>, esta È a combinaÁ„o de teclas finaliza 
+n√£o aparecer, n√£o se desespere! Pressione simultaneamente 
+<tt>CTRL+ALT+Back Space</tt>, esta √© a combina√ß√£o de teclas finaliza 
 imediatamente o servidor X. ]]>
 
 
-<sect1 id="cfg-configurando-g">Configurando o n˙mero de cores para quem inicia 
+<sect1 id="cfg-configurando-g">Configurando o n√∫mero de cores para quem inicia 
 pelo XDM
  <p> 
 Assumindo que o seu arquivo <file>/etc/X11/xorg.conf</file> foi gerado corretamente, 
 modifique o arquivo <![ %DEBIAN [ <file>/etc/X11/xdm/Xservers</file> ]]> e alterar 
-o final da linha colocando <tt>-bpp resoluÁ„o</tt>. Por exemplo, a ˙ltima linha 
+o final da linha colocando <tt>-bpp resolu√ß√£o</tt>. Por exemplo, a √∫ltima linha 
 de meu arquivo <file>Xservers</file> era: 
 <example>
 :0 local /usr/bin/X11/X vt7 
@@ -255,35 +255,35 @@ de meu arquivo <file>Xservers</file> era:
 :0 local /usr/bin/X11/X vt7 -bpp 16
 </example>
 Pronto, basta reiniciar o servidor X (usando <tt>CTRL+ALT+Back Space</tt>)
-<![ %DEBIAN [ ou reiniciando atravÈs do arquivo <file>/etc/init.d/xdm</file> 
-usando <tt>xdm restart</tt> ]]> e seu sistema passar· a usar 65.000 cores de 
-vÌdeo. 
+<![ %DEBIAN [ ou reiniciando atrav√©s do arquivo <file>/etc/init.d/xdm</file> 
+usando <tt>xdm restart</tt> ]]> e seu sistema passar√° a usar 65.000 cores de 
+v√≠deo. 
 <![ %OBS [ 
  <p>
 OBS: Lembre-se de salvar todos os seus arquivos antes de reiniciar o servidor 
-X, pois todos os programas que estiverem abertos no sistema ser„o imediatamente 
+X, pois todos os programas que estiverem abertos no sistema ser√£o imediatamente 
 fechados. ]]>
 
 
-<sect1>Ajustando o alinhamento da imagem no X e outras configuraÁıes 
+<sect1>Ajustando o alinhamento da imagem no X e outras configura√ß√µes 
  <p> 
-ApÛs vocÍ ter criado o arquivo de configuraÁ„o do X com o 
- <tt>dpkg-reconfigure xserver-xorg</tt>, È possÌvel que a configuraÁ„o precise 
+Ap√≥s voc√™ ter criado o arquivo de configura√ß√£o do X com o 
+ <tt>dpkg-reconfigure xserver-xorg</tt>, √© poss√≠vel que a configura√ß√£o precise 
 de um ajuste fino para o alinhamento correto da imagem no monitor. Muitos 
-monitores modernos possuem teclas para esta funÁ„o, mas desde que monitor esteja 
-com sua imagem aparecendo corretamente em modo texto, o ajuste dever· ser feito 
-no servidor X. Este ajuste È feito atravÈs do utilit·rio <prgn>xvidtune</prgn>. 
+monitores modernos possuem teclas para esta fun√ß√£o, mas desde que monitor esteja 
+com sua imagem aparecendo corretamente em modo texto, o ajuste dever√° ser feito 
+no servidor X. Este ajuste √© feito atrav√©s do utilit√°rio <prgn>xvidtune</prgn>. 
  <p>
-Entre no modo gr·fico como usu·rio <tt>root</tt>, abra o <prgn>xterm</prgn> e 
-digite <tt>xvidtune</tt> uma tela aparecer· com um aviso sobre o uso do 
-programa, clique em <prgn>OK</prgn>. Recomendo que ative o bot„o <tt>AUTO</tt> 
-para que a tela v· se ajustando na medida que vocÍ mexe nos ajustes. 
+Entre no modo gr√°fico como usu√°rio <tt>root</tt>, abra o <prgn>xterm</prgn> e 
+digite <tt>xvidtune</tt> uma tela aparecer√° com um aviso sobre o uso do 
+programa, clique em <prgn>OK</prgn>. Recomendo que ative o bot√£o <tt>AUTO</tt> 
+para que a tela v√° se ajustando na medida que voc√™ mexe nos ajustes. 
  <p>
-Para restaurar a configuraÁ„o anterior, pressione o bot„o <tt>Restore</tt> 
-(n„o faz efeito caso o bot„o <tt>Apply</tt> tenha sido pressionado). 
-Clicando em <tt>Quit</tt>, vocÍ sai do <prgn>xvidtune</prgn> sem salvar a 
-configuraÁ„o. Quando estiver satisfeito com a sua configuraÁ„o/alinhamento 
-da imagem, clique em <tt>Apply</tt>, a configuraÁ„o escolhida estar· salva. 
+Para restaurar a configura√ß√£o anterior, pressione o bot√£o <tt>Restore</tt> 
+(n√£o faz efeito caso o bot√£o <tt>Apply</tt> tenha sido pressionado). 
+Clicando em <tt>Quit</tt>, voc√™ sai do <prgn>xvidtune</prgn> sem salvar a 
+configura√ß√£o. Quando estiver satisfeito com a sua configura√ß√£o/alinhamento 
+da imagem, clique em <tt>Apply</tt>, a configura√ß√£o escolhida estar√° salva. 
 
     ]]>
 

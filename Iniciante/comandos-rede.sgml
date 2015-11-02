@@ -1,28 +1,28 @@
 <chapt id="cmdn">Comandos de rede
  <p>
-Este capÌtulo traz alguns comandos ˙teis para uso em rede e ambientes 
-multiusu·rio. 
+Este cap√≠tulo traz alguns comandos √∫teis para uso em rede e ambientes 
+multiusu√°rio. 
 
 
 <sect id="cmdn-who">who
  <p>
-Mostra quem est· atualmente conectado no computador. 
-<![ %DESCRICAOD [ Este comando lista os nomes de usu·rios que est„o  
-conectados em seu computador, o terminal e data da conex„o. ]]>
+Mostra quem est√° atualmente conectado no computador. 
+<![ %DESCRICAOD [ Este comando lista os nomes de usu√°rios que est√£o  
+conectados em seu computador, o terminal e data da conex√£o. ]]>
  <p>
-<tt>who [<em>opÁıes</em>]</tt>
+<tt>who [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-H, --heading</tag>
  <item>
-Mostra o cabeÁalho das colunas.
+Mostra o cabe√ßalho das colunas.
 
  <tag>-b, --boot </tag>
  <item>
-Mostra o hor·rio do ˙ltimo boot do sistema.
+Mostra o hor√°rio do √∫ltimo boot do sistema.
 
  <tag>-d, --dead </tag>
  <item>
@@ -30,32 +30,32 @@ Mostra processos mortos no sistema.
 
  <tag>-i, -u, --idle</tag>
  <item>
-Mostra o tempo que o usu·rio est· parado em Horas:Minutos.
+Mostra o tempo que o usu√°rio est√° parado em Horas:Minutos.
 
  <tag>-m, i am</tag>
  <item>
-Mostra o nome do computador e usu·rio associado ao nome. … equivalente 
+Mostra o nome do computador e usu√°rio associado ao nome. √â equivalente 
 a digitar <tt>who i am</tt> ou <tt>who am i</tt>.
 
  <tag>-q, --count</tag>
  <item>
-Mostra o total de usu·rios conectados aos terminais.
+Mostra o total de usu√°rios conectados aos terminais.
 
  <tag>-r, --runlevel</tag>
  <item>
-Mostra o nÌvel de execuÁ„o atual do sistema e desde quando ele est· ativo.
+Mostra o n√≠vel de execu√ß√£o atual do sistema e desde quando ele est√° ativo.
 
  <tag>-T, -w, --mesg</tag>
  <item>
-Mostra se o usu·rio pode receber mensagens via <prgn>talk</prgn> (conversaÁ„o).
+Mostra se o usu√°rio pode receber mensagens via <prgn>talk</prgn> (conversa√ß√£o).
  <list>
   <item>
-  + O usu·rio recebe mensagens via talk
+  + O usu√°rio recebe mensagens via talk
   <item>
-  - O usu·rio n„o recebe mensagens via talk. 
+  - O usu√°rio n√£o recebe mensagens via talk. 
   <item>
-  ? N„o foi possÌvel determinar o dispositivo de terminal onde o usu·rio 
-est· conectado.
+  ? N√£o foi poss√≠vel determinar o dispositivo de terminal onde o usu√°rio 
+est√° conectado.
  </list>
 </taglist>
 ]]>
@@ -64,40 +64,40 @@ est· conectado.
 <sect id="cmdn-telnet">telnet
  <p>
 Permite acesso a um computador remoto. 
-<![ %DESCRICAOD [ … mostrada uma tela de acesso correspondente ao  
-computador local onde deve ser feita a autenticaÁ„o do usu·rio para  
-entrar no sistema. Muito ˙til, mas deve ser tomado cuidados ao  
-disponibilizar este serviÁo para evitar riscos de seguranÁa e 
-usado o <prgn>ssh</prgn> sempre que possÌvel por ser um protocolo 
-criptografado e com recursos avanÁados de seguranÁa. ]]>
+<![ %DESCRICAOD [ √â mostrada uma tela de acesso correspondente ao  
+computador local onde deve ser feita a autentica√ß√£o do usu√°rio para  
+entrar no sistema. Muito √∫til, mas deve ser tomado cuidados ao  
+disponibilizar este servi√ßo para evitar riscos de seguran√ßa e 
+usado o <prgn>ssh</prgn> sempre que poss√≠vel por ser um protocolo 
+criptografado e com recursos avan√ßados de seguran√ßa. ]]>
  <p>
-<tt>telnet [<em>opÁıes</em>] [<em>ip/dns</em>] [<em>porta</em>]</tt>
+<tt>telnet [<em>op√ß√µes</em>] [<em>ip/dns</em>] [<em>porta</em>]</tt>
 <![ %OPCOES [ 
  <p>
 onde:
 <taglist compact>
  <tag><em>ip/dns</em></tag>
  <item>
-EndereÁo IP do computador de destino ou nome DNS.
+Endere√ßo IP do computador de destino ou nome DNS.
 
  <tag><em>porta</em></tag>
  <item>
-Porta onde ser· feita a conex„o. Por padr„o, a conex„o È feita na porta <em>23 
+Porta onde ser√° feita a conex√£o. Por padr√£o, a conex√£o √© feita na porta <em>23 
 </em>.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <item>
 
  <taglist compact>
   <tag>-8</tag>
   <item>
-Requisita uma operaÁ„o bin·ria de 8 bits. Isto forÁa a operaÁ„o em modo 
-bin·rio para envio e recebimento. Por padr„o, <prgn>telnet</prgn> n„o usa 
+Requisita uma opera√ß√£o bin√°ria de 8 bits. Isto for√ßa a opera√ß√£o em modo 
+bin√°rio para envio e recebimento. Por padr√£o, <prgn>telnet</prgn> n√£o usa 
 8 bits.
 
   <tag>-a</tag>
   <item>
-Tenta um login autom·tico, enviando o nome do usu·rio lido da vari·vel 
+Tenta um login autom√°tico, enviando o nome do usu√°rio lido da vari√°vel 
 de ambiente <file>USER</file>.
 
   <tag>-d</tag>
@@ -106,11 +106,11 @@ Ativa o modo de debug.
 
   <tag>-r</tag>
   <item>
-Ativa a emulaÁ„o de rlogin.
+Ativa a emula√ß√£o de rlogin.
  
-  <tag>-l [usu·rio]</tag>
+  <tag>-l [usu√°rio]</tag>
   <item>
-Faz a conex„o usando [usu·rio] como nome de usu·rio.
+Faz a conex√£o usando [usu√°rio] como nome de usu√°rio.
 
  </taglist>
 </taglist>
@@ -122,41 +122,41 @@ Exemplo: <tt>telnet 192.168.1.1</tt>, <tt>telnet 192.168.1.1 23</tt>. ]]>
 
 <sect id="cmdn-finger">finger
  <p>
-Mostra detalhes sobre os usu·rios de um sistema. 
-<![ %DESCRICAOD [ Algumas versıes do <prgn>finger</prgn> possuem bugs  
-e podem significar um risco para a seguranÁa do sistema. … recomendado  
-desativar este serviÁo na m·quina local. ]]>
+Mostra detalhes sobre os usu√°rios de um sistema. 
+<![ %DESCRICAOD [ Algumas vers√µes do <prgn>finger</prgn> possuem bugs  
+e podem significar um risco para a seguran√ßa do sistema. √â recomendado  
+desativar este servi√ßo na m√°quina local. ]]>
  <p>
-<tt>finger [<em>usu·rio</em>] [<em>usu·rio@host</em>]</tt>
+<tt>finger [<em>usu√°rio</em>] [<em>usu√°rio@host</em>]</tt>
 <![ %OPCOES [ 
  <p>
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome do usu·rio que deseja obter detalhes do sistema. Se n„o for digitado 
-o nome de usu·rio, o sistema mostra detalhes de todos os usu·rios 
+Nome do usu√°rio que deseja obter detalhes do sistema. Se n√£o for digitado 
+o nome de usu√°rio, o sistema mostra detalhes de todos os usu√°rios 
 conectados no momento.
 
- <tag><em>usu·rio@host</em></tag>
+ <tag><em>usu√°rio@host</em></tag>
  <item>
-Nome do usu·rio e endereÁo do computador que deseja obter detalhes.
+Nome do usu√°rio e endere√ßo do computador que deseja obter detalhes.
 
  <tag>-l</tag>
  <item>
-Mostra os detalhes de todos os usu·rios conectados no momento. Entre os 
-detalhes, est„o incluÌdos o <em>nome do interpretador de comandos</em> 
-(shell) do usu·rio, <em>diretÛrio home</em>, <em>nome do usu·rio</em>, 
-<em>endereÁo</em>, etc. 
-<![ %INTER-AVANC [ Estes dados s„o lidos de <file>/etc/passwd</file>. ]]>
+Mostra os detalhes de todos os usu√°rios conectados no momento. Entre os 
+detalhes, est√£o inclu√≠dos o <em>nome do interpretador de comandos</em> 
+(shell) do usu√°rio, <em>diret√≥rio home</em>, <em>nome do usu√°rio</em>, 
+<em>endere√ßo</em>, etc. 
+<![ %INTER-AVANC [ Estes dados s√£o lidos de <file>/etc/passwd</file>. ]]>
 
  <tag>-p</tag>
  <item>
-N„o exibe o conte˙do dos arquivos <file>.plan</file> e <file>.project</file>
+N√£o exibe o conte√∫do dos arquivos <file>.plan</file> e <file>.project</file>
 
 </taglist>
 ]]>
-Se for usado sem par‚metros, mostra os dados de todos os usu·rios conectados 
+Se for usado sem par√¢metros, mostra os dados de todos os usu√°rios conectados 
 atualmente ao seu sistema. 
 <![ %EXEMPLO [
  <p>
@@ -165,15 +165,15 @@ Exemplo: <tt>finger</tt>, <tt>finger root</tt>. ]]>
 
 <sect id="cmdn-ftp">ftp
  <p>
-Permite a transferÍncia de arquivos do computador remoto/local e 
+Permite a transfer√™ncia de arquivos do computador remoto/local e 
 vice versa. 
-<![ %DESCRICAOD [ O file transfer protocol È o sistema de transmiss„o 
-de arquivos mais usado na Internet. … requerida a autenticaÁ„o do 
-usu·rio para que seja permitida a conex„o. Muitos servidores ftp 
-disponibilizam acesso anÙnimo aos usu·rios, com acesso restrito. ]]>
+<![ %DESCRICAOD [ O file transfer protocol √© o sistema de transmiss√£o 
+de arquivos mais usado na Internet. √â requerida a autentica√ß√£o do 
+usu√°rio para que seja permitida a conex√£o. Muitos servidores ftp 
+disponibilizam acesso an√¥nimo aos usu√°rios, com acesso restrito. ]]>
  <p>
-Uma vez conectado a um servidor <prgn>ftp</prgn>, vocÍ pode usar a  
-maioria dos comandos do <prgn>GNU/Linux</prgn> para oper·-lo.
+Uma vez conectado a um servidor <prgn>ftp</prgn>, voc√™ pode usar a  
+maioria dos comandos do <prgn>GNU/Linux</prgn> para oper√°-lo.
  <p>
 <tt>ftp [<em>ip/dns</em>]</tt>
  <p>
@@ -181,20 +181,20 @@ Abaixo alguns dos comandos mais usados no FTP:
 <taglist compact>
  <tag>ls</tag>
  <item>
-Lista arquivos do diretÛrio atual.
+Lista arquivos do diret√≥rio atual.
  
- <tag>cd [diretÛrio]</tag>
+ <tag>cd [diret√≥rio]</tag>
  <item>
-Entra em um diretÛrio.
+Entra em um diret√≥rio.
 
  <tag>get [arquivo]</tag>
  <item>
-Copia um arquivo do servidor ftp para o computador local. O arquivo È 
-gravado, por padr„o, no diretÛrio onde o programa ftp foi executado.
+Copia um arquivo do servidor ftp para o computador local. O arquivo √© 
+gravado, por padr√£o, no diret√≥rio onde o programa ftp foi executado.
 
  <tag>hash [on/off]</tag>
  <item>
-Por padr„o esta opÁ„o est· desligada. Quando ligada, faz com que o caracter 
+Por padr√£o esta op√ß√£o est√° desligada. Quando ligada, faz com que o caracter 
 "#" seja impresso na tela indicando o progresso do download. 
 
  <tag>mget [arquivos]</tag>
@@ -204,12 +204,12 @@ de curingas.
  
  <tag>send [arquivo]</tag>
  <item>
-Envia um arquivo para o diretÛrio atual do servidor FTP (vocÍ precisa 
-de uma conta com acesso a gravaÁ„o para fazer isto).
+Envia um arquivo para o diret√≥rio atual do servidor FTP (voc√™ precisa 
+de uma conta com acesso a grava√ß√£o para fazer isto).
 
  <tag>prompt [on/off]</tag>
  <item>
-Ativa ou desativa a pergunta para a cÛpia de arquivo. Se estiver como 
+Ativa ou desativa a pergunta para a c√≥pia de arquivo. Se estiver como 
 <tt>off</tt> assume sim para qualquer pergunta. 
 
 </taglist>
@@ -220,15 +220,15 @@ Exemplo: <tt>ftp ftp.debian.org</tt>. ]]>
 
 <sect id="cmdn-whoami">whoami
  <p>
-Mostra o nome que usou para se conectar ao sistema. … ˙til quando vocÍ usa 
-v·rias contas e n„o sabe com qual nome entrou no sistema :-)
+Mostra o nome que usou para se conectar ao sistema. √â √∫til quando voc√™ usa 
+v√°rias contas e n√£o sabe com qual nome entrou no sistema :-)
  <p>
 <tt>whoami</tt>
 
 
 <sect id="cmdn-dnsdomainname">dnsdomainname
  <p>
-Mostra o nome do domÌnio de seu sistema. 
+Mostra o nome do dom√≠nio de seu sistema. 
 
 
 <sect id="cmdn-hostname">hostname
@@ -238,75 +238,75 @@ Mostra ou muda o nome de seu computador na rede.
 
 <sect id="cmdn-talk">talk
  <p>
-Inicia conversa com outro usu·rio de sistema em uma rede local ou Internet. 
-<![ %DESCRICAOD [ Talk È um programa de conversaÁ„o em tempo real onde 
-uma pessoa vÍ o que a outra escreve. ]]>
+Inicia conversa com outro usu√°rio de sistema em uma rede local ou Internet. 
+<![ %DESCRICAOD [ Talk √© um programa de conversa√ß√£o em tempo real onde 
+uma pessoa v√™ o que a outra escreve. ]]>
  <p>
-<tt>talk [<em>usu·rio</em>] [<em>tty</em>]</tt>
+<tt>talk [<em>usu√°rio</em>] [<em>tty</em>]</tt>
  <p>
 ou
  <p>
-<tt>talk [<em>usu·rio@host</em>]</tt>
+<tt>talk [<em>usu√°rio@host</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome de login do usu·rio que deseja iniciar a conversaÁ„o. Este nome pode 
+Nome de login do usu√°rio que deseja iniciar a conversa√ß√£o. Este nome pode 
 ser obtido com o comando <prgn>who</prgn> (veja <ref id="cmdn-who">).
 
  <tag><em>tty</em></tag>
  <item>
-O nome de terminal onde o usu·rio est· conectado, para iniciar uma conex„o 
+O nome de terminal onde o usu√°rio est√° conectado, para iniciar uma conex√£o 
 local.
 
- <tag><em>usu·rio@host</em></tag>
+ <tag><em>usu√°rio@host</em></tag>
  <item>
-Se o usu·rio que deseja conversar estiver conectado em um computador remoto, 
-vocÍ deve usar o nome do usu·rio@hosname do computador.
+Se o usu√°rio que deseja conversar estiver conectado em um computador remoto, 
+voc√™ deve usar o nome do usu√°rio@hosname do computador.
 
 </taglist>
 ]]>
-ApÛs o <prgn>talk</prgn> ser iniciado, ele verificar· se o usu·rio pode 
-receber mensagens, em caso positivo, ele enviar· uma mensagem ao usu·rio 
+Ap√≥s o <prgn>talk</prgn> ser iniciado, ele verificar√° se o usu√°rio pode 
+receber mensagens, em caso positivo, ele enviar√° uma mensagem ao usu√°rio 
 dizendo como responder ao seu pedido de conversa. Veja <ref id="cmdn-who">. 
  <p>
 Para poder fazer a rolagem para cima e para baixo no <prgn>talk</prgn>, 
 pressione <tt>CTRL+P</tt>(Previous - Tela anterior) e <tt>CTRL+N</tt> 
-(Next - PrÛxima tela).
+(Next - Pr√≥xima tela).
 
 <![ %INTER-AVANC [ 
-VocÍ deve ter o daemon do <prgn>talk</prgn> instalado (<tt>talkd</tt>) para  
-receber requisiÁıes de conversa.
+Voc√™ deve ter o daemon do <prgn>talk</prgn> instalado (<tt>talkd</tt>) para  
+receber requisi√ß√µes de conversa.
 ]]>
  <p>
-VocÍ deve autorizar o recebimento de talks de outros usu·rios para que eles 
-possam se comunicar com vocÍ
+Voc√™ deve autorizar o recebimento de talks de outros usu√°rios para que eles 
+possam se comunicar com voc√™
 <![ %INIC-INTER [, para detalhes veja o comando <ref id="cmdv-mesg">]]>.
 
 
   <![ %INTER-AVANC [ 
 <sect id="cmdn-ping">ping
  <p>
-Verifica se um computador est· disponÌvel na rede. 
-<![ %DESCRICAOD [ Este comando È muito utilizado por alguns programas de  
-conex„o e administradores para verificar se uma determinada m·quina est·  
-conectada na rede e tambÈm para verificar o tempo de resposta de cada 
-m·quina da rede. O <prgn>ping</prgn> envia pacotes ICMS ECHO_REQUEST para 
-um computador, este quando recebe o pacote envia uma resposta ao endereÁo 
-de origem avisando que est· disponÌvel na rede. ]]>
+Verifica se um computador est√° dispon√≠vel na rede. 
+<![ %DESCRICAOD [ Este comando √© muito utilizado por alguns programas de  
+conex√£o e administradores para verificar se uma determinada m√°quina est√°  
+conectada na rede e tamb√©m para verificar o tempo de resposta de cada 
+m√°quina da rede. O <prgn>ping</prgn> envia pacotes ICMS ECHO_REQUEST para 
+um computador, este quando recebe o pacote envia uma resposta ao endere√ßo 
+de origem avisando que est√° dispon√≠vel na rede. ]]>
  <p>
-<tt>ping [<em>opÁıes</em>][<em>IP/DNS</em>]</tt>
+<tt>ping [<em>op√ß√µes</em>][<em>IP/DNS</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
 <taglist compact>
  <tag><em>IP/dns</em></tag>
  <item>
-EndereÁo IP ou nome DNS do endereÁo.
+Endere√ßo IP ou nome DNS do endere√ßo.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-c [num]</tag>
  <item>
 Envia <em>num</em> pacotes ao computador de destino. 
@@ -314,10 +314,10 @@ Envia <em>num</em> pacotes ao computador de destino.
  <tag>-f</tag>
  <item>
 <em>Flood ping</em>. Envia novos pacotes antes de receber a resposta do 
-pacote anterior. Para cada requisiÁ„o enviada, um "." È  
-mostrado na tela e para cada resposta recebida, um backspace È mostrado.  
-Somente o usu·rio root pode utilizar esta opÁ„o e pode te auxiliar muito 
-na detecÁ„o de erros de transmiss„o de pacotes em interfaces das m·quinas em 
+pacote anterior. Para cada requisi√ß√£o enviada, um "." √©  
+mostrado na tela e para cada resposta recebida, um backspace √© mostrado.  
+Somente o usu√°rio root pode utilizar esta op√ß√£o e pode te auxiliar muito 
+na detec√ß√£o de erros de transmiss√£o de pacotes em interfaces das m√°quinas em 
 sua rede. 
 
  <tag>-i [seg]</tag>
@@ -326,16 +326,16 @@ Aguarda [seg] segundos antes de enviar cada pacote.
 
  <tag>-q</tag>
  <item>
-N„o mostra as requisiÁıes enquanto s„o enviadas, somente mostra as linhas 
-de sum·rio no inicio e tÈrmino do programa.
+N√£o mostra as requisi√ß√µes enquanto s√£o enviadas, somente mostra as linhas 
+de sum√°rio no inicio e t√©rmino do programa.
 
  <tag>-s [tamanho]</tag>
  <item>
-Especifica o tamanho do pacote que ser· enviado.
+Especifica o tamanho do pacote que ser√° enviado.
 
  <tag>-v, --verbose</tag>
  <item>
-SaÌda detalhada, tanto os pacotes enviados como recebidos s„o listados.
+Sa√≠da detalhada, tanto os pacotes enviados como recebidos s√£o listados.
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -344,26 +344,26 @@ Exemplo: <tt>ping 192.168.1.1</tt>, <tt>ping www.debian.org</tt>. ]]>
 
 <sect id="cmdn-rlogin">rlogin
  <p>
-Executa um login em uma m·quina local ou remota.
+Executa um login em uma m√°quina local ou remota.
  <p>
-<tt>rlogin [<em>opÁıes</em>] [<em>IP/DNS</em>]</tt>
+<tt>rlogin [<em>op√ß√µes</em>] [<em>IP/DNS</em>]</tt>
  <p>
 <![ %OPCOES [
 onde:
 <taglist compact>
  <tag><em>IP/DNS</em></tag>
  <item>
-EndereÁo IP ou DNS do computador que ser· acessado.
+Endere√ßo IP ou DNS do computador que ser√° acessado.
  
-<tag>opÁıes</tag>
+<tag>op√ß√µes</tag>
 <tag>-l [nome]</tag>
 <item>
 Entra com o user id [nome] no sistema. 
 </taglist>
 ]]>
-<prgn>rlogin</prgn> È usado para executar comandos interativamente no 
-computador de destino (como se vocÍ estivesse sentado diante dele, muito 
-semelhante ao telnet). Para executar comandos n„o interativamente veja  
+<prgn>rlogin</prgn> √© usado para executar comandos interativamente no 
+computador de destino (como se voc√™ estivesse sentado diante dele, muito 
+semelhante ao telnet). Para executar comandos n√£o interativamente veja  
 <ref id="cmdn-rsh">.
 
 
@@ -371,53 +371,53 @@ semelhante ao telnet). Para executar comandos n„o interativamente veja
  <p>
 Executa um comando em um computador local ou remoto.
  <p>
-<tt>rsh [<em>opÁıes</em>] [<em>IP/DNS</em>] [<em>comando</em>]</tt>
+<tt>rsh [<em>op√ß√µes</em>] [<em>IP/DNS</em>] [<em>comando</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag><em>IP/DNS</em></tag>
  <item>
-EndereÁo IP ou nome DNS do computador.
+Endere√ßo IP ou nome DNS do computador.
 
  <tag><em>comando</em></tag>
  <item>
-Comando que ser· executado no computador local/remoto.
+Comando que ser√° executado no computador local/remoto.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-l [nome]</tag>
  <item>
 Entra no sistema usando o login [nome].
 </taglist>
 ]]>
-<prgn>rsh</prgn> È usado somente para executar comandos. Para 
+<prgn>rsh</prgn> √© usado somente para executar comandos. Para 
 usar um shell interativo veja <ref id="cmdn-telnet"> e 
 <ref id="cmdn-rlogin">. 
 
 
 <sect id="cmdn-w">w
  <p>
-Mostra quem est· conectado no sistema e o que cada um est· fazendo. 
+Mostra quem est√° conectado no sistema e o que cada um est√° fazendo. 
  <p>
-<tt>w [<em>opÁıes</em>][<em>usu·rio</em>]</tt>
+<tt>w [<em>op√ß√µes</em>][<em>usu√°rio</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome do usu·rio que deseja ver os detalhes. Se o usu·rio n„o for digitado, 
-o comando <prgn>w</prgn> mostra detalhes de todos os usu·rios conectados 
+Nome do usu√°rio que deseja ver os detalhes. Se o usu√°rio n√£o for digitado, 
+o comando <prgn>w</prgn> mostra detalhes de todos os usu√°rios conectados 
 no sistema.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-h</tag>
  <item>
-N„o mostra o cabeÁalho
+N√£o mostra o cabe√ßalho
 
  <tag>-u</tag>
  <item>
-Ignora os nomes de usu·rios enquanto verifica os processo atuais e 
+Ignora os nomes de usu√°rios enquanto verifica os processo atuais e 
 tempos de CPU.
 
  <tag>-f</tag>
@@ -431,37 +431,37 @@ Mostra ou oculta o campo <em>FROM</em> na listagem.
  <p>
 Mostra o caminho percorrido por um pacote para chegar ao seu destino. 
 <![ %DESCRICAOD [ Este comando mostra na tela o caminho percorrido entre  
-os Gateways da rede e o tempo gasto de retransmiss„o. Este comando È ˙til  
-para encontrar computadores defeituosos na rede caso o pacote n„o esteja 
+os Gateways da rede e o tempo gasto de retransmiss√£o. Este comando √© √∫til  
+para encontrar computadores defeituosos na rede caso o pacote n√£o esteja 
 chegando ao seu destino. ]]>
  <p>
-<tt>traceroute [<em>opÁıes</em>] [<em>host/IP de destino</em>]</tt>
+<tt>traceroute [<em>op√ß√µes</em>] [<em>host/IP de destino</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>host/IP destino</em></tag>
  <item>
-… o endereÁo para onde o pacote ser· enviado (por exemplo, www.debian.org). 
-Caso o tamanho do pacote n„o seja especificado, È enviado um pacote de 38 
+√â o endere√ßo para onde o pacote ser√° enviado (por exemplo, www.debian.org). 
+Caso o tamanho do pacote n√£o seja especificado, √© enviado um pacote de 38 
 bytes.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-l</tag>
  <item>
 Mostra o tempo de vida do pacote (ttl) 
 
  <tag>-m [num]</tag>
  <item>
-Ajusta a quantidade m·ximas de ttl dos pacotes. O padr„o È 30.
+Ajusta a quantidade m√°ximas de ttl dos pacotes. O padr√£o √© 30.
 
  <tag>-n</tag>
  <item>
-Mostra os endereÁos numericamente ao invÈs de usar resoluÁ„o DNS.
+Mostra os endere√ßos numericamente ao inv√©s de usar resolu√ß√£o DNS.
 
  <tag>-p [porta]</tag>
  <item>
-Ajusta a porta que ser· usada para o teste. A porta padr„o È 33434.
+Ajusta a porta que ser√° usada para o teste. A porta padr√£o √© 33434.
 
  <tag>-r</tag>
  <item>
@@ -470,8 +470,8 @@ conectado a rede.
 
  <tag>-s [end]</tag>
  <item>
-Usa o endereÁo IP/DNS [end] como endereÁo de origem para computadores com 
-m˙ltiplos endereÁos IPs ou nomes.
+Usa o endere√ßo IP/DNS [end] como endere√ßo de origem para computadores com 
+m√∫ltiplos endere√ßos IPs ou nomes.
 
  <tag>-v</tag>
  <item>
@@ -479,7 +479,7 @@ Mostra mais detalhes sobre o resultado do <prgn>traceroute</prgn>.
 
  <tag>-w [num]</tag>
  <item>
-Configura o tempo m·ximo que aguardar· por uma resposta. O padr„o È 3  
+Configura o tempo m√°ximo que aguardar√° por uma resposta. O padr√£o √© 3  
 segundos. 
 </taglist>
 ]]>
@@ -491,48 +491,48 @@ Exemplos: <tt>traceroute www.debian.org</tt>,
 
 <sect id="cmdn-netstat">netstat
  <p>
-Mostra conexıes de rede, tabela de roteamento, estatÌsticas de interfaces, 
-conexıes masquerade, e mensagens. 
+Mostra conex√µes de rede, tabela de roteamento, estat√≠sticas de interfaces, 
+conex√µes masquerade, e mensagens. 
  <p>
-<tt>netstat [<em>opÁıes</em>]</tt>
+<tt>netstat [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-i [interface]</tag>
  <item>
-Mostra estatÌsticas da interface [interface].
+Mostra estat√≠sticas da interface [interface].
 
  <tag>-M, --masquerade</tag>
  <item>
-Se especificado, tambÈm lista conexıes masquerade.
+Se especificado, tamb√©m lista conex√µes masquerade.
 
  <tag>-n, --numeric</tag>
  <item>
-Usa endereÁos numÈricos ao invÈs de tentar resolver nomes de hosts, usu·rios 
+Usa endere√ßos num√©ricos ao inv√©s de tentar resolver nomes de hosts, usu√°rios 
 e portas.
 
  <tag>-c, --continuous</tag>
  <item>
-Mostra a listagem a cada segundo atÈ que a <tt>CTRL</tt>+<tt>C</tt> seja 
+Mostra a listagem a cada segundo at√© que a <tt>CTRL</tt>+<tt>C</tt> seja 
 pressionado.
 
  <tag>-l</tag>
  <item>
-Lista sockets aguardando por conex„o.
+Lista sockets aguardando por conex√£o.
  
  <tag>-t, --tcp</tag>
  <item>
-Lista conexıes TCP.
+Lista conex√µes TCP.
 
  <tag>-u, --udp</tag>
  <item>
-Lista conexıes UDP.
+Lista conex√µes UDP.
 
 </taglist>
 ]]>
-Se n„o for especificada nenhuma opÁ„o, os detalhes das conexıes atuais ser„o 
+Se n√£o for especificada nenhuma op√ß√£o, os detalhes das conex√µes atuais ser√£o 
 mostrados.
 <![ %EXEMPLO [
  <p>
@@ -542,16 +542,16 @@ Exemplos: <tt>netstat -n</tt>, <tt>netstat -lt</tt>, <tt>netstat -M</tt>. ]]>
 
 <sect id="cmdv-wall">wall 
  <p>
-Envia uma mensagem a todos os usu·rios do sistema.
-<![ %DESCRICAOD [ Este comando faz a leitura de um arquivo ou entrada padr„o 
-e escreve o resultado em todos os terminais onde existem usu·rios conectados. 
-Somente o usu·rio root pode utilizar este comando. ]]> 
+Envia uma mensagem a todos os usu√°rios do sistema.
+<![ %DESCRICAOD [ Este comando faz a leitura de um arquivo ou entrada padr√£o 
+e escreve o resultado em todos os terminais onde existem usu√°rios conectados. 
+Somente o usu√°rio root pode utilizar este comando. ]]> 
  <p>
 <tt>wall [<em>arquivo</em>]</tt>
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>wall /tmp/mensagem.txt</tt>, 
-<tt>echo Teste de mensagem enviada a todos os usu·rios conectados ao 
+<tt>echo Teste de mensagem enviada a todos os usu√°rios conectados ao 
 sistema|wall</tt>. ]]>
  
   ]]>

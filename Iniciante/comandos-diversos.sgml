@@ -5,20 +5,20 @@ Comandos de uso diversos no sistema.
 
 <sect id="cmdv-clear">clear
  <p>
-Limpa a tela e posiciona o cursor no canto superior esquerdo do vÌdeo.
+Limpa a tela e posiciona o cursor no canto superior esquerdo do v√≠deo.
  <p>
 <tt>clear</tt>
 
 
 <sect id="cmdv-date">date
  <p>
-Permite ver/modificar a Data e Hora do Sistema. VocÍ precisa estar como 
-usu·rio root para modificar a data e hora. 
+Permite ver/modificar a Data e Hora do Sistema. Voc√™ precisa estar como 
+usu√°rio root para modificar a data e hora. 
 <![ %INTERMEDIARIO [ Muitos programas do sistema, arquivos de registro 
 (log) e tarefas agendadas funcionam com base na data e hora fornecidas 
-pelo sistema, assim esteja consciente das modificaÁıes que a data/hora 
+pelo sistema, assim esteja consciente das modifica√ß√µes que a data/hora 
 pode trazer a estes programas (principalmente em se tratando de uma 
-rede com muitos usu·rios) ]]>. 
+rede com muitos usu√°rios) ]]>. 
  <p>
 <tt>date MesDiaHoraMinuto[AnoSegundos]</tt>
  <p>
@@ -27,33 +27,33 @@ rede com muitos usu·rios) ]]>.
  <taglist compact>
   <tag>MesDiaHoraMinuto[AnoSegundos]</tag>
   <item>
-S„o respectivamente os n˙meros do mÍs, dia, hora e minutos sem espaÁos. 
-Opcionalmente vocÍ pode especificar o Ano (com 2 ou 4 dÌgitos) e os Segundos. 
+S√£o respectivamente os n√∫meros do m√™s, dia, hora e minutos sem espa√ßos. 
+Opcionalmente voc√™ pode especificar o Ano (com 2 ou 4 d√≠gitos) e os Segundos. 
 
  <tag>+[FORMATO]</tag>
   <item>
-Define o formato da listagem que ser· usada pelo comando <prgn>date</prgn>. 
-Os seguintes formatos s„o os mais usados:
+Define o formato da listagem que ser√° usada pelo comando <prgn>date</prgn>. 
+Os seguintes formatos s√£o os mais usados:
  <list compact>
-  <item><tt>%d</tt> - Dia do MÍs (00-31).
-  <item><tt>%m</tt> - MÍs do Ano (00-12).
-  <item><tt>%y</tt> - Ano (dois dÌgitos).
-  <item><tt>%Y</tt> - Ano (quatro dÌgitos).
+  <item><tt>%d</tt> - Dia do M√™s (00-31).
+  <item><tt>%m</tt> - M√™s do Ano (00-12).
+  <item><tt>%y</tt> - Ano (dois d√≠gitos).
+  <item><tt>%Y</tt> - Ano (quatro d√≠gitos).
   <item><tt>%H</tt> - Hora (00-24).
   <item><tt>%I</tt> - Hora (00-12).
   <item><tt>%M</tt> - Minuto (00-59).
   <item><tt>%j</tt> - Dia do ano (1-366).
-  <item><tt>%p</tt> - AM/PM (˙til se utilizado com %d).
+  <item><tt>%p</tt> - AM/PM (√∫til se utilizado com %d).
   <item><tt>%r</tt> - Formato de 12 horas completo (hh:mm:ss AM/PM). 
   <item><tt>%T</tt> - Formato de 24 horas completo (hh:mm:ss).
   <item><tt>%w</tt> - Dia da semana (0-6).
  </list> 
-Outros formatos podem ser obtidos atravÈs da p·gina de manual do 
+Outros formatos podem ser obtidos atrav√©s da p√°gina de manual do 
 <prgn>date</prgn>. 
  
  </taglist>
 ]]>
-Para maiores detalhes, veja a p·gina de manual do comando <prgn>date</prgn>. 
+Para maiores detalhes, veja a p√°gina de manual do comando <prgn>date</prgn>. 
 <![ %EXEMPLO [
  <p>
 Para ver a data atual digite:
@@ -62,32 +62,32 @@ Para ver a data atual digite:
 Se quiser mudar a Data para 25/12 e a hora para 08:15 digite:
 <tt>date 12250815</tt> 
  <p>
-Para mostrar somente a data no formato dia/mÍs/ano:
+Para mostrar somente a data no formato dia/m√™s/ano:
 <tt>date +%d/%m/%Y</tt>
 ]]>
 
 
 <sect id="cmdv-df">df
  <p>
-Mostra o espaÁo livre/ocupado de cada partiÁ„o. 
+Mostra o espa√ßo livre/ocupado de cada parti√ß√£o. 
  <p>
-<tt>df [<em>opÁıes</em>]</tt>
+<tt>df [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [
  <p>
 onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-a</tag>
  <item>
 Inclui sistemas de arquivos com 0 blocos.
 
  <tag>-h, --human-readable</tag>
  <item>
-Mostra o espaÁo livre/ocupado em <em>MB, KB, GB</em> ao invÈs de blocos.
+Mostra o espa√ßo livre/ocupado em <em>MB, KB, GB</em> ao inv√©s de blocos.
 
  <tag>-H</tag>
  <item>
-IdÍntico a <tt>-h</tt> mas usa 1000 ao invÈs de 1024 como unidade de c·lculo. 
+Id√™ntico a <tt>-h</tt> mas usa 1000 ao inv√©s de 1024 como unidade de c√°lculo. 
 
  <tag>-k</tag>
  <item>
@@ -108,7 +108,7 @@ Executa o <prgn>sync</prgn> antes de mostrar os dados.
 
  <tag>-T</tag>
  <item>
-Lista o tipo de sistema de arquivos de cada partiÁ„o
+Lista o tipo de sistema de arquivos de cada parti√ß√£o
 
  <tag>-t <em>tipo</em></tag>
  <item>
@@ -116,7 +116,7 @@ Lista somente sistema de arquivos do tipo <em>tipo</em>.
 
  <tag>-x <em>tipo</em></tag>
  <item>
-N„o lista sistemas de arquivos do tipo <em>tipo</em>.
+N√£o lista sistemas de arquivos do tipo <em>tipo</em>.
 ]]>
 </taglist>
 ]]>
@@ -127,30 +127,30 @@ Exemplos: <tt>df</tt>, <tt>df -h</tt>, <tt>df -t vfat</tt>. ]]>
 
 <sect id="cmdv-ln">ln
  <p>
-Cria links para arquivos e diretÛrios no sistema. 
-<![ %DESCRICAOD [ O link È um mecanismo que faz referÍncia a outro arquivo  
-ou diretÛrio em outra localizaÁ„o. O link em sistemas  
-<prgn>GNU/Linux</prgn> faz referÍncia reais ao arquivo/diretÛrio podendo  
-ser feita cÛpia do link (ser· copiado o arquivo alvo), entrar no  
-diretÛrio (caso o link faÁa referÍncia a um diretÛrio), etc. ]]>
+Cria links para arquivos e diret√≥rios no sistema. 
+<![ %DESCRICAOD [ O link √© um mecanismo que faz refer√™ncia a outro arquivo  
+ou diret√≥rio em outra localiza√ß√£o. O link em sistemas  
+<prgn>GNU/Linux</prgn> faz refer√™ncia reais ao arquivo/diret√≥rio podendo  
+ser feita c√≥pia do link (ser√° copiado o arquivo alvo), entrar no  
+diret√≥rio (caso o link fa√ßa refer√™ncia a um diret√≥rio), etc. ]]>
  <p>
-<tt>ln [<em>opÁıes</em>] [<em>origem</em>] [<em>link</em>]</tt>
+<tt>ln [<em>op√ß√µes</em>] [<em>origem</em>] [<em>link</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag><em>origem</em></tag>
  <item>
-DiretÛrio ou arquivo de onde ser· feito o link. 
+Diret√≥rio ou arquivo de onde ser√° feito o link. 
 
  <tag><em>link</em></tag>
  <item>
-Nome do link que ser· criado.
+Nome do link que ser√° criado.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-s</tag>
  <item>
-Cria um link simbÛlico. Usado para criar ligaÁıes com o arquivo/diretÛrio de 
+Cria um link simb√≥lico. Usado para criar liga√ß√µes com o arquivo/diret√≥rio de 
 destino.
 
  <tag>-v</tag>
@@ -159,42 +159,42 @@ Mostra o nome de cada arquivo antes de fazer o link.
 
  <tag>-d</tag>
  <item>
-Cria um hard link para diretÛrios. Somente o root pode usar esta opÁ„o.
+Cria um hard link para diret√≥rios. Somente o root pode usar esta op√ß√£o.
 </taglist>
 ]]>
-Existem 2 tipos de links: <em>simbÛlicos</em> e <em>hardlinks</em>. 
+Existem 2 tipos de links: <em>simb√≥licos</em> e <em>hardlinks</em>. 
 <list compact>
  <item>
-O <em>link simbÛlico</em> cria um arquivo especial no disco (do tipo link) 
-que tem como conte˙do o caminho para chegar atÈ o arquivo alvo (isto pode 
-ser verificado pelo tamanho do arquivo do link). Use a opÁ„o <tt>-s</tt> para 
-criar links simbÛlicos. 
+O <em>link simb√≥lico</em> cria um arquivo especial no disco (do tipo link) 
+que tem como conte√∫do o caminho para chegar at√© o arquivo alvo (isto pode 
+ser verificado pelo tamanho do arquivo do link). Use a op√ß√£o <tt>-s</tt> para 
+criar links simb√≥licos. 
 
  <item>
-O <em>hardlink</em> faz referÍncia ao mesmo inodo do arquivo original, desta forma 
-ele ser· perfeitamente idÍntico, inclusive nas permissıes de acesso, ao arquivo 
+O <em>hardlink</em> faz refer√™ncia ao mesmo inodo do arquivo original, desta forma 
+ele ser√° perfeitamente id√™ntico, inclusive nas permiss√µes de acesso, ao arquivo 
 original. 
  <p>
-Ao contr·rio dos links simbÛlicos, n„o È possÌvel fazer um hardlink para 
-um diretÛrio ou fazer referÍncia a arquivos que estejam em partiÁıes diferentes. 
+Ao contr√°rio dos links simb√≥licos, n√£o √© poss√≠vel fazer um hardlink para 
+um diret√≥rio ou fazer refer√™ncia a arquivos que estejam em parti√ß√µes diferentes. 
 </list>
 
 <![ %OBS [ 
  <p>
-ObservaÁıes:
+Observa√ß√µes:
 <list compact>
  <item>
-Se for usado o comando <prgn>rm</prgn> com um link, somente o link ser· 
+Se for usado o comando <prgn>rm</prgn> com um link, somente o link ser√° 
 removido.
  <item>
-Se for usado o comando <prgn>cp</prgn> com um link, o arquivo original ser· 
-copiado ao invÈs do link. 
+Se for usado o comando <prgn>cp</prgn> com um link, o arquivo original ser√° 
+copiado ao inv√©s do link. 
  <item>
-Se for usado o comando <prgn>mv</prgn> com um link, a modificaÁ„o ser· feita 
+Se for usado o comando <prgn>mv</prgn> com um link, a modifica√ß√£o ser√° feita 
 no link.
  <item>
-Se for usado um comando de visualizaÁ„o (como o <prgn>cat</prgn>), o 
-arquivo original ser· visualizado. 
+Se for usado um comando de visualiza√ß√£o (como o <prgn>cat</prgn>), o 
+arquivo original ser√° visualizado. 
 </list>
 ]]>
 
@@ -208,61 +208,61 @@ para o arquivo <file>/dev/ttyS1</file>.
  
  <item>
  <tt>ln -s /tmp ~/tmp</tt> - Cria um link <file>~/tmp</file> para o  
-diretÛrio <file>/tmp</file>.
+diret√≥rio <file>/tmp</file>.
 </list> ]]>
 
 
 <sect id="cmdv-du">du
  <p>
-Mostra o espaÁo ocupado por arquivos e sub-diretÛrios do diretÛrio atual.
+Mostra o espa√ßo ocupado por arquivos e sub-diret√≥rios do diret√≥rio atual.
  <p>
-<tt>du [<em>opÁıes</em>]</tt>
+<tt>du [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [ 
  <p>
 onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-a, --all</tag>
  <item>
-Mostra o espaÁo ocupado por todos os arquivos.
+Mostra o espa√ßo ocupado por todos os arquivos.
 
  <tag>-b, --bytes</tag>
  <item>
-Mostra o espaÁo ocupado em bytes.
+Mostra o espa√ßo ocupado em bytes.
 
  <tag>-c, --total</tag>
  <item>
-Faz uma totalizaÁ„o de todo espaÁo listado.
+Faz uma totaliza√ß√£o de todo espa√ßo listado.
 
  <tag>-D</tag>
  <item>
-N„o conta links simbÛlicos.
+N√£o conta links simb√≥licos.
 
  <tag>-h, --human</tag>
  <item>
-Mostra o espaÁo ocupado em formato legÌvel por humanos (Kb, Mb) ao invÈs 
+Mostra o espa√ßo ocupado em formato leg√≠vel por humanos (Kb, Mb) ao inv√©s 
 de usar blocos.
 
  <tag>-H</tag>
  <item>
-Como o anterior mas usa 1000 e n„o 1024 como unidade de c·lculo.
+Como o anterior mas usa 1000 e n√£o 1024 como unidade de c√°lculo.
 
  <tag>-k</tag>
  <item>
-Mostra o espaÁo ocupado em Kbytes.
+Mostra o espa√ßo ocupado em Kbytes.
 
  <tag>-m</tag>
  <item>
-Mostra o espaÁo ocupado em Mbytes.
+Mostra o espa√ßo ocupado em Mbytes.
 
  <tag>-S, --separate-dirs</tag>
  <item>
-N„o calcula o espaÁo ocupado por sub-diretÛrios.
+N√£o calcula o espa√ßo ocupado por sub-diret√≥rios.
 
  <![ %INTERMEDIARIO [
  <tag>-x</tag>
  <item>
-N„o faz a contagem de diretÛrios em sistemas de arquivos diferentes do 
+N√£o faz a contagem de diret√≥rios em sistemas de arquivos diferentes do 
 atual. 
  ]]>
 </taglist>
@@ -274,118 +274,118 @@ Exemplo: <tt>du -h</tt>, <tt>du -hc</tt>. ]]>
 
 <sect id="cmdv-find">find
  <p>
-Procura por arquivos/diretÛrios no disco. 
-<![ %DESCRICAOD [ <prgn>find</prgn> pode procurar arquivos atravÈs de 
-sua data de modificaÁ„o, tamanho, etc atravÈs do uso de opÁıes. <prgn>
-find</prgn>, ao contr·rio de outros programas, usa opÁıes longas 
-atravÈs de um <tt>"-"</tt>.]]>
+Procura por arquivos/diret√≥rios no disco. 
+<![ %DESCRICAOD [ <prgn>find</prgn> pode procurar arquivos atrav√©s de 
+sua data de modifica√ß√£o, tamanho, etc atrav√©s do uso de op√ß√µes. <prgn>
+find</prgn>, ao contr√°rio de outros programas, usa op√ß√µes longas 
+atrav√©s de um <tt>"-"</tt>.]]>
  <p>
-<tt>find [<em>diretÛrio</em>] [<em>opÁıes/express„o</em>]</tt> 
+<tt>find [<em>diret√≥rio</em>] [<em>op√ß√µes/express√£o</em>]</tt> 
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>diretÛrio</em></tag>
+ <tag><em>diret√≥rio</em></tag>
  <item>
-Inicia a procura neste diretÛrio, percorrendo seu sub-diretÛrios.
+Inicia a procura neste diret√≥rio, percorrendo seu sub-diret√≥rios.
  
- <tag><em>opÁıes/express„o</em></tag>
- <tag>-name [express„o]
+ <tag><em>op√ß√µes/express√£o</em></tag>
+ <tag>-name [express√£o]
  <item>
-Procura pelo nome [express„o] nos nomes de arquivos e diretÛrios processados.
+Procura pelo nome [express√£o] nos nomes de arquivos e diret√≥rios processados.
 
  <tag>-depth</tag>
  <item>
-Processa os sub-diretÛrios primeiro antes de processar os arquivos do 
-diretÛrio principal.
+Processa os sub-diret√≥rios primeiro antes de processar os arquivos do 
+diret√≥rio principal.
 
  <tag>-maxdepth [num]</tag>
  <item>
-Faz a procura atÈ [num] sub-diretÛrios dentro do diretÛrio que est· sendo  
+Faz a procura at√© [num] sub-diret√≥rios dentro do diret√≥rio que est√° sendo  
 pesquisado.
 
  <tag>-mindepth [num]</tag>
  <item>
-N„o faz nenhuma procura em diretÛrios menores que [num] nÌveis.
+N√£o faz nenhuma procura em diret√≥rios menores que [num] n√≠veis.
 
  <tag>-mount, -xdev</tag>
  <item>
-N„o faz a pesquisa em sistemas de arquivos diferentes daquele de onde o 
+N√£o faz a pesquisa em sistemas de arquivos diferentes daquele de onde o 
 comando <prgn>find</prgn> foi executado.
 
 <![ %INTERMEDIARIO [
  <tag>-amin [num]</tag>
  <item>
-Procura por arquivos que foram acessados [num] minutos atr·s. Caso for 
+Procura por arquivos que foram acessados [num] minutos atr√°s. Caso for 
 antecedido por "-", procura por arquivos que foram acessados entre 
-[num] minutos atr·s atÈ agora.
+[num] minutos atr√°s at√© agora.
 
  <tag>-atime [num]</tag>
  <item>
-Procura por arquivos que foram acessados [num] dias atr·s. Caso for antecedido 
-por "-", procura por arquivos que foram acessados entre [num] dias atr·s e 
+Procura por arquivos que foram acessados [num] dias atr√°s. Caso for antecedido 
+por "-", procura por arquivos que foram acessados entre [num] dias atr√°s e 
 a data atual.
 
  <tag>-gid [num]</tag>
  <item>
-Procura por arquivos que possuam a identificaÁ„o numÈrica do grupo igual a
+Procura por arquivos que possuam a identifica√ß√£o num√©rica do grupo igual a
 [num].
 
  <tag>-group [nome]</tag>
  <item>
-Procura por arquivos que possuam a identificaÁ„o de nome do grupo igual a
+Procura por arquivos que possuam a identifica√ß√£o de nome do grupo igual a
 [nome].
 
  <tag>-uid [num]</tag>
  <item>
-Procura por arquivos que possuam a identificaÁ„o numÈrica do usu·rio igual a 
+Procura por arquivos que possuam a identifica√ß√£o num√©rica do usu√°rio igual a 
 [num].
 
  <tag>-user [nome]</tag>
  <item>
-Procura por arquivos que possuam a identificaÁ„o de nome do usu·rio igual a 
+Procura por arquivos que possuam a identifica√ß√£o de nome do usu√°rio igual a 
 [nome].
 
  <tag>-inum [num]</tag>
  <item>
-Procura por arquivos que est„o localizados no inodo [num].
+Procura por arquivos que est√£o localizados no inodo [num].
 
  <tag>-links [num]</tag>
  <item>
-Procura por arquivos que possuem [num] links como referÍncia.
+Procura por arquivos que possuem [num] links como refer√™ncia.
 
  <tag>-mmin [num]</tag>
  <item>
-Procura por arquivos que tiveram seu conte˙do modificado h· [num] minutos.
+Procura por arquivos que tiveram seu conte√∫do modificado h√° [num] minutos.
 Caso for antecedido por "-", procura por arquivos que tiveram seu 
-conte˙do modificado entre [num] minutos atr·s atÈ agora.
+conte√∫do modificado entre [num] minutos atr√°s at√© agora.
 
  <tag>-mtime [num]</tag>
  <item>
-Procura por arquivos que tiveram seu conte˙do modificado h· [num] dias. Caso 
-for antecedido por "-", procura por arquivos que tiveram seu conte˙do 
-modificado entre [num] dias atr·s atÈ agora.
+Procura por arquivos que tiveram seu conte√∫do modificado h√° [num] dias. Caso 
+for antecedido por "-", procura por arquivos que tiveram seu conte√∫do 
+modificado entre [num] dias atr√°s at√© agora.
 
  <tag>-ctime [num]</tag>
  <item>
-Procura por arquivos que teve seu status modificado h· [num] dias. Caso 
-for antecedido por "-", procura por arquivos que tiveram seu conte˙do 
-modificado entre [num] dias atr·s atÈ agora.
+Procura por arquivos que teve seu status modificado h√° [num] dias. Caso 
+for antecedido por "-", procura por arquivos que tiveram seu conte√∫do 
+modificado entre [num] dias atr√°s at√© agora.
 
 
  <tag>-nouser</tag>
  <item>
-Procura por arquivos que n„o correspondam a identificaÁ„o do usu·rio atual.
+Procura por arquivos que n√£o correspondam a identifica√ß√£o do usu√°rio atual.
 
  <tag>-nogroup</tag>
  <item>
-Procura por arquivos que n„o correspondam a identificaÁ„o do grupo do usu·rio 
+Procura por arquivos que n√£o correspondam a identifica√ß√£o do grupo do usu√°rio 
 atual.
 
  <tag>-perm [modo]</tag>
  <item>
-Procura por arquivos que possuam os modos de permiss„o [modo]. Os [modo] de 
-permiss„o pode ser numÈrico (octal) ou literal.
+Procura por arquivos que possuam os modos de permiss√£o [modo]. Os [modo] de 
+permiss√£o pode ser num√©rico (octal) ou literal.
 
  <tag>-used [num]</tag>
  <item>
@@ -396,11 +396,11 @@ O arquivo foi acessado [num] vezes antes de ter seu status modificado.
  <item>
 Procura por arquivos que tiverem o tamanho [num]. [num] pode ser antecedido 
 de "+" ou "-" para especificar um arquivo maior ou menor que 
-[num]. A opÁ„o -size pode ser seguida de:
+[num]. A op√ß√£o -size pode ser seguida de:
  <list compact>
   <item>
-<tt>b</tt> - Especifica o tamanho em blocos de 512 bytes. … o padr„o caso 
-[num] n„o seja acompanhado de nenhuma letra.
+<tt>b</tt> - Especifica o tamanho em blocos de 512 bytes. √â o padr√£o caso 
+[num] n√£o seja acompanhado de nenhuma letra.
   <item>
 <tt>c</tt> - Especifica o tamanho em bytes.
   <item>
@@ -409,62 +409,62 @@ de "+" ou "-" para especificar um arquivo maior ou menor que
 
  <tag>-type [tipo]</tag>
  <item>
-Procura por arquivos do [tipo] especificado. Os seguintes tipos s„o aceitos:
+Procura por arquivos do [tipo] especificado. Os seguintes tipos s√£o aceitos:
  <list compact>
   <item>
  <tt>b</tt> - bloco 
   <item>
  <tt>c</tt> - caracter
   <item>
- <tt>d</tt> - diretÛrio
+ <tt>d</tt> - diret√≥rio
   <item>
  <tt>p</tt> - pipe
   <item>
  <tt>f</tt> - arquivo regular
   <item>
- <tt>l</tt> - link simbÛlico
+ <tt>l</tt> - link simb√≥lico
   <item>
  <tt>s</tt> - sockete
  </list>
 
 </taglist>
 ]]>
-A maior parte dos argumentos numÈricos podem ser precedidos por "+" ou 
-"-". Para detalhes sobre outras opÁıes e argumentos, consulte a p·gina 
+A maior parte dos argumentos num√©ricos podem ser precedidos por "+" ou 
+"-". Para detalhes sobre outras op√ß√µes e argumentos, consulte a p√°gina 
 de manual.
 <![ %EXEMPLO [
  <p>
 Exemplo:
 <list compact>
  <item>
-<tt>find / -name grep</tt> - Procura no diretÛrio raÌz e sub-diretÛrios um 
-arquivo/diretÛrio chamado <file>grep</file>.
+<tt>find / -name grep</tt> - Procura no diret√≥rio ra√≠z e sub-diret√≥rios um 
+arquivo/diret√≥rio chamado <file>grep</file>.
  <item>
-<tt>find / -name grep -maxdepth 3</tt> - Procura no diretÛrio raÌz e  
-sub-diretÛrios atÈ o 3o. nÌvel, um arquivo/diretÛrio chamado <file>grep</file>.
+<tt>find / -name grep -maxdepth 3</tt> - Procura no diret√≥rio ra√≠z e  
+sub-diret√≥rios at√© o 3o. n√≠vel, um arquivo/diret√≥rio chamado <file>grep</file>.
  <item>
-<tt>find . -size +1000k</tt> - Procura no diretÛrio atual e sub-diretÛrios 
+<tt>find . -size +1000k</tt> - Procura no diret√≥rio atual e sub-diret√≥rios 
 um arquivo com tamanho maior que 1000 kbytes (1Mbyte).
 <![ %INTERMEDIARIO [
  <item>
-<tt>find / -mmin 10</tt> - Procura no diretÛrio raÌz e sub-diretÛrios um  
-arquivo que foi modificado h· 10 minutos atr·s.
+<tt>find / -mmin 10</tt> - Procura no diret√≥rio ra√≠z e sub-diret√≥rios um  
+arquivo que foi modificado h√° 10 minutos atr√°s.
  <item>
-<tt>find / -links 4</tt> - Procura no diretÛrio raÌz e sub-diretÛrios, 
-todos os arquivos que possuem 4 links como referÍncia. ]]>
+<tt>find / -links 4</tt> - Procura no diret√≥rio ra√≠z e sub-diret√≥rios, 
+todos os arquivos que possuem 4 links como refer√™ncia. ]]>
 </list> ]]>
 
 
 <sect id="cmdv-free">free
  <p>
-Mostra detalhes sobre a utilizaÁ„o da memÛria RAM do sistema.
+Mostra detalhes sobre a utiliza√ß√£o da mem√≥ria RAM do sistema.
  <p>
-<tt>free [<em>opÁıes</em>]</tt>
+<tt>free [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-b</tag>
  <item>
 Mostra o resultado em bytes.
@@ -487,52 +487,52 @@ Mostra uma linha contendo o total.
 
  <tag>-s [num]</tag>
  <item>
-Mostra a utilizaÁ„o da memÛria a cada [num] segundos.
+Mostra a utiliza√ß√£o da mem√≥ria a cada [num] segundos.
 </taglist>
 ]]>
-O <prgn>free</prgn> È uma interface ao arquivo <file>/proc/meminfo</file>.
+O <prgn>free</prgn> √© uma interface ao arquivo <file>/proc/meminfo</file>.
 
 
 <sect id="cmdv-grep">grep
  <p>
 Procura por um texto dentro de um arquivo(s) ou no dispositivo de entrada 
-padr„o.
+padr√£o.
  <p>
-<tt>grep [<em>express„o</em>] [<em>arquivo</em>] [<em>opÁıes</em>]</tt>
+<tt>grep [<em>express√£o</em>] [<em>arquivo</em>] [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>express„o</em></tag>
+ <tag><em>express√£o</em></tag>
  <item>
-palavra ou frase que ser· procurada no texto. Se tiver mais de 2 palavras 
-vocÍ deve identifica-la com aspas "" caso contr·rio o <prgn>grep</prgn> 
-assumir· que a segunda palavra È o arquivo! 
+palavra ou frase que ser√° procurada no texto. Se tiver mais de 2 palavras 
+voc√™ deve identifica-la com aspas "" caso contr√°rio o <prgn>grep</prgn> 
+assumir√° que a segunda palavra √© o arquivo! 
 
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo onde ser· feita a procura.
+Arquivo onde ser√° feita a procura.
 
- <tag><em>opÁıes</em></tag>
- <tag>-A [n˙mero]</tag>
+ <tag><em>op√ß√µes</em></tag>
+ <tag>-A [n√∫mero]</tag>
  <item>
-Mostra o [n˙mero] de linhas apÛs a linha encontrada pelo <prgn>grep</prgn>.
+Mostra o [n√∫mero] de linhas ap√≥s a linha encontrada pelo <prgn>grep</prgn>.
 
- <tag>-B [n˙mero]</tag>
+ <tag>-B [n√∫mero]</tag>
  <item>
-Mostra o [n˙mero] de linhas antes da linha encontrada pelo <prgn>grep</prgn>.
+Mostra o [n√∫mero] de linhas antes da linha encontrada pelo <prgn>grep</prgn>.
 
  <tag>-f [arquivo]</tag>
  <item>
-Especifica que o texto que ser· localizado, esta no arquivo [arquivo]. 
+Especifica que o texto que ser√° localizado, esta no arquivo [arquivo]. 
 
  <tag>-h, --no-filename</tag>
  <item>
-N„o mostra os nomes dos arquivos durante a procura. 
+N√£o mostra os nomes dos arquivos durante a procura. 
 
  <tag>-i, --ignore-case</tag>
  <item>
-Ignora diferenÁa entre mai˙sculas e min˙sculas no texto procurado e arquivo.
+Ignora diferen√ßa entre mai√∫sculas e min√∫sculas no texto procurado e arquivo.
 
  <tag>-n, --line-number</tag>
  <item>
@@ -540,18 +540,18 @@ Mostra o nome de cada linha encontrada pelo <prgn>grep</prgn>.
 
  <tag>-E</tag>
  <item>
-Ativa o uso de expressıes regulares.
+Ativa o uso de express√µes regulares.
 
  <tag>-U, --binary</tag>
  <item>
-Trata o arquivo que ser· procurado como bin·rio.
+Trata o arquivo que ser√° procurado como bin√°rio.
 </taglist>
 ]]>
-Se n„o for especificado o nome de um arquivo ou se for usado um hÌfen "-", 
-<prgn>grep</prgn> procurar· a string no dispositivo de entrada padr„o. O
+Se n√£o for especificado o nome de um arquivo ou se for usado um h√≠fen "-", 
+<prgn>grep</prgn> procurar√° a string no dispositivo de entrada padr√£o. O
 <prgn>grep</prgn> faz sua pesquisa em arquivos texto. Use o comando 
 <prgn>zgrep</prgn> para pesquisar diretamente em arquivos compactados 
-com <prgn>gzip</prgn>, os comandos e opÁıes s„o as mesmas.
+com <prgn>gzip</prgn>, os comandos e op√ß√µes s√£o as mesmas.
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>grep "capitulo" texto.txt</tt>, <tt>ps ax|grep inetd</tt>, 
@@ -562,7 +562,7 @@ Exemplos: <tt>grep "capitulo" texto.txt</tt>, <tt>ps ax|grep inetd</tt>,
  <p>
 Mostra as linhas iniciais de um arquivo texto.
  <p>
-<tt>head [<em>opÁıes</em>]</tt>
+<tt>head [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
@@ -573,7 +573,7 @@ Mostra o [numero] de bytes do inicio do arquivo.
 
  <tag>-n [numero]</tag>
  <item>
-Mostra o [numero] de linhas do inicio do arquivo. Caso n„o for especificado, 
+Mostra o [numero] de linhas do inicio do arquivo. Caso n√£o for especificado, 
 o <prgn>head</prgn> mostra as 10 primeiras linhas.
 </taglist>
 ]]>
@@ -584,17 +584,17 @@ Exemplos: <tt>head teste.txt</tt>, <tt>head -n 20 teste.txt</tt>. ]]>
 
 <sect id="cmdv-nl">nl
  <p>
-Mostra o n˙mero de linhas junto com o conte˙do de um arquivo.
+Mostra o n√∫mero de linhas junto com o conte√∫do de um arquivo.
  <p>
-<tt>nl [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>nl [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-f [opc]</tag>
  <item>
-Faz a filtragem de saÌda de acordo com [opc]:
+Faz a filtragem de sa√≠da de acordo com [opc]:
  <taglist compact>
   <tag>a</tag>
   <item>
@@ -602,7 +602,7 @@ Numera todas as linhas.
 
   <tag>t</tag>
   <item>
-N„o numera linhas vazias.
+N√£o numera linhas vazias.
 
   <tag>n</tag>
   <item>
@@ -610,16 +610,16 @@ Numera linhas vazias.
 
   <tag>texto</tag>
   <item>
-Numera somente linhas que contÈm o [texto].
+Numera somente linhas que cont√©m o [texto].
  </taglist> 
 
  <tag>-v [num]</tag>
  <item>
-N˙mero inicial (o padr„o È 1).
+N√∫mero inicial (o padr√£o √© 1).
 
  <tag>-i [num]</tag>
  <item>
-N˙mero de linhas adicionadas a cada linha do arquivo (o padr„o È 1).
+N√∫mero de linhas adicionadas a cada linha do arquivo (o padr√£o √© 1).
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -629,16 +629,16 @@ Exemplos: <tt>nl /etc/passwd</tt>, <tt>nl -i 2 /etc/passwd</tt>. ]]>
 
 <sect id="cmdv-more">more
  <p>
-Permite fazer a paginaÁ„o de arquivos ou da entrada padr„o. 
+Permite fazer a pagina√ß√£o de arquivos ou da entrada padr√£o. 
 <![ %DESCRICAOD [ O comando <prgn>more</prgn> pode ser usado como comando para 
-leitura de arquivos que ocupem mais de uma tela. Quando toda a tela È  
-ocupada, o <prgn>more</prgn> efetua uma pausa e permite que vocÍ pressione  
-<tt>Enter</tt> ou <tt>espaÁo</tt> para continuar avanÁando no arquivo sendo 
+leitura de arquivos que ocupem mais de uma tela. Quando toda a tela √©  
+ocupada, o <prgn>more</prgn> efetua uma pausa e permite que voc√™ pressione  
+<tt>Enter</tt> ou <tt>espa√ßo</tt> para continuar avan√ßando no arquivo sendo 
 visualizado. Para sair do <prgn>more</prgn> pressione <tt>q</tt>. ]]>
  <p>
 <tt>more [<em>arquivo</em>]</tt>
  <p>
-Onde: <em>arquivo</em> … o arquivo que ser· paginado.
+Onde: <em>arquivo</em> √â o arquivo que ser√° paginado.
  <p>
 Para visualizar diretamente arquivos texto compactados pelo <prgn>gzip</prgn> 
 <file>.gz</file> use o comando <prgn>zmore</prgn>. 
@@ -649,20 +649,20 @@ Exemplos: <tt>more /etc/passwd</tt>, <tt>cat /etc/passwd|more</tt>. ]]>
 
 <sect id="cmdv-less">less
  <p>
-Permite fazer a paginaÁ„o de arquivos ou da entrada padr„o. 
+Permite fazer a pagina√ß√£o de arquivos ou da entrada padr√£o. 
 <![ %DESCRICAOD [ O comando <prgn>less</prgn> pode ser usado como comando para 
-leitura de arquivos que ocupem mais de uma tela. Quando toda a tela È  
+leitura de arquivos que ocupem mais de uma tela. Quando toda a tela √©  
 ocupada, o <prgn>less</prgn> efetua uma pausa (semelhante ao <prgn>more</prgn>)
-e permite que vocÍ pressione Seta para Cima e Seta para Baixo ou PgUP/PgDown 
-para fazer o rolamento da p·gina. Para sair do <prgn>less</prgn> pressione 
+e permite que voc√™ pressione Seta para Cima e Seta para Baixo ou PgUP/PgDown 
+para fazer o rolamento da p√°gina. Para sair do <prgn>less</prgn> pressione 
 <tt>q</tt>. ]]>
  <p>
 <tt>less [<em>arquivo</em>]</tt>
  <p>
-Onde: <em>arquivo</em> … o arquivo que ser· paginado.
+Onde: <em>arquivo</em> √â o arquivo que ser√° paginado.
  <p>
 <![ %OBS [ Para visualizar diretamente arquivos texto compactados pelo 
-utilit·rio <prgn>gzip</prgn> (arquivos <file>.gz</file>), use o comando 
+utilit√°rio <prgn>gzip</prgn> (arquivos <file>.gz</file>), use o comando 
 <prgn>zless</prgn>. ]]>
 <![ %EXEMPLO [
  <p>
@@ -671,61 +671,61 @@ Exemplos: <tt>less /etc/passwd</tt>, <tt>cat /etc/passwd|less</tt> ]]>
  
 <sect id="cmdv-sort">sort
  <p>
-Organiza as linhas de um arquivo texto ou da entrada padr„o. 
+Organiza as linhas de um arquivo texto ou da entrada padr√£o. 
 <![ %INTERMEDIARIO [
-<![ %DESCRICAOD [ A organizaÁ„o È feita por linhas e 
-as linhas s„o divididas em <em>campos</em> que È a ordem que as palavras 
-aparecem na linha separadas por um delimitador (normalmente um espaÁo). 
+<![ %DESCRICAOD [ A organiza√ß√£o √© feita por linhas e 
+as linhas s√£o divididas em <em>campos</em> que √© a ordem que as palavras 
+aparecem na linha separadas por um delimitador (normalmente um espa√ßo). 
 ]]> ]]>
  <p>
-<tt>sort  [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>sort  [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-… o nome do arquivo que ser· organizado. Caso n„o for especificado, ser· 
-usado o dispositivo de entrada padr„o (normalmente o teclado ou um "|"). 
+√â o nome do arquivo que ser√° organizado. Caso n√£o for especificado, ser√° 
+usado o dispositivo de entrada padr√£o (normalmente o teclado ou um "|"). 
  
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-b</tag>
  <item>
 Ignora linhas em branco.
 
  <tag>-d</tag>
  <item>
-Somente usa letras, dÌgitos e espaÁos durante a organizaÁ„o.
+Somente usa letras, d√≠gitos e espa√ßos durante a organiza√ß√£o.
  
  <tag>-f</tag>
  <item>
-Ignora a diferenÁa entre mai˙sculas e min˙sculas.
+Ignora a diferen√ßa entre mai√∫sculas e min√∫sculas.
 
  <tag>-r</tag>
  <item>
-Inverte o resultado da comparaÁ„o.
+Inverte o resultado da compara√ß√£o.
 
  <tag>-n</tag>
  <item>
-Caso estiver organizando um campo que contÈm n˙meros, os n˙meros ser„o 
-organizados na ordem aritmÈtica. Por exemplo, se vocÍ tiver um arquivo 
-com os n˙meros
+Caso estiver organizando um campo que cont√©m n√∫meros, os n√∫meros ser√£o 
+organizados na ordem aritm√©tica. Por exemplo, se voc√™ tiver um arquivo 
+com os n√∫meros
 <example>
 100
 10
 50
 </example>
 
-Usando a opÁ„o <tt>-n</tt>, o arquivo ser· organizado desta maneira:
+Usando a op√ß√£o <tt>-n</tt>, o arquivo ser√° organizado desta maneira:
 <example>
 10
 50 
 100
 </example>
 
-Caso esta opÁ„o <strong>n„o</strong> for usada com o <prgn>sort</prgn>, ele 
-organizar· como uma listagem alfabÈtica (que comeÁam de <tt>a</tt> atÈ 
-<tt>z</tt> e do <tt>0</tt> atÈ <tt>9</tt>)
+Caso esta op√ß√£o <strong>n√£o</strong> for usada com o <prgn>sort</prgn>, ele 
+organizar√° como uma listagem alfab√©tica (que come√ßam de <tt>a</tt> at√© 
+<tt>z</tt> e do <tt>0</tt> at√© <tt>9</tt>)
 <example>
 10 
 100
@@ -734,44 +734,44 @@ organizar· como uma listagem alfabÈtica (que comeÁam de <tt>a</tt> atÈ
 
  <tag>-c</tag>
  <item>
-Verifica se o arquivo j· esta organizado. Caso n„o estiver, retorna a 
+Verifica se o arquivo j√° esta organizado. Caso n√£o estiver, retorna a 
 mensagem "disorder on <em>arquivo</em>". 
 
  <tag>-o <em>arquivo</em></tag>
  <item>
-Grava a saÌda do comando <prgn>sort</prgn> no <em>arquivo</em>. 
+Grava a sa√≠da do comando <prgn>sort</prgn> no <em>arquivo</em>. 
 
  <![ %INTERMEDIARIO [
  <tag>-m <em>arquivo1</em> <em>arquivo2</em></tag>
  <item>
-Combina o conte˙do de <em>arquivo1</em> e <em>arquivo2</em> gerando um 
-˙nico arquivo. Os dois arquivos precisam estar ordenados antes de se 
-utilizar esta opÁ„o.
+Combina o conte√∫do de <em>arquivo1</em> e <em>arquivo2</em> gerando um 
+√∫nico arquivo. Os dois arquivos precisam estar ordenados antes de se 
+utilizar esta op√ß√£o.
  
  <tag>-i</tag>
  <item>
-Ignora os caracteres fora da faixa octal ASCII 040-0176 durante a organizaÁ„o. 
+Ignora os caracteres fora da faixa octal ASCII 040-0176 durante a organiza√ß√£o. 
 
  <tag>-t <em>caracter</em></tag>
  <item>
-Usa <em>caracter</em> como delimitador durante a organizaÁ„o de linhas. Por 
-padr„o È usado um <em>espaÁo em branco</em> como delimitador de caracteres. 
+Usa <em>caracter</em> como delimitador durante a organiza√ß√£o de linhas. Por 
+padr√£o √© usado um <em>espa√ßo em branco</em> como delimitador de caracteres. 
 
  <tag><em>+num1 -num2</em></tag>
  <item>
-Especifica qual o campo dentro na linha que ser· usado na organizaÁ„o. 
-O(s) campo(s) usado(s) para organizaÁ„o estar· entre <em>+num1</em> e 
-<em>+num2</em>. O delimitador padr„o utilizado È um <em>espaÁo em 
-branco</em> (use a opÁ„o <tt>-t</tt> para especificar outro). A 
-contagem È iniciada em "0". Caso n„o for especificada, a organizaÁ„o 
-È feita no primeiro campo. Caso <em>-num2</em> n„o seja especificado, 
-a organizaÁ„o ser· feita usando a coluna <em>+num1</em> atÈ o fim 
+Especifica qual o campo dentro na linha que ser√° usado na organiza√ß√£o. 
+O(s) campo(s) usado(s) para organiza√ß√£o estar√° entre <em>+num1</em> e 
+<em>+num2</em>. O delimitador padr√£o utilizado √© um <em>espa√ßo em 
+branco</em> (use a op√ß√£o <tt>-t</tt> para especificar outro). A 
+contagem √© iniciada em "0". Caso n√£o for especificada, a organiza√ß√£o 
+√© feita no primeiro campo. Caso <em>-num2</em> n√£o seja especificado, 
+a organiza√ß√£o ser√° feita usando a coluna <em>+num1</em> at√© o fim 
 da linha. 
  
  <tag>-k <em>num1</em>, <em>num2</em></tag>
  <item>
-Esta È uma alternativa ao mÈtodo acima para especificar as chaves de 
-organizaÁ„o. O uso È idÍntico, mas o delimitador È iniciado em "1".  
+Esta √© uma alternativa ao m√©todo acima para especificar as chaves de 
+organiza√ß√£o. O uso √© id√™ntico, mas o delimitador √© iniciado em "1".  
  ]]>
 </taglist>
 ]]>
@@ -784,31 +784,31 @@ Abaixo, exemplos de uso do comando <prgn>sort</prgn>:
 </file> em ordem crescente.
 
  <item>
-<tt>sort <file>texto.txt</file> -r</tt> - Organiza o conte˙do do arquivo 
+<tt>sort <file>texto.txt</file> -r</tt> - Organiza o conte√∫do do arquivo 
 <file>texto.txt</file> em ordem decrescente.
 
  <item>
 <tt>cat <file>texto.txt</file>|sort</tt> - Faz a mesma coisa que o primeiro 
-exemplo, sÛ que neste caso a saÌda do comando <prgn>cat</prgn> È redirecionado 
-a entrada padr„o do comando <prgn>sort</prgn>.
+exemplo, s√≥ que neste caso a sa√≠da do comando <prgn>cat</prgn> √© redirecionado 
+a entrada padr√£o do comando <prgn>sort</prgn>.
 
  <item>
-<tt>sort -f <file>texto.txt</file></tt> - Ignora diferenÁas entre letras 
-mai˙sculas e min˙sculas durante a organizaÁ„o. 
+<tt>sort -f <file>texto.txt</file></tt> - Ignora diferen√ßas entre letras 
+mai√∫sculas e min√∫sculas durante a organiza√ß√£o. 
 
  <![ %INTERMEDIARIO [
  <item>
 <tt>sort +1 -3 texto.txt</tt> - Organiza o arquivo <file>texto.txt
-</file> usando como referÍncia a segunda atÈ a quarta palavra (segundo 
+</file> usando como refer√™ncia a segunda at√© a quarta palavra (segundo 
 ao quarto campo) que constam naquela linha. 
  
  <item>
 <tt>sort -t : +2 -3 passwd</tt> - Organiza o arquivo <file>passwd 
-</file> usando como referÍncia a terceira atÈ a quarta palavra 
-(terceiro ao quarto campo). Note que a opÁ„o <tt>-t</tt> especifica 
-o caracter ":" como delimitador de campos ao invÈs do 
-espaÁo. Neste caso, o que estiver apÛs ":" ser· 
-considerado o prÛximo campo.
+</file> usando como refer√™ncia a terceira at√© a quarta palavra 
+(terceiro ao quarto campo). Note que a op√ß√£o <tt>-t</tt> especifica 
+o caracter ":" como delimitador de campos ao inv√©s do 
+espa√ßo. Neste caso, o que estiver ap√≥s ":" ser√° 
+considerado o pr√≥ximo campo.
 ]]>
 </list> ]]>
 
@@ -817,7 +817,7 @@ considerado o prÛximo campo.
  <p>
 Mostra as linhas finais de um arquivo texto.
  <p>
-<tt>tail [<em>opÁıes</em>]</tt>
+<tt>tail [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
@@ -848,8 +848,8 @@ Mede o tempo gasto para executar um processo (programa).
 <tt>time [<em>comando</em>]</tt>
 <![ %OPCOES [
  <p>
-Onde: <em>comando</em> È o comando/programa que deseja medir o tempo gasto 
-para ser concluÌdo.]]>
+Onde: <em>comando</em> √© o comando/programa que deseja medir o tempo gasto 
+para ser conclu√≠do.]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>time ls</tt>, <tt>time find / -name crontab</tt>. ]]>
@@ -857,26 +857,26 @@ Exemplo: <tt>time ls</tt>, <tt>time find / -name crontab</tt>. ]]>
 
 <sect id="cmdv-touch">touch
  <p>
-Muda a data e hora que um arquivo foi criado. TambÈm pode ser usado para 
+Muda a data e hora que um arquivo foi criado. Tamb√©m pode ser usado para 
 criar arquivos vazios. 
 <![ %DESCRICAOD [ Caso o <prgn>touch</prgn> seja usado com arquivos 
-que n„o existam, por padr„o ele criar· estes arquivos. ]]>
+que n√£o existam, por padr√£o ele criar√° estes arquivos. ]]>
  <p>
-<tt>touch [<em>opÁıes</em>] [<em>arquivos</em>]</tt>
+<tt>touch [<em>op√ß√µes</em>] [<em>arquivos</em>]</tt>
 <![ %OPCOES [ 
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivos</em></tag>
  <item>
-Arquivos que ter„o sua data/hora modificados. 
+Arquivos que ter√£o sua data/hora modificados. 
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
 
  <tag>-t MMDDhhmm[ANO.segundos]</tag>
  <item>
-Usa MÍs (MM), Dias (DD), Horas (hh), minutos (mm) e opcionalmente 
-o ANO e segundos para modificaÁ„o do(s) arquivos ao invÈs da data e 
+Usa M√™s (MM), Dias (DD), Horas (hh), minutos (mm) e opcionalmente 
+o ANO e segundos para modifica√ß√£o do(s) arquivos ao inv√©s da data e 
 hora atual.
 
  <tag>-a, --time=atime</tag>
@@ -885,15 +885,15 @@ Faz o <prgn>touch</prgn> mudar somente a data e hora do acesso ao arquivo.
 
  <tag>-c, --no-create</tag>
  <item>
-N„o cria arquivos vazios, caso os <em>arquivos</em> n„o existam.
+N√£o cria arquivos vazios, caso os <em>arquivos</em> n√£o existam.
 
  <tag>-m, --time=mtime</tag>
  <item>
-Faz o <prgn>touch</prgn> mudar somente a data e hora da modificaÁ„o.
+Faz o <prgn>touch</prgn> mudar somente a data e hora da modifica√ß√£o.
 
  <tag>-r [arquivo]</tag>
  <item>
-Usa as horas no [arquivo] como referÍncia ao invÈs da hora atual.
+Usa as horas no [arquivo] como refer√™ncia ao inv√©s da hora atual.
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -901,7 +901,7 @@ Usa as horas no [arquivo] como referÍncia ao invÈs da hora atual.
 Exemplos:
 <list>
  <item>
-<tt>touch teste</tt> - Cria o arquivo <file>teste</file> caso ele n„o existir.
+<tt>touch teste</tt> - Cria o arquivo <file>teste</file> caso ele n√£o existir.
  <item>
 <tt>touch -t 10011230 teste</tt> - Altera da data e hora do arquivo para 
 01/10 e 12:30. 
@@ -916,15 +916,15 @@ do arquivo para 01/12/1999 e 12:30:30.
 
 <sect id="cmdv-uptime">uptime
  <p>
-Mostra o tempo de execuÁ„o do sistema desde que o computador foi ligado.
+Mostra o tempo de execu√ß√£o do sistema desde que o computador foi ligado.
  <p>
 <tt>uptime</tt>
 
 
 <sect id="cmdv-dmesg">dmesg
  <p>
-Mostra as mensagens de inicializaÁ„o do kernel. S„o mostradas as mensagens 
-da ˙ltima inicializaÁ„o do sistema.
+Mostra as mensagens de inicializa√ß√£o do kernel. S√£o mostradas as mensagens 
+da √∫ltima inicializa√ß√£o do sistema.
 <![ %EXEMPLO [
  <p>
 <tt>dmesg | less</tt> ]]>
@@ -932,80 +932,80 @@ da ˙ltima inicializaÁ„o do sistema.
 
 <sect id="cmdv-mesg">mesg
  <p>
-Permite ou n„o o recebimentos de requisiÁıes de <prgn>talk</prgn> de outros 
-usu·rios.
+Permite ou n√£o o recebimentos de requisi√ß√µes de <prgn>talk</prgn> de outros 
+usu√°rios.
  <p>
 <tt>mesg [<em>y/n</em>]</tt>
 <![ %OPCOES [
  <p>
-Onde: <em>y</em> permite que vocÍ receba "talks" de outros usu·rios. ]]>
+Onde: <em>y</em> permite que voc√™ receba "talks" de outros usu√°rios. ]]>
  <p>
-Digite <tt>mesg</tt> para saber se vocÍ pode ou n„o receber "talks" de 
-outros usu·rios. Caso a resposta seja "n" vocÍ poder· enviar um talk para 
-alguÈm mas o seu sistema se recusar· em receber talks de outras pessoas. 
+Digite <tt>mesg</tt> para saber se voc√™ pode ou n√£o receber "talks" de 
+outros usu√°rios. Caso a resposta seja "n" voc√™ poder√° enviar um talk para 
+algu√©m mas o seu sistema se recusar√° em receber talks de outras pessoas. 
  <p>
-… interessante colocar o comando <tt>mesg y</tt> em seu arquivo de 
-inicializaÁ„o <file>.bash_profile</file> para permitir o recebimento 
+√â interessante colocar o comando <tt>mesg y</tt> em seu arquivo de 
+inicializa√ß√£o <file>.bash_profile</file> para permitir o recebimento 
 de "talks" toda vez que entrar no sistema.
  <p>
-Para detalhes sobre como se comunicar com outros usu·rios, veja o comando 
+Para detalhes sobre como se comunicar com outros usu√°rios, veja o comando 
 <ref id="cmdn-talk">.
 
 
 <sect id="cmdv-echo">echo
  <p>
-Mostra mensagens. Este comando È ˙til na construÁ„o de scripts para mostrar 
-mensagens na tela para o usu·rio acompanhar sua execuÁ„o.
+Mostra mensagens. Este comando √© √∫til na constru√ß√£o de scripts para mostrar 
+mensagens na tela para o usu√°rio acompanhar sua execu√ß√£o.
  <p>
 <tt>echo [<em>mensagem</em>]</tt>
  <p>
-A opÁ„o <tt>-n</tt> pode ser usada para que n„o ocorra o salto de linha 
-apÛs a mensagem ser mostrada. 
+A op√ß√£o <tt>-n</tt> pode ser usada para que n√£o ocorra o salto de linha 
+ap√≥s a mensagem ser mostrada. 
 
 
 <sect id="cmdv-su">su
  <p>
-Permite o usu·rio mudar sua identidade para outro usu·rio sem fazer o 
+Permite o usu√°rio mudar sua identidade para outro usu√°rio sem fazer o 
 logout. 
-<![ %DESCRICAOD [ ⁄til para executar um programa ou comando como root sem  
-ter que abandonar a seÁ„o atual. ]]>
+<![ %DESCRICAOD [ √ötil para executar um programa ou comando como root sem  
+ter que abandonar a se√ß√£o atual. ]]>
  <p>
-<tt>su [<em>usu·rio</em>] [<em>-c comando</em>]</tt>
+<tt>su [<em>usu√°rio</em>] [<em>-c comando</em>]</tt>
 <![ %OPCOES [
  <p>
-Onde: <em>usu·rio</em> È o nome do usu·rio que deseja usar para acessar o 
-sistema. Se n„o digitado, È assumido o usu·rio <tt>root</tt>. Caso 
-seja especificado <em>-c comando</em>, executa o comando sob o usu·rio 
+Onde: <em>usu√°rio</em> √© o nome do usu√°rio que deseja usar para acessar o 
+sistema. Se n√£o digitado, √© assumido o usu√°rio <tt>root</tt>. Caso 
+seja especificado <em>-c comando</em>, executa o comando sob o usu√°rio 
 especificado.
 ]]>
  <p>
-Ser· pedida a senha do superusu·rio para autenticaÁ„o. Digite <tt>exit</tt> 
-quando desejar retornar a identificaÁ„o de usu·rio anterior. 
+Ser√° pedida a senha do superusu√°rio para autentica√ß√£o. Digite <tt>exit</tt> 
+quando desejar retornar a identifica√ß√£o de usu√°rio anterior. 
 
 
 <sect id="cmdv-sync">sync
  <p>
-Grava os dados do cache de disco na memÛria RAM para todos os discos 
-rÌgidos e flexÌveis do sistema.
-<![ %DESCRICAOD [ O cache um mecanismo de aceleraÁ„o que permite que um  
-arquivo seja armazenado na memÛria ao invÈs de ser imediatamente gravado  
-no disco, quando o sistema estiver ocioso, o arquivo È gravado para o 
-disco. O <prgn>GNU/Linux</prgn> procura utilizar toda memÛria RAM disponÌvel 
+Grava os dados do cache de disco na mem√≥ria RAM para todos os discos 
+r√≠gidos e flex√≠veis do sistema.
+<![ %DESCRICAOD [ O cache um mecanismo de acelera√ß√£o que permite que um  
+arquivo seja armazenado na mem√≥ria ao inv√©s de ser imediatamente gravado  
+no disco, quando o sistema estiver ocioso, o arquivo √© gravado para o 
+disco. O <prgn>GNU/Linux</prgn> procura utilizar toda mem√≥ria RAM dispon√≠vel 
 para o cache de programas acelerando seu desempenho de 
-leitura/gravaÁ„o. ]]>
+leitura/grava√ß√£o. ]]>
  <p>
 <tt>sync</tt>
  <p>
-O uso do <prgn>sync</prgn> È ˙til em disquetes quando gravamos um 
+O uso do <prgn>sync</prgn> √© √∫til em disquetes quando gravamos um 
 programa e precisamos que os dados sejam gravados imediatamente para
-retirar o disquete da unidade. Mas o mÈtodo recomendado È especificar 
-a opÁ„o <tt>sync</tt> durante a montagem da unidade de disquetes 
+retirar o disquete da unidade. Mas o m√©todo recomendado √© especificar 
+a op√ß√£o <tt>sync</tt> durante a montagem da unidade de disquetes 
 (para detalhes veja <ref id="disc-fstab">. 
 
 
 <sect id="cmdv-uname">uname
  <p>
-Retorna o nome e vers„o do kernel atual. 
+Retorna o nome e vers√£o do kernel atual. 
  <p>
 <tt>uname</tt>
 
@@ -1017,37 +1017,37 @@ Reinicia o computador.
 
 <sect id="cmdv-shutdown">shutdown
  <p>
-Desliga/reinicia o computador imediatamente ou apÛs determinado tempo  
-(program·vel) de forma segura. 
-<![ %DESCRICAOD [ Todos os usu·rios do sistema s„o avisados que o computador 
-ser· desligado ]]>. 
-<![ %OBS [ Este comando somente pode ser executado pelo usu·rio root ou 
-quando È usada a opÁ„o <tt>-a</tt> pelos usu·rios cadastrados no arquivo 
+Desliga/reinicia o computador imediatamente ou ap√≥s determinado tempo  
+(program√°vel) de forma segura. 
+<![ %DESCRICAOD [ Todos os usu√°rios do sistema s√£o avisados que o computador 
+ser√° desligado ]]>. 
+<![ %OBS [ Este comando somente pode ser executado pelo usu√°rio root ou 
+quando √© usada a op√ß√£o <tt>-a</tt> pelos usu√°rios cadastrados no arquivo 
 <file>/etc/shutdown.allow</file> que estejam logados no console virtual do 
 sistema. ]]>
  <p>
-<tt>shutdown [<em>opÁıes</em>] [<em>hora</em>] [<em>mensagem</em>]</tt>
+<tt>shutdown [<em>op√ß√µes</em>] [<em>hora</em>] [<em>mensagem</em>]</tt>
  <p>
 <![ %OPCOES [
 <taglist compact>
  <tag><em>hora</em></tag>
  <item>
-Momento que o computador ser· desligado. VocÍ pode usar <tt>HH:MM</tt> para 
+Momento que o computador ser√° desligado. Voc√™ pode usar <tt>HH:MM</tt> para 
 definir a hora e minuto, <tt>MM</tt> para definir minutos, <tt>+SS</tt> para  
-definir apÛs quantos segundos, ou <tt>now</tt> para imediatamente (equivalente 
+definir ap√≥s quantos segundos, ou <tt>now</tt> para imediatamente (equivalente 
 a +0). 
  <p>
-O <prgn>shutdown</prgn> criar· o arquivo <file>/etc/nologin</file> para n„o 
-permitir que novos usu·rios faÁam login no sistema (com excess„o do root).
-Este arquivo È removido caso a execuÁ„o do <prgn>shutdown</prgn> seja  
-cancelada (opÁ„o -c) ou apÛs o sistema ser reiniciado.
+O <prgn>shutdown</prgn> criar√° o arquivo <file>/etc/nologin</file> para n√£o 
+permitir que novos usu√°rios fa√ßam login no sistema (com excess√£o do root).
+Este arquivo √© removido caso a execu√ß√£o do <prgn>shutdown</prgn> seja  
+cancelada (op√ß√£o -c) ou ap√≥s o sistema ser reiniciado.
 
  <tag><em>mensagem</em></tag>
  <item>
-Mensagem que ser· mostrada a todos os usu·rios alertando sobre o  
+Mensagem que ser√° mostrada a todos os usu√°rios alertando sobre o  
 reinicio/desligamento do sistema.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-h</tag>
  <item>
 Inicia o processo para desligamento do computador.
@@ -1058,67 +1058,67 @@ Reinicia o sistema
 
  <tag>-c</tag>
  <item>
-Cancela a execuÁ„o do <prgn>shutdown</prgn>. VocÍ pode acrescentar uma 
-mensagem avisando aos usu·rios sobre o fato. 
+Cancela a execu√ß√£o do <prgn>shutdown</prgn>. Voc√™ pode acrescentar uma 
+mensagem avisando aos usu√°rios sobre o fato. 
 
 <![ %INTERMEDIARIO [
  <tag>-a</tag>
  <item>
-Permite que os nomes de usu·rios contidos no arquivo <file>/etc/shutdown.allow 
+Permite que os nomes de usu√°rios contidos no arquivo <file>/etc/shutdown.allow 
 </file> possam utilizar o <prgn>shutdown</prgn> para reinicializar/desligar o 
-sistema. Deve ser colocado um nome de usu·rio por linha. O limite m·ximo 
-de usu·rios neste arquivo È de 32. 
+sistema. Deve ser colocado um nome de usu√°rio por linha. O limite m√°ximo 
+de usu√°rios neste arquivo √© de 32. 
  <p>
-Este arquivo È ˙til quando o <prgn>shutdown</prgn> È usado para controlar o 
+Este arquivo √© √∫til quando o <prgn>shutdown</prgn> √© usado para controlar o 
 pressionamento das teclas <tt>CTRL+ALT+DEL</tt> no <file>/etc/inittab</file>.
 
  <tag>-k</tag>
  <item>
-Simula o desligamento/reinicio do sistema, enviando mensagem aos usu·rios.
+Simula o desligamento/reinicio do sistema, enviando mensagem aos usu√°rios.
 
  <tag>-f</tag>
  <item>
-N„o executa a checagem do sistema de arquivos durante a inicializaÁ„o do 
-sistema. Este processo È feito gravando-se um arquivo <file>/fastboot</file> 
-que È interpretado pelos scripts respons·veis pela execuÁ„o do 
-<prgn>fsck</prgn> durante a inicializaÁ„o do sistema.
+N√£o executa a checagem do sistema de arquivos durante a inicializa√ß√£o do 
+sistema. Este processo √© feito gravando-se um arquivo <file>/fastboot</file> 
+que √© interpretado pelos scripts respons√°veis pela execu√ß√£o do 
+<prgn>fsck</prgn> durante a inicializa√ß√£o do sistema.
 
  <tag>-F</tag>
  <item>
-ForÁa a checagem do sistema de arquivos durante a inicializaÁ„o. … gravado 
-um arquivo chamado <file>/forcefsck</file> que È interpretado pelos 
-scripts respons·veis pela execuÁ„o do <prgn>fsck</prgn> durante a 
-inicializaÁ„o do sistema.
+For√ßa a checagem do sistema de arquivos durante a inicializa√ß√£o. √â gravado 
+um arquivo chamado <file>/forcefsck</file> que √© interpretado pelos 
+scripts respons√°veis pela execu√ß√£o do <prgn>fsck</prgn> durante a 
+inicializa√ß√£o do sistema.
 
  <tag>-n</tag>
  <item>
-Faz com que o <prgn>shutdown</prgn> ignore a execuÁ„o do <prgn>init</prgn> 
+Faz com que o <prgn>shutdown</prgn> ignore a execu√ß√£o do <prgn>init</prgn> 
 fechando todos os processos.
 
  <tag>-t [num]</tag>
  <item>
-Faz com que o <prgn>shutdown</prgn> envie um sinal de tÈrmino aos processos e 
+Faz com que o <prgn>shutdown</prgn> envie um sinal de t√©rmino aos processos e 
 aguarde [num] segundos antes de enviar o sinal KILL.
 ]]>
 </taglist>
 ]]>
-O <prgn>shutdown</prgn> envia uma mensagem a todos os usu·rios do sistema 
+O <prgn>shutdown</prgn> envia uma mensagem a todos os usu√°rios do sistema 
 alertando sobre o desligamento durante os 15 minutos restantes e assim 
-permite que finalizem suas tarefas. ApÛs isto, o <prgn>shutdown</prgn> 
-muda o nÌvel de execuÁ„o atravÈs do comando <prgn>init</prgn> para 0 
-(desligamento), 1 (modo monousu·rio), 6 (reinicializaÁ„o). … recomendado 
-utilizar o sÌmbolo "&" no final da linha de comando para que o 
+permite que finalizem suas tarefas. Ap√≥s isto, o <prgn>shutdown</prgn> 
+muda o n√≠vel de execu√ß√£o atrav√©s do comando <prgn>init</prgn> para 0 
+(desligamento), 1 (modo monousu√°rio), 6 (reinicializa√ß√£o). √â recomendado 
+utilizar o s√≠mbolo "&" no final da linha de comando para que o 
 <prgn>shutdown</prgn> seja executado em segundo plano. 
 <![ %OBS [
  <p>
 Quando restarem apenas 5 minutos para o reinicio/desligamento do sistema, o 
-programa <prgn>login</prgn> ser· desativado, impedindo a entrada de novos 
-usu·rios no sistema. 
+programa <prgn>login</prgn> ser√° desativado, impedindo a entrada de novos 
+usu√°rios no sistema. 
  <p>
 O programa <prgn>shutdown</prgn> pode ser chamado pelo <prgn>init</prgn> 
-atravÈs do pressionamento da combinaÁ„o das teclas de reinicializaÁ„o 
+atrav√©s do pressionamento da combina√ß√£o das teclas de reinicializa√ß√£o 
 <tt>CTRL+ALT+DEL</tt> alterando-se o arquivo <file>/etc/inittab</file>.  
-Isto permite que somente os usu·rios autorizados (ou o root) possam 
+Isto permite que somente os usu√°rios autorizados (ou o root) possam 
 reinicializar o sistema. ]]>
 <![ %EXEMPLO [
  <p>
@@ -1129,43 +1129,43 @@ Exemplos:
  <item>
 <tt>"shutdown -r now"</tt> - Reinicia o computador imediatamente. 
  <item>
-<tt>"shutdown 19:00 A manutenÁ„o do servidor ser· iniciada ‡s 19:00"</tt> - 
-Faz o computador entrar em modo monousu·rio (init 1) ‡s 19:00 enviando a 
-mensagem <em>A manutenÁ„o do servidor ser· iniciada ‡s 19:00</em> a todos 
-os usu·rios conectados ao sistema.
+<tt>"shutdown 19:00 A manuten√ß√£o do servidor ser√° iniciada √†s 19:00"</tt> - 
+Faz o computador entrar em modo monousu√°rio (init 1) √†s 19:00 enviando a 
+mensagem <em>A manuten√ß√£o do servidor ser√° iniciada √†s 19:00</em> a todos 
+os usu√°rios conectados ao sistema.
  <item>
-<tt>"shutdown -r 15:00 O sistema ser· reiniciado ‡s 15:00 horas"</tt> - 
-Faz o computador ser reiniciado (init 6) ‡s 15:00 horas enviando a 
-mensagem <em>O sistema ser· reiniciado ‡s 15:00 horas</em> a todos os 
-usu·rios conectados ao sistema.
+<tt>"shutdown -r 15:00 O sistema ser√° reiniciado √†s 15:00 horas"</tt> - 
+Faz o computador ser reiniciado (init 6) √†s 15:00 horas enviando a 
+mensagem <em>O sistema ser√° reiniciado √†s 15:00 horas</em> a todos os 
+usu√°rios conectados ao sistema.
  <item>
-<tt>shutdown -r 20</tt> - Faz o sistema ser reiniciado apÛs 20 minutos.
+<tt>shutdown -r 20</tt> - Faz o sistema ser reiniciado ap√≥s 20 minutos.
  <item>
-<tt>shutdown -c</tt> - Cancela a execuÁ„o do <prgn>shutdown</prgn>.
+<tt>shutdown -c</tt> - Cancela a execu√ß√£o do <prgn>shutdown</prgn>.
 <![ %INTERMEDIARIO [
  <item>
-<tt>shutdown -t 30 -r 20</tt> - Reinicia o sistema apÛs 20 minutos, espera 
-30 segundos apÛs o sinal de tÈrmino para enviar o sinal KILL a todos os 
+<tt>shutdown -t 30 -r 20</tt> - Reinicia o sistema ap√≥s 20 minutos, espera 
+30 segundos ap√≥s o sinal de t√©rmino para enviar o sinal KILL a todos os 
 programas abertos. ]]>
 </list> ]]>
 
 
 <sect id="cmdv-wc">wc
  <p>
-Conta o n˙mero de palavras, bytes e linhas em um arquivo ou entrada padr„o. 
-<![ %DESCRICAOD [ Se as opÁıes forem omitidas, o <prgn>wc</prgn> 
+Conta o n√∫mero de palavras, bytes e linhas em um arquivo ou entrada padr√£o. 
+<![ %DESCRICAOD [ Se as op√ß√µes forem omitidas, o <prgn>wc</prgn> 
 mostra a quantidade de linhas, palavras, e bytes. ]]>
  <p>
-<tt>wc [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>wc [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo que ser· verificado pelo comando <prgn>wc</prgn>.
+Arquivo que ser√° verificado pelo comando <prgn>wc</prgn>.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-c, --bytes</tag>
  <item>
 Mostra os bytes do arquivo.
@@ -1179,8 +1179,8 @@ Mostra a quantidade de palavras do arquivo.
 Mostra a quantidade de linhas do arquivo. 
 </taglist>
 ]]>
-<![ %OBS [ A ordem da listagem dos par‚metros È ˙nica, e modificando a posiÁ„o 
-das opÁıes n„o modifica a ordem que os par‚metros s„o listados. ]]>
+<![ %OBS [ A ordem da listagem dos par√¢metros √© √∫nica, e modificando a posi√ß√£o 
+das op√ß√µes n√£o modifica a ordem que os par√¢metros s√£o listados. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo:
@@ -1200,9 +1200,9 @@ arquivo <file>/etc/passwd</file>.
 
 <sect id="cmdv-seq">seq
  <p>
-Imprime uma seq¸Íncia de n˙meros comeÁando em [primeiro] e terminando em [˙ltimo], utilizando [incremento] para avanÁar.
+Imprime uma seq√º√™ncia de n√∫meros come√ßando em [primeiro] e terminando em [√∫ltimo], utilizando [incremento] para avan√ßar.
 <p>
-<tt>seq [<em>opÁıes</em>] [<em>primeiro</em>] [<em>incremento</em>] [<em>˙ltimo</em>]</tt>
+<tt>seq [<em>op√ß√µes</em>] [<em>primeiro</em>] [<em>incremento</em>] [<em>√∫ltimo</em>]</tt>
  <p>
 <![ %OPCOES [
  <p>
@@ -1210,43 +1210,43 @@ Onde:
 <taglist compact>
  <tag><em>primeiro</em></tag>
  <item>
-N˙mero inicial da seq¸Íncia.
+N√∫mero inicial da seq√º√™ncia.
 
  <tag><em>incremento</em></tag>
  <item>
-N˙mero utilizado para avanÁar na seq¸Íncia.
+N√∫mero utilizado para avan√ßar na seq√º√™ncia.
 
- <tag><em>˙ltimo</em></tag>
+ <tag><em>√∫ltimo</em></tag>
  <item>
-N˙mero final da seq¸Íncia.
+N√∫mero final da seq√º√™ncia.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-f, --format=[formato]</tag>
  <item>
-Formato de saÌda dos n˙meros da seq¸Íncia. Utilize o estilo do printf para ponto flutuante (valor padr„o: %g).
+Formato de sa√≠da dos n√∫meros da seq√º√™ncia. Utilize o estilo do printf para ponto flutuante (valor padr√£o: %g).
 
  <tag>-s, --separator=[string]</tag>
  <item>
-Usa [string] para separar a seq¸Íncia de n˙meros (valor padr„o: \n).
+Usa [string] para separar a seq√º√™ncia de n√∫meros (valor padr√£o: \n).
 
  <tag>-w, --equal-width</tag>
  <item>
-Insere zeros na frente dos n˙meros mantendo a seq¸Íncia alinhada.
+Insere zeros na frente dos n√∫meros mantendo a seq√º√™ncia alinhada.
 ]]>
 </taglist>
 
 <![ %OBS [
  <p>
-ObservaÁıes:
+Observa√ß√µes:
 <list compact>
  <item>
-Se [primeiro] ou [incremento] forem omitidos, o valor padr„o 1 ser· utilizado.
+Se [primeiro] ou [incremento] forem omitidos, o valor padr√£o 1 ser√° utilizado.
  <item>
-Os n˙meros recebidos s„o interpretados como n˙meros em ponto flutuante.
+Os n√∫meros recebidos s√£o interpretados como n√∫meros em ponto flutuante.
  <item>
-[incremento] deve ser positivo se [primeiro] for menor do que o ˙ltimo, e negativo caso contr·rio.
+[incremento] deve ser positivo se [primeiro] for menor do que o √∫ltimo, e negativo caso contr√°rio.
  <item>
-Quando utilizarmos a opÁ„o --format, o argumento deve ser exatamente %e, %f ou %g.
+Quando utilizarmos a op√ß√£o --format, o argumento deve ser exatamente %e, %f ou %g.
 </list> ]]>
 
 <![ %EXEMPLO [
@@ -1259,104 +1259,104 @@ Exemplos: <tt>seq 0 2 10</tt>, <tt>seq -w 0 10</tt>, <tt>seq -f%f 0 10</tt>, <tt
     <![ %INTERMEDIARIO [
 <sect id="cmdv-chattr">chattr
  <p>
-Modifica atributos de arquivos/diretÛrios. N„o confunda atributos de 
-arquivo com permissıes de acesso (<ref id="perm">), os atributos s„o 
-diferentes e definem outras caracterÌsticas especiais para os arquivos/diretÛrios 
+Modifica atributos de arquivos/diret√≥rios. N√£o confunda atributos de 
+arquivo com permiss√µes de acesso (<ref id="perm">), os atributos s√£o 
+diferentes e definem outras caracter√≠sticas especiais para os arquivos/diret√≥rios 
 especificados. 
  <p>
-<tt>chattr [<em>opÁıes</em>] [<em>atributos</em>] [<em>arquivos/diretÛrios</em>]</tt>
+<tt>chattr [<em>op√ß√µes</em>] [<em>atributos</em>] [<em>arquivos/diret√≥rios</em>]</tt>
  <p>
 <![ %OPCOES [ 
 Onde:
 <taglist compact>
- <tag><em>arquivos/diretÛrios</em></tag>
+ <tag><em>arquivos/diret√≥rios</em></tag>
   <item>
-Arquivos/DiretÛrios que ter„o os atributos modificados. Podem ser usados 
+Arquivos/Diret√≥rios que ter√£o os atributos modificados. Podem ser usados 
 curingas
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-R</tag>
   <item>
-Modifica atributos em subdiretÛrios
+Modifica atributos em subdiret√≥rios
 
  <tag>-V</tag>
   <item>
-Mostra detalhes sobre a modificaÁ„o de atributos.
+Mostra detalhes sobre a modifica√ß√£o de atributos.
 
  <tag><em>atributos</em></tag>
   <item>
-Os atributos de arquivos/diretÛrios podem ser especificados da seguinte 
+Os atributos de arquivos/diret√≥rios podem ser especificados da seguinte 
 maneira:
 <list compact>
  <item><tt>+</tt> - Adiciona o atributo 
  <item><tt>-</tt> - Remove o atributo
  <item><tt>=</tt> - Define o atributo exatamente como especificado
 </list>
-Os atributos s„o os seguintes:
+Os atributos s√£o os seguintes:
 <list compact>
  <item>
-<tt>A</tt> - N„o modifica a hora de acesso de arquivos. Poder aumentar 
-consideravelmente a performance em Notebooks devido a diminuiÁ„o de I/O 
-no disco rÌgido. Quando especificada em diretÛrios, faz com que todos os 
-arquivos e subdiretÛrios residentes nele n„o tenham a hora de acesso 
+<tt>A</tt> - N√£o modifica a hora de acesso de arquivos. Poder aumentar 
+consideravelmente a performance em Notebooks devido a diminui√ß√£o de I/O 
+no disco r√≠gido. Quando especificada em diret√≥rios, faz com que todos os 
+arquivos e subdiret√≥rios residentes nele n√£o tenham a hora de acesso 
 modificada. 
  <p>
 Este atributo funciona apenas em kernels 2.2 e superiores
 
  <item>
 <tt>a</tt> - Append-Only - Arquivos com este atributo podem somente ser 
-gravados em modo incrementais (o conte˙do poder· somente ser adicionado 
-ao final do arquivo). Eles n„o poder„o ser removidos, renomeados e novos 
-links n„o poder„o ser criados para estes arquivos. 
+gravados em modo incrementais (o conte√∫do poder√° somente ser adicionado 
+ao final do arquivo). Eles n√£o poder√£o ser removidos, renomeados e novos 
+links n√£o poder√£o ser criados para estes arquivos. 
  <p>
-Em diretÛrios faz com que os arquivos sejam apenas adicionados. 
+Em diret√≥rios faz com que os arquivos sejam apenas adicionados. 
 Somente o root pode especificar ou retirar este atributo. 
  
  <item>
-<tt>c</tt> - Permite compactaÁ„o nos arquivos especificados de forma 
-transparente para o usu·rio. Durante a leitura, o kernel retorna dados 
-descompactados e durante a gravaÁ„o os dados s„o compactados e gravados 
+<tt>c</tt> - Permite compacta√ß√£o nos arquivos especificados de forma 
+transparente para o usu√°rio. Durante a leitura, o kernel retorna dados 
+descompactados e durante a grava√ß√£o os dados s√£o compactados e gravados 
 no disco. 
  <p>
-Este atributo ainda n„o foi totalmente implementado no cÛdigo atual do kernel. 
+Este atributo ainda n√£o foi totalmente implementado no c√≥digo atual do kernel. 
 
  <item>
-<tt>d</tt> - Este atributo n„o È usado pelo kernel, mas faz com que o 
+<tt>d</tt> - Este atributo n√£o √© usado pelo kernel, mas faz com que o 
 programa <prgn>dump</prgn> evitar backup dos arquivos marcados com este 
 atributo. 
 
  <item>
-<tt>i</tt> - Imut·vel - Arquivos imut·veis n„o podem ser modificados, 
-os dados tambÈm n„o podem ser gravados para estes arquivos, n„o podem 
-ser removidos, renomeados. AtÈ mesmo o usu·rio root n„o poder· modificar 
+<tt>i</tt> - Imut√°vel - Arquivos imut√°veis n√£o podem ser modificados, 
+os dados tamb√©m n√£o podem ser gravados para estes arquivos, n√£o podem 
+ser removidos, renomeados. At√© mesmo o usu√°rio root n√£o poder√° modificar 
 estes arquivos. 
  <p>
-Em diretÛrios, faz com que arquivos n„o possam ser adicionados ou apagados. 
-Somente o usu·rio root pode especificar ou retirar este atributo. 
+Em diret√≥rios, faz com que arquivos n√£o possam ser adicionados ou apagados. 
+Somente o usu√°rio root pode especificar ou retirar este atributo. 
  
  <item>
-<tt>s</tt> - O arquivo especificado È marcado como "apagamento seguro"; 
-quando o arquivo È apagado, seus blocos s„o zerados e gravados de volta 
-no disco (eliminando qualquer possibilidade de recuperaÁ„o). 
+<tt>s</tt> - O arquivo especificado √© marcado como "apagamento seguro"; 
+quando o arquivo √© apagado, seus blocos s√£o zerados e gravados de volta 
+no disco (eliminando qualquer possibilidade de recupera√ß√£o). 
 
  <item>
-<tt>S</tt> - Faz a gravaÁ„o imediatamente para o arquivo especificado. … 
-como especificar a opÁ„o "sync" na montagem do sistema de arquivos 
-ext2, mas afeta somente os arquivos especificados. N„o tem efeito 
-em diretÛrios. 
+<tt>S</tt> - Faz a grava√ß√£o imediatamente para o arquivo especificado. √â 
+como especificar a op√ß√£o "sync" na montagem do sistema de arquivos 
+ext2, mas afeta somente os arquivos especificados. N√£o tem efeito 
+em diret√≥rios. 
 
  <item>
-<tt>u</tt> - O arquivo especificado È marcado como recuper·vel. Quando o 
-arquivo È apagado, seu conte˙do È salvo para permitir futura recuperaÁ„o. 
+<tt>u</tt> - O arquivo especificado √© marcado como recuper√°vel. Quando o 
+arquivo √© apagado, seu conte√∫do √© salvo para permitir futura recupera√ß√£o. 
  <p>
-Este atributo ainda n„o foi implementado totalmente no cÛdigo atual do kernel. 
+Este atributo ainda n√£o foi implementado totalmente no c√≥digo atual do kernel. 
 
 </list>
  
 </taglist> ]]>
-Os atributos de arquivos/diretÛrios s„o visualizados atravÈs do 
-utilit·rio <prgn>lsattr</prgn>. Existem patches para os kernels da 
-sÈrie 2.2 que adicionam o suporte experimental aos atributos "c" e "u".
+Os atributos de arquivos/diret√≥rios s√£o visualizados atrav√©s do 
+utilit√°rio <prgn>lsattr</prgn>. Existem patches para os kernels da 
+s√©rie 2.2 que adicionam o suporte experimental aos atributos "c" e "u".
 
 <![ %EXEMPLO [
  <p>
@@ -1371,42 +1371,42 @@ Exemplos:
 
 <sect id="cmdv-lsattr">lsattr
  <p>
-Lista atributos de um arquivo/diretÛrio. Os atributos podem ser 
-modificados atravÈs do comando <prgn>chattr</prgn>. 
+Lista atributos de um arquivo/diret√≥rio. Os atributos podem ser 
+modificados atrav√©s do comando <prgn>chattr</prgn>. 
  <p>
-<tt>lsattr [<em>opÁıes</em>] [<em>arquivos/diretÛrios</em>]</tt>
+<tt>lsattr [<em>op√ß√µes</em>] [<em>arquivos/diret√≥rios</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>arquivos/diretÛrios</em></tag>
+ <tag><em>arquivos/diret√≥rios</em></tag>
   <item>
-Arquivos/diretÛrios que deseja listar os atributos. Podem ser usados 
+Arquivos/diret√≥rios que deseja listar os atributos. Podem ser usados 
 curingas. 
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-a</tag>
   <item>
 Lista todos os arquivos, incluindo ocultos (iniciando com um "."). 
   
  <tag>-d</tag>
   <item>
-Lista os atributos de diretÛrios ao invÈs de listar os arquivos 
-que ele contÈm.   
+Lista os atributos de diret√≥rios ao inv√©s de listar os arquivos 
+que ele cont√©m.   
   
  <tag>-R</tag>
   <item>
-Faz a listagem em diretÛrios e subdiretÛrios.   
+Faz a listagem em diret√≥rios e subdiret√≥rios.   
  
  <tag>-v</tag>
   <item>
-Mostra versıes dos arquivos.   
+Mostra vers√µes dos arquivos.   
 
 </taglist> ]]>
-Caso seja especificado sem par‚metros, o <prgn>lsattr</prgn> listar· os 
-atributos de todos os arquivos e diretÛrios do diretÛrio atual. O 
-<prgn>lsattr</prgn> mostrar· mensagens de erro caso seja usado em 
-um diretÛrio de pontos de montagem ou arquivos que n„o sejam <em>ext2</em>. 
+Caso seja especificado sem par√¢metros, o <prgn>lsattr</prgn> listar√° os 
+atributos de todos os arquivos e diret√≥rios do diret√≥rio atual. O 
+<prgn>lsattr</prgn> mostrar√° mensagens de erro caso seja usado em 
+um diret√≥rio de pontos de montagem ou arquivos que n√£o sejam <em>ext2</em>. 
 <![ %EXEMPLO [ 
  <p>
 Exemplo: <tt>lsattr -d</tt>, <tt>lsattr -R</tt>, <tt>lsattr -R *.txt</tt> ]]>
@@ -1414,27 +1414,27 @@ Exemplo: <tt>lsattr -d</tt>, <tt>lsattr -R</tt>, <tt>lsattr -R *.txt</tt> ]]>
 
 <sect id="cmdv-cut">cut
  <p>
-Mostra seÁıes de cada linha do arquivo dependendo das opÁıes passadas ao 
+Mostra se√ß√µes de cada linha do arquivo dependendo das op√ß√µes passadas ao 
 programa.
  <p>
-<tt>cut [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>cut [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo que ser· verificado pelo comando <prgn>cut</prgn>.
+Arquivo que ser√° verificado pelo comando <prgn>cut</prgn>.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-b, --bytes [bytes]</tag>
  <item>
 Mostra somente a lista de [bytes] do arquivo.
 
  <tag>-c, --characters [numero]</tag>
  <item>
-Mostra somente o [n˙mero] de caracteres no arquivo. … semelhante a opÁ„o 
-"-b" mas tabs e espaÁos s„o tratados como qualquer caracter.
+Mostra somente o [n√∫mero] de caracteres no arquivo. √â semelhante a op√ß√£o 
+"-b" mas tabs e espa√ßos s√£o tratados como qualquer caracter.
 
  <tag>-f, --field [campos]</tag>
  <item>
@@ -1442,20 +1442,20 @@ Mostra somente a lista de [campos].
 
  <tag>-d, --delimite [delimitador]</tag>
  <item>
-Para uso com a opÁ„o -f, os campos s„o separados pelo primeiro caracter em 
-[delimitador] ao invÈs de tabulaÁıes.
+Para uso com a op√ß√£o -f, os campos s√£o separados pelo primeiro caracter em 
+[delimitador] ao inv√©s de tabula√ß√µes.
 
  <tag>-s</tag>
  <item>
-Para uso com a opÁ„o -f, somente mostra linhas que contÈm o caracter  
+Para uso com a op√ß√£o -f, somente mostra linhas que cont√©m o caracter  
 separador de campos.
 
 </taglist>
 ]]>
  <p>
-Devem ser especificadas opÁıes para o funcionamento deste comando. Os bytes,  
-campos e delimitadores podem ser especificados atravÈs de intervalos 
-de caracteres (usando a-z), atravÈs de vÌrgulas (a,b,d) ou da combinaÁ„o 
+Devem ser especificadas op√ß√µes para o funcionamento deste comando. Os bytes,  
+campos e delimitadores podem ser especificados atrav√©s de intervalos 
+de caracteres (usando a-z), atrav√©s de v√≠rgulas (a,b,d) ou da combina√ß√£o 
 entre eles.
 
 <![ %EXEMPLO [
@@ -1466,43 +1466,43 @@ entre eles.
 de cada linha do arquivo <file>/etc/passwd</file>
  <item>
 <tt>cut -b 1,3-10 /etc/passwd</tt> - Pega a primeira letra (byte) e terceira 
-a dÈcima letra de cada linha do arquivo <file>/etc/passwd</file>.
+a d√©cima letra de cada linha do arquivo <file>/etc/passwd</file>.
  <item>
 <tt>cut -c 1,3-10 /etc/passwd</tt> - Pega o primeiro caracter e terceiro 
-ao dÈcimo caracter de cada linha do arquivo <file>/etc/passwd</file>.
+ao d√©cimo caracter de cada linha do arquivo <file>/etc/passwd</file>.
 </list> ]]>
 
 
 <sect id="cmdv-cmp">cmp
  <p>
-Compara dois arquivos de qualquer tipo (bin·rio ou texto). 
-<![ %DESCRICAOD [ Os dois arquivos especificados ser„o comparado e caso 
-exista diferenÁa entre eles,  È mostrado o n˙mero da linha e byte onde  
-ocorreu a primeira diferenÁa na saÌda padr„o (tela) e o programa 
-retorna o cÛdigo de saÌda 1. ]]>
+Compara dois arquivos de qualquer tipo (bin√°rio ou texto). 
+<![ %DESCRICAOD [ Os dois arquivos especificados ser√£o comparado e caso 
+exista diferen√ßa entre eles,  √© mostrado o n√∫mero da linha e byte onde  
+ocorreu a primeira diferen√ßa na sa√≠da padr√£o (tela) e o programa 
+retorna o c√≥digo de sa√≠da 1. ]]>
  <p>
-<tt>cmp [<em>arquivo1</em>] [<em>arquivo2</em>] [<em>opÁıes</em>]</tt>
+<tt>cmp [<em>arquivo1</em>] [<em>arquivo2</em>] [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
-OpÁıes:
+Op√ß√µes:
 <taglist compact>
  <tag><em>arquivo1/arquivo2</em></tag>
  <item>
-Arquivos que ser„o comparados.
+Arquivos que ser√£o comparados.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-l</tag>
  <item>
-Mostra o n˙mero do byte (hexadecimal) e valores diferentes de bytes (octal) 
-para cada diferenÁa.
+Mostra o n√∫mero do byte (hexadecimal) e valores diferentes de bytes (octal) 
+para cada diferen√ßa.
 
  <tag>-s</tag>
  <item>
-N„o mostra nenhuma diferenÁa, sÛ retorna o cÛdigo de saÌda do programa.
+N√£o mostra nenhuma diferen√ßa, s√≥ retorna o c√≥digo de sa√≠da do programa.
 </taglist>
 ]]>
 Use o comando <prgn>zcmp</prgn> para comparar diretamente arquivos  
-bin·rios/texto compactados com <prgn>gzip</prgn>.
+bin√°rios/texto compactados com <prgn>gzip</prgn>.
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>cmp teste.txt teste1.txt</tt>. ]]>
@@ -1510,9 +1510,9 @@ Exemplo: <tt>cmp teste.txt teste1.txt</tt>. ]]>
 
 <sect id="cmdv-dirname">dirname
  <p>
-ObtÈm o nome do diretÛrio atravÈs do caminho passado ao programa.
+Obt√©m o nome do diret√≥rio atrav√©s do caminho passado ao programa.
  <p>
-<tt>dirname [<em>diretÛrio/arquivo</em>]</tt>
+<tt>dirname [<em>diret√≥rio/arquivo</em>]</tt>
 <![ %EXEMPLO [
  <p>
 <tt>dirname /usr/bin/dirname</tt>, <tt>dirname /tmp/*</tt>. ]]>
@@ -1520,34 +1520,34 @@ ObtÈm o nome do diretÛrio atravÈs do caminho passado ao programa.
 
 <sect id="cmdv-diff">diff
  <p>
-Compara dois arquivos e mostra as diferenÁas entre eles. O comando 
-<prgn>diff</prgn> È usado somente para a comparaÁ„o de arquivos 
+Compara dois arquivos e mostra as diferen√ßas entre eles. O comando 
+<prgn>diff</prgn> √© usado somente para a compara√ß√£o de arquivos 
 em formato texto. 
-<![ %DESCRICAOD [ As diferenÁas encontradas podem ser redirecionadas para 
-um arquivo que poder· ser usado pelo comando <prgn>patch</prgn> para 
-aplicar as alteraÁıes em um arquivo que n„o contÈm as diferenÁas. Isto È 
-˙til para grandes textos porque È possÌvel copiar somente as modificaÁıes 
-(geradas atravÈs do diff, que s„o muito pequenas) e aplicar no arquivo 
-para atualiza-lo (atravÈs do <prgn>patch</prgn>) ao invÈs de copiar a nova 
-vers„o. Este È um sistema de atualizaÁ„o muito usado na atualizaÁ„o dos 
-cÛdigo fonte do kernel do <prgn>GNU/Linux</prgn>. ]]>
+<![ %DESCRICAOD [ As diferen√ßas encontradas podem ser redirecionadas para 
+um arquivo que poder√° ser usado pelo comando <prgn>patch</prgn> para 
+aplicar as altera√ß√µes em um arquivo que n√£o cont√©m as diferen√ßas. Isto √© 
+√∫til para grandes textos porque √© poss√≠vel copiar somente as modifica√ß√µes 
+(geradas atrav√©s do diff, que s√£o muito pequenas) e aplicar no arquivo 
+para atualiza-lo (atrav√©s do <prgn>patch</prgn>) ao inv√©s de copiar a nova 
+vers√£o. Este √© um sistema de atualiza√ß√£o muito usado na atualiza√ß√£o dos 
+c√≥digo fonte do kernel do <prgn>GNU/Linux</prgn>. ]]>
  <p>
-<tt>diff [<em>diretÛrio1/arquivo1</em>] [<em>diretÛrio2/arquivo2</em>]  
-[<em>opÁıes</em>]</tt>
+<tt>diff [<em>diret√≥rio1/arquivo1</em>] [<em>diret√≥rio2/arquivo2</em>]  
+[<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
-OpÁıes:
+Op√ß√µes:
 <taglist compact>
- <tag><em>diretÛrio1/arquivo1 diretÛrio2/arquivo2</em>
+ <tag><em>diret√≥rio1/arquivo1 diret√≥rio2/arquivo2</em>
  <item>
-Arquivos /diretÛrios que ser„o comparados. Normalmente È usado como 
-primeiro arquivo/diretÛrio o mais antigo e o mais novo como segundo.
+Arquivos /diret√≥rios que ser√£o comparados. Normalmente √© usado como 
+primeiro arquivo/diret√≥rio o mais antigo e o mais novo como segundo.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-lines [num]</tag>
  <item>
-Gera a diferenÁa com [num] linhas de contexto. Por padr„o o <prgn>diff</prgn> 
-gera um arquivo com 2 linhas que È o mÌnimo necess·rio para o correto 
+Gera a diferen√ßa com [num] linhas de contexto. Por padr√£o o <prgn>diff</prgn> 
+gera um arquivo com 2 linhas que √© o m√≠nimo necess√°rio para o correto 
 funcionamento do <prgn>patch</prgn>.
  
  <tag>-a</tag>
@@ -1556,7 +1556,7 @@ Compara os dois arquivos como arquivos texto.
 
  <tag>-b</tag>
  <item>
-Ignora espaÁos em branco como diferenÁas.
+Ignora espa√ßos em branco como diferen√ßas.
 
  <tag>-B</tag>
  <item>
@@ -1564,48 +1564,48 @@ Ignora linhas em branco inseridas ou apagadas nos arquivos.
 
  <tag>-i</tag>
  <item>
-Ignora diferenÁas entre mai˙sculas e min˙sculas nos arquivos.
+Ignora diferen√ßas entre mai√∫sculas e min√∫sculas nos arquivos.
 
  <tag>-H</tag>
  <item>
-Usa an·lise heurÌstica para verificar os arquivos.
+Usa an√°lise heur√≠stica para verificar os arquivos.
 
  <tag>-N</tag>
  <item>
-Em uma comparaÁ„o de diretÛrios, se o arquivo apenas existe em um diretÛrio, 
-trata-o como presente mas vazio no outro diretÛrio.
+Em uma compara√ß√£o de diret√≥rios, se o arquivo apenas existe em um diret√≥rio, 
+trata-o como presente mas vazio no outro diret√≥rio.
 
  <tag>-P</tag>
  <item>
-Em uma comparaÁ„o de diretÛrios, se o arquivos apenas existe no segundo 
-diretÛrio, trata-o como presente mas vazio no primeiro diretÛrio.
+Em uma compara√ß√£o de diret√≥rios, se o arquivos apenas existe no segundo 
+diret√≥rio, trata-o como presente mas vazio no primeiro diret√≥rio.
 
  <tag>-q</tag>
  <item>
-Mostra somente se os dois arquivos possuem diferenÁas. N„o mostra as
-diferenÁas entre eles.
+Mostra somente se os dois arquivos possuem diferen√ßas. N√£o mostra as
+diferen√ßas entre eles.
 
  <tag>-r</tag>
  <item>
-Compara diretÛrios e sub-diretÛrios existentes.
+Compara diret√≥rios e sub-diret√≥rios existentes.
 
  <tag>-S [nome]</tag>
  <item>
-Inicia a comparaÁ„o de diretÛrios pelo arquivo [nome]. … ˙til quando  
-cancelamos uma comparaÁ„o.
+Inicia a compara√ß√£o de diret√≥rios pelo arquivo [nome]. √â √∫til quando  
+cancelamos uma compara√ß√£o.
  
  <tag>-t</tag>
  <item>
-Aumenta a tabulaÁ„o das diferenÁas encontradas.
+Aumenta a tabula√ß√£o das diferen√ßas encontradas.
 
  <tag>-u</tag>
  <item>
-Usa o formato de comparaÁ„o unificado.
+Usa o formato de compara√ß√£o unificado.
  
 </taglist>
 ]]>
 Use o comando <prgn>zdiff</prgn> para comparar diretamente arquivos  
-compactados pelo utilit·rio <prgn>gzip</prgn>
+compactados pelo utilit√°rio <prgn>gzip</prgn>
  <p>
 Use o comando <prgn>sdiff</prgn> para visualizar as linhas diferentes entre 
 os dois arquivos em formato texto simples. 
@@ -1615,7 +1615,7 @@ Exemplo:
 <list>
  <item>
 <tt>diff texto.txt texto1.txt</tt> - Compara o arquivo  
-<file>texto.txt</file> com <file>texto1.txt</file> e exibe suas diferenÁas na 
+<file>texto.txt</file> com <file>texto1.txt</file> e exibe suas diferen√ßas na 
 tela.
  <item>
 <tt>diff -Bu texto.txt texto1.txt</tt> - Compara o arquivo 
@@ -1624,66 +1624,66 @@ branco diferentes entre os dois arquivos e usando o formato unificado.
  <item>
 <tt>diff texto.txt texto1.txt &gt;texto.diff</tt> - Compara o arquivo 
 <file>texto.txt</file> com <file>texto1.txt</file> e gera um arquivo 
-chamado <file>texto.diff</file> contendo a diferenÁa entre eles. Este 
-arquivo poder· ser usado pelo <prgn>patch</prgn> para aplicar as 
-diferenÁas existente entre os dois no arquivo <file>texto.txt</file>.
+chamado <file>texto.diff</file> contendo a diferen√ßa entre eles. Este 
+arquivo poder√° ser usado pelo <prgn>patch</prgn> para aplicar as 
+diferen√ßas existente entre os dois no arquivo <file>texto.txt</file>.
  <item>
 <tt>diff -r /usr/src/linux-2.2.13 /usr/src/linux-2.2.14 &gt;patch-2.2.14.diff
-</tt> - Compara o diretÛrio e sub-diretÛrios <file>linux-2.2.13</file> e 
-<file>linux-2.2.14</file> e grava as diferenÁas entre eles no arquivo 
+</tt> - Compara o diret√≥rio e sub-diret√≥rios <file>linux-2.2.13</file> e 
+<file>linux-2.2.14</file> e grava as diferen√ßas entre eles no arquivo 
 <file>patch-2.2.14.diff</file>. 
 </list> ]]>
 
 
 <sect id="cmdv-pr">pr
  <p>
-P·gina arquivos texto ou a entrada padr„o para impress„o. 
-<![ %DESCRICAOD [ Este comando faz a paginaÁ„o de um arquivo texto e  
-opcionalmente ajusta o n˙mero de colunas e mostra o resultado na saÌda padr„o. 
+P√°gina arquivos texto ou a entrada padr√£o para impress√£o. 
+<![ %DESCRICAOD [ Este comando faz a pagina√ß√£o de um arquivo texto e  
+opcionalmente ajusta o n√∫mero de colunas e mostra o resultado na sa√≠da padr√£o. 
 ]]>
  <p>
-<tt>pr [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>pr [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo que ser· paginado para impress„o.
+Arquivo que ser√° paginado para impress√£o.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>+[NUM]</tag>
  <item>
-Inicia a numeraÁ„o de p·ginas na p·gina [PAGINA]
+Inicia a numera√ß√£o de p√°ginas na p√°gina [PAGINA]
 
  <tag>-[NUM]</tag>
  <item>
-Mostra a saÌda com [NUM] colunas.
+Mostra a sa√≠da com [NUM] colunas.
 
  <tag>-c</tag>
  <item>
-Imprime o caracter CTRL como <tt>"^"</tt> na saÌda padr„o.
+Imprime o caracter CTRL como <tt>"^"</tt> na sa√≠da padr√£o.
 
  <tag>-F, -f</tag>
  <item>
-Usa avanÁo de p·gina ao invÈs de linhas em branco para separar p·ginas.
+Usa avan√ßo de p√°gina ao inv√©s de linhas em branco para separar p√°ginas.
 
  <tag>-e[caracter][tamanho]</tag>
  <item>
-Usa o caracter [caracter] como tabulaÁ„o (o padr„o È tab) e o espaÁo da
-tabulaÁ„o [tamanho].
+Usa o caracter [caracter] como tabula√ß√£o (o padr√£o √© tab) e o espa√ßo da
+tabula√ß√£o [tamanho].
 
  <tag>-h [nome]</tag>
  <item>
-Mostra [nome] ao invÈs do nome do arquivo no cabeÁalho.
+Mostra [nome] ao inv√©s do nome do arquivo no cabe√ßalho.
 
  <tag>-l [num]</tag>
  <item>
-Define o n˙mero m·ximo de linhas por p·gina para [num].
+Define o n√∫mero m√°ximo de linhas por p√°gina para [num].
 
  <tag>-m</tag>
  <item>
-Imprime v·rios arquivos em paralelo, um por coluna.
+Imprime v√°rios arquivos em paralelo, um por coluna.
 
  <tag>-r</tag>
  <item>
@@ -1691,7 +1691,7 @@ Oculta mensagens de erro de abertura de arquivos.
 
  <tag>-w [num]</tag>
  <item>
-Ajusta a largura da p·gina para [num] colunas (o padr„o È 72).
+Ajusta a largura da p√°gina para [num] colunas (o padr√£o √© 72).
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -1701,41 +1701,41 @@ Exemplo: <tt>pr -l 50 -h "Teste do comando pr" teste.txt</tt>. ]]>
 
 <sect id="cmdv-patch">patch
  <p>
-Atualiza arquivos texto atravÈs das diferenÁas geradas pelo comando 
+Atualiza arquivos texto atrav√©s das diferen√ßas geradas pelo comando 
 <prgn>diff</prgn>. 
  <p>
-<tt>patch [<em>opÁıes</em>] [<em>arquivo.diff</em>]</tt> ou  
-<tt>patch [<em>opÁıes</em>] &lt; [<em>arquivo.diff</em>]</tt> 
+<tt>patch [<em>op√ß√µes</em>] [<em>arquivo.diff</em>]</tt> ou  
+<tt>patch [<em>op√ß√µes</em>] &lt; [<em>arquivo.diff</em>]</tt> 
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivo.diff</em></tag>
  <item>
-Arquivo contendo as diferenÁas geradas pelo comando <prgn>diff</prgn>.
+Arquivo contendo as diferen√ßas geradas pelo comando <prgn>diff</prgn>.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-p [num]</tag>
  <item>
-NÌvel do diretÛrio onde o <prgn>patch</prgn> ser· aplicado, se igual a 0, 
-o <prgn>patch</prgn> assume que os arquivos que ser„o atualizados est„o no 
-diretÛrio atual, se 1, assume que os arquivos que ser„o atualizado est„o 
-no diretÛrio acima (..), se 2, 2 diretÛrios acima ...
+N√≠vel do diret√≥rio onde o <prgn>patch</prgn> ser√° aplicado, se igual a 0, 
+o <prgn>patch</prgn> assume que os arquivos que ser√£o atualizados est√£o no 
+diret√≥rio atual, se 1, assume que os arquivos que ser√£o atualizado est√£o 
+no diret√≥rio acima (..), se 2, 2 diret√≥rios acima ...
 
  <tag>-b</tag>
  <item>
-Cria cÛpias de seguranÁa dos arquivos originais ao aplica o patch.
+Cria c√≥pias de seguran√ßa dos arquivos originais ao aplica o patch.
 
  <tag>-binary</tag>
  <item>
-LÍ e grava arquivo usando modo bin·rio.
+L√™ e grava arquivo usando modo bin√°rio.
 
  <tag>-d [dir]</tag>
  <item>
-Muda para o diretÛrio [dir] antes de aplica o patch.
+Muda para o diret√≥rio [dir] antes de aplica o patch.
 
  <tag>-E</tag>
  <item>
-Remove arquivos vazios apÛs a aplicaÁ„o do patch.
+Remove arquivos vazios ap√≥s a aplica√ß√£o do patch.
 
  <tag>-n</tag>
  <item>
@@ -1743,30 +1743,30 @@ Interpreta o arquivo de patch como um <file>.diff</file> normal.
 
  <tag>-N</tag>
  <item>
-N„o desfaz patches j· aplicados.
+N√£o desfaz patches j√° aplicados.
 
  <tag>-s</tag>
  <item>
-N„o mostra mensagens de erro.
+N√£o mostra mensagens de erro.
 
  <tag>-u</tag>
  <item>
 Interpreta o patch em formato unificado.
 
 </taglist>
-As diferenÁas s„o aplicadas em arquivos originais gerados pelo comando 
-<prgn>diff</prgn>. … importante entender os comandos <prgn>patch</prgn> 
-e <prgn>diff</prgn> pois s„o comandos muito utilizados para desenvolvimento 
+As diferen√ßas s√£o aplicadas em arquivos originais gerados pelo comando 
+<prgn>diff</prgn>. √â importante entender os comandos <prgn>patch</prgn> 
+e <prgn>diff</prgn> pois s√£o comandos muito utilizados para desenvolvimento 
 feito por equipes de pessoas.
 <![ %EXEMPLO [
  <p>
 Exemplo: 
 <list>
  <item>
-<tt>patch -p0&lt;texto.diff</tt> - Aplica as diferenÁas contidas no arquivo
+<tt>patch -p0&lt;texto.diff</tt> - Aplica as diferen√ßas contidas no arquivo
 <file>texto.diff</file> nos arquivos originais.
  <item>
-<tt>patch -p0 texto.txt texto.diff</tt> - Aplica as diferenÁas contidas no 
+<tt>patch -p0 texto.txt texto.diff</tt> - Aplica as diferen√ßas contidas no 
 arquivo <file>texto.diff</file> nos arquivos originais. Faz a mesma coisa que 
 o comando anterior.
 </list> ]]>
@@ -1774,8 +1774,8 @@ o comando anterior.
 
 <sect id="cmdv-whereis">whereis
  <p>
-Localiza o arquivo que contÈm uma p·gina de manual. 
-<![ %DESCRICAOD [ A pesquisa È feita usando-se os caminhos de p·ginas 
+Localiza o arquivo que cont√©m uma p√°gina de manual. 
+<![ %DESCRICAOD [ A pesquisa √© feita usando-se os caminhos de p√°ginas 
 de manuais configuradas no sistema (normalmente o arquivo 
 <file>/etc/manpath.config</file>). ]]>
  <p>
@@ -1787,8 +1787,8 @@ Exemplo: <tt>whereis ls</tt>, <tt>whereis cd</tt>. ]]>
 
 <sect id="cmdv-which">which
  <p>
-Mostra a localizaÁ„o de um arquivo execut·vel no sistema.
-<![ %DESCRICAOD [ A pesquisa de arquivos execut·veis È feita atravÈs do 
+Mostra a localiza√ß√£o de um arquivo execut√°vel no sistema.
+<![ %DESCRICAOD [ A pesquisa de arquivos execut√°veis √© feita atrav√©s do 
 path do sistema. 
 <![ %INICIANTE [ Para maiores detalhes, veja <ref id="run-path">. ]]> ]]>
  <p>
@@ -1801,34 +1801,34 @@ Exemplos: <tt>which ls</tt>, <tt>which shutdown</tt>,
 
 <sect id="cmdv-zforce">zforce
  <p>
-Renomeia extens„o de arquivos para <file>.gz</file>.
+Renomeia extens√£o de arquivos para <file>.gz</file>.
 <![ %DESCRICAOD [
-Este comando È ˙til quando fazemos downloads de arquivos compactados pelo 
-<prgn>gzip</prgn> mas que n„o est„o identificados pela extens„o <file>.gz
+Este comando √© √∫til quando fazemos downloads de arquivos compactados pelo 
+<prgn>gzip</prgn> mas que n√£o est√£o identificados pela extens√£o <file>.gz
 </file>. ]]>
  <p>
 <tt>zforce [<em>arquivos</em>]</tt>
  <p>
-Quando È usado o <prgn>zforce</prgn> verifica se o arquivo È um arquivo 
-compactado pelo <prgn>gzip</prgn>, caso seja, È verificado se j· tem a 
-extens„o <file>.gz</file>, caso n„o tiver, acrescenta a extens„o. 
+Quando √© usado o <prgn>zforce</prgn> verifica se o arquivo √© um arquivo 
+compactado pelo <prgn>gzip</prgn>, caso seja, √© verificado se j√° tem a 
+extens√£o <file>.gz</file>, caso n√£o tiver, acrescenta a extens√£o. 
 
 
 <sect id="cmdv-gzexe">gzexe
  <p>
-Cria arquivos compactados <prgn>gzip</prgn> auto-extr·cteis.
-<![ %DESCRICAOD [ Este comando È usado para compactar arquivos execut·veis 
-que se auto-descompactam assim que s„o solicitados. … ˙til 
-para sistemas ou unidades de disco que possuem pouco espaÁo disponÌvel. ]]>
-Este comando deve somente ser usado para arquivos execut·veis.
+Cria arquivos compactados <prgn>gzip</prgn> auto-extr√°cteis.
+<![ %DESCRICAOD [ Este comando √© usado para compactar arquivos execut√°veis 
+que se auto-descompactam assim que s√£o solicitados. √â √∫til 
+para sistemas ou unidades de disco que possuem pouco espa√ßo dispon√≠vel. ]]>
+Este comando deve somente ser usado para arquivos execut√°veis.
  <p>
 <tt>gzexe [<em>arquivo</em>]</tt>
 <![ %OPCOES [
  <p>
-Onde: <em>arquivo</em> È o arquivo execut·vel que ser· compactado.
+Onde: <em>arquivo</em> √© o arquivo execut√°vel que ser√° compactado.
 ]]>
  <p>
-Quando <prgn>gzexe</prgn> È executado, uma cÛpia do arquivo original È
+Quando <prgn>gzexe</prgn> √© executado, uma c√≥pia do arquivo original √©
 gravada com o formato <file>nome_do_arquivo</file>~.
 <![ %EXEMPLO [
  <p>
@@ -1838,22 +1838,22 @@ Exemplo: <tt>gzexe /tmp/teste</tt>. ]]>
 <sect id="cmdv-znew">znew
  <p>
 Recompacta arquivos do formato <prgn>compress</prgn> (<file>.Z</file>) para  
-o formato <prgn>gzip</prgn> (<file>.gz</file>). ApÛs a re-compactaÁ„o, os 
-arquivos de origem <file>.Z</file> s„o apagados. 
+o formato <prgn>gzip</prgn> (<file>.gz</file>). Ap√≥s a re-compacta√ß√£o, os 
+arquivos de origem <file>.Z</file> s√£o apagados. 
  <p>
-<tt>znew [<em>opÁıes</em>] [<em>arquivo</em>]</tt>
+<tt>znew [<em>op√ß√µes</em>] [<em>arquivo</em>]</tt>
  <p>
 Onde:
 <taglist compact>
  <tag><em>arquivo.Z</em></tag>
  <item>
-Arquivo compactado pelo <prgn>compress</prgn> que ser· re-compactado para 
+Arquivo compactado pelo <prgn>compress</prgn> que ser√° re-compactado para 
 o <prgn>gzip</prgn>. 
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-f</tag>
  <item>
-Substitui o arquivo <file>.gz</file> caso j· exista.
+Substitui o arquivo <file>.gz</file> caso j√° exista.
 
  <tag>-t</tag>
  <item>
@@ -1861,20 +1861,20 @@ Teste os novos arquivos criados antes de apagar os arquivos <file>.Z</file>.
 
  <tag>-v</tag>
  <item>
-Mostra o nome e porcentagem de compactaÁ„o para cada arquivo processado.
+Mostra o nome e porcentagem de compacta√ß√£o para cada arquivo processado.
 
  <tag>-9</tag>
  <item>
-Usa a m·xima compactaÁ„o.
+Usa a m√°xima compacta√ß√£o.
 
  <tag>-P</tag>
  <item>
-Usa pipes durante a convers„o para reduzir o espaÁo ocupado no disco. A data 
-e hora do arquivo n„o È mantida caso esta opÁ„o seja usada.
+Usa pipes durante a convers√£o para reduzir o espa√ßo ocupado no disco. A data 
+e hora do arquivo n√£o √© mantida caso esta op√ß√£o seja usada.
 
  <tag>-K</tag>
  <item>
-MantÈm o arquivo <file>.Z</file> caso seja menor que o arquivo  
+Mant√©m o arquivo <file>.Z</file> caso seja menor que o arquivo  
 <file>.gz</file>.
 
 </taglist>

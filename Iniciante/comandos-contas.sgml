@@ -1,129 +1,129 @@
-<chapt id="cmdc">Comandos para manipulaÁ„o de contas
+<chapt id="cmdc">Comandos para manipula√ß√£o de contas
  <p>
-Este capÌtulo traz comandos usados para manipulaÁ„o de conta de usu·rios e 
+Este cap√≠tulo traz comandos usados para manipula√ß√£o de conta de usu√°rios e 
 grupos em sistemas <prgn>GNU/Linux</prgn>. Entre os assuntos descritos aqui  
-est„o adicionar usu·rios ao sistema, adicionar grupos, incluir usu·rios  
+est√£o adicionar usu√°rios ao sistema, adicionar grupos, incluir usu√°rios  
 em grupos existentes, etc.
 
 
 <sect id="cmdc-adduser">adduser
  <p>
-Adiciona um usu·rio ou grupo no sistema. Por padr„o, quando um novo usu·rio È 
-adicionado, È criado um grupo com o mesmo nome do usu·rio. Opcionalmente 
-o <prgn>adduser</prgn> tambÈm pode ser usado para adicionar um usu·rio a 
+Adiciona um usu√°rio ou grupo no sistema. Por padr√£o, quando um novo usu√°rio √© 
+adicionado, √© criado um grupo com o mesmo nome do usu√°rio. Opcionalmente 
+o <prgn>adduser</prgn> tamb√©m pode ser usado para adicionar um usu√°rio a 
 um grupo (veja <ref id="cmdc-incluirgrupo">).
-<![ %DESCRICAOD [ Ser· criado um diretÛrio home com o nome do usu·rio (a n„o
-ser que o novo usu·rio criado seja um usu·rio do sistema) e este receber· uma  
-identificaÁ„o. A identificaÁ„o do usu·rio (UID) escolhida ser· a primeira  
-disponÌvel no sistema especificada de acordo com a faixa de UIDS de  
-usu·rios permitidas no arquivo de configuraÁ„o <file>/etc/adduser.conf</file>. 
-Este È o arquivo que contÈm os padrıes para a criaÁ„o de novos usu·rios no  
+<![ %DESCRICAOD [ Ser√° criado um diret√≥rio home com o nome do usu√°rio (a n√£o
+ser que o novo usu√°rio criado seja um usu√°rio do sistema) e este receber√° uma  
+identifica√ß√£o. A identifica√ß√£o do usu√°rio (UID) escolhida ser√° a primeira  
+dispon√≠vel no sistema especificada de acordo com a faixa de UIDS de  
+usu√°rios permitidas no arquivo de configura√ß√£o <file>/etc/adduser.conf</file>. 
+Este √© o arquivo que cont√©m os padr√µes para a cria√ß√£o de novos usu√°rios no  
 sistema. ]]>
  <p>
-<tt>adduser [<em>opÁıes</em>] [<em>usu·rio/grupo</em>]</tt>
+<tt>adduser [<em>op√ß√µes</em>] [<em>usu√°rio/grupo</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>usu·rio/grupo</em></tag>
+ <tag><em>usu√°rio/grupo</em></tag>
  <item>
-Nome do novo usu·rio que ser· adicionado ao sistema.
+Nome do novo usu√°rio que ser√° adicionado ao sistema.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-disable-passwd</tag>
  <item>
-N„o executa o programa <prgn>passwd</prgn> para escolher a senha e somente 
-permite o uso da conta apÛs o usu·rio escolher uma senha.
+N√£o executa o programa <prgn>passwd</prgn> para escolher a senha e somente 
+permite o uso da conta ap√≥s o usu√°rio escolher uma senha.
 
  <tag>--force-badname</tag>
  <item>
-Desativa a checagem de senhas ruins durante a adiÁ„o do novo usu·rio. Por 
-padr„o o <prgn>adduser</prgn> checa se a senha pode ser facilmente adivinhada. 
+Desativa a checagem de senhas ruins durante a adi√ß√£o do novo usu√°rio. Por 
+padr√£o o <prgn>adduser</prgn> checa se a senha pode ser facilmente adivinhada. 
 
  <tag>--group</tag>
  <item>
-Cria um novo grupo ao invÈs de um novo usu·rio. A criaÁ„o de grupos tambÈm 
+Cria um novo grupo ao inv√©s de um novo usu√°rio. A cria√ß√£o de grupos tamb√©m 
 pode ser feita pelo comando <prgn>addgroup</prgn>.
 
  <tag>-uid [num]</tag>
  <item>
-Cria um novo usu·rio com a identificaÁ„o [num] ao invÈs de procurar o 
-prÛximo UID disponÌvel.
+Cria um novo usu√°rio com a identifica√ß√£o [num] ao inv√©s de procurar o 
+pr√≥ximo UID dispon√≠vel.
 
  <tag>-gid [num]</tag>
  <item>
-Faz com que o usu·rio seja parte do grupo [gid] ao invÈs de pertencer a um 
-novo grupo que ser· criado com seu nome. Isto È ˙til caso deseje permitir 
-que grupos de usu·rios possam ter acesso a arquivos comuns.
+Faz com que o usu√°rio seja parte do grupo [gid] ao inv√©s de pertencer a um 
+novo grupo que ser√° criado com seu nome. Isto √© √∫til caso deseje permitir 
+que grupos de usu√°rios possam ter acesso a arquivos comuns.
  <p>
-Caso estiver criando um novo grupo com <prgn>adduser</prgn>, a identificaÁ„o 
-do novo grupo ser· [num].
+Caso estiver criando um novo grupo com <prgn>adduser</prgn>, a identifica√ß√£o 
+do novo grupo ser√° [num].
 
  <tag>--home [dir]</tag>
  <item>
-Usa o diretÛrio [dir] para a criaÁ„o do diretÛrio home do usu·rio ao invÈs 
-de usar o especificado no arquivo de configuraÁ„o 
+Usa o diret√≥rio [dir] para a cria√ß√£o do diret√≥rio home do usu√°rio ao inv√©s 
+de usar o especificado no arquivo de configura√ß√£o 
 <file>/etc/adduser.conf</file>.
 
  <tag>--ingroup [nome]</tag>
  <item>
-Quando adicionar um novo usu·rio no sistema, coloca o usu·rio no grupo [nome] 
-ao invÈs de criar um novo grupo.
+Quando adicionar um novo usu√°rio no sistema, coloca o usu√°rio no grupo [nome] 
+ao inv√©s de criar um novo grupo.
 
  <tag>--quiet</tag>
  <item>
-N„o mostra mensagens durante a operaÁ„o.
+N√£o mostra mensagens durante a opera√ß√£o.
 
  <tag>--system</tag>
  <item>
-Cria um usu·rio de sistema ao invÈs de um usu·rio normal.  
+Cria um usu√°rio de sistema ao inv√©s de um usu√°rio normal.  
 </taglist>
 ]]>
-Os dados do usu·rio s„o colocados no arquivo <file>/etc/passwd</file> apÛs sua 
-criaÁ„o e os dados do grupo s„o colocados no arquivo <file>/etc/group</file>. 
+Os dados do usu√°rio s√£o colocados no arquivo <file>/etc/passwd</file> ap√≥s sua 
+cria√ß√£o e os dados do grupo s√£o colocados no arquivo <file>/etc/group</file>. 
 
 <![ %OBS [
  <p>
-OBSERVA«√O: Caso esteja usando senhas ocultas (shadow passwords), as senhas  
-dos usu·rios ser„o colocadas no arquivo <file>/etc/shadow</file> e as senhas  
+OBSERVA√á√ÉO: Caso esteja usando senhas ocultas (shadow passwords), as senhas  
+dos usu√°rios ser√£o colocadas no arquivo <file>/etc/shadow</file> e as senhas  
 dos grupos no arquivo <file>/etc/gshadow</file>. Isto aumenta mais a  
-seguranÁa do sistema porque somente o usu·rio <tt>root</tt> pode ter acesso a  
-estes arquivos, ao contr·rio do arquivo <file>/etc/passwd</file> que possui  
-os dados de usu·rios e devem ser lidos por todos. ]]>
+seguran√ßa do sistema porque somente o usu√°rio <tt>root</tt> pode ter acesso a  
+estes arquivos, ao contr√°rio do arquivo <file>/etc/passwd</file> que possui  
+os dados de usu√°rios e devem ser lidos por todos. ]]>
 
 
 <sect id="cmdc-addgroup">addgroup
  <p>
-Adiciona um novo grupo de usu·rios no sistema. As opÁıes usadas s„o as mesmas 
+Adiciona um novo grupo de usu√°rios no sistema. As op√ß√µes usadas s√£o as mesmas 
 do <ref id="cmdc-adduser">.
  <p>
-<tt>addgroup [<em>usu·rio/grupo</em>] [<em>opÁıes</em>]</tt>
+<tt>addgroup [<em>usu√°rio/grupo</em>] [<em>op√ß√µes</em>]</tt>
 
 
 <sect id="cmdc-passwd">passwd
  <p>
-Modifica a parametros e senha de usu·rio. 
-<![ %DESCRICAOD [ Um usu·rio somente pode alterar a senha de sua conta, mas 
-o superusu·rio (<tt>root</tt>) pode alterar a senha de qualquer conta de  
-usu·rio, inclusive a data de validade da conta, etc. Os donos de grupos  
-tambÈm podem alterar a senha do grupo com este comando. 
+Modifica a parametros e senha de usu√°rio. 
+<![ %DESCRICAOD [ Um usu√°rio somente pode alterar a senha de sua conta, mas 
+o superusu√°rio (<tt>root</tt>) pode alterar a senha de qualquer conta de  
+usu√°rio, inclusive a data de validade da conta, etc. Os donos de grupos  
+tamb√©m podem alterar a senha do grupo com este comando. 
  <p>
-Os dados da conta do usu·rio como nome, endereÁo, telefone, tambÈm podem ser 
+Os dados da conta do usu√°rio como nome, endere√ßo, telefone, tamb√©m podem ser 
 alterados com este comando. ]]>
  <p>
-<tt>passwd [<em>usu·rio</em>] [<em>opÁıes</em>]</tt>
+<tt>passwd [<em>usu√°rio</em>] [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome do usu·rio que ter· sua senha alterada. 
+Nome do usu√°rio que ter√° sua senha alterada. 
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-e</tag>
  <item>
-ForÁa a expiraÁ„o de senha para a conta especificada.
+For√ßa a expira√ß√£o de senha para a conta especificada.
 
  <tag>-k</tag>
  <item>
@@ -132,53 +132,53 @@ Somente altera a senha se a conta estiver expirada.
 <![ %INTER-AVANC [ 
  <tag>-x [dias]</tag>
  <item>
-Especifica o n˙mero m·ximo de dias que a senha poder· ser usada. ApÛs terminar 
-o prazo, a senha dever· ser modificada. 
+Especifica o n√∫mero m√°ximo de dias que a senha poder√° ser usada. Ap√≥s terminar 
+o prazo, a senha dever√° ser modificada. 
 
  <tag>-i</tag>
  <item>
-Desativa a conta caso o usu·rio n„o tenha alterado sua senha apÛs o tempo 
+Desativa a conta caso o usu√°rio n√£o tenha alterado sua senha ap√≥s o tempo 
 especificado por -x. 
 
  <tag>-n [dias]</tag>
  <item>
-Especifica o n˙mero mÌnimo de dias para a senha ser alterada. O usu·rio n„o 
-poder· mudar sua senha atÈ que [dias] sejam atingidos desde a ˙ltima alteraÁ„o 
+Especifica o n√∫mero m√≠nimo de dias para a senha ser alterada. O usu√°rio n√£o 
+poder√° mudar sua senha at√© que [dias] sejam atingidos desde a √∫ltima altera√ß√£o 
 de senha.
 
  <tag>-w [num]</tag>
  <item>
-N˙mero de dias antecedentes que o usu·rio receber· o alerta para mudar sua 
-senha. O alerta ocorre [num] dias antes do limite da opÁ„o -x, avisando ao 
-usu·rios quantos dias restam para a troca de sua senha.
+N√∫mero de dias antecedentes que o usu√°rio receber√° o alerta para mudar sua 
+senha. O alerta ocorre [num] dias antes do limite da op√ß√£o -x, avisando ao 
+usu√°rios quantos dias restam para a troca de sua senha.
 
  <tag>-l [nome]</tag>
  <item>
-Bloqueia a conta do usu·rio [nome]. Deve ser usada pelo root. O bloqueio 
-da conta È feito acrescentando um caracter a senha para que n„o confira com 
+Bloqueia a conta do usu√°rio [nome]. Deve ser usada pelo root. O bloqueio 
+da conta √© feito acrescentando um caracter a senha para que n√£o confira com 
 a senha original. 
 
  <tag>-u [nome]</tag>
  <item>
-Desbloqueia a conta de um usu·rio bloqueada com a opÁ„o -l.
+Desbloqueia a conta de um usu√°rio bloqueada com a op√ß√£o -l.
  
  <tag>-S [nome]</tag>
  <item>
-Mostra o status da conta do usu·rio [nome]. A primeira parte È o nome do 
-usu·rio seguido de L(conta bloqueada), NP(sem senha), ou P (com senha), 
-a terceira parte È a data da ˙ltima modificaÁ„o da senha, a quarta parte È
-a perÌodo mÌnimo, m·ximo, alerta e o perÌodo de inatividade para a senha. ]]>
+Mostra o status da conta do usu√°rio [nome]. A primeira parte √© o nome do 
+usu√°rio seguido de L(conta bloqueada), NP(sem senha), ou P (com senha), 
+a terceira parte √© a data da √∫ltima modifica√ß√£o da senha, a quarta parte √©
+a per√≠odo m√≠nimo, m√°ximo, alerta e o per√≠odo de inatividade para a senha. ]]>
 
 </taglist>
 ]]>
-Procure sempre combinar letras mai˙sculas, min˙sculas, e n˙meros ao escolher 
-suas senhas. N„o È recomendado escolher palavras normais como sua senha pois 
-podem ser vulner·veis a ataques de dicion·rios cracker. Outra recomendaÁ„o 
-È utilizar <em>senhas ocultas</em> em seu sistema (<em>shadow password</em>). 
+Procure sempre combinar letras mai√∫sculas, min√∫sculas, e n√∫meros ao escolher 
+suas senhas. N√£o √© recomendado escolher palavras normais como sua senha pois 
+podem ser vulner√°veis a ataques de dicion√°rios cracker. Outra recomenda√ß√£o 
+√© utilizar <em>senhas ocultas</em> em seu sistema (<em>shadow password</em>). 
 <![ %OBS [
  <p>
-VocÍ deve ser o dono da conta para poder modificar a senhas. O usu·rio root  
-pode modificar/apagar a senha de qualquer usu·rio. ]]>
+Voc√™ deve ser o dono da conta para poder modificar a senhas. O usu√°rio root  
+pode modificar/apagar a senha de qualquer usu√°rio. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>passwd root</tt>. ]]>
@@ -187,20 +187,20 @@ Exemplo: <tt>passwd root</tt>. ]]>
 <sect id="cmdc-gpasswd">gpasswd
  <p>
 Modifica parametros e senha de grupo. 
-<![ %DESCRICAOD [ Um usu·rio somente pode alterar a senha de seu grupo, mas 
-o superusu·rio (<tt>root</tt>) pode alterar a senha de qualquer grupo de  
-usu·rio, inclusive definir o administrador do grupo. ]]>
+<![ %DESCRICAOD [ Um usu√°rio somente pode alterar a senha de seu grupo, mas 
+o superusu√°rio (<tt>root</tt>) pode alterar a senha de qualquer grupo de  
+usu√°rio, inclusive definir o administrador do grupo. ]]>
  <p>
-<tt>gpasswd [<em>opÁıes</em>] [<em>usuario</em>] [<em>grupo</em>]</tt>
+<tt>gpasswd [<em>op√ß√µes</em>] [<em>usuario</em>] [<em>grupo</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome do usu·rio/grupo que ter· sua senha alterada. 
+Nome do usu√°rio/grupo que ter√° sua senha alterada. 
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-r <em>usuario</em> <em>grupo</em></tag>
  <item>
 Remove a senha de grupo.
@@ -211,32 +211,32 @@ Desativa o acesso do grupo usando o comando <prgn>newgrp</prgn>.
 
  <tag>-a <em>usuario</em> <em>grupo</em></tag>
  <item>
-Adiciona o usu·rio no grupo especificado.
+Adiciona o usu√°rio no grupo especificado.
 
  <tag>-d <em>usuario</em> <em>grupo</em></tag>
  <item>
-Apaga o usu·rio do gurpo especificado.
+Apaga o usu√°rio do gurpo especificado.
 
 <![ %INTER-AVANC [ 
  <tag>-A [usuario] [grupo]</tag>
  <item>
-Define que o <em>[usuario]</em> ser· o administrador do <em>[grupo]</em>.
+Define que o <em>[usuario]</em> ser√° o administrador do <em>[grupo]</em>.
 
  <tag>-M  [usuario] [grupo]</tag>
  <item>
-Define os usu·rios que fazem parte do <em>grupo</em> e suas permissıes.
+Define os usu√°rios que fazem parte do <em>grupo</em> e suas permiss√µes.
  ]]>
 
 </taglist>
 
 ]]>
 
-Quando o grupo n„o possui senha, somente quem faz parte do grupo pode utilizar 
+Quando o grupo n√£o possui senha, somente quem faz parte do grupo pode utilizar 
 o comando new-grp. 
 <![ %OBS [
  <p>
-VocÍ deve ser o dono da conta para poder modificar a senhas. O usu·rio root  
-pode modificar/apagar a senha de qualquer usu·rio. ]]>
+Voc√™ deve ser o dono da conta para poder modificar a senhas. O usu√°rio root  
+pode modificar/apagar a senha de qualquer usu√°rio. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>gpasswd grupo</tt>, <tt>gpasswd -a gleydson grupo</tt>. ]]>
@@ -244,10 +244,10 @@ Exemplo: <tt>gpasswd grupo</tt>, <tt>gpasswd -a gleydson grupo</tt>. ]]>
 
 <sect id="cmdc-newgrp">newgrp
  <p>
-Altera a identificaÁ„o de grupo do usu·rio. 
-<![ %DESCRICAOD [ Para retornar a identificaÁ„o anterior, digite <tt>exit</tt>
-e tecle <tt>Enter</tt>. Para executar um comando com outra identificaÁ„o de 
-grupo de usu·rio, use o comando <ref id="cmdc-sg">. ]]>
+Altera a identifica√ß√£o de grupo do usu√°rio. 
+<![ %DESCRICAOD [ Para retornar a identifica√ß√£o anterior, digite <tt>exit</tt>
+e tecle <tt>Enter</tt>. Para executar um comando com outra identifica√ß√£o de 
+grupo de usu√°rio, use o comando <ref id="cmdc-sg">. ]]>
  <p>
 <tt>newgrp <em>-</em> [<em>grupo</em>]</tt>
  <p>
@@ -255,37 +255,37 @@ Onde:
 <taglist compact>
  <tag><em>-</em></tag>
  <item>
-Se usado, inicia um novo ambiente apÛs o uso do comando <prgn>newgrp</prgn> 
-(semelhante a um novo login no sistema), caso contr·rio, o ambiente atual 
-do usu·rio È mantido.
+Se usado, inicia um novo ambiente ap√≥s o uso do comando <prgn>newgrp</prgn> 
+(semelhante a um novo login no sistema), caso contr√°rio, o ambiente atual 
+do usu√°rio √© mantido.
 
  <tag><em>grupo</em></tag>
  <item>
-Nome do grupo ou n˙mero do grupo que ser· incluÌdo.
+Nome do grupo ou n√∫mero do grupo que ser√° inclu√≠do.
 
 </taglist>
-Quando este comando È usado, È pedida a senha do grupo que deseja acessar. 
-Caso a senha do grupo esteja incorreta ou n„o exista senha definida, a 
-execuÁ„o do comando È negada. A listagem dos grupos que pertence atualmente 
+Quando este comando √© usado, √© pedida a senha do grupo que deseja acessar. 
+Caso a senha do grupo esteja incorreta ou n√£o exista senha definida, a 
+execu√ß√£o do comando √© negada. A listagem dos grupos que pertence atualmente 
 pode ser feita usando o comando <ref id="cmdc-id">.
 
 
 <sect id="cmdc-userdel">userdel
  <p>
-Apaga um usu·rio do sistema. 
-<![ %DESCRICAOD [ Quando È usado, este comando apaga todos os dados 
+Apaga um usu√°rio do sistema. 
+<![ %DESCRICAOD [ Quando √© usado, este comando apaga todos os dados 
 da conta especificado dos arquivos de contas do sistema. ]]>
  <p>
-<tt>userdel [<em>-r</em>] [<em>usu·rio</em>]</tt>
+<tt>userdel [<em>-r</em>] [<em>usu√°rio</em>]</tt>
 <![ %OPCOES [
  <p>
  Onde:
 <taglist compact>
- <tag>-r</tag><item>Apaga tambÈm o diretÛrio HOME do usu·rio. 
+ <tag>-r</tag><item>Apaga tamb√©m o diret√≥rio HOME do usu√°rio. 
 </taglist> ]]>
 <![ %OBS [
  <p>
-OBS: Note que uma conta de usu·rio n„o poder· ser removida caso ele estiver 
+OBS: Note que uma conta de usu√°rio n√£o poder√° ser removida caso ele estiver 
 no sistema, pois os programas podem precisar ter acesso aos dados dele 
 (como UID, GID) no <file>/etc/passwd</file>. ]]> 
 
@@ -293,62 +293,62 @@ no sistema, pois os programas podem precisar ter acesso aos dados dele
 <sect id="cmdc-groupdel">groupdel
  <p>
 Apaga um grupo do sistema. 
-<![ %DESCRICAOD [ Quando È usado, este comando apaga todos os dados 
+<![ %DESCRICAOD [ Quando √© usado, este comando apaga todos os dados 
 do grupo especificado dos arquivos de contas do sistema. ]]>
  <p>
 <tt>groupdel [<em>grupo</em>]</tt>
  <p>
-Tenha certeza que n„o existem arquivos/diretÛrios criados com o grupo 
-apagado atravÈs do comando <prgn>find</prgn>. 
+Tenha certeza que n√£o existem arquivos/diret√≥rios criados com o grupo 
+apagado atrav√©s do comando <prgn>find</prgn>. 
 <![ %OBS [
  <p>
-OBS: VocÍ n„o pode remover o grupo prim·rio de um usu·rio. Remova o usu·rio 
+OBS: Voc√™ n√£o pode remover o grupo prim√°rio de um usu√°rio. Remova o usu√°rio 
 primeiro. ]]>
 
 
   <![ %INTER-AVANC [ 
 <sect id="cmdc-lastlog">lastlog
  <p>
-Mostra o ˙ltimo login dos usu·rios cadastrados no sistema. 
-<![ %DESCRICAOD [ … mostrado o nome usado no login, o terminal onde ocorreu 
-a conex„o e a hora da ˙ltima conex„o. Estes dados s„o obtidos atravÈs da  
-pesquisa e formataÁ„o do arquivo <file>/var/log/lastlog</file>. Caso o 
-usu·rio n„o tenha feito login, È mostrada a mensagem <tt>** Never 
+Mostra o √∫ltimo login dos usu√°rios cadastrados no sistema. 
+<![ %DESCRICAOD [ √â mostrado o nome usado no login, o terminal onde ocorreu 
+a conex√£o e a hora da √∫ltima conex√£o. Estes dados s√£o obtidos atrav√©s da  
+pesquisa e formata√ß√£o do arquivo <file>/var/log/lastlog</file>. Caso o 
+usu√°rio n√£o tenha feito login, √© mostrada a mensagem <tt>** Never 
 logged in **</tt>]]>
  <p>
-<tt>lastlog [<em>opÁıes</em>]</tt> 
+<tt>lastlog [<em>op√ß√µes</em>]</tt> 
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-t [dias]</tag>
  <item>
-Mostra somente os usu·rios que se conectaram ao sistema nos ˙ltimos [dias].
+Mostra somente os usu√°rios que se conectaram ao sistema nos √∫ltimos [dias].
 
  <tag>-b [dias]</tag>
  <item>
-Mostra somente os usu·rios que se conectaram antes de [dias].
+Mostra somente os usu√°rios que se conectaram antes de [dias].
 
  <tag>-u [nome]</tag>
  <item>
-Mostra somente detalhes sobre o usu·rio [nome].
+Mostra somente detalhes sobre o usu√°rio [nome].
 </taglist>
 ]]>
-A opÁ„o -t substitui a opÁ„o -u caso sejam usadas. 
+A op√ß√£o -t substitui a op√ß√£o -u caso sejam usadas. 
 
 
 <sect id="cmdc-last">last
  <p>
-Mostra uma listagem de entrada e saÌda de usu·rios no sistema. 
-<![ %DESCRICAOD [ S„o mostrados os seguintes campos na listagem: 
+Mostra uma listagem de entrada e sa√≠da de usu√°rios no sistema. 
+<![ %DESCRICAOD [ S√£o mostrados os seguintes campos na listagem: 
 <list>
  <item>
-Nome do usu·rio
+Nome do usu√°rio
  <item>
-Terminal onde ocorreu a conex„o/desconex„o 
+Terminal onde ocorreu a conex√£o/desconex√£o 
  <item>
-O hostname (caso a conex„o tenha ocorrido remotamente) ou console (caso tenha 
+O hostname (caso a conex√£o tenha ocorrido remotamente) ou console (caso tenha 
 ocorrido localmente).
  <item>
 A data do login/logout, a hora do login/down se estiver fora do sistema/
@@ -356,27 +356,27 @@ still logged in se ainda estiver usando o sistema
  <item>
 Tempo (em Horas:Minutos) que esteve conectado ao sistema.
 </list>
-A listagem È mostrada em ordem inversa, ou seja, da data mais atual para a 
-mais antiga. A listagem feita pelo <prgn>last</prgn> È obtida de 
+A listagem √© mostrada em ordem inversa, ou seja, da data mais atual para a 
+mais antiga. A listagem feita pelo <prgn>last</prgn> √© obtida de 
 <file>/var/log/wtmp</file>. ]]>
  <p>
-<tt>last [<em>opÁıes</em>]</tt>
+<tt>last [<em>op√ß√µes</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-n [num]</tag>
  <item>
-Mostra [num] linhas. Caso n„o seja usada, todas as linhas s„o mostradas.
+Mostra [num] linhas. Caso n√£o seja usada, todas as linhas s√£o mostradas.
 
  <tag>-R</tag>
  <item>
-N„o mostra o campo HostName.
+N√£o mostra o campo HostName.
 
  <tag>-a</tag>
  <item>
-Mostra o hostname na ˙ltima coluna. Ser· muito ˙til se combinada com a opÁ„o 
+Mostra o hostname na √∫ltima coluna. Ser√° muito √∫til se combinada com a op√ß√£o 
 -d.
 
  <tag>-d</tag>
@@ -385,19 +385,19 @@ Usa o DNS para resolver o IP de sistemas remotos para nomes DNS.
 
  <tag>-x</tag>
  <item>
-Mostra as entradas de desligamento do sistema e alteraÁıes do nÌvel de 
-execuÁ„o do sistema.
+Mostra as entradas de desligamento do sistema e altera√ß√µes do n√≠vel de 
+execu√ß√£o do sistema.
 
 </taglist>
 ]]>
  <p>
-O comando <prgn>last</prgn> pode ser seguido de um argumento que ser· 
-pesquisado como uma express„o regular durante a listagem. 
+O comando <prgn>last</prgn> pode ser seguido de um argumento que ser√° 
+pesquisado como uma express√£o regular durante a listagem. 
 <![ %OBS [
  <p>
 O comando <prgn>last</prgn> usa o arquivo <file>/var/log/wtmp</file> para 
-gerar sua listagem, mas alguns sistemas podem n„o possuir este arquivo. 
-O arquivo <file>/var/log/wtmp</file> somente È usado caso existir. VocÍ 
+gerar sua listagem, mas alguns sistemas podem n√£o possuir este arquivo. 
+O arquivo <file>/var/log/wtmp</file> somente √© usado caso existir. Voc√™ 
 pode cria-lo com o comando <tt>"echo -n >/var/log/wtmp"</tt> ou 
 <tt>touch /var/log/wtmp</tt>. ]]>
 
@@ -405,9 +405,9 @@ pode cria-lo com o comando <tt>"echo -n >/var/log/wtmp"</tt> ou
  <p>
 <list compact>
  <item><tt>last</tt> - Mostra a listagem geral
- <item><tt>last -a</tt> - Mostra a listagem geral incluindo o nome da m·quina
- <item><tt>last gleydson</tt> - Mostra somente atividades do usu·rio gleydson
- <item><tt>last reboot</tt> - Mostra as reinicializaÁıes do sistema
+ <item><tt>last -a</tt> - Mostra a listagem geral incluindo o nome da m√°quina
+ <item><tt>last gleydson</tt> - Mostra somente atividades do usu√°rio gleydson
+ <item><tt>last reboot</tt> - Mostra as reinicializa√ß√µes do sistema
  <item><tt>last tty1</tt> - Mostra todas as atividades no tty1
 </list> ]]>    
 
@@ -415,10 +415,10 @@ pode cria-lo com o comando <tt>"echo -n >/var/log/wtmp"</tt> ou
 
 <sect id="cmdc-sg">sg
  <p>
-Executa um comando com outra identificaÁ„o de grupo. 
-<![ %DESCRICAOD [ A identificaÁ„o do grupo de usu·rio È modificada 
-somente durante a execuÁ„o do comando. 
-Para alterar a identificaÁ„o de grupo durante sua seÁ„o shell, use o comando 
+Executa um comando com outra identifica√ß√£o de grupo. 
+<![ %DESCRICAOD [ A identifica√ß√£o do grupo de usu√°rio √© modificada 
+somente durante a execu√ß√£o do comando. 
+Para alterar a identifica√ß√£o de grupo durante sua se√ß√£o shell, use o comando 
 <ref id="cmdc-newgrp">. ]]> 
  <p>
 <tt>sg [<em>-</em>] [<em>grupo</em>] [<em>comando</em>]</tt>
@@ -429,155 +429,155 @@ Onde:
  <tag><tt>-</tt></tag>
  <item>
 Se usado, inicia um novo ambiente durante o uso do comando (semelhante a um  
-novo login e execuÁ„o do comando), caso contr·rio, o ambiente atual do  
-usu·rio È mantido.
+novo login e execu√ß√£o do comando), caso contr√°rio, o ambiente atual do  
+usu√°rio √© mantido.
 
  <tag><tt>grupo</tt></tag>
  <item>
-Nome do grupo que o comando ser· executado.
+Nome do grupo que o comando ser√° executado.
  
  <tag><tt>comando</tt></tag>
  <item>
-Comando que ser· executado. O comando ser· executado pelo bash. 
+Comando que ser√° executado. O comando ser√° executado pelo bash. 
 
 </taglist>
 ]]>
-Quando este comando È usado, È pedida a senha do grupo que deseja acessar. 
-Caso a senha do grupo esteja incorreta ou n„o exista senha definida, a 
-execuÁ„o do comando È negada. 
+Quando este comando √© usado, √© pedida a senha do grupo que deseja acessar. 
+Caso a senha do grupo esteja incorreta ou n√£o exista senha definida, a 
+execu√ß√£o do comando √© negada. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>sg root ls /root</tt> ]]>
 
 
-<sect id="cmdc-incluirgrupo">Adicionando o usu·rio a um grupo extra
+<sect id="cmdc-incluirgrupo">Adicionando o usu√°rio a um grupo extra
  <p>
-Para adicionar um usu·rio em um novo grupo e assim permitir que ele acesse 
-os arquivos/diretÛrios que pertencem ‡quele grupo, vocÍ deve estar como 
+Para adicionar um usu√°rio em um novo grupo e assim permitir que ele acesse 
+os arquivos/diret√≥rios que pertencem √†quele grupo, voc√™ deve estar como 
 root e editar o arquivo <file>/etc/group</file> com o comando <prgn>vigr</prgn>. 
 Este arquivo possui o seguinte formato:
  <p>
-NomedoGrupo:senha:GID:usu·rios
+NomedoGrupo:senha:GID:usu√°rios
  <p>
 Onde:
 <taglist>
  <tag>NomedoGrupo</tag>
  <item>
-… o nome daquele grupo de usu·rios.
+√â o nome daquele grupo de usu√°rios.
  
  <tag>senha</tag>
  <item>
 Senha para ter acesso ao grupo. Caso esteja utilizando senhas ocultas para 
-grupos, as senhas estar„o em <file>/etc/gshadow</file>.
+grupos, as senhas estar√£o em <file>/etc/gshadow</file>.
 
  <tag>GID</tag>
  <item>
-IdentificaÁ„o numÈrica do grupo de usu·rio.
+Identifica√ß√£o num√©rica do grupo de usu√°rio.
 
  <tag>usuarios</tag>
  <item>
-Lista de usu·rios que tambÈm fazem parte daquele grupo. Caso exista mais de 
-um nome de usu·rio, eles devem estar separados por vÌrgula.
+Lista de usu√°rios que tamb√©m fazem parte daquele grupo. Caso exista mais de 
+um nome de usu√°rio, eles devem estar separados por v√≠rgula.
 </taglist>
-Deste modo para acrescentar o usu·rio "joao" ao grupo <tt>audio</tt> para 
+Deste modo para acrescentar o usu√°rio "joao" ao grupo <tt>audio</tt> para 
 ter acesso aos dispositivos de som do Linux, acrescente o nome no final 
 da linha:
 "audio:x:100:joao". Pronto, basta digitar <tt>logout</tt> e 
-entrar novamente com seu nome e senha, vocÍ estar· fazendo parte do 
+entrar novamente com seu nome e senha, voc√™ estar√° fazendo parte do 
 grupo <tt>audio</tt> (confira digitando <tt>groups</tt> ou <tt>id</tt>).
  <p>
-Outros nomes de usu·rios podem ser acrescentados ao grupo <tt>audio</tt> 
-bastando separar os nomes com vÌrgula. VocÍ tambÈm pode usar o 
+Outros nomes de usu√°rios podem ser acrescentados ao grupo <tt>audio</tt> 
+bastando separar os nomes com v√≠rgula. Voc√™ tamb√©m pode usar o 
 comando <prgn>adduser</prgn> da seguinte forma para adicionar 
-automaticamente um usu·rio a um grupo:
+automaticamente um usu√°rio a um grupo:
 <example>
 adduser joao audio
 
 </example>
-Isto adicionaria o usu·rio "joao" ao grupo <tt>audio</tt> da mesma forma 
-que fazendo-se a ediÁ„o manualmente.
+Isto adicionaria o usu√°rio "joao" ao grupo <tt>audio</tt> da mesma forma 
+que fazendo-se a edi√ß√£o manualmente.
 
 
 <sect id="cmdc-chfn">chfn
  <p>
 Muda os dados usados pelo comando <ref id="cmdn-finger">.
  <p>
-<tt>chfn [<em>usu·rio</em>] [<em>opÁıes</em>]</tt>
+<tt>chfn [<em>usu√°rio</em>] [<em>op√ß√µes</em>]</tt>
  <p>
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-Nome do usu·rio.
+Nome do usu√°rio.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-f [nome]</tag>
  <item>
-Adiciona/altera o nome completo do usu·rio.
+Adiciona/altera o nome completo do usu√°rio.
 
  <tag>-r [nome]</tag>
  <item>
-Adiciona/altera o n˙mero da sala do usu·rio.
+Adiciona/altera o n√∫mero da sala do usu√°rio.
 
  <tag>-w [tel]</tag>
  <item>
-Adiciona/altera o telefone de trabalho do usu·rio.
+Adiciona/altera o telefone de trabalho do usu√°rio.
 
  <tag>-h [tel]</tag>
  <item>
-Adiciona/altera o telefone residencial do usu·rio.
+Adiciona/altera o telefone residencial do usu√°rio.
 
  <tag>-o [outros]</tag>
  <item>
-Adiciona/altera outros dados do usu·rio.
+Adiciona/altera outros dados do usu√°rio.
 </taglist>
-Caso o nome que acompanha as opÁıes (como o nome completo) contenha espaÁos, 
+Caso o nome que acompanha as op√ß√µes (como o nome completo) contenha espa√ßos, 
 use "" para identifica-lo.
 <![ %EXEMPLO [
  <p>
-Exemplo: <tt>chfn -f "Nome do Usu·rio root" root</tt> ]]>
+Exemplo: <tt>chfn -f "Nome do Usu√°rio root" root</tt> ]]>
 
 
 <sect id="cmdc-id">id
  <p>
-Mostra a identificaÁ„o atual do usu·rio, grupo prim·rio e outros grupos que 
+Mostra a identifica√ß√£o atual do usu√°rio, grupo prim√°rio e outros grupos que 
 pertence.
  <p>
-<tt>id [<em>opÁıes</em>] [<em>usu·rio</em>]</tt>
+<tt>id [<em>op√ß√µes</em>] [<em>usu√°rio</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
- <tag><em>usu·rio</em></tag>
+ <tag><em>usu√°rio</em></tag>
  <item>
-… o usu·rio que desejamos ver a identificaÁ„o, grupos prim·rios e 
+√â o usu√°rio que desejamos ver a identifica√ß√£o, grupos prim√°rios e 
 complementares.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-g, --group</tag>
  <item>
-Mostra somente a identificaÁ„o do grupo prim·rio.
+Mostra somente a identifica√ß√£o do grupo prim√°rio.
  
  <tag>-G, --groups</tag>
  <item>
-Mostra a identificaÁ„o de outros grupos que pertence.
+Mostra a identifica√ß√£o de outros grupos que pertence.
 
  <tag>-n, --name</tag>
  <item>
-Mostra o nome do usu·rio e grupo ao invÈs da identificaÁ„o numÈrica.
+Mostra o nome do usu√°rio e grupo ao inv√©s da identifica√ß√£o num√©rica.
 
  <tag>-u, --user</tag>
  <item>
-Mostra somente a identificaÁ„o do usu·rio (user ID).
+Mostra somente a identifica√ß√£o do usu√°rio (user ID).
 
  <tag>-r, --real</tag>
  <item>
-Mostra a identificaÁ„o real de usu·rio e grupo, ao invÈs da efetiva. Esta  
-opÁ„o deve ser usada junto com uma das opÁıes: -u, -g, ou -G.
+Mostra a identifica√ß√£o real de usu√°rio e grupo, ao inv√©s da efetiva. Esta  
+op√ß√£o deve ser usada junto com uma das op√ß√µes: -u, -g, ou -G.
 </taglist>
 ]]>
-Caso n„o sejam especificadas opÁıes, <prgn>id</prgn> mostrar· todos os dados 
-do usu·rio.
+Caso n√£o sejam especificadas op√ß√µes, <prgn>id</prgn> mostrar√° todos os dados 
+do usu√°rio.
 <![ %EXEMPLO [ 
  <p>
 Exemplo: <tt>id</tt>, <tt>id --user</tt>, <tt>id -r -u</tt>. ]]>
@@ -592,22 +592,22 @@ Mostra seu login (username).
 
 <sect id="cmdc-users">users
  <p>
-Mostra os nomes de usu·rios usando atualmente o sistema. 
-<![ %DESCRICAOD [ Os nomes de usu·rios s„o mostrados atravÈs de espaÁos 
-sem detalhes adicionais, para ver maiores detalhes sobre os usu·rios, 
+Mostra os nomes de usu√°rios usando atualmente o sistema. 
+<![ %DESCRICAOD [ Os nomes de usu√°rios s√£o mostrados atrav√©s de espa√ßos 
+sem detalhes adicionais, para ver maiores detalhes sobre os usu√°rios, 
 veja os comandos <ref id="cmdc-id"> e <ref id="cmdn-who">.  ]]>
  <p>
 <tt>users</tt>
  <p>
-Os nomes de usu·rios atualmente conectados ao sistema s„o obtidos do arquivo 
+Os nomes de usu√°rios atualmente conectados ao sistema s√£o obtidos do arquivo 
 <file>/var/log/wtmp</file>.
 
 
 <sect id="cmdc-groups">groups
  <p>
-Mostra os grupos que o usu·rio pertence.
+Mostra os grupos que o usu√°rio pertence.
  <p>
-<tt>groups [<em>usu·rio</em>]</tt>
+<tt>groups [<em>usu√°rio</em>]</tt>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>groups</tt>, <tt>groups root</tt> ]]>

@@ -1,100 +1,100 @@
-<chapt id="x11">X Window (ambiente gr·fico)
+<chapt id="x11">X Window (ambiente gr√°fico)
  <p>
-Este capÌtulo do guia traz explicaÁıes sobre o ambiente gr·fico X Window System. 
+Este cap√≠tulo do guia traz explica√ß√µes sobre o ambiente gr√°fico X Window System. 
 
 
-<sect id="x11-descricao">O que È X Window?
+<sect id="x11-descricao">O que √© X Window?
  <p>
-… um sistema gr·fico de janelas que roda em uma grande faixa de 
-computadores, m·quinas gr·ficas e diferentes tipos de m·quinas e 
-plataformas Unix. Pode tanto ser executado em m·quinas locais como 
-remotas atravÈs de conex„o em rede. 
+√â um sistema gr√°fico de janelas que roda em uma grande faixa de 
+computadores, m√°quinas gr√°ficas e diferentes tipos de m√°quinas e 
+plataformas Unix. Pode tanto ser executado em m√°quinas locais como 
+remotas atrav√©s de conex√£o em rede. 
  
 
-<sect id="x11-estrutura">A organizaÁ„o do ambiente gr·fico X Window
+<sect id="x11-estrutura">A organiza√ß√£o do ambiente gr√°fico X Window
  <p>
-Em geral o ambiente gr·fico X Window È dividido da seguinte forma:
+Em geral o ambiente gr√°fico X Window √© dividido da seguinte forma:
 <list>
  <item>
-<tt>O Servidor X</tt> - … o programa que controla a exibiÁ„o dos gr·ficos 
-na tela, mouse e teclado. Ele se comunica com os programas cliente atravÈs 
-de diversos mÈtodos de comunicaÁ„o. 
+<tt>O Servidor X</tt> - √â o programa que controla a exibi√ß√£o dos gr√°ficos 
+na tela, mouse e teclado. Ele se comunica com os programas cliente atrav√©s 
+de diversos m√©todos de comunica√ß√£o. 
  <p>
-O servidor X pode ser executado na mesma m·quina que o programa cliente 
-esta sendo executado de forma transparente ou atravÈs de uma m·quina  
+O servidor X pode ser executado na mesma m√°quina que o programa cliente 
+esta sendo executado de forma transparente ou atrav√©s de uma m√°quina  
 remota na rede. 
 
  <item>
-<tt>O gerenciador de Janelas</tt> - … o programa que controla a aparÍncia da 
-aplicaÁ„o. Os gerenciadores de janelas (window managers) s„o programas que 
-atuam entre o servidor X e a aplicaÁ„o. VocÍ pode alternar de um gerenciador 
+<tt>O gerenciador de Janelas</tt> - √â o programa que controla a apar√™ncia da 
+aplica√ß√£o. Os gerenciadores de janelas (window managers) s√£o programas que 
+atuam entre o servidor X e a aplica√ß√£o. Voc√™ pode alternar de um gerenciador 
 para outro sem fechar seus aplicativos. 
  <p>
-Existem v·rios tipos de gerenciadores de janelas disponÌveis no mercado 
+Existem v√°rios tipos de gerenciadores de janelas dispon√≠veis no mercado 
 entre os mais conhecidos posso citar o <prgn>Window Maker (feito por 
 um Brasileiro)</prgn>, o <prgn>After Step</prgn>, <prgn>Gnome</prgn>, 
-<prgn>KDE</prgn>, <prgn>twm</prgn> (este vem por padr„o quando o 
-servidor X È instalado), <prgn>Enlightenment</prgn>, <prgn>IceWm</prgn>, etc.
+<prgn>KDE</prgn>, <prgn>twm</prgn> (este vem por padr√£o quando o 
+servidor X √© instalado), <prgn>Enlightenment</prgn>, <prgn>IceWm</prgn>, etc.
  <p>
-A escolha do seu gerenciador de janelas È pessoal, depende muito do gosto de 
+A escolha do seu gerenciador de janelas √© pessoal, depende muito do gosto de 
 cada pessoa e dos recursos que deseja utilizar. 
 
  <item>
-<tt>A aplicaÁ„o cliente</tt> - … o programa sendo executado.
+<tt>A aplica√ß√£o cliente</tt> - √â o programa sendo executado.
 </list>
-Esta organizaÁ„o do ambiente gr·fico X traz grandes vantagens de gerenciamento 
-e recursos no ambiente gr·fico UNIX, uma vez que tem estes recursos vocÍ pode 
-executar seus programas em computadores remotos, mudar totalmente a aparÍncia 
-de um programa sem ter que fecha-lo (atravÈs da mudanÁa do gerenciador de 
+Esta organiza√ß√£o do ambiente gr√°fico X traz grandes vantagens de gerenciamento 
+e recursos no ambiente gr√°fico UNIX, uma vez que tem estes recursos voc√™ pode 
+executar seus programas em computadores remotos, mudar totalmente a apar√™ncia 
+de um programa sem ter que fecha-lo (atrav√©s da mudan√ßa do gerenciador de 
 janelas), etc. 
 
 
 <sect id="x11-iniciando">Iniciando o X
  <p>
-O sistema gr·fico X pode ser iniciado de duas maneiras: 
+O sistema gr√°fico X pode ser iniciado de duas maneiras: 
 <list>
  <item>
-<tt>Autom·tica</tt> - Usando um gerenciador de seÁ„o como <prgn>xdm</prgn>,
+<tt>Autom√°tica</tt> - Usando um gerenciador de se√ß√£o como <prgn>xdm</prgn>,
 <prgn>gdm</prgn> ou <prgn>wdm</prgn> que apresenta uma tela pedindo nome e 
-senha para entrar no sistema (login). ApÛs entrar no sistema, o X executar· 
+senha para entrar no sistema (login). Ap√≥s entrar no sistema, o X executar√° 
 um dos gerenciadores de janelas configurados. 
 
  <item>
-<tt>Manual</tt> - AtravÈs do comando <prgn>startx</prgn>, ou 
+<tt>Manual</tt> - Atrav√©s do comando <prgn>startx</prgn>, ou 
 <prgn>xinit</prgn> 
 <![ %INTERMEDIARIO [ (note que o <prgn>startx</prgn> e <prgn>xstart</prgn> 
-s„o scripts que fazem uma configuraÁ„o completa do ambiente e em algumas 
-distribuiÁıes tambÈm o procedimento de configuraÁ„o de autenticaÁ„o do 
+s√£o scripts que fazem uma configura√ß√£o completa do ambiente e em algumas 
+distribui√ß√µes tamb√©m o procedimento de configura√ß√£o de autentica√ß√£o do 
 ambiente antes de executar o <prgn>xinit</prgn>) ]]>. 
 
-Neste caso o usu·rio deve entrar com seu nome e senha para entrar 
-no modo texto e ent„o executar um dos comandos acima. 
-ApÛs executar um dos comandos acima, o servidor X ser· iniciado e 
-executar· um dos gerenciadores de janelas configurados no sistema. 
+Neste caso o usu√°rio deve entrar com seu nome e senha para entrar 
+no modo texto e ent√£o executar um dos comandos acima. 
+Ap√≥s executar um dos comandos acima, o servidor X ser√° iniciado e 
+executar√° um dos gerenciadores de janelas configurados no sistema. 
 </list>
 
 
 <sect id="x11-servidor">Servidor X
  <p>
-Como dito acima, o servidor X controla o teclado, mouse e a exibiÁ„o dos 
-gr·ficos em sua tela. Para ser executado, precisa ser configurado atravÈs 
+Como dito acima, o servidor X controla o teclado, mouse e a exibi√ß√£o dos 
+gr√°ficos em sua tela. Para ser executado, precisa ser configurado atrav√©s 
 do arquivo 
 <![ %DEBIAN [ <file>/etc/X11/xorg.conf</file>, usando <tt>dpkg-reconfigure xserver-xorg</tt>, ]]>
-ou usando o utilit·rio <prgn>xf86cfg</prgn> (modo texto).
+ou usando o utilit√°rio <prgn>xf86cfg</prgn> (modo texto).
  <p>
-A finalizaÁ„o do servidor X È feita atravÈs do pressionamento simult‚neo 
-das teclas <tt>CTRL</tt>, <tt>ALT</tt>, <tt>Back Space</tt>. O servidor X È 
+A finaliza√ß√£o do servidor X √© feita atrav√©s do pressionamento simult√¢neo 
+das teclas <tt>CTRL</tt>, <tt>ALT</tt>, <tt>Back Space</tt>. O servidor X √© 
 imediatamente terminado e todos os gerenciadores de janelas e programas 
-clientes s„o fechados. 
+clientes s√£o fechados. 
  <p>
-CUIDADO: Sempre utilize a opÁ„o de saÌda de seu gerenciador de janelas 
-para encerrar normalmente uma seÁ„o X11 e salve os trabalhos que estiver 
-fazendo antes de finalizar uma seÁ„o X11. A finalizaÁ„o do servidor X 
-deve ser feita em caso de emergÍncia quando n„o se sabe o que fazer 
+CUIDADO: Sempre utilize a op√ß√£o de sa√≠da de seu gerenciador de janelas 
+para encerrar normalmente uma se√ß√£o X11 e salve os trabalhos que estiver 
+fazendo antes de finalizar uma se√ß√£o X11. A finaliza√ß√£o do servidor X 
+deve ser feita em caso de emerg√™ncia quando n√£o se sabe o que fazer 
 para sair de um gerenciador de janelas ou de um programa mal comportado. 
 <![ %INIC-INTER [ 
  <p>
 Recomendo fazer a leitura de <ref id="run-fechando"> caso estiver 
-em d˙vidas de como finalizar um programa mal comportado ou que n„o sabe 
+em d√∫vidas de como finalizar um programa mal comportado ou que n√£o sabe 
 como sair. ]]> 
 

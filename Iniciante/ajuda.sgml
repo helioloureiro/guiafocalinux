@@ -1,32 +1,32 @@
 <chapt id="ajuda">Como obter ajuda no sistema
  <p>
-D˙vidas s„o comuns durante o uso do <prgn>GNU/Linux</prgn> e existem v·rias 
+D√∫vidas s√£o comuns durante o uso do <prgn>GNU/Linux</prgn> e existem v√°rias 
 maneiras de se obter ajuda e encontrar a resposta para algum problema. 
-O <prgn>GNU/Linux</prgn> È um sistema bem documentado, provavelmente tudo 
-o que imaginar fazer ou aprender j· esta disponÌvel para leitura e 
-aprendizado. Abaixo segue algumas formas ˙teis para encontrar a soluÁ„o 
-de sua d˙vida, vale a pena conhece-las. 
+O <prgn>GNU/Linux</prgn> √© um sistema bem documentado, provavelmente tudo 
+o que imaginar fazer ou aprender j√° esta dispon√≠vel para leitura e 
+aprendizado. Abaixo segue algumas formas √∫teis para encontrar a solu√ß√£o 
+de sua d√∫vida, vale a pena conhece-las. 
 
 
-<sect id="ajuda-man">P·ginas de Manual
+<sect id="ajuda-man">P√°ginas de Manual
  <p>
-As <em>p·ginas de manual</em> acompanham quase todos os programas 
-<prgn>GNU/Linux</prgn>. Elas trazem uma descriÁ„o b·sica do comando/programa 
-e detalhes sobre o funcionamento de opÁ„o. 
-<![ %DESCRICAOD [ Uma p·gina de manual È visualizada na forma de texto  
-˙nico com rolagem vertical. TambÈm documenta par‚metros usados em alguns 
-arquivos de configuraÁ„o. ]]>
+As <em>p√°ginas de manual</em> acompanham quase todos os programas 
+<prgn>GNU/Linux</prgn>. Elas trazem uma descri√ß√£o b√°sica do comando/programa 
+e detalhes sobre o funcionamento de op√ß√£o. 
+<![ %DESCRICAOD [ Uma p√°gina de manual √© visualizada na forma de texto  
+√∫nico com rolagem vertical. Tamb√©m documenta par√¢metros usados em alguns 
+arquivos de configura√ß√£o. ]]>
  <p>
-A utilizaÁ„o da p·gina de manual È simples, digite:
+A utiliza√ß√£o da p√°gina de manual √© simples, digite:
  <p>
-<tt>man [<em>seÁ„o</em>] [<em>comando/arquivo</em>]</tt>
+<tt>man [<em>se√ß√£o</em>] [<em>comando/arquivo</em>]</tt>
  <p>
 <![ %OPCOES [
 <em>onde:</em>
 <taglist compact>
- <tag><em>seÁ„o</em></tag>
+ <tag><em>se√ß√£o</em></tag>
  <item>
-… a seÁ„o de manual que ser· aberta, se omitido, mostra a <em/primeira/ seÁ„o 
+√â a se√ß√£o de manual que ser√° aberta, se omitido, mostra a <em/primeira/ se√ß√£o 
 sobre o comando encontrada (em ordem crescente).
 
  <tag><em>comando/arquivo</em></tag>
@@ -34,10 +34,10 @@ sobre o comando encontrada (em ordem crescente).
 Comando/arquivo que deseja pesquisar.
 </taglist>
 ]]>
-A navegaÁ„o dentro das p·ginas de manual È feita usando-se as teclas: 
+A navega√ß√£o dentro das p√°ginas de manual √© feita usando-se as teclas: 
 <list compact>
  <item>
-  q - Sai da p·gina de manual
+  q - Sai da p√°gina de manual
  <item>
   PageDown ou f - Rola 25 linhas abaixo
  <item>
@@ -49,55 +49,55 @@ A navegaÁ„o dentro das p·ginas de manual È feita usando-se as teclas:
  <item>
   r - Redesenha a tela (refresh)
  <item>
-  p ou g - Inicio da p·gina
+  p ou g - Inicio da p√°gina
  <item>
-  h - Ajuda sobre as opÁıes da p·gina de manual
+  h - Ajuda sobre as op√ß√µes da p√°gina de manual
  <item>
-  s - Salva a p·gina de manual em formato texto no arquivo especificado 
+  s - Salva a p√°gina de manual em formato texto no arquivo especificado 
   (por exemplo: <file>/tmp/ls</file>).
 </list>
 <![ %INTER-AVANC [ 
  <p>
-Cada seÁ„o da p·gina de manual contÈm explicaÁıes sobre uma determinada 
-parte do sistema. As seÁıes s„o organizadas em diretÛrios separados e 
-localizadas no diretÛrio 
+Cada se√ß√£o da p√°gina de manual cont√©m explica√ß√µes sobre uma determinada 
+parte do sistema. As se√ß√µes s√£o organizadas em diret√≥rios separados e 
+localizadas no diret√≥rio 
 <![ %DEBIAN [ <file>/usr/man</file>. ]]> 
-Os programas/arquivos s„o classificados nas seguintes seÁıes: 
+Os programas/arquivos s√£o classificados nas seguintes se√ß√µes: 
 <enumlist>
  <item>
- Programas execut·veis ou comandos internos
+ Programas execut√°veis ou comandos internos
  <item>
- Chamadas do sistema (funÁıes oferecidas pelo kernel)
+ Chamadas do sistema (fun√ß√µes oferecidas pelo kernel)
  <item>
- Chamadas de Bibliotecas (funÁıes dentro de bibliotecas do sistema)
+ Chamadas de Bibliotecas (fun√ß√µes dentro de bibliotecas do sistema)
  <item>
- Arquivos especiais (normalmente encontrados no diretÛrio <file>/dev</file>)
+ Arquivos especiais (normalmente encontrados no diret√≥rio <file>/dev</file>)
  <item>
- Formatos de arquivos e convenÁıes (<file>/etc/inittab</file> por exemplo).
+ Formatos de arquivos e conven√ß√µes (<file>/etc/inittab</file> por exemplo).
  <item>
  Jogos
  <item>
- Pacotes de macros e convenÁıes (por exemplo <prgn>man</prgn>)
+ Pacotes de macros e conven√ß√µes (por exemplo <prgn>man</prgn>)
  <item>
- Comandos de AdministraÁ„o do sistema (normalmente usados pelo root)
+ Comandos de Administra√ß√£o do sistema (normalmente usados pelo root)
  <item>
- Rotinas do kernel (n„o padrıes)
+ Rotinas do kernel (n√£o padr√µes)
 </enumlist>
-A documentaÁ„o de um programa tambÈm pode ser encontrada em 2 ou mais 
-categorias, como È o caso do arquivo <file>host_access</file> que È 
-documentado na seÁ„o 3 (bibliotecas) e 5 (formatos de arquivo). Por 
-este motivo È necess·rio digitar <tt>man 5 hosts_access</tt> para 
-ler a p·gina sobre o formato do arquivo, porque o comando 
-<prgn>man</prgn> procura a p·gina de manual nas seÁıes em ordem crescente 
-e a digitaÁ„o do comando <prgn>man hosts_access</prgn> abriria a seÁ„o 3. 
+A documenta√ß√£o de um programa tamb√©m pode ser encontrada em 2 ou mais 
+categorias, como √© o caso do arquivo <file>host_access</file> que √© 
+documentado na se√ß√£o 3 (bibliotecas) e 5 (formatos de arquivo). Por 
+este motivo √© necess√°rio digitar <tt>man 5 hosts_access</tt> para 
+ler a p√°gina sobre o formato do arquivo, porque o comando 
+<prgn>man</prgn> procura a p√°gina de manual nas se√ß√µes em ordem crescente 
+e a digita√ß√£o do comando <prgn>man hosts_access</prgn> abriria a se√ß√£o 3. 
  <p>
-As p·ginas de manual contÈm algumas regras para facilitar a compreens„o 
+As p√°ginas de manual cont√©m algumas regras para facilitar a compreens√£o 
 do comando:
 <list compact>
  <item>
- Texto Negrito - Deve ser digitado exatamente como È mostrado
+ Texto Negrito - Deve ser digitado exatamente como √© mostrado
  <item>
- [bla bla bla] - Qualquer coisa dentro de <tt>[]</tt> s„o opcionais
+ [bla bla bla] - Qualquer coisa dentro de <tt>[]</tt> s√£o opcionais
 </list>
 ]]>
 <![ %EXEMPLO [
@@ -107,42 +107,42 @@ Exemplo, <tt>man ls</tt>, <tt>man 5 hosts_access</tt>. ]]>
 
 <sect id="ajuda-info">Info Pages
  <p>
-IdÍntico as p·ginas de manual, mas È usada navegaÁ„o entre as p·ginas. Se 
+Id√™ntico as p√°ginas de manual, mas √© usada navega√ß√£o entre as p√°ginas. Se 
 pressionarmos &lt;Enter&gt; em cima de uma palavra destacada, a <prgn>info 
-pages</prgn> nos levar· a seÁ„o correspondente. 
-<![ %DESCRICAOD [ A <em>info pages</em> È ˙til quando sabemos o nome do  
-comando e queremos saber para o que ele serve. TambÈm traz explicaÁıes  
-detalhadas sobre uso, opÁıes e comandos. ]]>
+pages</prgn> nos levar√° a se√ß√£o correspondente. 
+<![ %DESCRICAOD [ A <em>info pages</em> √© √∫til quando sabemos o nome do  
+comando e queremos saber para o que ele serve. Tamb√©m traz explica√ß√µes  
+detalhadas sobre uso, op√ß√µes e comandos. ]]>
  <p>
 Para usar a info pages, digite:
  <p>
 <tt>info [<em>comando/programa</em>]</tt>
  <p>
-Se o nome do <em>comando/programa</em> n„o for digitado, a info pages mostra a 
-lista de todos os manuais de <em>comandos/programas</em> disponÌveis. 
-A navegaÁ„o da info pages È feita atravÈs de nomes marcados com um "*" 
-(hipertextos) que se pressionarmos &lt;Enter&gt;, nos levar· atÈ a seÁ„o 
-correspondente. A <em>info pages</em> possui algumas teclas de navegaÁ„o ˙teis:
+Se o nome do <em>comando/programa</em> n√£o for digitado, a info pages mostra a 
+lista de todos os manuais de <em>comandos/programas</em> dispon√≠veis. 
+A navega√ß√£o da info pages √© feita atrav√©s de nomes marcados com um "*" 
+(hipertextos) que se pressionarmos &lt;Enter&gt;, nos levar√° at√© a se√ß√£o 
+correspondente. A <em>info pages</em> possui algumas teclas de navega√ß√£o √∫teis:
 <list compact>
  <item>
   q - Sai da info pages
  <item>
-  ? - Mostra a tela de ajuda (que contÈm a lista completa de teclas de 
-      navegaÁ„o e muitos outras opÁıes).
+  ? - Mostra a tela de ajuda (que cont√©m a lista completa de teclas de 
+      navega√ß√£o e muitos outras op√ß√µes).
  <item>
-  n - AvanÁa para a prÛxima p·gina
+  n - Avan√ßa para a pr√≥xima p√°gina
  <item>
-  p - Volta uma p·gina
+  p - Volta uma p√°gina
  <item>
-  u - Sobre um nÌvel do conte˙do (atÈ checar ao Ìndice de documentos)
+  u - Sobre um n√≠vel do conte√∫do (at√© checar ao √≠ndice de documentos)
  <item>
-  m - Permite usar a localizaÁ„o para encontrar uma p·gina do <prgn>info</prgn>. 
+  m - Permite usar a localiza√ß√£o para encontrar uma p√°gina do <prgn>info</prgn>. 
       Pressione <tt>m</tt>, digite o comando e tecle &lt;Enter&gt; que 
-      ser· levado automaticamente a p·gina correspondente. 
+      ser√° levado automaticamente a p√°gina correspondente. 
  <item>
-  d - Volta ao Ìndice de documentos.
+  d - Volta ao √≠ndice de documentos.
 </list>
-Existem muitos outras teclas de navegaÁ„o ˙teis na info pages, mas estas s„o 
+Existem muitos outras teclas de navega√ß√£o √∫teis na info pages, mas estas s√£o 
 as mais usadas. Para mais detalhes, entre no programa <prgn>info</prgn> e 
 pressione <tt>?</tt>. 
 <![ %EXEMPLO [
@@ -152,24 +152,24 @@ Exemplo, <tt>info cvs</tt>. ]]>
 
 <sect id="ajuda-helponline">Help on line
  <p>
-Ajuda r·pida, È ˙til para sabermos quais opÁıes podem ser usadas com o 
+Ajuda r√°pida, √© √∫til para sabermos quais op√ß√µes podem ser usadas com o 
 comando/programa. 
 <![ %DESCRICAOD [ Quase todos os comandos/programas <prgn>GNU/Linux</prgn>  
-oferecem este recurso que È ˙til para consultas r·pidas (e quando n„o  
-precisamos dos detalhes das p·ginas de manual). … ˙til quando se 
-sabe o nome do programa mas deseja saber quais s„o as opÁıes 
-disponÌveis e para o que cada uma serve. ]]>
+oferecem este recurso que √© √∫til para consultas r√°pidas (e quando n√£o  
+precisamos dos detalhes das p√°ginas de manual). √â √∫til quando se 
+sabe o nome do programa mas deseja saber quais s√£o as op√ß√µes 
+dispon√≠veis e para o que cada uma serve. ]]>
 Para acionar o <em>help on line</em>, digite:
  <p>
 <tt>[<em>comando</em>] --help</tt>
 <![ %OPCOES [
  <p>
-<em>comando</em> - È o comando/programa que desejamos ter uma explicaÁ„o  
-r·pida. ]]>
+<em>comando</em> - √© o comando/programa que desejamos ter uma explica√ß√£o  
+r√°pida. ]]>
 <![ %OBS [ 
  <p>
-O Help on Line n„o funciona com comandos internos (embutidos no 
-Bash), para ter uma ajuda r·pida sobre os comandos internos, veja  
+O Help on Line n√£o funciona com comandos internos (embutidos no 
+Bash), para ter uma ajuda r√°pida sobre os comandos internos, veja  
 <ref id="ajuda-help">. ]]>
 <![ %EXEMPLO [
  <p>
@@ -178,7 +178,7 @@ Por exemplo, <tt>ls --help</tt>. ]]>
 
 <sect id="ajuda-help">help 
  <p>
-Ajuda r·pida, ˙til para saber que opÁıes podem ser usadas com 
+Ajuda r√°pida, √∫til para saber que op√ß√µes podem ser usadas com 
 os <em>comandos internos</em> do interpretador de comandos. 
 <![ %DESCRICAOD [ O comando <prgn>help</prgn> somente mostra a ajuda 
 para comandos internos, para ter uma ajuda similar para comandos 
@@ -193,109 +193,109 @@ Por exemplo, <tt>help echo</tt>, <tt>help exit</tt> ]]>
 
 <sect id="ajuda-apropos">apropos/whatis
  <p>
-Apropos procura por <em>programas/comandos</em> atravÈs da descriÁ„o. 
-<![ %DESCRICAOD [ … ˙til quando precisamos fazer alguma coisa mas n„o  
-sabemos qual comando usar. Ele faz sua pesquisa nas p·ginas de manual  
+Apropos procura por <em>programas/comandos</em> atrav√©s da descri√ß√£o. 
+<![ %DESCRICAOD [ √â √∫til quando precisamos fazer alguma coisa mas n√£o  
+sabemos qual comando usar. Ele faz sua pesquisa nas p√°ginas de manual  
 existentes no sistema e lista os comandos/programas que atendem a 
 consulta. ]]>
 Para usar o comando <prgn>apropos</prgn> digite:
  <p>
-<tt>apropos [<em>descriÁ„o</em>]</tt>
+<tt>apropos [<em>descri√ß√£o</em>]</tt>
 <![ %EXEMPLO [
  <p>
-Digitando <tt>apropos copy</tt>, ser· mostrado todos os comandos que 
-tem a palavra <tt>copy</tt> em sua descriÁ„o (provavelmente os 
-programas que copiam arquivos, mas podem ser mostrados outros tambÈm). ]]>
+Digitando <tt>apropos copy</tt>, ser√° mostrado todos os comandos que 
+tem a palavra <tt>copy</tt> em sua descri√ß√£o (provavelmente os 
+programas que copiam arquivos, mas podem ser mostrados outros tamb√©m). ]]>
 
 
 <sect id="ajuda-locate">locate
  <p>
-Localiza uma palavra na estrutura de arquivos/diretÛrios do sistema. 
-<![ %DESCRICAOD [ … ˙til quando queremos localizar onde um comando ou  
-programa se encontra (para copia-lo, curiosidade, etc). A pesquisa È  
-feita em um banco de dados construÌdo com o comando <prgn>updatedb</prgn> 
-sendo feita a partir do diretÛrio raÌz <tt>/</tt> e sub-diretÛrios. ]]> 
+Localiza uma palavra na estrutura de arquivos/diret√≥rios do sistema. 
+<![ %DESCRICAOD [ √â √∫til quando queremos localizar onde um comando ou  
+programa se encontra (para copia-lo, curiosidade, etc). A pesquisa √©  
+feita em um banco de dados constru√≠do com o comando <prgn>updatedb</prgn> 
+sendo feita a partir do diret√≥rio ra√≠z <tt>/</tt> e sub-diret√≥rios. ]]> 
 Para fazer uma consulta com o <prgn>locate</prgn> usamos: 
  <p>
-<tt>locate [<em>express„o</em>]</tt>
+<tt>locate [<em>express√£o</em>]</tt>
  <p>
-A <em>express„o</em> deve ser o nome de um arquivo diretÛrio ou ambos que  
-ser„o procurados na estrutura de diretÛrios do sistema. Como a consulta por 
-um programa costuma localizar tambÈm sua p·gina de manual, È recomend·vel 
-usar <em>"pipes"</em> para filtrar a saÌda do comando 
+A <em>express√£o</em> deve ser o nome de um arquivo diret√≥rio ou ambos que  
+ser√£o procurados na estrutura de diret√≥rios do sistema. Como a consulta por 
+um programa costuma localizar tamb√©m sua p√°gina de manual, √© recomend√°vel 
+usar <em>"pipes"</em> para filtrar a sa√≠da do comando 
 <![ %INIC-INTER [ (para detalhes veja <ref id="redir-pipe"> ]]>.
 <![ %EXEMPLO [
  <p>
-Por exemplo, para listar os diretÛrios que contÈm o nome "<em>cp</em>": 
-<tt>locate cp</tt>. Agora mostrar somente arquivos bin·rios, usamos: 
+Por exemplo, para listar os diret√≥rios que cont√©m o nome "<em>cp</em>": 
+<tt>locate cp</tt>. Agora mostrar somente arquivos bin√°rios, usamos: 
 <tt>locate cp|grep bin/</tt> ]]>
 
 
 <sect id="ajuda-which">which
  <p>
-Localiza um programa na estrutura de diretÛrios do path. 
-<![ %DESCRICAOD [ … muito semelhante ao <prgn>locate</prgn>, mas a busca 
-È feita no <tt>path</tt> do sistema e somente s„o mostrados arquivos 
-execut·veis ]]>. 
+Localiza um programa na estrutura de diret√≥rios do path. 
+<![ %DESCRICAOD [ √â muito semelhante ao <prgn>locate</prgn>, mas a busca 
+√© feita no <tt>path</tt> do sistema e somente s√£o mostrados arquivos 
+execut√°veis ]]>. 
  <p>
 <tt>which [<em>programa/comando</em>]</tt>.
 
 
 <sect id="ajuda-howto">Documentos HOWTO's
  <p>
-S„o documentos em formato <em>texto</em>, <em>html</em>, etc, que explicam 
+S√£o documentos em formato <em>texto</em>, <em>html</em>, etc, que explicam 
 como fazer determinada tarefa ou como um programa funciona. 
-<![ %DESCRICAOD [ Normalmente s„o feitos na linguagem <prgn>SGML</prgn>  
+<![ %DESCRICAOD [ Normalmente s√£o feitos na linguagem <prgn>SGML</prgn>  
 e convertidos para outros formatos (como o texto, HTML, Pos Script) depois 
 de prontos. 
  <p>
-Estes trazem explicaÁıes detalhadas desde como usar o <prgn>bash</prgn> atÈ 
+Estes trazem explica√ß√µes detalhadas desde como usar o <prgn>bash</prgn> at√© 
 sobre como funciona o modem ou como montar um <em>servidor internet 
-completo</em>. ]]> Os HOWTO¥s podem ser encontrados no diretÛrio do projeto 
-de documentaÁ„o do <prgn>GNU/Linux</prgn> (LDP) em <url id="&url-ldp-ftp;"> ou 
-traduzidos para o PortuguÍs pelo LDP-BR em 
+completo</em>. ]]> Os HOWTO≈Ωs podem ser encontrados no diret√≥rio do projeto 
+de documenta√ß√£o do <prgn>GNU/Linux</prgn> (LDP) em <url id="&url-ldp-ftp;"> ou 
+traduzidos para o Portugu√™s pelo LDP-BR em 
 <url id="&url-ldpbr-www;projetos/howto/traduzidos.php">. Caso tenha optado por instalar o 
-pacote de HOWTO's de sua distribuiÁ„o <prgn>GNU/Linux</prgn>, eles podem ser 
+pacote de HOWTO's de sua distribui√ß√£o <prgn>GNU/Linux</prgn>, eles podem ser 
 encontrados em: <![ %DEBIAN [ <file>/usr/doc/how-to</file> ]]>
 
 
     <![ %INTER-AVANC [ 
 <sect1 id="ajuda-howto-listagem">Listagem de HOWTO's
  <p>
-Esta seÁ„o tem a intenÁ„o de facilitar a localizaÁ„o de um documento 
+Esta se√ß√£o tem a inten√ß√£o de facilitar a localiza√ß√£o de um documento 
 que trata do assunto desejado ou te despertar a curiosidade sobre alguns 
-assuntos do SO-GNU/Linux atravÈs da descriÁ„o contida nos documentos. 
+assuntos do SO-GNU/Linux atrav√©s da descri√ß√£o contida nos documentos. 
 Segue abaixo uma listagem de HOWTO's do projeto LDP organizadas por 
-sub-seÁıes com a descriÁ„o do assunto que cada um deles aborda.
+sub-se√ß√µes com a descri√ß√£o do assunto que cada um deles aborda.
 
 
-<sect2>IntroduÁ„o ao Sistema / InstalaÁ„o / ConfiguraÁıes / Kernel
+<sect2>Introdu√ß√£o ao Sistema / Instala√ß√£o / Configura√ß√µes / Kernel
  <p>
 <taglist>
 <tag>Access-HOWTO</tag>
  <item>
 O HOWTO de Acesso ao <prgn>GNU/Linux</prgn> cobre o uso de tecnologia 
-adaptada para tornar o <prgn>GNU/Linux</prgn> acessÌvel ‡queles que n„o 
-o utilizam. Ele cobre ·reas onde ele pode usar soluÁıes tecnolÛgicas 
+adaptada para tornar o <prgn>GNU/Linux</prgn> acess√≠vel √†queles que n√£o 
+o utilizam. Ele cobre √°reas onde ele pode usar solu√ß√µes tecnol√≥gicas 
 adaptadas. 
 
 <tag>Bash-Prompt-HOWTO</tag>
  <item>
 Explica como criar e controlar um terminal e aviso de comando xterm, 
-incluindo seq¸Íncias de escape incorporadas para passar o nome do 
-usu·rio, diretÛrio atual, hora, uso de cores ANSI, etc. 
+incluindo seq√º√™ncias de escape incorporadas para passar o nome do 
+usu√°rio, diret√≥rio atual, hora, uso de cores ANSI, etc. 
 
 <tag>Bootdisk-HOWTO</tag>
  <item>
-Explica como criar seu prÛprio disco de inicializaÁ„o/raÌz para o 
+Explica como criar seu pr√≥prio disco de inicializa√ß√£o/ra√≠z para o 
 <prgn>GNU/Linux</prgn>.    
 
 <tag>BootPrompt-HOWTO</tag>
  <item>
-Este documento re˙ne a maioria dos par‚metros de inicializaÁ„o que 
+Este documento re√∫ne a maioria dos par√¢metros de inicializa√ß√£o que 
 podem ser passados ao kernel do <prgn>GNU/Linux</prgn> durante a 
-inicializaÁ„o do sistema. TambÈm explica como o kernel classifica os 
-argumentos de inicializaÁ„o e tambÈm os softwares usados para inicializaÁ„o 
+inicializa√ß√£o do sistema. Tamb√©m explica como o kernel classifica os 
+argumentos de inicializa√ß√£o e tamb√©m os softwares usados para inicializa√ß√£o 
 do kernel do GNU/Linux.
 
 <tag>Compaq-Remote-Insight-Board-HOWTO</tag>
@@ -304,50 +304,50 @@ Descreve como instalar o Linux no servidor Compaq ProLiant.
 
 <tag>Config-HOWTO</tag>
  <item>
-Este documento ensina como fazer um ajuste fino em sua m·quina 
-<prgn>GNU/Linux</prgn> recÈm instalada r·pido e f·cil. Neste documento 
-vocÍ encontrar· um conjunto de configuraÁıes para as aplicaÁıes e 
-serviÁos mais populares. 
+Este documento ensina como fazer um ajuste fino em sua m√°quina 
+<prgn>GNU/Linux</prgn> rec√©m instalada r√°pido e f√°cil. Neste documento 
+voc√™ encontrar√° um conjunto de configura√ß√µes para as aplica√ß√µes e 
+servi√ßos mais populares. 
 
 <tag>Distribution-HOWTO</tag>
  <item>
-Este documento tem a intenÁ„o de ajudar novos usu·rios escolherem uma 
-distribuiÁ„o <prgn>GNU/Linux</prgn> e ajudar usu·rios experientes a 
-avaliar o estado do marketing no <prgn>GNU/Linux</prgn> Ele n„o planeja 
-ser uma lista completa de distribuiÁıes <prgn>GNU/Linux</prgn> para todas 
-as plataformas, mas ao invÈs disso se focaliza nas distribuiÁıes em 
-InglÍs baseadas no processador Intel, disponÌveis em CD-ROM e acessÌveis 
-a usu·rios novatos no sistema. 
+Este documento tem a inten√ß√£o de ajudar novos usu√°rios escolherem uma 
+distribui√ß√£o <prgn>GNU/Linux</prgn> e ajudar usu√°rios experientes a 
+avaliar o estado do marketing no <prgn>GNU/Linux</prgn> Ele n√£o planeja 
+ser uma lista completa de distribui√ß√µes <prgn>GNU/Linux</prgn> para todas 
+as plataformas, mas ao inv√©s disso se focaliza nas distribui√ß√µes em 
+Ingl√™s baseadas no processador Intel, dispon√≠veis em CD-ROM e acess√≠veis 
+a usu√°rios novatos no sistema. 
 
 <tag>From-PowerUp-To-Bash-Prompt-HOWTO</tag>
  <item>
-ContÈm uma breve descriÁ„o sobre o que acontece no sistema 
-<prgn>GNU/Linux</prgn>, do momento que liga o seu computador atÈ o login no 
-aviso do bash. Ele È organizado por pacotes para torna-lo 
-f·cil para pessoas que desejam construir um sistema atravÈs do cÛdigo 
-fonte. Entendendo isto ser· ˙til quando precisar resolver problemas ou 
+Cont√©m uma breve descri√ß√£o sobre o que acontece no sistema 
+<prgn>GNU/Linux</prgn>, do momento que liga o seu computador at√© o login no 
+aviso do bash. Ele √© organizado por pacotes para torna-lo 
+f√°cil para pessoas que desejam construir um sistema atrav√©s do c√≥digo 
+fonte. Entendendo isto ser√° √∫til quando precisar resolver problemas ou 
 configurar o seu sistema.
 
 <tag>Installation-HOWTO</tag>
  <item>
 Este documento descreve como obter e instalar o software <prgn>GNU/Linux</prgn>. 
-Ele È o primeiro documento que um novo usu·rio <prgn>GNU/Linux</prgn> dev ler 
+Ele √© o primeiro documento que um novo usu√°rio <prgn>GNU/Linux</prgn> dev ler 
 para iniciar no sistema. 
 
 <tag>INFO-SHEET</tag>
  <item>
-Este documento oferece informaÁıes b·sicas sobre o sistema operacional 
-<prgn>GNU/Linux</prgn>, incluindo uma explicaÁ„o sobre o sistema, uma lista 
-de caracterÌsticas, alguns requerimentos e alguns recursos.  
+Este documento oferece informa√ß√µes b√°sicas sobre o sistema operacional 
+<prgn>GNU/Linux</prgn>, incluindo uma explica√ß√£o sobre o sistema, uma lista 
+de caracter√≠sticas, alguns requerimentos e alguns recursos.  
 
 <tag>Kernel-HOWTO</tag>
  <item>
-Este È um guia detalhado de configuraÁ„o do kernel, compilaÁ„o, 
+Este √© um guia detalhado de configura√ß√£o do kernel, compila√ß√£o, 
 upgrades e problemas para sistemas baseados. 
 
 <tag>PLIP-Install-HOWTO</tag>
  <item>
-Descreve como instalar uma distribuiÁ„o GNU/Linux em um computador sem 
+Descreve como instalar uma distribui√ß√£o GNU/Linux em um computador sem 
 placa Ethernet, ou CD-ROM, mas apenas com uma unidade de disquetes 
 local e um servidor NFS remoto conectado via um cabo paralelo. 
 
@@ -358,31 +358,31 @@ sistema operacional Unix (especialmente o <prgn>GNU/Linux</prgn>).
 
 <tag>Software-Building-HOWTO</tag>
  <item>
-Guia compreensivo de como construir e instalar distribuiÁıes 
-de softwares "genÈricas" UNIX sob o <prgn>GNU/Linux</prgn>. Adicionalmente 
-existe alguma cobertura dos bin·rios prÈ-empacotados "rpm" e "deb".  
+Guia compreensivo de como construir e instalar distribui√ß√µes 
+de softwares "gen√©ricas" UNIX sob o <prgn>GNU/Linux</prgn>. Adicionalmente 
+existe alguma cobertura dos bin√°rios pr√©-empacotados "rpm" e "deb".  
 
 <tag>Tips-HOWTO</tag>
  <item>
-Este documento descreve algumas dicas difÌceis de encontrar e truques que 
+Este documento descreve algumas dicas dif√≠ceis de encontrar e truques que 
 fazem o GNU/Linux um pouco melhor.  
 
 <tag>Unix-and-Internet-Fundamentals-HOWTO</tag>
  <item>
 Este documento descreve a base de funcionamento dos computadores 
 da classe PC, sistemas operacionais Unix e a Internet em linguagem 
-n„o tÈcnica.  
+n√£o t√©cnica.  
  
 <tag>User-Authentication-HOWTO</tag>
  <item>   
-Explica como as informaÁıes de usu·rio e grupo s„o armazenadas e como 
-os usu·rios s„o autenticados no sistema <prgn>GNU/Linux</prgn> (PAM) e 
-como melhorar a autenticaÁ„o de seu sistema. 
+Explica como as informa√ß√µes de usu√°rio e grupo s√£o armazenadas e como 
+os usu√°rios s√£o autenticados no sistema <prgn>GNU/Linux</prgn> (PAM) e 
+como melhorar a autentica√ß√£o de seu sistema. 
 
 </taglist>
 
 
-<sect2>AdaptaÁ„o do <prgn>GNU/Linux</prgn> para idiomas especÌficos
+<sect2>Adapta√ß√£o do <prgn>GNU/Linux</prgn> para idiomas espec√≠ficos
  <p>
 <taglist>
 <tag>Belarusian-HOWTO</tag>
@@ -391,12 +391,12 @@ Adicionando o suporte ao idioma Belarusian no Linux.
 
 <tag>Belgian-HOWTO</tag>
  <item>
-Este documento ensina a configuraÁ„o do sistema <prgn>GNU/Linux</prgn> para o 
+Este documento ensina a configura√ß√£o do sistema <prgn>GNU/Linux</prgn> para o 
 idioma Belgo.  
 
 <tag>Chinese-HOWTO</tag>
  <item>
-Este documento explica como configurar o idioma ChinÍs no <prgn>GNU/Linux</prgn>.  
+Este documento explica como configurar o idioma Chin√™s no <prgn>GNU/Linux</prgn>.  
 
 <tag>Cyrillic-HOWTO</tag>
  <item>
@@ -404,24 +404,24 @@ Explica como utilizar o <prgn>GNU/Linux</prgn> com o idioma Russo.
 
 <tag>Danish-HOWTO</tag>
  <item>
-Descreve como configurar o <prgn>GNU/Linux</prgn> e v·rios aplicativos 
+Descreve como configurar o <prgn>GNU/Linux</prgn> e v√°rios aplicativos 
 <prgn>GNU/Linux</prgn> para este idioma. 
 
 <tag>Esperanto-HOWTO</tag>
  <item>
-ConfiguraÁ„o do GNU/Linux para o idioma Esperanto. 
+Configura√ß√£o do GNU/Linux para o idioma Esperanto. 
 
 <tag>Finnish-HOWTO</tag>
  <item>
-Descreve como usar o sistema <prgn>GNU/Linux</prgn> no idioma FinlandÍs.  
+Descreve como usar o sistema <prgn>GNU/Linux</prgn> no idioma Finland√™s.  
 
 <tag>Francophones-HOWTO</tag>
  <item>
-Descreve como usar o <prgn>GNU/Linux</prgn> no idioma FrancÍs. 
+Descreve como usar o <prgn>GNU/Linux</prgn> no idioma Franc√™s. 
 
 <tag>German-HOWTO</tag>
  <item>
-Descreve como usar o GNU/Linux com o idioma Alem„o. 
+Descreve como usar o GNU/Linux com o idioma Alem√£o. 
 
 <tag>Hebrew-HOWTO</tag>
  <item>
@@ -430,7 +430,7 @@ Descreve como usar o GNU/Linux com o idioma Alem„o.
 
 <tag>Hellenic-HOWTO</tag>
  <item>
-Guia para configuraÁ„o do GNU/Linux. 
+Guia para configura√ß√£o do GNU/Linux. 
 
 <tag>Italian-HOWTO</tag>
  <item>
@@ -438,11 +438,11 @@ Descreve como configurar o GNU/Linux no idioma Italiano.
 
 <tag>Polish-HOWTO</tag>
  <item>
-Configurando seu sistema GNU/Linux para o idioma PolonÍs. 
+Configurando seu sistema GNU/Linux para o idioma Polon√™s. 
  
 <tag>Portuguese-HOWTO</tag>
  <item>
-Configurando seu sistema GNU/Linux para o idioma PortuguÍs. 
+Configurando seu sistema GNU/Linux para o idioma Portugu√™s. 
 
 <tag>Serbian-HOWTO</tag>
  <item>
@@ -450,7 +450,7 @@ Configurando seu sistema GNU/Linux para o idioma Servio.
 
 <tag>Slovenian-HOWTO</tag>
  <item>
-Como configurar os par‚metros do sistema GNU/Linux para este idioma.
+Como configurar os par√¢metros do sistema GNU/Linux para este idioma.
 
 <tag>Spanish-HOWTO</tag>
  <item>
@@ -458,7 +458,7 @@ Configurando o sistema GNU/Linux para o idioma Espanhol.
 
 <tag>Thai-HOWTO</tag>
  <item>
-Descreve como usar o idioma TailandÍs com o <prgn>GNU/Linux</prgn>. 
+Descreve como usar o idioma Tailand√™s com o <prgn>GNU/Linux</prgn>. 
 
 <tag>Turkish-HOWTO</tag>
  <item>
@@ -485,56 +485,56 @@ Um HOWTO descritivo sobre o GNU/Linux LVM.
 <tag>Loopback-Encrypted-Filesystem-HOWTO</tag>
  <item>
 Este documento explica como criar e utilizar um sistema de arquivos 
-que, quando montado por um usu·rios, encripta transparentemente e 
-dinamicamente seu conte˙do. O sistema de arquivos È armazenado em um 
-arquivo regular, que pode ser oculto ou nomeado para algo que n„o 
-chama a atenÁ„o, como algo que nunca seria procurado. Isto permite 
-um alto nÌvel de seguranÁa dos dados armazenados. 
+que, quando montado por um usu√°rios, encripta transparentemente e 
+dinamicamente seu conte√∫do. O sistema de arquivos √© armazenado em um 
+arquivo regular, que pode ser oculto ou nomeado para algo que n√£o 
+chama a aten√ß√£o, como algo que nunca seria procurado. Isto permite 
+um alto n√≠vel de seguran√ßa dos dados armazenados. 
 
 <tag>Multi-Disk-HOWTO</tag>
  <item>
-Este documento descreve como utilizar da melhor maneira m˙ltiplos discos 
-e partiÁıes em um sistema <prgn>GNU/Linux</prgn>. Muitos dos detalhes 
-descritos aqui podem tambÈm ser aplicados a outros sistemas operacionais 
+Este documento descreve como utilizar da melhor maneira m√∫ltiplos discos 
+e parti√ß√µes em um sistema <prgn>GNU/Linux</prgn>. Muitos dos detalhes 
+descritos aqui podem tamb√©m ser aplicados a outros sistemas operacionais 
 multi-tarefas. 
  
 <tag>MultiOS-HOWTO</tag>
  <item>
-Este documento cobre os procedimentos para utilizar discos rÌgidos 
-removÌveis para instalar e gerenciar m˙ltiplos sistemas operacionais 
-alternativos enquanto deixa um disco rÌgido simples fixo para 
-proteger o sistema operacional prim·rio. … muito escal·vel e oferece uma 
-boa grade de proteÁ„o e um ambiente de disco est·vel para o 
-sistema operacional prim·rio. 
+Este documento cobre os procedimentos para utilizar discos r√≠gidos 
+remov√≠veis para instalar e gerenciar m√∫ltiplos sistemas operacionais 
+alternativos enquanto deixa um disco r√≠gido simples fixo para 
+proteger o sistema operacional prim√°rio. √â muito escal√°vel e oferece uma 
+boa grade de prote√ß√£o e um ambiente de disco est√°vel para o 
+sistema operacional prim√°rio. 
 
 <tag>Optical-Disk-HOWTO</tag>
  <item>
-Este documento descreve a instalaÁ„o e configuraÁ„o de unidades de disco 
-Ûticos para <prgn>GNU/Linux</prgn>. 
+Este documento descreve a instala√ß√£o e configura√ß√£o de unidades de disco 
+√≥ticos para <prgn>GNU/Linux</prgn>. 
 
 <tag>Root-RAID-HOWTO</tag>
  <item>
-Este documento somente se aplica a ferramentas RAID ANTIGAS, vers„o 
+Este documento somente se aplica a ferramentas RAID ANTIGAS, vers√£o 
 0.50 e inferiores. Os detalhes contidos neste documento se tornaram 
 obsoletos com a vasta melhoria das ferramentas RAID 0.90 e 
-acompanhadas do patch nos kernels das sÈries 2.0.37, 2.2x e 2.3x.
+acompanhadas do patch nos kernels das s√©ries 2.0.37, 2.2x e 2.3x.
 
 <tag>SCSI-Programming-HOWTO</tag>
  <item>
-Este documento fala sobre a programaÁ„o da interface SCSI genÈrica no 
+Este documento fala sobre a programa√ß√£o da interface SCSI gen√©rica no 
 <prgn>GNU/Linux</prgn>. 
 
 <tag>UMSDOS-HOWTO</tag>
  <item>
-O UMSDOS È um sistema de arquivos <prgn>GNU/Linux</prgn>. Ele oferece uma 
-alternativa do sistema de arquivos EXT2. Sua maior caracterÌstica È a 
-coexistÍncia com os dados DOS existentes, compartilhando a mesma 
-partiÁ„o. 
+O UMSDOS √© um sistema de arquivos <prgn>GNU/Linux</prgn>. Ele oferece uma 
+alternativa do sistema de arquivos EXT2. Sua maior caracter√≠stica √© a 
+coexist√™ncia com os dados DOS existentes, compartilhando a mesma 
+parti√ß√£o. 
 
 </taglist>
 
 
-<sect2>Escrita de DocumentaÁ„o / Editores
+<sect2>Escrita de Documenta√ß√£o / Editores
  <p>
 <taglist>
 <tag>C-editing-with-VIM-HOWTO</tag>
@@ -544,16 +544,16 @@ Oferece dicas para editar arquivos desta linguagem e com sintaxe similar como
 
 <tag>Emacs-Beginner-HOWTO</tag>
  <item>
-Este documento introduz os usu·rios <prgn>GNU/Linux</prgn> no editor 
-Emacs. Ele assume o mÌnimo de conhecimento com o editor de 
+Este documento introduz os usu√°rios <prgn>GNU/Linux</prgn> no editor 
+Emacs. Ele assume o m√≠nimo de conhecimento com o editor de 
 texto <prgn>vi</prgn> ou similar. 
  
 <tag>Emacspeak-HOWTO</tag>
  <item>
-Este documento descreve como um usu·rio pode usar o sistema com um 
-sintetizador de voz  no lugar do monitor de vÌdeo. Ele descreve  como 
+Este documento descreve como um usu√°rio pode usar o sistema com um 
+sintetizador de voz  no lugar do monitor de v√≠deo. Ele descreve  como 
 ter o <prgn>GNU/Linux</prgn> rodando em seu PC e como configura-lo para 
-falar. Ele tambÈm sugere como aprender sobre o Unix. 
+falar. Ele tamb√©m sugere como aprender sobre o Unix. 
 
 <tag>HOWTO-HOWTO</tag>
  <item>
@@ -562,24 +562,24 @@ aumentarem sua produtividade.
 
 <tag>LinuxDoc+Emacs+Ispell-HOWTO</tag>
  <item>
-Este documento È de interesse de escritores e tradutores dos HOWTO's do 
-<prgn>GNU/Linux</prgn> ou qualquer outro papel para o Projeto de DocumentaÁ„o 
+Este documento √© de interesse de escritores e tradutores dos HOWTO's do 
+<prgn>GNU/Linux</prgn> ou qualquer outro papel para o Projeto de Documenta√ß√£o 
 do GNU/Linux. Ele oferece dicas sobre o uso de ferramentas incluindo o Emacs 
 e Ispell.
 
 <tag>TeTeX-HOWTO</tag>
  <item>
-Este documento cobre a instalaÁ„o b·sico e uso das implementaÁıes 
-TeTeX, TeX e LaTeX sob as maiores distribuiÁıes de <prgn>GNU/Linux</prgn> 
+Este documento cobre a instala√ß√£o b√°sico e uso das implementa√ß√µes 
+TeTeX, TeX e LaTeX sob as maiores distribui√ß√µes de <prgn>GNU/Linux</prgn> 
 Inglesas e pacotes auxiliares como o GhostScript. 
 
 <tag>Vim-HOWTO</tag>
  <item>
-Este documento È uma guia para configurar rapidamente o editor 
-colorido Vim nos sistemas Unix e GNU/Linux. Os detalhes aqui aumentar„o 
+Este documento √© uma guia para configurar rapidamente o editor 
+colorido Vim nos sistemas Unix e GNU/Linux. Os detalhes aqui aumentar√£o 
 a produtividade dos programadores porque o editor Vim suporta 
-a colorizaÁ„o de cÛdigo e fontes negrito, aumentando a "legibilidade" 
-do cÛdigo do programa. A produtividade do programador aumenta de 
+a coloriza√ß√£o de c√≥digo e fontes negrito, aumentando a "legibilidade" 
+do c√≥digo do programa. A produtividade do programador aumenta de 
 2 a 3 vezes com um editor colorido como Vim. 
 
 </taglist>
@@ -591,8 +591,8 @@ do cÛdigo do programa. A produtividade do programador aumenta de
 <tag>3Dfx-HOWTO</tag>
  <item>
 Este documento descreve o suporte do <prgn>GNU/Linux</prgn> aos chips 
-aceleradores 3Dfx. TambÈm lista alguns hardwares suportados, 
-descreve como configurar os drivers e responde perguntas freq¸Íntes. 
+aceleradores 3Dfx. Tamb√©m lista alguns hardwares suportados, 
+descreve como configurar os drivers e responde perguntas freq√º√™ntes. 
 
 <tag>4mb-Laptops</tag>
  <item>
@@ -605,8 +605,8 @@ Descreve como instalar o Linux em notebooks Acer.
 <tag>Busmouse-HOWTO</tag>
  <item>
 Descreve como instalar, configurar e usar um barramento de mouse sob o 
-<prgn>GNU/Linux</prgn>. Ele contÈm uma lista de barramentos suportados e 
-tenta responder as questıes mais freq¸Íntes relacionadas ao assunto. 
+<prgn>GNU/Linux</prgn>. Ele cont√©m uma lista de barramentos suportados e 
+tenta responder as quest√µes mais freq√º√™ntes relacionadas ao assunto. 
 
 <tag>CDServer-HOWTO</tag>
  <item>
@@ -616,8 +616,8 @@ operacionais.
 
 <tag>CPU-Design-HOWTO</tag>
  <item>
-Oferece referÍncias para mostrar como uma CPU È projetada e fabricada. Bastante
-interessante para estudantes de computaÁ„o e outros profissionais da ·rea.
+Oferece refer√™ncias para mostrar como uma CPU √© projetada e fabricada. Bastante
+interessante para estudantes de computa√ß√£o e outros profissionais da √°rea.
 
 <tag>Ftape-HOWTO</tag>
  <item>
@@ -625,92 +625,92 @@ Este HOWTO discute o controlador de unidades tape para <prgn>GNU/Linux</prgn>.
 
 <tag>HP-HOWTO</tag>
  <item>
-Este documento descreve o uso dos produtos disponÌveis no cat·logo 
+Este documento descreve o uso dos produtos dispon√≠veis no cat√°logo 
 Hewlett-Packard (HP) com o <prgn>GNU/Linux</prgn> e alguns programas 
 free software. Ele explica o estado do suporte para hardwares, softwares 
-utilizados e respostas para alguns questıes freq¸Íntes. 
+utilizados e respostas para alguns quest√µes freq√º√™ntes. 
  
 <tag>Hardware-HOWTO</tag>
  <item>
 Este documento lista a maioria dos hardware suportados pelo 
-<prgn>GNU/Linux</prgn> e lhe ajuda a localizar os controladores necess·rios. 
+<prgn>GNU/Linux</prgn> e lhe ajuda a localizar os controladores necess√°rios. 
  
 <tag>Jaz-Drive-HOWTO</tag>
  <item>
-Este HOWTO cobre a configuraÁ„o e uso dos drivers Iomega 1Gb e 2Gb sob o 
+Este HOWTO cobre a configura√ß√£o e uso dos drivers Iomega 1Gb e 2Gb sob o 
 <prgn>GNU/Linux</prgn>. 
  
 <tag>Kodak-Digitalcam-HOWTO</tag>
  <item>
-Fazendo uma c‚mera Kodak digital funcionar sob GNU/GNU/Linux. 
+Fazendo uma c√¢mera Kodak digital funcionar sob GNU/GNU/Linux. 
 
 <tag>Laptop-HOWTO</tag>
  <item>
-Os Notebooks s„o diferentes de computadores desktops/torres. Eles usam 
-certos hardwares como cartıes PCMCIA, portas infravermelho, baterias, 
-estaÁıes de encaixe. Freq¸entemente seus hardwares s„o mais limitados 
-(i.e. espaÁo em disco, velocidade da CPU) ent„o sua performance se 
-torna menor. Em algumas inst‚ncias, os notebooks podem se tornar uma 
-substituiÁ„o ao sistema desktop. O suporte de hardware para o 
-<prgn>GNU/Linux</prgn> (e outros sistemas operacionais) È algumas vezes 
-mais limitado (i.e. chips gr·ficos, modens internos). Os Notebooks 
-freq¸entemente utilizam hardware especializado, no qual a localizaÁ„o 
+Os Notebooks s√£o diferentes de computadores desktops/torres. Eles usam 
+certos hardwares como cart√µes PCMCIA, portas infravermelho, baterias, 
+esta√ß√µes de encaixe. Freq√ºentemente seus hardwares s√£o mais limitados 
+(i.e. espa√ßo em disco, velocidade da CPU) ent√£o sua performance se 
+torna menor. Em algumas inst√¢ncias, os notebooks podem se tornar uma 
+substitui√ß√£o ao sistema desktop. O suporte de hardware para o 
+<prgn>GNU/Linux</prgn> (e outros sistemas operacionais) √© algumas vezes 
+mais limitado (i.e. chips gr√°ficos, modens internos). Os Notebooks 
+freq√ºentemente utilizam hardware especializado, no qual a localiza√ß√£o 
 de um controlador adequado pode se tornar uma dificuldade. Os Notebooks 
-s„o utilizados em ambientes mÛveis, assim existe a necessidade 
-de m˙ltiplas configuraÁıes e estratÈgias adicionais de seguranÁa. 
+s√£o utilizados em ambientes m√≥veis, assim existe a necessidade 
+de m√∫ltiplas configura√ß√µes e estrat√©gias adicionais de seguran√ßa. 
 
 <tag>Modem-HOWTO</tag>
  <item>
-Ajuda com a seleÁ„o, conex„o, configuraÁ„o, resoluÁ„o de problemas e 
-compreens„o de modens de um PC. Veja o Serial-HOWTO para detalhes 
-sobre m˙ltiplas placas seriais. 
+Ajuda com a sele√ß√£o, conex√£o, configura√ß√£o, resolu√ß√£o de problemas e 
+compreens√£o de modens de um PC. Veja o Serial-HOWTO para detalhes 
+sobre m√∫ltiplas placas seriais. 
 
 <tag>PCI-HOWTO</tag>
  <item>
-InformaÁıes sobre o que funciona com o <prgn>GNU/Linux</prgn> e placas 
-<prgn>PCI</prgn> e que o n„o funciona. 
+Informa√ß√µes sobre o que funciona com o <prgn>GNU/Linux</prgn> e placas 
+<prgn>PCI</prgn> e que o n√£o funciona. 
 
 <tag>Plug-and-Play-HOWTO</tag>
  <item>
-Este documento ajuda a compreens„o e operaÁ„o do Plug-and-Play e 
+Este documento ajuda a compreens√£o e opera√ß√£o do Plug-and-Play e 
 como incluir o suporte do seu sistema <prgn>GNU/Linux</prgn> ao Plug-and-Play. 
 
 <tag>Serial-HOWTO</tag>
  <item>
-Este documento descreve caracterÌsticas da porta serial ao invÈs de 
+Este documento descreve caracter√≠sticas da porta serial ao inv√©s de 
 outros detalhes que devem ser cobertos pelos documentos Modem-HOWTO, 
 PPP-HOWTO, Serial-Programming-HOWTO, ou Text-Terminal-HOWTO. Ele 
-lista detalhes sobre m˙ltiplas placas seriais contendo informaÁıes 
-tÈcnicas detalhadas sobre a prÛpria porta serial em mais detalhes 
+lista detalhes sobre m√∫ltiplas placas seriais contendo informa√ß√µes 
+t√©cnicas detalhadas sobre a pr√≥pria porta serial em mais detalhes 
 do que os encontrados nos HOWTO's acima e deve ser o suficiente para 
-correÁ„o de problemas quando o problema È a prÛpria porta serial. 
+corre√ß√£o de problemas quando o problema √© a pr√≥pria porta serial. 
 Se estiver trabalhando com um Modem, PPP (usado para acesso a Internet 
-atravÈs de uma Linha telefÙnica), ou um Terminal baseado em modo 
+atrav√©s de uma Linha telef√¥nica), ou um Terminal baseado em modo 
 texto, seus respectivos HOWTO's devem ser primeiramente consultados. 
  
 <tag>Serial-Programming-HOWTO</tag>
  <item>
-Explica como programar comunicaÁıes com dispositivos atravÈs de uma 
+Explica como programar comunica√ß√µes com dispositivos atrav√©s de uma 
 porta serial em um computador com o <prgn>GNU/Linux</prgn>. 
 
 <tag>UPS-HOWTO</tag>
  <item>
-Este documento te ajudar· a conectar um uninterruptable power supply 
+Este documento te ajudar√° a conectar um uninterruptable power supply 
 (No Break) em seu computador <prgn>GNU/Linux</prgn>... se tiver a sorte de 
 possuir um...
 
 <tag>Wacom-Tablet-HOWTO</tag>
  <item>
-InstalaÁ„o do (n„o somente) Wacom graphic tablets sob o <prgn>GNU/Linux</prgn> 
+Instala√ß√£o do (n√£o somente) Wacom graphic tablets sob o <prgn>GNU/Linux</prgn> 
 e  / ou xfree86. 
  
 <tag>Wearable-HOWTO</tag>
  <item>
-ComputaÁ„o mÛvel com <prgn>GNU/Linux</prgn>. 
+Computa√ß√£o m√≥vel com <prgn>GNU/Linux</prgn>. 
  
 <tag>Winmodems-and-Linux-HOWTO</tag>
  <item>
-Este documento contÈm detalhes sobre a configuraÁ„o de Winmodems no 
+Este documento cont√©m detalhes sobre a configura√ß√£o de Winmodems no 
 <prgn>GNU/Linux</prgn>. 
 
 </taglist>
@@ -721,23 +721,23 @@ Este documento contÈm detalhes sobre a configuraÁ„o de Winmodems no
 <taglist>
 <tag>AI-Alife-HOWTO</tag>
  <item>
-Este howto contÈm informaÁıes prim·rias sobre, e links para, v·rias 
+Este howto cont√©m informa√ß√µes prim√°rias sobre, e links para, v√°rias 
 bibliotecas relacionadas com o AI, aplicativos, etc. que funcionam 
 na plataforma GNU/Linux. Todos eles (pelo menos) livres para uso 
 pessoal.
 
 <tag>Apache-Overview-HOWTO</tag>
  <item>
-Oferece uma vis„o do servidor Web Apache e projetos relacionados.
+Oferece uma vis√£o do servidor Web Apache e projetos relacionados.
 
 <tag>Commercial-HOWTO</tag>
  <item>
-Este documento contÈm uma listagem de programas comerciais e aplicaÁıes 
-que s„o oferecidas para o <prgn>GNU/Linux</prgn> 
+Este documento cont√©m uma listagem de programas comerciais e aplica√ß√µes 
+que s√£o oferecidas para o <prgn>GNU/Linux</prgn> 
 
 <tag>Glibc2-HOWTO</tag>
  <item>
-Este documento cobre a instalaÁ„o e uso da Biblioteca GNU C vers„o 2 
+Este documento cobre a instala√ß√£o e uso da Biblioteca GNU C vers√£o 2 
 nos sistemas GNU/Linux. 
 
 <tag>RPM-HOWTO</tag>
@@ -747,110 +747,110 @@ Explica como utilizar o sistema de gerenciamento de pacotes RPM.
 <tag>Program-Library-HOWTO</tag>
  <item>
 Este documento para programadores discute como criar e usar bibliotecas 
-no <prgn>GNU/Linux</prgn>. Estas incluem bibliotecas est·ticas, bibliotecas 
+no <prgn>GNU/Linux</prgn>. Estas incluem bibliotecas est√°ticas, bibliotecas 
 compartilhadas e bibliotecas carregadas dinamicamente. 
 
 <tag>Secure-Programs-HOWTO</tag>
  <item>
-Este documento oferece um conjunto de designs e regras de implementaÁ„o 
+Este documento oferece um conjunto de designs e regras de implementa√ß√£o 
 para escrever programas seguros para os sistemas Unix e Linux. Tais 
 programas incluem programas aplicativos usados para visualizadores de 
 dados remotos, scripts CGI, servidores de rede, programas setuid/setgid. 
-Guias especÌficos sobre C, C++, Java, Perl, Python, e Ada95 est„o 
-incluÌdos. 
+Guias espec√≠ficos sobre C, C++, Java, Perl, Python, e Ada95 est√£o 
+inclu√≠dos. 
 
 <tag>Software-RAID-0.4x-HOWTO</tag>
  <item>
 RAID significa "Redundant Array of Inexpensive Disks", e significa 
-ser um mÈtodo de criar um r·pido e confi·vel subsistema de unidades 
-de disco ao invÈs de discos individuais. O RAID pode se 
-prevenir de falhas de disco e pode tambÈm aumentar a performance 
-obtida atravÈs de uma simples unidade de disco. Este documento È um 
-tutorial/HOWTO/FAQ para usu·rios do kernel do Linux com extensıes 
-MD, as ferramentas associadas, e seu uso. A extens„o MD implementa 
+ser um m√©todo de criar um r√°pido e confi√°vel subsistema de unidades 
+de disco ao inv√©s de discos individuais. O RAID pode se 
+prevenir de falhas de disco e pode tamb√©m aumentar a performance 
+obtida atrav√©s de uma simples unidade de disco. Este documento √© um 
+tutorial/HOWTO/FAQ para usu√°rios do kernel do Linux com extens√µes 
+MD, as ferramentas associadas, e seu uso. A extens√£o MD implementa 
 o RAID-0 (striping), RAID-1 (mirroring), RAID-4 e RAID-5 no software. 
 O que significa que, com MD, nenhum hardware especial ou controladoras 
-de disco s„o requeridas para obter muitos dos benefÌcios do RAID. 
+de disco s√£o requeridas para obter muitos dos benef√≠cios do RAID. 
  
 <tag>Software-RAID-HOWTO</tag>
  <item>
 Este documento descreve como usar o software RAID sob o GNU/Linux. 
-Ele endereÁa uma vers„o especÌfica da camada de software do RAID, 
-nomeada camada RAID 0.90, feita por Ingo Molnar e outros. Esta È a 
-camada RAID que ser· padronizada no Linux-2.4, e tambÈm È a vers„o 
+Ele endere√ßa uma vers√£o espec√≠fica da camada de software do RAID, 
+nomeada camada RAID 0.90, feita por Ingo Molnar e outros. Esta √© a 
+camada RAID que ser√° padronizada no Linux-2.4, e tamb√©m √© a vers√£o 
 usada por kernels 2.2 do <prgn>GNU/Linux</prgn> vendidos por alguns 
-vendedores. O suporte RAID 0.90 est· disponÌvel com patches para os 
-kernels do 2.0 e 2.2 do <prgn>GNU/Linux</prgn> e tambÈm È considerado 
-ser mais est·vel que o antigo suporte RAID j· incluÌdo nestes kernels. 
+vendedores. O suporte RAID 0.90 est√° dispon√≠vel com patches para os 
+kernels do 2.0 e 2.2 do <prgn>GNU/Linux</prgn> e tamb√©m √© considerado 
+ser mais est√°vel que o antigo suporte RAID j√° inclu√≠do nestes kernels. 
  
 <tag>Software-Release-Practice-HOWTO</tag>
  <item>
-Este documento descreve boas pr·ticas de lanÁamento para o projeto 
-de cÛdigo-aberto <prgn>GNU/Linux</prgn>. Seguindo estas pr·ticas, ser· 
-f·cil e possÌvel para os usu·rios construir seu cÛdigo e usa-lo, e 
-para outros desenvolvedores entender seu cÛdigo e cooperar com vocÍ 
+Este documento descreve boas pr√°ticas de lan√ßamento para o projeto 
+de c√≥digo-aberto <prgn>GNU/Linux</prgn>. Seguindo estas pr√°ticas, ser√° 
+f√°cil e poss√≠vel para os usu√°rios construir seu c√≥digo e usa-lo, e 
+para outros desenvolvedores entender seu c√≥digo e cooperar com voc√™ 
 para melhora-lo. Este documento deve ser lido por desenvolvedores 
 iniciantes. Desenvolvedores experientes devem revisa-lo quando desejarem 
-lanÁar um novo projeto. Este documento È revisado periodicamente para 
-refletir a evoluÁ„o das boas pr·ticas de lanÁamento.  
+lan√ßar um novo projeto. Este documento √© revisado periodicamente para 
+refletir a evolu√ß√£o das boas pr√°ticas de lan√ßamento.  
 
 </taglist> 
 
 
-<sect2>Plataformas n„o Intel (x86)
+<sect2>Plataformas n√£o Intel (x86)
  <p>
 <taglist>
 <tag>Alpha-HOWTO</tag>
  <item>
-Este documento È uma vis„o r·pida das CPUs Alpha, chipsets e sistemas 
+Este documento √© uma vis√£o r√°pida das CPUs Alpha, chipsets e sistemas 
 existentes.  
  
 <tag>MILO-HOWTO</tag>
  <item>
 Este documento descreve o MIniLOader, um programa para sistemas baseados 
-na arquitetura Alpha que pode ser usado para inicializar a m·quina e 
+na arquitetura Alpha que pode ser usado para inicializar a m√°quina e 
 carregar o <prgn>GNU/Linux</prgn>. O Linux Miniloader do Alpha (seu nome 
-completo) È tambÈm conhecido como MILO.
+completo) √© tamb√©m conhecido como MILO.
  
 <tag>MIPS-HOWTO</tag>
  <item>
 Esta FAQ descreve o porte do MIPS para o sistema operacional Linux, 
-problemas comuns e suas soluÁıes, disponibilidade e mais. Ele tambÈm 
-tenta ser um pouco ˙til a outras pessoas que desejam ler esta FAQ em uma 
-tentativa de encontrar informaÁıes que atualmente seriam cobertas em 
+problemas comuns e suas solu√ß√µes, disponibilidade e mais. Ele tamb√©m 
+tenta ser um pouco √∫til a outras pessoas que desejam ler esta FAQ em uma 
+tentativa de encontrar informa√ß√µes que atualmente seriam cobertas em 
 outro lugar. 
  
 <tag>SRM-HOWTO</tag>
  <item>
 Este documento descreve como inicializar no <prgn>Linux/Alpha</prgn> 
-usando o console SRM, que È a firmware de console tambÈm usada para 
-inicializar o Unix Compaq Tru64 (tambÈm conhecido com Digital Unix e 
+usando o console SRM, que √© a firmware de console tamb√©m usada para 
+inicializar o Unix Compaq Tru64 (tamb√©m conhecido com Digital Unix e 
 OSF/1) e OpenVMS. 
  
 </taglist> 
 
 
-<sect2>ProgramaÁ„o / Compiladores / Banco de Dados
+<sect2>Programa√ß√£o / Compiladores / Banco de Dados
  <p>
 <taglist>
 <tag>Assembly-HOWTO</tag>
  <item>
 Este documento descreve como programar em linguagem Assembler usando 
-ferramentas de programaÁ„o livres, focalizando-se no desenvolvimento 
+ferramentas de programa√ß√£o livres, focalizando-se no desenvolvimento 
 para ou do Sistema Operacional <prgn>GNU/Linux</prgn>, mais na plataforma 
 IA-32 (i386). 
 
 <tag>Bash-Prog-Intro-HOWTO</tag>
  <item>
-Este documento tem a intenÁ„o de te ajudar a iniciar na programaÁ„o de 
-shell scripts. Ele n„o tem a intenÁ„o de ser uma documento avanÁado. 
+Este documento tem a inten√ß√£o de te ajudar a iniciar na programa√ß√£o de 
+shell scripts. Ele n√£o tem a inten√ß√£o de ser uma documento avan√ßado. 
 
 <tag>C++Programming-HOWTO</tag>
  <item>
-Discute os mÈtodos para evitar problemas de memÛria no C++ e tambÈm 
-te ajudar· a programar corretamente na linguagem C++. As informaÁıes 
+Discute os m√©todos para evitar problemas de mem√≥ria no C++ e tamb√©m 
+te ajudar√° a programar corretamente na linguagem C++. As informa√ß√µes 
 contidas neste documento se aplicam a todos os sistemas operacionais 
-que s„o <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, <prgn>BeOS</prgn>, 
+que s√£o <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, <prgn>BeOS</prgn>, 
 <prgn>Apple Macintosh OS</prgn>, <prgn>Windows 95/98/NT/2000</prgn>, 
 <prgn>OS/2</prgn>, <prgn>Sistemas IBM</prgn> (MVS, AS/400, etc...), 
 <prgn>VAX VMS</prgn>, <prgn>Novell Netware</prgn>, todos os tipos de 
@@ -860,18 +860,18 @@ outros sistemas operacionais que suportam o compilador "C++"
  
 <tag>C-C++Beautifier-HOWTO</tag>
  <item>
-Este documento ajudar· a formatar (de forma organizada) os programas 
-C/C++ assim ser· mais legÌvel e seguir· os padrıes de codificaÁ„o 
-C/C++. As informaÁıes deste documento se aplica a quase todos os 
+Este documento ajudar√° a formatar (de forma organizada) os programas 
+C/C++ assim ser√° mais leg√≠vel e seguir√° os padr√µes de codifica√ß√£o 
+C/C++. As informa√ß√µes deste documento se aplica a quase todos os 
 sistemas operacionais do planeta!
 
 <tag>DB2-HOWTO</tag>
  <item>
-Este documento explica como instalar o DB2 Universal Database vers„o 7.1 
-para <prgn>GNU/Linux</prgn> nas seguintes distribuiÁıes baseadas no 
+Este documento explica como instalar o DB2 Universal Database vers√£o 7.1 
+para <prgn>GNU/Linux</prgn> nas seguintes distribui√ß√µes baseadas no 
 Intel x86: Caldera Caldera OpenLinux 2.4, Debian, Red Hat Linux 6.2, SuSE 
-Linux 6.2 e 6.3, e TurboLinux 6.0. ApÛs instalar o DB2, vocÍ pode usar um 
-banco de dados de exemplo, conectar-se ao servidor DB2 de uma m·quina 
+Linux 6.2 e 6.3, e TurboLinux 6.0. Ap√≥s instalar o DB2, voc√™ pode usar um 
+banco de dados de exemplo, conectar-se ao servidor DB2 de uma m√°quina 
 remota e administrar o DB2 usando o DB2 Control Center. 
 
 <tag>Enterprise-Java-for-Linux-HOWTO</tag>
@@ -884,15 +884,15 @@ Enterprise Java Beans (EJBs).
 <tag>GCC-HOWTO</tag>
  <item>
 Este documento explica como configurar o compilador GNU C e bibliotecas 
-de desenvolvimento sob o <prgn>GNU/Linux</prgn> e te d· uma vis„o de compilaÁ„o, 
-linkagem, execuÁ„o e programas de depuraÁ„o.  
+de desenvolvimento sob o <prgn>GNU/Linux</prgn> e te d√° uma vis√£o de compila√ß√£o, 
+linkagem, execu√ß√£o e programas de depura√ß√£o.  
 
 <tag>IngresII-HOWTO</tag>
  <item>
-Este documento cobre a instalaÁ„o do Ingres II Relational Database 
-management System no <prgn>GNU/Linux</prgn>. Ele cobre a configuraÁ„o 
-de ambos o Kit de desenvolvimento e vers„o completa do Ingres. 
-Algumas seÁıes explicam como iniciar o uso do Ingres. 
+Este documento cobre a instala√ß√£o do Ingres II Relational Database 
+management System no <prgn>GNU/Linux</prgn>. Ele cobre a configura√ß√£o 
+de ambos o Kit de desenvolvimento e vers√£o completa do Ingres. 
+Algumas se√ß√µes explicam como iniciar o uso do Ingres. 
 
 <tag>Oracle-7-HOWTO</tag>
  <item>
@@ -901,31 +901,31 @@ um sistema <prgn>GNU/Linux</prgn>.
  
 <tag>Oracle-8-HOWTO</tag>
  <item>
-Com este HOWTO, È um pouco de sorte, vocÍ ser· capaz de ter o Oracle 
+Com este HOWTO, √© um pouco de sorte, voc√™ ser√° capaz de ter o Oracle 
 8i Enterprise Edition para GNU/Linux instalado, criar um banco de dados e 
-conectar a ele atravÈs de um computador remoto. O foco principal deste 
-guia È o RedHat 6.0, no entanto ele pode funcionar em outros distribuiÁıes 
-recentes apÛs algumas modificaÁıes. 
+conectar a ele atrav√©s de um computador remoto. O foco principal deste 
+guia √© o RedHat 6.0, no entanto ele pode funcionar em outros distribui√ß√µes 
+recentes ap√≥s algumas modifica√ß√µes. 
  
  
 <tag>PHP-HOWTO</tag>
  <item>
-Ensina como desenvolver programas em PHP e tambÈm migrar todas as 
-aplicaÁıes GUI do Windows 95 para o poderoso conjunto PHP + HTML + DHTML + 
-XML + Applets Java + Javascript. As explicaÁıes descritas neste documento 
-se aplicam a todo os sistemas operacionais para onde o PHP est· portado 
-que s„o: Linux, Windows 95/98/NT/2000, OS/2, todos os tipos de Unix 
+Ensina como desenvolver programas em PHP e tamb√©m migrar todas as 
+aplica√ß√µes GUI do Windows 95 para o poderoso conjunto PHP + HTML + DHTML + 
+XML + Applets Java + Javascript. As explica√ß√µes descritas neste documento 
+se aplicam a todo os sistemas operacionais para onde o PHP est√° portado 
+que s√£o: Linux, Windows 95/98/NT/2000, OS/2, todos os tipos de Unix 
 como o Solaris, HPUX, AIX, SCO, Sinix, BSD, etc...
 
 <tag>PostgreSQL-HOWTO</tag>
  <item>
-Este documento È um "guia pr·tico" para rapidamente colocar para 
-funcionar um banco de dados SQL e suas ferramentas de comunicaÁ„o 
-em um sistema Unix. Ele tambÈm discute a linguagem padr„o 
-Internacional ANSI/ISO SQL e revisa os mÈritos/vantagens do 
+Este documento √© um "guia pr√°tico" para rapidamente colocar para 
+funcionar um banco de dados SQL e suas ferramentas de comunica√ß√£o 
+em um sistema Unix. Ele tamb√©m discute a linguagem padr√£o 
+Internacional ANSI/ISO SQL e revisa os m√©ritos/vantagens do 
 SQL Database engine desenvolvido pela Internet ao redor do mundo 
-em um ambiente de desenvolvimento aberto. TambÈm como configurar 
-a prÛxima geraÁ„o do banco de dados relacional a objetos SQL 
+em um ambiente de desenvolvimento aberto. Tamb√©m como configurar 
+a pr√≥xima gera√ß√£o do banco de dados relacional a objetos SQL 
 "PostgreSQL" em um sistema Unix que pode ser usado como um 
 Servidor de Aplicativos de banco de dados ou como um 
 Servidor de banco de dados Web. 
@@ -933,30 +933,30 @@ Servidor de banco de dados Web.
 <tag>TclTk-HOWTO</tag>
  <item>
 Este documento descreve o uso do Tcl no <prgn>GNU/Linux</prgn>, uma linguagem 
-de scripting. Ela È uma linguagem interpretada f·cil de aprender que usa 
-pouca digitaÁ„o para obter um alto nÌvel de programaÁ„o e desenvolvimento 
-r·pido de aplicativos (RAD). O Tk toolkit È um ambiente de programaÁ„o 
-para criar interfaces gr·ficas do usu·rio (GUI) sob o 
+de scripting. Ela √© uma linguagem interpretada f√°cil de aprender que usa 
+pouca digita√ß√£o para obter um alto n√≠vel de programa√ß√£o e desenvolvimento 
+r√°pido de aplicativos (RAD). O Tk toolkit √© um ambiente de programa√ß√£o 
+para criar interfaces gr√°ficas do usu√°rio (GUI) sob o 
 Sistema X Window. Suas capacidades incluem a possibilidade de estender e 
-incluir em outros aplicativos, desenvolvimento r·pido e f·cil de usar. 
-Juntos o Tcl e Tk oferecem muitos benefÌcios para o desenvolvedor e 
-usu·rio. As interfaces baseadas no Tk tendem a ser mais personaliz·veis 
-e din‚micas que aquelas feitas de toolkits C ou C++. O Tk implementa o 
-Visual e Uso do Motif. Um grande n˙mero de aplicaÁıes X interessantes 
-s„o implementadas completamente em Tk, com nenhum comandos especÌficos 
+incluir em outros aplicativos, desenvolvimento r√°pido e f√°cil de usar. 
+Juntos o Tcl e Tk oferecem muitos benef√≠cios para o desenvolvedor e 
+usu√°rio. As interfaces baseadas no Tk tendem a ser mais personaliz√°veis 
+e din√¢micas que aquelas feitas de toolkits C ou C++. O Tk implementa o 
+Visual e Uso do Motif. Um grande n√∫mero de aplica√ß√µes X interessantes 
+s√£o implementadas completamente em Tk, com nenhum comandos espec√≠ficos 
 de aplicativo. 
 
 </taglist>
 
 
-<sect2>ComputaÁ„o Paralela / Clusters
+<sect2>Computa√ß√£o Paralela / Clusters
  <p>
 <taglist>
 <tag>Beowulf-HOWTO</tag>
  <item>
-Este documento È uma introduÁ„o a arquitetura de Supercomputador 
-Beowulf e oferece informaÁıes sobre programaÁ„o paralela, incluindo 
-links para documentos mais especÌficos e p·ginas internet. 
+Este documento √© uma introdu√ß√£o a arquitetura de Supercomputador 
+Beowulf e oferece informa√ß√µes sobre programa√ß√£o paralela, incluindo 
+links para documentos mais espec√≠ficos e p√°ginas internet. 
 
 <tag>Cluster-HOWTO</tag>
  <item>
@@ -964,26 +964,26 @@ Como configurar clusters de computador GNU/Linux de alta performance.
 
 <tag>Parallel-Processing-HOWTO</tag>
  <item>
-O Processamento Paralelo È uma forma de acelerar a execuÁ„o de um programa 
-dividindo o programa em m˙ltiplos fragmentos que podem ser executados 
-simultaneamente, cada um em seu prÛprio processador. Um programa sendo 
-executado em N processadores pode ser executado N vezes mais r·pido 
+O Processamento Paralelo √© uma forma de acelerar a execu√ß√£o de um programa 
+dividindo o programa em m√∫ltiplos fragmentos que podem ser executados 
+simultaneamente, cada um em seu pr√≥prio processador. Um programa sendo 
+executado em N processadores pode ser executado N vezes mais r√°pido 
 que seria usando somente um processador. Este documento discute os 
-quatro mÈtodos para realizar processamento paralelo que est„o disponÌveis 
-aos usu·rios do sistema operacional GNU/Linux: Sistemas Linux SMP, 
-Sistemas Linux em Clusters de rede, execuÁ„o paralela usando as 
-instruÁıes multimÌdia do processador (i.e. MMX) e processadores 
+quatro m√©todos para realizar processamento paralelo que est√£o dispon√≠veis 
+aos usu√°rios do sistema operacional GNU/Linux: Sistemas Linux SMP, 
+Sistemas Linux em Clusters de rede, execu√ß√£o paralela usando as 
+instru√ß√µes multim√≠dia do processador (i.e. MMX) e processadores 
 (paralelos) conectados no sistema <prgn>GNU/Linux</prgn>. 
 
 <tag>SMP-HOWTO</tag>
  <item>
-Este HOWTO revisa principais assuntos (e eu espero que soluÁıes) 
-relacionadas com as configuraÁıes SMP sob o <prgn>GNU/Linux</prgn>.  
+Este HOWTO revisa principais assuntos (e eu espero que solu√ß√µes) 
+relacionadas com as configura√ß√µes SMP sob o <prgn>GNU/Linux</prgn>.  
 
 </taglist>
 
 
-<sect2>ConfiguraÁ„o de Teclado / VÌdeo / Console 
+<sect2>Configura√ß√£o de Teclado / V√≠deo / Console 
  <p>
 <taglist>
 <tag>Font-HOWTO</tag>
@@ -993,48 +993,48 @@ Como usar e configurar corretamente tipos de fontes no ambiente GNU/Linux.
 <tag>Framebuffer-HOWTO</tag>
  <item>
 Descreve como utilizar dispositivos framebuffer no <prgn>GNU/Linux</prgn> 
-com uma variedade de plataformas. Isto tambÈm inclui como ajustar 
+com uma variedade de plataformas. Isto tamb√©m inclui como ajustar 
 telas multi-headed. 
 
 <tag>Keyboard-and-Console-HOWTO</tag>
  <item>
-Este documento contÈm algumas informaÁıes sobre o teclado e console no 
-<prgn>GNU/Linux</prgn>, e o uso de caracteres n„o-ASCII. Ele descreve o 
+Este documento cont√©m algumas informa√ß√µes sobre o teclado e console no 
+<prgn>GNU/Linux</prgn>, e o uso de caracteres n√£o-ASCII. Ele descreve o 
 <prgn>GNU/Linux</prgn> 2.0. 
 
 <tag>Text-Terminal-HOWTO</tag>
  <item>
-Explica o que s„o os terminais texto, como funcionam, como instalar e 
-configura-los e oferece muitos detalhes de como conserta-los. Se n„o tiver 
-um manual do terminal, poder· ser de grande ajuda. Enquanto È escrito 
-para terminais reais no sistema <prgn>GNU/Linux</prgn> alguns deles tambÈm 
-s„o aplic·veis a emulaÁ„o de terminal e pode ser ˙til para sistemas 
-n„o Linux. 
+Explica o que s√£o os terminais texto, como funcionam, como instalar e 
+configura-los e oferece muitos detalhes de como conserta-los. Se n√£o tiver 
+um manual do terminal, poder√° ser de grande ajuda. Enquanto √© escrito 
+para terminais reais no sistema <prgn>GNU/Linux</prgn> alguns deles tamb√©m 
+s√£o aplic√°veis a emula√ß√£o de terminal e pode ser √∫til para sistemas 
+n√£o Linux. 
 
 <tag>Unicode-HOWTO</tag>
  <item>
 Explica como alterar seu sistema <prgn>GNU/Linux</prgn> para utilizar a 
-codificaÁ„o de texto baseada no UTF-8. - 
+codifica√ß√£o de texto baseada no UTF-8. - 
 
 </taglist>
 
 
-<sect2>Ambiente Gr·fico
+<sect2>Ambiente Gr√°fico
  <p>
 <taglist>
 <tag>MGR-HOWTO</tag>
  <item>
-O MGR (ManaGeR) È um sistema de janelas gr·fico. O servidor MGR oferece um 
-gerenciador de janelas embutido e emulaÁ„o de terminal gr·fico em janela em 
-monitor colorido ou monocrom·tico. O MGR È controlado por menus pop-up, 
-por interaÁ„o do teclado e por seq¸encias de escapa escrita em 
+O MGR (ManaGeR) √© um sistema de janelas gr√°fico. O servidor MGR oferece um 
+gerenciador de janelas embutido e emula√ß√£o de terminal gr√°fico em janela em 
+monitor colorido ou monocrom√°tico. O MGR √© controlado por menus pop-up, 
+por intera√ß√£o do teclado e por seq√ºencias de escapa escrita em 
 pseudo-terminais pelo software cliente. 
 
 <tag>XFree86-HOWTO</tag>
  <item>
-Este documento descreve como obter, instalar e configurar a vers„o 
+Este documento descreve como obter, instalar e configurar a vers√£o 
 4.0 do XFree86 do X Window System (X11R6) para sistemas <prgn>GNU/Linux</prgn>. 
-Ele È um guia passo a passo para configurar o XFree86 em seu sistema.  
+Ele √© um guia passo a passo para configurar o XFree86 em seu sistema.  
  
 <tag>XFree86-Touch-Screen-HOWTO</tag>
  <item>
@@ -1043,74 +1043,74 @@ XFree86.
  
 <tag>XFree86-Video-Timings-HOWTO</tag>
  <item>
-Como configurar os modos de vÌdeo de sua placa/monitor sob o 
+Como configurar os modos de v√≠deo de sua placa/monitor sob o 
 XFree86. 
  
 <tag>XWindow-User-HOWTO</tag>
  <item>
-Este documento contÈm detalhes sobre a configuraÁ„o do ambiente 
-X Windows para o usu·rio <prgn>GNU/Linux</prgn>, tambÈm como o 
+Este documento cont√©m detalhes sobre a configura√ß√£o do ambiente 
+X Windows para o usu√°rio <prgn>GNU/Linux</prgn>, tamb√©m como o 
 administrador de sistemas iniciantes tentando aprender os mais 
-diversos tipos de opÁıes de configuraÁ„o e detalhes do X Window. 
-… assumido um conhecimento b·sico de configuraÁıes de software e 
-instalaÁ„o. 
+diversos tipos de op√ß√µes de configura√ß√£o e detalhes do X Window. 
+√â assumido um conhecimento b√°sico de configura√ß√µes de software e 
+instala√ß√£o. 
  
 <tag>Xinerama-HOWTO</tag>
  <item>
-Este documento descreve como configurar o XFree86 vers„o 4.0 com 
-monitores multimÌdia com as extensıes Xinerama.
+Este documento descreve como configurar o XFree86 vers√£o 4.0 com 
+monitores multim√≠dia com as extens√µes Xinerama.
 
 </taglist>
 
 
-<sect2>Suporte ao Sistema / Grupos de Usu·rios / Listas de Discuss„o
+<sect2>Suporte ao Sistema / Grupos de Usu√°rios / Listas de Discuss√£o
  <p>
 <taglist>
 <tag>Consultants-HOWTO</tag>
  <item>
-ContÈm uma lista de empresas e consultores oferecendo suporte comercial 
+Cont√©m uma lista de empresas e consultores oferecendo suporte comercial 
 relacionado ao sistema <prgn>GNU/Linux</prgn>. 
 
 <tag>Online-Troubleshooting-HOWTO</tag>
  <item>
-Este documento direciona usu·rios <prgn>GNU/Linux</prgn> a lugares 
-disponÌveis na Internet que oferecem acesso a uma vasta quantidade de 
-documentos ˙teis relacionados ao sistema em situaÁıes de problema. 
+Este documento direciona usu√°rios <prgn>GNU/Linux</prgn> a lugares 
+dispon√≠veis na Internet que oferecem acesso a uma vasta quantidade de 
+documentos √∫teis relacionados ao sistema em situa√ß√µes de problema. 
 
 <tag>User-Group-HOWTO</tag>
  <item>
 Este documento descreve como fundar, manter e organizar um grupo de 
-usu·rios <prgn>GNU/Linux</prgn>. 
+usu√°rios <prgn>GNU/Linux</prgn>. 
 
 </taglist>
 
 
-<sect2>MigraÁ„o / ConvivÍncia com Outras Plataformas
+<sect2>Migra√ß√£o / Conviv√™ncia com Outras Plataformas
  <p>
 <taglist>
 <tag>DOS-Win-to-Linux-HOWTO</tag>
  <item>
-Este documento tem a intenÁ„o de ajudar o leitor traduzir seu conhecimento 
-do DOS e Windows para o ambiente <prgn>GNU/Linux</prgn>, tambÈm 
-como oferecer dicas de manipulaÁ„o de arquivos e utilizaÁ„o de recursos 
+Este documento tem a inten√ß√£o de ajudar o leitor traduzir seu conhecimento 
+do DOS e Windows para o ambiente <prgn>GNU/Linux</prgn>, tamb√©m 
+como oferecer dicas de manipula√ß√£o de arquivos e utiliza√ß√£o de recursos 
 entre os dois sistemas. 
 
 <tag>VMS-to-Linux-HOWTO</tag>
  <item>
-Este documento È escrito para todos aqueles que tem usado o VMS e agora 
+Este documento √© escrito para todos aqueles que tem usado o VMS e agora 
 precisam migrar para o <prgn>GNU/Linux</prgn> um clone gratuito do 
-<prgn>UNIX</prgn>. A transiÁ„o È feita (felizmente) atravÈs de uma 
-comparaÁ„o passo a passo de comandos e ferramentas existentes. 
+<prgn>UNIX</prgn>. A transi√ß√£o √© feita (felizmente) atrav√©s de uma 
+compara√ß√£o passo a passo de comandos e ferramentas existentes. 
 
 </taglist>
 
 
-<sect2>Tarefas EspecÌficas
+<sect2>Tarefas Espec√≠ficas
  <p>
 <taglist>
 <tag>Astronomy-HOWTO</tag>
  <item>
-Este documento compartilha dicas e recursos para utilizar soluÁıes do 
+Este documento compartilha dicas e recursos para utilizar solu√ß√µes do 
 <prgn>GNU/Linux</prgn> no mundo da Astronomia. 
 
 <tag>CD-Writing-HOWTO</tag>
@@ -1121,32 +1121,32 @@ Este documento explica como gravar CD-ROMs sob o <prgn>GNU/Linux</prgn>.
  <item>
 Este documento descreve como instalar, configurar e usar uma unidade de 
 CD-ROM sob o <prgn>GNU/Linux</prgn>. Ele lista hardwares suportados e 
-responde a um n˙mero de questıes freq¸Íntes. 
+responde a um n√∫mero de quest√µes freq√º√™ntes. 
  
 <tag>CVS-RCS-HOWTO</tag>
  <item>
-Este documento È um <em>guia pr·tico</em> para rapidamente configurar 
-o sistema de controle do cÛdigo fonte CVS/RCS. Este documento tambÈm 
-possui shell scripts personalizados que s„o trocados no topo do 
-CVS. Estes scripts oferecem uma interface f·cil entre o usu·rio e o 
+Este documento √© um <em>guia pr√°tico</em> para rapidamente configurar 
+o sistema de controle do c√≥digo fonte CVS/RCS. Este documento tamb√©m 
+possui shell scripts personalizados que s√£o trocados no topo do 
+CVS. Estes scripts oferecem uma interface f√°cil entre o usu√°rio e o 
 CVS. 
 
 <tag>DVD-Playing-HOWTO</tag>
  <item>
-Uma explicaÁ„o f·cil de seguir de como obter seu DVD funcionando no 
+Uma explica√ß√£o f√°cil de seguir de como obter seu DVD funcionando no 
 <prgn>GNU/Linux</prgn>.  
 
 <tag>Diskless-HOWTO</tag>
  <item>
-Este documento descreve como configurar uma m·quina sem disco rÌgido no 
+Este documento descreve como configurar uma m√°quina sem disco r√≠gido no 
 <prgn>GNU/Linux</prgn>.
 
 <tag>Java-Decompiler-HOWTO</tag>
  <item>
-Este documento te ajudar· a descompilar programas class feitos em Java. 
-Este documento contÈm uma lista de descompiladores que podem reverter 
-o engineer os arquivos Java class e gerar arquivos de cÛdigo fonte Java. 
-Isto È muito ˙til se vocÍ n„o tem o arquivo com o cÛdigo fonte Java. 
+Este documento te ajudar√° a descompilar programas class feitos em Java. 
+Este documento cont√©m uma lista de descompiladores que podem reverter 
+o engineer os arquivos Java class e gerar arquivos de c√≥digo fonte Java. 
+Isto √© muito √∫til se voc√™ n√£o tem o arquivo com o c√≥digo fonte Java. 
  
 <tag>JavaStation-HOWTO</tag>
  <item>
@@ -1155,7 +1155,7 @@ Este HOWTO descreve como ativar o SO GNU/Linux no NC Sun Java Station.
 <tag>KickStart-HOWTO</tag>
  <item>
 Este documento descreve como usar o sistema Linux RedHat para 
-instalar rapidamente o sistema em um grande n˙mero de m·quinas 
+instalar rapidamente o sistema em um grande n√∫mero de m√°quinas 
 <prgn>GNU/Linux</prgn>. 
  
 <tag>Kiosk-HOWTO</tag>
@@ -1166,31 +1166,31 @@ trackball customizado.
 
 <tag>Linux-From-Scratch-HOWTO</tag>
  <item>
-Este documento descreve o processo de criar seu prÛprio sistema 
-<prgn>GNU/Linux</prgn> do nada atravÈs de uma distribuiÁ„o j· instalada, 
-usando nada mais que o cÛdigo fonte dos softwares que precisamos. 
+Este documento descreve o processo de criar seu pr√≥prio sistema 
+<prgn>GNU/Linux</prgn> do nada atrav√©s de uma distribui√ß√£o j√° instalada, 
+usando nada mais que o c√≥digo fonte dos softwares que precisamos. 
 
 <tag>MP3-HOWTO</tag>
  <item>
-Este documento descreve o hardware, software e processos necess·rios, 
+Este documento descreve o hardware, software e processos necess√°rios, 
 para encodificar, tocar, mixar e decodificar arquivos de som MP3 sob 
 o <prgn>GNU/Linux</prgn>.
 
 <tag>Majordomo-MajorCool-HOWTO</tag>
  <item>
-Este documento tem a intenÁ„o de guiar o usu·rio atravÈs do software 
-de gerenciamento de listas de discuss„o Majordomo e MajorCool. O 
-MajorCool È um utilit·rio para gerenciar listas Majordomo via 
-script CGI; muitas pessoas que n„o est„o familiar com o 
+Este documento tem a inten√ß√£o de guiar o usu√°rio atrav√©s do software 
+de gerenciamento de listas de discuss√£o Majordomo e MajorCool. O 
+MajorCool √© um utilit√°rio para gerenciar listas Majordomo via 
+script CGI; muitas pessoas que n√£o est√£o familiar com o 
 Majordomo baseado em modo texto podem preferir uma interface mais 
-amig·vel via web do MajorCool. 
+amig√°vel via web do MajorCool. 
 
 <tag>Mutt-GnuPG-PGP-HOWTO</tag>
  <item>
 Este documento explica como configurar rapidamente o Mutt-i, PGP e 
-GnuPG em suas diferentes versıes (2.6.x, 5.x e GnuPG), nada dos problemas 
+GnuPG em suas diferentes vers√µes (2.6.x, 5.x e GnuPG), nada dos problemas 
 que podem ocorrer enquanto envia e-mails criptografados e assinados para 
-ser lidos por clientes de e-mail que n„o s„o compatÌveis com 
+ser lidos por clientes de e-mail que n√£o s√£o compat√≠veis com 
 PGP/MIME como definido na RFC 2015 e em outros sistemas operacionais. 
 
 <tag>NC-HOWTO</tag>
@@ -1206,26 +1206,26 @@ rede local usando um computador <prgn>GNU/Linux</prgn> como servidor.
 <tag>PalmOS-HOWTO</tag>
  <item>
 Este documento explica como usar seu dispositivo Palm OS com um 
-sistema <prgn>GNU/Linux</prgn>. Este HOWTO n„o aborda somente o 
+sistema <prgn>GNU/Linux</prgn>. Este HOWTO n√£o aborda somente o 
 sistema operacional <prgn>GNU/Linux</prgn>.  
 
 <tag>Printing-HOWTO</tag>
  <item>
-Este È o Printing HOWTO do <prgn>GNU/Linux</prgn>, uma coleÁ„o de informaÁıes 
+Este √© o Printing HOWTO do <prgn>GNU/Linux</prgn>, uma cole√ß√£o de informa√ß√µes 
 sobre como gerar, ver, imprimir e enviar fax de tudo sob o 
 <prgn>GNU/Linux</prgn> (e outros UNIXes em geral). 
 
 <tag>Printing-Usage-HOWTO</tag>
  <item>
 Descreve como usar o sistema de spooling oferecido pelo sistema 
-operacional <prgn>GNU/Linux</prgn>. Este HOWTO È um documento 
-suplementar ao Linux Printing Setup, que discute a instalaÁ„o 
-e configuraÁ„o do sistema de impress„o do <prgn>GNU/Linux</prgn>. 
+operacional <prgn>GNU/Linux</prgn>. Este HOWTO √© um documento 
+suplementar ao Linux Printing Setup, que discute a instala√ß√£o 
+e configura√ß√£o do sistema de impress√£o do <prgn>GNU/Linux</prgn>. 
 
 <tag>Psion-HOWTO</tag>
  <item>
 Este documento descreve como  usar Palmtops Psion com o <prgn>GNU/Linux</prgn>, 
-mas n„o cobre a execuÁ„o do Linux no Palmtop Psion. Veja o projeto 
+mas n√£o cobre a execu√ß√£o do Linux no Palmtop Psion. Veja o projeto 
 <em>Linux 7k</em> em <url id="http://www.calcaria.net">.  
 
 <tag>Quake-HOWTO</tag>
@@ -1235,20 +1235,20 @@ Quake, QuakeWorld e Quake II em um sistema <prgn>GNU/Linux</prgn> Intel.
  
 <tag>RedHat-CD-HOWTO</tag>
  <item>
-Descreve como fazer seus prÛprios CDs da distribuiÁ„o Red Hat, a 
-estrutura da distribuiÁ„o e tambÈm como incluir RPMs atualizados 
-na distribuiÁ„o. 
+Descreve como fazer seus pr√≥prios CDs da distribui√ß√£o Red Hat, a 
+estrutura da distribui√ß√£o e tamb√©m como incluir RPMs atualizados 
+na distribui√ß√£o. 
 
 <tag>Sound-HOWTO</tag>
  <item>
 Este documento descreve o suporte ao som no <prgn>GNU/Linux</prgn>, 
 arquiteturas de som suportadas e como incluir o suporte ao som no 
-kernel. Este documento tambÈm responde algumas questıes freq¸Íntes 
+kernel. Este documento tamb√©m responde algumas quest√µes freq√º√™ntes 
 sobre o suporte ao som no <prgn>GNU/Linux</prgn>. 
  
 <tag>Sound-Playing-HOWTO</tag>
  <item>
-Este documento lista aplicativos que podem tocar v·rios formatos de 
+Este documento lista aplicativos que podem tocar v√°rios formatos de 
 sons no <prgn>GNU/Linux</prgn>. 
 
 <tag>VME-HOWTO</tag>
@@ -1260,19 +1260,19 @@ processador VMEbus.
 </taglist>
 
 
-<sect2>Rede / AdministraÁ„o / Firewall / Proxy / SeguranÁa
+<sect2>Rede / Administra√ß√£o / Firewall / Proxy / Seguran√ßa
  <p>
 <taglist>
 <tag>AX25-HOWTO</tag>
  <item>
-Talvez o <prgn>GNU/Linux</prgn> seja o ˙nico sistema operacional no mundo 
-que possui suporte nativo e padr„o ao protocolo de pacotes de r·dio 
-AX.25 usado por Operadores de R·dio Amador ao redor do mundo. Este 
+Talvez o <prgn>GNU/Linux</prgn> seja o √∫nico sistema operacional no mundo 
+que possui suporte nativo e padr√£o ao protocolo de pacotes de r√°dio 
+AX.25 usado por Operadores de R√°dio Amador ao redor do mundo. Este 
 documento explica como instalar e configurar este suporte. 
  
 <tag>Adv-Routing-HOWTO</tag>
  <item>
-Roteamento avanÁado. ExplicaÁıes sobre o <prgn>iproute2</prgn>, <prgn>traffic 
+Roteamento avan√ßado. Explica√ß√µes sobre o <prgn>iproute2</prgn>, <prgn>traffic 
 shaper</prgn> e <prgn>netfilter</prgn>. 
 
 <tag>Bandwidth-Limiting-HOWTO</tag>
@@ -1281,27 +1281,27 @@ Descreve como configurar o servidor Linux para limitar banda.
  
 <tag>BRIDGE-STP-HOWTO</tag>
  <item>
-Este documento explica o que È uma ponte entre redes e como criar uma 
-utilizando o Spanning Tree Protocol (STP). Este È um mÈtodo de manter os 
-dispositivos Ethernet conectados e funcionando em m˙ltiplos caminhos. 
-Os participantes negociam a troca atravÈs do caminho mais curto atravÈs 
+Este documento explica o que √© uma ponte entre redes e como criar uma 
+utilizando o Spanning Tree Protocol (STP). Este √© um m√©todo de manter os 
+dispositivos Ethernet conectados e funcionando em m√∫ltiplos caminhos. 
+Os participantes negociam a troca atrav√©s do caminho mais curto atrav√©s 
 do STP. 
 
 <tag>Cable-Modem</tag>
  <item>
-Fornece instruÁıes de como usar o Linux para se conectar a um provedor de 
+Fornece instru√ß√µes de como usar o Linux para se conectar a um provedor de 
 Cable modem.
 
 <tag>Chroot-BIND8-HOWTO</tag>
  <item>
-Este documento descreve a instalaÁ„o do servidor de nomes BIND 8 para 
-ser executado em uma jaula chroot e como um usu·rio n„o-root, para 
-oferecer seguranÁa adicional e minimizar efeitos potenciais que podem 
-comprometer a seguranÁa. 
+Este documento descreve a instala√ß√£o do servidor de nomes BIND 8 para 
+ser executado em uma jaula chroot e como um usu√°rio n√£o-root, para 
+oferecer seguran√ßa adicional e minimizar efeitos potenciais que podem 
+comprometer a seguran√ßa. 
 
 <tag>Cyrus-IMAP</tag>
  <item>
-Um guia compreensivo para a instalaÁ„o, configuraÁ„o e execuÁ„o do 
+Um guia compreensivo para a instala√ß√£o, configura√ß√£o e execu√ß√£o do 
 <prgn>Cyrus Imap</prgn> e <prgn>Cyrus SASL</prgn>.
 
 
@@ -1311,73 +1311,73 @@ Como configurar seu servidor DNS em pouco tempo.
 
 <tag>Diald-HOWTO</tag>
  <item>
-Este documento mostra alguns cen·rios tÌpicos para iniciar o uso do 
-<prgn>Diald</prgn> facilmente. Este cen·rios incluem uma conex„o de um 
-computador local a um provedor usando o PPP atravÈs de um modem sem usar 
+Este documento mostra alguns cen√°rios t√≠picos para iniciar o uso do 
+<prgn>Diald</prgn> facilmente. Este cen√°rios incluem uma conex√£o de um 
+computador local a um provedor usando o PPP atrav√©s de um modem sem usar 
 o pon/poff ou ppp-pon/ppp-off para um servidor proxy/firewall com 
-diferentes conexıes Internet atravÈs de v·rios provedores. 
+diferentes conex√µes Internet atrav√©s de v√°rios provedores. 
 
 <tag>Diskless-root-NFS-HOWTO</tag>
  <item>
-Explica como configurar um servidor e clientes para operaÁ„o sem disco 
-atravÈs de uma rede. 
+Explica como configurar um servidor e clientes para opera√ß√£o sem disco 
+atrav√©s de uma rede. 
 
 <tag>DSL-HOWTO</tag>
  <item>
-Este documento examina a famÌlia DSL de serviÁos Internet de alta 
+Este documento examina a fam√≠lia DSL de servi√ßos Internet de alta 
 velocidade. Descreve como instalar, configurar depurar.
 
 
 <tag>Ethernet-HOWTO</tag>
  <item>
-Este documento È uma coleÁ„o de dados sobre dispositivos Ethernet que podem 
+Este documento √© uma cole√ß√£o de dados sobre dispositivos Ethernet que podem 
 ser usados no <prgn>GNU/Linux</prgn> e como configura-los. Note que este 
-HOWTO est· focalizado no hardware e aspectos de baixo nÌvel de controladores 
-das placas ethernet e n„o cobre assuntos de software como os programas 
+HOWTO est√° focalizado no hardware e aspectos de baixo n√≠vel de controladores 
+das placas ethernet e n√£o cobre assuntos de software como os programas 
 <prgn>ifconfig</prgn> e <prgn>route</prgn> (veja o Network-HOWTO se 
 procura por estes materiais). 
 
 <tag>Firewall-HOWTO</tag>
  <item>
-Descreve os sistemas b·sicos de firewall e alguns detalhes de como 
+Descreve os sistemas b√°sicos de firewall e alguns detalhes de como 
 ajustar firewalls proxy e de filtragem de pacotes em sistemas baseados 
 no <prgn>GNU/Linux</prgn>. 
 
 <tag>IP-Masquerade-HOWTO</tag>
  <item>
-Este documento descreve como ativar a caracterÌstica IP Masquerade no 
-<prgn>GNU/Linux</prgn>. O IP Masquerade È uma forma do Network Address 
+Este documento descreve como ativar a caracter√≠stica IP Masquerade no 
+<prgn>GNU/Linux</prgn>. O IP Masquerade √© uma forma do Network Address 
 Translation ou NAT que permite que computadores conectados internamente 
-que n„o tem um ou mais endereÁos Internet registrados ter a habilidade 
-de se comunicar com a Internet via uma ˙nica m·quina <prgn>GNU/Linux</prgn> 
-com um ˙nico endereÁo IP. 
+que n√£o tem um ou mais endere√ßos Internet registrados ter a habilidade 
+de se comunicar com a Internet via uma √∫nica m√°quina <prgn>GNU/Linux</prgn> 
+com um √∫nico endere√ßo IP. 
  
 <tag>IPCHAINS-HOWTO</tag>
  <item>
-Descreve como obter, instalar e configurar o programa avanÁado de firewall 
-para o <prgn>GNU/Linux</prgn> e algumas idÈia de como usa-lo. 
+Descreve como obter, instalar e configurar o programa avan√ßado de firewall 
+para o <prgn>GNU/Linux</prgn> e algumas id√©ia de como usa-lo. 
  
 <tag>IPX-HOWTO</tag>
  <item>
-Descreve como obter, instalar e configurar as v·rias ferramentas disponÌveis 
+Descreve como obter, instalar e configurar as v√°rias ferramentas dispon√≠veis 
 para o sistema operacional <prgn>GNU/Linux</prgn> para utilizar o suporte 
 do protocolo IPX no kernel do <prgn>GNU/Linux</prgn>. 
  
 <tag>Infrared-HOWTO</tag>
  <item>
-Uma introduÁ„o ao <prgn>GNU/Linux</prgn> e dispositivos infra-vermelho 
+Uma introdu√ß√£o ao <prgn>GNU/Linux</prgn> e dispositivos infra-vermelho 
 e como usar programas oferecidos pelo projeto Linux/IrDA. 
  
 <tag>ISP-Hookup-HOWTO</tag>
  <item>
 Descreve como usar o <prgn>GNU/Linux</prgn> para conectar a um Provedor 
-Internet via modem dial-up via conex„o TCP/IP. TambÈm como 
+Internet via modem dial-up via conex√£o TCP/IP. Tamb√©m como 
 o procedimento de discagem inicial e estabelecimento de IP, 
 recebimento de email e news. 
 
 <tag>ISP-Setup-RedHat-HOWTO</tag>
  <item>
-Descreve como configurar serviÁos de ISP no Red Hat. DomÌnios, virtual hosts, 
+Descreve como configurar servi√ßos de ISP no Red Hat. Dom√≠nios, virtual hosts, 
 pop3 e emails.
 
 <tag>Intranet-Server-HOWTO</tag>
@@ -1394,45 +1394,45 @@ CGI.
 
 <tag>LDAP-HOWTO</tag>
  <item>
-InformaÁıes sobre a instalaÁ„o, configuraÁ„o, execuÁ„o e manutenÁ„o de um 
-Servidor LDAP (Lightweight Directory Access Protocol) em uma m·quina 
-<prgn>GNU/Linux</prgn> È descrita neste documento. Existe tambÈm detalhes sobre 
-como criar bancos de dados LDAP, como atualizar e apagar informaÁıes no 
+Informa√ß√µes sobre a instala√ß√£o, configura√ß√£o, execu√ß√£o e manuten√ß√£o de um 
+Servidor LDAP (Lightweight Directory Access Protocol) em uma m√°quina 
+<prgn>GNU/Linux</prgn> √© descrita neste documento. Existe tamb√©m detalhes sobre 
+como criar bancos de dados LDAP, como atualizar e apagar informa√ß√µes no 
 banco de dados, como implementar roaming access e como usar o Livro de 
-EndereÁos do Netscape. 
+Endere√ßos do Netscape. 
 
 <tag>LDAP-Implementation-HOWTO</tag>
  <item>
-Descreve aspectos tÈcnicos de armazenamento de dados de aplicaÁıes em um 
+Descreve aspectos t√©cnicos de armazenamento de dados de aplica√ß√µes em um 
 servidor LDAP.
 
 <tag>Mail-Administrator-HOWTO</tag>
  <item>
-Este documento descreve a configuraÁ„o e uso do Correio EletrÙnico 
-(E-mail) sob o <prgn>GNU/Linux</prgn>. … primariamente mais indicado para 
-administradores do que usu·rios. 
+Este documento descreve a configura√ß√£o e uso do Correio Eletr√¥nico 
+(E-mail) sob o <prgn>GNU/Linux</prgn>. √â primariamente mais indicado para 
+administradores do que usu√°rios. 
 
 <tag>Mail-User-HOWTO</tag>
  <item>
-Este documento È uma introduÁ„o ao mundo do Correio EletrÙnico sob o 
+Este documento √© uma introdu√ß√£o ao mundo do Correio Eletr√¥nico sob o 
 <prgn>GNU/Linux</prgn>
 
 
 <tag>Masquerading-Simple-HOWTO</tag>
  <item>
-Descreve de forma pr·tica como conectar diversas m·quinas de sua rede Interna
+Descreve de forma pr√°tica como conectar diversas m√°quinas de sua rede Interna
 a Internet.
 
 <tag>MindTerm-SSH-HOWTO</tag>
  <item>
 Este documento descreve como usar o SSH o programa MindTerm baseado em Java
-para criar de forma r·pida, segura e confi·vel uma VPN sobre redes inseguras. 
+para criar de forma r√°pida, segura e confi√°vel uma VPN sobre redes inseguras. 
 
 <tag>Multicast-HOWTO</tag>
  <item>
  Este HOWTO tenta cobrir muitos aspectos relacionados com o multicast 
- sobre redes TCP/IP. Assim, muitas informaÁıes que n„o s„o especÌficas 
- do sistema Linux (apenas no caso de n„o usar o GNU/Linux... ainda). 
+ sobre redes TCP/IP. Assim, muitas informa√ß√µes que n√£o s√£o espec√≠ficas 
+ do sistema Linux (apenas no caso de n√£o usar o GNU/Linux... ainda). 
 
 <tag>NFS-HOWTO</tag>
  <item>
@@ -1449,120 +1449,120 @@ cliente NIS (YS) ou NIS+ e como instala-lo como um servidor NIS.
 
 <tag>Network-boot-HOWTO</tag>
  <item>
-Descreve como configurar um servidor Linux para permitir que estaÁıes sem 
-disco rÌgido faÁam boot via rede e iniciem o sistema Linux (È uma regravaÁ„o
+Descreve como configurar um servidor Linux para permitir que esta√ß√µes sem 
+disco r√≠gido fa√ßam boot via rede e iniciem o sistema Linux (√© uma regrava√ß√£o
 parcial do Diskless-howto).
 
 <tag>Net-HOWTO</tag>
  <item>
-Este documento cobre as ·rea de software e tecnologias de rede no 
+Este documento cobre as √°rea de software e tecnologias de rede no 
 <prgn>GNU/Linux</prgn>. 
     
 <tag>Networking-Overview-HOWTO</tag>
  <item>
-O propÛsito deste documento È lhe oferecer uma vis„o das capacidades de rede 
+O prop√≥sito deste documento √© lhe oferecer uma vis√£o das capacidades de rede 
 do sistema operacional <prgn>GNU/Linux</prgn> e oferecer ponteiros para outros 
-documentos e detalhes de implementaÁ„o. 
+documentos e detalhes de implementa√ß√£o. 
 
 <tag>PPP-HOWTO</tag>
  <item>
 Este documento mostra como conectar seu PC <prgn>GNU/Linux</prgn> a um servidor 
 PPP (Protocolo Ponto a Ponto), como usar o PPP para ligar duas redes e 
-oferece um mÈtodo de configurar seu computador <prgn>GNU/Linux</prgn> como um 
-servidor PPP. Este documento tambÈm oferece ajuda na soluÁ„o de problemas 
+oferece um m√©todo de configurar seu computador <prgn>GNU/Linux</prgn> como um 
+servidor PPP. Este documento tamb√©m oferece ajuda na solu√ß√£o de problemas 
 relacionados com o PPP. 
 
 <tag>Qmail-VMailMgr-Courier-imap-HOWTO</tag>
  <item>
-Este documento È sobre a construÁ„o de um servidor de e-mail que suportar· 
-hospedagem de domÌnios din‚micos e oferecer· os serviÁos smtp, pop3 e 
+Este documento √© sobre a constru√ß√£o de um servidor de e-mail que suportar√° 
+hospedagem de dom√≠nios din√¢micos e oferecer√° os servi√ßos smtp, pop3 e 
 imap, usando uma poderosa alternativa ao sendmail.  
 
 <tag>Remote-Serial-Console-HOWTO</tag>
  <item>
 A porta RS232 permite que o Linux ser controlado de um terminal ou modem 
-conectado a uma porta serial assÌncrona. Este documento descreve como 
+conectado a uma porta serial ass√≠ncrona. Este documento descreve como 
 configurar o Linux para se conectar ao console serial.
 
 <tag>Sat-HOWTO</tag>
  <item>
-Descreve base e referÍncias sober a tecnologia SAP, as caracterÌsticas 
+Descreve base e refer√™ncias sober a tecnologia SAP, as caracter√≠sticas 
 de larga banda para download, etc.
 
 <tag>Serial-Laplink-HOWTO</tag>
  <item>
-Descreve como criar uma conex„o serial entre dois computadores para compartilhamento
-de dados. Este permite tambÈm efetuar conexıes seriais entre outros tipos de 
+Descreve como criar uma conex√£o serial entre dois computadores para compartilhamento
+de dados. Este permite tamb√©m efetuar conex√µes seriais entre outros tipos de 
 sistemas operacionais como Windows 9X, NT. 
 
 
 <tag>SMB-HOWTO</tag>
  <item>
-Este È o HOWTO SMB. Ele descreve como usar o protocolo Server 
-Message Block (SMB), tambÈm chamado de Session Message Block, 
+Este √© o HOWTO SMB. Ele descreve como usar o protocolo Server 
+Message Block (SMB), tamb√©m chamado de Session Message Block, 
 NetBIOS ou protocolo LanManager, com o <prgn>GNU/Linux</prgn> e 
 usando o Samba. 
 
 <tag>Securing-Domain-HOWTO</tag>
  <item>
 Este documento descreve as coisas que provavelmente deve fazer quando 
-desejar configurar uma rede de computadores sob seu prÛprio 
-domÌnio. Ele cobre a configuraÁ„o de par‚metros de rede, serviÁos de 
-rede e configuraÁıes de seguranÁa.  
+desejar configurar uma rede de computadores sob seu pr√≥prio 
+dom√≠nio. Ele cobre a configura√ß√£o de par√¢metros de rede, servi√ßos de 
+rede e configura√ß√µes de seguran√ßa.  
  
 <tag>Security-HOWTO</tag>
  <item>
-Este documento È uma vis„o geral dos assuntos de seguranÁa que enfrente o 
+Este documento √© uma vis√£o geral dos assuntos de seguran√ßa que enfrente o 
 administrador de sistemas <prgn>GNU/Linux</prgn> Ele cobre a filosofia 
-geral de seguranÁa e um n˙mero de exemplos especÌficos de como 
-melhorar a seguranÁa de seu sistema <prgn>GNU/Linux</prgn> TambÈm est„o 
-incluÌdos ponteiros para materiais relacionados com programas e 
-seguranÁa. 
+geral de seguran√ßa e um n√∫mero de exemplos espec√≠ficos de como 
+melhorar a seguran√ßa de seu sistema <prgn>GNU/Linux</prgn> Tamb√©m est√£o 
+inclu√≠dos ponteiros para materiais relacionados com programas e 
+seguran√ßa. 
 
 <tag>Shadow-Password-HOWTO</tag>
  <item>
 Este documento tenta descrever como obter, instalar e configurar o 
-Linux password Shadow Suite. TambÈm discute como obter e reinstalar 
+Linux password Shadow Suite. Tamb√©m discute como obter e reinstalar 
 outros softwares e daemons de rede que requerem acesso as senhas do 
-usu·rio. 
+usu√°rio. 
 
 <tag>SSL-RedHat-HOWTO</tag>
  <item>
-Fornece referÍncias sobre como o PKI e SSL funcionam juntos 
+Fornece refer√™ncias sobre como o PKI e SSL funcionam juntos 
 
 <tag>Tango-HOWTO</tag>
  <item>
-Descreve a instalaÁ„o, configuraÁ„o e correÁ„o de problemas b·sicos do 
-Pervasive Software's Tango Application Server no Sun Solaris e v·rios 
+Descreve a instala√ß√£o, configura√ß√£o e corre√ß√£o de problemas b√°sicos do 
+Pervasive Software's Tango Application Server no Sun Solaris e v√°rios 
 sabores de <prgn>GNU/Linux</prgn>. 
 
 <tag>Thinclient-HOWTO</tag>
  <item>
-Como converter computadores comuns em r·pidos terminais usando o 
-poder de seu computador principal, vocÍ precisar· de: Um computador 
-r·pido para atuar como servidor, um computador cliente (antigo e n„o 
-desejado). Placas de rede compatÌveis com o <prgn>GNU/Linux</prgn>. Uma 
-conex„o entre os computadores. Como centralizar a administraÁ„o do 
+Como converter computadores comuns em r√°pidos terminais usando o 
+poder de seu computador principal, voc√™ precisar√° de: Um computador 
+r√°pido para atuar como servidor, um computador cliente (antigo e n√£o 
+desejado). Placas de rede compat√≠veis com o <prgn>GNU/Linux</prgn>. Uma 
+conex√£o entre os computadores. Como centralizar a administra√ß√£o do 
 sistema usando o NFS (i.e. colocando todo o sistema de arquivos 
-de um cliente r·pido no servidor). 
+de um cliente r√°pido no servidor). 
 
 <tag>UUCP-HOWTO</tag>
  <item>
-Este documento descreve a configuraÁ„o do UUCP sob o <prgn>GNU/Linux</prgn>. 
-VocÍ deve ler este documento se planejar conectar a sites remotos via 
-UUCP via modem, conex„o direta ou via Internet. Provavelmente n„o 
-precisar· ler este documento se n„o souber o que È UUCP ou se seu 
-computador n„o possuir este suporte. 
+Este documento descreve a configura√ß√£o do UUCP sob o <prgn>GNU/Linux</prgn>. 
+Voc√™ deve ler este documento se planejar conectar a sites remotos via 
+UUCP via modem, conex√£o direta ou via Internet. Provavelmente n√£o 
+precisar√° ler este documento se n√£o souber o que √© UUCP ou se seu 
+computador n√£o possuir este suporte. 
 
 <tag>VMailMgr-HOWTO</tag>
  <item>
-Explica como configurar o suporte ao VMailMgr serviÁos de domÌnio virtual 
+Explica como configurar o suporte ao VMailMgr servi√ßos de dom√≠nio virtual 
 pop3 em conjunto com o Qmail. 
 
 <tag>VoIP-HOWTO</tag>
  <item>
-Ensina como configurar o sistema Linux para comunicaÁ„o via voz usando a 
-Internet. Descreve protocolos e mÈtodos para transmiss„o de voz aproveitando
+Ensina como configurar o sistema Linux para comunica√ß√£o via voz usando a 
+Internet. Descreve protocolos e m√©todos para transmiss√£o de voz aproveitando
 recursos de redes de baixa velocidade.
 
 <tag>VPN-HOWTO</tag>
@@ -1573,46 +1573,46 @@ Descreve como configurar uma Virtual Private Network com o
 <tag>VPN-Masquerade-HOWTO</tag>
  <item>
 Descreve como configurar um Firewall <prgn>GNU/Linux</prgn> para o 
-masquerade em tr·fego baseado no IPsec- e PPTP Virtual Private 
-Network Traffic, permitindo estabelecer uma conex„o VPN sem perder a
-seguranÁa e flexibilidade de sua conex„o Internet com o firewall 
-<prgn>GNU/Linux</prgn> e permitindo fazer um servidor VPN disponÌvel 
-que n„o possui um endereÁo IP registrado na Internet. TambÈm 
-est„o incluÌdos detalhes de como configurar um cliente e servidor 
+masquerade em tr√°fego baseado no IPsec- e PPTP Virtual Private 
+Network Traffic, permitindo estabelecer uma conex√£o VPN sem perder a
+seguran√ßa e flexibilidade de sua conex√£o Internet com o firewall 
+<prgn>GNU/Linux</prgn> e permitindo fazer um servidor VPN dispon√≠vel 
+que n√£o possui um endere√ßo IP registrado na Internet. Tamb√©m 
+est√£o inclu√≠dos detalhes de como configurar um cliente e servidor 
 VPN.  
 
 <tag>Virtual-Services-HOWTO</tag>
  <item>
 Este documento fala sobre tudo que precisa saber para virtualizar um 
-serviÁo. 
+servi√ßo. 
 
 <tag>Windows-LAN-Server-HOWTO</tag>
  <item>
-Ajuda na configuraÁ„o do Linux em ambientes onde existiam primariamente 
-m·quinas executando o Windows 9x.
+Ajuda na configura√ß√£o do Linux em ambientes onde existiam primariamente 
+m√°quinas executando o Windows 9x.
 
 <tag>Wireless-HOWTO</tag>
  <item>
-Explica como como configurar uma rede sem fio em ambiente Linux, limitaÁıes, 
+Explica como como configurar uma rede sem fio em ambiente Linux, limita√ß√µes, 
 requerimentos, etc.
 
 <tag>WWW-HOWTO</tag>
  <item>
-Explica como configurar serviÁos WWW sob o <prgn>GNU/Linux</prgn> (ambos 
-cliente e servidor). Ele n„o tenta ser um manual detalhada mas uma 
-vis„o e um bom ponto de referÍncia. 
+Explica como configurar servi√ßos WWW sob o <prgn>GNU/Linux</prgn> (ambos 
+cliente e servidor). Ele n√£o tenta ser um manual detalhada mas uma 
+vis√£o e um bom ponto de refer√™ncia. 
  
 <tag>WWW-mSQL-HOWTO</tag>
  <item>
 Descreve como construir um banco de dados cliente/servidor usando 
-a WWW e HTML para a interface com o usu·rio. 
+a WWW e HTML para a interface com o usu√°rio. 
  
 <tag>phhttpd-HOWTO</tag>
  <item>
-O phttpd È um acelerador HTTP. Ele serve uma r·pida requisiÁ„o est·tica 
-HTTP atravÈs de um sistema de arquivos locai e passa as requisiÁıes 
-menos din‚micas para um servidor de espera. Suas caracterÌsticas s„o 
-uma compreens„o do I/O e um cache de conte˙do agressivo que o ajuda a 
+O phttpd √© um acelerador HTTP. Ele serve uma r√°pida requisi√ß√£o est√°tica 
+HTTP atrav√©s de um sistema de arquivos locai e passa as requisi√ß√µes 
+menos din√¢micas para um servidor de espera. Suas caracter√≠sticas s√£o 
+uma compreens√£o do I/O e um cache de conte√∫do agressivo que o ajuda a 
 fazer um trabalho eficiente. 
 
 </taglist>
@@ -1633,24 +1633,24 @@ sistema.
 
 <tag>Ecology-HOWTO</tag>
  <item>
-Este documento discute mÈtodos de como os computadores com o 
+Este documento discute m√©todos de como os computadores com o 
 <prgn>GNU/Linux</prgn> podem ser usados para proteger nosso ambiente, usando 
-caracterÌsticas como economia de energia ou papel. Como ele n„o requer 
+caracter√≠sticas como economia de energia ou papel. Como ele n√£o requer 
 grandes requerimentos de hardware, o <prgn>GNU/Linux</prgn> pode ser usado 
 com computadores antigos e tornar seu ciclo de vida longo. Os jogos podem 
-ser usados em ambientes educativos e est„o disponÌveis programas para 
-simular os processos ecolÛgicos. 
+ser usados em ambientes educativos e est√£o dispon√≠veis programas para 
+simular os processos ecol√≥gicos. 
 
 <tag>Process-Monitor-HOWTO</tag>
  <item>
 Este documento descreve como monitorar os processos (programas) no 
 <prgn>Linux/Unix</prgn> e como reinicia-los automaticamente se eles 
-s„o destruÌdos sem intervenÁ„o manual. Este documento tambÈm tem 
+s√£o destru√≠dos sem interven√ß√£o manual. Este documento tamb√©m tem 
 URLs para FAQs sobre "Processos no Unix". 
 
 <tag>VAR-HOWTO</tag>
  <item>
-ContÈm uma lista de empresas de serviÁo que n„o fabricam hardwares ou 
+Cont√©m uma lista de empresas de servi√ßo que n√£o fabricam hardwares ou 
 criam pacotes de softwares, mas incluem valores ao produtos 
 existentes. 
 
@@ -1662,32 +1662,32 @@ existentes.
 <sect1 id="ajuda-howto-listagem-m">Listagem de Mini-HOWTO's
  <p>
 Segue abaixo uma listagem de Mini-HOWTO's do projeto LDP organizados por 
-sub-seÁıes com a descriÁ„o do assunto que cada um deles aborda. 
+sub-se√ß√µes com a descri√ß√£o do assunto que cada um deles aborda. 
 
 
-<sect2>IntroduÁ„o ao Sistema / InstalaÁ„o / ConfiguraÁ„o / Kernel 
+<sect2>Introdu√ß√£o ao Sistema / Instala√ß√£o / Configura√ß√£o / Kernel 
  <p>
 <taglist> 
 <tag>Alsa-sound</tag>
  <item>
-Descreve a instalaÁ„o dos controladores de som ALSA para Linux. Estes 
-controladores de som podem ser usados em substituiÁ„o aos controladores 
-de com regular, como s„o totalmente compatÌveis. 
+Descreve a instala√ß√£o dos controladores de som ALSA para Linux. Estes 
+controladores de som podem ser usados em substitui√ß√£o aos controladores 
+de com regular, como s√£o totalmente compat√≠veis. 
 
 <tag>Install-From-ZIP</tag>
  <item>
-Descreve como instalar o <prgn>GNU/Linux</prgn> atravÈs de um zip drive 
-conectado a porta paralela usando a distribuiÁ„o Slackware do 
+Descreve como instalar o <prgn>GNU/Linux</prgn> atrav√©s de um zip drive 
+conectado a porta paralela usando a distribui√ß√£o Slackware do 
 <prgn>GNU/Linux</prgn>.
 
 <tag>Install-Strategies</tag>
  <item>
-Descreve algumas formas de instalaÁ„o para aqueles que tem a intenÁ„o de fazer
+Descreve algumas formas de instala√ß√£o para aqueles que tem a inten√ß√£o de fazer
 dual boot entre o Linux e Windows.
 
 <tag>Lego</tag>
  <item>
-Mostra soluÁıes em software livre para utilizaÁ„o com os kits de robÛtica da 
+Mostra solu√ß√µes em software livre para utiliza√ß√£o com os kits de rob√≥tica da 
 The Lego Group's Mindstorm Robotics Invention System (RIS). 
 
 <tag>Kerneld</tag>
@@ -1701,26 +1701,26 @@ inicializar o <prgn>GNU/Linux</prgn>.
 
 <tag>Modules</tag>
  <item>
-Explica como incluir seu suporte no kernel, configurar e utilizar mÛdulos no 
+Explica como incluir seu suporte no kernel, configurar e utilizar m√≥dulos no 
 <prgn>GNU/Linux</prgn>. 
 
 <tag>Path</tag>
  <item>
-Descreve truques comuns e problemas com as vari·veis de ambiente 
-no <prgn>GNU/Linux</prgn>/<prgn>Unix</prgn>, especialmente a vari·vel 
-PATH. PATH È uma lista de diretÛrios onde os comandos s„o pesquisados. 
-Os detalhes se aplicam a distribuiÁ„o <prgn>Debian</prgn> 1.3. 
+Descreve truques comuns e problemas com as vari√°veis de ambiente 
+no <prgn>GNU/Linux</prgn>/<prgn>Unix</prgn>, especialmente a vari√°vel 
+PATH. PATH √© uma lista de diret√≥rios onde os comandos s√£o pesquisados. 
+Os detalhes se aplicam a distribui√ß√£o <prgn>Debian</prgn> 1.3. 
 
 <tag>Pre-Installation-Checklist</tag>
  <item>
-VocÍ È um novato no Linux? VocÍ È um guru no Linux? Em ambos os casos esta 
-checklist ser· de grande ajuda para vocÍ. Quantas vezes vocÍ se encontrou 
-com problemas no meio de um processo de instalaÁ„o do <prgn>GNU/Linux</prgn> 
-porque algum detalhe vital sobre o hardware alvo n„o È conhecido? 
+Voc√™ √© um novato no Linux? Voc√™ √© um guru no Linux? Em ambos os casos esta 
+checklist ser√° de grande ajuda para voc√™. Quantas vezes voc√™ se encontrou 
+com problemas no meio de um processo de instala√ß√£o do <prgn>GNU/Linux</prgn> 
+porque algum detalhe vital sobre o hardware alvo n√£o √© conhecido? 
 
 <tag>Post-Installation-Checklist</tag>
  <item>
-Lembra alguns passos que devem ser verificados logo apÛs a instalaÁ„o de um novo
+Lembra alguns passos que devem ser verificados logo ap√≥s a instala√ß√£o de um novo
 sistema Linux.
 
 <tag>RPM+Slackware</tag>
@@ -1735,12 +1735,12 @@ Descreve como se manter atualizado sobre o desenvolvimento no mundo
  
 <tag>Upgrade</tag>
  <item>
-Dicas e truques de como atualizar de uma distribuiÁ„o <prgn>GNU/Linux</prgn> 
+Dicas e truques de como atualizar de uma distribui√ß√£o <prgn>GNU/Linux</prgn> 
 para outra. 
 
 <tag>VAIO+Linux</tag>
  <item>
-Explica a instalaÁ„o do <prgn>GNU/Linux</prgn> em computadores Sony VAIO. 
+Explica a instala√ß√£o do <prgn>GNU/Linux</prgn> em computadores Sony VAIO. 
 
 </taglist>
 
@@ -1750,26 +1750,26 @@ Explica a instalaÁ„o do <prgn>GNU/Linux</prgn> em computadores Sony VAIO.
 <taglist>
 <tag>Automount</tag>
  <item>
-Descreve a montagem autom·tica de sistemas de arquivos autofs, como 
+Descreve a montagem autom√°tica de sistemas de arquivos autofs, como 
 configura-lo e alguns problemas que devem ser evitados.
 
 <tag>Ext2fs-Undeletion</tag>
  <item>
-Imagina isto: VocÍ passou os ˙ltimos trÍs dias sem dormir, sem 
-comer. Sua compuls„o hacker foi paga: vocÍ finalizou aquele programa 
-que lhe dar· fama e reconhecimento. Todo o que vocÍ precisa fazer È 
+Imagina isto: Voc√™ passou os √∫ltimos tr√™s dias sem dormir, sem 
+comer. Sua compuls√£o hacker foi paga: voc√™ finalizou aquele programa 
+que lhe dar√° fama e reconhecimento. Todo o que voc√™ precisa fazer √© 
 coloca-lo no Metalab. Oh, e apagar aqueles arquivos de backup do 
-Emacs. Assim vocÍ fadigado digita <tt>rm * ~.</tt>. E bem mais 
-tarde vocÍ notou o espaÁo extra naquele comando. VocÍ simplesmente 
-apagou todo o seu trabalho! Mas a ajuda est· na m„o. Este documento 
-oferece uma discuss„o de como recuperar arquivos apagados atravÈs do 
-Second Extend File System (EXT2). Talvez, vocÍ ser· capaz de 
-lanÁar aquele programa depois disso...
+Emacs. Assim voc√™ fadigado digita <tt>rm * ~.</tt>. E bem mais 
+tarde voc√™ notou o espa√ßo extra naquele comando. Voc√™ simplesmente 
+apagou todo o seu trabalho! Mas a ajuda est√° na m√£o. Este documento 
+oferece uma discuss√£o de como recuperar arquivos apagados atrav√©s do 
+Second Extend File System (EXT2). Talvez, voc√™ ser√° capaz de 
+lan√ßar aquele programa depois disso...
 
 <tag>Ext2fs-Undeletion-Dir-Struct</tag>
  <item>
 Fornece um complemento ao ext2-undeletion-howto e descreve formas de recuperar 
-estrutura de diretÛrios de forma segura. 
+estrutura de diret√≥rios de forma segura. 
 
 <tag>Hard-Disk-Upgrade</tag>
  <item>
@@ -1779,53 +1779,53 @@ Como copiar um sistema <prgn>GNU/Linux</prgn> de um disco para outro.
  <item>
 Este documento explica como usar o dispositivo de loopback do 
 Linux para criar um formato nativo de sistema de arquivos 
-atravÈs de uma partiÁ„o DOS sem reparticionamento. 
+atrav√©s de uma parti√ß√£o DOS sem reparticionamento. 
 
 <tag>Partition-Rescue-mini-HOWTO</tag>
  <item>
-Como recuperar uma partiÁ„o pelo <prgn>GNU/Linux</prgn>. 
+Como recuperar uma parti√ß√£o pelo <prgn>GNU/Linux</prgn>. 
 
 <tag>Quota</tag>
  <item>
-Descreve como ativar a quota nos sistemas de arquivos para usu·rios 
-e grupos de uma m·quina <prgn>GNU/Linux</prgn>. 
+Descreve como ativar a quota nos sistemas de arquivos para usu√°rios 
+e grupos de uma m√°quina <prgn>GNU/Linux</prgn>. 
 
 <tag>Swap-Space</tag>
  <item>
-Descreve como compartilhar sua partiÁ„o swap do <prgn>GNU/Linux</prgn> com 
+Descreve como compartilhar sua parti√ß√£o swap do <prgn>GNU/Linux</prgn> com 
 o Windows. 
 
 <tag>Ultra-DMA</tag>
  <item>
-Explica como usar Ultra-DMA como discos rÌgidos e interfaces Ultra ATA, 
+Explica como usar Ultra-DMA como discos r√≠gidos e interfaces Ultra ATA, 
 Ultra 33 e Ultra66 com o <prgn>GNU/Linux</prgn>. 
 
 <tag>ZIP-Drive</tag>
  <item>
-Este documente oferece uma referÍncia r·pida para a configuraÁ„o e 
+Este documente oferece uma refer√™ncia r√°pida para a configura√ß√£o e 
 uso da unidade de ZIP drive Iomega com o <prgn>GNU/Linux</prgn>. 
 
 </taglist>
 
 
-<sect2>Escrita de DocumentaÁ„o / Editores
+<sect2>Escrita de Documenta√ß√£o / Editores
  <p>
 <taglist>
 
 <tag>DocBook-Install</tag>
  <item>
-Descreve de forma r·pida e pr·tica como ajustar novatos a ter de forma r·pida o 
+Descreve de forma r√°pida e pr√°tica como ajustar novatos a ter de forma r√°pida o 
 DocBook instalado para processamento de arquivos SGML em HTML.
 
 <tag>Howtos-with-LinuxDoc</tag>
  <item>
-Descreve como escrever documentos HOWTOs usando o LinuxDoc (referÍncia para 
+Descreve como escrever documentos HOWTOs usando o LinuxDoc (refer√™ncia para 
 iniciantes).
 
 <tag>Man-Page</tag>
  <item>
-Descreve o que deve ter em mente quando estiver escrevendo documentaÁ„o 
-on-line -- tambÈm chamada de p·gina de manual (man page). 
+Descreve o que deve ter em mente quando estiver escrevendo documenta√ß√£o 
+on-line -- tamb√©m chamada de p√°gina de manual (man page). 
  
 </taglist> 
 
@@ -1835,16 +1835,16 @@ on-line -- tambÈm chamada de p·gina de manual (man page).
 <taglist>
 <tag>3-Button-Mouse</tag>
  <item>
-Como ter um mouse serial de 3 botıes funcionando no <prgn>GNU/Linux</prgn>.
+Como ter um mouse serial de 3 bot√µes funcionando no <prgn>GNU/Linux</prgn>.
 
 <tag>ACP-Modem</tag>
  <item>
-Descreve como configurar e utilizar a caracterÌstica ACP (Mwave) de 
-m·quinas IBM, como o IBM Thinkpad.
+Descreve como configurar e utilizar a caracter√≠stica ACP (Mwave) de 
+m√°quinas IBM, como o IBM Thinkpad.
 
 <tag>BTTV-Mini-HOWTO-0.3</tag>
  <item>
-Este documento descreve o hardware, software e procedimentos necess·rios 
+Este documento descreve o hardware, software e procedimentos necess√°rios 
 para se usar um chipset baseado no bt8x8 frame grabber ou placa 
 sintonizadora de TV sob o <prgn>GNU/Linux</prgn>. 
 
@@ -1856,7 +1856,7 @@ Instalando uma placa serial Boca 16-portas (Boca 2016) no <prgn>GNU/Linux</prgn>
  <item>
 Ensina como configurar a placa serial de 8 portas GTEK's BBS-550 com 
 16C550 UARTS. Somente uma IRQ pode ser usada para todas 8 portas. Ele 
-n„o requer qualquer controlador no <prgn>GNU/Linux</prgn> no entanto o 
+n√£o requer qualquer controlador no <prgn>GNU/Linux</prgn> no entanto o 
 kernel precisa ter o suporte a portas seriais. 
  
 <tag>Handspring-Visor</tag>
@@ -1865,7 +1865,7 @@ Usando o Visor com o <prgn>GNU/Linux</prgn> e sua porta USB.
 
 <tag>IO-Port-Programming</tag>
  <item>
-Este documento descreve a programaÁ„o de portas I/O de hardware. 
+Este documento descreve a programa√ß√£o de portas I/O de hardware. 
 
 </taglist>
 
@@ -1880,25 +1880,25 @@ ADSM para Linux Intel.
 
 <tag>Bzip2</tag>
  <item>
-Explica como usar o programa de compactaÁ„o <prgn>bzip2</prgn>. 
+Explica como usar o programa de compacta√ß√£o <prgn>bzip2</prgn>. 
 
 <tag>GIS-GRASS</tag>
  <item>
 Este documento descreve como adquirir, instalar e configurar o 
-poderoso sistema de informaÁıes cientÌficas e geogr·ficas de 
-domÌnio p˙blico (GIS): o Geographic Resources Analysis Support System
+poderoso sistema de informa√ß√µes cient√≠ficas e geogr√°ficas de 
+dom√≠nio p√∫blico (GIS): o Geographic Resources Analysis Support System
 (GRASS). 
 
 <tag>LILO</tag>
  <item>
-O <prgn>LILO</prgn> È o gerenciador de inicializaÁ„o mais usado na 
+O <prgn>LILO</prgn> √© o gerenciador de inicializa√ß√£o mais usado na 
 plataforma Intel do Linux. Este documento descreve alguns tipos de 
-instalaÁıes do LILO. 
+instala√ß√µes do LILO. 
 
 </taglist>
 
 
-<sect2>Plataformas n„o Intel (x86)
+<sect2>Plataformas n√£o Intel (x86)
  <p>
 <taglist>
 <tag>Mac-Terminal</tag>
@@ -1909,52 +1909,52 @@ Mac para uso como um terminal <prgn>GNU/Linux</prgn>.
 </taglist>
 
 
-<sect2>ProgramaÁ„o / Compiladores / Banco de Dados
+<sect2>Programa√ß√£o / Compiladores / Banco de Dados
  <p>
 <taglist>
 <tag>Programming-Languages</tag>
  <item>
-Uma breve comparaÁ„o das maiores linguagens de programaÁ„o para o 
-<prgn>GNU/Linux</prgn> e maiores bibliotecas para para criaÁ„o de interfaces 
-gr·ficas com o usu·rio (GUIs) sob o <prgn>GNU/Linux</prgn>. 
+Uma breve compara√ß√£o das maiores linguagens de programa√ß√£o para o 
+<prgn>GNU/Linux</prgn> e maiores bibliotecas para para cria√ß√£o de interfaces 
+gr√°ficas com o usu√°rio (GUIs) sob o <prgn>GNU/Linux</prgn>. 
 
 </taglist>
 
 
-<sect2>ConfiguraÁ„o de Teclado / Video / Console
+<sect2>Configura√ß√£o de Teclado / Video / Console
  <p>
 <taglist>
 <tag>Intkeyb</tag>
  <item>
-Mini-Howto experimental para o <prgn>GNU/Linux</prgn> para a configuraÁ„o 
+Mini-Howto experimental para o <prgn>GNU/Linux</prgn> para a configura√ß√£o 
 de teclados. 
 
 </taglist>
 
 
-<sect2>Ambiente Gr·fico
+<sect2>Ambiente Gr√°fico
  <p>
 <taglist>
 <tag>3D-Modelling</tag>
  <item>
-Oferece detalhes sobre instruÁıes de instalaÁ„o de um ambiente desktop de 
-renderizaÁ„o e modelamento usando o RedHat Linux.
+Oferece detalhes sobre instru√ß√µes de instala√ß√£o de um ambiente desktop de 
+renderiza√ß√£o e modelamento usando o RedHat Linux.
 
 <tag>FDU</tag>
  <item>
-Como corrigir fontes feias e ilegÌveis no X.
+Como corrigir fontes feias e ileg√≠veis no X.
 
 <tag>LBX</tag>
  <item>
-O LBX (Low Bandwidth X) È uma extens„o do servidor X que realiza 
-compress„o no protocolo X. Isto significa que pode ser usado em 
-conjunto com aplicativos X e um servidor X que est„o separados 
-atravÈs de uma conex„o de rede de baixa velocidade, para aumentar 
+O LBX (Low Bandwidth X) √© uma extens√£o do servidor X que realiza 
+compress√£o no protocolo X. Isto significa que pode ser usado em 
+conjunto com aplicativos X e um servidor X que est√£o separados 
+atrav√©s de uma conex√£o de rede de baixa velocidade, para aumentar 
 o tempo de resposta.  
 
 <tag>Nvidia-OpenGL-Configuration</tag>
  <item>
-Ensina como instalar os drivers OpenGL para a placa de vÌdeo Nvidia.
+Ensina como instalar os drivers OpenGL para a placa de v√≠deo Nvidia.
  
 <tag>Remote-X-Apps</tag>
  <item>
@@ -1966,12 +1966,12 @@ Ensina como usar fontes true type com o XFree 4.0.x
 
 <tag>XDM-Xterm</tag>
  <item>
-Ensina como utilizar o XDM para gerenciar terminais X. Uma referÍncia 
+Ensina como utilizar o XDM para gerenciar terminais X. Uma refer√™ncia 
 completa do assunto pode ser encontrada no Thin-client HOWTO.
 
 <tag>XFree86-Second-Mouse</tag>
  <item>
-InstruÁıes de como usar um segundo mouse no X.
+Instru√ß√µes de como usar um segundo mouse no X.
 
 <tag>X-Big-Cursor</tag>
  <item>
@@ -1983,19 +1983,19 @@ Como converte um modeline XFree86 em um XInside/XiGraphics.
 
 <tag>Xterm-Title</tag>
  <item>
-Explica como usar seq¸Íncias de escape para alterar dinamicamente os 
-tÌtulos e Ìcones de janelas de um xterm. 
+Explica como usar seq√º√™ncias de escape para alterar dinamicamente os 
+t√≠tulos e √≠cones de janelas de um xterm. 
 
 </taglist>
 
 
-<sect2>MigraÁ„o/ConvivÍncia com outras plataformas
+<sect2>Migra√ß√£o/Conviv√™ncia com outras plataformas
  <p>
 <taglist>
 <tag>Linux+DOS+Win95+OS2</tag>
  <item>
 Este documento oferece um procedimento para fazer 4 sistemas operacionais 
-coexistirem no mesmo disco rÌgido.  
+coexistirem no mesmo disco r√≠gido.  
  
 <tag>Linux+FreeBSD</tag>
  <item>
@@ -2003,7 +2003,7 @@ Descreve como usar o Linux e FreeBSD no mesmo sistema.
  
 <tag>Linux+NT-Loader</tag>
  <item>
-Descreve como usar o gerenciador de inicializaÁ„o do Windows NT para 
+Descreve como usar o gerenciador de inicializa√ß√£o do Windows NT para 
 iniciar o <prgn>GNU/Linux</prgn>. Este processo foi testado com o 
 Windows NT 4.0 WorkStation. 
  
@@ -2013,7 +2013,7 @@ Descreve como usar o Linux (X86) e Solaris (x86) no mesmo computador.
  
 <tag>Linux+Win95</tag>
  <item>
-Descreve como usar o Linux e Windows 95-98 na mesma m·quina. 
+Descreve como usar o Linux e Windows 95-98 na mesma m√°quina. 
 
 <tag>Loadlin+Win95-98-ME</tag>
  <item>
@@ -2026,43 +2026,43 @@ Descreve como instalar o Windows 98, 2000, DOS e Linux usando o GRUB.
 
 <tag>Multiboot-with-LILO</tag>
  <item>
-Descreve como usar m˙ltipla inicializaÁ„o entre o Windows 95, Windows NT e 
+Descreve como usar m√∫ltipla inicializa√ß√£o entre o Windows 95, Windows NT e 
 Linux.
 
 </taglist>
 
 
-<sect2>Tarefas EspecÌficas
+<sect2>Tarefas Espec√≠ficas
  <p>
 <taglist>
 <tag>Backup-With-MSDOS</tag>
  <item>
-Descreve como usar uma unidade de tape compatÌvel com o <prgn>GNU/Linux</prgn> 
-instalado em uma m·quina DOS para fazer o backup do sistema de arquivos 
-de uma m·quina <prgn>GNU/Linux</prgn>.  
+Descreve como usar uma unidade de tape compat√≠vel com o <prgn>GNU/Linux</prgn> 
+instalado em uma m√°quina DOS para fazer o backup do sistema de arquivos 
+de uma m√°quina <prgn>GNU/Linux</prgn>.  
  
 <tag>Battery-Powered</tag>
  <item>
 Descreve como reduzir o consumo de energia do sistema <prgn>GNU/Linux</prgn> 
-atravÈs de alguns ajustes de configuraÁ„o. Isto ser· ˙til para qualquer 
+atrav√©s de alguns ajustes de configura√ß√£o. Isto ser√° √∫til para qualquer 
 um quer executar o <prgn>GNU/Linux</prgn> em um sistema de computador 
-port·til. TambÈm contÈm dicas de uso da bateria. Se estiver usando o 
-<prgn>GNU/Linux</prgn> em um sistema desktop, vocÍ provavelmente n„o 
-precisar· ler todo este documento. 
+port√°til. Tamb√©m cont√©m dicas de uso da bateria. Se estiver usando o 
+<prgn>GNU/Linux</prgn> em um sistema desktop, voc√™ provavelmente n√£o 
+precisar√° ler todo este documento. 
 
 <tag>Clock</tag>
  <item>
-Como manter o relÛgio de seu computador na hora. 
+Como manter o rel√≥gio de seu computador na hora. 
  
 <tag>Coffee</tag>
  <item>
-Uma dos mais extremos dos documentos. Eu j· pensei se era possÌvel 
-usar o <prgn>GNU/Linux</prgn> para fazer cafÈ... e descobri que o 
-<prgn>GNU/Linux</prgn> faz cafÈ! 
+Uma dos mais extremos dos documentos. Eu j√° pensei se era poss√≠vel 
+usar o <prgn>GNU/Linux</prgn> para fazer caf√©... e descobri que o 
+<prgn>GNU/Linux</prgn> faz caf√©! 
  <p>
 Por um longo tempo a humanidade estava se perguntando se um computador 
-podia fazer cafÈ... As pessoas precisam de cafÈ para n„o dormirem na 
-frente do computador. Todo mundo sabe que È melhor programar de noite...
+podia fazer caf√©... As pessoas precisam de caf√© para n√£o dormirem na 
+frente do computador. Todo mundo sabe que √© melhor programar de noite...
 
 <tag>Divert-Sockets-mini-HOWTO</tag>
  <item>
@@ -2071,8 +2071,8 @@ sob o <prgn>GNU/Linux</prgn> 2.2.12.
 
 <tag>Home-Electrical-Control</tag>
  <item>
-ContÈm referÍncias para fazer o Linux controlar praticamente qualquer dispositivo
-elÈtrico.
+Cont√©m refer√™ncias para fazer o Linux controlar praticamente qualquer dispositivo
+el√©trico.
 
 <tag>Leased-Line</tag>
  <item>
@@ -2081,17 +2081,17 @@ Configurando seu modem e pppd para usar 2 pares de cabos leased line.
 <tag>Linux-Modem-Sharing</tag>
  <item>
 Descreve como configurar o sistema <prgn>GNU/Linux</prgn> para compartilhar 
-um modem conectado a este sistema com outros atravÈs de uma rede 
+um modem conectado a este sistema com outros atrav√©s de uma rede 
 TCP/IP. 
 
 <tag>Mail2News</tag>
  <item>
-Descreve como enviar mensagens de uma lista de discuss„o para um 
+Descreve como enviar mensagens de uma lista de discuss√£o para um 
 servidor news. 
 
 <tag>MP3-CD-Burning</tag>
  <item>
-Uma referÍncia completa para a criaÁ„o de CDs de audio e dados de arquivos
+Uma refer√™ncia completa para a cria√ß√£o de CDs de audio e dados de arquivos
 MP3.
 
 <tag>MSSQL6-Openlink-PHP-ODBC</tag>
@@ -2106,41 +2106,41 @@ Descreve como conectar um terminal NCD X a um computador UNIX.
 
 <tag>NFS-Root</tag>
  <item>
-Este documento tenta explicar como configurar uma estaÁ„o de trabalho 
+Este documento tenta explicar como configurar uma esta√ß√£o de trabalho 
 "sem disco" no <prgn>GNU/Linux</prgn>, que monta seu sistema de 
-arquivos raÌz via NFS. 
+arquivos ra√≠z via NFS. 
  
 <tag>NFS-Root-Client-mini-HOWTO</tag>
  <item>
-O propÛsito deste documento È explicar como criar um cliente dos 
-diretÛrios raÌz em um servidor que est· usando clientes 
+O prop√≥sito deste documento √© explicar como criar um cliente dos 
+diret√≥rios ra√≠z em um servidor que est√° usando clientes 
 com NFS root montados. 
 
 <tag>Netscape+Proxy</tag>
  <item>
 Este documento descreve o processo de configurar uma REDE 
-(INTRANET) em casa. Ent„o configura o NETSCAPE das m·quinas dos clientes 
+(INTRANET) em casa. Ent√£o configura o NETSCAPE das m√°quinas dos clientes 
 para acessarem a internet. 
  
 <tag>News-Leafsite</tag>
  <item>
-Este documento ajudar· a configuraÁ„o de um pequeno leafsite para a 
+Este documento ajudar√° a configura√ß√£o de um pequeno leafsite para a 
 Usenet News usando o Leadnode do pacote free software. 
  
 <tag>Offline-Mailing</tag>
  <item>
 Explica como usar o sistema de mensagens do <prgn>GNU/Linux</prgn> off-line, 
-receber emails para m˙ltiplos usu·rios somente com uma conta de e-mail, 
-e sem estar 24-24 horas on-line na Internet. Se vocÍ n„o pode pagar uma 
-linha para estar conectado por 24-24 horas e ainda deseja que seus usu·rios 
-recebem emails em sua m·quina Linux; tambÈm n„o pague por uma conta 
-multi-drop em seu provedor, vocÍ pode usar este sistema usando somente 
-um endereÁo de e-mail para dividir seus endereÁos de e-mails dos usu·rios.  
+receber emails para m√∫ltiplos usu√°rios somente com uma conta de e-mail, 
+e sem estar 24-24 horas on-line na Internet. Se voc√™ n√£o pode pagar uma 
+linha para estar conectado por 24-24 horas e ainda deseja que seus usu√°rios 
+recebem emails em sua m√°quina Linux; tamb√©m n√£o pague por uma conta 
+multi-drop em seu provedor, voc√™ pode usar este sistema usando somente 
+um endere√ßo de e-mail para dividir seus endere√ßos de e-mails dos usu√°rios.  
 
 <tag>Outlook-to-Unix-Mailbox</tag>
  <item>
 Mostra formas de converter mensagens de email do Microsoft Outlook 
-(exceto do Outlook Express) para formatos de arquivos tÌpicos do 
+(exceto do Outlook Express) para formatos de arquivos t√≠picos do 
 Unix.
 
 
@@ -2151,44 +2151,44 @@ Ensina como compilar, instalar e configurar um Gateway de emails para Pager.
 
 <tag>Partition</tag>
  <item>
-Descreve como criar partiÁıes em discos rÌgidos IDE e SCSI. TambÈm È coberta 
-a recuperaÁ„o de tabelas de partiÁ„o perdidas.
+Descreve como criar parti√ß√µes em discos r√≠gidos IDE e SCSI. Tamb√©m √© coberta 
+a recupera√ß√£o de tabelas de parti√ß√£o perdidas.
 
 
 <tag>Partition-Rescue</tag>
  <item>
-Descreve formas para recuperar uma partiÁ„o de disco apagada.
+Descreve formas para recuperar uma parti√ß√£o de disco apagada.
 
 <tag>Process-Accounting</tag>
  <item>
-Descreve como ativar a conta de processos em uma m·quina <prgn>GNU/Linux</prgn>, 
-o uso de v·rios comandos de contabilizaÁ„o de processos. 
+Descreve como ativar a conta de processos em uma m√°quina <prgn>GNU/Linux</prgn>, 
+o uso de v√°rios comandos de contabiliza√ß√£o de processos. 
 
 <tag>RCS</tag>
  <item>
-Este documento cobre a instalaÁ„o e uso b·sicos do RCS, o GNU 
+Este documento cobre a instala√ß√£o e uso b√°sicos do RCS, o GNU 
 Revision Control System sob o <prgn>GNU/Linux</prgn>. 
 
 <tag>Saving-Space</tag>
  <item>
-Este documento mostra maneiras de diminuir sua instalaÁ„o <prgn>GNU/Linux</prgn> 
-consumindo o mÌnimo possÌvel de espaÁo. 
+Este documento mostra maneiras de diminuir sua instala√ß√£o <prgn>GNU/Linux</prgn> 
+consumindo o m√≠nimo poss√≠vel de espa√ßo. 
  
 <tag>Secure-POP+SSH</tag>
  <item>
-Este documento explica como usar conexıes POP seguras via ssh. 
+Este documento explica como usar conex√µes POP seguras via ssh. 
 
 <tag>Small-Memory</tag>
  <item>
-O propÛsito deste documento È descrever como executar o <prgn>GNU/Linux</prgn> 
-em um sistema com pequena quantidade de memÛria. Assumindo que a compra 
-de memÛria esta fora de quest„o aqui. 
+O prop√≥sito deste documento √© descrever como executar o <prgn>GNU/Linux</prgn> 
+em um sistema com pequena quantidade de mem√≥ria. Assumindo que a compra 
+de mem√≥ria esta fora de quest√£o aqui. 
  
 <tag>Soundblaster-AWE</tag>
  <item>
 Descreve como instalar e configurar a placa de som Sound Blaster 
 32 (SB AWE 32, SB AWE 64) da Creative Labs em um Sistema Linux 
-usando a extens„o do driver de som AWE escrito por Takashi Iwai.
+usando a extens√£o do driver de som AWE escrito por Takashi Iwai.
  
 <tag>StarOffice</tag>
  <item>
@@ -2209,22 +2209,22 @@ Internet.
 <tag>Visual-Bell</tag>
  <item>
 Explica como usar o termcap para configurar um aviso visual no sistema 
-ao invÈs do beep e como desativar o sinal de audio. 
+ao inv√©s do beep e como desativar o sinal de audio. 
  
 <tag>Wacom-USB-mini-HOWTO</tag>
  <item>
 Descreve como configurar um Wacom Graphire USB tablet para uso no 
-<prgn>GNU/Linux</prgn> (console e X), iniciando com a configuraÁ„o do 
-kernel para o nÌvel da aplicaÁ„o. 
+<prgn>GNU/Linux</prgn> (console e X), iniciando com a configura√ß√£o do 
+kernel para o n√≠vel da aplica√ß√£o. 
  
 <tag>WordPerfect</tag>
  <item>
-Discute a execuÁ„o do WordPerfect no <prgn>GNU/Linux</prgn> incluindo uma 
-breve discuss„o sobre o WordPerfect 7.0.  
+Discute a execu√ß√£o do WordPerfect no <prgn>GNU/Linux</prgn> incluindo uma 
+breve discuss√£o sobre o WordPerfect 7.0.  
 
 <tag>ZIP-Install</tag>
  <item>
-Este documento somente È ˙til para aqueles que possuem a vers„o em porta 
+Este documento somente √© √∫til para aqueles que possuem a vers√£o em porta 
 paralela de um ZIP drive e que deseja fazer o backup do sistema 
 <prgn>GNU/Linux</prgn> em um disco ZIP. 
  
@@ -2236,48 +2236,48 @@ e um modem.
 </taglist>
 
 
-<sect2>Rede / AdministraÁ„o / Firewall / SeguranÁa
+<sect2>Rede / Administra√ß√£o / Firewall / Seguran√ßa
  <p>
 <taglist>
 <tag>ADSL</tag>
  <item>
 Configurando o <prgn>GNU/Linux</prgn> para funcionar com Asymmetric Digital 
 Subscriber Loop (ADSL), uma nova tecnologia de acesso digital de alta 
-velocidade atravÈs de linhas disponÌvel atravÈs da Telcos. O ADSL È uma 
-das tecnologias disponÌveis da famÌlia da digital subscriber line 
-(DSL) disponÌveis para usu·rios residenciais e comerciais usando 
+velocidade atrav√©s de linhas dispon√≠vel atrav√©s da Telcos. O ADSL √© uma 
+das tecnologias dispon√≠veis da fam√≠lia da digital subscriber line 
+(DSL) dispon√≠veis para usu√°rios residenciais e comerciais usando 
 copper loops, oferecendo velocidades que variam de 384kbps a 1.5Mbps. 
-Este documento contÈm uma introduÁ„o ao ADSL e informaÁıes de como 
+Este documento cont√©m uma introdu√ß√£o ao ADSL e informa√ß√µes de como 
 instalar, configurar e colocar o ADSL para funcionar. 
 
 <tag>Apache+SSL+PHP+fp</tag>
  <item>
-Este documento explica como construir um servidor web que suportar· 
-conte˙do web din‚mico via a linguagem de scripting PHP/FI, transmiss„o 
-de dados segura baseado no SSL do Netscape, execuÁ„o segura de CGI's e 
-extensıes do M$ Frontpage Server. 
+Este documento explica como construir um servidor web que suportar√° 
+conte√∫do web din√¢mico via a linguagem de scripting PHP/FI, transmiss√£o 
+de dados segura baseado no SSL do Netscape, execu√ß√£o segura de CGI's e 
+extens√µes do M$ Frontpage Server. 
  
 <tag>Apache-mods</tag>
  <item>
-Detalhes sobre a instalaÁ„o do servidor web baseado no Apache configurado 
-para manipular DSO e v·rios mÛdulos ˙teis incluindo perl, ssl, e php. 
+Detalhes sobre a instala√ß√£o do servidor web baseado no Apache configurado 
+para manipular DSO e v√°rios m√≥dulos √∫teis incluindo perl, ssl, e php. 
  
 <tag>Bridge</tag>
  <item>
 Este documento descreve como ajustar uma ponte ethernet (bridge). 
-O que È uma ponte ethernet? … um dispositivo que controla os pacotes 
+O que √© uma ponte ethernet? √â um dispositivo que controla os pacotes 
 de dados dentro de uma subrede na tentativa de cortar o excesso 
-de tr·fego. Uma ponte È colocada normalmente entre dois grupos 
-separados de computadores que falam entre eles, mas n„o muito 
-com computadores no outro grupo. Um bom exemplo disto È considerar 
-um grupo de Macintoshes e um grupo de m·quinas Unix. Ambos destes 
-grupos de m·quinas tendem falar uma com as outras, e o tr·fego que 
-produzem na rede causam colisıes para as outras m·quinas 
-que est„o tentando falar uma com a outra. Uma ponte pode ser 
+de tr√°fego. Uma ponte √© colocada normalmente entre dois grupos 
+separados de computadores que falam entre eles, mas n√£o muito 
+com computadores no outro grupo. Um bom exemplo disto √© considerar 
+um grupo de Macintoshes e um grupo de m√°quinas Unix. Ambos destes 
+grupos de m√°quinas tendem falar uma com as outras, e o tr√°fego que 
+produzem na rede causam colis√µes para as outras m√°quinas 
+que est√£o tentando falar uma com a outra. Uma ponte pode ser 
 colocada entre estes dois grupos de computadores. A tarefa da 
-ponte È ent„o examinar o destino dos pacotes de dados um por vez e 
-decidir o que passar ou n„o para o outro lado do segmento ethernet. O 
-resultado È uma rede r·pida com menos colisıes. 
+ponte √© ent√£o examinar o destino dos pacotes de dados um por vez e 
+decidir o que passar ou n√£o para o outro lado do segmento ethernet. O 
+resultado √© uma rede r√°pida com menos colis√µes. 
  
 <tag>Bridge+Firewall</tag>
  <item>
@@ -2286,7 +2286,7 @@ Como configurar uma ponte com um firewall.
 <tag>Bridge+Firewall+DSL</tag>
  <item>
 Configurando um sistema <prgn>GNU/Linux</prgn> para funcionar como um 
-firewall e ponte com uma conex„o de rede DSL. 
+firewall e ponte com uma conex√£o de rede DSL. 
  
 <tag>Cipe+Masq</tag>
  <item>
@@ -2295,11 +2295,11 @@ masquerading.
 
 <tag>Compressed-TCP</tag>
  <item>
-SeÁıes TCP/IP compactadas usando ferramentas como SSH. 
+Se√ß√µes TCP/IP compactadas usando ferramentas como SSH. 
  
 <tag>DHCP</tag>
  <item>
-Este documento tenta responder questıes b·sicas de como configurar seu 
+Este documento tenta responder quest√µes b√°sicas de como configurar seu 
 computador <prgn>GNU/Linux</prgn> para servir de cliente ou servidor DHCP. 
 
 <tag>DPT-Hardware-RAID</tag>
@@ -2308,10 +2308,10 @@ Como ajustar o hardware RAID sob o <prgn>GNU/Linux</prgn>.
 
 <tag>Domain</tag>
  <item>
-Este documento explica as coisas que vocÍ provavelmente deve fazer 
-quando desejar construir uma rede de computadores sob seu prÛprio 
-domÌnio. Ele cobre a configuraÁ„o dos par‚metros de rede, serviÁos 
-de rede e seguranÁa. 
+Este documento explica as coisas que voc√™ provavelmente deve fazer 
+quando desejar construir uma rede de computadores sob seu pr√≥prio 
+dom√≠nio. Ele cobre a configura√ß√£o dos par√¢metros de rede, servi√ßos 
+de rede e seguran√ßa. 
 
 <tag>FTP</tag>
  <item>
@@ -2319,59 +2319,59 @@ Como usar clientes e servidores FTP.
  
 <tag>Fax-Server</tag>
  <item>
-Descreve os mÈtodos mais simples de configurar um servidor de 
-fax em seu sistema <prgn>GNU/Linux</prgn>. O fax est· disponÌvel aos 
-usu·rios do seu sistema local e rede de usu·rios. 
+Descreve os m√©todos mais simples de configurar um servidor de 
+fax em seu sistema <prgn>GNU/Linux</prgn>. O fax est√° dispon√≠vel aos 
+usu√°rios do seu sistema local e rede de usu√°rios. 
 
 <tag>Firewall-Piercing</tag>
  <item>
-MÈtodos de usar PPP atravÈs de telnet para tornar os materiais da 
-rede transparentes atravÈs de um firewall Internet. 
+M√©todos de usar PPP atrav√©s de telnet para tornar os materiais da 
+rede transparentes atrav√©s de um firewall Internet. 
 
 <tag>Home-Network-mini-HOWTO</tag>
  <item>
-Um tutorial simples de configuraÁ„o do sistema Red Hat 6 e variantes 
+Um tutorial simples de configura√ß√£o do sistema Red Hat 6 e variantes 
 para operar como um gateway na internet para uma pequena rede 
-domÈstica ou de escritÛrio. Entre os tÛpicos cobertos est„o incluÌdos 
-masquerading, DNS, DHCP e seguranÁa b·sica. 
+dom√©stica ou de escrit√≥rio. Entre os t√≥picos cobertos est√£o inclu√≠dos 
+masquerading, DNS, DHCP e seguran√ßa b√°sica. 
 
 <tag>IP-Alias</tag>
  <item>
-Descreve como utilizar v·rios IPs em uma ˙nica interface de rede. Em 
-adiÁ„o, est„o incluÌdas instruÁıes de como ajustar a m·quina para 
+Descreve como utilizar v√°rios IPs em uma √∫nica interface de rede. Em 
+adi√ß√£o, est√£o inclu√≠das instru√ß√µes de como ajustar a m√°quina para 
 receber e-mais em IPs alises. 
  
 <tag>IP-Subnetworking</tag>
  <item>
-Descreve porque e como subdividir uma rede IP - que est· usando uma 
+Descreve porque e como subdividir uma rede IP - que est√° usando uma 
 simples classe de rede A, B ou C para funcionar corretamente em 
 diversas redes interconectadas. 
 
 <tag>IPMasquerading+Napster</tag>
  <item>
-Descreve como permitir usu·rios atravÈs de um sistema IPMasquerade usar 
+Descreve como permitir usu√°rios atrav√©s de um sistema IPMasquerade usar 
 o Napster. 
  
 <tag>ISP-Connectivity</tag>
  <item>
 Descreve como configurar o PPP, conectar-se ao seu Provedor, configurar
-o E-mail e news, obter um IP permanente (se disponÌvel), obter um nome 
-de domÌnio. 
+o E-mail e news, obter um IP permanente (se dispon√≠vel), obter um nome 
+de dom√≠nio. 
 
 <tag>Mail-Queue</tag>
  <item>
-Queue E-mails remotos + Entregar e-mails locais as configuraÁıes 
-necess·rias para fazer o Sendmail enviar mensagens locais 
+Queue E-mails remotos + Entregar e-mails locais as configura√ß√µes 
+necess√°rias para fazer o Sendmail enviar mensagens locais 
 ***Agora*** e entregar mensagens remotas "quando quiser". 
 
 <tag>Netrom-Node</tag>
  <item>
-Este documento descreve como configurar o pacote de utilit·rios 
-ax25 para R·dio Amadores. 
+Este documento descreve como configurar o pacote de utilit√°rios 
+ax25 para R√°dio Amadores. 
 
 <tag>PLIP</tag>
  <item>
-Este documento lhe ajudar· a usar sua porta Paralela para conex„o entre 
+Este documento lhe ajudar√° a usar sua porta Paralela para conex√£o entre 
 computadores. 
 
 <tag>ppp-ssh</tag>
@@ -2380,21 +2380,21 @@ Descreve como configurar uma rede VPN usando ssh sobre ppp.
 
 <tag>PortSlave</tag>
  <item>
-Configurando e usando um roteador Linux para conex„o remota, 
+Configurando e usando um roteador Linux para conex√£o remota, 
 radius, console serial.
 
 <tag>Proxy-ARP-Subnet</tag>
  <item>
 Este documento discute o uso do Proxy Address Resolution Protocol 
 (ARP) com subrede em ordem para fazer uma pequena rede de computadores 
-visÌvel a outra sub rede IP (eu chamo isto de sub-subrede). 
-isto faz todas as m·quinas na rede local (rede 0 onde estamos 
+vis√≠vel a outra sub rede IP (eu chamo isto de sub-subrede). 
+isto faz todas as m√°quinas na rede local (rede 0 onde estamos 
 agora) aparecer como se estivessem conectadas a rede principal 
 (rede 1). 
 
 <tag>Public-Web-Browser</tag>
  <item>
-A idÈia b·sica È dar acesso web a pessoas que desejam, limitando 
+A id√©ia b√°sica √© dar acesso web a pessoas que desejam, limitando 
 suas habilidades de causar problemas. 
 
 <tag>Qmail+MH</tag>
@@ -2403,14 +2403,14 @@ Ensina como usar o Qmail em conjunto com o MH.
 
 <tag>Remote-Boot</tag>
  <item>
-Este documento descreve como configurar um servidor de inicializaÁ„o 
+Este documento descreve como configurar um servidor de inicializa√ß√£o 
 robusto e seguro para um grupo de PCS, permitindo cada cliente 
-escolher em tempo de inicializaÁ„o qual sistema operacional 
+escolher em tempo de inicializa√ß√£o qual sistema operacional 
 executar. 
 
 <tag>SLIP-PPP-Emulator</tag>
  <item>
-Descreve como obter seu computador Linux conectado a um site genÈrico via 
+Descreve como obter seu computador Linux conectado a um site gen√©rico via 
 emulador SLIP/PPP, tal como SLiRP ou TIA. 
  
 <tag>Sendmail+UUCP</tag>
@@ -2419,8 +2419,8 @@ Como utilizar o Sendmail em conjunto com o UUCP.
  
 <tag>Sendmail-Address-Rewrite</tag>
  <item>
-Breve descriÁ„o de como ajustar o arquivo de configuraÁ„o do 
-sendmail para o usu·rio domÈstico que utiliza o acesso dial-up a 
+Breve descri√ß√£o de como ajustar o arquivo de configura√ß√£o do 
+sendmail para o usu√°rio dom√©stico que utiliza o acesso dial-up a 
 
 <tag>Sybase-PHP-Apache</tag>
  <item>
@@ -2428,8 +2428,8 @@ Explica como usar o PHP + Apache para acesso a uma base de dados Sybase-ASE.
 
 <tag>Term-Firewall</tag>
  <item>
-MÈtodos de usar o "term" para tornar os materiais de rede transparentes 
-atravÈs de um firewall TCP que parece n„o ser capaz. 
+M√©todos de usar o "term" para tornar os materiais de rede transparentes 
+atrav√©s de um firewall TCP que parece n√£o ser capaz. 
 
 <tag>Token-Ring</tag>
  <item>
@@ -2453,17 +2453,17 @@ Ensina como configurar uma Virtual Protected Network no
 <taglist>
 <tag>Advocacy</tag>
  <item>
-Este documento oferece sugestıes de como a comunidade Linux pode 
+Este documento oferece sugest√µes de como a comunidade Linux pode 
 defender efetivamente o uso do Linux. 
 
 <tag>BogoMips</tag>
  <item>
-Detalhes sobre BogoMips. Este texto foi criado a partir de v·rios 
+Detalhes sobre BogoMips. Este texto foi criado a partir de v√°rios 
 arquivos <prgn>GNU/Linux</prgn> no arquivo <file>HOWTO/mini/BogoMips</file>. 
 
 <tag>Commercial-Port-Advocacy</tag>
  <item>
-Este documento discute mÈtodos que podem ser usados como aproximaÁ„o 
+Este documento discute m√©todos que podem ser usados como aproxima√ß√£o 
 de empresas comerciais para convence-las a portar seus programas para 
 o <prgn>GNU/Linux</prgn>. 
 
@@ -2473,368 +2473,368 @@ o <prgn>GNU/Linux</prgn>.
     ]]>
 
 
-<sect id="ajuda-docs">DocumentaÁ„o de Programas
+<sect id="ajuda-docs">Documenta√ß√£o de Programas
  <p>
-S„o documentos instalados junto com os programas.
-<![ %DESCRICAOD [ Alguns programas tambÈm trazem o <em>aviso de copyright, 
-changelogs, modelos, scripts, exemplos e FAQs (perguntas freq¸Íntes)</em> 
-junto com a documentaÁ„o normal. ]]>
+S√£o documentos instalados junto com os programas.
+<![ %DESCRICAOD [ Alguns programas tamb√©m trazem o <em>aviso de copyright, 
+changelogs, modelos, scripts, exemplos e FAQs (perguntas freq√º√™ntes)</em> 
+junto com a documenta√ß√£o normal. ]]>
  <p>
-Seu princÌpio È o mesmo do How-to; documentar o programa. Estes arquivos 
-est„o localizados em:
+Seu princ√≠pio √© o mesmo do How-to; documentar o programa. Estes arquivos 
+est√£o localizados em:
  <p>
 <![ %DEBIAN [ <file>/usr/share/doc/<prgn>[<em>programa</em>]</prgn></file>. ]]>
  <p>
-<em>Programa</em> È o nome do programa ou comando procurado. 
+<em>Programa</em> √© o nome do programa ou comando procurado. 
 
 
 <sect id="ajuda-faq">FAQ
  <p>
-<em>FAQ</em> È um arquivo de perguntas e respostas mais freq¸Íntes sobre o 
-programa. Normalmente os arquivos de FAQ est„o localizados junto com a 
-documentaÁ„o principal do programa em 
+<em>FAQ</em> √© um arquivo de perguntas e respostas mais freq√º√™ntes sobre o 
+programa. Normalmente os arquivos de FAQ est√£o localizados junto com a 
+documenta√ß√£o principal do programa em 
 <![ %DEBIAN [ <file>/usr/share/doc/<prgn>[<em>programa</em>]</prgn></file>. ]]>
 
 
     <![ %INTER-AVANC [ 
 <sect id="ajuda-rfcs">RFC's
  <p>
-S„o textos que contÈm normas para a padronizaÁ„o dos serviÁos e 
-protocolos da Internet (como a porta padr„o de operaÁ„o, comandos que 
+S√£o textos que cont√©m normas para a padroniza√ß√£o dos servi√ßos e 
+protocolos da Internet (como a porta padr√£o de opera√ß√£o, comandos que 
 devem ser utilizados, respostas) e outros detalhes usados para 
-padronizar o uso de serviÁos Internet entre as mais diversas 
+padronizar o uso de servi√ßos Internet entre as mais diversas 
 plataformas de computadores, com o objetivo de garantir a 
-perfeita comunicaÁ„o entre ambos. As RFC's podem ser obtidas de 
+perfeita comunica√ß√£o entre ambos. As RFC's podem ser obtidas de 
 <url id="&url-rfc-www;">. 
 <![ %DESCRICAOD [ 
  <p>
-O arquivo de uma RFC segue o formato <file>RFC+N˙mero</file>, onde 
-<tt>RFC</tt> descreve que o documento È uma RFC e <tt>N˙mero</tt> È o seu 
-n˙mero de identificaÁ„o, como o documento <file>RFC1939</file> que 
+O arquivo de uma RFC segue o formato <file>RFC+N√∫mero</file>, onde 
+<tt>RFC</tt> descreve que o documento √© uma RFC e <tt>N√∫mero</tt> √© o seu 
+n√∫mero de identifica√ß√£o, como o documento <file>RFC1939</file> que 
 documenta o funcionamento e comandos do protocolo POP3. Os arquivos 
 de RFC's podem ser encontrados 
-<![ %DEBIAN [ no pacote <package>doc-rfc</package> da distribuiÁ„o 
+<![ %DEBIAN [ no pacote <package>doc-rfc</package> da distribui√ß√£o 
 <prgn>Debian</prgn> e baseadas ]]>. ]]>
  <p>
-Segue abaixo o Ìndice principal do diretÛrio de RFC's que poder· ser usado 
-para localizar RFC's especÌficas de um determinado serviÁo/assunto: 
+Segue abaixo o √≠ndice principal do diret√≥rio de RFC's que poder√° ser usado 
+para localizar RFC's espec√≠ficas de um determinado servi√ßo/assunto: 
 <taglist>
  <tag>0001</tag>
   <item>
-     PADR’ES OFICIAIS DO PROTOCOLO INTERNET. J. Reynolds, R. Braden.
-     MarÁo 2000. (Formato: TXT=86139 bytes) (Deixa obsoleto RFC2500, RFC2400,
+     PADR√ïES OFICIAIS DO PROTOCOLO INTERNET. J. Reynolds, R. Braden.
+     Mar√ßo 2000. (Formato: TXT=86139 bytes) (Deixa obsoleto RFC2500, RFC2400,
      RFC2300, RFC2200, RFC2000, RFC1920, RFC1880, RFC1800, RFC1780,
      RFC1720, RFC1610, RFC1600, RFC1540, RFC1500, RFC1410, RFC1360,
-     RFC1280, RFC1250, RFC1200, RFC1140, RFC1130, RFC1100, RFC1083) (TambÈm 
+     RFC1280, RFC1250, RFC1200, RFC1140, RFC1130, RFC1100, RFC1083) (Tamb√©m 
      RFC2600)
 
  <tag>0002</tag>
  <item>
-     N˙meros designados. J. Reynolds, J. Postel. Outubro 1994. (Formato:
-     TXT=458860 bytes) (TambÈm RFC1700)
+     N√∫meros designados. J. Reynolds, J. Postel. Outubro 1994. (Formato:
+     TXT=458860 bytes) (Tamb√©m RFC1700)
 
  <tag>0003</tag>
  <item> 
  Requerimentos do sistema. R. Braden. Outubro 1989. (Formato: TXT=528939
- bytes) (TambÈm RFC1122, RFC1123)
+ bytes) (Tamb√©m RFC1122, RFC1123)
 
  <tag>0004</tag>
   <item>
      Requerimentos do Gateway. R. Braden, J. Postel. Junho 1987. (Formato:
-     TXT=125039 bytes) (TambÈm RFC1009)
+     TXT=125039 bytes) (Tamb√©m RFC1009)
 
 <tag>0005</tag>
   <item>
      Protocolo Internet. J. Postel. Setembro 1981. (Formato: TXT=241903
-     bytes) (TambÈm RFC0791, RFC0950, RFC0919, RFC0922, RFC792, RFC1112)
+     bytes) (Tamb√©m RFC0791, RFC0950, RFC0919, RFC0922, RFC792, RFC1112)
 
 <tag>0006</tag>
   <item>
      User Datagram Protocol. J. Postel. Agosto 1980. (Formato: TXT=5896
-     bytes) (TambÈm RFC0768)
+     bytes) (Tamb√©m RFC0768)
 
 <tag>0007</tag>
   <item>
      Transmission Control Protocol. J. Postel. September 1981.
-     (Formato: TXT=172710 bytes) (TambÈm RFC0793)
+     (Formato: TXT=172710 bytes) (Tamb√©m RFC0793)
 
 <tag>0008</tag>
   <item>
      Protocolo Telnet. J. Postel, J. Reynolds. Maio 1983. (Formato:
-     TXT=44639 bytes) (TambÈm RFC0854, RFC0855)
+     TXT=44639 bytes) (Tamb√©m RFC0854, RFC0855)
 
 <tag>0009</tag>
   <item>
      File Transfer Protocol. J. Postel, J. Reynolds. Outubro 1985.
-     (Formato: TXT=148316 bytes) (TambÈm RFC0959)
+     (Formato: TXT=148316 bytes) (Tamb√©m RFC0959)
 
 <tag>0010</tag>
   <item>
      SMTP Service Extensions. J. Klensin, N. Freed, M. Rose, E.
      Stefferud & D. Crocker. Novembro 1995. (Formato: TXT=23299 bytes)
-     (Deixa obsoleto RFC1651) (TambÈm RFC821, RFC1869)
+     (Deixa obsoleto RFC1651) (Tamb√©m RFC821, RFC1869)
 
 <tag>0011</tag>
   <item>
      Standard for the format of ARPA Internet text messages. D.
      Crocker. 13-Ago-1982. (Formato: TXT=109200 bytes) (Deixa obsoleto RFC1653)
-     (TambÈm RFC0822)
+     (Tamb√©m RFC0822)
 
 <tag>0012</tag>
   <item>
      Network Time Protocol. D. Mills. Setembro 1989. (Formato: TXT=193
-     bytes) (TambÈm RFC1119)
+     bytes) (Tamb√©m RFC1119)
 
 <tag>0013</tag>
   <item>
      Domain Name System. P. Mockapetris. Novembro 1987. (Formato:
-     TXT=248726 bytes) (TambÈm RFC1034, RFC1035)
+     TXT=248726 bytes) (Tamb√©m RFC1034, RFC1035)
 
 <tag>0014</tag>
   <item>
      Mail Routing and the Domain System. C. Partridge. Janeiro 1986.
-     (Formato: TXT=18182 bytes) (TambÈm RFC0974)
+     (Formato: TXT=18182 bytes) (Tamb√©m RFC0974)
 
 <tag>0015</tag>
   <item>
      Simple Network Management Protocol. J. Case, M. Fedor, M.
-     Schoffstall, J. Davin. Maio 1990. (Formato: TXT=72876 bytes) (TambÈm
+     Schoffstall, J. Davin. Maio 1990. (Formato: TXT=72876 bytes) (Tamb√©m
      RFC1157)
 
 <tag>0016</tag>
   <item>
      Structure of Management Information. M. Rose, K. McCloghrie. Maio
-     1990. (Formato: TXT=82279 bytes) (Deixa obsoleto RFC1065) (TambÈm RFC1155)
+     1990. (Formato: TXT=82279 bytes) (Deixa obsoleto RFC1065) (Tamb√©m RFC1155)
 
 <tag>0017</tag>
   <item>
      Management Information Base. K. McCloghrie, M. Rose. March 1991.
-     (Formato: TXT=142158 bytes) (Deixa obsoleto RFC1158) (TambÈm RFC1213)
+     (Formato: TXT=142158 bytes) (Deixa obsoleto RFC1158) (Tamb√©m RFC1213)
 
 <tag>0018</tag>
   <item>
      Exterior Gateway Protocol. D. Mills. Abril 1984. (Formato:
-     TXT=63836 bytes) (TambÈm RFC0904)
+     TXT=63836 bytes) (Tamb√©m RFC0904)
 
 <tag>0019</tag>
   <item>
-     NetBIOS Service Protocols. NetBIOS Working Group. MarÁo 1987.
-     (Formato: TXT=319750 bytes) (TambÈm RFC1001, RFC1002)
+     NetBIOS Service Protocols. NetBIOS Working Group. Mar√ßo 1987.
+     (Formato: TXT=319750 bytes) (Tamb√©m RFC1001, RFC1002)
 
 <tag>0020</tag>
   <item>
      Echo Protocol. J. Postel. Maio 1983. (Formato: TXT=1237 bytes)
-     (TambÈm RFC0862)
+     (Tamb√©m RFC0862)
 
 <tag>0021</tag>
   <item>
      Discard Protocol. J. Postel. Maio 1983. (Formato: TXT=1239 bytes)
-     (TambÈm RFC0863)
+     (Tamb√©m RFC0863)
 
 <tag>0022</tag>
   <item>
      Character Generator Protocol. J. Postel. Maio 1983. (Formato:
-     TXT=6842 bytes) (TambÈm RFC0864)
+     TXT=6842 bytes) (Tamb√©m RFC0864)
 
 <tag>0023</tag>
   <item>
      Quote of the Day Protocol. J. Postel. Maio 1983. (Formato: TXT=1676
-     bytes) (TambÈm RFC0865)
+     bytes) (Tamb√©m RFC0865)
 
 <tag>0024</tag>
   <item>
      Active Users Protocol. J. Postel. Maio 1983. (Formato: TXT=2029
-     bytes) (TambÈm RFC0866)
+     bytes) (Tamb√©m RFC0866)
 
 <tag>0025</tag>
   <item>
      Daytime Protocol. J. Postel. Maio 1983. (Formato: TXT=2289 bytes)
-     (TambÈm RFC0867)
+     (Tamb√©m RFC0867)
 
 <tag>0026</tag>
   <item>
      Time Server Protocol. J. Postel. Maio 1983. (Formato: TXT=3024
-     bytes) (TambÈm RFC0868)
+     bytes) (Tamb√©m RFC0868)
 
 <tag>0027</tag>
   <item>
      Binary Transmission Telnet Option. J. Postel, J. Reynolds. Maio
-     1983. (Formato: TXT=8965 bytes) (TambÈm RFC0856)
+     1983. (Formato: TXT=8965 bytes) (Tamb√©m RFC0856)
 
 <tag>0028</tag>
   <item>
      Echo Telnet Option. J. Postel, J. Reynolds. Maio 1983. (Formato:
-     TXT=10859 bytes) (TambÈm RFC0857)
+     TXT=10859 bytes) (Tamb√©m RFC0857)
 
 <tag>0029</tag>
   <item>
      Suppress Go Ahead Telnet Option. J. Postel, J. Reynolds. Maio
-     1983. (Formato: TXT=3712 bytes) (TambÈm RFC0858)
+     1983. (Formato: TXT=3712 bytes) (Tamb√©m RFC0858)
 
 <tag>0030</tag>
   <item>
      Status Telnet Option. J. Postel, J. Reynolds. Maio 1983. (Formato:
-     TXT=4273 bytes) (TambÈm RFC0859)
+     TXT=4273 bytes) (Tamb√©m RFC0859)
 
 <tag>0031</tag>
   <item>
      Timing Mark Telnet Option. J. Postel, J. Reynolds. Maio 1983.
-     (Formato: TXT=7881 bytes) (TambÈm RFC0860)
+     (Formato: TXT=7881 bytes) (Tamb√©m RFC0860)
 
 <tag>0032</tag>
   <item>
      Extended Options List Telnet Option. J. Postel, J. Reynolds. Maio
-     1983. (Formato: TXT=3068 bytes) (TambÈm RFC0861)
+     1983. (Formato: TXT=3068 bytes) (Tamb√©m RFC0861)
 
 <tag>0033</tag>
   <item>
      Trivial File Transfer Protocol. K. Sollins. Julho 1992. (Formato:
-     TXT=24599 bytes) (TambÈm RFC1350)
+     TXT=24599 bytes) (Tamb√©m RFC1350)
 
 <tag>0034</tag>
   <item>
      Routing Information Protocol. C. Hedrick. Junho 1988. (Formato:
-     TXT=91435 bytes) (TambÈm RFC1058)
+     TXT=91435 bytes) (Tamb√©m RFC1058)
 
 <tag>0035</tag>
   <item>
      ISO Transport Service on top of the TCP (Version: 3). M. Rose, D.
-     Cass. Maio 1978. (Formato: TXT=30662 bytes) (TambÈm RFC1006)
+     Cass. Maio 1978. (Formato: TXT=30662 bytes) (Tamb√©m RFC1006)
 
 <tag>0036</tag>
   <item>
      Transmission of IP and ARP over FDDI Networks. D. Katz. Janeiro
-     1993. (Formato: TXT=22077 bytes) (TambÈm RFC1390)
+     1993. (Formato: TXT=22077 bytes) (Tamb√©m RFC1390)
 
 <tag>0037</tag>
   <item>
      An Ethernet Address Resolution Protocol. David C. Plummer.
-     Novembro 1982. (Formato: TXT=21556 bytes) (TambÈm RFC0826)
+     Novembro 1982. (Formato: TXT=21556 bytes) (Tamb√©m RFC0826)
 
 <tag>0038</tag>
   <item>
      A Reverse Address Resolution Protocol. Ross Finlayson, Timothy
      Mann, Jeffrey Mogul, Marvin Theimer. Junho 1984. (Formato: TXT=9345
-     bytes) (TambÈm RFC0903)
+     bytes) (Tamb√©m RFC0903)
 
 <tag>0039</tag>
   <item>
-     Interface Message Processor: EspecificaÁıes para a Interconex„o 
+     Interface Message Processor: Especifica√ß√µes para a Interconex√£o 
      de um computador e um IMP (Revisado). BBN. Dezembro 1981.
      (fora de linha)
 
 <tag>0040</tag>
   <item>
      Host Access Protocol specification. Bolt Beranek and Newman.
-     Agosto 1993. (Formato: TXT=152740 bytes) (Deixa obsoleto RFC0907) (TambÈm
+     Agosto 1993. (Formato: TXT=152740 bytes) (Deixa obsoleto RFC0907) (Tamb√©m
      RFC1221)
 
 <tag>0041</tag>
   <item>
      Standard for the transmission of IP datagrams over Ethernet
-     networks. C. Hornig. Abril 1984. (Formato: TXT=5697 bytes) (TambÈm
+     networks. C. Hornig. Abril 1984. (Formato: TXT=5697 bytes) (Tamb√©m
      RFC0894)
 
 <tag>0042</tag>
   <item>
      Standard for the transmission of IP datagrams over experimental
      Ethernetnetworks. J. Postel. Abril 1984. (Formato: TXT=4985 bytes)
-     (TambÈm RFC0895)
+     (Tamb√©m RFC0895)
 
 <tag>0043</tag>
   <item>
      Standard for the transmission of IP datagrams over IEEE 802
      networks. J. Postel, J.K. Reynolds. Agosto 1993. (Formato: TXT=34359
-     bytes) (Deixa obsoleto RFC0948) (TambÈm RFC1042)
+     bytes) (Deixa obsoleto RFC0948) (Tamb√©m RFC1042)
 
 <tag>0044</tag>
   <item>
      DCN Local-Network Protocols. D.L. Mills. Agosto 1993. (Formato:
-     TXT=65340 bytes) (TambÈm RFC0891)
+     TXT=65340 bytes) (Tamb√©m RFC0891)
 
 <tag>0045</tag>
   <item>
      Internet Protocol on Network System's HYPERchannel: Protocol
      Specification. K. Hardwick, J. Lekashman. Augosto 1993. (Formato:
-     TXT=100836 bytes) (TambÈm RFC1044)
+     TXT=100836 bytes) (Tamb√©m RFC1044)
 
 <tag>0046</tag>
   <item>
      Transmitting IP traffic over ARCNET networks. D. Provan. Agosto 
-     1993. (Formato: TXT=16565 bytes) (Deixa obsoleto RFC1051) (TambÈm RFC1201)
+     1993. (Formato: TXT=16565 bytes) (Deixa obsoleto RFC1051) (Tamb√©m RFC1201)
 
 <tag>0047</tag>
   <item>
      Nonstandard for transmission of IP datagrams over serial lines:
-     SLIP. J.L. Romkey. Agosto 1993. (Formato: TXT=12578 bytes) (TambÈm
+     SLIP. J.L. Romkey. Agosto 1993. (Formato: TXT=12578 bytes) (Tamb√©m
      RFC1055)
 
 <tag>0048</tag>
   <item>
      Standard for the transmission of IP datagrams over NetBIOS
      networks. L.J. McLaughlin. Agosto 1993. (Formato: TXT=5579 bytes)
-     (TambÈm RFC1088)
+     (Tamb√©m RFC1088)
 
 <tag>0049</tag>
   <item>
      Standard for the transmission of 802.2 packets over IPX networks.
-     L.J. McLaughlin. Agosto 1993. (Formato: TXT=7902 bytes) (TambÈm RFC1132)
+     L.J. McLaughlin. Agosto 1993. (Formato: TXT=7902 bytes) (Tamb√©m RFC1132)
 
 <tag>0050</tag>
   <item>
      Definitions of Managed Objects for the Ethernet-like Interface
      Types. F. Kastenholz. Julho 1994. (Formato: TXT=39008, bytes)
-     (Deixa obsoleto RFC1623, RFC1398) (TambÈm RFC1643)
+     (Deixa obsoleto RFC1623, RFC1398) (Tamb√©m RFC1643)
 
 <tag>0051</tag>
   <item>
      The Point-to-Point Protocol (PPP). W. Simpson, Editor. Julho 1994.
-     (Formato: TXT=151158 bytes) (Deixa obsoleto: RFC1549) (TambÈm RFC1661,
+     (Formato: TXT=151158 bytes) (Deixa obsoleto: RFC1549) (Tamb√©m RFC1661,
      RFC1662)
 
 <tag>0052</tag>
   <item>
      The Transmission of IP Datagrams over the SMDS Service. D.
-     Piscitello, J. Lawrence. MarÁo 1991. (Formato: TXT=24662 bytes) (TambÈm
+     Piscitello, J. Lawrence. Mar√ßo 1991. (Formato: TXT=24662 bytes) (Tamb√©m
      RFC1209)
 
 <tag>0053</tag>
   <item>
      Post Office Protocol - Version 3. J. Myers & M. Rose. Maio 1996.
-     (Formato: TXT=47018 bytes) (Deixa Obsoleto: RFC1725) (TambÈm RFC1939)
+     (Formato: TXT=47018 bytes) (Deixa Obsoleto: RFC1725) (Tamb√©m RFC1939)
 
 <tag>0054</tag>
   <item>
      OSPF Version 2. J. Moy. Abril 1998. (Formato: TXT=447367 bytes)
-     (TambÈm RFC2328)
+     (Tamb√©m RFC2328)
 
 <tag>0055</tag>
   <item>
      Multiprotocol Interconnect over Frame Relay. C. Brown, A. Malis.
      Setembro 1998. (Formato: TXT=74671 bytes) (Deixa Obsoleto: RFC1490,
-     RFC1294) (TambÈm RFC2427)
+     RFC1294) (Tamb√©m RFC2427)
 
 <tag>0056</tag>
   <item>
      RIP Version 2. G. Malkin. Novembro 1998. (Formato: TXT=98462
-     bytes) (Atualiza RFC1723, RFC1388) (TambÈm RFC2453)
+     bytes) (Atualiza RFC1723, RFC1388) (Tamb√©m RFC2453)
 
 <tag>0057</tag>
   <item>
      RIP Version 2 Protocol Applicability Statement. G. Malkin.
-     Novembro 1994. (Formato: TXT=10236 bytes) (TambÈm RFC1722)
+     Novembro 1994. (Formato: TXT=10236 bytes) (Tamb√©m RFC1722)
 
 <tag>0058</tag>
   <item>
      Structure of Management Information Version 2 (SMIv2. K.
      McCloghrie, D. Perkins, J. Schoenwaelder. Abril 1999. (Formato:
-     TXT=89712 bytes) (Deixa Obsoleto RFC1902) (TambÈm RFC2578, RFC2579)
+     TXT=89712 bytes) (Deixa Obsoleto RFC1902) (Tamb√©m RFC2578, RFC2579)
 
 <tag>0059</tag>
   <item>
      Remote Network Monitoring Management Information Base. S.
      Waldbusser. Maio 2000. (Formato: TXT=198676 bytes) (Deixa Obsoleto RFC1757)
-     (TambÈm RFC2819)
+     (Tamb√©m RFC2819)
 
 </taglist> 
     ]]>
@@ -2842,294 +2842,294 @@ para localizar RFC's especÌficas de um determinado serviÁo/assunto:
 
 <sect id="ajuda-internet">Internet
  <p>
-Certamente o melhor suporte ao <prgn>GNU/Linux</prgn> È via Internet, 
-veja abaixo alguns locais ˙teis de onde pode obter ajuda ou se atualizar. 
+Certamente o melhor suporte ao <prgn>GNU/Linux</prgn> √© via Internet, 
+veja abaixo alguns locais √∫teis de onde pode obter ajuda ou se atualizar. 
 
 
-<sect1 id="ajuda-paginas">P·ginas Internet de ReferÍncia
+<sect1 id="ajuda-paginas">P√°ginas Internet de Refer√™ncia
  <p>
-Existem boas p·ginas Internet Nacionais e Internacionais sobre o 
+Existem boas p√°ginas Internet Nacionais e Internacionais sobre o 
 <prgn>GNU/Linux</prgn> e assuntos relacionados com este sistema. 
-A maioria trazem documentos e explicaÁıes sobre configuraÁ„o, 
-instalaÁ„o, manutenÁ„o, documentaÁ„o, suporte, etc.
+A maioria trazem documentos e explica√ß√µes sobre configura√ß√£o, 
+instala√ß√£o, manuten√ß√£o, documenta√ß√£o, suporte, etc.
  <p>
-Estas p·ginas podem ser encontradas atravÈs de ferramentas de busca. Entre
-outras p·ginas, posso citar as seguintes:
+Estas p√°ginas podem ser encontradas atrav√©s de ferramentas de busca. Entre
+outras p√°ginas, posso citar as seguintes:
 <list>
  <item>
 <tt><url id="&url-debianbr-www;"></tt> Projeto Debian-Br. A <prgn>Debian</prgn> 
-È uma distribuiÁ„o de <prgn>Linux</prgn> conhecida por sua qualidade, grande 
-n˙mero de pacotes, estabilidade, facilidade de atualizaÁ„o, desenvolvimento 
-aberto, seguranÁa, ferramentas de gerenciamento de servidores e comprometimento 
+√© uma distribui√ß√£o de <prgn>Linux</prgn> conhecida por sua qualidade, grande 
+n√∫mero de pacotes, estabilidade, facilidade de atualiza√ß√£o, desenvolvimento 
+aberto, seguran√ßa, ferramentas de gerenciamento de servidores e comprometimento 
 com o software livre. 
  <p>
-A Debian È feita originalmente em inglÍs e traduzida por grupos em v·rios lugares 
-do mundo. O projeto <strong>Debian-br</strong> destina-se a colaborar na traduÁ„o 
-da <prgn>Debian</prgn> para o PortuguÍs (nossa lÌngua-m„e). AtravÈs desse projeto, 
-todos poder„o, da forma colaborativa como na <prgn>Debian</prgn>, trazer essa 
-excelente distribuiÁ„o em nosso idioma! 
+A Debian √© feita originalmente em ingl√™s e traduzida por grupos em v√°rios lugares 
+do mundo. O projeto <strong>Debian-br</strong> destina-se a colaborar na tradu√ß√£o 
+da <prgn>Debian</prgn> para o Portugu√™s (nossa l√≠ngua-m√£e). Atrav√©s desse projeto, 
+todos poder√£o, da forma colaborativa como na <prgn>Debian</prgn>, trazer essa 
+excelente distribui√ß√£o em nosso idioma! 
  <p>
 Participe:
 <list compact>
- <item>VocÍ pode pegar um documento pra traduzir
- <item>Reformular a p·gina do projeto
+ <item>Voc√™ pode pegar um documento pra traduzir
+ <item>Reformular a p√°gina do projeto
  <item>Programando para o projeto
  <item>Sendo um desenvolvedor da Debian
- <item>A pagina do projeto È a <url id="&url-debianbr-www;">
- <item>Revisar documentaÁ„o
+ <item>A pagina do projeto √© a <url id="&url-debianbr-www;">
+ <item>Revisar documenta√ß√£o
  <item>Ou participar de outras tarefas do seu interesse!
 </list>
-Entre em contato com o respons·vel pelo projeto pelo email 
+Entre em contato com o respons√°vel pelo projeto pelo email 
 <email>&email-debianbr-resp;</email> para saber como entrar no projeto 
-ou visite a p·gina <url id="&url-debianbr-www;">. Todos os interessados
-est„o convidados a participar do projeto! 
+ou visite a p√°gina <url id="&url-debianbr-www;">. Todos os interessados
+est√£o convidados a participar do projeto! 
 
  <item>
-<tt><url id="&url-linuxtrix-www;"></tt> - Boletim di·rio com as noticias mais 
-recentes sobre <prgn>GNU/Linux</prgn>, testes, redes, descriÁ„o/configuraÁ„o/
-avaliaÁ„o de programas,  entrevistas, downloads, dica do dia, mecanismo de 
-busca no site, links, etc. Em PortuguÍs. 
+<tt><url id="&url-linuxtrix-www;"></tt> - Boletim di√°rio com as noticias mais 
+recentes sobre <prgn>GNU/Linux</prgn>, testes, redes, descri√ß√£o/configura√ß√£o/
+avalia√ß√£o de programas,  entrevistas, downloads, dica do dia, mecanismo de 
+busca no site, links, etc. Em Portugu√™s. 
  <p>
-Respons·vel pela p·gina: Augusto Campos <email>&email-linuxtrix-resp;</email> 
-endereÁo: <url id="&url-linuxtrix-www;">.
+Respons√°vel pela p√°gina: Augusto Campos <email>&email-linuxtrix-resp;</email> 
+endere√ßo: <url id="&url-linuxtrix-www;">.
 
  <item>
 <tt><url id="&url-olinux-www;"></tt> - Trata o <prgn>GNU/Linux</prgn> com 
-o foco jornalÌstico e tem a intenÁ„o de prover informaÁıes eficazes e 
-esclarecedoras capazes de instruir, reciclar e tornar acessÌvel aos 
-usu·rios o conhecimento e aprofundamento de temas relacionados a 
+o foco jornal√≠stico e tem a inten√ß√£o de prover informa√ß√µes eficazes e 
+esclarecedoras capazes de instruir, reciclar e tornar acess√≠vel aos 
+usu√°rios o conhecimento e aprofundamento de temas relacionados a 
 plataforma <prgn>GNU/Linux</prgn>. 
  <p>
-PublicaÁ„o di·ria de Artigos que s„o feitos para que o usu·rio possa 
-resolver problemas e tirar d˙vidas deste sistema. Assuntos diversos 
-sobre programas, serviÁos e utilit·rios. TambÈm conta com seÁıes de 
-programaÁ„o, jogos, seguranÁa e entrevistas com personalidades 
-do cen·rio <em>software livre/cÛdigo aberto</em>. AtualizaÁ„o di·ria. 
+Publica√ß√£o di√°ria de Artigos que s√£o feitos para que o usu√°rio possa 
+resolver problemas e tirar d√∫vidas deste sistema. Assuntos diversos 
+sobre programas, servi√ßos e utilit√°rios. Tamb√©m conta com se√ß√µes de 
+programa√ß√£o, jogos, seguran√ßa e entrevistas com personalidades 
+do cen√°rio <em>software livre/c√≥digo aberto</em>. Atualiza√ß√£o di√°ria. 
  <p>
-Respons·vel pela p·gina: Linux Solutions <email>
-&email-olinux-resp;</email> endereÁo: <url id="&url-olinux-www;">.
+Respons√°vel pela p√°gina: Linux Solutions <email>
+&email-olinux-resp;</email> endere√ßo: <url id="&url-olinux-www;">.
 
  <item>
-<tt><url id="&url-linuxsecuritybr-www;"></tt> - Boletins de seguranÁa, 
-publicaÁıes de textos nacionais, traduÁıes de sites especializados 
-em seguranÁa, programas relacionados com criptografia e seguranÁa no 
-ambiente <prgn>Linux</prgn>. A p·gina requer um navegador com suporte 
+<tt><url id="&url-linuxsecuritybr-www;"></tt> - Boletins de seguran√ßa, 
+publica√ß√µes de textos nacionais, tradu√ß√µes de sites especializados 
+em seguran√ßa, programas relacionados com criptografia e seguran√ßa no 
+ambiente <prgn>Linux</prgn>. A p√°gina requer um navegador com suporte 
 a Java. 
  <p>
-EndereÁo: <url id="&url-linuxsecuritybr-www;">.
+Endere√ßo: <url id="&url-linuxsecuritybr-www;">.
 
 <item>
-<tt><url id="&url-ldpbr-www;"></tt> - Projeto de documentaÁ„o do 
-<prgn>GNU/Linux</prgn> no Brasil. Toda a documentaÁ„o traduzida para o 
-PortuguÍs do Brasil pode ser encontrada l·. 
+<tt><url id="&url-ldpbr-www;"></tt> - Projeto de documenta√ß√£o do 
+<prgn>GNU/Linux</prgn> no Brasil. Toda a documenta√ß√£o traduzida para o 
+Portugu√™s do Brasil pode ser encontrada l√°. 
  <p>
-Respons·vel pela p·gina: <email>&email-ldpbr-resp;</email> 
-endereÁo: <url id="&url-ldpbr-www;">. 
+Respons√°vel pela p√°gina: <email>&email-ldpbr-resp;</email> 
+endere√ßo: <url id="&url-ldpbr-www;">. 
 
 <item>
 <tt><url id="&url-noticiaslinux-www;"></tt> - 
  <p>
-NotÌcias di·rias sobre GNU/Linux e Software Livre no site, por e-mail ou RSS.
+Not√≠cias di√°rias sobre GNU/Linux e Software Livre no site, por e-mail ou RSS.
  <p>
-Respons·vel pela p·gina: <email>&email-noticiaslinux-resp;</email>
-endereÁo: <url id="&url-noticiaslinux-www;">
+Respons√°vel pela p√°gina: <email>&email-noticiaslinux-resp;</email>
+endere√ßo: <url id="&url-noticiaslinux-www;">
 
-<!-- Sites em InglÍs -->
+<!-- Sites em Ingl√™s -->
  <item>
-<tt><url id="&url-linux-www;"></tt> - P·gina oficial do <prgn>GNU/Linux</prgn> 
+<tt><url id="&url-linux-www;"></tt> - P√°gina oficial do <prgn>GNU/Linux</prgn> 
 mantida pela <em>Transmeta</em> (a empresa que Linus Torvalds vem trabalhando 
-atualmente). Muita referÍncia sobre <prgn>GNU/Linux</prgn>, distribuiÁıes, 
+atualmente). Muita refer√™ncia sobre <prgn>GNU/Linux</prgn>, distribui√ß√µes, 
 hardwares, softwares, downloads, etc.
  <p>
-Respons·vel pela p·gina: <email>&email-linux-resp;</email> 
-endereÁo: <url id="&url-linux-www;">. 
+Respons√°vel pela p√°gina: <email>&email-linux-resp;</email> 
+endere√ßo: <url id="&url-linux-www;">. 
 
  <item>
-<tt><url id="&url-linuxcounter-www;"></tt> - Este È um serviÁo que tem 
-o objetivo de contar os usu·rios, m·quinas, grupos de usu·rios <prgn>
+<tt><url id="&url-linuxcounter-www;"></tt> - Este √© um servi√ßo que tem 
+o objetivo de contar os usu√°rios, m√°quinas, grupos de usu√°rios <prgn>
 Linux</prgn> existentes ao redor do mundo. Te encorajo a se registrar 
-neste site e indica-lo aos seus amigos, È de <strong>graÁa</strong>, 
-vocÍ estar· contribuindo para o aumento das estatÌsticas do n˙mero 
-de usu·rios no mundo, paÌs, sua cidade, etc.
+neste site e indica-lo aos seus amigos, √© de <strong>gra√ßa</strong>, 
+voc√™ estar√° contribuindo para o aumento das estat√≠sticas do n√∫mero 
+de usu√°rios no mundo, pa√≠s, sua cidade, etc.
  <p>
-O site tambÈm conta com um sistema de estatÌsticas de usu·rios, m·quinas 
-e grupos de usu·rios espalhados ao redor do mundo. VocÍ pode saber em 
-poucos segundos a quantidade de usu·rios Linux em seu paÌs, cidade, etc.
+O site tamb√©m conta com um sistema de estat√≠sticas de usu√°rios, m√°quinas 
+e grupos de usu√°rios espalhados ao redor do mundo. Voc√™ pode saber em 
+poucos segundos a quantidade de usu√°rios Linux em seu pa√≠s, cidade, etc.
  <p>
-Respons·vel pela p·gina: Harald T. Alvestrand <email>&email-linuxcounter-resp;
-</email> endereÁo: <url id="&url-linuxcounter-www;">.
+Respons√°vel pela p√°gina: Harald T. Alvestrand <email>&email-linuxcounter-resp;
+</email> endere√ßo: <url id="&url-linuxcounter-www;">.
 
  <item>
-<tt><url id="&url-metalab-www;"></tt> - O ponto de referÍncia mais 
-tradicional de softwares <prgn>GNU/Linux</prgn> do mundo. VocÍ pode encontrar 
-desde dicas, documentaÁ„o (todos os How-Tos) atÈ diversas distribuiÁıes 
+<tt><url id="&url-metalab-www;"></tt> - O ponto de refer√™ncia mais 
+tradicional de softwares <prgn>GNU/Linux</prgn> do mundo. Voc√™ pode encontrar 
+desde dicas, documenta√ß√£o (todos os How-Tos) at√© diversas distribui√ß√µes 
 <prgn>GNU/Linux</prgn>. 
  <p>
-Respons·vel pelo site: <email>&email-sunsite-resp;</email> 
-endereÁo: <url id="&url-metalab-www;">. 
+Respons√°vel pelo site: <email>&email-sunsite-resp;</email> 
+endere√ßo: <url id="&url-metalab-www;">. 
 
  <item>
-<tt><url id="&url-themes-www;"></tt> - Neste site vocÍ encontra milhares 
+<tt><url id="&url-themes-www;"></tt> - Neste site voc√™ encontra milhares 
 de temas divididos em categorias para os mais diversos gerenciadores de 
-janelas no <prgn>GNU/Linux</prgn>. O site È muito pesado, por causa das 
-fotos, È recomend·vel um bom fax-modem ou muita paciÍncia. 
+janelas no <prgn>GNU/Linux</prgn>. O site √© muito pesado, por causa das 
+fotos, √© recomend√°vel um bom fax-modem ou muita paci√™ncia. 
  <p>
-Respons·vel pela p·gina: <email>&email-themes-resp;</email> 
-endereÁo: <url id="&url-themes-www;">. 
+Respons√°vel pela p√°gina: <email>&email-themes-resp;</email> 
+endere√ßo: <url id="&url-themes-www;">. 
 
  <item>
-<tt><url id="&url-oreillsafari-www;"></tt> - Neste site vocÍ encontra os 
-livros publicados sobre a licenÁa OpenBook da Orreil. Na maioria livros que 
-n„o atende mais propÛsitos atualmente e livros em que os autores concordaram 
+<tt><url id="&url-oreillsafari-www;"></tt> - Neste site voc√™ encontra os 
+livros publicados sobre a licen√ßa OpenBook da Orreil. Na maioria livros que 
+n√£o atende mais prop√≥sitos atualmente e livros em que os autores concordaram 
 em licenciar sob os termos OpenBook.
  <p>
-EndereÁo: <url id="&url-oreillsafari-www;">. 
+Endere√ßo: <url id="&url-oreillsafari-www;">. 
 
 
 
 </list>
-Caso conhecer uma p·gina de Internet que contenha materiais ˙teis a comunidade 
+Caso conhecer uma p√°gina de Internet que contenha materiais √∫teis a comunidade 
 <prgn>GNU/Linux</prgn> ou desejar incluir a sua, entre em contato para sua 
-inclus„o na prÛxima vers„o do guia junto com uma descriÁ„o da p·gina.
+inclus√£o na pr√≥xima vers√£o do guia junto com uma descri√ß√£o da p√°gina.
 
 
-<sect1 id="ajuda-listas">Listas de discuss„o
+<sect1 id="ajuda-listas">Listas de discuss√£o
  <p>
-S„o grupos de usu·rios que trocam mensagens entre si, resolvem d˙vidas, 
-ajudam na configuraÁ„o de programas, instalaÁ„o, etc. … considerado o melhor 
+S√£o grupos de usu√°rios que trocam mensagens entre si, resolvem d√∫vidas, 
+ajudam na configura√ß√£o de programas, instala√ß√£o, etc. √â considerado o melhor 
 suporte ao <prgn>GNU/Linux</prgn> pois qualquer participante pode ser beneficiar 
-das soluÁıes discutidas. Existem milhares de listas de discussıes sobre o 
-<prgn>GNU/Linux</prgn> espalhadas pelo mundo, em PortuguÍs existem 
+das solu√ß√µes discutidas. Existem milhares de listas de discuss√µes sobre o 
+<prgn>GNU/Linux</prgn> espalhadas pelo mundo, em Portugu√™s existem 
 algumas dezenas.
  <p>
-Algumas listas s„o especÌficas a um determinado assunto do sistema, algumas 
-s„o feitas para usu·rios iniciantes ou avanÁados, outras falam praticamente 
-de tudo. Existem desde usu·rios iniciantes, hackers, consultores, 
+Algumas listas s√£o espec√≠ficas a um determinado assunto do sistema, algumas 
+s√£o feitas para usu√°rios iniciantes ou avan√ßados, outras falam praticamente 
+de tudo. Existem desde usu√°rios iniciantes, hackers, consultores, 
 administradores de redes experientes e gurus participando de listas 
-e oferecendo suporte de graÁa a quem se aventurar em instalar e usar 
+e oferecendo suporte de gra√ßa a quem se aventurar em instalar e usar 
 o sistema <prgn>GNU/Linux</prgn>. 
 <![ %DESCRICAOD [
  <p>
-A lista de discuss„o funciona da seguinte forma: vocÍ se inscreve na lista 
-enviando uma mensagem ao endereÁo de inscriÁ„o, ser· enviada um pedido de 
-confirmaÁ„o por e-mail, simplesmente dÍ um reply na mensagem para ser 
-cadastrado. Pronto! agora vocÍ estar· participando do grupo de usu·rios e 
-receber· todas as mensagens dos participantes do grupo. Assim vocÍ poder· 
-enviar sua mensagem e ela ser· vista por todos os participantes da lista.
+A lista de discuss√£o funciona da seguinte forma: voc√™ se inscreve na lista 
+enviando uma mensagem ao endere√ßo de inscri√ß√£o, ser√° enviada um pedido de 
+confirma√ß√£o por e-mail, simplesmente d√™ um reply na mensagem para ser 
+cadastrado. Pronto! agora voc√™ estar√° participando do grupo de usu√°rios e 
+receber√° todas as mensagens dos participantes do grupo. Assim voc√™ poder√° 
+enviar sua mensagem e ela ser√° vista por todos os participantes da lista.
  <p>
-Da mesma forma, vocÍ pode responder uma d˙vida de outro usu·rio da lista ou 
-discutir algum assunto, tirar alguma d˙vida sobre a d˙vida de outra pessoa, 
+Da mesma forma, voc√™ pode responder uma d√∫vida de outro usu√°rio da lista ou 
+discutir algum assunto, tirar alguma d√∫vida sobre a d√∫vida de outra pessoa, 
 etc. ]]>
  <p>
-N„o tenha vergonha de enviar sua pergunta, participar de listas de discuss„o 
-È uma experiÍncia quase obrigatÛrio de um <tt>Linuxer</tt>. Abaixo segue uma 
-relaÁ„o de listas de discuss„o em PortuguÍs com a descriÁ„o, endereÁo de 
-inscriÁ„o, e o que vocÍ deve fazer para ser cadastrado: 
+N√£o tenha vergonha de enviar sua pergunta, participar de listas de discuss√£o 
+√© uma experi√™ncia quase obrigat√≥rio de um <tt>Linuxer</tt>. Abaixo segue uma 
+rela√ß√£o de listas de discuss√£o em Portugu√™s com a descri√ß√£o, endere√ßo de 
+inscri√ß√£o, e o que voc√™ deve fazer para ser cadastrado: 
 <taglist>
  <tag><email>debian-user-portuguese@lists.debian.org</email></tag>
  <item>
-Lista de discuss„o para usu·rios Portugueses da <prgn>Debian</prgn>. TambÈm 
-s„o discutidos assuntos relacionados ao Linux em geral. A inscriÁ„o È 
+Lista de discuss√£o para usu√°rios Portugueses da <prgn>Debian</prgn>. Tamb√©m 
+s√£o discutidos assuntos relacionados ao Linux em geral. A inscri√ß√£o √© 
 aberta a todos os interessados. 
  <p>
 Para se inscrever, envie uma mensagem para 
 <email>debian-user-portuguese-request@lists.debian.org</email> contendo a 
-palavra <tt>subscribe</tt> no assunto da mensagem. Ser· enviada uma mensagem 
-a vocÍ pedindo a confirmaÁ„o da inscriÁ„o na lista de discuss„o, simplesmente 
-dÍ um reply na mensagem (responder) e vocÍ estar· cadastrado e poder· enviar 
+palavra <tt>subscribe</tt> no assunto da mensagem. Ser√° enviada uma mensagem 
+a voc√™ pedindo a confirma√ß√£o da inscri√ß√£o na lista de discuss√£o, simplesmente 
+d√™ um reply na mensagem (responder) e voc√™ estar√° cadastrado e poder√° enviar 
 e receber mensagens dos participantes.
 
 
  <tag><email>debian-news-portuguese@lists.debian.org</email></tag>
  <item>
-A <prgn>Debian</prgn> È extremamente bem estruturada quanto a divulgaÁıes e 
-notÌcias, v·rias listas de email e v·rias p·ginas compıe essa base. A 
-<em>Debian Weekly News</em> È especialmente importante pois d· uma vis„o geral 
-do que se passou na <prgn>Debian</prgn> durante a semana. E n„o traz apenas 
-traduÁıes mas tambÈm adiÁıes dos acontecimentos atuais da <prgn>Debian</prgn> 
-no Brasil, ou projetos concluÌdos ou lanÁados pela equipe <em>Debian-br</em> 
+A <prgn>Debian</prgn> √© extremamente bem estruturada quanto a divulga√ß√µes e 
+not√≠cias, v√°rias listas de email e v√°rias p√°ginas comp√µe essa base. A 
+<em>Debian Weekly News</em> √© especialmente importante pois d√° uma vis√£o geral 
+do que se passou na <prgn>Debian</prgn> durante a semana. E n√£o traz apenas 
+tradu√ß√µes mas tamb√©m adi√ß√µes dos acontecimentos atuais da <prgn>Debian</prgn> 
+no Brasil, ou projetos conclu√≠dos ou lan√ßados pela equipe <em>Debian-br</em> 
 (<url id="&url-debianbr-www;">). 
  <p>
-Essa lista <tt>N√O</tt> È usada para resoluÁ„o de d˙vidas e problemas, apenas 
-para o RECEBIMENTO de notÌcias relacionadas a Debian. N„o poste mensagens 
+Essa lista <tt>N√ÉO</tt> √© usada para resolu√ß√£o de d√∫vidas e problemas, apenas 
+para o RECEBIMENTO de not√≠cias relacionadas a Debian. N√£o poste mensagens 
 nela! 
  <p>
 Para se inscrever, envie uma mensagem para 
 <email>debian-news-portuguese-request@lists.debian.org</email> contendo a 
-palavra <tt>subscribe</tt> no assunto da mensagem. Ser· enviada uma mensagem 
-a vocÍ pedindo a confirmaÁ„o da inscriÁ„o na lista de discuss„o, simplesmente 
-dÍ um reply na mensagem (responder) e vocÍ passar· a receber as notÌcias sobre 
-a Debian em PortuguÍs.
+palavra <tt>subscribe</tt> no assunto da mensagem. Ser√° enviada uma mensagem 
+a voc√™ pedindo a confirma√ß√£o da inscri√ß√£o na lista de discuss√£o, simplesmente 
+d√™ um reply na mensagem (responder) e voc√™ passar√° a receber as not√≠cias sobre 
+a Debian em Portugu√™s.
 
 
 <tag><email>linux-br@unicamp.br</email></tag> 
  <item>
-Lista de discuss„o que cobre assuntos diversos. Esta lista È voltada para 
-usu·rios com bons conhecimentos no <prgn>GNU/Linux</prgn>, s„o abordados 
-assuntos como redes, configuraÁıes, etc. Esta È uma lista moderada, o que 
+Lista de discuss√£o que cobre assuntos diversos. Esta lista √© voltada para 
+usu√°rios com bons conhecimentos no <prgn>GNU/Linux</prgn>, s√£o abordados 
+assuntos como redes, configura√ß√µes, etc. Esta √© uma lista moderada, o que 
 significa que a mensagem que envia passam por uma pessoa que verifica 
 (modera) e a libera caso estejam dentro das normas adotada na lista. 
-… uma lista de alto nÌvel e recomendada para quem deseja fugir de mensagens 
-como <tt>n„o consigo instalar o Linux</tt>, <tt>n„o sei compilar o 
-kernel</tt>, <tt>o que eu faÁo quando vejo uma tela com o nome 
+√â uma lista de alto n√≠vel e recomendada para quem deseja fugir de mensagens 
+como <tt>n√£o consigo instalar o Linux</tt>, <tt>n√£o sei compilar o 
+kernel</tt>, <tt>o que eu fa√ßo quando vejo uma tela com o nome 
 login:?</tt>, etc. 
  <p>
 Para se inscrever nesta lista, envie uma mensagem para:
 <email>linux-br-request@unicamp.br</email> contendo a palavra 
 <tt>subscribe</tt> no assunto da mensagem e aguarde o recebimento 
-da confirmaÁ„o da inscriÁ„o. Apenas responda a mensagem de confirmaÁ„o 
+da confirma√ß√£o da inscri√ß√£o. Apenas responda a mensagem de confirma√ß√£o 
 para se inscrever. Para se descadastrar envie uma mensagem para o mesmo 
-endereÁo mas use a palavra <tt>unsubscribe</tt>. 
+endere√ßo mas use a palavra <tt>unsubscribe</tt>. 
 
 <tag><email>dicas-l@unicamp.br</email></tag>
  <item>
 Esta lista envia diariamente uma dica de <prgn>Unix</prgn>, sistemas da 
 Microsoft ou novidades da Internet. 
  <p>
-Para se inscreve nesta lista de discuss„o, envie uma mensagem para:
+Para se inscreve nesta lista de discuss√£o, envie uma mensagem para:
 <email>dicas-l-request@unicamp.br</email> contendo a palavra 
 <tt>subscribe</tt> no corpo da mensagem e aguarde o recebimento 
-da confirmaÁ„o da inscriÁ„o. Apenas responda a mensagem de confirmaÁ„o 
-para confirmar sua inscriÁ„o na lista. Para se descadastrar envie uma 
-mensagem para o mesmo endereÁo mas use a palavra <tt>unsubscribe</tt>. 
+da confirma√ß√£o da inscri√ß√£o. Apenas responda a mensagem de confirma√ß√£o 
+para confirmar sua inscri√ß√£o na lista. Para se descadastrar envie uma 
+mensagem para o mesmo endere√ßo mas use a palavra <tt>unsubscribe</tt>. 
 
 </taglist>
-Esta listagem deveria estar mais completa, mas eu n„o lembro de todas as 
-listas!. TambÈm recomendo dar uma olhada em <ref id="ajuda-netiqueta-listas">
-que descreve recomendaÁıes de comportamento em listas de discuss„o.
+Esta listagem deveria estar mais completa, mas eu n√£o lembro de todas as 
+listas!. Tamb√©m recomendo dar uma olhada em <ref id="ajuda-netiqueta-listas">
+que descreve recomenda√ß√µes de comportamento em listas de discuss√£o.
 
 
 <sect id="ajuda-netiqueta">Netiqueta
  <p>
-S„o recomendaÁıes que tem como objetivo facilitar a para comunicaÁ„o 
-atravÈs dos recursos de uma rede. O nome <em>Netiqueta</em> 
+S√£o recomenda√ß√µes que tem como objetivo facilitar a para comunica√ß√£o 
+atrav√©s dos recursos de uma rede. O nome <em>Netiqueta</em> 
 vem de "Etiqueta de Rede" (<em>Net Etiquete</em>). O material desta 
-seÁ„o foi escrito com base nos anos de observaÁ„o que tive via internet 
-e tambÈm com referÍncia a rfc 1855. 
+se√ß√£o foi escrito com base nos anos de observa√ß√£o que tive via internet 
+e tamb√©m com refer√™ncia a rfc 1855. 
 
 
-<sect1 id="ajuda-netiqueta-geral">RecomendaÁıes Gerais sobre a ComunicaÁ„o EletrÙnica
+<sect1 id="ajuda-netiqueta-geral">Recomenda√ß√µes Gerais sobre a Comunica√ß√£o Eletr√¥nica
  <p>
 <list compact>
  <item>
-Como recomendaÁ„o geral, lembre-se que a conversa via internet È feita 
-sempre de uma para outra pessoa ou de uma para v·rias pessoas, e que 
-a forma de comunicaÁ„o È a mesma que utilizaria se estivesse de frente 
-a frente com a pessoa. Nunca diga algo que n„o diria se estivesse diante 
-da outra pessoa. Existem pessoas que por estar atr·s de um monitor, 
-se sentem "maiores" se esquecendo disso e causando prejuÌzos de comunicaÁ„o 
+Como recomenda√ß√£o geral, lembre-se que a conversa via internet √© feita 
+sempre de uma para outra pessoa ou de uma para v√°rias pessoas, e que 
+a forma de comunica√ß√£o √© a mesma que utilizaria se estivesse de frente 
+a frente com a pessoa. Nunca diga algo que n√£o diria se estivesse diante 
+da outra pessoa. Existem pessoas que por estar atr√°s de um monitor, 
+se sentem "maiores" se esquecendo disso e causando preju√≠zos de comunica√ß√£o 
 (e sem imaginar que a pessoa do outro lado da linha existe). 
  <p>
-Apesar do modo que as frases s„o escritas expressarem o jeito que a outra 
-pessoa est· do outro lado da linha e seu tom de comunicaÁ„o no decorrer da 
-conversar, existem algumas coisas que n„o podem ser totalmente expressadas 
-atravÈs da Internet, como por exemplo a express„o da "face" das pessoas. 
-Para isto foram criados sÌmbolos chamados <em>smileys</em> que expressam 
+Apesar do modo que as frases s√£o escritas expressarem o jeito que a outra 
+pessoa est√° do outro lado da linha e seu tom de comunica√ß√£o no decorrer da 
+conversar, existem algumas coisas que n√£o podem ser totalmente expressadas 
+atrav√©s da Internet, como por exemplo a express√£o da "face" das pessoas. 
+Para isto foram criados s√≠mbolos chamados <em>smileys</em> que expressam 
 a face da outra pessoa em determinado momento, e dependendo do sentido da 
-conversa, um smiley pode expressar corretamente a intenÁ„o de sua 
+conversa, um smiley pode expressar corretamente a inten√ß√£o de sua 
 frase. 
 
-Os mais usados s„o os seguintes: 
+Os mais usados s√£o os seguintes: 
 <example>
 :-)   --> Sorriso
 
@@ -3139,9 +3139,9 @@ Os mais usados s„o os seguintes:
 
 :-O   --> De boca aberta
 
-:-|   --> Sem graÁa
+:-|   --> Sem gra√ßa
 
-8-)   --> De Ûculos 
+8-)   --> De √≥culos 
 
 |-)   --> Com sono e feliz
 
@@ -3150,36 +3150,36 @@ Os mais usados s„o os seguintes:
 
 </example>
 Para entender o sentido do smiley, veja ele de lado (45 graus). 
-Use os smileys em suas conversas, mas com cautela. N„o 
-espere que a inclus„o de um smiley sorridente ":-)" deixe o 
-destinat·rio da mensagem contente com um coment·rio rude ou 
+Use os smileys em suas conversas, mas com cautela. N√£o 
+espere que a inclus√£o de um smiley sorridente ":-)" deixe o 
+destinat√°rio da mensagem contente com um coment√°rio rude ou 
 insulto.
  
  <item>
-ESCREVER EM MAI⁄SCULAS significa gritar quando escrever mensagens 
-eletrÙnicas. 
+ESCREVER EM MAI√öSCULAS significa gritar quando escrever mensagens 
+eletr√¥nicas. 
 
  <item>
 Use *asteriscos* para destacar uma palavra ou frase. _Isso_ indica 
 uma palavra/frase sublinhada.
 
  <item>
-Se vocÍ troca mensagens com pessoas do mundo todo, n„o espere que 
-um japonÍs responda logo seu e-mail que enviou as 15:00 da tarde. 
-A essa hora no paÌs dele, ele est· roncando forte na cama e sonhando 
+Se voc√™ troca mensagens com pessoas do mundo todo, n√£o espere que 
+um japon√™s responda logo seu e-mail que enviou as 15:00 da tarde. 
+A essa hora no pa√≠s dele, ele est√° roncando forte na cama e sonhando 
 com a placa 3D que vai ganhar para melhorar o desempenho de seus jogos
 de <prgn>Linux</prgn>.
 
  <item>
-Durante a comunicaÁ„o com pessoas de diferentes regiıes (ou paÌses), 
-evite a utilizaÁ„o de gÌrias, ou expressıes regionais. Uma interpretaÁ„o 
-em uma determinada regi„o n„o garante que ela tenha o mesmo significado 
-para seu destinat·rio, as vezes pode ser atÈ ofensiva. 
+Durante a comunica√ß√£o com pessoas de diferentes regi√µes (ou pa√≠ses), 
+evite a utiliza√ß√£o de g√≠rias, ou express√µes regionais. Uma interpreta√ß√£o 
+em uma determinada regi√£o n√£o garante que ela tenha o mesmo significado 
+para seu destinat√°rio, as vezes pode ser at√© ofensiva. 
 
  <item>
-Assuma que sua mensagem est· trafegando sobre uma via n„o segura, desta 
-forma n„o envie informaÁıes pessoais que n„o enviaria em uma carta comum. 
-O uso de criptografia pode garantir melhor seguranÁa na transmiss„o de 
+Assuma que sua mensagem est√° trafegando sobre uma via n√£o segura, desta 
+forma n√£o envie informa√ß√µes pessoais que n√£o enviaria em uma carta comum. 
+O uso de criptografia pode garantir melhor seguran√ßa na transmiss√£o de 
 dados. 
 </list>
 
@@ -3188,49 +3188,49 @@ dados.
  <p>
 <list compact>
  <item>
-Tenha o h·bito de colocar sempre um assunto na mensagem que 
-envia para identificar seu conte˙do. 
+Tenha o h√°bito de colocar sempre um assunto na mensagem que 
+envia para identificar seu conte√∫do. 
 
  <item>
 Respeite os direitos autorais das mensagens de e-mail. Se precisar 
-encaminhar mensagens, preserve seu conte˙do original.
+encaminhar mensagens, preserve seu conte√∫do original.
 
  <item>
-Procure limitar o tamanho da linha a 70 caracteres. Muitos usu·rios utilizam
-cliente de e-mail em modo texto, e nem todo mundo usa a mesma resoluÁ„o que 
-vocÍ. 
+Procure limitar o tamanho da linha a 70 caracteres. Muitos usu√°rios utilizam
+cliente de e-mail em modo texto, e nem todo mundo usa a mesma resolu√ß√£o que 
+voc√™. 
 
  <item>
-Caso o e-mail que responda tenha mais que 100 linhas, È recomend·vel 
-colocar a palavra "LONGA" no assunto da mensagem. Se possÌvel corte
-as partes n„o necess·rias da mensagens de respostas tendo o cuidado 
-de n„o "cortar" de forma mal educada a mensagem de outra pessoa. 
+Caso o e-mail que responda tenha mais que 100 linhas, √© recomend√°vel 
+colocar a palavra "LONGA" no assunto da mensagem. Se poss√≠vel corte
+as partes n√£o necess√°rias da mensagens de respostas tendo o cuidado 
+de n√£o "cortar" de forma mal educada a mensagem de outra pessoa. 
 
  <item>
 Caso utiliza um editor programa de e-mails com suporte a HTML, envie o 
 e-mail utilizando ambos os formatos TEXTO e HTML, muitos administradores
-Linux utilizam sistemas que n„o suportam HTML.
+Linux utilizam sistemas que n√£o suportam HTML.
 
  <item>
-N„o espere que o espaÁamento ou desenhos ASCII usados em uma mensagem 
+N√£o espere que o espa√ßamento ou desenhos ASCII usados em uma mensagem 
 sejam mostrados corretamente em todos os sistemas.
 
  <item>
-Utilize sempre uma assinatura no final da mensagem para identificar vocÍ 
-e principalmente seu endereÁo de e-mail. Em alguns cliente de e-mail, o 
-campo <tt>Reply-to</tt> È bagunÁado, e em e-mails redirecionados o 
-endereÁo de resposta È excluÌdo. A assinatura facilita encontrar o 
-remetente da mensagem. Tente manter a assinatura em um tamanho de no m·ximo
+Utilize sempre uma assinatura no final da mensagem para identificar voc√™ 
+e principalmente seu endere√ßo de e-mail. Em alguns cliente de e-mail, o 
+campo <tt>Reply-to</tt> √© bagun√ßado, e em e-mails redirecionados o 
+endere√ßo de resposta √© exclu√≠do. A assinatura facilita encontrar o 
+remetente da mensagem. Tente manter a assinatura em um tamanho de no m√°ximo
 4 linhas. 
 
  <item>
-N„o repasse mensagens de corrente por e-mail. Elas tem somente o objetivo 
+N√£o repasse mensagens de corrente por e-mail. Elas tem somente o objetivo 
 de espalhar boatos na Internet e se espalhar. Normalmente elas vem com 
-uma histÛria bonita e no final diz se n„o repassar acontecer· tudo 
-ao contr·rio com vocÍ ou algo do tipo. <em>N„o vai acontecer nada! 
-ignore isso e n„o entre na corrente!</em>
+uma hist√≥ria bonita e no final diz se n√£o repassar acontecer√° tudo 
+ao contr√°rio com voc√™ ou algo do tipo. <em>N√£o vai acontecer nada! 
+ignore isso e n√£o entre na corrente!</em>
  <p>
-Pelas polÌticas da Internet, vocÍ pode ter sua conta de e-mail perdida 
+Pelas pol√≠ticas da Internet, voc√™ pode ter sua conta de e-mail perdida 
 se fizer mal uso dele.
 
 </list>
@@ -3238,46 +3238,46 @@ se fizer mal uso dele.
 
 <sect1 id="ajuda-netiqueta-icq">ICQ/MSN/Gtalk/Skype
  <p>
-Ferramentas de mensagens instant‚neas s„o eficientes, alertando a presenÁa on-line
-do usu·rio, auxiliando na reduÁ„o de custos, etc. Este documento inclui algumas recomendaÁıes
-etiqueta para melhor os usu·rios aproveitarem melhor ferramentas de comunicaÁao que 
-seguem o padr„o IM:
+Ferramentas de mensagens instant√¢neas s√£o eficientes, alertando a presen√ßa on-line
+do usu√°rio, auxiliando na redu√ß√£o de custos, etc. Este documento inclui algumas recomenda√ß√µes
+etiqueta para melhor os usu√°rios aproveitarem melhor ferramentas de comunica√ßao que 
+seguem o padr√£o IM:
 
 <list compact>
  <item>
-De atenÁ„o ao status  da outra pessoa. Se ela estiver "on-line"  ou "free for chat" 
-significa que ela est· desocupada e que pode conversar naquele instante. Se estiver como
-n„o perturbe, envie somente mensagens se for mesmo preciso.
+De aten√ß√£o ao status  da outra pessoa. Se ela estiver "on-line"  ou "free for chat" 
+significa que ela est√° desocupada e que pode conversar naquele instante. Se estiver como
+n√£o perturbe, envie somente mensagens se for mesmo preciso.
 
  <item>
-EVITE colocar nicks chamativos e caracteres exÛticos. Nem todos os usu·rios
-vÍem o nick da mesma forma que a pessoa que os colocou.
+EVITE colocar nicks chamativos e caracteres ex√≥ticos. Nem todos os usu√°rios
+v√™em o nick da mesma forma que a pessoa que os colocou.
 
  <item>
-Seja tambÈm sensato ao usar ferramentas de mensagem instantanea. N„o entre 
-nele caso n„o possa conversar, ou avise isso mudando seu status para o mais 
-adequado para a situaÁ„o, assim os outros poder„o entender que est· longe 
-do computador, n„o disponÌvel ou ocupado. 
+Seja tamb√©m sensato ao usar ferramentas de mensagem instantanea. N√£o entre 
+nele caso n√£o possa conversar, ou avise isso mudando seu status para o mais 
+adequado para a situa√ß√£o, assim os outros poder√£o entender que est√° longe 
+do computador, n√£o dispon√≠vel ou ocupado. 
 
  <item>
-… recomend·vel ser prudente quanto ao envio de mensagens, n„o envie mais do que 
-4 mensagens seguidas, pois a outra pessoa ter· dificuldades para responder a todas 
+√â recomend√°vel ser prudente quanto ao envio de mensagens, n√£o envie mais do que 
+4 mensagens seguidas, pois a outra pessoa ter√° dificuldades para responder a todas 
 elas mais outra que talvez possa estar recebendo de outras (ou nem tenha recebido,
-caso exista algum problema tempor·rio no servidor). 
+caso exista algum problema tempor√°rio no servidor). 
 
  <item>
-Guarde seu login e senha em lugar seguro. Caso ela seja perdida, vocÍ 
-ter· trabalho para avisar a todos de sua lista de contato.
+Guarde seu login e senha em lugar seguro. Caso ela seja perdida, voc√™ 
+ter√° trabalho para avisar a todos de sua lista de contato.
 
  <item>
 Sempre que enviar uma URL, procure do que se trata na mensagem.
 
  <item>
-No modo de chat, use as recomendaÁıes descritas sobre o talk (em <ref id="ajuda-netiqueta-talk">). 
+No modo de chat, use as recomenda√ß√µes descritas sobre o talk (em <ref id="ajuda-netiqueta-talk">). 
 
  <item>
-Como em toda comunicaÁ„o on-line, seja cauteloso quando a pessoa que conversa. 
-Nem sempre quem conversamos do outro lado È a pessoa que esperamos encontrar. 
+Como em toda comunica√ß√£o on-line, seja cauteloso quando a pessoa que conversa. 
+Nem sempre quem conversamos do outro lado √© a pessoa que esperamos encontrar. 
 Lembre-se que um registro falso e uma identidade pode ser criada sem dificuldades 
 por qualquer pessoa.
 
@@ -3291,47 +3291,47 @@ por qualquer pessoa.
  <item>
 Use sempre quebra de linhas ao escrever suas mensagens, use pelo menos 70 
 caracteres para escrever suas mensagens de talk. Evita escrever continuamente
-atÈ a borda para fazer quebra de linha autom·tica, alguns clientes de 
-talk n„o aceitam isso corretamente. 
+at√© a borda para fazer quebra de linha autom√°tica, alguns clientes de 
+talk n√£o aceitam isso corretamente. 
 
  <item>
 Sempre que termina uma frase, deixe uma linha em branco (tecle enter 2 vezes) 
-para indicar que a outra pessoa pode iniciar a digitaÁ„o.
+para indicar que a outra pessoa pode iniciar a digita√ß√£o.
 
  <item>
-Sempre se despeÁa da outra pessoa e espere ela responder antes de fechar uma 
-seÁ„o de conversaÁ„o. O respeito m˙tuo durante um di·logo È essencial :-)
+Sempre se despe√ßa da outra pessoa e espere ela responder antes de fechar uma 
+se√ß√£o de conversa√ß√£o. O respeito m√∫tuo durante um di√°logo √© essencial :-)
 
  <item>
 Lembre-se que o talk normalmente interrompe as pessoas que trabalham 
 nativamente no console. Evite dar talk para estranhos, pois podem fazer 
-uma m· impress„o de vocÍ. Tente antes estabelecer outros meios de 
-comunicaÁ„o. 
+uma m√° impress√£o de voc√™. Tente antes estabelecer outros meios de 
+comunica√ß√£o. 
 
  <item>
-Se a outra pessoa n„o responder, n„o assuma de cara que ela est· ignorando 
-vocÍ ou n„o levando sua conversa muito bem. Ela pode simplesmente estar 
+Se a outra pessoa n√£o responder, n√£o assuma de cara que ela est√° ignorando 
+voc√™ ou n√£o levando sua conversa muito bem. Ela pode simplesmente estar 
 ocupada, trabalhando, ou com problemas no cliente de talk. 
-Alguns cliente de talk d„o problemas durante a comunicaÁ„o remota, lembre-se 
-tambÈm que sua comunicaÁ„o È via UDP :-)
+Alguns cliente de talk d√£o problemas durante a comunica√ß√£o remota, lembre-se 
+tamb√©m que sua comunica√ß√£o √© via UDP :-)
 
  <item>
-Se a pessoa n„o responder seus talks durante certo tempo, n„o deixe ele 
+Se a pessoa n√£o responder seus talks durante certo tempo, n√£o deixe ele 
 infinitamente beepando a pessoa. Tente mais tarde :-)
 
  <item>
-Seja atencioso caso utilize mais de uma seÁ„o de talk ao mesmo tempo.
+Seja atencioso caso utilize mais de uma se√ß√£o de talk ao mesmo tempo.
 
  <item>
-O talk tambÈm leva em consideraÁ„o sua habilidade de digitaÁ„o. Muitos erros 
-e correÁıes contÌnuas fazem a outra pessoa ter uma noÁ„o de vocÍ, suas 
-experiÍncias, etc ;-)
+O talk tamb√©m leva em considera√ß√£o sua habilidade de digita√ß√£o. Muitos erros 
+e corre√ß√µes cont√≠nuas fazem a outra pessoa ter uma no√ß√£o de voc√™, suas 
+experi√™ncias, etc ;-)
 
 </list>
 
 
 
-<sect1 id="ajuda-netiqueta-listas">Listas de Discuss„o via Email
+<sect1 id="ajuda-netiqueta-listas">Listas de Discuss√£o via Email
  <p>
 <list compact>
  <item>
@@ -3340,99 +3340,99 @@ listas. Seja claro e explicativo ao mesmo tempo :-)
 
  <item>
 Sempre coloque um assunto (subject) na mensagem. O assunto serve como um 
-resumo do problema ou d˙vida que tem. Alguns usu·rios, principalmente os 
-que participam de v·rias listas de discuss„o, verificam o assunto da 
-mensagem e podem simplesmente descartar a mensagem sem lÍ-la porque as 
-vezes ele n„o conhece sobre aquele assunto. 
+resumo do problema ou d√∫vida que tem. Alguns usu√°rios, principalmente os 
+que participam de v√°rias listas de discuss√£o, verificam o assunto da 
+mensagem e podem simplesmente descartar a mensagem sem l√™-la porque as 
+vezes ele n√£o conhece sobre aquele assunto. 
 
  <item>
-Nunca use "Socorro!", "Help!" ou coisa do gÍnero como assunto, seja objetivo 
-sobre o problema/d˙vida que tem: <em>"Falha ao carregar mÛdulo no do kernel"
+Nunca use "Socorro!", "Help!" ou coisa do g√™nero como assunto, seja objetivo 
+sobre o problema/d√∫vida que tem: <em>"Falha ao carregar m√≥dulo no do kernel"
 </em>, <em>"SMAIL retorna a mensagem Access denied"</em>, <em>"Novidades: 
-Nova vers„o do guia Foca Linux"</em> ;-). 
+Nova vers√£o do guia Foca Linux"</em> ;-). 
 
  <item>
-Procure enviar mensagens em formato <tt>texto</tt> ao invÈs de <tt>HTML</tt> 
-para as listas de discuss„o pois isto faz com que a mensagem seja vista por 
-todos os participantes (muitos dos usu·rios <prgn>GNU/Linux</prgn> usam leitores 
-de e-mail que n„o suportam formato html) e diminui dr·sticamente o tamanho da 
-mensagem porque o formato texto n„o usa tags e outros elementos que a 
-linguagem HTML contÈm (muitos dos usu·rios costumam participar de v·rias 
-listas de discuss„o, e mensagens em HTML levam a um excesso de tr·fego 
-e tempo de conex„o).
+Procure enviar mensagens em formato <tt>texto</tt> ao inv√©s de <tt>HTML</tt> 
+para as listas de discuss√£o pois isto faz com que a mensagem seja vista por 
+todos os participantes (muitos dos usu√°rios <prgn>GNU/Linux</prgn> usam leitores 
+de e-mail que n√£o suportam formato html) e diminui dr√°sticamente o tamanho da 
+mensagem porque o formato texto n√£o usa tags e outros elementos que a 
+linguagem HTML cont√©m (muitos dos usu√°rios costumam participar de v√°rias 
+listas de discuss√£o, e mensagens em HTML levam a um excesso de tr√°fego 
+e tempo de conex√£o).
 
  <item>
 Tenha cautela e bom censo em suas mensagens para listas e grupos de 
-discuss„o, considere que cada mensagem que posta È s„o arquivadas 
-para futura referÍncia.
+discuss√£o, considere que cada mensagem que posta √© s√£o arquivadas 
+para futura refer√™ncia.
 
  <item>
-Quando o conte˙do das mensagem tomar outro rumo, È Ètico modificar o assunto 
-do e-mail para se adequar ao novo conte˙do da mensagem. Por exemplo, 
-<tt>CorreÁ„o nas regras de Netiqueta</tt> para <tt>Conversa de pessoa para 
-pessoa (Era: CorreÁ„o das regras de Netiqueta</tt>).
+Quando o conte√∫do das mensagem tomar outro rumo, √© √©tico modificar o assunto 
+do e-mail para se adequar ao novo conte√∫do da mensagem. Por exemplo, 
+<tt>Corre√ß√£o nas regras de Netiqueta</tt> para <tt>Conversa de pessoa para 
+pessoa (Era: Corre√ß√£o das regras de Netiqueta</tt>).
 
  <item>
 Quando a conversa em grupo sair do assunto e envolver apenas duas 
-pessoas, È conveniente retirar os endereÁos das pessoas/listas do CC. 
+pessoas, √© conveniente retirar os endere√ßos das pessoas/listas do CC. 
 
  <item>
-N„o mande arquivos grandes para as listas, principalmente se eles tiverem
+N√£o mande arquivos grandes para as listas, principalmente se eles tiverem
 mais que 40Kb de tamanho. Se precisar enviar arquivos maiores que isso, 
 envie diretamente para os e-mails dos interessados depois de perguntar.
 
  <item>
-Quando enviar mensagens para listas de discuss„o, seja educado e 
-cordial quanto ao conte˙do de sua mensagem. Envie CC's para as 
+Quando enviar mensagens para listas de discuss√£o, seja educado e 
+cordial quanto ao conte√∫do de sua mensagem. Envie CC's para as 
 pessoas que dizem respeito ao assunto, assim com a lista. 
 
  <item>
-Tente ignorar ou n„o responda mensagens de "Guerras" em listas (<em>Flame Wars</em>), 
-caso queira reponde-la por algum tipo de agress„o de quem mandou a mensagem, esperar para 
-responde-la a noite (nunca È garantida uma boa resposta no momento que est· de cabeÁa 
+Tente ignorar ou n√£o responda mensagens de "Guerras" em listas (<em>Flame Wars</em>), 
+caso queira reponde-la por algum tipo de agress√£o de quem mandou a mensagem, esperar para 
+responde-la a noite (nunca √© garantida uma boa resposta no momento que est√° de cabe√ßa 
 quente). Lembre-se de quando responde uma mensagem de "Flame War" a "altura" de quem 
-mandou seus ataques, est· sendo igualmente t„o baixo quando o "nÌvel" dessa pessoa.
+mandou seus ataques, est√° sendo igualmente t√£o baixo quando o "n√≠vel" dessa pessoa.
 
  <item>
-Caso se desentenda com alguma pessoa em uma lista de discuss„o, n„o envie 
-mensagens agressivas para a listas, se precisar, faÁa isso diretamente para 
-a pessoa! VocÍ pode se arrepender disso mais tarde.
+Caso se desentenda com alguma pessoa em uma lista de discuss√£o, n√£o envie 
+mensagens agressivas para a listas, se precisar, fa√ßa isso diretamente para 
+a pessoa! Voc√™ pode se arrepender disso mais tarde.
 
  <item>
-N„o culpe o administrador da lista pelos usu·rios que participam dela. 
-Notifique somente usu·rios que n„o estejam colaborando com a lista e 
+N√£o culpe o administrador da lista pelos usu√°rios que participam dela. 
+Notifique somente usu√°rios que n√£o estejam colaborando com a lista e 
 outras coisas que prejudiquem seu funcionamento. Administradores preservam 
-o funcionamento das listas, e n„o o comportamento dos usu·rios. 
+o funcionamento das listas, e n√£o o comportamento dos usu√°rios. 
 
  <item>
-N„o use auto respostas para listas de discuss„o. Pelos inconvenientes
-causados, vocÍ pode ser descadastrado ou banido de se inscrever na 
+N√£o use auto respostas para listas de discuss√£o. Pelos inconvenientes
+causados, voc√™ pode ser descadastrado ou banido de se inscrever na 
 lista/newsgroup.
 
  <item>
-Salve as mensagens de inscriÁ„o que recebe da lista. Ela contÈm detalhes
+Salve as mensagens de inscri√ß√£o que recebe da lista. Ela cont√©m detalhes
 sobre seus recursos, e a senha usada muitas vezes para se descadastrar 
-dela ou modificar suas permissıes de usu·rio. O administrador pode te 
-ajudar nessa tarefa, mas n„o espere que ele esteja sempre disponÌvel 
-para realizar tarefas que podem ser feitas pelo prÛprio usu·rio.
+dela ou modificar suas permiss√µes de usu√°rio. O administrador pode te 
+ajudar nessa tarefa, mas n√£o espere que ele esteja sempre dispon√≠vel 
+para realizar tarefas que podem ser feitas pelo pr√≥prio usu√°rio.
 
  <item>
 Muitas pessoas reclamam do excesso de mensagens recebidas das listas 
-de discuss„o. Se vocÍ recebe muitas mensagens, procure usar os 
+de discuss√£o. Se voc√™ recebe muitas mensagens, procure usar os 
 <em>filtros de mensagens</em> para organiza-las. O que eles 
-fazem È procurar por campos na mensagem, como o remetente, e enviar para um 
+fazem √© procurar por campos na mensagem, como o remetente, e enviar para um 
 local separado. No final da filtragem, todas as mensagens de listas de 
-discuss„o estar„o em locais separados e as mensagens enviadas diretamente 
-a vocÍ entrar„o na caixa de correio principal, por exemplo. 
+discuss√£o estar√£o em locais separados e as mensagens enviadas diretamente 
+a voc√™ entrar√£o na caixa de correio principal, por exemplo. 
  <p>
-Um filtro de mensagens muito usado no <prgn>GNU/Linux</prgn> È o 
+Um filtro de mensagens muito usado no <prgn>GNU/Linux</prgn> √© o 
 <prgn>procmail</prgn>, para maiores detalhes consulte a 
-documentaÁ„o deste programa. 
+documenta√ß√£o deste programa. 
  <p>
-O Netscape tambÈm tem recursos de filtros de mensagem que podem ser 
-criadas facilmente atravÈs da opÁ„o "Arquivo/Nova SubPasta" 
-("File/New Subfolder") do programa de E-mail. Ent„o defina as regras 
-atravÈs do menu "Editar/Filtros de Mensagens" ("Edit/Message filters") 
-clicando no bot„o "Novo"("New"). 
+O Netscape tamb√©m tem recursos de filtros de mensagem que podem ser 
+criadas facilmente atrav√©s da op√ß√£o "Arquivo/Nova SubPasta" 
+("File/New Subfolder") do programa de E-mail. Ent√£o defina as regras 
+atrav√©s do menu "Editar/Filtros de Mensagens" ("Edit/Message filters") 
+clicando no bot√£o "Novo"("New"). 
 
 </list>

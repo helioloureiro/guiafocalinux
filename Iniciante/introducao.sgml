@@ -1,327 +1,327 @@
-<chapt id="intro">IntroduÁ„o
+<chapt id="intro">Introdu√ß√£o
  <p>
 Bem vindo ao guia <em>Foca GNU/Linux</em>. O nome <em>FOCA</em> significa
-<em>FO</em>nte de <em>C</em>onsulta e <em>A</em>prendizado. Este guia È 
-dividido em 3 nÌveis de aprendizado e vers„o que esta lendo agora contÈm: 
+<em>FO</em>nte de <em>C</em>onsulta e <em>A</em>prendizado. Este guia √© 
+dividido em 3 n√≠veis de aprendizado e vers√£o que esta lendo agora cont√©m: 
 <list compact>
 <![ %INICIANTE [     <item> Iniciante     ]]>
-<![ %INTERMEDIARIO [ <item> Intermedi·rio ]]>
-<![ %AVANCADO [      <item> AvanÁado      ]]>
+<![ %INTERMEDIARIO [ <item> Intermedi√°rio ]]>
+<![ %AVANCADO [      <item> Avan√ßado      ]]>
 </list>
 
 <![ %CAPJUNTOS [
-Entre o conte˙do do guia, vocÍ encontrar·: 
+Entre o conte√∫do do guia, voc√™ encontrar√°: 
 <list> 
 <![ %INICIANTE [
  <item> 
 Textos explicativos falando sobre o sistema <prgn>Linux</prgn>, seus comandos, 
-como manusear arquivos, diretÛrios, etc.
+como manusear arquivos, diret√≥rios, etc.
  <item> 
-ExplicaÁıes iniciais sobre as partes b·sicas do computador e perifÈricos 
+Explica√ß√µes iniciais sobre as partes b√°sicas do computador e perif√©ricos 
  <item>
 Comandos e Programas equivalentes entre o 
 <prgn>DOS</prgn>/<prgn>Windows</prgn> e o <prgn>GNU/Linux</prgn>
  <item> 
-Todos os materiais contidos na vers„o iniciante s„o ideais para quem 
-est· tendo o primeiro contato com computadores e/ou com o <prgn>Linux</prgn>. 
-A linguagem usada È simples com o objetivo de explicar claramente o 
-funcionamento de cada comando e evitando, sempre que possÌvel, termos tÈcnicos
+Todos os materiais contidos na vers√£o iniciante s√£o ideais para quem 
+est√° tendo o primeiro contato com computadores e/ou com o <prgn>Linux</prgn>. 
+A linguagem usada √© simples com o objetivo de explicar claramente o 
+funcionamento de cada comando e evitando, sempre que poss√≠vel, termos t√©cnicos
 ]]>
 <![ %INTERMEDIARIO [ 
  <item> 
-ExplicaÁıes necess·rias para conhecer, operar, configurar, 
+Explica√ß√µes necess√°rias para conhecer, operar, configurar, 
 desenvolver, personalizar seu sistema Linux. 
  <item>
 Uma lista de aplicativos clientes para serem usados em seu sistema 
-<prgn>GNU/Linux</prgn>, com suas caracterÌsticas, equipamento 
-mÌnimo requerido e espaÁo em disco recomendado para instalaÁ„o. 
+<prgn>GNU/Linux</prgn>, com suas caracter√≠sticas, equipamento 
+m√≠nimo requerido e espa√ßo em disco recomendado para instala√ß√£o. 
  <item>
 Particionamento de disco
  <item>
-CriaÁ„o de partiÁıes e arquivos contendo o sistema de arquivos 
+Cria√ß√£o de parti√ß√µes e arquivos contendo o sistema de arquivos 
 <em>ext2</em>, <em>ext3</em>, <em>reiserfs</em> ou <em>xfs</em> (para 
-gravaÁ„o de arquivos e diretÛrios) e swap (memÛria virtual) e as vantagens/desvantagens 
-de se utilizar um arquivo ou partiÁ„o para armazenamento de dados. 
+grava√ß√£o de arquivos e diret√≥rios) e swap (mem√≥ria virtual) e as vantagens/desvantagens 
+de se utilizar um arquivo ou parti√ß√£o para armazenamento de dados. 
  <item>
-CompilaÁ„o de programas/kernel, com explicaÁıes sobre cada uma das opÁıes 
-ajudando-o a decidir sobre a inclus„o ou n„o.  
+Compila√ß√£o de programas/kernel, com explica√ß√µes sobre cada uma das op√ß√µes 
+ajudando-o a decidir sobre a inclus√£o ou n√£o.  
  <item> 
-ManipulaÁ„o de mÛdulos do kernel 
+Manipula√ß√£o de m√≥dulos do kernel 
  <item> 
-ExplicaÁıes sobre hardwares (InterrupÁıes, DMA, Jumpers, Jumperless, 
-Plug-and-Play) e como configura-los no Linux, valores padrıes e resoluÁ„o 
+Explica√ß√µes sobre hardwares (Interrup√ß√µes, DMA, Jumpers, Jumperless, 
+Plug-and-Play) e como configura-los no Linux, valores padr√µes e resolu√ß√£o 
 de conflitos entre hardwares. 
  <item>
 Dicas de como avaliar e comprar bons hardwares para que seu computador tenha 
-o melhor desempenho (tambÈm v·lido para <prgn>DOS</prgn>, <prgn>Windows</prgn> 
-e outras plataformas). Desta maneira vocÍ saber· porque alguns dispositivos
-de boa qualidade, como placas de rede, custam atÈ 3 vezes mais caro que 
+o melhor desempenho (tamb√©m v√°lido para <prgn>DOS</prgn>, <prgn>Windows</prgn> 
+e outras plataformas). Desta maneira voc√™ saber√° porque alguns dispositivos
+de boa qualidade, como placas de rede, custam at√© 3 vezes mais caro que 
 outras e o que a placa traz de especial para ter este diferencial. 
  <item> 
-Como modificar facilmente o idioma usado em seu sistema (localizaÁ„o) para o 
-modo texto e modo gr·fico. 
+Como modificar facilmente o idioma usado em seu sistema (localiza√ß√£o) para o 
+modo texto e modo gr√°fico. 
  <item>
-UtilizaÁ„o de compactadores de arquivos
+Utiliza√ß√£o de compactadores de arquivos
  <item>
-Mais opÁıes para os comandos existentes na vers„o <em>Iniciante</em> do 
+Mais op√ß√µes para os comandos existentes na vers√£o <em>Iniciante</em> do 
 guia e novos comandos. 
  <item>
-Conhecer os arquivos de configuraÁ„o e arquivos b·sicos de seguranÁa,
+Conhecer os arquivos de configura√ß√£o e arquivos b√°sicos de seguran√ßa,
 entendendo para que eles servem e como usa-los. 
  <item>
-Dicas de como saber escolher bons perifÈricos para uso no <prgn>GNU/Linux</prgn> 
+Dicas de como saber escolher bons perif√©ricos para uso no <prgn>GNU/Linux</prgn> 
 e outros sistemas operacionais 
  <item>
-ManutenÁ„o b·sica do computador (verificaÁ„o do disco, desfragmentaÁ„o) e 
-manutenÁ„o autom·tica feita atravÈs dos programas de e scripts configurados. 
+Manuten√ß√£o b√°sica do computador (verifica√ß√£o do disco, desfragmenta√ß√£o) e 
+manuten√ß√£o autom√°tica feita atrav√©s dos programas de e scripts configurados. 
  <item>
-IntroduÁ„o a rede no Linux (com a configuraÁ„o de dispositivos de rede, etc.).
+Introdu√ß√£o a rede no Linux (com a configura√ß√£o de dispositivos de rede, etc.).
  <item>
-ConfiguraÁıes b·sicas de seguranÁa de Rede
+Configura√ß√µes b√°sicas de seguran√ßa de Rede
  <item>
-Gerenciadores de inicializaÁ„o (boot), o que s„o e como funcionam e como 
-criar um arquivo de inicializaÁ„o para inicializar o <prgn>GNU/Linux</prgn> 
-pelo disco rÌgido ou mais de um Sistema Operacional. 
+Gerenciadores de inicializa√ß√£o (boot), o que s√£o e como funcionam e como 
+criar um arquivo de inicializa√ß√£o para inicializar o <prgn>GNU/Linux</prgn> 
+pelo disco r√≠gido ou mais de um Sistema Operacional. 
  <item>
-CriaÁ„o de MemÛria virtual no disco rÌgido e em arquivo. 
+Cria√ß√£o de Mem√≥ria virtual no disco r√≠gido e em arquivo. 
  <item>
-Os materiais contidos na vers„o intermedi·rio s„o ideais para quem j· tem 
-um conhecimento b·sico do sistema <prgn>GNU/Linux</prgn> mas que deseja se 
-aprofundar neste sistema conhecendo os arquivos necess·rios para o 
+Os materiais contidos na vers√£o intermedi√°rio s√£o ideais para quem j√° tem 
+um conhecimento b√°sico do sistema <prgn>GNU/Linux</prgn> mas que deseja se 
+aprofundar neste sistema conhecendo os arquivos necess√°rios para o 
 funcionamento do <prgn>GNU/Linux</prgn>, como modifica-los e como estas 
-modificaÁıes afetam o funcionamento do sistema. 
+modifica√ß√µes afetam o funcionamento do sistema. 
 
 ]]>
 <![ %AVANCADO [ 
  <item>
-An·lise de logs do sistema GNU/Linux e aplicaÁ„o para a soluÁ„o de 
+An√°lise de logs do sistema GNU/Linux e aplica√ß√£o para a solu√ß√£o de 
 problemas (<ref id="log">). 
  <item>
-Gerenciamento de contas de usu·rios, definiÁ„o de perÌodo autom·tico para 
-troca de senha periÛdica, polÌticas de seguranÁa, etc (<ref id="d-contas">). 
+Gerenciamento de contas de usu√°rios, defini√ß√£o de per√≠odo autom√°tico para 
+troca de senha peri√≥dica, pol√≠ticas de seguran√ßa, etc (<ref id="d-contas">). 
  <item>
-Principais tipos de ataques para descoberta de senhas e alguns mÈtodos de 
+Principais tipos de ataques para descoberta de senhas e alguns m√©todos de 
 como evita-las (<ref id="d-contas-cms-senhas">). 
  <item>
-Integrar m·quinas <prgn>Windows</prgn> e <prgn>Linux</prgn> em uma 
-mesma rede compartilhando dados entre si e impress„o (<ref id="s-samba">).
+Integrar m√°quinas <prgn>Windows</prgn> e <prgn>Linux</prgn> em uma 
+mesma rede compartilhando dados entre si e impress√£o (<ref id="s-samba">).
  <item>
-Sistemas de proteÁ„o de senhas do sistema (<ref id="d-contas-segsenhas">). 
+Sistemas de prote√ß√£o de senhas do sistema (<ref id="d-contas-segsenhas">). 
  <item>
-Criptografia e seguranÁa na transmiss„o de dados, usando exemplos pr·ticos 
+Criptografia e seguran√ßa na transmiss√£o de dados, usando exemplos pr√°ticos 
 do uso de sniffers para entender o porque da uso de criptografia para 
-transmiss„o segura de dados (<ref id="d-cripto">). 
+transmiss√£o segura de dados (<ref id="d-cripto">). 
  <item>
-Uso de serviÁos alternativos criptogr·ficos (<ref id="d-cripto-alt">). 
+Uso de servi√ßos alternativos criptogr√°ficos (<ref id="d-cripto-alt">). 
  <item>
 Criptografia usando <prgn>gnupgp</prgn> (<ref id="d-cripto-gpg">). 
  <item>
-Uso de sistema de arquivos criptogr·ficos para armazenamento de 
+Uso de sistema de arquivos criptogr√°ficos para armazenamento de 
 dados (<ref id="d-cripto-criptofs">). 
  <item>
-OtimizaÁ„o de performance na transferÍncia de dados do disco rÌgido atravÈs 
-de particionamento e <prgn>hdparm</prgn>, uso de spindles para criaÁ„o de 
+Otimiza√ß√£o de performance na transfer√™ncia de dados do disco r√≠gido atrav√©s 
+de particionamento e <prgn>hdparm</prgn>, uso de spindles para cria√ß√£o de 
 swap (<ref id="hard-perf">). 
  <item>
-O que s„o descargas est·ticas e a import‚ncia do aterramento da instalaÁ„o 
-elÈtrica do computador (dirigido a usu·rios domÈsticos e de pequenas 
-instalaÁıes) (<ref id="hard-descestat">). 
+O que s√£o descargas est√°ticas e a import√¢ncia do aterramento da instala√ß√£o 
+el√©trica do computador (dirigido a usu√°rios dom√©sticos e de pequenas 
+instala√ß√µes) (<ref id="hard-descestat">). 
  <item>
-Maiores consideraÁıes a seguranÁa de sistema e a problemas de seguranÁa relativos 
-a falhas de configuraÁ„o (distribuÌda entre os capÌtulos de daemons e servidores). 
+Maiores considera√ß√µes a seguran√ßa de sistema e a problemas de seguran√ßa relativos 
+a falhas de configura√ß√£o (distribu√≠da entre os cap√≠tulos de daemons e servidores). 
  <item>
-Montagem de um servidor de publicaÁ„o Web usando o <prgn>Apache</prgn> (<ref id="s-apache">). 
+Montagem de um servidor de publica√ß√£o Web usando o <prgn>Apache</prgn> (<ref id="s-apache">). 
  <item>
-Montagem de um firewall avanÁado para proteÁ„o do sistema (filtragem de pacotes) 
+Montagem de um firewall avan√ßado para prote√ß√£o do sistema (filtragem de pacotes) 
 usando o <prgn>iptables</prgn>, redirecionamento de pacotes, nat, bloqueio de 
-tr·fego P2P, masquerading, balanceamento de carga, marcaÁ„o de pacotes, log, proteÁ„o contra port 
+tr√°fego P2P, masquerading, balanceamento de carga, marca√ß√£o de pacotes, log, prote√ß√£o contra port 
 scans (<ref id="fw-iptables">). 
  <item>
-Servidor de acesso para permitir o acesso a dist‚ncia ao seu computador 
+Servidor de acesso para permitir o acesso a dist√¢ncia ao seu computador 
 usando o <prgn>telnetd</prgn> (<ref id="s-telnet">). 
  <item>
-Servidor de acesso para permitir o acesso a dist‚ncia a seu computador com 
+Servidor de acesso para permitir o acesso a dist√¢ncia a seu computador com 
 criptografia usando o <prgn>ssh</prgn> (<ref id="s-ssh">). 
  <item>
-Servidor de identificaÁ„o usando o <prgn>oidentd</prgn> (<ref id="s-ident">). 
+Servidor de identifica√ß√£o usando o <prgn>oidentd</prgn> (<ref id="s-ident">). 
  <item>
-Montagem de um servidor pop3 para que suas estaÁıes de rede possam 
-acessar o email na m·quina servidor <prgn>Linux</prgn> usando programas 
+Montagem de um servidor pop3 para que suas esta√ß√µes de rede possam 
+acessar o email na m√°quina servidor <prgn>Linux</prgn> usando programas 
 como <prgn>Outlook</prgn>, <prgn>Communicator</prgn>, <prgn>Mutt</prgn>, 
 <prgn>sylpheed</prgn> e outros que utilizem o protocolo <prgn>pop3</prgn> 
 (<ref id="s-pop3">). 
  <item>
-RestriÁıes de acesso a instalaÁ„o do computador, acesso a grupos do sistema, 
-restriÁıes de login usando <em>PAM</em> (<ref id="d-restr">). 
+Restri√ß√µes de acesso a instala√ß√£o do computador, acesso a grupos do sistema, 
+restri√ß√µes de login usando <em>PAM</em> (<ref id="d-restr">). 
  <item>
-RestriÁıes de espaÁo usado em disco por usu·rios/grupos usando o sistema de 
+Restri√ß√µes de espa√ßo usado em disco por usu√°rios/grupos usando o sistema de 
 quotas (<ref id="d-restr-quotas">). 
  <item>
-Uso de grupos dos sistema para restriÁıes de acesso (<ref id="d-restr-grupos">). 
+Uso de grupos dos sistema para restri√ß√µes de acesso (<ref id="d-restr-grupos">). 
  <item>
-RestriÁıes de acesso via hardware: BIOS, disquete, placa com boot via rede, 
-LILO, disco rÌgido (<ref id="d-restr-hardware">). 
+Restri√ß√µes de acesso via hardware: BIOS, disquete, placa com boot via rede, 
+LILO, disco r√≠gido (<ref id="d-restr-hardware">). 
  <item>
-ManipulaÁıes de vari·veis no bash (<var>TMOUT</var>, <var>PS1</var>, 
+Manipula√ß√µes de vari√°veis no bash (<var>TMOUT</var>, <var>PS1</var>, 
 <var>PS2</var>, <var>PS3</var>, <var>PS4</var>, <var>HISTORY</var>, etc). 
  <item>
-Montagem de shell b·sico restrito (<ref id="d-restr-bash-restricted">). 
+Montagem de shell b√°sico restrito (<ref id="d-restr-bash-restricted">). 
  <item>
-Uso do <prgn>sudo</prgn> para dar privilÈgio de execuÁ„o de programas 
-como root a determinados usu·rios (<ref id="d-restr-sudo">). 
+Uso do <prgn>sudo</prgn> para dar privil√©gio de execu√ß√£o de programas 
+como root a determinados usu√°rios (<ref id="d-restr-sudo">). 
  
 ]]>
 </list>
 ]]>
  <p>
-Para melhor organizaÁ„o, dividi o guia em 3 versıes: <em>Iniciante</em>, 
-<em>Intermedi·rio</em> e <em>AvanÁado</em>. Sendo que a vers„o <em>Iniciante
-</em> È voltada para o usu·rio que n„o tem <tt>nenhuma</tt> experiÍncia no 
-<prgn>GNU/Linux</prgn>. A ˙ltima vers„o deste guia pode ser encontrada em: 
-<url id="&url-manual-www;" name="P·gina Oficial do guia Foca GNU/Linux">. 
+Para melhor organiza√ß√£o, dividi o guia em 3 vers√µes: <em>Iniciante</em>, 
+<em>Intermedi√°rio</em> e <em>Avan√ßado</em>. Sendo que a vers√£o <em>Iniciante
+</em> √© voltada para o usu√°rio que n√£o tem <tt>nenhuma</tt> experi√™ncia no 
+<prgn>GNU/Linux</prgn>. A √∫ltima vers√£o deste guia pode ser encontrada em: 
+<url id="&url-manual-www;" name="P√°gina Oficial do guia Foca GNU/Linux">. 
  <p>
-Caso tiver alguma sugest„o, correÁ„o, crÌtica para a melhoria deste guia, 
+Caso tiver alguma sugest√£o, corre√ß√£o, cr√≠tica para a melhoria deste guia, 
 envie um e-mail para <email>gleydson@guiafoca.org</email>. 
  <p>
-O <em>Foca GNU/Linux</em> È atualizado freq¸entemente, por este motivo 
-recomendo que preencha a ficha do aviso de atualizaÁıes na p·gina web em 
-<url id="&url-manual-www;" name="P·gina Oficial do guia Foca GNU/Linux"> no fim da p·gina 
-principal. ApÛs preencher a ficha do aviso de atualizaÁıes, vocÍ receber· um 
-e-mail sobre o lanÁamento de novas versıes do guia e o que foi modificado, 
-desta forma vocÍ poder· decidir em copia-la caso a nova vers„o contenha 
-modificaÁıes que considera importantes. 
+O <em>Foca GNU/Linux</em> √© atualizado freq√ºentemente, por este motivo 
+recomendo que preencha a ficha do aviso de atualiza√ß√µes na p√°gina web em 
+<url id="&url-manual-www;" name="P√°gina Oficial do guia Foca GNU/Linux"> no fim da p√°gina 
+principal. Ap√≥s preencher a ficha do aviso de atualiza√ß√µes, voc√™ receber√° um 
+e-mail sobre o lan√ßamento de novas vers√µes do guia e o que foi modificado, 
+desta forma voc√™ poder√° decidir em copia-la caso a nova vers√£o contenha 
+modifica√ß√µes que considera importantes. 
  <p>
 Tenho recebido elegios de pessoas do Brasil (e de paises de fora 
-tambÈm) elogiando o trabalho e a qualidade da documentaÁ„o. AgradeÁo a 
-todos pelo apoio, tenham certeza que este trabalho È desenvolvido pensando 
-em repassar um pouco do conhecimento que adquiri ao comeÁar o uso do Linux.
+tamb√©m) elogiando o trabalho e a qualidade da documenta√ß√£o. Agrade√ßo a 
+todos pelo apoio, tenham certeza que este trabalho √© desenvolvido pensando 
+em repassar um pouco do conhecimento que adquiri ao come√ßar o uso do Linux.
  <p>
-TambÈm venho recebendo muitos e-mails de pessoas que passaram na prova 
-LPI nÌvel 1 e 2 apÛs estudar usando o guia Foca GNU/Linux. Fico bastante
-feliz por saber disso, pois nunca tive a intenÁ„o de tornar o guia uma 
-referÍncia livre para estudo da LPI e hoje È usado para estudo desta 
-difÌcil certificaÁ„o que aborda comandos, serviÁos, configuraÁıes, 
-seguranÁa, empacotamento, criptografia, etc.
+Tamb√©m venho recebendo muitos e-mails de pessoas que passaram na prova 
+LPI n√≠vel 1 e 2 ap√≥s estudar usando o guia Foca GNU/Linux. Fico bastante
+feliz por saber disso, pois nunca tive a inten√ß√£o de tornar o guia uma 
+refer√™ncia livre para estudo da LPI e hoje √© usado para estudo desta 
+dif√≠cil certifica√ß√£o que aborda comandos, servi√ßos, configura√ß√µes, 
+seguran√ßa, empacotamento, criptografia, etc.
 
 
     <![ %AVANCADO [
-<sect id="introducao-avisoADV">ConsideraÁıes sobre o nÌvel AvanÁado
+<sect id="introducao-avisoADV">Considera√ß√µes sobre o n√≠vel Avan√ßado
  <p>
-Este guia foi compilado incluindo o nÌvel <em>AvanÁado</em> do guia 
-FOCA GNU/Linux, ele n„o tem a intenÁ„o de focar na
-configuraÁ„o de serviÁos, servidores, aplicativos, nem 
-garantia que ele atender· a determinada finalidade especÌfica do 
-usu·rio (principalmente de uma rede, que depende de uma perfeita 
-compreens„o para adaptaÁ„o de acordo com os requisitos de uma 
-instalaÁ„o local). Seu foco principal È a instalaÁ„o do serviÁo, abordando
-consideraÁıes voltadas a seguranÁa, e exemplos de configuraÁ„o e seu 
+Este guia foi compilado incluindo o n√≠vel <em>Avan√ßado</em> do guia 
+FOCA GNU/Linux, ele n√£o tem a inten√ß√£o de focar na
+configura√ß√£o de servi√ßos, servidores, aplicativos, nem 
+garantia que ele atender√° a determinada finalidade espec√≠fica do 
+usu√°rio (principalmente de uma rede, que depende de uma perfeita 
+compreens√£o para adapta√ß√£o de acordo com os requisitos de uma 
+instala√ß√£o local). Seu foco principal √© a instala√ß√£o do servi√ßo, abordando
+considera√ß√µes voltadas a seguran√ßa, e exemplos de configura√ß√£o e seu 
 funcionamento. 
  <p>
-Com relaÁ„o a capÌtulos sobre servidores, È importante observar qual 
-vers„o È documentada no guia e se confere com a instalada em seu sistema, a 
+Com rela√ß√£o a cap√≠tulos sobre servidores, √© importante observar qual 
+vers√£o √© documentada no guia e se confere com a instalada em seu sistema, a 
 fim de que tudo funcione corretamente. Entretanto, na maioria dos casos, 
-as explicaÁıes relacionadas a uma vers„o de um programa s„o inteiramente v·lidas 
-em uma nova vers„o. 
+as explica√ß√µes relacionadas a uma vers√£o de um programa s√£o inteiramente v√°lidas 
+em uma nova vers√£o. 
 
     ]]>
 
 
     <![ %INIC-INTER [
-<sect id="introducao-palavras">Antes de comeÁar
+<sect id="introducao-palavras">Antes de come√ßar
  <p>
-Os capÌtulos <em>IntroduÁ„o</em> e <em>b·sico</em> contÈm explicaÁıes teÛricas 
-sobre o computador, <prgn>GNU/Linux</prgn>, etc., vocÍ pode pular este capÌtulos 
-caso j· conheÁa estas explicaÁıes ou se desejar partir para a pr·tica e  
-quiser vÍ-los mais tarde, se lhe interessar. 
+Os cap√≠tulos <em>Introdu√ß√£o</em> e <em>b√°sico</em> cont√©m explica√ß√µes te√≥ricas 
+sobre o computador, <prgn>GNU/Linux</prgn>, etc., voc√™ pode pular este cap√≠tulos 
+caso j√° conhe√ßa estas explica√ß√µes ou se desejar partir para a pr√°tica e  
+quiser v√™-los mais tarde, se lhe interessar. 
  <p>
-Se vocÍ j· È um usu·rio do <prgn>DOS</prgn> e <prgn>Windows</prgn>, recomendo 
-ler <ref id="d-l">. L· vocÍ vai encontrar comparaÁıes de comandos 
+Se voc√™ j√° √© um usu√°rio do <prgn>DOS</prgn> e <prgn>Windows</prgn>, recomendo 
+ler <ref id="d-l">. L√° voc√™ vai encontrar compara√ß√µes de comandos 
 e programas <prgn>DOS/Windows</prgn> e <prgn>GNU/Linux</prgn>. 
  <p>
-Para quem est· comeÁando, muita teoria pode atrapalhar o aprendizado, È mais  
-produtivo ver na pr·tica o que o computador faz e depois porque ele faz 
-isto. Mesmo assim, recomendo ler estes capÌtulos pois seu conte˙do pode 
-ser ˙til...
+Para quem est√° come√ßando, muita teoria pode atrapalhar o aprendizado, √© mais  
+produtivo ver na pr√°tica o que o computador faz e depois porque ele faz 
+isto. Mesmo assim, recomendo ler estes cap√≠tulos pois seu conte√∫do pode 
+ser √∫til...
  <p>
-Coloquei abaixo algumas dicas para um bom comeÁo: 
+Coloquei abaixo algumas dicas para um bom come√ßo: 
 <list compact>
  <item>
-Recomendo que faÁa a leitura deste guia e pratique imediatamente o 
-que aprendeu. Isto facilita o entendimento do programa/comando/configuraÁ„o. 
+Recomendo que fa√ßa a leitura deste guia e pratique imediatamente o 
+que aprendeu. Isto facilita o entendimento do programa/comando/configura√ß√£o. 
  <item>
-… preciso ter interesse em aprender, se vocÍ tiver vontade em aprender algo,  
-vocÍ ter· menos dificuldade do que em algo que n„o gosta e est· se obrigando  
+√â preciso ter interesse em aprender, se voc√™ tiver vontade em aprender algo,  
+voc√™ ter√° menos dificuldade do que em algo que n√£o gosta e est√° se obrigando  
 a aprender. 
  <item>
-Decorar n„o adianta, pelo contr·rio, sÛ atrapalha no aprendizado. VocÍ precisa  
-entender o que o comando faz, deste modo vocÍ estar· estimulando e 
-desenvolvendo sua interpretaÁ„o, e entender· melhor o assunto (talvez 
-atÈ me de uma forÁa para melhorar o guia ;-) 
+Decorar n√£o adianta, pelo contr√°rio, s√≥ atrapalha no aprendizado. Voc√™ precisa  
+entender o que o comando faz, deste modo voc√™ estar√° estimulando e 
+desenvolvendo sua interpreta√ß√£o, e entender√° melhor o assunto (talvez 
+at√© me de uma for√ßa para melhorar o guia ;-) 
  <item>
-Curiosidade tambÈm È importante. VocÍ talvez possa estar procurando um 
-comando que mostre os arquivos que contÈm um certo texto, e isto far· 
-vocÍ chegar atÈ o comando <prgn>grep</prgn>, depois vocÍ conhecer· suas 
-opÁıes, etc. 
+Curiosidade tamb√©m √© importante. Voc√™ talvez possa estar procurando um 
+comando que mostre os arquivos que cont√©m um certo texto, e isto far√° 
+voc√™ chegar at√© o comando <prgn>grep</prgn>, depois voc√™ conhecer√° suas 
+op√ß√µes, etc. 
  <item>
-N„o desanime vendo outras pessoas que sabem mais que vocÍ, lembre-se  
-que ninguÈm nasce sabendo :-). Uma pessoa pode ter mais experiÍncia  
-em um assunto no sistema como compilaÁ„o de programas, configuraÁ„o,  
-etc., e vocÍ pode ter mais interesse em redes. 
+N√£o desanime vendo outras pessoas que sabem mais que voc√™, lembre-se  
+que ningu√©m nasce sabendo :-). Uma pessoa pode ter mais experi√™ncia  
+em um assunto no sistema como compila√ß√£o de programas, configura√ß√£o,  
+etc., e voc√™ pode ter mais interesse em redes. 
  <item>
-NinguÈm pode saber tudo da noite para o dia, n„o procure saber TUDO 
-sobre o sistema de uma sÛ vez, sen„o n„o entender· NADA. Caso tenha  
-d˙vidas sobre o sistema, procure ler novamente a seÁ„o do guia, e 
-caso ainda n„o tenha entendido procure ajuda nas p·gina de manual 
-(veja <ref id="ajuda-man">), ou nas listas de discuss„o 
+Ningu√©m pode saber tudo da noite para o dia, n√£o procure saber TUDO 
+sobre o sistema de uma s√≥ vez, sen√£o n√£o entender√° NADA. Caso tenha  
+d√∫vidas sobre o sistema, procure ler novamente a se√ß√£o do guia, e 
+caso ainda n√£o tenha entendido procure ajuda nas p√°gina de manual 
+(veja <ref id="ajuda-man">), ou nas listas de discuss√£o 
 (veja <ref id="ajuda-listas">) ou me envie uma mensagem 
 <email>gleydson@guiafoca.org</email>. 
  <item>
-Certamente vocÍ buscar· documentos na Internet que falem sobre algum 
-assunto que este guia ainda n„o explica. Muito cuidado! 
-O <prgn>GNU/Linux</prgn> È um sistema que cresce muito rapidamente, a cada 
-semana uma nova vers„o È lanÁada, novos recursos s„o adicionados, seria 
-maravilhoso se a documentaÁ„o fosse atualizada com a mesma freq¸Íncia. 
+Certamente voc√™ buscar√° documentos na Internet que falem sobre algum 
+assunto que este guia ainda n√£o explica. Muito cuidado! 
+O <prgn>GNU/Linux</prgn> √© um sistema que cresce muito rapidamente, a cada 
+semana uma nova vers√£o √© lan√ßada, novos recursos s√£o adicionados, seria 
+maravilhoso se a documenta√ß√£o fosse atualizada com a mesma freq√º√™ncia. 
  <p>
-Infelizmente a atualizaÁ„o da documentaÁ„o n„o segue o mesmo ritmo 
+Infelizmente a atualiza√ß√£o da documenta√ß√£o n√£o segue o mesmo ritmo 
 (principalmente aqui no Brasil). 
-… comum vocÍ encontrar na Internet documentos da Època quando o kernel 
-estava na vers„o 2.2.30, 2.4.8, 2.6.28, etc. Estes documentos s„o ˙teis para 
-pessoas que por algum motivo necessitam operar com versıes antigas do Kernel Linux, 
-mas pode trazer problemas ou causar m· impress„o do <prgn>GNU/Linux</prgn> em 
+√â comum voc√™ encontrar na Internet documentos da √©poca quando o kernel 
+estava na vers√£o 2.2.30, 2.4.8, 2.6.28, etc. Estes documentos s√£o √∫teis para 
+pessoas que por algum motivo necessitam operar com vers√µes antigas do Kernel Linux, 
+mas pode trazer problemas ou causar m√° impress√£o do <prgn>GNU/Linux</prgn> em 
 outras pessoas. 
  <p>
-Por exemplo, vocÍ pode esbarrar pela Internet com um documento que diz que 
-o Kernel n„o tem suporte aos "nomes extensos" da VFAT (Windows 95), isto 
-È verdade para kernels anteriores ao 2.0.31, mas as versıes mais novas 
-que a 2.0.31 reconhecem sem problemas os nomes extensos da partiÁ„o 
+Por exemplo, voc√™ pode esbarrar pela Internet com um documento que diz que 
+o Kernel n√£o tem suporte aos "nomes extensos" da VFAT (Windows 95), isto 
+√© verdade para kernels anteriores ao 2.0.31, mas as vers√µes mais novas 
+que a 2.0.31 reconhecem sem problemas os nomes extensos da parti√ß√£o 
 Windows VFAT. 
  <p>
 Uma pessoa desavisada pode ter receio de instalar o <prgn>GNU/Linux</prgn> 
-em uma mesma m·quina com Windows por causa de um documento como este. 
-Para evitar problemas deste tipo, verifique a data de atualizaÁ„o 
-do documento, se verificar que o documento est· obsoleto, contacte o 
-autor original e peÁa para que ele retire aquela seÁ„o na prÛxima vers„o 
-que ser· lanÁada. 
+em uma mesma m√°quina com Windows por causa de um documento como este. 
+Para evitar problemas deste tipo, verifique a data de atualiza√ß√£o 
+do documento, se verificar que o documento est√° obsoleto, contacte o 
+autor original e pe√ßa para que ele retire aquela se√ß√£o na pr√≥xima vers√£o 
+que ser√° lan√ßada. 
  <item>
-O <prgn>GNU/Linux</prgn> È considerado um sistema mais difÌcil do que os 
-outros, mas isto È porque ele requer que a pessoa realmente aprenda e 
-conheÁa computadores e seus perifÈricos antes de fazer qualquer coisa  
-(principalmente se vocÍ È um tÈcnico em manutenÁ„o, redes, instalaÁıes, etc., 
+O <prgn>GNU/Linux</prgn> √© considerado um sistema mais dif√≠cil do que os 
+outros, mas isto √© porque ele requer que a pessoa realmente aprenda e 
+conhe√ßa computadores e seus perif√©ricos antes de fazer qualquer coisa  
+(principalmente se voc√™ √© um t√©cnico em manuten√ß√£o, redes, instala√ß√µes, etc., 
 e deseja oferecer suporte profissional a este sistema). 
  <p>
-VocÍ conhecer· mais sobre computadores, redes, hardware, 
-software, discos, saber· avaliar os problemas e a buscar a melhor 
-soluÁ„o, enfim as possibilidades de crescimento neste sistema 
+Voc√™ conhecer√° mais sobre computadores, redes, hardware, 
+software, discos, saber√° avaliar os problemas e a buscar a melhor 
+solu√ß√£o, enfim as possibilidades de crescimento neste sistema 
 operacional depende do conhecimento, interesse e capacidade de cada um. 
  <item>
-A interface gr·fica existe, mas os melhores recursos e flexibilidade est„o 
-na linha de comando. VocÍ pode ter certeza que o aprendizado no 
-<prgn>GNU/Linux</prgn> ajudar· a ter sucesso e menos dificuldade em 
+A interface gr√°fica existe, mas os melhores recursos e flexibilidade est√£o 
+na linha de comando. Voc√™ pode ter certeza que o aprendizado no 
+<prgn>GNU/Linux</prgn> ajudar√° a ter sucesso e menos dificuldade em 
 usar qualquer outro sistema operacional. 
  <item>
-PeÁa ajuda a outros usu·rios do <prgn>GNU/Linux</prgn> quando estiver em 
-d˙vida ou n„o souber fazer alguma coisa no sistema. VocÍ pode entrar em 
-contato diretamente com outros usu·rios ou atravÈs de listas de discuss„o  
+Pe√ßa ajuda a outros usu√°rios do <prgn>GNU/Linux</prgn> quando estiver em 
+d√∫vida ou n√£o souber fazer alguma coisa no sistema. Voc√™ pode entrar em 
+contato diretamente com outros usu√°rios ou atrav√©s de listas de discuss√£o  
 (veja <ref id="ajuda-listas">). 
 </list>
 Boa Sorte e bem vindo ao <prgn>GNU/Linux</prgn>! 
@@ -330,128 +330,128 @@ Gleydson (<email>gleydson@guiafoca.org</email>).
     ]]>
     
 
-<sect id="introducao-requisitos">PrÈ-requisitos para a utilizaÁ„o deste guia
+<sect id="introducao-requisitos">Pr√©-requisitos para a utiliza√ß√£o deste guia
  <p>
 <![ %INICIANTE [
-… assumido que vocÍ j· tenha seu <prgn>GNU/Linux</prgn> instalado e funcionando. ]]>
+√â assumido que voc√™ j√° tenha seu <prgn>GNU/Linux</prgn> instalado e funcionando. ]]>
 <![ %INTERMEDIARIO [ 
-… assumido que vocÍ tenha entendido a funÁ„o de boa parte dos comandos 
-que consta na vers„o iniciante do Foca Linux, arquivos e permissıes de 
+√â assumido que voc√™ tenha entendido a fun√ß√£o de boa parte dos comandos 
+que consta na vers√£o iniciante do Foca Linux, arquivos e permiss√µes de 
 acesso. Em resumo, que saiba decidir quando e qual(is) comando(s) 
-deve usar em cada situaÁ„o. 
+deve usar em cada situa√ß√£o. 
  <p>
-Caso n„o entenda as explicaÁıes da vers„o INTERMEDI¡RIO, recomendo que 
-faÁa a leitura da vers„o INICIANTE do Foca Linux que pode ser encontrada 
+Caso n√£o entenda as explica√ß√µes da vers√£o INTERMEDI√ÅRIO, recomendo que 
+fa√ßa a leitura da vers√£o INICIANTE do Foca Linux que pode ser encontrada 
 em <url id="&url-manual-www;">.
 ]]>
 <![ %AVANCADO [
-… assumido que vocÍ ja tenha experiÍncia na configuraÁ„o de sistemas 
-<prgn>Linux</prgn>, conheÁa boa parte dos comandos e sua utilizaÁ„o, tenha 
-noÁıes de rede e saiba como procurar documentaÁ„o para complementar o que vem 
+√â assumido que voc√™ ja tenha experi√™ncia na configura√ß√£o de sistemas 
+<prgn>Linux</prgn>, conhe√ßa boa parte dos comandos e sua utiliza√ß√£o, tenha 
+no√ß√µes de rede e saiba como procurar documenta√ß√£o para complementar o que vem 
 aprendendo. Enfim, requer que se tiver interesse em se aprofundar em determinada 
-·rea, que utilize os mÈtodos de busca de documentaÁ„o sugeridos no guia para 
-complementaÁ„o do aprendizado. O guia n„o contÈm todos os materiais para 
-que a pessoa se torne um <tt>expert</tt> no assunto, mas contÈm as 
-referÍncias para documentaÁıes mais especÌficas sobre determinadas ·reas 
+√°rea, que utilize os m√©todos de busca de documenta√ß√£o sugeridos no guia para 
+complementa√ß√£o do aprendizado. O guia n√£o cont√©m todos os materiais para 
+que a pessoa se torne um <tt>expert</tt> no assunto, mas cont√©m as 
+refer√™ncias para documenta√ß√µes mais espec√≠ficas sobre determinadas √°reas 
 do sistema. ]]>
  <p>
-Este guia n„o cobre a instalaÁ„o do sistema. Para detalhes sobre instalaÁ„o, 
-consulte a documentaÁ„o que acompanha sua distribuiÁ„o <prgn>GNU/Linux</prgn>. 
+Este guia n√£o cobre a instala√ß√£o do sistema. Para detalhes sobre instala√ß√£o, 
+consulte a documenta√ß√£o que acompanha sua distribui√ß√£o <prgn>GNU/Linux</prgn>. 
 
 
     <![ %INICIANTE [
 <sect id="introducao-so">Sistema Operacional
  <p>
-O <em>Sistema Operacional</em> È o conjunto de programas que fazem 
-a interface do usu·rio e seus programas com o computador. Ele È respons·vel 
-pelo gerenciamento de recursos e perifÈricos (como memÛria, discos, arquivos, 
-impressoras, CD-ROMs, etc.), interpretaÁ„o de mensagens e a execuÁ„o de programas. 
+O <em>Sistema Operacional</em> √© o conjunto de programas que fazem 
+a interface do usu√°rio e seus programas com o computador. Ele √© respons√°vel 
+pelo gerenciamento de recursos e perif√©ricos (como mem√≥ria, discos, arquivos, 
+impressoras, CD-ROMs, etc.), interpreta√ß√£o de mensagens e a execu√ß√£o de programas. 
  <p>
-No <prgn>Linux</prgn> o Kernel mais o conjunto de ferramentas GNU compıem o 
-Sistema Operacional. O kernel (que È a base principal de um sistema operacional), 
-poder· ser construÌdo de acordo com a configuraÁ„o do seu computador e dos
-perifÈricos que possui.
+No <prgn>Linux</prgn> o Kernel mais o conjunto de ferramentas GNU comp√µem o 
+Sistema Operacional. O kernel (que √© a base principal de um sistema operacional), 
+poder√° ser constru√≠do de acordo com a configura√ß√£o do seu computador e dos
+perif√©ricos que possui.
     ]]>
 
 
 <sect id="introducao-linux">O Linux
  <p>
-O <prgn>Linux</prgn> È um sistema operacional criado em 1991 por <em>Linus 
-Torvalds</em> na universidade de Helsinki na Finl‚ndia. … um sistema 
-Operacional de cÛdigo aberto distribuÌdo gratuitamente pela Internet. 
-Seu cÛdigo fonte È liberado como <em>Free Software</em> (software livre),
-sob licenÁa GPL, o aviso de copyright do kernel feito por Linus descreve 
-detalhadamente isto e mesmo ele n„o pode fechar o sistema para que seja 
+O <prgn>Linux</prgn> √© um sistema operacional criado em 1991 por <em>Linus 
+Torvalds</em> na universidade de Helsinki na Finl√¢ndia. √â um sistema 
+Operacional de c√≥digo aberto distribu√≠do gratuitamente pela Internet. 
+Seu c√≥digo fonte √© liberado como <em>Free Software</em> (software livre),
+sob licen√ßa GPL, o aviso de copyright do kernel feito por Linus descreve 
+detalhadamente isto e mesmo ele n√£o pode fechar o sistema para que seja 
 usado apenas comercialmente.
  <p>
-Isto quer dizer que vocÍ n„o precisa pagar nada para usar o Linux, e n„o 
-È crime fazer cÛpias para instalar em outros computadores, 
-nÛs inclusive incentivamos vocÍ a fazer isto. Ser um sistema de cÛdigo 
+Isto quer dizer que voc√™ n√£o precisa pagar nada para usar o Linux, e n√£o 
+√© crime fazer c√≥pias para instalar em outros computadores, 
+n√≥s inclusive incentivamos voc√™ a fazer isto. Ser um sistema de c√≥digo 
 aberto pode explicar a performance, estabilidade e velocidade em que 
-novos recursos s„o adicionados ao sistema. 
+novos recursos s√£o adicionados ao sistema. 
  <p>
-O requisito mÌnimo para rodar o <prgn>Linux</prgn> depende do kernel que ser·
+O requisito m√≠nimo para rodar o <prgn>Linux</prgn> depende do kernel que ser√°
 usado:
 <list compact>
- <item><tt>2.2.x</tt> - Computador 386 SX com 2 MB de memÛria 
- <item><tt>2.4.x</tt> - Computador 386 SX com 4MB de memÛria
- <item><tt>2.6.x</tt> - Computador 486 DX com no mÌnimo 8MB 
+ <item><tt>2.2.x</tt> - Computador 386 SX com 2 MB de mem√≥ria 
+ <item><tt>2.4.x</tt> - Computador 386 SX com 4MB de mem√≥ria
+ <item><tt>2.6.x</tt> - Computador 486 DX com no m√≠nimo 8MB 
 </list> 
-Para espaÁo em disco È requerido 500MB para uma instalaÁ„o b·sica usando modo 
-texto com suporte a rede. Claro que n„o È considerada a execuÁ„o de 
-ambiente gr·fico ou serviÁos de rede em produÁ„o, que neste caso È exigido
-mais memÛria RAM e espaÁo em disco para armazenamento de dados de programas 
-e usu·rios.
+Para espa√ßo em disco √© requerido 500MB para uma instala√ß√£o b√°sica usando modo 
+texto com suporte a rede. Claro que n√£o √© considerada a execu√ß√£o de 
+ambiente gr√°fico ou servi√ßos de rede em produ√ß√£o, que neste caso √© exigido
+mais mem√≥ria RAM e espa√ßo em disco para armazenamento de dados de programas 
+e usu√°rios.
  <p>
-O sistema segue o padr„o <em>POSIX</em> que È o mesmo usado por sistemas 
+O sistema segue o padr√£o <em>POSIX</em> que √© o mesmo usado por sistemas 
 <em>UNIX</em> e suas variantes. Assim, aprendendo o <prgn>Linux</prgn>  
-vocÍ n„o encontrar· muita dificuldade em operar um sistema do tipo <prgn>UNIX, 
+voc√™ n√£o encontrar√° muita dificuldade em operar um sistema do tipo <prgn>UNIX, 
 FreeBSD, HPUX, SunOS,</prgn> etc., bastando apenas aprender alguns detalhes 
 encontrados em cada sistema. 
  <p>
-O cÛdigo fonte aberto permite que qualquer pessoa veja como o sistema 
-funciona (˙til para aprendizado), corrigir algum problema ou fazer alguma 
-sugest„o sobre sua melhoria, esse È um dos motivos de seu r·pido crescimento, 
-do aumento da compatibilidade de perifÈricos (como novas placas sendo 
-suportadas logo apÛs seu lanÁamento) e de sua estabilidade. 
+O c√≥digo fonte aberto permite que qualquer pessoa veja como o sistema 
+funciona (√∫til para aprendizado), corrigir algum problema ou fazer alguma 
+sugest√£o sobre sua melhoria, esse √© um dos motivos de seu r√°pido crescimento, 
+do aumento da compatibilidade de perif√©ricos (como novas placas sendo 
+suportadas logo ap√≥s seu lan√ßamento) e de sua estabilidade. 
  <p>
-Outro ponto em que ele se destaca È o suporte que oferece a placas, 
-CD/DVD-RWs, BluRay e outros tipos de dispositivos de ˙ltima geraÁ„o 
-e mais antigos (a maioria deles j· ultrapassados e sendo completamente 
-suportados pelo  sistema operacional). Este È um ponto forte para empresas 
+Outro ponto em que ele se destaca √© o suporte que oferece a placas, 
+CD/DVD-RWs, BluRay e outros tipos de dispositivos de √∫ltima gera√ß√£o 
+e mais antigos (a maioria deles j√° ultrapassados e sendo completamente 
+suportados pelo  sistema operacional). Este √© um ponto forte para empresas 
 que desejam manter seus micros em funcionamento e pretendem investir em 
-avanÁos tecnolÛgicos com as m·quinas que possui. 
+avan√ßos tecnol√≥gicos com as m√°quinas que possui. 
  <p>
-O <prgn>Linux</prgn> È desenvolvido por milhares de pessoas espalhadas  
-pelo mundo, cada uma fazendo sua contribuiÁ„o ou mantendo alguma parte do  
+O <prgn>Linux</prgn> √© desenvolvido por milhares de pessoas espalhadas  
+pelo mundo, cada uma fazendo sua contribui√ß√£o ou mantendo alguma parte do  
 kernel gratuitamente. <em>Linus Torvalds</em> ainda trabalha em seu  
-desenvolvimento e na coordenaÁ„o dos grupos de trabalho do kernel. 
+desenvolvimento e na coordena√ß√£o dos grupos de trabalho do kernel. 
  <p>
-O suporte ao sistema tambÈm se destaca como sendo o mais eficiente e r·pido 
-do que qualquer programa comercial disponÌvel no mercado. Existem milhares 
+O suporte ao sistema tamb√©m se destaca como sendo o mais eficiente e r√°pido 
+do que qualquer programa comercial dispon√≠vel no mercado. Existem milhares 
 de consultores e empresas especializadas no suporte e treinamento espalhados 
-ao redor do mundo. Outra opÁ„o de suporte È atravÈs da comunidade Linux;
-vocÍ pode se inscrever em uma lista de discuss„o e relatar sua d˙vida ou 
-alguma falha, e sua mensagem ser· vista por centenas de usu·rios 
-na Internet e algum ir· te ajudar ou avisar· as pessoas respons·veis sobre a 
-falha encontrada para devida correÁ„o. 
+ao redor do mundo. Outra op√ß√£o de suporte √© atrav√©s da comunidade Linux;
+voc√™ pode se inscrever em uma lista de discuss√£o e relatar sua d√∫vida ou 
+alguma falha, e sua mensagem ser√° vista por centenas de usu√°rios 
+na Internet e algum ir√° te ajudar ou avisar√° as pessoas respons√°veis sobre a 
+falha encontrada para devida corre√ß√£o. 
 <![ %INIC-INTER [ Para detalhes, veja <ref id="ajuda-listas">. ]]>
 
 
-<sect1 id="introducao-linux-carac">Algumas CaracterÌsticas do Linux
+<sect1 id="introducao-linux-carac">Algumas Caracter√≠sticas do Linux
  <p>
 <list compact>
  <item>
-… livre e desenvolvido voluntariamente por programadores 
+√â livre e desenvolvido voluntariamente por programadores 
 experientes, hackers, e contribuidores espalhados ao redor do 
-mundo que tem como objetivo a contribuiÁ„o para a melhoria 
+mundo que tem como objetivo a contribui√ß√£o para a melhoria 
 e crescimento deste sistema operacional. 
  <p>
 Muitos deles estavam cansados do excesso de propaganda (Marketing) e 
 baixa qualidade de sistemas comerciais existentes 
 
  <item>
-TambÈm recebe apoio de grandes empresas como IBM, Sun, HP, etc. para 
+Tamb√©m recebe apoio de grandes empresas como IBM, Sun, HP, etc. para 
 seu desenvolvimento
 
  <item>
@@ -463,54 +463,54 @@ mesmo computador.
 Multitarefa real
 
  <item>
-Multiusu·rio 
+Multiusu√°rio 
 
  <item>
-Suporte a nomes extensos de arquivos e diretÛrios (255 caracteres)
+Suporte a nomes extensos de arquivos e diret√≥rios (255 caracteres)
 
  <item>
 Conectividade com outros tipos de plataformas como <em>Apple, Sun, Macintosh, 
 Sparc, Alpha, PowerPc, ARM, Unix, Windows, DOS, etc</em>. 
 
  <item>
-Utiliza permissıes de acesso a arquivos, diretÛrios e programas em 
-execuÁ„o na memÛria RAM.
+Utiliza permiss√µes de acesso a arquivos, diret√≥rios e programas em 
+execu√ß√£o na mem√≥ria RAM.
 
  <item>
-ProteÁ„o entre processos executados na memÛria RAM
+Prote√ß√£o entre processos executados na mem√≥ria RAM
 
  <item>
 Suporte a mais de 63 terminais virtuais (consoles) 
 
  <item>
-ModularizaÁ„o - O <prgn>Linux</prgn> somente carrega para a memÛria o que 
-È usado durante o processamento, liberando totalmente a memÛria 
-assim que o programa/dispositivo È finalizado
+Modulariza√ß√£o - O <prgn>Linux</prgn> somente carrega para a mem√≥ria o que 
+√© usado durante o processamento, liberando totalmente a mem√≥ria 
+assim que o programa/dispositivo √© finalizado
 
  <item>
-Devido a modularizaÁ„o, os drivers dos perifÈricos e recursos do sistema 
-podem ser carregados e removidos completamente da memÛria RAM a qualquer 
-momento. Os drivers (mÛdulos) ocupam pouco espaÁo quando carregados na 
-memÛria RAM (cerca de 6Kb para a Placa de rede NE 2000, por exemplo) 
+Devido a modulariza√ß√£o, os drivers dos perif√©ricos e recursos do sistema 
+podem ser carregados e removidos completamente da mem√≥ria RAM a qualquer 
+momento. Os drivers (m√≥dulos) ocupam pouco espa√ßo quando carregados na 
+mem√≥ria RAM (cerca de 6Kb para a Placa de rede NE 2000, por exemplo) 
 
  <item>
-Suporte nativo a rede e tecnologias avanÁadas como: balanceamento de carga,
+Suporte nativo a rede e tecnologias avan√ßadas como: balanceamento de carga,
 ips alias, failover, vlans, bridge, trunking, OSPF, BGP.
 
  <item>
-N„o h· a necessidade de se reiniciar o sistema apÛs a modificar a configuraÁ„o 
-de qualquer perifÈrico ou par‚metros de rede. Somente È necess·rio reiniciar o 
-sistema no caso de uma instalaÁ„o interna de um novo perifÈrico, falha em 
-algum hardware (queima do processador, placa m„e, etc.). 
+N√£o h√° a necessidade de se reiniciar o sistema ap√≥s a modificar a configura√ß√£o 
+de qualquer perif√©rico ou par√¢metros de rede. Somente √© necess√°rio reiniciar o 
+sistema no caso de uma instala√ß√£o interna de um novo perif√©rico, falha em 
+algum hardware (queima do processador, placa m√£e, etc.). 
 
  <item>
-N„o precisa de um processador potente para funcionar. O sistema roda bem em 
-computadores 386Sx 25 com 4MB de memÛria RAM (sem rodar o sistema gr·fico 
-X, que È recomendado 32MB de RAM). J· pensou no seu desempenho em um 
+N√£o precisa de um processador potente para funcionar. O sistema roda bem em 
+computadores 386Sx 25 com 4MB de mem√≥ria RAM (sem rodar o sistema gr√°fico 
+X, que √© recomendado 32MB de RAM). J√° pensou no seu desempenho em um 
 Pentium, Xeon, ou Athlon? ;-)
 
  <item>
-Suporte nativo a m˙ltiplas CPUs, assim processadores como Dual Core,
+Suporte nativo a m√∫ltiplas CPUs, assim processadores como Dual Core,
 Core Duo, Athlon Duo, Quad Core tem seu poder de processamento integralmente 
 aproveitado, tanto em 32 ou 64 bits.
 
@@ -518,19 +518,19 @@ aproveitado, tanto em 32 ou 64 bits.
 Suporte nativo a dispositivos SATA, PATA, Fiber Channel
 
  <item>
-Suporte nativo a virtualizaÁ„o, onde o <prgn>Linux</prgn> se destaca como
-plataforma preferida para execuÁ„o de m˙ltiplos sistemas operacionais com
-performance e seguranÁa.
+Suporte nativo a virtualiza√ß√£o, onde o <prgn>Linux</prgn> se destaca como
+plataforma preferida para execu√ß√£o de m√∫ltiplos sistemas operacionais com
+performance e seguran√ßa.
 
  <item>
-O crescimento e novas versıes do sistema n„o provocam lentid„o, pelo 
-contr·rio, a cada nova vers„o os desenvolvedores procuram buscar maior 
-compatibilidade, acrescentar recursos ˙teis e melhor desempenho do 
+O crescimento e novas vers√µes do sistema n√£o provocam lentid√£o, pelo 
+contr√°rio, a cada nova vers√£o os desenvolvedores procuram buscar maior 
+compatibilidade, acrescentar recursos √∫teis e melhor desempenho do 
 sistema (como o que aconteceu na passagem do kernel 2.0.x para 2.2.x,
 da 2.2.x para a 2.4.x e da 2.4.x para a 2.6.x). 
 
  <item>
-O <prgn>GNU/Linux</prgn> È distribuido livremente e 
+O <prgn>GNU/Linux</prgn> √© distribuido livremente e 
 licenciado de acordo com os termos da GPL.
 
  <item>
@@ -539,66 +539,66 @@ NTFS, SunOS, Amiga, Atari, Mac,</prgn> etc.
 
 
  <item>
-O LINUX N√O … VULNER¡VEL A VÕRUS! Devido a separaÁ„o de privilÈgios
-entre processos e respeitadas as recomendaÁıes padr„o de polÌtica de 
-seguranÁa e uso de contas privilegiadas (como a de root, como veremos adiante), 
-programas como vÌrus tornam-se in˙teis pois tem sua aÁ„o limitada pelas
-restriÁıes de acesso do sistema de arquivos e execuÁ„o. 
+O LINUX N√ÉO √â VULNER√ÅVEL A V√çRUS! Devido a separa√ß√£o de privil√©gios
+entre processos e respeitadas as recomenda√ß√µes padr√£o de pol√≠tica de 
+seguran√ßa e uso de contas privilegiadas (como a de root, como veremos adiante), 
+programas como v√≠rus tornam-se in√∫teis pois tem sua a√ß√£o limitada pelas
+restri√ß√µes de acesso do sistema de arquivos e execu√ß√£o. 
  <p>
-Qualquer programa (nocivo ou n„o) poder· alterar partes do sistema que possui 
-permissıes (ser· abordado como alterar permissıes e tornar seu sistema mais 
-restrito no decorrer do guia). Frequentemente s„o criados exploits que tentam 
+Qualquer programa (nocivo ou n√£o) poder√° alterar partes do sistema que possui 
+permiss√µes (ser√° abordado como alterar permiss√µes e tornar seu sistema mais 
+restrito no decorrer do guia). Frequentemente s√£o criados exploits que tentam 
 se aproveitar de falhas existentes em sistemas desatualizados e usa-las para 
 causar danos.
-<em>Erroneamente</em> este tipo de ataque È classificado como vÌrus por 
-pessoas mal informadas e s„o resolvidas com sistemas bem mantidos. 
-Em geral, usando uma boa distribuiÁ„o que tenha um eficiente sistema de 
-atualizaÁ„o e bem configurado, vocÍ ter· 99.9% de sua tranquilidade.
+<em>Erroneamente</em> este tipo de ataque √© classificado como v√≠rus por 
+pessoas mal informadas e s√£o resolvidas com sistemas bem mantidos. 
+Em geral, usando uma boa distribui√ß√£o que tenha um eficiente sistema de 
+atualiza√ß√£o e bem configurado, voc√™ ter√° 99.9% de sua tranquilidade.
 
  <item>
-Rede TCP/IP mais r·pida que no Windows e tem sua pilha constantemente 
+Rede TCP/IP mais r√°pida que no Windows e tem sua pilha constantemente 
 melhorada. O <prgn>GNU/Linux</prgn> tem suporte nativo a redes TCP/IP e 
-n„o depende de uma camada intermedi·ria como o WinSock. Em acessos via 
-modem a Internet, a velocidade de transmiss„o È 10% maior. 
+n√£o depende de uma camada intermedi√°ria como o WinSock. Em acessos via 
+modem a Internet, a velocidade de transmiss√£o √© 10% maior. 
 
  <item>
 Executa outros sistemas operacionais como <em>Windows</em>, <em>MacOS</em>, 
-<em>DOS</em> ou outro sistema <prgn>Linux</prgn> atravÈs de consagrados sistemas de 
-virtualizaÁ„o como <prgn>Xen</prgn>, <prgn>vmware</prgn>, ou emulaÁ„o como 
+<em>DOS</em> ou outro sistema <prgn>Linux</prgn> atrav√©s de consagrados sistemas de 
+virtualiza√ß√£o como <prgn>Xen</prgn>, <prgn>vmware</prgn>, ou emula√ß√£o como 
 o <prgn>DOSEMU</prgn>, <prgn>QEMU</prgn>, <prgn>WINE</prgn>.
 
  <item>
-Suporte completo e nativo a diversos dispositivos de comunicaÁ„o via 
+Suporte completo e nativo a diversos dispositivos de comunica√ß√£o via 
 infravermelho, Bluetooth, Firewire, USB. Basta conectar e o seu dispositivo 
-È automaticamente reconhecido. Raramente s„o necess·rios drivers externos, 
-exceto no caso de dispositivos muito novos que n„o tenham o suporte ainda 
+√© automaticamente reconhecido. Raramente s√£o necess√°rios drivers externos, 
+exceto no caso de dispositivos muito novos que n√£o tenham o suporte ainda 
 adicionado no sistema.
 
  <item>
-Suporte a rede via r·dio amador.
+Suporte a rede via r√°dio amador.
 
  <item>
 Suporte a dispositivos Plug-and-Play.
 
  <item>
-Suporte nativo a pen drivers, dispositivos de armazenamento e cartıes de memÛria.
+Suporte nativo a pen drivers, dispositivos de armazenamento e cart√µes de mem√≥ria.
 
  <item>
 Suporte nativo a dispositivos I2C
 
  <item>
-IntegraÁ„o com gerenciamento de energia ACPI e APM
+Integra√ß√£o com gerenciamento de energia ACPI e APM
  
  <item>
 Dispositivos de rede Wireless. Tanto com criptografia WEB e WPA PSK
 
  <item>
-V·rios tipos de firewalls avanÁados de alta qualidade na detecÁ„o de tr·fego
-indesej·vel, dando ao administrador uma excelente ferramenta de proteÁ„o 
+V√°rios tipos de firewalls avan√ßados de alta qualidade na detec√ß√£o de tr√°fego
+indesej√°vel, dando ao administrador uma excelente ferramenta de prote√ß√£o 
 e controle de sua rede.
 
  <item>
-Roteamento est·tico e din‚mico de pacotes. 
+Roteamento est√°tico e din√¢mico de pacotes. 
 
  <item>
 Ponte entre Redes, proxy arp
@@ -607,34 +607,34 @@ Ponte entre Redes, proxy arp
 Proxy Tradicional e Transparente.
 
  <item>
-Possui recursos para atender a mais de um endereÁo IP na mesma placa de rede, sendo 
-muito ˙til para situaÁıes de manutenÁ„o em servidores de redes ou para a emulaÁ„o 
-de "m˙ltiplos computadores". 
+Possui recursos para atender a mais de um endere√ßo IP na mesma placa de rede, sendo 
+muito √∫til para situa√ß√µes de manuten√ß√£o em servidores de redes ou para a emula√ß√£o 
+de "m√∫ltiplos computadores". 
  <p>
-O servidor WEB e FTP podem estar localizados no mesmo computador, mas o usu·rio que 
-se conecta tem a impress„o que a rede possui servidores diferentes. 
+O servidor WEB e FTP podem estar localizados no mesmo computador, mas o usu√°rio que 
+se conecta tem a impress√£o que a rede possui servidores diferentes. 
 
  <item>
 Os sistemas de arquivos usados pelo <prgn>GNU/Linux</prgn> (<tt>Ext2</tt>, <tt>Ext3</tt>,
 <tt>reiserfs</tt>, <tt>xfs</tt>, <tt>jfs</tt>) organiza os arquivos de forma inteligente 
-evitando a fragmentaÁ„o e fazendo-o um poderoso sistema para aplicaÁıes multi-usu·rias 
-exigentes e gravaÁıes intensivas. 
+evitando a fragmenta√ß√£o e fazendo-o um poderoso sistema para aplica√ß√µes multi-usu√°rias 
+exigentes e grava√ß√µes intensivas. 
 
  <item>
-Permite a montagem de um servidor de publicaÁ„o Web, E-mail, News, etc. com um 
+Permite a montagem de um servidor de publica√ß√£o Web, E-mail, News, etc. com um 
 baixo custo e alta performance. O melhor servidor Web do mercado, 
-o <prgn>Apache</prgn>, È distribuÌdo gratuitamente junto com a 
-maioria das distribuiÁıes Linux. O mesmo acontece com o <prgn>Sendmail</prgn>.
+o <prgn>Apache</prgn>, √© distribu√≠do gratuitamente junto com a 
+maioria das distribui√ß√µes Linux. O mesmo acontece com o <prgn>Sendmail</prgn>.
 
  <item>
-Por ser um sistema operacional de cÛdigo aberto, vocÍ pode ver o 
-que o cÛdigo fonte (instruÁıes digitadadas pelo programador) faz e 
-adapta-lo as suas necessidades ou de sua empresa. Esta caracterÌstica 
-È uma seguranÁa a mais para empresas sÈrias e outros que n„o querem ter 
-seus dados roubados (vocÍ n„o sabe o que um sistema sem cÛdigo fonte faz 
+Por ser um sistema operacional de c√≥digo aberto, voc√™ pode ver o 
+que o c√≥digo fonte (instru√ß√µes digitadadas pelo programador) faz e 
+adapta-lo as suas necessidades ou de sua empresa. Esta caracter√≠stica 
+√© uma seguran√ßa a mais para empresas s√©rias e outros que n√£o querem ter 
+seus dados roubados (voc√™ n√£o sabe o que um sistema sem c√≥digo fonte faz 
 na realidade enquanto esta processando o programa).
  <item>
-Suporte a diversos dispositivos e perifÈricos disponÌveis no mercado, 
+Suporte a diversos dispositivos e perif√©ricos dispon√≠veis no mercado, 
 tanto os novos como obsoletos.
  <item>
 Pode ser executado em 16 arquiteturas diferentes (Intel, Macintosh, Alpha,
@@ -643,220 +643,220 @@ Arm, etc.) e diversas outras sub-arquiteturas.
 Empresas especializadas e consultores especializados no suporte ao sistema 
 espalhados por todo o mundo.
  <item>
-Entre muitas outras caracterÌsticas que vocÍ descobrir· durante o uso do 
-sistema (alÈm de poder criar outras, caso seja um administrador avanÁado 
+Entre muitas outras caracter√≠sticas que voc√™ descobrir√° durante o uso do 
+sistema (al√©m de poder criar outras, caso seja um administrador avan√ßado 
 ou desenvolvedor).
 </list>
-TODOS OS ÕTENS DESCRITOS ACIMA S√O VERDADEIROS E TESTADOS PARA QUE TIVESSE 
+TODOS OS √çTENS DESCRITOS ACIMA S√ÉO VERDADEIROS E TESTADOS PARA QUE TIVESSE 
 PLENA CERTEZA DE SEU FUNCIONAMENTO. 
 
 
     <![ %INICIANTE [
-<sect id="introducao-distrib">DistribuiÁıes do Linux
+<sect id="introducao-distrib">Distribui√ß√µes do Linux
  <p>
-SÛ o kernel <prgn>GNU/Linux</prgn> n„o È suficiente 
-para se ter uma sistema funcional, mas È o principal. 
+S√≥ o kernel <prgn>GNU/Linux</prgn> n√£o √© suficiente 
+para se ter uma sistema funcional, mas √© o principal. 
  <p>
-Existem grupos de pessoas, empresas e organizaÁıes que decidem 
+Existem grupos de pessoas, empresas e organiza√ß√µes que decidem 
 "distribuir" o Linux junto com outros aplicativos  (como por 
-exemplo <prgn>editores gr·ficos, planilhas, bancos de dados, ambientes 
-de programaÁ„o, formataÁ„o de documentos, firewalls, etc</prgn>). 
+exemplo <prgn>editores gr√°ficos, planilhas, bancos de dados, ambientes 
+de programa√ß√£o, formata√ß√£o de documentos, firewalls, etc</prgn>). 
  <p>
-Este È o significado essencial de <em>distribuiÁ„o</em>. Cada distribuiÁ„o 
-tem sua caracterÌstica prÛpria, como o sistema de instalaÁ„o, o 
-objetivo, a localizaÁ„o de programas, nomes de arquivos de configuraÁ„o, 
-etc. A escolha de uma distribuiÁ„o È pessoal e depende das necessidades de 
+Este √© o significado essencial de <em>distribui√ß√£o</em>. Cada distribui√ß√£o 
+tem sua caracter√≠stica pr√≥pria, como o sistema de instala√ß√£o, o 
+objetivo, a localiza√ß√£o de programas, nomes de arquivos de configura√ß√£o, 
+etc. A escolha de uma distribui√ß√£o √© pessoal e depende das necessidades de 
 cada um.
  <p>
-Algumas distribuiÁıes bastante conhecidas s„o: <em>Ubuntu, Debian, Slackware, 
+Algumas distribui√ß√µes bastante conhecidas s√£o: <em>Ubuntu, Debian, Slackware, 
 Red Hat, Gentoo, Suse</em> todas usando o SO Linux como kernel principal 
-(a <prgn>Debian</prgn> È uma distribuiÁ„o independente de kernel e pode 
+(a <prgn>Debian</prgn> √© uma distribui√ß√£o independente de kernel e pode 
 ser executada sob outros kernels, como o GNU hurd ou o kernel BSD). 
  <p>
-A escolha de sua distribuiÁ„o deve ser feita com muita atenÁ„o, n„o adianta 
-muita coisa perguntar em canais de IRC sobre qual È a melhor distribuiÁ„o, 
+A escolha de sua distribui√ß√£o deve ser feita com muita aten√ß√£o, n√£o adianta 
+muita coisa perguntar em canais de IRC sobre qual √© a melhor distribui√ß√£o, 
 ser levado pelas propagandas, pelo vizinho, etc. O melhor caminho para a 
-escolha da distribuiÁ„o, acredito eu, seria perguntar as caracterÌsticas  
-de cada uma e porque essa pessoa gosta dela ao invÈs de perguntar qual È a 
-melhor, porque quem lhe responder isto estar· usando uma distribuiÁ„o 
-que se encaixa de acordo com suas necessidade e esta mesma distribuiÁ„o pode 
-n„o ser a melhor para lhe atender. 
+escolha da distribui√ß√£o, acredito eu, seria perguntar as caracter√≠sticas  
+de cada uma e porque essa pessoa gosta dela ao inv√©s de perguntar qual √© a 
+melhor, porque quem lhe responder isto estar√° usando uma distribui√ß√£o 
+que se encaixa de acordo com suas necessidade e esta mesma distribui√ß√£o pode 
+n√£o ser a melhor para lhe atender. 
  <p>
-Segue abaixo as caracterÌsticas de algumas distribuiÁıes seguidas do 
-site principal e endereÁo para download:
+Segue abaixo as caracter√≠sticas de algumas distribui√ß√µes seguidas do 
+site principal e endere√ßo para download:
 <taglist>
  <tag><em>Debian</em></tag>
  <item>
- <tt><url id="&url-debian-www;"></tt> - DistribuiÁ„o desenvolvida e  
-atualizada atravÈs do esforÁo de volunt·rios espalhados ao redor do  
+ <tt><url id="&url-debian-www;"></tt> - Distribui√ß√£o desenvolvida e  
+atualizada atrav√©s do esfor√ßo de volunt√°rios espalhados ao redor do  
 mundo, seguindo o estilo de desenvolvimento <prgn>GNU/Linux</prgn>. Por este 
-motivo, foi adotada como a distribuiÁ„o oficial do projeto <em>GNU</em>. 
-Possui suporte a lÌngua Portuguesa, È a ˙nica que tem suporte a 14 
+motivo, foi adotada como a distribui√ß√£o oficial do projeto <em>GNU</em>. 
+Possui suporte a l√≠ngua Portuguesa, √© a √∫nica que tem suporte a 14 
 arquiteturas diferentes (i386, IA64, AMD64, Alpha, Sparc, PowerPc, Macintosh, 
-Arm, etc.) e aproximadamente 15 sub-arquiteturas. A instalaÁ„o da distribuiÁ„o 
-pode ser feita tanto atravÈs de Disquetes, CD-ROM, Tftp, Ftp, NFS ou atravÈs da 
-combinaÁ„o de v·rios destes em cada etapa de instalaÁ„o. 
+Arm, etc.) e aproximadamente 15 sub-arquiteturas. A instala√ß√£o da distribui√ß√£o 
+pode ser feita tanto atrav√©s de Disquetes, CD-ROM, Tftp, Ftp, NFS ou atrav√©s da 
+combina√ß√£o de v√°rios destes em cada etapa de instala√ß√£o. 
  <p>
-Acompanha mais de &DEBNUMPACKAGES; programas distribuÌdos em forma de pacotes 
-cada um destes programas s„o mantidos e testados pela pessoa ou grupo 
-respons·vel por seu empacotamento. Os pacotes s„o divididos em diretÛrios 
-de acordo com sua categoria e gerenciados atravÈs de um 
-avanÁado sistema de gerenciamento de pacotes (o apt e o dpkg) facilitando a 
-instalaÁ„o e atualizaÁ„o de pacotes. Possui tanto ferramentas para 
-administraÁ„o de redes e servidores quanto para desktops, estaÁıes 
-multimÌdia, jogos, desenvolvimento, web, etc. 
+Acompanha mais de &DEBNUMPACKAGES; programas distribu√≠dos em forma de pacotes 
+cada um destes programas s√£o mantidos e testados pela pessoa ou grupo 
+respons√°vel por seu empacotamento. Os pacotes s√£o divididos em diret√≥rios 
+de acordo com sua categoria e gerenciados atrav√©s de um 
+avan√ßado sistema de gerenciamento de pacotes (o apt e o dpkg) facilitando a 
+instala√ß√£o e atualiza√ß√£o de pacotes. Possui tanto ferramentas para 
+administra√ß√£o de redes e servidores quanto para desktops, esta√ß√µes 
+multim√≠dia, jogos, desenvolvimento, web, etc. 
  <p>
-A atualizaÁ„o da distribuiÁ„o ou de pacotes individuais pode ser feita  
-facilmente atravÈs de 2 comandos, n„o requerendo adquirir um novo CD 
-para usar a ˙ltima vers„o da distribuiÁ„o. … a ˙nica distribuiÁ„o n„o 
+A atualiza√ß√£o da distribui√ß√£o ou de pacotes individuais pode ser feita  
+facilmente atrav√©s de 2 comandos, n√£o requerendo adquirir um novo CD 
+para usar a √∫ltima vers√£o da distribui√ß√£o. √â a √∫nica distribui√ß√£o n√£o 
 comercial onde todos podem contribuir usando seu conhecimento para o 
-desenvolvimento. Para gerenciar os volunt·rios, conta com centenas de 
-listas de discuss„o envolvendo determinados desenvolvedores das mais 
+desenvolvimento. Para gerenciar os volunt√°rios, conta com centenas de 
+listas de discuss√£o envolvendo determinados desenvolvedores das mais 
 diversas partes do mundo. 
  <p>
-S„o feitos extensivos testes antes do lanÁamento de cada vers„o para atingir 
+S√£o feitos extensivos testes antes do lan√ßamento de cada vers√£o para atingir 
 um alto grau de confiabilidade. As falhas encontradas nos pacotes podem ser 
-relatados atravÈs de um <em>sistema de tratamento de falhas</em> que  
-encaminha a falha encontrada diretamente ao respons·vel para avaliaÁ„o  
-e correÁ„o. Qualquer um pode receber a lista de falhas ou sugestıes 
-sobre a distribuiÁ„o cadastrando-se em uma das lista de discuss„o que 
-tratam especificamente da soluÁ„o de falhas encontradas na distribuiÁ„o 
-(disponÌvel na p·gina principal da distribuiÁ„o). 
+relatados atrav√©s de um <em>sistema de tratamento de falhas</em> que  
+encaminha a falha encontrada diretamente ao respons√°vel para avalia√ß√£o  
+e corre√ß√£o. Qualquer um pode receber a lista de falhas ou sugest√µes 
+sobre a distribui√ß√£o cadastrando-se em uma das lista de discuss√£o que 
+tratam especificamente da solu√ß√£o de falhas encontradas na distribui√ß√£o 
+(dispon√≠vel na p√°gina principal da distribui√ß√£o). 
  <p>
-Os pacotes podem ser instalados atravÈs de <tt>Tarefas</tt> contendo 
-seleÁıes de pacotes de acordo com a utilizaÁ„o do computador (servidor Web, 
-desenvolvimento, TeX, jogos, desktop, etc.), <em>Perfis</em> contendo seleÁıes 
-de pacotes de acordo com o tipo de usu·rio (programador, operador, etc.), ou 
-atravÈs de uma seleÁ„o individual de pacotes, garantindo que somente os 
-pacotes selecionados ser„o instalados fazendo uma instalaÁ„o enxuta. 
+Os pacotes podem ser instalados atrav√©s de <tt>Tarefas</tt> contendo 
+sele√ß√µes de pacotes de acordo com a utiliza√ß√£o do computador (servidor Web, 
+desenvolvimento, TeX, jogos, desktop, etc.), <em>Perfis</em> contendo sele√ß√µes 
+de pacotes de acordo com o tipo de usu√°rio (programador, operador, etc.), ou 
+atrav√©s de uma sele√ß√£o individual de pacotes, garantindo que somente os 
+pacotes selecionados ser√£o instalados fazendo uma instala√ß√£o enxuta. 
  <p>
-Existe um time de desenvolvedores com a tarefa especÌfica de monitorar atualizaÁıes
-de seguranÁa em serviÁos (apache, sendmail, e todos os outros &DEBNUMPACKAGES;  
-pacotes) que possam comprometer o servidor, deixando-o vulner·vel a ataques. 
-Assim que uma falha È descoberta, È enviado uma alerta (DSA - Debian Security 
-Alert) e disponibilizada uma atualizaÁ„o para correÁ„o das diversas versıes da 
-<prgn>Debian</prgn>. Isto È geralmente feito em menos de 48 horas desde a 
-descoberta da falha atÈ a divulgaÁ„o da correÁ„o. Como quase todas as 
-falhas s„o descobertas nos programas, este mÈtodo tambÈm pode ser usado por
-administradores de outras distribuiÁıes para manterem seu sistema seguro
+Existe um time de desenvolvedores com a tarefa espec√≠fica de monitorar atualiza√ß√µes
+de seguran√ßa em servi√ßos (apache, sendmail, e todos os outros &DEBNUMPACKAGES;  
+pacotes) que possam comprometer o servidor, deixando-o vulner√°vel a ataques. 
+Assim que uma falha √© descoberta, √© enviado uma alerta (DSA - Debian Security 
+Alert) e disponibilizada uma atualiza√ß√£o para corre√ß√£o das diversas vers√µes da 
+<prgn>Debian</prgn>. Isto √© geralmente feito em menos de 48 horas desde a 
+descoberta da falha at√© a divulga√ß√£o da corre√ß√£o. Como quase todas as 
+falhas s√£o descobertas nos programas, este m√©todo tamb√©m pode ser usado por
+administradores de outras distribui√ß√µes para manterem seu sistema seguro
 e atualizado.
  <p>
-O suporte ao usu·rio e desenvolvimento da distribuiÁ„o s„o feitos atravÈs  
-de listas de discussıes e canais IRC. Existem uma lista de consultores 
-habilitados a dar suporte e assistÍncia a sistemas Debian ao redor do  
-mundo na ·rea consultores do site principal da distribuiÁ„o. 
+O suporte ao usu√°rio e desenvolvimento da distribui√ß√£o s√£o feitos atrav√©s  
+de listas de discuss√µes e canais IRC. Existem uma lista de consultores 
+habilitados a dar suporte e assist√™ncia a sistemas Debian ao redor do  
+mundo na √°rea consultores do site principal da distribui√ß√£o. 
  <p>
-<tt><url id="&url-debian-ftp;"></tt> - EndereÁo para download. 
+<tt><url id="&url-debian-ftp;"></tt> - Endere√ßo para download. 
 
 
  <tag><em>Ubuntu</em></tag>
  <item>
- <tt><url id="&url-ubuntu-www;"></tt> - Variante da distribuiÁ„o Debian 
-voltada a interaÁ„o mais amig·vel com o usu·rio final e facilidade de 
-instalaÁ„o. Atualmente È a melhor para usu·rios que tem o primeiro
-contato com o Linux. Conta tanto com a instalaÁ„o do sistema em HD e
-execuÁ„o atravÈs de Live CD.
+ <tt><url id="&url-ubuntu-www;"></tt> - Variante da distribui√ß√£o Debian 
+voltada a intera√ß√£o mais amig√°vel com o usu√°rio final e facilidade de 
+instala√ß√£o. Atualmente √© a melhor para usu√°rios que tem o primeiro
+contato com o Linux. Conta tanto com a instala√ß√£o do sistema em HD e
+execu√ß√£o atrav√©s de Live CD.
  <p>
-<tt><url id="&url-ubuntu-ftp;"></tt> - EndereÁo para download do Ubuntu.
+<tt><url id="&url-ubuntu-ftp;"></tt> - Endere√ßo para download do Ubuntu.
  
  
  <tag><em>Slackware</em></tag>
  <item>
- <tt><url id="&url-slackware-www;"></tt> - DistribuiÁ„o desenvolvida por 
-<tt>Patrick Volkerding</tt>, desenvolvida para alcanÁar facilidade de 
-uso e estabilidade como prioridades principais. Foi a primeira distribuiÁ„o 
-a ser lanÁada no mundo e costuma trazer o que h· de mais novo enquanto mantÈm 
-uma certa tradiÁ„o, provendo simplicidade, facilidade de uso e com isso 
+ <tt><url id="&url-slackware-www;"></tt> - Distribui√ß√£o desenvolvida por 
+<tt>Patrick Volkerding</tt>, desenvolvida para alcan√ßar facilidade de 
+uso e estabilidade como prioridades principais. Foi a primeira distribui√ß√£o 
+a ser lan√ßada no mundo e costuma trazer o que h√° de mais novo enquanto mant√©m 
+uma certa tradi√ß√£o, provendo simplicidade, facilidade de uso e com isso 
 flexibilidade e poder.
  <p>
-Desde a primeira vers„o lanÁada em Abril de 1993, o Projeto 
-<prgn>Slackware Linux</prgn> tem buscado produzir a distribuiÁ„o 
+Desde a primeira vers√£o lan√ßada em Abril de 1993, o Projeto 
+<prgn>Slackware Linux</prgn> tem buscado produzir a distribui√ß√£o 
 <prgn>Linux</prgn> mais <tt>UNIX-like</tt>, ou seja, mais parecida 
-com UNIX. O Slackware segue os padrıes Linux como o Linux File System 
-Standard, que È um padr„o de organizaÁ„o de diretÛrios e arquivos para 
-as distribuiÁıes.
+com UNIX. O Slackware segue os padr√µes Linux como o Linux File System 
+Standard, que √© um padr√£o de organiza√ß√£o de diret√≥rios e arquivos para 
+as distribui√ß√µes.
  <p>
-Enquanto as pessoas diziam que a Red Hat era a melhor distribuiÁ„o
-para o usu·rio iniciante, o <prgn>Slackware</prgn> È o melhor para o 
-usu·rio mais "velho", ou seja programadores, administradores, etc.
+Enquanto as pessoas diziam que a Red Hat era a melhor distribui√ß√£o
+para o usu√°rio iniciante, o <prgn>Slackware</prgn> √© o melhor para o 
+usu√°rio mais "velho", ou seja programadores, administradores, etc.
  <p>
-<tt><url id="&url-slackware-ftp;"></tt> - Ftp da distribuiÁ„o Slackware.
+<tt><url id="&url-slackware-ftp;"></tt> - Ftp da distribui√ß√£o Slackware.
 
  <tag><em>SuSE</em></tag>
  <item>
- <tt><url id="&url-suse-www;"></tt> - DistribuiÁ„o comercial Alem„ com a 
-coordenaÁ„o sendo feita atravÈs dos processos administrativos dos 
-desenvolvedores e de seu braÁo norte-americano. O foco da Suse È o 
-usu·rio com conhecimento tÈcnico no Linux (programador, administrador de 
-rede, etc.) e n„o o usu·rio iniciante no Linux. Preferencialmente a 
-administraÁ„o deve ser feita usando o <prgn>Yast</prgn>, mas tambÈm pode
-ser feita manualmente atravÈs de alteraÁ„o dos arquivos de configuraÁ„o.
+ <tt><url id="&url-suse-www;"></tt> - Distribui√ß√£o comercial Alem√£ com a 
+coordena√ß√£o sendo feita atrav√©s dos processos administrativos dos 
+desenvolvedores e de seu bra√ßo norte-americano. O foco da Suse √© o 
+usu√°rio com conhecimento t√©cnico no Linux (programador, administrador de 
+rede, etc.) e n√£o o usu√°rio iniciante no Linux. Preferencialmente a 
+administra√ß√£o deve ser feita usando o <prgn>Yast</prgn>, mas tamb√©m pode
+ser feita manualmente atrav√©s de altera√ß√£o dos arquivos de configura√ß√£o.
  <p>
 Possui suporte as arquiteturas Intel x86 e Alpha. Sua 
-instalaÁ„o pode ser feita via CD-ROM ou CD-DVD (È a primeira 
-distribuiÁ„o com instalaÁ„o atravÈs de DVD). 
+instala√ß√£o pode ser feita via CD-ROM ou CD-DVD (√© a primeira 
+distribui√ß√£o com instala√ß√£o atrav√©s de DVD). 
  <p>
-Uma mÈdia de 2000 programas acompanham a vers„o 10 distribuÌdos em 
-6 CD-ROMs. O sistema de gerenciamento de pacotes È o RPM padronizado. 
-A seleÁ„o de pacotes durante a instalaÁ„o pode ser feita atravÈs da 
-seleÁ„o do perfil de m·quina (developer, estaÁ„o kde, gr·ficos, 
-estaÁ„o gnome, servidor de rede, etc.) ou atravÈs da seleÁ„o 
+Uma m√©dia de 2000 programas acompanham a vers√£o 10 distribu√≠dos em 
+6 CD-ROMs. O sistema de gerenciamento de pacotes √© o RPM padronizado. 
+A sele√ß√£o de pacotes durante a instala√ß√£o pode ser feita atrav√©s da 
+sele√ß√£o do perfil de m√°quina (developer, esta√ß√£o kde, gr√°ficos, 
+esta√ß√£o gnome, servidor de rede, etc.) ou atrav√©s da sele√ß√£o 
 individual de pacotes. 
  <p>
-A atualizaÁ„o da distribuiÁ„o pode ser feita atravÈs do CD-ROM de 
-uma nova vers„o ou baixando pacotes de <url id="&url-suse-ftp;">. 
-Usu·rios registrados ganham direito a suporte de instalaÁ„o via 
-e-mail. A base de dados de suporte tambÈm È excelente e est· 
-disponÌvel na web para qualquer usu·rio independente de 
+A atualiza√ß√£o da distribui√ß√£o pode ser feita atrav√©s do CD-ROM de 
+uma nova vers√£o ou baixando pacotes de <url id="&url-suse-ftp;">. 
+Usu√°rios registrados ganham direito a suporte de instala√ß√£o via 
+e-mail. A base de dados de suporte tamb√©m √© excelente e est√° 
+dispon√≠vel na web para qualquer usu√°rio independente de 
 registro. 
  <p>
- <tt><url id="&url-suse-ftp;"></tt> - Ftp da distribuiÁ„o SuSE.
+ <tt><url id="&url-suse-ftp;"></tt> - Ftp da distribui√ß√£o SuSE.
 
  <tag><em>Red Hat Enterprise Linux</em></tag>
  <item>
- <tt><url id="&url-redhat-www;"></tt> - DistribuiÁ„o comercial suportada pela 
-Red Hat e voltada a servidores de grandes e medias empresas. TambÈm conta com 
-uma certificaÁ„o chamada RHCE especÌfica desta distro.
+ <tt><url id="&url-redhat-www;"></tt> - Distribui√ß√£o comercial suportada pela 
+Red Hat e voltada a servidores de grandes e medias empresas. Tamb√©m conta com 
+uma certifica√ß√£o chamada RHCE espec√≠fica desta distro.
  <p>
-Ela n„o est· disponÌvel para download, apenas vendida a custos a partir de 
-179 dÛlares (a vers„o workstation) atÈ 1499 dÛlares (advanced server).
+Ela n√£o est√° dispon√≠vel para download, apenas vendida a custos a partir de 
+179 d√≥lares (a vers√£o workstation) at√© 1499 d√≥lares (advanced server).
 
  <tag><em>Fedora</em></tag>
  <item>
- <tt><url id="&url-fedora-www;"></tt> - O Fedora Linux È a distribuiÁ„o de 
+ <tt><url id="&url-fedora-www;"></tt> - O Fedora Linux √© a distribui√ß√£o de 
 desenvolvimento aberto patrocinada pela RedHat e pela comunidade, originada em 
-2002 e baseada em vers„o da antiga linha de produtos RedHat Linux. Esta 
-distribuiÁ„o n„o È suportada pela Red Hat como 
-distribuiÁ„o oficial (ela suporta apenas a linha Red Hat Enterprise Linux), devendo 
-obter suporte atravÈs da comunidade ou outros meios.
+2002 e baseada em vers√£o da antiga linha de produtos RedHat Linux. Esta 
+distribui√ß√£o n√£o √© suportada pela Red Hat como 
+distribui√ß√£o oficial (ela suporta apenas a linha Red Hat Enterprise Linux), devendo 
+obter suporte atrav√©s da comunidade ou outros meios.
  <p>
-A distribuiÁ„o <tt>Fedora</tt> d· prioridade ao uso do computador como estaÁ„o 
-de trabalho. AlÈm de contar com uma ampla gama de ferramentas de escritÛrio 
-possui funÁıes de servidor e aplicativos para produtividade e desenvolvimento 
-de softwares. Considerado um dos sistemas mais f·ceis de instalar e utilizar, 
-inclui traduÁ„o para portugÍs do Brasil e suporte ‡s plataformas Intel e 64 bits.
+A distribui√ß√£o <tt>Fedora</tt> d√° prioridade ao uso do computador como esta√ß√£o 
+de trabalho. Al√©m de contar com uma ampla gama de ferramentas de escrit√≥rio 
+possui fun√ß√µes de servidor e aplicativos para produtividade e desenvolvimento 
+de softwares. Considerado um dos sistemas mais f√°ceis de instalar e utilizar, 
+inclui tradu√ß√£o para portug√™s do Brasil e suporte √†s plataformas Intel e 64 bits.
  <p>
 Por basear-se no RedHat. o Fedora conta com um o <prgn>up2date</prgn>, um 
 software para manter o sistema atualizado e utiliza pacotes de programas 
 no formato RPM, um dos mais comuns. 
  <p>
-O Fedora n„o È distribuido oficialmente atravÈs de mÌdias ou CDs, se vocÍ 
-quiser obte-lo ter· de procurar distribuidores independentes ou fazer o 
-download dos 4 CDs atravÈs do site oficial. 
+O Fedora n√£o √© distribuido oficialmente atrav√©s de m√≠dias ou CDs, se voc√™ 
+quiser obte-lo ter√° de procurar distribuidores independentes ou fazer o 
+download dos 4 CDs atrav√©s do site oficial. 
  <p>
-<tt><url id="&url-fedora-ftp;"></tt> - Download da distribuiÁ„o Fedora.
+<tt><url id="&url-fedora-ftp;"></tt> - Download da distribui√ß√£o Fedora.
 
  <tag><em>Mandriva</em></tag>
  <item>
- <tt><url id="&url-mandriva-www;"></tt> - Fus„o da distribuiÁ„o francesa 
- <tt>Mandrake</tt> com a distribuiÁ„o brasileira <tt>Conectiva</tt> contendo
- as caracterÌsticas de instalaÁ„o semi-autom·tica atravÈs de DVD. Boa 
- auto-detecÁ„o de perifÈricos, inclusive web-cams.
+ <tt><url id="&url-mandriva-www;"></tt> - Fus√£o da distribui√ß√£o francesa 
+ <tt>Mandrake</tt> com a distribui√ß√£o brasileira <tt>Conectiva</tt> contendo
+ as caracter√≠sticas de instala√ß√£o semi-autom√°tica atrav√©s de DVD. Boa 
+ auto-detec√ß√£o de perif√©ricos, inclusive web-cams.
  <p>
-<tt><url id="&url-mandriva-ftp;"></tt> - Download da distribuiÁ„o.
+<tt><url id="&url-mandriva-ftp;"></tt> - Download da distribui√ß√£o.
 
 </taglist>
-Para contato com os grupos de usu·rios que utilizam estas distribuiÁıes, 
+Para contato com os grupos de usu√°rios que utilizam estas distribui√ß√µes, 
 veja <ref id="ajuda-listas">. 
     ]]>
 
@@ -864,96 +864,96 @@ veja <ref id="ajuda-listas">.
     <![ %INIC-INTER [
 <sect id="introducao-software-livre">Software Livre
  <p>
-(traduÁ„o do texto <tt>Linux e o Sistema GNU</tt> de <tt>Richard Stallman</tt> obtido no site 
+(tradu√ß√£o do texto <tt>Linux e o Sistema GNU</tt> de <tt>Richard Stallman</tt> obtido no site 
 do CIPSGA: <url id="&url-cipsga-www;">).
-O projeto <em>GNU</em> comeÁou em 1983 com o objetivo de desenvolver um sistema operacional 
-Unix-like totalmente livre. <tt>Livre</tt> se refere ‡ liberdade, e n„o ao preÁo; significa que vocÍ 
-est· livre para executar, distribuir, estudar, mudar e melhorar o software.
+O projeto <em>GNU</em> come√ßou em 1983 com o objetivo de desenvolver um sistema operacional 
+Unix-like totalmente livre. <tt>Livre</tt> se refere √† liberdade, e n√£o ao pre√ßo; significa que voc√™ 
+est√° livre para executar, distribuir, estudar, mudar e melhorar o software.
  <p>
-Um sistema Unix-like consiste de muitos programas diferentes. NÛs achamos alguns componentes j· 
-disponÌveis como softwares livres -- por exemplo, <prgn>X Window</prgn> e <prgn>TeX</prgn>. Obtemos 
+Um sistema Unix-like consiste de muitos programas diferentes. N√≥s achamos alguns componentes j√° 
+dispon√≠veis como softwares livres -- por exemplo, <prgn>X Window</prgn> e <prgn>TeX</prgn>. Obtemos 
 outros componentes ajudando a convencer seus desenvolvedores a tornarem eles livres -- por exemplo, 
-o Berkeley network utilities. Outros componentes nÛs escrevemos especificamente para o GNU -- por 
+o Berkeley network utilities. Outros componentes n√≥s escrevemos especificamente para o GNU -- por 
 exemplo, <prgn>GNU Emacs</prgn>, o compilador <prgn>GNU C</prgn>, o <prgn>GNU C library</prgn>, 
-<prgn>Bash</prgn> e <prgn>Ghostscript</prgn>. Os componentes desta ˙ltima categoria s„o
-"software GNU". O sistema GNU consiste de todas as trÍs categorias reunidas.
+<prgn>Bash</prgn> e <prgn>Ghostscript</prgn>. Os componentes desta √∫ltima categoria s√£o
+"software GNU". O sistema GNU consiste de todas as tr√™s categorias reunidas.
  <p>
-O projeto GNU n„o È somente desenvolvimento e distribuiÁ„o de alguns softwares livres
-˙teis. O coraÁ„o do projeto GNU È uma idÈia: que software deve ser <em>livre</em>, e que a 
-liberdade do usu·rio vale a pena ser defendida. Se as pessoas tÍm liberdade mas n„o a 
-apreciam conscientemente, n„o ir„o mantÍ-la por muito tempo. Se queremos que a liberdade 
-dure, precisamos chamar a atenÁ„o das pessoas para a liberdade que elas tÍm em programas livres.
+O projeto GNU n√£o √© somente desenvolvimento e distribui√ß√£o de alguns softwares livres
+√∫teis. O cora√ß√£o do projeto GNU √© uma id√©ia: que software deve ser <em>livre</em>, e que a 
+liberdade do usu√°rio vale a pena ser defendida. Se as pessoas t√™m liberdade mas n√£o a 
+apreciam conscientemente, n√£o ir√£o mant√™-la por muito tempo. Se queremos que a liberdade 
+dure, precisamos chamar a aten√ß√£o das pessoas para a liberdade que elas t√™m em programas livres.
  <p>
-O mÈtodo do projeto GNU È que programas livres e a idÈia da liberdade dos usu·rios ajudam-se
-mutuamente. NÛs desenvolvemos software GNU, e conforme as pessoas encontrem programas GNU ou 
-o sistema GNU e comecem a us·-los, elas tambÈm pensam sobre a filosofia GNU. O software mostra 
-que a idÈia funciona na pr·tica. Algumas destas pessoas acabam concordando com a idÈia, e 
-ent„o escrevem mais programas livres. Ent„o, o software carrega a idÈia, dissemina a idÈia e 
-cresce da idÈia.
+O m√©todo do projeto GNU √© que programas livres e a id√©ia da liberdade dos usu√°rios ajudam-se
+mutuamente. N√≥s desenvolvemos software GNU, e conforme as pessoas encontrem programas GNU ou 
+o sistema GNU e comecem a us√°-los, elas tamb√©m pensam sobre a filosofia GNU. O software mostra 
+que a id√©ia funciona na pr√°tica. Algumas destas pessoas acabam concordando com a id√©ia, e 
+ent√£o escrevem mais programas livres. Ent√£o, o software carrega a id√©ia, dissemina a id√©ia e 
+cresce da id√©ia.
  <p>
-Em 1992, nÛs encontramos ou criamos todos os componentes principais do sistema exceto o kernel, que 
-nÛs est·vamos escrevendo. (Este kernel consiste do microkernel Mach mais o GNU HURD. Atualmente ele 
-est· funcionando, mas n„o est· preparado para os usu·rios. Uma vers„o alfa dever· estar pronta em 
+Em 1992, n√≥s encontramos ou criamos todos os componentes principais do sistema exceto o kernel, que 
+n√≥s est√°vamos escrevendo. (Este kernel consiste do microkernel Mach mais o GNU HURD. Atualmente ele 
+est√° funcionando, mas n√£o est√° preparado para os usu√°rios. Uma vers√£o alfa dever√° estar pronta em 
 breve.)
  <p>           
-Ent„o o kernel do Linux tornou-se disponÌvel. Linux È um kernel livre escrito por Linus
-Torvalds compatÌvel com o Unix. Ele n„o foi escrito para o projeto GNU, mas o Linux e o quase
-completo sistema GNU fizeram uma combinaÁ„o ˙til. Esta combinaÁ„o disponibilizou todos os principais
-componentes de um sistema operacional compatÌvel com o Unix, e, com algum trabalho, as pessoas 
+Ent√£o o kernel do Linux tornou-se dispon√≠vel. Linux √© um kernel livre escrito por Linus
+Torvalds compat√≠vel com o Unix. Ele n√£o foi escrito para o projeto GNU, mas o Linux e o quase
+completo sistema GNU fizeram uma combina√ß√£o √∫til. Esta combina√ß√£o disponibilizou todos os principais
+componentes de um sistema operacional compat√≠vel com o Unix, e, com algum trabalho, as pessoas 
 o tornaram um sistema funcional. Foi um sistema GNU variante, baseado no kernel do 
 <prgn>Linux</prgn>.
  <p>
-Ironicamente, a popularidade destes sistemas desmerece nosso mÈtodo de comunicar a idÈia
-GNU para as pessoas que usam GNU. Estes sistemas s„o praticamente iguais ao sistema GNU -- a 
-principal diferenÁa È a escolha do kernel. PorÈm as pessoas normalmente os chamam de
-"sistemas Linux (Linux systems)". A primeira impress„o que se tem È a de que um "sistema Linux"
-soa como algo completamente diferente de "sistema GNU", e È isto que a maioria dos usu·rios
+Ironicamente, a popularidade destes sistemas desmerece nosso m√©todo de comunicar a id√©ia
+GNU para as pessoas que usam GNU. Estes sistemas s√£o praticamente iguais ao sistema GNU -- a 
+principal diferen√ßa √© a escolha do kernel. Por√©m as pessoas normalmente os chamam de
+"sistemas Linux (Linux systems)". A primeira impress√£o que se tem √© a de que um "sistema Linux"
+soa como algo completamente diferente de "sistema GNU", e √© isto que a maioria dos usu√°rios
 pensam que acontece.
  <p>
-A maioria das introduÁıes para o "sistema Linux" reconhece o papel desempenhado pelos componentes 
-de software GNU. Mas elas n„o dizem que o sistema como um todo È uma variante do sistema GNU que 
-o projeto GNU vem compondo por uma dÈcada. Elas n„o dizem que o objetivo de um sistema Unix-like 
-livre como este veio do projeto GNU. DaÌ a maioria dos usu·rios n„o saber estas coisas.
+A maioria das introdu√ß√µes para o "sistema Linux" reconhece o papel desempenhado pelos componentes 
+de software GNU. Mas elas n√£o dizem que o sistema como um todo √© uma variante do sistema GNU que 
+o projeto GNU vem compondo por uma d√©cada. Elas n√£o dizem que o objetivo de um sistema Unix-like 
+livre como este veio do projeto GNU. Da√≠ a maioria dos usu√°rios n√£o saber estas coisas.
  <p>
-Como os seres humanos tendem a corrigir as suas primeiras impressıes menos do que as
-informaÁıes subseq¸entes tentam dizer-lhes, estes usu·rios que depois aprendem sobre
-a relaÁ„o entre estes sistemas e o projeto GNU ainda geralmente o subestima.
+Como os seres humanos tendem a corrigir as suas primeiras impress√µes menos do que as
+informa√ß√µes subseq√ºentes tentam dizer-lhes, estes usu√°rios que depois aprendem sobre
+a rela√ß√£o entre estes sistemas e o projeto GNU ainda geralmente o subestima.
  <p>
-Isto faz com que muitos usu·rios se identifiquem  como uma comunidade separada de "usu·rios
-de Linux", distinta da comunidade de usu·rios GNU. Eles usam todos os softwares GNU; de fato, 
-eles usam quase todo o sistema GNU; mas eles n„o pensam neles como usu·rios GNU,
-e  freq¸entemente n„o pensam que a filosofia GNU est· relacionada a eles.
+Isto faz com que muitos usu√°rios se identifiquem  como uma comunidade separada de "usu√°rios
+de Linux", distinta da comunidade de usu√°rios GNU. Eles usam todos os softwares GNU; de fato, 
+eles usam quase todo o sistema GNU; mas eles n√£o pensam neles como usu√°rios GNU,
+e  freq√ºentemente n√£o pensam que a filosofia GNU est√° relacionada a eles.
  <p>
-Isto leva a outros problemas tambÈm -- mesmo dificultando cooperaÁ„o com a manutenÁ„o
-de programas. Normalmente quando usu·rios mudam um programa GNU para fazer ele funcionar
-melhor em um sistema especÌfico, eles mandam a mudanÁa para o mantenedor do programa;
-ent„o eles trabalham com o mantenedor explicando a mudanÁa, perguntando por ela, e ‡s vezes
-reescrevendo-a para manter a coerÍncia e mantenebilidade do pacote, para
+Isto leva a outros problemas tamb√©m -- mesmo dificultando coopera√ß√£o com a manuten√ß√£o
+de programas. Normalmente quando usu√°rios mudam um programa GNU para fazer ele funcionar
+melhor em um sistema espec√≠fico, eles mandam a mudan√ßa para o mantenedor do programa;
+ent√£o eles trabalham com o mantenedor explicando a mudan√ßa, perguntando por ela, e √†s vezes
+reescrevendo-a para manter a coer√™ncia e mantenebilidade do pacote, para
 ter o patch instalado.
  <p>
-Mas as pessoas que pensam nelas como "usu·rios Linux" tendem a lanÁar uma vers„o "Linux-only" 
-do programa GNU, e  consideram o trabalho terminado. NÛs queremos cada e todos os programas 
-GNU que funcionem "out of the box" em sistemas baseados em Linux; mas se os usu·rios n„o 
-ajudarem, este objetivo se torna muito mais difÌcil de atingir.
+Mas as pessoas que pensam nelas como "usu√°rios Linux" tendem a lan√ßar uma vers√£o "Linux-only" 
+do programa GNU, e  consideram o trabalho terminado. N√≥s queremos cada e todos os programas 
+GNU que funcionem "out of the box" em sistemas baseados em Linux; mas se os usu√°rios n√£o 
+ajudarem, este objetivo se torna muito mais dif√≠cil de atingir.
  <p>
-Como deve o projeto GNU lidar com este problema? O que nÛs devemos fazer agora para disseminar 
-a idÈia de que a liberdade para os usu·rios de computador È importante?
+Como deve o projeto GNU lidar com este problema? O que n√≥s devemos fazer agora para disseminar 
+a id√©ia de que a liberdade para os usu√°rios de computador √© importante?
  <p>
-NÛs devemos continuar a falar sobre a liberdade de compartilhar e modificar software -- e ensinar 
-outros usu·rios o valor destas liberdades. Se nÛs nos beneficiamos por ter um sistema operacional 
-livre, faz sentido para nÛs pensar em preservar estas liberdades por um longo tempo. Se nÛs nos 
+N√≥s devemos continuar a falar sobre a liberdade de compartilhar e modificar software -- e ensinar 
+outros usu√°rios o valor destas liberdades. Se n√≥s nos beneficiamos por ter um sistema operacional 
+livre, faz sentido para n√≥s pensar em preservar estas liberdades por um longo tempo. Se n√≥s nos 
 beneficiamos por ter uma variedade de software livres, faz sentido pensar sobre encorajar
-outras pessoas a escrever mais software livre, em vez de software propriet·rio.
+outras pessoas a escrever mais software livre, em vez de software propriet√°rio.
  <p>
-NÛs n„o devemos aceitar a idÈia de duas comunidades separadas para GNU e Linux. Ao contr·rio,
-devemos disseminar o entendimento de que "sistemas Linux" s„o variantes do sistema GNU, e que 
-os usu·rios destes sistemas s„o tanto usu·rios GNU como usu·rios Linux (usu·rios do kernel
-do Linux). Usu·rios que tÍm conhecimento disto ir„o naturalmente dar uma olhada na filosofia
+N√≥s n√£o devemos aceitar a id√©ia de duas comunidades separadas para GNU e Linux. Ao contr√°rio,
+devemos disseminar o entendimento de que "sistemas Linux" s√£o variantes do sistema GNU, e que 
+os usu√°rios destes sistemas s√£o tanto usu√°rios GNU como usu√°rios Linux (usu√°rios do kernel
+do Linux). Usu√°rios que t√™m conhecimento disto ir√£o naturalmente dar uma olhada na filosofia
 GNU que fez estes sistemas existirem.
  <p>
-Eu escrevi este artigo como um meio de fazer isto. Outra maneira È usar os termos "sistema
+Eu escrevi este artigo como um meio de fazer isto. Outra maneira √© usar os termos "sistema
 GNU baseado em Linux (Linux-based GNU system)" ou "sistema GNU/Linux (GNU/Linux system)",
-em vez de "sistema Linux", quando vocÍ escreve sobre ou menciona este sistema.
+em vez de "sistema Linux", quando voc√™ escreve sobre ou menciona este sistema.
            
 
     ]]>
@@ -962,31 +962,31 @@ em vez de "sistema Linux", quando vocÍ escreve sobre ou menciona este sistema.
     <![ %INICIANTE [
 <sect id="introducao-processamento">Processamento de Dados
  <p>
-<em>Processamento de Dados</em> È o envio de dados ao computador 
-que ser„o processados e ter„o um resultado de saÌda ˙til. 
+<em>Processamento de Dados</em> √© o envio de dados ao computador 
+que ser√£o processados e ter√£o um resultado de sa√≠da √∫til. 
  <p>
-Veja tambÈm <ref id="introducao-disp-e-s">. 
+Veja tamb√©m <ref id="introducao-disp-e-s">. 
 
 
 <sect id="introducao-computador">O Computador
  <p>
-… uma m·quina eletrÙnica que processa e armazena os dados e pode executar 
-diversos programas para realizar uma sÈrie de tarefas e assim atender 
-a necessidade do seu utilizador. O computador n„o È uma m·quina inteligente, 
-ele apenas executa as instruÁıes dos programas que foram escritos pelo 
+√â uma m√°quina eletr√¥nica que processa e armazena os dados e pode executar 
+diversos programas para realizar uma s√©rie de tarefas e assim atender 
+a necessidade do seu utilizador. O computador n√£o √© uma m√°quina inteligente, 
+ele apenas executa as instru√ß√µes dos programas que foram escritos pelo 
 programador. 
 
 
 <sect id="introducao-conhecendo">Conhecendo o Computador
  <p>
-Esta explica para que serve cada bot„o do painel do computador e 
-monitor de vÌdeo. Se vocÍ j· sabe para que cada um serve, recomendo 
-pular esta parte, È o BE-A-BA. :-) 
+Esta explica para que serve cada bot√£o do painel do computador e 
+monitor de v√≠deo. Se voc√™ j√° sabe para que cada um serve, recomendo 
+pular esta parte, √© o BE-A-BA. :-) 
  <p>
-Todo computador possuem funÁıes que s„o usados em outros 
-tipos e modelos. VocÍ pode ter um modelo de computador e um amigo 
-seu outro tipo e mesmo tendo aparÍncia diferente, ter„o as mesmas 
-funÁıes. 
+Todo computador possuem fun√ß√µes que s√£o usados em outros 
+tipos e modelos. Voc√™ pode ter um modelo de computador e um amigo 
+seu outro tipo e mesmo tendo apar√™ncia diferente, ter√£o as mesmas 
+fun√ß√µes. 
 
 
 <sect1 id="introducao-conhecendo-tipo">Tipos de Gabinete
@@ -996,405 +996,405 @@ e <em>Torre</em>.
 <taglist compact>
  <tag><em>Desktop</em></tag>
  <item>
-… usado na posiÁ„o <em>Horizontal</em> (como o vÌdeo cassete). Sua 
-caracterÌstica È que ocupa pouco espaÁo em uma mesa, pois pode ser 
-colocado sob o monitor. A desvantagem È que normalmente possui pouco 
-espaÁo para a colocaÁ„o de novas placas e perifÈricos. Outra desvantagem 
-È a dificuldade na manutenÁ„o deste tipo de equipamento (hardware). 
+√â usado na posi√ß√£o <em>Horizontal</em> (como o v√≠deo cassete). Sua 
+caracter√≠stica √© que ocupa pouco espa√ßo em uma mesa, pois pode ser 
+colocado sob o monitor. A desvantagem √© que normalmente possui pouco 
+espa√ßo para a coloca√ß√£o de novas placas e perif√©ricos. Outra desvantagem 
+√© a dificuldade na manuten√ß√£o deste tipo de equipamento (hardware). 
 
  <tag><em>Mini-Torre</em></tag>
  <item>
-… usado na posiÁ„o <em>Vertical</em> (torre). … o modelo mais usado. Sua  
-caracterÌstica È o espaÁo interno para expans„o e manipulaÁ„o de perifÈricos. 
-A desvantagem È o espaÁo ocupado em sua mesa :-). 
+√â usado na posi√ß√£o <em>Vertical</em> (torre). √â o modelo mais usado. Sua  
+caracter√≠stica √© o espa√ßo interno para expans√£o e manipula√ß√£o de perif√©ricos. 
+A desvantagem √© o espa√ßo ocupado em sua mesa :-). 
   
  <tag><em>Torre</em></tag>
  <item>
-Possui as mesmas caracterÌsticas do <em>Mini-torre</em>, mas tem uma altura  
-maior e mais espaÁo para colocaÁ„o de novos perifÈricos. Muito usado em 
-servidores de rede e placas que requerem uma melhor refrigeraÁ„o. 
+Possui as mesmas caracter√≠sticas do <em>Mini-torre</em>, mas tem uma altura  
+maior e mais espa√ßo para coloca√ß√£o de novos perif√©ricos. Muito usado em 
+servidores de rede e placas que requerem uma melhor refrigera√ß√£o. 
 
 </taglist>
 
 
 <sect1 id="introducao-conhecendo-painel">Painel Frontal
  <p>
-O painel frontal do computador tem os botıes que usamos para ligar, 
+O painel frontal do computador tem os bot√µes que usamos para ligar, 
 desligar, e acompanhar o funcionamento do computador. Abaixo o significado 
 de cada um: 
 <taglist compact>
- <tag><em>Bot„o POWER</em></tag>
+ <tag><em>Bot√£o POWER</em></tag>
  <item>
 Liga/Desliga o computador.
 
- <tag><em>Bot„o TURBO</em></tag>
+ <tag><em>Bot√£o TURBO</em></tag>
  <item>
-Se ligado, coloca a placa m„e em operaÁ„o na velocidade m·xima (o padr„o). 
+Se ligado, coloca a placa m√£e em opera√ß√£o na velocidade m√°xima (o padr√£o). 
 Desligado, faz o computador funcionar mais lentamente (depende de cada 
-placa m„e). Deixe sempre o <em>TURBO</em> ligado para seu computador 
-trabalhar na velocidade m·xima de processamento. 
+placa m√£e). Deixe sempre o <em>TURBO</em> ligado para seu computador 
+trabalhar na velocidade m√°xima de processamento. 
 
- <tag>Bot„o RESET</tag>
+ <tag>Bot√£o RESET</tag>
  <item>
-Reinicia o computador. Quando o computador È reiniciado, uma nova partida 
-È feita (È como se nÛs lig·ssemos novamente o computador). Este bot„o È 
-um dos mais usados por usu·rios <prgn>Windows</prgn> dentre os botıes 
+Reinicia o computador. Quando o computador √© reiniciado, uma nova partida 
+√© feita (√© como se n√≥s lig√°ssemos novamente o computador). Este bot√£o √© 
+um dos mais usados por usu√°rios <prgn>Windows</prgn> dentre os bot√µes 
 localizados no painel do microcomputador. No <prgn>GNU/Linux</prgn> 
-È raramente usado (com menos freq¸Íncia que a tecla <tt>SCROLL LOCK</tt>). 
+√© raramente usado (com menos freq√º√™ncia que a tecla <tt>SCROLL LOCK</tt>). 
  <p>
-… recomendado se pressionar as teclas &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; 
-para reiniciar o computador e o bot„o <em>RESET</em> somente em ˙ltimo caso,  
-pois o &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; avisa ao Linux que o usu·rio  
-pediu para o sistema ser reiniciado assim ele poder· salvar os arquivos,  
-fechar programas e tomar outras providÍncias antes de resetar o computador. 
+√â recomendado se pressionar as teclas &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; 
+para reiniciar o computador e o bot√£o <em>RESET</em> somente em √∫ltimo caso,  
+pois o &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; avisa ao Linux que o usu√°rio  
+pediu para o sistema ser reiniciado assim ele poder√° salvar os arquivos,  
+fechar programas e tomar outras provid√™ncias antes de resetar o computador. 
 
  <tag>KEYLOCK</tag>
  <item>
-Permite <tt>ligar/desligar</tt> o teclado. … acionado por uma chave e somente 
-na posiÁ„o "Cadeado Aberto" permite a pessoa usar o teclado (usar o  
-computador). Alguns computadores n„o possuem KEYLOCK. 
+Permite <tt>ligar/desligar</tt> o teclado. √â acionado por uma chave e somente 
+na posi√ß√£o "Cadeado Aberto" permite a pessoa usar o teclado (usar o  
+computador). Alguns computadores n√£o possuem KEYLOCK. 
 
  <tag>LED POWER</tag>
  <item>
 Led (normalmente verde) no painel do computador que quando aceso, indica 
-que o computador est· ligado. O led È um diodo emissor de luz 
+que o computador est√° ligado. O led √© um diodo emissor de luz 
 (light emission diode) que emite luz fria. 
 
  <tag>LED TURBO</tag>
  <item>
 Led (normalmente amarelo) no painel do computador. Quando esta aceso, indica 
-que a chave turbo est· ligada e o computador funcionando a toda velocidade. 
+que a chave turbo est√° ligada e o computador funcionando a toda velocidade. 
  <p>
-Raramente as placas m„e Pentium e acima usam a chave turbo. Mesmo que 
+Raramente as placas m√£e Pentium e acima usam a chave turbo. Mesmo que 
 exista no gabinete do micro, encontra-se desligada. 
 
  <tag>LED HDD</tag>
  <item>
 Led (normalmente vermelho) no painel do computador. Acende quando o 
-disco rÌgido (ou discos) do computador esta sendo usado. 
+disco r√≠gido (ou discos) do computador esta sendo usado. 
  <p>
-TambÈm acende quando uma unidade de CD-ROM est· conectada na placa m„e 
+Tamb√©m acende quando uma unidade de CD-ROM est√° conectada na placa m√£e 
 e for usado. 
 </taglist>
 
 
-<sect1 id="introducao-conhecendo-monitor">Monitor de VÌdeo
+<sect1 id="introducao-conhecendo-monitor">Monitor de V√≠deo
  <p>
-O monitor de vÌdeo se divide em dois tipos: 
+O monitor de v√≠deo se divide em dois tipos: 
 <list compact>
  <item>
-<em>Monocrom·tico</em> - Mostra tons de cinza
+<em>Monocrom√°tico</em> - Mostra tons de cinza
  <item>
-<em>Policrom·tico</em> - A conhecida tela colorida
+<em>Policrom√°tico</em> - A conhecida tela colorida
 </list>
 
-Quanto ao padr„o do monitor, existem diversos:
+Quanto ao padr√£o do monitor, existem diversos:
 <taglist compact>
  <tag><em>CGA</em> - Color Graphics Adapter</tag>
  <item>
-Capacidade de mostrar 4 cores simult‚neas em modo gr·fico. Uma das 
+Capacidade de mostrar 4 cores simult√¢neas em modo gr√°fico. Uma das 
 primeiras usadas em computadores PCs, com baixa qualidade de imagem, 
 poucos programas funcionavam em telas CGA, quase todos em modo texto. 
 Ficou muito conhecida como "tela verde" embora existem modelos 
 CGA preto e branco. 
 
- <tag><em>HÈrcules</em></tag>
+ <tag><em>H√©rcules</em></tag>
  <item>
-Semelhante ao CGA. Pode mostrar 2 cores simult‚neas em modo gr·fico. A 
-diferenÁa È que apresenta uma melhor qualidade para a exibiÁ„o de 
-gr·ficos mas por outro lado, uma grande variedade de programas para 
-monitores CGA n„o funcionam com monitores HÈrcules por causa de 
-seu modo de vÌdeo. TambÈm È conhecido por sua imagem <tt>amarela</tt>. 
+Semelhante ao CGA. Pode mostrar 2 cores simult√¢neas em modo gr√°fico. A 
+diferen√ßa √© que apresenta uma melhor qualidade para a exibi√ß√£o de 
+gr√°ficos mas por outro lado, uma grande variedade de programas para 
+monitores CGA n√£o funcionam com monitores H√©rcules por causa de 
+seu modo de v√≠deo. Tamb√©m √© conhecido por sua imagem <tt>amarela</tt>. 
  <p>
-Dependendo da placa de vÌdeo, vocÍ pode configurar 
-um monitor HÈrcules monocrom·tico para trabalhar como <em>CGA</em>. 
+Dependendo da placa de v√≠deo, voc√™ pode configurar 
+um monitor H√©rcules monocrom√°tico para trabalhar como <em>CGA</em>. 
 
 <tag><em>EGA</em> - Enhanced Graphics Adapter</tag>
  <item>
-Capacidade de mostrar 16 cores simult‚neas em modo gr·fico. Razo·vel 
-melhora da qualidade gr·fica, mais programas rodavam neste tipo 
-de tela. Ficou mais conhecida apÛs o lanÁamento dos computadores 286, 
-mas no Brasil ficou pouco conhecida pois logo em seguida foi lanÁada o 
-padr„o VGA. 
+Capacidade de mostrar 16 cores simult√¢neas em modo gr√°fico. Razo√°vel 
+melhora da qualidade gr√°fica, mais programas rodavam neste tipo 
+de tela. Ficou mais conhecida ap√≥s o lan√ßamento dos computadores 286, 
+mas no Brasil ficou pouco conhecida pois logo em seguida foi lan√ßada o 
+padr√£o VGA. 
 
 <tag><em>VGA</em> - Video Graphics Array</tag>
  <item>
-Capacidade de mostrar 256 cores simult‚neas. Boa qualidade gr·fica, 
+Capacidade de mostrar 256 cores simult√¢neas. Boa qualidade gr√°fica, 
 este modelo se mostrava capaz de rodar tanto programas texto como 
-gr·ficos com Ûtima qualidade de imagem. Se tornou o padr„o mÌnimo 
-para rodar programas em modo gr·fico. 
+gr√°ficos com √≥tima qualidade de imagem. Se tornou o padr√£o m√≠nimo 
+para rodar programas em modo gr√°fico. 
 
 <tag><em>SVGA</em> - Super Video Graphics Array</tag>
  <item>
-Atual padr„o de mercado, capaz de mostrar atÈ 16 milhıes de cores simult‚neas. 
-Excelente qualidade gr·fica, tambÈm capaz de operar corretamente em modo 
+Atual padr√£o de mercado, capaz de mostrar at√© 16 milh√µes de cores simult√¢neas. 
+Excelente qualidade gr√°fica, tamb√©m capaz de operar corretamente em modo 
 texto.
 
 </taglist>
 
 
-<sect id="introducao-placamae">Placa M„e
+<sect id="introducao-placamae">Placa M√£e
  <p>
-… a placa principal do sistema onde est„o localizados o Processador, MemÛria 
-RAM, MemÛria Cache, BIOS, CMOS, RTC, etc. A placa m„e possui encaixes onde 
-s„o inseridas placas de extens„o (para aumentar as funÁıes do computador). 
-Estes encaixes s„o chamados de "<tt>SLOTS</tt>". 
+√â a placa principal do sistema onde est√£o localizados o Processador, Mem√≥ria 
+RAM, Mem√≥ria Cache, BIOS, CMOS, RTC, etc. A placa m√£e possui encaixes onde 
+s√£o inseridas placas de extens√£o (para aumentar as fun√ß√µes do computador). 
+Estes encaixes s√£o chamados de "<tt>SLOTS</tt>". 
 
 
-<sect1 id="introducao-placamae-outros">Alguns componentes da placa m„e
+<sect1 id="introducao-placamae-outros">Alguns componentes da placa m√£e
  <p>
-Abaixo a descriÁ„o de alguns tipos de componentes eletrÙnicos que est„o 
-presentes na placa m„e. N„o se preocupe se n„o entender o que eles significam 
+Abaixo a descri√ß√£o de alguns tipos de componentes eletr√¥nicos que est√£o 
+presentes na placa m√£e. N√£o se preocupe se n√£o entender o que eles significam 
 agora: 
 <list>
  <item>
-<tt>RAM</tt> - MemÛria de Acesso AleatÛrio (Randomic Access Memory). … uma 
-memÛria de armazenamento tempor·rio dos programas e depende de uma fonte 
-de energia para o armazenamento dos programas. … uma memÛria eletrÙnica 
-muito r·pida assim os programas de computador s„o executados nesta memÛria. 
-Seu tamanho È medido em Kilobytes, Megabytes ou Gigabytes. 
+<tt>RAM</tt> - Mem√≥ria de Acesso Aleat√≥rio (Randomic Access Memory). √â uma 
+mem√≥ria de armazenamento tempor√°rio dos programas e depende de uma fonte 
+de energia para o armazenamento dos programas. √â uma mem√≥ria eletr√¥nica 
+muito r√°pida assim os programas de computador s√£o executados nesta mem√≥ria. 
+Seu tamanho √© medido em Kilobytes, Megabytes ou Gigabytes. 
  <p>
-Os chips de memÛria <em>RAM</em> podem ser independentes (usando circuitos 
-integrados encaixados em soquetes na placa m„e) ou agrupados placas de 30 
+Os chips de mem√≥ria <em>RAM</em> podem ser independentes (usando circuitos 
+integrados encaixados em soquetes na placa m√£e) ou agrupados placas de 30 
 pinos, 72 pinos e 168 pinos. 
  <p>
-Quanto maior o tamanho da memÛria, mais espaÁo o programa ter· ao ser 
-executado. O tamanho de memÛria RAM pedido por cada programa varia, o 
-<prgn>GNU/Linux</prgn> precisa de no mÌnimo 8 MB de memÛria RAM para ser 
+Quanto maior o tamanho da mem√≥ria, mais espa√ßo o programa ter√° ao ser 
+executado. O tamanho de mem√≥ria RAM pedido por cada programa varia, o 
+<prgn>GNU/Linux</prgn> precisa de no m√≠nimo 8 MB de mem√≥ria RAM para ser 
 executado pelo processador. 
 
  <item>
-<tt>PROCESSADOR</tt> - … a parte do computador respons·vel pelo 
-processamentos das instruÁıes matem·ticas/lÛgicas e programas carregados 
-na memÛria <em>RAM</em>. 
+<tt>PROCESSADOR</tt> - √â a parte do computador respons√°vel pelo 
+processamentos das instru√ß√µes matem√°ticas/l√≥gicas e programas carregados 
+na mem√≥ria <em>RAM</em>. 
 
  <item>
 <tt>CO-PROCESSADOR</tt> - Ajuda o Processador principal a processar as 
-instruÁıes matem·ticas. … normalmente embutido no Processador principal 
+instru√ß√µes matem√°ticas. √â normalmente embutido no Processador principal 
 em computadores a partir do <em>486 DX2-66</em>. Em processadores Pentium 
-e superiores, o co-processador È sempre embutido no processador.
+e superiores, o co-processador √© sempre embutido no processador.
 
  <item>
-<tt>CACHE</tt> - MemÛria de Armazenamento Auxiliar do Processador. Possui 
+<tt>CACHE</tt> - Mem√≥ria de Armazenamento Auxiliar do Processador. Possui 
 alta velocidade de funcionamento, normalmente a mesma que o processador. 
-Serve para aumentar o desempenho de processamento. A memÛria Cache pode 
-ser embutida na placa m„e ou encaixada externamente atravÈs de mÛdulos 
+Serve para aumentar o desempenho de processamento. A mem√≥ria Cache pode 
+ser embutida na placa m√£e ou encaixada externamente atrav√©s de m√≥dulos 
 L2. 
 
  <item>
-<tt>BIOS</tt> - … a memÛria <em>ROM</em> que contÈm as instruÁıes b·sicas 
-para a inicializaÁ„o do computador, reconhecimento e ativaÁ„o dos perifÈricos 
-conectados a placa m„e. As <em>BIOS</em> mais modernas (a partir do 286) tambÈm 
-trazem um programa que È usado para configurar o computador modificando os 
+<tt>BIOS</tt> - √â a mem√≥ria <em>ROM</em> que cont√©m as instru√ß√µes b√°sicas 
+para a inicializa√ß√£o do computador, reconhecimento e ativa√ß√£o dos perif√©ricos 
+conectados a placa m√£e. As <em>BIOS</em> mais modernas (a partir do 286) tamb√©m 
+trazem um programa que √© usado para configurar o computador modificando os 
 valores localizados na <em>CMOS</em>. 
  <p>
-As placas controladoras SCSI possuem sua prÛpria <em>BIOS</em> que identificam 
-automaticamente os perifÈricos conectados a ela. Os seguintes tipos de chips 
+As placas controladoras SCSI possuem sua pr√≥pria <em>BIOS</em> que identificam 
+automaticamente os perif√©ricos conectados a ela. Os seguintes tipos de chips 
 podem ser usados para gravar a <em>BIOS</em>: 
 
  <list>
   <item>
-<tt>ROM</tt> - MemÛria Somente para Leitura (Read Only Memory). Somente 
-pode ser lida. … programada de f·brica atravÈs de programaÁ„o elÈtrica 
-ou quÌmica. 
+<tt>ROM</tt> - Mem√≥ria Somente para Leitura (Read Only Memory). Somente 
+pode ser lida. √â programada de f√°brica atrav√©s de programa√ß√£o el√©trica 
+ou qu√≠mica. 
 
  <item>
-<tt>PROM</tt> - MemÛria Somente para Leitura Program·vel (Programable 
-Read Only Memory) idÍntica a <em>ROM</em> mas que pode ser programada 
-apenas uma vez por m·quinas "Programadoras PROM". … tambÈm chamada 
+<tt>PROM</tt> - Mem√≥ria Somente para Leitura Program√°vel (Programable 
+Read Only Memory) id√™ntica a <em>ROM</em> mas que pode ser programada 
+apenas uma vez por m√°quinas "Programadoras PROM". √â tamb√©m chamada 
 de <tt>MASK ROM</tt>. 
 
  <item>
-<tt>EPROM</tt> - MemÛria semelhante a <em>PROM</em>, mas seu conte˙do 
-pode ser apagado atravÈs raios ultra-violeta.
+<tt>EPROM</tt> - Mem√≥ria semelhante a <em>PROM</em>, mas seu conte√∫do 
+pode ser apagado atrav√©s raios ultra-violeta.
 
  <item>
-<tt>EEPROM</tt> - MemÛria semelhante a <em>PROM</em>, mas seu conte˙do 
-pode ser apagado e regravado. TambÈm È chamada de <em>Flash</em>. 
+<tt>EEPROM</tt> - Mem√≥ria semelhante a <em>PROM</em>, mas seu conte√∫do 
+pode ser apagado e regravado. Tamb√©m √© chamada de <em>Flash</em>. 
  </list>
 
  <item>
-<tt>CMOS</tt> - … uma memÛria tempor·ria alimentada por uma Bateria onde 
-s„o lidas/armazenadas as configuraÁıes do computador feitas pelo 
+<tt>CMOS</tt> - √â uma mem√≥ria tempor√°ria alimentada por uma Bateria onde 
+s√£o lidas/armazenadas as configura√ß√µes do computador feitas pelo 
 programa residente na BIOS. 
 
 </list>
 
 
-<sect id="introducao-memoria">MemÛria do Computador 
+<sect id="introducao-memoria">Mem√≥ria do Computador 
  <p>
-A memÛria È a parte do computador que permitem o armazenamento de dados. 
-A memÛria È dividida em dois tipos: Principal e Auxiliar. 
-Normalmente quando alguÈm fala em "memÛria de computador" est· se 
-referindo a memÛria "Principal". Veja abaixo as descriÁıes de 
-<em>MemÛria Principal</em> e <em>Auxiliar</em>. 
+A mem√≥ria √© a parte do computador que permitem o armazenamento de dados. 
+A mem√≥ria √© dividida em dois tipos: Principal e Auxiliar. 
+Normalmente quando algu√©m fala em "mem√≥ria de computador" est√° se 
+referindo a mem√≥ria "Principal". Veja abaixo as descri√ß√µes de 
+<em>Mem√≥ria Principal</em> e <em>Auxiliar</em>. 
 
 
-<sect1 id="introducao-memoria-principal">MemÛria Principal
+<sect1 id="introducao-memoria-principal">Mem√≥ria Principal
  <p>
-… um tipo de memÛria eletrÙnica que depende de uma fonte de energia 
+√â um tipo de mem√≥ria eletr√¥nica que depende de uma fonte de energia 
 para manter os dados armazenados e perde os dados quando a 
-fonte de energia È desligada. A memÛria <em>RAM</em> do computador 
-(Randomic Access Memory - MemÛria de Acesso aleatÛrio) È o principal 
-exemplo de memÛria de armazenamento Principal. 
+fonte de energia √© desligada. A mem√≥ria <em>RAM</em> do computador 
+(Randomic Access Memory - Mem√≥ria de Acesso aleat√≥rio) √© o principal 
+exemplo de mem√≥ria de armazenamento Principal. 
  <p>
-Os dados s„o armazenados em circuitos integrados ("chips") e enquanto 
-vocÍ est· usando seu computador, a <em>RAM</em> armazena e executa 
-seus programas. Os programas s„o executados na memÛria <em>RAM</em> 
-porque a memÛria eletrÙnica È muito r·pida. As memÛrias EDO, DIMM,
-DDR, DDR2, DDR3 s„o exemplos de memÛria <em>RAM</em>.
+Os dados s√£o armazenados em circuitos integrados ("chips") e enquanto 
+voc√™ est√° usando seu computador, a <em>RAM</em> armazena e executa 
+seus programas. Os programas s√£o executados na mem√≥ria <em>RAM</em> 
+porque a mem√≥ria eletr√¥nica √© muito r√°pida. As mem√≥rias EDO, DIMM,
+DDR, DDR2, DDR3 s√£o exemplos de mem√≥ria <em>RAM</em>.
  <p> 
-Se desligarmos o computador ou ocorrer uma queda de energia, vocÍ perder· 
-os programas que estiverem em execuÁ„o ou o trabalho que estiver fazendo. 
-Por esse motivo È necess·rio o uso de uma memÛria auxiliar (veja 
+Se desligarmos o computador ou ocorrer uma queda de energia, voc√™ perder√° 
+os programas que estiverem em execu√ß√£o ou o trabalho que estiver fazendo. 
+Por esse motivo √© necess√°rio o uso de uma mem√≥ria auxiliar (veja 
 <ref id="introducao-memoria-auxiliar">). 
 
 
-<sect1 id="introducao-memoria-auxiliar">MemÛria Auxiliar
+<sect1 id="introducao-memoria-auxiliar">Mem√≥ria Auxiliar
  <p>
-S„o dispositivos que N√O dependem de uma fonte de energia para manter os 
-dados armazenados, os dados n„o s„o perdidos quando a fonte de energia È 
-desligada. As <em>MemÛrias Auxiliares</em> s„o muito mais lentas que as 
-<em>MemÛrias Principais</em> porque utilizam mecanismos mec‚nicos e 
-elÈtricos (motores e eletroÌm„s) para funcionar e fazer a leitura/gravaÁ„o 
-dos dados. Existem tambÈm modelos chamados disco de estado sÛlido (SSD), 
-os dados s„o armazenados em chips eletrÙnicos ao invÈs de mecanismos
-mec‚nicos.
+S√£o dispositivos que N√ÉO dependem de uma fonte de energia para manter os 
+dados armazenados, os dados n√£o s√£o perdidos quando a fonte de energia √© 
+desligada. As <em>Mem√≥rias Auxiliares</em> s√£o muito mais lentas que as 
+<em>Mem√≥rias Principais</em> porque utilizam mecanismos mec√¢nicos e 
+el√©tricos (motores e eletro√≠m√£s) para funcionar e fazer a leitura/grava√ß√£o 
+dos dados. Existem tamb√©m modelos chamados disco de estado s√≥lido (SSD), 
+os dados s√£o armazenados em chips eletr√¥nicos ao inv√©s de mecanismos
+mec√¢nicos.
  <p>
-Um exemplo de dispositivos de armazenamento auxiliar s„o os pen drives, disquetes, 
-cartıes SD, discos rÌgidos, unidades de fita, Zip Drives, DVD/CD/BluRay, etc.
+Um exemplo de dispositivos de armazenamento auxiliar s√£o os pen drives, disquetes, 
+cart√µes SD, discos r√≠gidos, unidades de fita, Zip Drives, DVD/CD/BluRay, etc.
  <p>
-A <em>MemÛria Auxiliar</em> resolve o problema da perda de dados causado pela 
-<em>MemÛria Principal</em> quando o computador È desligado, desta forma 
-podemos ler nossos arquivos e programas da <em>memÛria Auxiliar</em> e 
-copia-los para a <em>MemÛria Principal</em> (memÛria RAM) para que possam 
+A <em>Mem√≥ria Auxiliar</em> resolve o problema da perda de dados causado pela 
+<em>Mem√≥ria Principal</em> quando o computador √© desligado, desta forma 
+podemos ler nossos arquivos e programas da <em>mem√≥ria Auxiliar</em> e 
+copia-los para a <em>Mem√≥ria Principal</em> (mem√≥ria RAM) para que possam 
 ser novamente usados. 
  <p>
-Um exemplo simples È de quando estiver editando um texto e precisar salva-lo, 
-o que vocÍ faz È simplesmente salvar os dados da memÛria <em>RAM</em> que 
-est„o sendo editados para o disco rÌgido, desta forma vocÍ estar· guardando 
-seu documento na <em>MemÛria Auxiliar</em>.  
+Um exemplo simples √© de quando estiver editando um texto e precisar salva-lo, 
+o que voc√™ faz √© simplesmente salvar os dados da mem√≥ria <em>RAM</em> que 
+est√£o sendo editados para o disco r√≠gido, desta forma voc√™ estar√° guardando 
+seu documento na <em>Mem√≥ria Auxiliar</em>.  
  <p>
-Este tipo de memÛria È mais lento que a memÛria principal, È por este motivo 
-que os programas somente s„o carregados e executados na <em>MemÛria Principal 
+Este tipo de mem√≥ria √© mais lento que a mem√≥ria principal, √© por este motivo 
+que os programas somente s√£o carregados e executados na <em>Mem√≥ria Principal 
 </em>.  
 
 
 <sect id="introducao-discos">Discos
  <p>
-Os discos s„o memÛrias de armazenamento Auxiliares. Entre os v·rios tipos 
-de discos existentes, posso citar os FlexÌveis, RÌgidos, Pen-drives, SSD e CDs. Veja as 
-explicaÁıes sobre cada um deles abaixo. 
+Os discos s√£o mem√≥rias de armazenamento Auxiliares. Entre os v√°rios tipos 
+de discos existentes, posso citar os Flex√≠veis, R√≠gidos, Pen-drives, SSD e CDs. Veja as 
+explica√ß√µes sobre cada um deles abaixo. 
 
 
-<sect1 id="introducao-discos-flexiveis">Discos FlexÌveis
+<sect1 id="introducao-discos-flexiveis">Discos Flex√≠veis
  <p>
-S„o discos usados para armazenar e transportar pequenas quantidades de 
-dados. Este tipo de disco È normalmente encontrado no tamanho 3 1/2 (1.44MB) 
-polegadas e 5 1/4 polegadas (360Kb ou 1.2MB). Hoje os discos de 3 1/2 s„o 
-os mais utilizados por terem uma melhor proteÁ„o por causa de sua capa 
-pl·stica rÌgida, maior capacidade e o menor tamanho o que facilita 
+S√£o discos usados para armazenar e transportar pequenas quantidades de 
+dados. Este tipo de disco √© normalmente encontrado no tamanho 3 1/2 (1.44MB) 
+polegadas e 5 1/4 polegadas (360Kb ou 1.2MB). Hoje os discos de 3 1/2 s√£o 
+os mais utilizados por terem uma melhor prote√ß√£o por causa de sua capa 
+pl√°stica r√≠gida, maior capacidade e o menor tamanho o que facilita 
 seu transporte. 
  <p>
-Os disquetes s„o inseridos em um compartimento chamado de "<tt>Unidade de 
-Disquetes</tt>" ou "<tt>Drive</tt>" que faz a leitura/gravaÁ„o do disquete. 
+Os disquetes s√£o inseridos em um compartimento chamado de "<tt>Unidade de 
+Disquetes</tt>" ou "<tt>Drive</tt>" que faz a leitura/grava√ß√£o do disquete. 
  <p>
-Sua caracterÌstica È a baixa capacidade de armazenamento e baixa velocidade 
+Sua caracter√≠stica √© a baixa capacidade de armazenamento e baixa velocidade 
 no acesso aos dados mas podem ser usados para transportar os dados de um 
 computador a outro com grande facilidade. Os disquetes de computador comuns 
-s„o discos flexÌveis. 
+s√£o discos flex√≠veis. 
 
 
-<sect1 id="introducao-discos-rigidos">Disco RÌgido
+<sect1 id="introducao-discos-rigidos">Disco R√≠gido
  <p>
-… um disco localizado dentro do computador. … fabricado com discos de 
-metal recompostos por material magnÈtico onde os dados s„o gravados 
-atravÈs de cabeÁas e revestido externamente por uma proteÁ„o met·lica 
-que È preso ao gabinete do computador por parafusos. TambÈm È chamado 
-de HD (Hard Disk) ou Winchester. … nele que normalmente gravamos e 
+√â um disco localizado dentro do computador. √â fabricado com discos de 
+metal recompostos por material magn√©tico onde os dados s√£o gravados 
+atrav√©s de cabe√ßas e revestido externamente por uma prote√ß√£o met√°lica 
+que √© preso ao gabinete do computador por parafusos. Tamb√©m √© chamado 
+de HD (Hard Disk) ou Winchester. √â nele que normalmente gravamos e 
 executamos nossos programas mais usados. 
  <p>
-Existe tambÈm um tipo de disco rÌgido chamado <em>SSD</em> (disco de 
-estado sÛlido). A diferenÁa deste disco para o disco rÌgido comum, È que 
-no SSD os dados s„o armazenados em chips ao invÈs de disco magnÈtico.
+Existe tamb√©m um tipo de disco r√≠gido chamado <em>SSD</em> (disco de 
+estado s√≥lido). A diferen√ßa deste disco para o disco r√≠gido comum, √© que 
+no SSD os dados s√£o armazenados em chips ao inv√©s de disco magn√©tico.
  <p>
-A caracterÌstica deste tipo de disco È a alta capacidade de armazenamento 
+A caracter√≠stica deste tipo de disco √© a alta capacidade de armazenamento 
 de dados e alta velocidade no acesso aos dados. 
 
 
 <sect1 id="introducao-discos-cd">CD/DVD/BluRay
  <p>
-… um tipo de disco que permite o armazenamento de dados atravÈs de 
-um <em>compact disc</em> e os dados s„o lidos atravÈs de uma lente 
-Ûtica. 
-A Unidade de CD È localizada no gabinete do computador e pode ler CDs 
-de m˙sicas, arquivos, interativos, etc. 
+√â um tipo de disco que permite o armazenamento de dados atrav√©s de 
+um <em>compact disc</em> e os dados s√£o lidos atrav√©s de uma lente 
+√≥tica. 
+A Unidade de CD √© localizada no gabinete do computador e pode ler CDs 
+de m√∫sicas, arquivos, interativos, etc. 
 Existem diversos tipos de CDs no mercado, entre eles:
 <list compact>
  <item>
-<tt>CD-R</tt> - CD grav·vel, pode ser gravado apenas uma vez. Possui 
+<tt>CD-R</tt> - CD grav√°vel, pode ser gravado apenas uma vez. Possui 
 sua capacidade de armazenamento entre <tt>600MB</tt> e <tt>740MB</tt> 
-dependendo do formato de gravaÁ„o usado. Usa um formato lido por todas 
-as unidades de CD-ROM disponÌveis no mercado. 
+dependendo do formato de grava√ß√£o usado. Usa um formato lido por todas 
+as unidades de CD-ROM dispon√≠veis no mercado. 
  
  <item>
-<tt>CD-RW</tt> - CD regrav·vel, pode ser gravado v·rias vezes, ter seus 
-arquivos apagados, etc. Seu uso È semelhante ao de um disquete de alta 
+<tt>CD-RW</tt> - CD regrav√°vel, pode ser gravado v√°rias vezes, ter seus 
+arquivos apagados, etc. Seu uso √© semelhante ao de um disquete de alta 
 capacidade. Possui capacidade de armazenamento de normalmente <tt>640MB</tt> 
-mas isto depende do fabricante. Usa um formato que È lido apenas por 
-unidades leitoras e gravadoras multiseÁ„o. 
+mas isto depende do fabricante. Usa um formato que √© lido apenas por 
+unidades leitoras e gravadoras multise√ß√£o. 
  
  <item>
 <tt>DVD-ROM</tt> - Alta capacidade de armazenamento. Pode 
-armazenar atÈ 8GB de arquivos ou programas quando usado em dual layer. 
+armazenar at√© 8GB de arquivos ou programas quando usado em dual layer. 
 
 <tt>BluRay</tt> - Alta capacidade de armazenamento. Pode 
 armazenar mais de 50GB de arquivos ou programas quando usado em dual layer. 
-… um tipo de CD muito novo no mercado e ainda em desenvolvimento. 
-… lido somente por unidades prÛprias para este tipo de disco. 
+√â um tipo de CD muito novo no mercado e ainda em desenvolvimento. 
+√â lido somente por unidades pr√≥prias para este tipo de disco. 
 
 </list>
 
 
-<sect id="introducao-cuidados">Cuidados B·sicos com o Computador
+<sect id="introducao-cuidados">Cuidados B√°sicos com o Computador
  <p>
-Abaixo uma lista de cuidados b·sicos para garantir uma melhor conservaÁ„o e 
+Abaixo uma lista de cuidados b√°sicos para garantir uma melhor conserva√ß√£o e 
 funcionamento de seu computador. 
 <list>
  <item>
-N„o deixe seu computador em locais expostos a umidade ou sol. O mesmo
-se aplica a mÌdias como pen-drives, gavetas de HD, cartıes de memÛria etc.
+N√£o deixe seu computador em locais expostos a umidade ou sol. O mesmo
+se aplica a m√≠dias como pen-drives, gavetas de HD, cart√µes de mem√≥ria etc.
 
  <item>
-Limpe o Gabinete e o Monitor com um pano levemente umedecido em ·gua com 
-sab„o neutro ou soluÁ„o de limpeza apropriada para micros. N„o use ¡lcool, 
+Limpe o Gabinete e o Monitor com um pano levemente umedecido em √°gua com 
+sab√£o neutro ou solu√ß√£o de limpeza apropriada para micros. N√£o use √Ålcool, 
 querosene, acetona ou qualquer outro tipo de produto abrasivo. O uso de um 
 destes podem estragar o gabinete de seu computador e se um destes produtos 
-atingir a parte interna pode causar problemas nas placas ou atÈ um incÍndio! 
+atingir a parte interna pode causar problemas nas placas ou at√© um inc√™ndio! 
  
  <item>
-N„o retire o Pino central da tomada do computador, ele n„o veio sobrando e 
-tem utilidade! Este pino È ligado a carcaÁa do computador (chassis) e 
-deve ser ligado ao terra de sua rede elÈtrica. As descargas elÈtricas 
-vindas da fonte e componentes do micro s„o feitas no chassis e se este pino 
-for retirado vocÍ poder· tomar choques ao tocar em alguma parte met·lica do 
-micro e queimar componentes sensÌveis como o disco rÌgido, placa m„e, etc. 
+N√£o retire o Pino central da tomada do computador, ele n√£o veio sobrando e 
+tem utilidade! Este pino √© ligado a carca√ßa do computador (chassis) e 
+deve ser ligado ao terra de sua rede el√©trica. As descargas el√©tricas 
+vindas da fonte e componentes do micro s√£o feitas no chassis e se este pino 
+for retirado voc√™ poder√° tomar choques ao tocar em alguma parte met√°lica do 
+micro e queimar componentes sens√≠veis como o disco r√≠gido, placa m√£e, etc. 
  <p>
-Se estiver em d˙vida consulte um eletricista de confianÁa. 
+Se estiver em d√∫vida consulte um eletricista de confian√ßa. 
 
  <item>
-N„o instale seu computador muito prÛximo de campos magnÈticos com televisores, 
-aparelhos de som, motores, etc. Estes aparelhos geram ruÌdos elÈtricos e/ou 
-magnÈticos que podem prejudicar o bom funcionamento de seu micro. 
-<![ %OBS [ OBS: As caixas de som de kits multimÌdia possuem os Ìm„s revestidos 
-de metais em seus auto-falantes para n„o causar nenhuma interferÍncia ao 
+N√£o instale seu computador muito pr√≥ximo de campos magn√©ticos com televisores, 
+aparelhos de som, motores, etc. Estes aparelhos geram ru√≠dos el√©tricos e/ou 
+magn√©ticos que podem prejudicar o bom funcionamento de seu micro. 
+<![ %OBS [ OBS: As caixas de som de kits multim√≠dia possuem os √≠m√£s revestidos 
+de metais em seus auto-falantes para n√£o causar nenhuma interfer√™ncia ao 
 computador. ]]> 
 
  <item>
-N„o use a bandeja da unidade de CD/DVD como porta copos!
+N√£o use a bandeja da unidade de CD/DVD como porta copos!
 
  <item>
-N„o coloque objetos dentro da unidade de disquetes. 
+N√£o coloque objetos dentro da unidade de disquetes. 
 
  <item>
 Antes de desligar seu computador, utilize o comando <tt>"shutdown -h now"</tt> 
@@ -1405,55 +1405,55 @@ os programas, salva os dados, desmontar os sistemas de arquivos
 </list>
 
 
-<sect id="introducao-disp-e-s">Dispositivos de Entrada e SaÌda
+<sect id="introducao-disp-e-s">Dispositivos de Entrada e Sa√≠da
  <p>
 <list>
  <item>
-<tt>Entrada</tt> - Permite a comunicaÁ„o do usu·rio com o computador. S„o 
+<tt>Entrada</tt> - Permite a comunica√ß√£o do usu√°rio com o computador. S√£o 
 dispositivos que <tt>enviam</tt> dados ao computador para processamento. 
-Exemplos: Teclado, mouse, touch screen, caneta Ûtica, scanner. 
+Exemplos: Teclado, mouse, touch screen, caneta √≥tica, scanner. 
  <p>
-O dispositivo de entrada padr„o (stdin) em sistemas <prgn>GNU/Linux</prgn> È o 
+O dispositivo de entrada padr√£o (stdin) em sistemas <prgn>GNU/Linux</prgn> √© o 
 teclado.
  
  <item>
-<tt>SaÌda</tt> - Permite a comunicaÁ„o do computador com o usu·rio. S„o 
-dispositivos que permitem o usu·rio visualizar o resultado do processamento 
+<tt>Sa√≠da</tt> - Permite a comunica√ß√£o do computador com o usu√°rio. S√£o 
+dispositivos que permitem o usu√°rio visualizar o resultado do processamento 
 enviado ao computador. 
 Exemplos: Monitor, Impressora, Plotter, som. 
  <p>
-O dispositivo de saÌda padr„o (stdout) em sistemas <prgn>GNU/Linux</prgn> È o 
+O dispositivo de sa√≠da padr√£o (stdout) em sistemas <prgn>GNU/Linux</prgn> √© o 
 Monitor. 
 </list>
 
 
 <sect id="introducao-ligando">Ligando o computador
  <p>
-Para ligar o computador pressione o bot„o <em>POWER</em> ou <em>I/O</em> 
+Para ligar o computador pressione o bot√£o <em>POWER</em> ou <em>I/O</em> 
 localizado em seu painel frontal do micro. 
  <p>
-Imediatamente entrar· em funcionamento um programa residente na memÛria 
-<em>ROM</em> (Read Only Memory - memÛria somente para leitura) da placa m„e 
-que far· os testes iniciais para verificar se os principais dispositivos 
-est„o funcionando em seu computador (memÛria RAM, discos, processador,  
-portas de impressora, memÛria cache, etc). 
+Imediatamente entrar√° em funcionamento um programa residente na mem√≥ria 
+<em>ROM</em> (Read Only Memory - mem√≥ria somente para leitura) da placa m√£e 
+que far√° os testes iniciais para verificar se os principais dispositivos 
+est√£o funcionando em seu computador (mem√≥ria RAM, discos, processador,  
+portas de impressora, mem√≥ria cache, etc). 
  <p>
-Quando o ROM termina os testes b·sicos, ele inicia a procura do setor de 
-boot nos discos do computador que ser· carregado na memÛria RAM do 
-computador. ApÛs carregar o setor de boot, o sistema operacional ser· 
-iniciado (veja <ref id="introducao-so">). O setor de boot contÈm a porÁ„o 
+Quando o ROM termina os testes b√°sicos, ele inicia a procura do setor de 
+boot nos discos do computador que ser√° carregado na mem√≥ria RAM do 
+computador. Ap√≥s carregar o setor de boot, o sistema operacional ser√° 
+iniciado (veja <ref id="introducao-so">). O setor de boot cont√©m a por√ß√£o 
 principal usada para iniciar o sistema operacional. 
  <p>
-No <prgn>GNU/Linux</prgn>, o setor de boot normalmente È criado por um  
-gerenciador de inicializaÁ„o (um programa que permite escolher qual  
-sistema operacional ser· iniciado). 
+No <prgn>GNU/Linux</prgn>, o setor de boot normalmente √© criado por um  
+gerenciador de inicializa√ß√£o (um programa que permite escolher qual  
+sistema operacional ser√° iniciado). 
 Deste modo podemos usar mais de um sistema operacional no mesmo  
-computador (como o DOS e Linux). Os gerenciadores de inicializaÁ„o mais 
-usados em sistemas <prgn>GNU/Linux</prgn> na plataforma Intel X86 s„o o 
+computador (como o DOS e Linux). Os gerenciadores de inicializa√ß√£o mais 
+usados em sistemas <prgn>GNU/Linux</prgn> na plataforma Intel X86 s√£o o 
 <prgn>GRUB</prgn> e o <prgn>LILO</prgn>.
  <p>
-Caso o ROM n„o encontre o sistema operacional em nenhum dos discos, ele 
-pedir· que seja inserido um disquete contendo o Sistema Operacional para 
+Caso o ROM n√£o encontre o sistema operacional em nenhum dos discos, ele 
+pedir√° que seja inserido um disquete contendo o Sistema Operacional para 
 partida. 
 
 
@@ -1461,48 +1461,48 @@ partida.
  <p>
 Para desligar o computador primeiro digite (como root): 
 <tt>"shutdown -h now"</tt>, <tt>"halt"</tt> ou <tt>"poweroff"</tt>,  
-o <prgn>GNU/Linux</prgn> finalizar· os programas e gravar· os dados em seu disco  
-rÌgido, quando for mostrada a mensagem <tt>"power down"</tt>, pressione o  
-bot„o <em>POWER</em> em seu gabinete para desligar a alimentaÁ„o de energia  
+o <prgn>GNU/Linux</prgn> finalizar√° os programas e gravar√° os dados em seu disco  
+r√≠gido, quando for mostrada a mensagem <tt>"power down"</tt>, pressione o  
+bot√£o <em>POWER</em> em seu gabinete para desligar a alimenta√ß√£o de energia  
 do computador. 
 <![ %OBS [
  <p>
 <strong>NUNCA</strong> desligue diretamente o computador sem usar o comando 
 <prgn>shutdown</prgn>, <prgn>halt</prgn> ou <prgn>poweroff</prgn>, pois podem  
-ocorrer perda de dados ou falhas no sistema de arquivos de seu disco rÌgido  
-devido a programas abertos e dados ainda n„o gravados no disco. 
+ocorrer perda de dados ou falhas no sistema de arquivos de seu disco r√≠gido  
+devido a programas abertos e dados ainda n√£o gravados no disco. 
  <p>
-Salve seus trabalhos para n„o correr o risco de perde-los durante o 
+Salve seus trabalhos para n√£o correr o risco de perde-los durante o 
 desligamento do computador.
 ]]>
 
 
 <sect id="introducao-reiniciando">Reiniciando o computador
  <p>
-Reiniciar quer dizer iniciar novamente o sistema. N„o È recomend·vel 
-desligar e ligar constantemente o computador pelo bot„o <tt>ON/OFF</tt>, 
+Reiniciar quer dizer iniciar novamente o sistema. N√£o √© recomend√°vel 
+desligar e ligar constantemente o computador pelo bot√£o <tt>ON/OFF</tt>, 
 por este motivo existe recursos para reiniciar o sistema sem desligar o 
-computador. No <prgn>GNU/Linux</prgn> vocÍ pode usar o comando <tt>reboot</tt>, 
-<tt>shutdown -r now</tt> e tambÈm pressionar simultaneamente 
+computador. No <prgn>GNU/Linux</prgn> voc√™ pode usar o comando <tt>reboot</tt>, 
+<tt>shutdown -r now</tt> e tamb√©m pressionar simultaneamente 
 as teclas &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; para reiniciar de uma forma 
 segura. 
 <![ %OBS [
  <p>
-ObservaÁıes:
+Observa√ß√µes:
 <list compact>
  <item>
-Salve seus trabalhos para n„o correr o risco de perde-los durante a 
-reinicializaÁ„o do sistema. 
+Salve seus trabalhos para n√£o correr o risco de perde-los durante a 
+reinicializa√ß√£o do sistema. 
  <item>
-O bot„o reset do painel frontal do computador tambÈm reinicia o computador, 
-mas de uma maneira mais forte pois est· ligado diretamente aos circuitos 
-da placa m„e e o sistema ser· reiniciado imediatamente, n„o tendo nenhuma 
-chance de finalizar corretamente os programas, gravar os dados da memÛria 
+O bot√£o reset do painel frontal do computador tamb√©m reinicia o computador, 
+mas de uma maneira mais forte pois est√° ligado diretamente aos circuitos 
+da placa m√£e e o sistema ser√° reiniciado imediatamente, n√£o tendo nenhuma 
+chance de finalizar corretamente os programas, gravar os dados da mem√≥ria 
 no disco e desmontar os sistemas de arquivos. O uso indevido da tecla reset 
 pode causar corrompimentos em seus arquivos e perdas. 
  <p>
-Prefira o mÈtodo de reinicializaÁ„o explicado acima e use o bot„o reset 
-somente em ˙ltimo caso. 
+Prefira o m√©todo de reinicializa√ß√£o explicado acima e use o bot√£o reset 
+somente em √∫ltimo caso. 
 </list> ]]>
 
     ]]>

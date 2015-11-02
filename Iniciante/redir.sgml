@@ -1,70 +1,70 @@
 <chapt id="redir">Redirecionamentos e Pipe
  <p>
-Esta seÁ„o explica o funcionamento dos recursos de direcionamento de entrada 
-e saÌda do sistema <prgn>GNU/Linux</prgn>. 
+Esta se√ß√£o explica o funcionamento dos recursos de direcionamento de entrada 
+e sa√≠da do sistema <prgn>GNU/Linux</prgn>. 
 
 
 <sect id="redir-maior">&gt;
  <p>
-Redireciona a saÌda padr„o de um programa/comando/script para algum dispositivo ou 
-arquivo ao invÈs do dispositivo de saÌda padr„o (tela). 
-<![ %DESCRICAOD [ Quando È usado com arquivos, este redirecionamento cria ou 
-substitui o conte˙do do arquivo. ]]> 
+Redireciona a sa√≠da padr√£o de um programa/comando/script para algum dispositivo ou 
+arquivo ao inv√©s do dispositivo de sa√≠da padr√£o (tela). 
+<![ %DESCRICAOD [ Quando √© usado com arquivos, este redirecionamento cria ou 
+substitui o conte√∫do do arquivo. ]]> 
  <p>
-Por exemplo, vocÍ pode usar o comando <prgn>ls</prgn> para listar arquivos 
-e usar <tt>ls &gt;listagem</tt> para enviar a saÌda do comando para o 
+Por exemplo, voc√™ pode usar o comando <prgn>ls</prgn> para listar arquivos 
+e usar <tt>ls &gt;listagem</tt> para enviar a sa√≠da do comando para o 
 arquivo <file>listagem</file>. Use o comando <prgn>cat</prgn> para 
-visualizar o conte˙do do arquivo <file>listagem</file>. 
+visualizar o conte√∫do do arquivo <file>listagem</file>. 
  <p>
 O mesmo comando pode ser redirecionado para o segundo console 
 <file>/dev/tty2</file> usando: 
-<tt>ls &gt;/dev/tty2</tt>, o resultado do comando <prgn>ls</prgn> ser·  
+<tt>ls &gt;/dev/tty2</tt>, o resultado do comando <prgn>ls</prgn> ser√°  
 mostrado no segundo console (pressione <tt>ALT</tt> e <tt>F2</tt> para 
 mudar para o segundo console e <tt>ALT</tt> e <tt>F1</tt> para retornar 
 ao primeiro). O mesmo resultado pode ser obtido com o comando 
-<tt>ls 1&gt;/dev/tty2</tt>, sendo que o n˙mero <tt>1</tt> indica que ser· 
-capturada a saÌda padr„o do comando.
+<tt>ls 1&gt;/dev/tty2</tt>, sendo que o n√∫mero <tt>1</tt> indica que ser√° 
+capturada a sa√≠da padr√£o do comando.
  <p>
-Para redirecionar somente a saÌda de erros do comando <prgn>ls</prgn>, use a 
+Para redirecionar somente a sa√≠da de erros do comando <prgn>ls</prgn>, use a 
 sintaxe: <tt>ls 2&gt;/tmp/erros-do-ls</tt>
 
 <sect id="redir-maior2">&gt;&gt;
  <p>
-Redireciona a saÌda padr„o de um programa/comando/script para algum 
-dispositivo ou adiciona as linhas ao final de arquivo ao invÈs do dispositivo de 
-saÌda padr„o (tela). 
-<![ %DESCRICAOD [ A diferenÁa entre este redirecionamento duplo e o 
-simples, È se caso for usado com arquivos, adiciona a saÌda do comando ao 
-final do arquivo existente ao invÈs de substituir seu conte˙do. ]]>. 
+Redireciona a sa√≠da padr√£o de um programa/comando/script para algum 
+dispositivo ou adiciona as linhas ao final de arquivo ao inv√©s do dispositivo de 
+sa√≠da padr√£o (tela). 
+<![ %DESCRICAOD [ A diferen√ßa entre este redirecionamento duplo e o 
+simples, √© se caso for usado com arquivos, adiciona a sa√≠da do comando ao 
+final do arquivo existente ao inv√©s de substituir seu conte√∫do. ]]>. 
  <p>
-Por exemplo, vocÍ pode acrescentar a saÌda do comando <prgn>ls</prgn> 
-ao arquivo <file>listagem</file> do capÌtulo anterior usando 
+Por exemplo, voc√™ pode acrescentar a sa√≠da do comando <prgn>ls</prgn> 
+ao arquivo <file>listagem</file> do cap√≠tulo anterior usando 
 <tt>ls / &gt;&gt;listagem</tt>. Use o comando <prgn>cat</prgn> para 
-visualizar o conte˙do do arquivo <file>listagem</file>. 
+visualizar o conte√∫do do arquivo <file>listagem</file>. 
 
 
 <sect id="redir-menor">&lt;
  <p>
-Direciona a entrada padr„o de arquivo/dispositivo para um comando. 
-Este comando faz o contr·rio do anterior, ele envia dados ao comando. 
+Direciona a entrada padr√£o de arquivo/dispositivo para um comando. 
+Este comando faz o contr√°rio do anterior, ele envia dados ao comando. 
  <p>
-VocÍ pode usar o comando <tt>cat &lt;teste.txt</tt> para enviar o conte˙do 
-do arquivo <file>teste.txt</file> ao comando <prgn>cat</prgn> que mostrar· seu 
-conte˙do (È claro que o mesmo resultado pode ser obtido com 
+Voc√™ pode usar o comando <tt>cat &lt;teste.txt</tt> para enviar o conte√∫do 
+do arquivo <file>teste.txt</file> ao comando <prgn>cat</prgn> que mostrar√° seu 
+conte√∫do (√© claro que o mesmo resultado pode ser obtido com 
 <tt>cat teste.txt</tt> mas este exemplo serviu para mostrar a 
 funcionalidade do &lt;).
 
 
 <sect id="redir-menor2">&lt;&lt;
  <p>
-Este redirecionamento serve principalmente para marcar o fim de exibiÁ„o de um 
-bloco. Este È especialmente usado em conjunto com o comando <prgn>cat</prgn>, mas 
-tambÈm tem outras aplicaÁıes. Por exemplo:
+Este redirecionamento serve principalmente para marcar o fim de exibi√ß√£o de um 
+bloco. Este √© especialmente usado em conjunto com o comando <prgn>cat</prgn>, mas 
+tamb√©m tem outras aplica√ß√µes. Por exemplo:
 <example>
  cat &lt;&lt; final
 este arquivo
-ser· mostrado
-atÈ que a palavra final seja 
+ser√° mostrado
+at√© que a palavra final seja 
 localizada no inicio da linha
 final
 
@@ -73,19 +73,19 @@ final
 
 <sect id="redir-pipe">| (pipe)
  <p>
-Envia a saÌda de um comando para a entrada do prÛximo comando 
-para continuidade do processamento. Os dados enviados s„o processados 
-pelo prÛximo comando que mostrar· o resultado do processamento.
+Envia a sa√≠da de um comando para a entrada do pr√≥ximo comando 
+para continuidade do processamento. Os dados enviados s√£o processados 
+pelo pr√≥ximo comando que mostrar√° o resultado do processamento.
  <p>
 Por exemplo: <tt>ls -la | more</tt>, este comando faz a listagem longa de 
-arquivos que È enviado ao comando <prgn>more</prgn> (que tem a funÁ„o 
+arquivos que √© enviado ao comando <prgn>more</prgn> (que tem a fun√ß√£o 
 de efetuar uma pausa a cada 25 linhas do arquivo). 
  <p>
-Outro exemplo È o comando <tt>locate find | grep "bin/"</tt>, neste comando 
-todos os caminhos/arquivos que contÈm <em>find</em> na listagem ser„o 
-mostrados (inclusive man pages, bibliotecas, etc.), ent„o enviamos 
-a saÌda deste comando para <tt>grep "bin/"</tt> para mostrar somente os 
-diretÛrios que contÈm bin·rios. Mesmo assim a listagem ocupe mais de uma 
+Outro exemplo √© o comando <tt>locate find | grep "bin/"</tt>, neste comando 
+todos os caminhos/arquivos que cont√©m <em>find</em> na listagem ser√£o 
+mostrados (inclusive man pages, bibliotecas, etc.), ent√£o enviamos 
+a sa√≠da deste comando para <tt>grep "bin/"</tt> para mostrar somente os 
+diret√≥rios que cont√©m bin√°rios. Mesmo assim a listagem ocupe mais de uma 
 tela, podemos acrescentar o <prgn>more</prgn>: 
 <tt>locate find | grep "bin/" | more</tt>.
  <p>
@@ -93,32 +93,32 @@ Podem ser usados mais de um comando de redirecionamento (&lt;, &gt;, |) em
 um mesmo comando.
 
 
-<sect>DiferenÁa entre o "|" e o "&gt;"
+<sect>Diferen√ßa entre o "|" e o "&gt;"
  <p>
-A principal diferenÁa entre o "|" e o "&gt;", È que o Pipe envolve 
-processamento entre comandos, ou seja, a saÌda de um comando È enviado  
-a entrada do prÛximo e o "&gt;" redireciona a saÌda de um comando para  
+A principal diferen√ßa entre o "|" e o "&gt;", √© que o Pipe envolve 
+processamento entre comandos, ou seja, a sa√≠da de um comando √© enviado  
+a entrada do pr√≥ximo e o "&gt;" redireciona a sa√≠da de um comando para  
 um arquivo/dispositivo. 
  <p>
-VocÍ pode notar pelo exemplo acima (<tt>ls -la | more</tt>) que 
-ambos <tt>ls</tt> e <tt>more</tt> s„o comandos porque est„o separados 
-por um "|". Se um deles n„o existir ou estiver digitado incorretamente, 
-ser· mostrada uma mensagem de erro. 
+Voc√™ pode notar pelo exemplo acima (<tt>ls -la | more</tt>) que 
+ambos <tt>ls</tt> e <tt>more</tt> s√£o comandos porque est√£o separados 
+por um "|". Se um deles n√£o existir ou estiver digitado incorretamente, 
+ser√° mostrada uma mensagem de erro. 
  <p>
 Um resultado diferente seria obtido usando um <tt>"&gt;"</tt> no lugar do 
-<tt>"|"</tt>; A saÌda do comando <tt>ls -la &gt; more</tt> seria gravada em um 
+<tt>"|"</tt>; A sa√≠da do comando <tt>ls -la &gt; more</tt> seria gravada em um 
 arquivo chamado <file>more</file>. 
 
 
 <sect id="redir-tee">tee
  <p>
-Envia ao mesmo tempo o resultado do programa para a saÌda padr„o (tela) 
+Envia ao mesmo tempo o resultado do programa para a sa√≠da padr√£o (tela) 
 e para um arquivo. Este comando deve ser usado com o pipe "|". 
  <p>
 <tt><em>comando</em> |tee [<em>arquivo</em>]</tt>
 <![ %EXEMPLO [
  <p>
-Exemplo: <tt>ls -la | tee listagem.txt</tt>, a saÌda do comando 
-ser· mostrada normalmente na tela e ao mesmo tempo gravada no arquivo 
+Exemplo: <tt>ls -la | tee listagem.txt</tt>, a sa√≠da do comando 
+ser√° mostrada normalmente na tela e ao mesmo tempo gravada no arquivo 
 <file>listagem.txt</file>. ]]>
 
