@@ -1,12 +1,12 @@
 <!--
-Este arquivo contém as URLs que serão usadas na geração do guia Foca GNU/Linux.
-Caso encontre uma URL ou endereço FTP que esteja desatualizado ou deseje 
-incluir sua página, favor entre em contato com o autor do manual pelo 
+Este arquivo contÃ©m as URLs que serÃ£o usadas na geraÃ§Ã£o do guia Foca GNU/Linux.
+Caso encontre uma URL ou endereÃ§o FTP que esteja desatualizado ou deseje 
+incluir sua pÃ¡gina, favor entre em contato com o autor do manual pelo 
 E-Mail: gleydson@guiafoca.org
 -->
 <!entity url-manual-www         "http://www.guiafoca.org">
 
-<!-- URLs de páginas Internet das distribuições Linux -->
+<!-- URLs de pÃ¡ginas Internet das distribuiÃ§Ãµes Linux -->
 <!entity url-debian-www         "http://www.debian.org/">
 <!entity url-ubuntu-www         "http://www.ubuntu.com/">
 <!entity url-redhat-www         "http://www.redhat.com/">
@@ -15,7 +15,7 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-fedora-www         "http://fedora.redhat.com/">
 <!entity url-mandriva-www         "http://www.mandriva.com/">
 
-<!-- URLs de Servidores FTP das distribuições Linux acima -->
+<!-- URLs de Servidores FTP das distribuiÃ§Ãµes Linux acima -->
 <!entity url-debian-ftp         "ftp://ftp.debian.org/">
 <!entity url-ubuntu-ftp         "http://www.ubuntu.com/getubuntu/download/">
 <!entity url-redhat-ftp         "ftp://ftp.redhat.com/">
@@ -25,7 +25,7 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-mandriva-ftp       "http://www.mandriva.com/">
 
 
-<!-- URLs de Páginas Internet Citadas no guia -->
+<!-- URLs de PÃ¡ginas Internet Citadas no guia -->
 <!entity url-linux-www          "http://www.linux.org/">
 <!entity url-linuxtrix-www      "http://www.br-linux.org/">
 <!entity url-bakuri-www         "http://www.geocities.com/bakurih/">
@@ -40,7 +40,7 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-noticiaslinux-www  "http://www.noticiaslinux.com.br/">
 <!entity url-oreillsafari-www   "http://www.oreill.com/safari/">
 
-<!-- E-Mail dos responsáveis pelas páginas Acima -->
+<!-- E-Mail dos responsÃ¡veis pelas pÃ¡ginas Acima -->
 <!entity email-linux-resp          "webmaster@linux.org">
 <!entity email-linuxtrix-resp      "brain@matrix.com.br">
 <!entity email-bakuri-resp         "bakurih@yahoo.com">
@@ -54,7 +54,7 @@ E-Mail: gleydson@guiafoca.org
 <!entity email-noticiaslinux-resp  "deivison@noticiaslinux.com.br">
 
 
-<!-- Endereços de servidores HTTP diversos citados no guia -->
+<!-- EndereÃ§os de servidores HTTP diversos citados no guia -->
 <!entity url-debian-bts-www      "http://bugs.debian.org/">
 <!entity url-netcraft-www        "http://www.netcraft.com/">
 
@@ -87,7 +87,7 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-rfc-768              "http://www.rfc-editor.org/rfc/rfc768.txt">
 
 
-<!-- Endereços de servidores FTP diversos citados no guia -->
+<!-- EndereÃ§os de servidores FTP diversos citados no guia -->
 <!entity url-kernel-ftp          "ftp://ftp.kernel.org/">
 <!entity url-ldp-ftp             "ftp://metalab.unc.edu/pub/Linux/docs/HOWTO/">
 

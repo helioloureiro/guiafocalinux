@@ -1,11 +1,11 @@
 <!-- 
-Este arquivo contém padrões que podem ser usados para personalizar sua 
-cópia do guia. Eles serão usados na hora da geração do documento marcando 
-as seções para inclusão (INCLUDE) ou não (IGNORE) na versão final. 
-Pelo menos uma deve ser incluída! 
+Este arquivo contÃ©m padrÃµes que podem ser usados para personalizar sua 
+cÃ³pia do guia. Eles serÃ£o usados na hora da geraÃ§Ã£o do documento marcando 
+as seÃ§Ãµes para inclusÃ£o (INCLUDE) ou nÃ£o (IGNORE) na versÃ£o final. 
+Pelo menos uma deve ser incluÃ­da! 
 -->
 
-<!-- Conteúdo da versão que será gerada -->
+<!-- ConteÃºdo da versÃ£o que serÃ¡ gerada -->
 <!entity % DESCRICAOD     "INCLUDE">
 <!entity % OPCOES         "INCLUDE">
 <!entity % EXEMPLO        "INCLUDE">
@@ -13,9 +13,9 @@ Pelo menos uma deve ser incluída!
 
 
 <!-- 
-Estas entities abaixo serão usadas por materiais que devem estar em ambas 
-as versões INICIANTE/INTERMEDIÁRIO ou INTERMEDIÁRIO/AVANÇADO do guia e 
-utilizarão as entities "INIC-INTER" e "INTER-AVANC". 
+Estas entities abaixo serÃ£o usadas por materiais que devem estar em ambas 
+as versÃµes INICIANTE/INTERMEDIÃRIO ou INTERMEDIÃRIO/AVANÃ‡ADO do guia e 
+utilizarÃ£o as entities "INIC-INTER" e "INTER-AVANC". 
 -->
 <![ %INICIANTE [     <!entity % INIC-INTER   "INCLUDE"> ]]>
 <![ %INTERMEDIARIO [ <!entity % INIC-INTER   "INCLUDE"> ]]>
@@ -26,21 +26,21 @@ utilizarão as entities "INIC-INTER" e "INTER-AVANC".
                      <!entity % INTER-AVANC  "IGNORE">
  
 
-<!-- Indica se as partes em construção serão ou não incluídas -->
+<!-- Indica se as partes em construÃ§Ã£o serÃ£o ou nÃ£o incluÃ­das -->
 <!entity % CONSTRUCAO    "IGNORE">
 
 
-<!-- Indica se os dados/capítulos referentes a distribuição serão incluídos -->
-<!-- dependendo das condições acima. Escolha somente uma! -->
+<!-- Indica se os dados/capÃ­tulos referentes a distribuiÃ§Ã£o serÃ£o incluÃ­dos -->
+<!-- dependendo das condiÃ§Ãµes acima. Escolha somente uma! -->
 <!entity % DEBIAN        "INCLUDE">
 
-<!-- Número de pacotes da distribução Debian -->
+<!-- NÃºmero de pacotes da distribuÃ§Ã£o Debian -->
 <!entity DEBNUMPACKAGES "25000">
 
-<!-- Dados variáveis -->
+<!-- Dados variÃ¡veis -->
 <!entity ULTIMOANO "2010">
 
-<!-- Seleciona a versão adequada ao guia Foca Linux de acordo com as opções -->
+<!-- Seleciona a versÃ£o adequada ao guia Foca Linux de acordo com as opÃ§Ãµes -->
 <!-- escolhidas -->
 <![ %AVANCADO [      <!entity VERSAO "6.43"> ]]>
 <![ %INTERMEDIARIO [ <!entity VERSAO "5.65"> ]]>

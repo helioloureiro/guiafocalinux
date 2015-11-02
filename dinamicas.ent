@@ -1,6 +1,6 @@
-<!-- Nível da versão que será gerada (podem ser gerada mais de uma versão
-em um único guia, produzindo uma versão INICIANTE/INTERMEDIÁRIO, por
-exemplo). Não se preocupe, a versão final do guia será bem organizada
+<!-- NÃ­vel da versÃ£o que serÃ¡ gerada (podem ser gerada mais de uma versÃ£o
+em um Ãºnico guia, produzindo uma versÃ£o INICIANTE/INTERMEDIÃRIO, por
+exemplo). NÃ£o se preocupe, a versÃ£o final do guia serÃ¡ bem organizada
 (e um pouco grande, dependendo das escolhas...)
 -->
 <!entity % INICIANTE "INCLUDE" >
@@ -8,5 +8,5 @@ exemplo). Não se preocupe, a versão final do guia será bem organizada
 <!entity % AVANCADO "IGNORE" >
 <!entity % CAPJUNTOS "INCLUDE" >
 
-<!-- Data da criação do Documento -->
+<!-- Data da criaÃ§Ã£o do Documento -->
 <!entity DATADOC "domingo, 05 de setembro de 2010" >
