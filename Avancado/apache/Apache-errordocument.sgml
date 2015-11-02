@@ -1,33 +1,33 @@
 <sect id="s-apache-errordocument">Definindo documentos de erro personalizados
  <p>
-Documentos de erros personalizados s„o definidos atravÈs da diretiva 
-<em>ErrorDocument</em>. … possÌvel especificar cÛdigos de erros que 
-ser„o atendidos por certos documentos ou colocar esta diretiva dentro 
+Documentos de erros personalizados s√£o definidos atrav√©s da diretiva 
+<em>ErrorDocument</em>. √â poss√≠vel especificar c√≥digos de erros que 
+ser√£o atendidos por certos documentos ou colocar esta diretiva dentro 
 de blocos de controle de acesso &lt;Directory&gt;, &lt;Location&gt; ou 
 &lt;VirtualHost&gt; para que tenham mensagens de erro personalizadas, 
-ao invÈs da padr„o usada pelo servidor <prgn>httpd</prgn>. 
+ao inv√©s da padr√£o usada pelo servidor <prgn>httpd</prgn>. 
  <p>
-<tt>ErrorDocument [<em>cÛdigo de erro</em>] [<em>documento</em>]</tt>
+<tt>ErrorDocument [<em>c√≥digo de erro</em>] [<em>documento</em>]</tt>
  <p>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
- <tag><em>cÛdigo de erro</em></tag>
+ <tag><em>c√≥digo de erro</em></tag>
  <item>
-CÛdigo de erro da mensagem (veja <ref id="s-apache-httpcodes"> como referÍncia).
-O cÛdigo de erro <em>401</em> deve referir-se a um arquivo local. 
+C√≥digo de erro da mensagem (veja <ref id="s-apache-httpcodes"> como refer√™ncia).
+O c√≥digo de erro <em>401</em> deve referir-se a um arquivo local. 
 
  <tag><em>documento</em></tag>
  <item>
-Documento, mensagem de erro ou redirecionamento que ser· usado no servidor caso 
-aquele cÛdigo de erro seja encontrado:
+Documento, mensagem de erro ou redirecionamento que ser√° usado no servidor caso 
+aquele c√≥digo de erro seja encontrado:
 
 </taglist> ]]>
-Para definir uma mensagem de erro padr„o para todo servidor web, basta 
+Para definir uma mensagem de erro padr√£o para todo servidor web, basta 
 colocar a diretiva <em>ErrorDocument</em> fora das diretivas 
-que controlam o acesso a diretÛrios e virtual hosts (o inicio do 
-arquivo <file>httpd.conf</file> È ideal).
+que controlam o acesso a diret√≥rios e virtual hosts (o inicio do 
+arquivo <file>httpd.conf</file> √© ideal).
 
 <![ %EXEMPLO [
  <p>
@@ -36,21 +36,21 @@ Exemplos:
  <item>
 <tt>ErrorDocument 404 /cgi-bin/erros404.pl</tt> - Direciona para um script em 
 Perl que manda um e-mail ao administrador falando sobre o link quebrado e 
-envia o usu·rio a uma p·gina de erro padr„o.
+envia o usu√°rio a uma p√°gina de erro padr√£o.
  <item>
-<tt>ErrorDocument 404 /naoencontrada.html</tt> - Direciona o usu·rio para 
+<tt>ErrorDocument 404 /naoencontrada.html</tt> - Direciona o usu√°rio para 
 o arquivo <file>naoencontrada.html</file> (dentro de <em>DocumentRoot</em>) 
-quando ocorrer o erro 404. Note que o diretÛrio <file>/</file> levado em 
-consideraÁ„o È o especificado pela diretiva <em>DocumentRoot</em>.
+quando ocorrer o erro 404. Note que o diret√≥rio <file>/</file> levado em 
+considera√ß√£o √© o especificado pela diretiva <em>DocumentRoot</em>.
  <item>
 <tt>ErrorDocument 500 "Erro Interno no servidor"</tt> - Mostra a mensagem 
 na tela quando ocorrer o erro 500.
  <item>
-<tt>ErrorDocument 401 /obtendoacesso.html</tt> - Direciona o usu·rio ao arquivo 
+<tt>ErrorDocument 401 /obtendoacesso.html</tt> - Direciona o usu√°rio ao arquivo 
 explicando como obter acesso ao sistema. 
  <item>
 <tt>ErrorDocument 503 &url-manual-www;/servicos.html</tt> - Redireciona
-o usu·rio a URL especificada. 
+o usu√°rio a URL especificada. 
  <item>
 <tt>ErrorDocument 403 "Acesso negado"</tt> - Mostra a mensagem na tela no 
 caso de erros 403.

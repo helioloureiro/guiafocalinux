@@ -2,21 +2,21 @@
  <p>
 O <prgn>Apache</prgn> pode ser configurado  para funcionar como servidor 
 proxy transparente para sua rede interna, possibilitando inclusive o 
-uso de cache de disco. … possÌvel se fazer conexıes HTTP (incluindo SSL) e FTP.
-<![ %DESCRICAOD [ AtravÈs desta caracterÌstica tambÈm È possÌvel 
-usar uma das caracterÌsticas mais interessante desse servidor web: o 
-redirecionamento de conexıes para uma determinada URL para uma outra 
-m·quina, que pode ser um outro host remoto ou uma m·quina da 
-rede interna (n„o acessÌvel diretamente via Internet). ]]>
+uso de cache de disco. √â poss√≠vel se fazer conex√µes HTTP (incluindo SSL) e FTP.
+<![ %DESCRICAOD [ Atrav√©s desta caracter√≠stica tamb√©m √© poss√≠vel 
+usar uma das caracter√≠sticas mais interessante desse servidor web: o 
+redirecionamento de conex√µes para uma determinada URL para uma outra 
+m√°quina, que pode ser um outro host remoto ou uma m√°quina da 
+rede interna (n√£o acess√≠vel diretamente via Internet). ]]>
  <p>
-O primeiro passo È ativar o mÛdulo de proxy no arquivo <file>httpd.conf</file>, 
+O primeiro passo √© ativar o m√≥dulo de proxy no arquivo <file>httpd.conf</file>, 
 basta descomentar a linha:
 <example>
 # LoadModule proxy_module /usr/lib/apache/1.3/libproxy.so
 </example>
 
 O seguinte bloco pode ser colocado no final do arquivo <file>httpd.conf</file>
-para configurar um servidor proxy para realizar conexıes diretas 
+para configurar um servidor proxy para realizar conex√µes diretas 
 (sem o uso de cache) e permitir o uso de servidores proxy em sua rede: 
 <example>
 # Suporte a Proxy
@@ -28,67 +28,67 @@ para configurar um servidor proxy para realizar conexıes diretas
   NoProxy 192.168.1.0/24
   ProxyDomain .gms.com.br
 
-# Ativa/Desativa a manipulaÁ„o de cabeÁalhos HTTP/1.1 "Via:".
+# Ativa/Desativa a manipula√ß√£o de cabe√ßalhos HTTP/1.1 "Via:".
 # 
-# ("Full" adiciona a vers„o do servidor Apache; "Block" remove todos os cabeÁalhos 
-# de saÌda "Via:")
-# Escolha uma das opÁıes: Off | On | Full | Block
+# ("Full" adiciona a vers√£o do servidor Apache; "Block" remove todos os cabe√ßalhos 
+# de sa√≠da "Via:")
+# Escolha uma das op√ß√µes: Off | On | Full | Block
 #
 #ProxyVia On
 #&lt;/IfModule&gt;
 </example>
-Segue a explicaÁ„o de cada uma das diretivas acima:
+Segue a explica√ß√£o de cada uma das diretivas acima:
 <taglist compact>
  <tag>ProxyRequests [<em>on/off</em>]</tag>
  <item>
-Ativa (on) ou Desativa (off) o serviÁo de proxy do servidor Apache. Note que o 
-mÛdulo <file>libproxy.so</file> deve estar carregado para que o bloco 
-&lt;IfModule libproxy.c&gt; seja processado. A desativaÁ„o desta diretiva n„o 
+Ativa (on) ou Desativa (off) o servi√ßo de proxy do servidor Apache. Note que o 
+m√≥dulo <file>libproxy.so</file> deve estar carregado para que o bloco 
+&lt;IfModule libproxy.c&gt; seja processado. A desativa√ß√£o desta diretiva n√£o 
 afeta a diretiva <em>ProxyPass</em>.
 
  <tag>ProxyRemote [<em>origem</em>] [<em>URL</em>]</tag>
  <item>
-Esta opÁ„o È ˙til para fazer o Apache redirecionar suas requisiÁıes
+Esta op√ß√£o √© √∫til para fazer o Apache redirecionar suas requisi√ß√µes
 para outro servidor proxy (como o <prgn>squid</prgn> ou o gateway da 
-rede, caso o Apache estiver sendo executado em uma m·quina interna). 
+rede, caso o Apache estiver sendo executado em uma m√°quina interna). 
 A <em>origem</em> pode ser uma URL completa (como http://www.debian.org), 
 uma URL parcial (como ftp, http) ou "*" para que o redirecionamento seja 
 sempre usado. 
 
- <tag>ProxyBlock [<em>padr„o</em>]</tag>
+ <tag>ProxyBlock [<em>padr√£o</em>]</tag>
  <item>
-Permite bloquear o acesso a endereÁos que contenham o <em>padr„o</em> especificado. 
-Podem ser especificadas palavras, m·quinas, domÌnios, URLs separados por espaÁos. 
-O <prgn>Apache</prgn> far· a resoluÁ„o DNS no caso de endereÁos IP e far· o 
-cache para requisiÁıes futuras.
+Permite bloquear o acesso a endere√ßos que contenham o <em>padr√£o</em> especificado. 
+Podem ser especificadas palavras, m√°quinas, dom√≠nios, URLs separados por espa√ßos. 
+O <prgn>Apache</prgn> far√° a resolu√ß√£o DNS no caso de endere√ßos IP e far√° o 
+cache para requisi√ß√µes futuras.
 
 
- <tag>NoProxy [<em>endereÁos</em>]</tag>
+ <tag>NoProxy [<em>endere√ßos</em>]</tag>
  <item>
-Permite especificar endereÁos Internos que n„o ser„o redirecionados para 
+Permite especificar endere√ßos Internos que n√£o ser√£o redirecionados para 
 o servidor proxy especificado por <em>ProxyRemote</em>. Podem ser usados 
-nomes de m·quinas, endereÁos IP, subredes ou domÌnios separados por espaÁos. 
+nomes de m√°quinas, endere√ßos IP, subredes ou dom√≠nios separados por espa√ßos. 
 
- <tag>ProxyDomain [<em>endereÁo</em>]</tag>
+ <tag>ProxyDomain [<em>endere√ßo</em>]</tag>
  <item>
-Especifica o endereÁo que ser· adicionado a URL caso seja recebida uma 
-requisiÁ„o que contenha somente um nome de m·quina. … ˙til em redes 
+Especifica o endere√ßo que ser√° adicionado a URL caso seja recebida uma 
+requisi√ß√£o que contenha somente um nome de m√°quina. √â √∫til em redes 
 Internas.
 
 </taglist>
-Note que quando o suporte a proxy n„o est· ativado no <prgn>Apache</prgn>, 
-qualquer endereÁo de URL externa levar· a p·gina definida pela diretiva
-<em>DocumentRoot</em>. Isto deixar· de funcionar apÛs configurar o 
-serviÁo de proxy.
+Note que quando o suporte a proxy n√£o est√° ativado no <prgn>Apache</prgn>, 
+qualquer endere√ßo de URL externa levar√° a p√°gina definida pela diretiva
+<em>DocumentRoot</em>. Isto deixar√° de funcionar ap√≥s configurar o 
+servi√ßo de proxy.
  <p>
-O uso do cache È interessante para acelerar as requisiÁıes http da rede 
-interna para a rede externa, desta forma, se uma requisiÁ„o foi feita 
-anteriormente, ser· descarregado o arquivo do disco rÌgido e assim 
-evitar uma nova conex„o externa (isto libera a rede para outras coisas). Para
-configurar um cache no serviÁo proxy, adicione as seguintes linhas no 
+O uso do cache √© interessante para acelerar as requisi√ß√µes http da rede 
+interna para a rede externa, desta forma, se uma requisi√ß√£o foi feita 
+anteriormente, ser√° descarregado o arquivo do disco r√≠gido e assim 
+evitar uma nova conex√£o externa (isto libera a rede para outras coisas). Para
+configurar um cache no servi√ßo proxy, adicione as seguintes linhas no 
 final do bloco anterior de proxy: 
 <example>
-  # As linhas abaixo ativam o cache do apache, o cache n„o funcionar· ao menos que
+  # As linhas abaixo ativam o cache do apache, o cache n√£o funcionar√° ao menos que
   # CacheRoot seja especificado
   CacheRoot /var/spool/apache
   CacheForceCompletion 70
@@ -96,120 +96,120 @@ final do bloco anterior de proxy:
   CacheGcInterval 3
   CacheDefaultExpire 5
   CacheMaxExpire 300
-  NoCache 192.168.1.0/24 a_domain.com outrodomÌnio.com.br outro.dominio.net
+  NoCache 192.168.1.0/24 a_domain.com outrodom√≠nio.com.br outro.dominio.net
 </example>
 Cada diretiva acima possui o seguinte significado:
 <taglist compact>
  <tag>CacheRoot</tag>
  <item>
-DiretÛrio base onde ser„o criados os outros diretÛrios de cache. O cache 
-sÛ ser· ativado se esta diretiva for definida.
+Diret√≥rio base onde ser√£o criados os outros diret√≥rios de cache. O cache 
+s√≥ ser√° ativado se esta diretiva for definida.
 
  <tag>CacheForceCompletion [<em>num</em>]</tag>
  <item>
-Se uma transferÍncia for cancelada e passar de <em>num</em>%, o 
-<prgn>Apache</prgn> continuar· a transferÍncia e armazenar· o 
-arquivo no cache. O valor padr„o È 90.
+Se uma transfer√™ncia for cancelada e passar de <em>num</em>%, o 
+<prgn>Apache</prgn> continuar√° a transfer√™ncia e armazenar√° o 
+arquivo no cache. O valor padr√£o √© 90.
 
  <tag>CacheSize [<em>num</em>]</tag>
  <item>
-Define o tamanho m·ximo do diretÛrio de cache do <prgn>Apache</prgn>, 
-em KB. N„o especifique um valor que tome mais de 70% do espaÁo em disco. 
-O valor padr„o È 5.
+Define o tamanho m√°ximo do diret√≥rio de cache do <prgn>Apache</prgn>, 
+em KB. N√£o especifique um valor que tome mais de 70% do espa√ßo em disco. 
+O valor padr√£o √© 5.
  
  <tag>CacheGcInterval [<em>num</em>]</tag>
  <item>
-Define o tempo que o cache ser· checado em busca de arquivos maiores que 
-o total do cache. Arquivos que ultrapassem o tamanho do cache s„o 
+Define o tempo que o cache ser√° checado em busca de arquivos maiores que 
+o total do cache. Arquivos que ultrapassem o tamanho do cache s√£o 
 automaticamente eliminados.
 
  <tag>CacheDefaultExpire [<em>num</em>]</tag>
  <item>
-Define o tempo que os documentos ficar„o no cache, se foram 
-transferidos atravÈs de protocolos que n„o suportam horas de expiraÁ„o. 
-O valor padr„o È 1 hora.
+Define o tempo que os documentos ficar√£o no cache, se foram 
+transferidos atrav√©s de protocolos que n√£o suportam horas de expira√ß√£o. 
+O valor padr√£o √© 1 hora.
 
  <tag>CacheMaxExpire [<em>num</em>]</tag>
  <item>
-Define o tempo que os documentos permanecer„o armazenados no 
-cache (em horas). Esta opÁ„o ignora a hora de expiraÁ„o do 
-documento (caso fornecida). O valor padr„o È 24 horas.
+Define o tempo que os documentos permanecer√£o armazenados no 
+cache (em horas). Esta op√ß√£o ignora a hora de expira√ß√£o do 
+documento (caso fornecida). O valor padr√£o √© 24 horas.
 
- <tag>NoCache [<em>endereÁos</em>]</tag>
+ <tag>NoCache [<em>endere√ßos</em>]</tag>
  <item>
-Permite especificar lista de palavras, m·quinas, domÌnios, IP's que n„o
-ser„o armazenados no cache do <prgn>Apache</prgn>. Caso seja usado
-<tt>NoCache *</tt> o cache ser· desativado completamente. Note que 
-o cache tambÈm pode ser desativado comentando a diretiva
+Permite especificar lista de palavras, m√°quinas, dom√≠nios, IP's que n√£o
+ser√£o armazenados no cache do <prgn>Apache</prgn>. Caso seja usado
+<tt>NoCache *</tt> o cache ser√° desativado completamente. Note que 
+o cache tamb√©m pode ser desativado comentando a diretiva
 <em>CacheRoot</em>.
 
 </taglist>
-Se vocÍ desejar um servidor cache mais flexÌvel, r·pido, din‚mico, 
-configur·vel (com possibilidade de uso de restriÁıes baseadas em URL, tempo de 
-acesso, autenticaÁ„o), instale o <prgn>squid</prgn> e configure o 
-<prgn>apache</prgn> para fazer forward de conexıes para ele 
+Se voc√™ desejar um servidor cache mais flex√≠vel, r√°pido, din√¢mico, 
+configur√°vel (com possibilidade de uso de restri√ß√µes baseadas em URL, tempo de 
+acesso, autentica√ß√£o), instale o <prgn>squid</prgn> e configure o 
+<prgn>apache</prgn> para fazer forward de conex√µes para ele 
 (<ref id="s-apache-proxy-redir">). 
 
 
 <sect1 id="s-apache-proxy-access">Controlando o acesso ao servidor proxy
  <p>
 Incluir o bloco abaixo no arquivo <file>access.conf</file> para 
-definir o acesso dos serviÁos de proxy nas redes desejadas (se a sua configuraÁ„o
-for aberta como padr„o isto pode ser opcional):
+definir o acesso dos servi√ßos de proxy nas redes desejadas (se a sua configura√ß√£o
+for aberta como padr√£o isto pode ser opcional):
 <example>
-# Acesso aos serviÁos proxy do apache
+# Acesso aos servi√ßos proxy do apache
 &lt;Directory proxy:*&gt;
     Order deny,allow
     Deny from all
     Allow from .seudominio.com.br
 &lt;/Directory&gt;
 </example>
-Para explicaÁıes sobre o processo de bloqueio acima, veja 
+Para explica√ß√µes sobre o processo de bloqueio acima, veja 
 <ref id="s-apache-acesso-restr-autor">. 
 
 
-<sect1 id="s-apache-proxy-redir">Redirecionamento de conexıes no Apache
+<sect1 id="s-apache-proxy-redir">Redirecionamento de conex√µes no Apache
  <p>
-Este recurso do <prgn>Apache</prgn> È interessante para criar clusters 
-de servidores em sua rede interna. O que ele faz È pegar uma requisiÁ„o
-a um determinado endereÁo e redireciona-lo a outra m·quina e as respostas
-s„o repassadas ao servidor web (para o cliente a mesma m·quina esta
-atendendo a requisiÁ„o, para vocÍ o processamento das requisiÁıes esta 
-sendo distribuÌdo internamente na rede). 
+Este recurso do <prgn>Apache</prgn> √© interessante para criar clusters 
+de servidores em sua rede interna. O que ele faz √© pegar uma requisi√ß√£o
+a um determinado endere√ßo e redireciona-lo a outra m√°quina e as respostas
+s√£o repassadas ao servidor web (para o cliente a mesma m√°quina esta
+atendendo a requisi√ß√£o, para voc√™ o processamento das requisi√ß√µes esta 
+sendo distribu√≠do internamente na rede). 
  <p>
-As seguintes diretivas s„o usadas para realizar o redirecionamento de
-conexıes:
+As seguintes diretivas s√£o usadas para realizar o redirecionamento de
+conex√µes:
 
 <em>ProxyPass</em> e <em>ProxyPassReverse</em>
 
 <taglist compact>
- <tag>ProxyPass [<em>diretÛrio_da_url</em> [<em>outro_servidor:/diretÛrio</em>]</tag>
+ <tag>ProxyPass [<em>diret√≥rio_da_url</em> [<em>outro_servidor:/diret√≥rio</em>]</tag>
  <item>
 A <em>ProxyPass</em> permite que a URL seja redirecionada para o servidor 
-local e diretÛrio especificado. Por exemplo, assumindo que o endereÁo principal de 
-nosso servidor È <file>&url-manual-www;</file> e desejamos que a URL
-<file>&url-manual-www;/download</file> seja atendida por uma m·quina
-localizada na nossa rede privada com o endereÁo <file>http://192.168.1.54</file>. 
+local e diret√≥rio especificado. Por exemplo, assumindo que o endere√ßo principal de 
+nosso servidor √© <file>&url-manual-www;</file> e desejamos que a URL
+<file>&url-manual-www;/download</file> seja atendida por uma m√°quina
+localizada na nossa rede privada com o endere√ßo <file>http://192.168.1.54</file>. 
 Basta incluir a linha:
 <example>
 ProxyPass /download http://192.168.1.54
 </example>
-Qualquer requisiÁ„o externa a <file>&url-manual-www;/download/iniciante
-</file> ser· atendida por <file>http://192.168.1.54/iniciante</file>. 
+Qualquer requisi√ß√£o externa a <file>&url-manual-www;/download/iniciante
+</file> ser√° atendida por <file>http://192.168.1.54/iniciante</file>. 
 
- <tag>ProxyPassRemote [<em>diretÛrio_da_url</em> [<em>outro_servidor:/diretÛrio</em>]</tag>
+ <tag>ProxyPassRemote [<em>diret√≥rio_da_url</em> [<em>outro_servidor:/diret√≥rio</em>]</tag>
  <item>
-Esta diretiva permite modificar o cabeÁalho <tt>Location</tt> nas mensagens 
+Esta diretiva permite modificar o cabe√ßalho <tt>Location</tt> nas mensagens 
 de respostas de redirecionamento enviadas pelo <prgn>Apache</prgn>. Isto 
-permite que o endereÁo retornado seja o do servidor (que faz a interface 
-externa com o cliente) e n„o da m·quina do redirecionamento. 
+permite que o endere√ßo retornado seja o do servidor (que faz a interface 
+externa com o cliente) e n√£o da m√°quina do redirecionamento. 
 <example>
 ProxyPass        /download http://192.168.1.54
 ProxyPassReverse /download http://192.168.1.54
 </example>
-Se a m·quina <file>192.168.1.54</file> redirecionar a URL para 
+Se a m√°quina <file>192.168.1.54</file> redirecionar a URL para 
 <file>http://192.168.1.54/download/iniciante</file>, a resposta 
-ser· modificada para <file>&url-manual-www;/download/iniciante</file> 
+ser√° modificada para <file>&url-manual-www;/download/iniciante</file> 
 antes de ser retornada ao cliente. 
 
 </taglist>

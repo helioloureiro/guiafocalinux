@@ -1,32 +1,32 @@
-<chapt id="cfgrede">ConfiguraÁıes especiais de Rede
+<chapt id="cfgrede">Configura√ß√µes especiais de Rede
  <p>
-Este capÌtulo descreve alguns tipos de configuraÁıes que podem ser feitas em rede 
-utilizando os recursos disponÌveis do <prgn>Linux</prgn>. Aqui n„o est„o 
-todas as aplicaÁıes, pois o sistema È bastante flexÌvel e o prÛprio time de 
-desenvolvimento do kernel n„o demonstrou limitaÁıes quanto as formas de 
+Este cap√≠tulo descreve alguns tipos de configura√ß√µes que podem ser feitas em rede 
+utilizando os recursos dispon√≠veis do <prgn>Linux</prgn>. Aqui n√£o est√£o 
+todas as aplica√ß√µes, pois o sistema √© bastante flex√≠vel e o pr√≥prio time de 
+desenvolvimento do kernel n√£o demonstrou limita√ß√µes quanto as formas de 
 se construir uma rede :-)
 
 
 <sect id="cfgrede-ipalias">IP Alias
  <p>
 Este recurso permite configurar uma interface de rede para responder 
-por um ou mais IPs, que n„o precisam pertencer a mesma faixa. 
-Para usu·rios externos, a impress„o È que a rede tem "muitas" m·quinas, quando 
-na realidade apenas uma responde por todos estes endereÁos virtuais.
-Podemos citar algumas utilizaÁıes ˙teis deste recurso:
+por um ou mais IPs, que n√£o precisam pertencer a mesma faixa. 
+Para usu√°rios externos, a impress√£o √© que a rede tem "muitas" m√°quinas, quando 
+na realidade apenas uma responde por todos estes endere√ßos virtuais.
+Podemos citar algumas utiliza√ß√µes √∫teis deste recurso:
 <list compact>
- <item>Simular uma rede com diversas m·quinas
+ <item>Simular uma rede com diversas m√°quinas
  <item>Construir virtual hosts baseados em IP
- <item>Definir endereÁamentos secund·rios para fins de an·lise e depuraÁ„o 
+ <item>Definir endere√ßamentos secund√°rios para fins de an√°lise e depura√ß√£o 
 de pacotes (principalmente como armadilhas para trojans)
- <item>ColocaÁ„o de serviÁos com operaÁ„o restritas a interfaces em funcionamento 
- atravÈs de faixas especÌficas usando as configuraÁıes da interface virtual
- <item>TransiÁ„o de IP de servidores de forma transparente
- <item>Entre muitas outras. A idÈia aqui È mostrar a simplicidade de se configurar 
-este recurso e entender o processo, que È bastante simples.
+ <item>Coloca√ß√£o de servi√ßos com opera√ß√£o restritas a interfaces em funcionamento 
+ atrav√©s de faixas espec√≠ficas usando as configura√ß√µes da interface virtual
+ <item>Transi√ß√£o de IP de servidores de forma transparente
+ <item>Entre muitas outras. A id√©ia aqui √© mostrar a simplicidade de se configurar 
+este recurso e entender o processo, que √© bastante simples.
 </list>
-Para configurar o recurso de <em>IP Alias</em> È necess·rio apenas que a opÁ„o 
-<em>IP Aliasing Support</em> seja habilitada no kernel (como mÛdulo ou embutida). 
+Para configurar o recurso de <em>IP Alias</em> √© necess√°rio apenas que a op√ß√£o 
+<em>IP Aliasing Support</em> seja habilitada no kernel (como m√≥dulo ou embutida). 
 Em nosso exemplo abaixo, temos uma rede com a interface <file>eth0</file> 
 configurada com o IP <em>192.168.1.1</em> (classe C privada) e queremos adicionar 
 uma interface virtual que atenda pelo IP <em>172.16.0.1</em> (classe B privada)
@@ -38,34 +38,34 @@ Ative a interface de rede com <prgn>ifconfig</prgn> ou <prgn>ifup</prgn>
 
  <item>
 Crie uma interface virtual usando o comando <tt>ifconfig eth0:0 172.16.0.1</tt>.
-Isto criar· uma nova interface chamada <tt>eth0:0</tt> que passar· a responder 
-pelo IP 172.6.0.1. … permitido o uso de nomes para especificar a interface virtual, 
-como: <tt>eth0:rede1</tt>, <tt>eth0:rede2</tt>, <tt>eth0:escritÛrio</tt>. 
+Isto criar√° uma nova interface chamada <tt>eth0:0</tt> que passar√° a responder 
+pelo IP 172.6.0.1. √â permitido o uso de nomes para especificar a interface virtual, 
+como: <tt>eth0:rede1</tt>, <tt>eth0:rede2</tt>, <tt>eth0:escrit√≥rio</tt>. 
 
  <item>
-Digite <tt>ifconfig</tt> para ver as configuraÁıes de sua nova interface de rede.
-Use o ping tambÈm para vÍ-la: <tt>ping 172.16.0.1</tt>.
+Digite <tt>ifconfig</tt> para ver as configura√ß√µes de sua nova interface de rede.
+Use o ping tamb√©m para v√™-la: <tt>ping 172.16.0.1</tt>.
 <example>
-eth0       Encapsulamento do Link: Ethernet  EndereÁo de HW 00:80:AE:B3:AA:AA
+eth0       Encapsulamento do Link: Ethernet  Endere√ßo de HW 00:80:AE:B3:AA:AA
           inet end.: 192.168.1.1  Bcast:192.168.1.255  Masc:255.255.255.0
-          UP BROADCASTRUNNING MULTICAST  MTU:1500  MÈtrica:1
+          UP BROADCASTRUNNING MULTICAST  MTU:1500  M√©trica:1
           RX packets:979 errors:0 dropped:0 overruns:0 frame:0
           TX packets:1228 errors:0 dropped:0 overruns:0 carrier:0
-          colisıes:1 txqueuelen:100 
+          colis√µes:1 txqueuelen:100 
           RX bytes:71516 (69.8 Kb)  TX bytes:1146031 (1.0 Mb)
-          IRQ:10 EndereÁo de E/S:0x300 
+          IRQ:10 Endere√ßo de E/S:0x300 
 
-eth0:0    Encapsulamento do Link: Ethernet  EndereÁo de HW 00:80:AE:B3:AA:AA
+eth0:0    Encapsulamento do Link: Ethernet  Endere√ßo de HW 00:80:AE:B3:AA:AA
           inet end.: 192.168.1.10  Bcast:192.168.1.255  Masc:255.255.255.0
-          UP BROADCASTRUNNING MULTICAST  MTU:1500  MÈtrica:1
-          IRQ:10 EndereÁo de E/S:0x300 
+          UP BROADCASTRUNNING MULTICAST  MTU:1500  M√©trica:1
+          IRQ:10 Endere√ßo de E/S:0x300 
 
 </example>
-Note que o MAC Address da placa <file>eth0</file> e <file>eth0:0</file> s„o 
+Note que o MAC Address da placa <file>eth0</file> e <file>eth0:0</file> s√£o 
 o mesmo, indicando que a mesma interface atende ambos os IPs. 
 
  <item>
-Se necess·rio ajuste as rotas ou gateway com o comando <prgn>route</prgn> 
+Se necess√°rio ajuste as rotas ou gateway com o comando <prgn>route</prgn> 
 <![ %CAPJUNTOS [(veja <ref id="rede-rota-c">)]]>. 
 
 </enumlist>
@@ -73,14 +73,14 @@ Para desativar uma interface de rede virtual, utilize a sintaxe:
 <tt>ifconfig eth0:0 down</tt> ou <tt>ifdown eth0:0</tt> 
 (caso esteja usando a <prgn>Debian</prgn>).
  <p>
-Se o teste com o <prgn>ping</prgn> n„o funcionar, verifique se possui o 
-suporte a <em>IP Alias</em> no kernel, se o mÛdulo precisa ser 
-carregado manualmente (caso seu kernel n„o esteja compilado com o 
+Se o teste com o <prgn>ping</prgn> n√£o funcionar, verifique se possui o 
+suporte a <em>IP Alias</em> no kernel, se o m√≥dulo precisa ser 
+carregado manualmente (caso seu kernel n√£o esteja compilado com o 
 <prgn>kmod</prgn>) ou se existe um firewall restritivo bloqueando 
 seu IP. 
  <p>
-Na distribuiÁ„o <prgn>Debian</prgn> a configuraÁ„o de uma interface virtual
-pode ser feita de forma idÍntica a interfaces est·ticas padr„o:
+Na distribui√ß√£o <prgn>Debian</prgn> a configura√ß√£o de uma interface virtual
+pode ser feita de forma id√™ntica a interfaces est√°ticas padr√£o:
 <example>
 auto eth0
 iface eth0 inet static
@@ -100,87 +100,87 @@ iface eth0:0 inet static
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Quando vocÍ desativa uma interface fÌsica 
-(<file>eth0</file>), todas as interfaces virtuais tambÈm s„o desativadas. 
+<strong>OBS1:</strong> Quando voc√™ desativa uma interface f√≠sica 
+(<file>eth0</file>), todas as interfaces virtuais tamb√©m s√£o desativadas. 
  <p>
-<strong>OBS2: </strong> Caso utilize um firewall (principalmente com a polÌtica
-padr„o permissiva), esteja atento as modificaÁıes que precisa realizar 
-para n„o comprometer a seguranÁa de sua m·quina. Caso tenha dados considerados 
-seguros em sua m·quina e esteja em d˙vida sobre as implicaÁıes de seguranÁa do 
-<em>IP Alias</em> em sua m·quina, consulte seu administrador de redes. 
+<strong>OBS2: </strong> Caso utilize um firewall (principalmente com a pol√≠tica
+padr√£o permissiva), esteja atento as modifica√ß√µes que precisa realizar 
+para n√£o comprometer a seguran√ßa de sua m√°quina. Caso tenha dados considerados 
+seguros em sua m√°quina e esteja em d√∫vida sobre as implica√ß√µes de seguran√ßa do 
+<em>IP Alias</em> em sua m√°quina, consulte seu administrador de redes. 
  <p>
-<strong>OBS3: </strong> Note que somente os 4 primeiros caracteres ser„o 
-mostrados na saÌda do <prgn>ifconfig</prgn>, desta forma procure utilizar no 
-m·ximo esta quantidade de caracteres para evitar problemas durante uma futura 
-administraÁ„o do servidor, no caso de esquecimento do nome completo da interface 
+<strong>OBS3: </strong> Note que somente os 4 primeiros caracteres ser√£o 
+mostrados na sa√≠da do <prgn>ifconfig</prgn>, desta forma procure utilizar no 
+m√°ximo esta quantidade de caracteres para evitar problemas durante uma futura 
+administra√ß√£o do servidor, no caso de esquecimento do nome completo da interface 
 virtual). ]]>
 
 
 <sect id="cfgs-bridge">Bridge
  <p>
-Uma <em>bridge</em> È uma interface de rede lÛgica composta por uma ou mais 
-interfaces de rede fÌsica operando em nÌvel 2 (enviando pacotes 
-atravÈs de <em>MAC adresses</em><![ %CAPJUNTOS [, veja 
+Uma <em>bridge</em> √© uma interface de rede l√≥gica composta por uma ou mais 
+interfaces de rede f√≠sica operando em n√≠vel 2 (enviando pacotes 
+atrav√©s de <em>MAC adresses</em><![ %CAPJUNTOS [, veja 
 <ref id="rede-camadas">]]>). 
  <p>
-Sua operaÁ„o È transparente na rede, podendo ser usada como 
-um switch/firewall, estaÁ„o de monitoraÁ„o, etc. Aqui descreverei 
-como montar uma bridge simples e uma aplicaÁ„o de firewall simples.
-As possibilidades s„o diversas e uma configuraÁ„o bem feita pode 
-detectar ataques, protocolos desconhecidos atÈ vÌrus complexos de rede.
+Sua opera√ß√£o √© transparente na rede, podendo ser usada como 
+um switch/firewall, esta√ß√£o de monitora√ß√£o, etc. Aqui descreverei 
+como montar uma bridge simples e uma aplica√ß√£o de firewall simples.
+As possibilidades s√£o diversas e uma configura√ß√£o bem feita pode 
+detectar ataques, protocolos desconhecidos at√© v√≠rus complexos de rede.
 
 
-<sect1 id="cfgs-bridge-req">Requerimentos para a InstalaÁ„o
+<sect1 id="cfgs-bridge-req">Requerimentos para a Instala√ß√£o
  <p>
-… necess·rio um dos seguintes requerimentos para se montar 
+√â necess√°rio um dos seguintes requerimentos para se montar 
 uma bridge:
 <list compact>
  <item>
-Kernel com suporte a bridge ativado (na configuraÁ„o de rede)
+Kernel com suporte a bridge ativado (na configura√ß√£o de rede)
  <item>
 O pacote <package>bridge-utils</package> instalado.
  <item>
 patch bridge-nf se desejar usar o netfilter com as interfaces 
-de entrada e saÌda (como antes de usar a bridge) ao invÈs de 
-controlar o tr·fego apenas pela interface criada pela bridge.
+de entrada e sa√≠da (como antes de usar a bridge) ao inv√©s de 
+controlar o tr√°fego apenas pela interface criada pela bridge.
 </list>
-Ative a opÁ„o <tt>802.1d Ethernet Bridging</tt> na seÁ„o <tt>Networking Options</tt>,
+Ative a op√ß√£o <tt>802.1d Ethernet Bridging</tt> na se√ß√£o <tt>Networking Options</tt>,
 recompile e instale seu novo kernel. Caso tenha aplicado o patch <em>bridge nf</em>, 
-aparecer· uma sub opÁ„o chamada <tt>netfilter (firewalling) support</tt> que 
-permitir· que o firewall trabalhe com as interfaces fÌsicas ao invÈs de somente 
-atravÈs da interface virtual criada pela bridge.
+aparecer√° uma sub op√ß√£o chamada <tt>netfilter (firewalling) support</tt> que 
+permitir√° que o firewall trabalhe com as interfaces f√≠sicas ao inv√©s de somente 
+atrav√©s da interface virtual criada pela bridge.
 
 <![ %OBS [
  <p>
 <strong>OBS: </strong> O patch <em>bridge nf</em> viola a 
-RFC de bridges. Mesmo assim ela È a ˙nica opÁ„o em muitas 
-aplicaÁıes, principalmente quando se deseja controlar o 
-tr·fego que atravessam as interfaces.
+RFC de bridges. Mesmo assim ela √© a √∫nica op√ß√£o em muitas 
+aplica√ß√µes, principalmente quando se deseja controlar o 
+tr√°fego que atravessam as interfaces.
 ]]>
 
-ApÛs isto instale o pacote <package>bridge-utils</package>, ele 
-possui os utilit·rios necess·rios para ativar, configurar e 
+Ap√≥s isto instale o pacote <package>bridge-utils</package>, ele 
+possui os utilit√°rios necess√°rios para ativar, configurar e 
 monitorar o funcionamento de sua bridge. 
  <p>
-N„o È necess·ria ativaÁ„o do <em>ip_forward</em> para o funcionamento
-da bridge, uma vez que ela funcionar· como uma interface lÛgica 
-que re˙ne interfaces de rede fÌsicas.
+N√£o √© necess√°ria ativa√ß√£o do <em>ip_forward</em> para o funcionamento
+da bridge, uma vez que ela funcionar√° como uma interface l√≥gica 
+que re√∫ne interfaces de rede f√≠sicas.
 
 
-<sect1 id="cfgs-bridge-cfg">ConfiguraÁ„o da bridge
+<sect1 id="cfgs-bridge-cfg">Configura√ß√£o da bridge
  <p>
-Nos exemplos abaixo, eu assumirei a utilizaÁ„o do nome de dispositivo
+Nos exemplos abaixo, eu assumirei a utiliza√ß√£o do nome de dispositivo
 <file>br0</file> para se referir a bridge no sistema. Siga estes passos
 para configurar uma bridge em sistemas <prgn>Debian</prgn>:
 <list compact>
  <item>
 Primeiro, desative os blocos no arquivo <file>/etc/network/interfaces</file> 
-que configuram as interfaces que ser„o usadas na bridge (por exemplo, 
+que configuram as interfaces que ser√£o usadas na bridge (por exemplo, 
 <file>eth0</file> e <file>eth1</file>). Elas podem ser comentadas, removidas, ou 
-vocÍ poder· comentar a linha <em>auto eth0</em> e <em>auto eth1</em> 
-para que ele n„o ative automaticamente estas interfaces com o 
-<tt>ifup -a</tt> (executado durante a inicializaÁ„o). Desta forma, a 
-inicializaÁ„o destas interfaces poder· somente ser feita manualmente. 
+voc√™ poder√° comentar a linha <em>auto eth0</em> e <em>auto eth1</em> 
+para que ele n√£o ative automaticamente estas interfaces com o 
+<tt>ifup -a</tt> (executado durante a inicializa√ß√£o). Desta forma, a 
+inicializa√ß√£o destas interfaces poder√° somente ser feita manualmente. 
 <example>
 auto br0
 iface br0 inet static
@@ -193,34 +193,34 @@ iface br0 inet static
 
 </example>
 Note que a interface virtual da brigde (<file>br0</file>) deve 
-ser configurada com par‚metros v·lidos de interfaces 
-(assim com uma interface de rede padr„o). Note 
-a adiÁ„o da linha <tt>bridge_ports</tt> que indica 
-que interfaces de rede ser„o usadas para fazer a bridge. 
-Caso seja usado o par‚metro <em>all</em>, todas as interfaces
-fÌsicas de rede ser„o usadas para fazer bridge (excluindo a 
+ser configurada com par√¢metros v√°lidos de interfaces 
+(assim com uma interface de rede padr√£o). Note 
+a adi√ß√£o da linha <tt>bridge_ports</tt> que indica 
+que interfaces de rede ser√£o usadas para fazer a bridge. 
+Caso seja usado o par√¢metro <em>all</em>, todas as interfaces
+f√≠sicas de rede ser√£o usadas para fazer bridge (excluindo a 
 <file>lo</file>).
 
  <item>
 Execute o <tt>ifdown -a</tt> (para desativar as interfaces antigas. 
  <item>
 Execute o <tt>ifup br0</tt> para levantar as interface <file>br0</file>. O 
-sistema poder demorar um pouco para levantar a bridge (as vezes atÈ 40 segundos) 
-mas isto È normal. 
+sistema poder demorar um pouco para levantar a bridge (as vezes at√© 40 segundos) 
+mas isto √© normal. 
 </list>
-Pronto, vocÍ ter· uma bridge simples j· configurada e 
-funcionando em seu sistema! As interfaces fÌsicas ser„o 
-configuradas com o IP 0.0.0.0 e estar„o operando em modo 
-promÌscuo. 
+Pronto, voc√™ ter√° uma bridge simples j√° configurada e 
+funcionando em seu sistema! As interfaces f√≠sicas ser√£o 
+configuradas com o IP 0.0.0.0 e estar√£o operando em modo 
+prom√≠scuo. 
 
 
-<sect1 id="cfgs-bridge-cfgadv">ConfiguraÁıes mais avanÁadas de bridge
+<sect1 id="cfgs-bridge-cfgadv">Configura√ß√µes mais avan√ßadas de bridge
  <p>
-A bridge permite ainda definir prioridade para utilizaÁ„o de 
-interfaces, alÈm de outras funcionalidades que lhe permitem 
-ajustar a performance da m·quina de acordo com sua rede. 
-Um bom exemplo, È quando vocÍ deseja criar 2 bridges em uma 
-mesma m·quina envolvendo interfaces de rede especÌficas, 
+A bridge permite ainda definir prioridade para utiliza√ß√£o de 
+interfaces, al√©m de outras funcionalidades que lhe permitem 
+ajustar a performance da m√°quina de acordo com sua rede. 
+Um bom exemplo, √© quando voc√™ deseja criar 2 bridges em uma 
+mesma m√°quina envolvendo interfaces de rede espec√≠ficas, 
 uma atendendo a rede 192.168.0.x e outra a rede 192.168.1.x:
 <example>
 auto br0
@@ -253,14 +253,14 @@ fazem parte da bridge <file>br0</file> e as demais (<file>eth2</file>,
 </example>
 
 
-<sect1 id="cfgs-bridge-cfgmanual">ConfiguraÁ„o manual da bridge
+<sect1 id="cfgs-bridge-cfgmanual">Configura√ß√£o manual da bridge
  <p>
-Internamente, o que o <file>ifup</file> faz È interpretar os par‚metros 
-no arquivo de configuraÁ„o e executar os comandos do pacote 
+Internamente, o que o <file>ifup</file> faz √© interpretar os par√¢metros 
+no arquivo de configura√ß√£o e executar os comandos do pacote 
 <package>bridge-utils</package> para ativar a interface da bridge. O 
-utilit·rio respons·vel por este processo È o <prgn>brctl</prgn>. Ser· 
-documentado aqui como ativar uma bridge atravÈs deste programa (que 
-servir· para fazer uma bridge em qualquer sistema <prgn>Linux</prgn>).
+utilit√°rio respons√°vel por este processo √© o <prgn>brctl</prgn>. Ser√° 
+documentado aqui como ativar uma bridge atrav√©s deste programa (que 
+servir√° para fazer uma bridge em qualquer sistema <prgn>Linux</prgn>).
 <example>
 brctl addbr br0
 brctl addif br0 eth0
@@ -271,10 +271,10 @@ ifconfig eth1 0.0.0.0
 ifconfig br0 192.168.0.4
 </example>
 O comando acima ativa uma bridge simples, como o primeiro 
-exemplo. Tenha certeza que as interfaces fÌsicas de rede est„o 
+exemplo. Tenha certeza que as interfaces f√≠sicas de rede est√£o 
 desativadas antes de executar este comando.
  <p>
-Outros par‚metros que podem ser usados com o <prgn>brctl</prgn>:
+Outros par√¢metros que podem ser usados com o <prgn>brctl</prgn>:
 <taglist compact>
  <tag>setbridgeprio [bridge] [prioridade]</tag>
   <item>
@@ -287,14 +287,14 @@ Ajusta o delay da bridge especificada em [tempo] segundos.
 
  <tag>setmaxage [bridge] [tempo]</tag>
   <item>
-Ajusta o tempo m·ximo de vida da bridge para [tempo] segundos.
+Ajusta o tempo m√°ximo de vida da bridge para [tempo] segundos.
 
  <tag>setportprio [bridge] [interface] [prioridade]</tag>
   <item>
 Ajusta a prioridade da [interface] especificada na [bridge]. 
 O valor de prioridade deve estar entre 0 e 255 (8 bits). Quanto 
-menor o valor maior a prioridade. Isto È ˙til para otimizaÁıes 
-o volume de tr·fego em m·quinas que possuem diversas interfaces 
+menor o valor maior a prioridade. Isto √© √∫til para otimiza√ß√µes 
+o volume de tr√°fego em m√°quinas que possuem diversas interfaces 
 configuradas fazendo parte da bridge. 
 
 </taglist>
@@ -313,170 +313,170 @@ ifconfig br0 192.168.0.4
 </example>
 
 
-<sect1 id="cfgs-bridge-fw">Usando o iptables para construir um firewall na m·quina da bridge
+<sect1 id="cfgs-bridge-fw">Usando o iptables para construir um firewall na m√°quina da bridge
  <p>
-A construÁ„o de um firewall em uma bridge n„o tem maiores segredos, 
-basta referir-se a interface lÛgica da bridge para construir suas 
+A constru√ß√£o de um firewall em uma bridge n√£o tem maiores segredos, 
+basta referir-se a interface l√≥gica da bridge para construir suas 
 regras (tendo em mente como uma bridge funciona e como os 
-pacotes atravessar„o as interfaces).
+pacotes atravessar√£o as interfaces).
  <p>
-Caso aplique o patch <em>bridge nf</em>, ser· possÌvel referir-se 
-as interfaces locais de rede e tambÈm a da bridge. Neste caso 
-a interface da bridge ser· identificada como 
+Caso aplique o patch <em>bridge nf</em>, ser√° poss√≠vel referir-se 
+as interfaces locais de rede e tamb√©m a da bridge. Neste caso 
+a interface da bridge ser√° identificada como 
 interface <em>IN</em>  ou <em>OUT</em> <em>PHYSIN</em> e as interfaces 
-fÌsicas como <em>PHYSOUT</em>:
+f√≠sicas como <em>PHYSOUT</em>:
 <example>
 Oct 22 09:19:24 router kernel: IN=br0 PHYSIN=eth0 OUT= MAC=ff:ff:ff:ff:ff:ff:00:d4:7d:ff:ff:ff:08:00 SRC=192.168.0.4 DST=1982.168.255.255 LEN=238 TOS=0x00 PREC=0x00 TTL=128 ID=23383 PROTO=UDP SPT=138 DPT=138 LEN=218 
 
 </example>
-Mesmo que a bridge n„o necessite de <em>ip_forward</em> ativado para 
-redirecionar os pacotes atravÈs das interfaces, isto ser· necess·rio 
-para habilitar o uso do firewall para controlar o tr·fego que atravessa 
+Mesmo que a bridge n√£o necessite de <em>ip_forward</em> ativado para 
+redirecionar os pacotes atrav√©s das interfaces, isto ser√° necess√°rio 
+para habilitar o uso do firewall para controlar o tr√°fego que atravessa 
 as interfaces. 
 
 
-<sect1 id="cfgs-bridge-filternoip">Filtrando pacotes n„o IP na bridge
+<sect1 id="cfgs-bridge-filternoip">Filtrando pacotes n√£o IP na bridge
  <p>
-Para fazer esta tarefa, utilize a ferramenta <prgn>ebtables</prgn> disponÌvel em 
+Para fazer esta tarefa, utilize a ferramenta <prgn>ebtables</prgn> dispon√≠vel em 
 (<url id="&url-ebtables-www;">).
 
 
 <sect id="cfgs-plip">Conectando dois computadores usando a porta paralela
  <p>
-O <prgn>Linux</prgn> È bastante poderoso quando se trata de 
-mÈtodos para se conectar duas ou mais m·quinas em rede. Uma 
-brincadeira que È levada a sÈrio È que qualquer coisa que 
-ligue uma m·quina a outra possui um controlador desenvolvido 
-por alguÈm para fazer uma rede :)
+O <prgn>Linux</prgn> √© bastante poderoso quando se trata de 
+m√©todos para se conectar duas ou mais m√°quinas em rede. Uma 
+brincadeira que √© levada a s√©rio √© que qualquer coisa que 
+ligue uma m√°quina a outra possui um controlador desenvolvido 
+por algu√©m para fazer uma rede :)
  <p>
 Usando o <file>plip</file> (<em>Parallel Line Internet Protocol</em>) 
 permite <tt>criar</tt> uma interface de rede para a porta 
 paralela que utiliza todos os recursos de uma rede normal. 
-Esta interface ser· identificada por <file>plip?</file>, 
-onde <tt>?</tt> È o n˙mero da porta paralela, recÈm configurada.
+Esta interface ser√° identificada por <file>plip?</file>, 
+onde <tt>?</tt> √© o n√∫mero da porta paralela, rec√©m configurada.
  <p>
-A rede via porta paralela pode atingir atÈ 1Mb/s e mesmo esta 
+A rede via porta paralela pode atingir at√© 1Mb/s e mesmo esta 
 velocidade parecer aparentemente baixa apresenta diversas 
 vantagens por sua escalabilidade e pode lhe salvar em muitas 
-situaÁıes de problemas. Algumas caracterÌsticas deste tipo de rede:
+situa√ß√µes de problemas. Algumas caracter√≠sticas deste tipo de rede:
 <list compact>
  <item>
-Pode ser configurado em qualquer m·quina, pois sempre haver· uma porta 
+Pode ser configurado em qualquer m√°quina, pois sempre haver√° uma porta 
 paralela.
  <item>
-… ˙til para fazer instalaÁ„o de <prgn>Linux</prgn> em m·quinas sem CD-ROM. No 
-momento da instalaÁ„o È preciso somente alternar para um console, executar os 
-passos descritos aqui e continuar com o processo de instalaÁ„o normal :)
+√â √∫til para fazer instala√ß√£o de <prgn>Linux</prgn> em m√°quinas sem CD-ROM. No 
+momento da instala√ß√£o √© preciso somente alternar para um console, executar os 
+passos descritos aqui e continuar com o processo de instala√ß√£o normal :)
  <item>
-… uma boa soluÁ„o quando as duas m·quinas est„o prÛximas
+√â uma boa solu√ß√£o quando as duas m√°quinas est√£o pr√≥ximas
  <item>
-O custo para montagem desta rede È extremamente baixo, bastando um cabo 
-Lap Link Paralelo que custa no m·ximo R$20,00 o de 1,5M ou se gosta de 
-eletrÙnica, montar seu prÛprio cabo usando o esquema que descrevo em 
+O custo para montagem desta rede √© extremamente baixo, bastando um cabo 
+Lap Link Paralelo que custa no m√°ximo R$20,00 o de 1,5M ou se gosta de 
+eletr√¥nica, montar seu pr√≥prio cabo usando o esquema que descrevo em 
 <ref id="cfgs-plip-cabo">. 
  <item>
-VocÍ poder· fazer qualquer coisa que faria em uma rede normal (incluindo
+Voc√™ poder√° fazer qualquer coisa que faria em uma rede normal (incluindo
 MASQUERADING, roteamento entre redes, etc) sendo bastante interessante 
-para testes pr·ticos dos exemplos do Foca Linux AvanÁado ;-)
+para testes pr√°ticos dos exemplos do Foca Linux Avan√ßado ;-)
  <item>
-Ficar· admirado com as capacidade de rede existente no 
-<prgn>Linux</prgn> e feliz por ter colocado mais uma configuraÁ„o em 
+Ficar√° admirado com as capacidade de rede existente no 
+<prgn>Linux</prgn> e feliz por ter colocado mais uma configura√ß√£o em 
 funcionamento :)
 </list>
 
-Agora, os contras da conex„o via porta paralela:
+Agora, os contras da conex√£o via porta paralela:
 <list compact>
  <item>
-A porta paralela n„o estar· disponÌvel para ser usada em impressoras,
-conex„o de c‚meras.
+A porta paralela n√£o estar√° dispon√≠vel para ser usada em impressoras,
+conex√£o de c√¢meras.
 
  <item>
-O cabo n„o pode ter mais de 4,5 metros. Acima dessa comprimento, vocÍ pode
-colocar sua controladora em risco alÈm da perda de sinal. Por seguranÁa, 
-o tamanho recomend·vel È 2,5 metros.
+O cabo n√£o pode ter mais de 4,5 metros. Acima dessa comprimento, voc√™ pode
+colocar sua controladora em risco al√©m da perda de sinal. Por seguran√ßa, 
+o tamanho recomend√°vel √© 2,5 metros.
  
  <item>
-Quando toda a banda do cabo È utilizada, algumas CPUs se tornam extremamente 
+Quando toda a banda do cabo √© utilizada, algumas CPUs se tornam extremamente 
 lentas.
 
 </list>
 
-Para configurar uma conex„o via cabo paralelo (plip) entre duas m·quinas, 
-vamos assumir que a primeira m·quina ter· o IP 192.168.1.1 e a segunda 
-m·quina 192.168.1.2:
+Para configurar uma conex√£o via cabo paralelo (plip) entre duas m√°quinas, 
+vamos assumir que a primeira m√°quina ter√° o IP 192.168.1.1 e a segunda 
+m√°quina 192.168.1.2:
 <enumlist compact>
  <item>
 Conecte o cabo Lap Link em cada uma das portas de impressora. Caso 
-saiba fazer conexıes eletrÙnicas ou goste do assunto, veja 
+saiba fazer conex√µes eletr√¥nicas ou goste do assunto, veja 
 <ref id="cfgs-plip-cabo">.
 
  <item>
-Verifique se o seu kernel est· compilado com o suporte a rede <file>plip</file>. 
-Caso n„o esteja, a configuraÁ„o da interface <file>plip</file> falhar· no 
+Verifique se o seu kernel est√° compilado com o suporte a rede <file>plip</file>. 
+Caso n√£o esteja, a configura√ß√£o da interface <file>plip</file> falhar√° no 
 passo do <prgn>ifconfig</prgn>.
 
  <item>
-Se o sistema executa algum daemon de impress„o, interrompa antes de usar 
-a porta paralela. Alguns tipos de serviÁos de impress„o interferem no 
+Se o sistema executa algum daemon de impress√£o, interrompa antes de usar 
+a porta paralela. Alguns tipos de servi√ßos de impress√£o interferem no 
 funcionamento do <file>plip</file>.
 
  <item>
-Configure o mÛdulo <file>parport_pc</file> passando o par‚metro 
+Configure o m√≥dulo <file>parport_pc</file> passando o par√¢metro 
 <tt>irq=7</tt> (a IRQ que sua porta de impressora utiliza). Esta 
-configuraÁ„o È necess·ria pois em algumas m·quinas isso faz que 
-o <file>plip</file> n„o funcione ou aconteÁam somente timeouts 
-de transmiss„o.
+configura√ß√£o √© necess√°ria pois em algumas m√°quinas isso faz que 
+o <file>plip</file> n√£o funcione ou aconte√ßam somente timeouts 
+de transmiss√£o.
 
  <item>
 Execute o comando <tt>ifconfig plip0 192.168.1.1</tt>. Verifique se a 
 interface foi ativada com o comando <tt>ifconfig plip0</tt>.
 
  <item>
-Nesse ponto a interface est· ativa, mas a nossa m·quina n„o conhece nada 
-sobre a rede ou como alcanÁar a m·quina 192.168.1.2. Como a conex„o È 
-ponto a ponto, precisamos adicionar uma rota direta para esta m·quina 
+Nesse ponto a interface est√° ativa, mas a nossa m√°quina n√£o conhece nada 
+sobre a rede ou como alcan√ßar a m√°quina 192.168.1.2. Como a conex√£o √© 
+ponto a ponto, precisamos adicionar uma rota direta para esta m√°quina 
 com o comando: <tt>route add -host 192.168.1.2 plip0</tt>.
  <p>
 Este comando diz para criar uma rota com o destino <tt>192.168.1.2</tt> usando
 a interface <file>plip0</file>.
 
  <item>
-Configure a outra m·quina seguindo os passos acima, apenas invertendo os 
-2 endereÁos IPs usados.
+Configure a outra m√°quina seguindo os passos acima, apenas invertendo os 
+2 endere√ßos IPs usados.
 
 </enumlist>
-Pronto, agora verifique se cada uma das m·quinas se comunica com a outra usando
+Pronto, agora verifique se cada uma das m√°quinas se comunica com a outra usando
 o comando <tt>ping 192.168.1.x</tt>. Se ocorrer um erro de timeout na 
-transmiss„o, leia atentamente os passos acima e refaÁa a configuraÁ„o em 
-ambas as m·quinas. Ainda n„o funcionando, verifique se existe um firewall 
-bloqueando os pacotes da nova interface e se o cabo Lap Link est· em bom 
+transmiss√£o, leia atentamente os passos acima e refa√ßa a configura√ß√£o em 
+ambas as m√°quinas. Ainda n√£o funcionando, verifique se existe um firewall 
+bloqueando os pacotes da nova interface e se o cabo Lap Link est√° em bom 
 estado, o problema pode estar ai.
  <p>
-O n˙mero m·ximo de interfaces <file>plip?</file> est· limitado ao n˙mero
-m·ximo suportado pela m·quina. O padr„o em sistemas padr„o IBM/PC È
+O n√∫mero m√°ximo de interfaces <file>plip?</file> est√° limitado ao n√∫mero
+m√°ximo suportado pela m√°quina. O padr√£o em sistemas padr√£o IBM/PC √©
 de 3 (<file>plip0</file>, <file>plip1</file>, <file>plip2</file>).
  <p>
 Para desativar uma rede plip, utilize o comando <tt>ifconfig plip0 down</tt>, 
-remova o mÛdulo <file>plip</file> (<tt>rmmod plip</tt>). ApÛs isto, a 
-porta paralela ser· liberada para uso por outros aplicativos.
+remova o m√≥dulo <file>plip</file> (<tt>rmmod plip</tt>). Ap√≥s isto, a 
+porta paralela ser√° liberada para uso por outros aplicativos.
 
 
 <sect1 id="cfgs-plip-cabo">Construindo um cabo LapLink Paralelo
  <p>
-Se vocÍ tem experiÍncia com eletrÙnica, poder· construir seu prÛprio cabo 
-LapLink Paralelo para fazer os testes desta seÁ„o. Os materiais necess·rios s„o:
+Se voc√™ tem experi√™ncia com eletr√¥nica, poder√° construir seu pr√≥prio cabo 
+LapLink Paralelo para fazer os testes desta se√ß√£o. Os materiais necess√°rios s√£o:
 <list compact>
  <item><tt>2</tt> Conectores DB25 macho
  <item><tt>2</tt> Capas para os conectores acima.
- <item>Fio para ligaÁ„o dos conectores (15 ligaÁıes). No meu caso 
+ <item>Fio para liga√ß√£o dos conectores (15 liga√ß√µes). No meu caso 
 utilizei 2 metros de um rolo de cabo SCSI de 50 vias para fazer 
-as ligaÁıes, que È uma boa alternativa para manter o cabo bonito 
+as liga√ß√µes, que √© uma boa alternativa para manter o cabo bonito 
 e os fios juntos.
 
 </list>
 
-Este È o conector macho DB25 (a tomada que liga no computador) visto por tr·s
-(minha namorada j· disse que n„o sou bom em arte ASCII). Bom, n„o custa tentar 
+Este √© o conector macho DB25 (a tomada que liga no computador) visto por tr√°s
+(minha namorada j√° disse que n√£o sou bom em arte ASCII). Bom, n√£o custa tentar 
 de novo:
 <example>
   -------------------------------
@@ -486,8 +486,8 @@ de novo:
 
 </example>
 
-A figura acima mostra a posiÁ„o dos pinos como referÍncia para a soldagem 
-dos terminais. A tabela abaixo mostra a ligaÁ„o dos fios nos cabos das 
+A figura acima mostra a posi√ß√£o dos pinos como refer√™ncia para a soldagem 
+dos terminais. A tabela abaixo mostra a liga√ß√£o dos fios nos cabos das 
 2 pontas do cabo:
 <example>
 +---------+---------+
@@ -516,77 +516,77 @@ dos terminais. A tabela abaixo mostra a ligaÁ„o dos fios nos cabos das
 
 <sect id="cfgs-slattach">Conectando dois computadores usando a porta serial
  <p>
-Este mÈtodo permite criar uma rede ponto a ponto usando
-a porta serial da m·quina, que funcionar· de forma semelhante
+Este m√©todo permite criar uma rede ponto a ponto usando
+a porta serial da m√°quina, que funcionar√° de forma semelhante
 a mostrada em <ref id="cfgs-plip">.
  <p>
-O mÈtodo que irei descrever È bastante simples e utiliza o 
+O m√©todo que irei descrever √© bastante simples e utiliza o 
 <prgn>slattach</prgn> e o protocolo <em>slip</em> para 
-comunicaÁ„o entre as duas m·quinas, mas nada impede que 
-seja usado o <em>ppp</em> para comunicaÁ„o, apenas acrescentar· 
-um pouco mais de complexibilidade para esta configuraÁ„o para 
+comunica√ß√£o entre as duas m√°quinas, mas nada impede que 
+seja usado o <em>ppp</em> para comunica√ß√£o, apenas acrescentar√° 
+um pouco mais de complexibilidade para esta configura√ß√£o para 
 obter o mesmo resultado.
  <p>
-Usando o mÈtodo descrito, ser· criada uma interface chamada 
-<file>sl?</file> (interface SLIP, onde <tt>?</tt> È o 
-n˙mero da interface recÈm configurada).
+Usando o m√©todo descrito, ser√° criada uma interface chamada 
+<file>sl?</file> (interface SLIP, onde <tt>?</tt> √© o 
+n√∫mero da interface rec√©m configurada).
  <p>
-A rede via porta serial pode atingir em mÈdia 115.200kbps/s
-mas È pr·tico quando n„o tem outras opÁıes para fazer uma 
-rede ponto a ponto. Segue algumas caracterÌsticas deste tipo
+A rede via porta serial pode atingir em m√©dia 115.200kbps/s
+mas √© pr√°tico quando n√£o tem outras op√ß√µes para fazer uma 
+rede ponto a ponto. Segue algumas caracter√≠sticas deste tipo
 de rede:
 <list compact>
  <item>
-Pode ser configurado em qualquer m·quina, pois sempre haver· uma porta 
-serial disponÌvel.
+Pode ser configurado em qualquer m√°quina, pois sempre haver√° uma porta 
+serial dispon√≠vel.
  <item>
-… possÌvel fazer a instalaÁ„o de <prgn>Linux</prgn> em m·quinas sem CD-ROM
-e acesso a rede, onde n„o È possÌvel gerar disquetes para instalar o resto
-dos pacotes necess·rios, embora seja limitado a 11Kb/s. No momento da 
-instalaÁ„o È preciso somente alternar para um console, executar os 
-passos descritos aqui e continuar com o processo de instalaÁ„o normal :)
+√â poss√≠vel fazer a instala√ß√£o de <prgn>Linux</prgn> em m√°quinas sem CD-ROM
+e acesso a rede, onde n√£o √© poss√≠vel gerar disquetes para instalar o resto
+dos pacotes necess√°rios, embora seja limitado a 11Kb/s. No momento da 
+instala√ß√£o √© preciso somente alternar para um console, executar os 
+passos descritos aqui e continuar com o processo de instala√ß√£o normal :)
  <item>
-… uma boa soluÁ„o quando as duas m·quinas atÈ em ambientes prÛximos.
+√â uma boa solu√ß√£o quando as duas m√°quinas at√© em ambientes pr√≥ximos.
  <item>
-O custo para montagem desta rede È extremamente baixo, bastando um cabo 
-Lap Link Serial custa em mÈdia R$20,00 o cabo de 4 metros. Se vocÍ 
-tambÈm È um amante da eletrÙnica, estou descrevendo o esquema de 
+O custo para montagem desta rede √© extremamente baixo, bastando um cabo 
+Lap Link Serial custa em m√©dia R$20,00 o cabo de 4 metros. Se voc√™ 
+tamb√©m √© um amante da eletr√¥nica, estou descrevendo o esquema de 
 montagem do cabo em <ref id="cfgs-slattach-cabo">. 
  <item>
-VocÍ poder· fazer qualquer coisa que faria em uma rede normal (incluindo
+Voc√™ poder√° fazer qualquer coisa que faria em uma rede normal (incluindo
 roteamento entre redes, MASQUERADING, etc) 
  <item>
-… mais uma prova das capacidades de rede que È possÌvel usando o 
+√â mais uma prova das capacidades de rede que √© poss√≠vel usando o 
 <prgn>Linux</prgn>.
 </list>
 
-Agora, os contras da conex„o via porta serial:
+Agora, os contras da conex√£o via porta serial:
 <list compact>
  <item>
-A porta serial n„o estar· disponÌvel para ser usada para conex„o de 
-mouses, impressoras seriais, dispositivos eletrÙnicos e inteligentes, 
+A porta serial n√£o estar√° dispon√≠vel para ser usada para conex√£o de 
+mouses, impressoras seriais, dispositivos eletr√¥nicos e inteligentes, 
 etc.
 
  <item>
-O comprimento m·ximo do cabo È de 15 metros. Acima dessa comprimento, 
-vocÍ pode colocar sua controladora em risco alÈm da perda de sinal. Por 
-seguranÁa, o tamanho m·ximo recomend·vel È 13 metros
+O comprimento m√°ximo do cabo √© de 15 metros. Acima dessa comprimento, 
+voc√™ pode colocar sua controladora em risco al√©m da perda de sinal. Por 
+seguran√ßa, o tamanho m√°ximo recomend√°vel √© 13 metros
 </list>
 
-Para configurar uma conex„o via cabo serial entre duas m·quinas, 
-vamos assumir que a primeira m·quina ter· o IP 192.168.2.1 e a segunda 
-m·quina 192.168.2.2:
+Para configurar uma conex√£o via cabo serial entre duas m√°quinas, 
+vamos assumir que a primeira m√°quina ter√° o IP 192.168.2.1 e a segunda 
+m√°quina 192.168.2.2:
 <enumlist compact>
  <item>
 Conecte o cabo Lap Link serial em cada uma das portas seriais.
 
  <item>
-Verifique se o seu kernel est· compilado com o suporte a rede <file>slip</file> 
-e tambÈm com suporte a <tt>cslip</tt> (slip compactado, que melhora a 
-taxa de transferÍncia dependendo dos dados sendo transmitidos).
-Caso n„o tenha o suporte a <em>slip</em>, vocÍ poder· usar o <em>ppp</em>
-nas duas pontas do link fazendo algumas adaptaÁıes para usar a interface 
-<file>ppp?</file>, como È simples n„o ser· descrito neste guia :) (veja o 
+Verifique se o seu kernel est√° compilado com o suporte a rede <file>slip</file> 
+e tamb√©m com suporte a <tt>cslip</tt> (slip compactado, que melhora a 
+taxa de transfer√™ncia dependendo dos dados sendo transmitidos).
+Caso n√£o tenha o suporte a <em>slip</em>, voc√™ poder√° usar o <em>ppp</em>
+nas duas pontas do link fazendo algumas adapta√ß√µes para usar a interface 
+<file>ppp?</file>, como √© simples n√£o ser√° descrito neste guia :) (veja o 
 manual do <prgn>slattach</prgn>)
 
  <item>
@@ -594,81 +594,81 @@ Interrompa qualquer programa que esteja usando a porta serial.
 
  <item>
 Execute o comando <tt>slattach -s 115200 /dev/ttyS1 &</tt>. A 
-funÁ„o do <prgn>slattach</prgn> È associar uma interface de 
+fun√ß√£o do <prgn>slattach</prgn> √© associar uma interface de 
 rede a um dispositivo, neste caso associamos o dispositivo 
 <file>/dev/ttyS1</file> (segunda porta serial) a interface 
 <file>sl0</file> (verifique se a interface foi criada usando 
 o comando <tt>ifconfig sl0</tt>.
  <p>
-A opÁ„o <tt>-p</tt> especifica um protocolo alternativo para o 
-<prgn>slattach</prgn>, o padr„o È o <em>cslip</em>. Outros 
-tipos disponÌveis s„o <em>slip</em>, <em>adaptive</em> 
-<em>ppp</em> e <em>kiss</em> (usado em conexıes de r·dio 
-AX.25). Recomendo ver a p·gina de manual do <prgn>slattach</prgn>.
+A op√ß√£o <tt>-p</tt> especifica um protocolo alternativo para o 
+<prgn>slattach</prgn>, o padr√£o √© o <em>cslip</em>. Outros 
+tipos dispon√≠veis s√£o <em>slip</em>, <em>adaptive</em> 
+<em>ppp</em> e <em>kiss</em> (usado em conex√µes de r√°dio 
+AX.25). Recomendo ver a p√°gina de manual do <prgn>slattach</prgn>.
 
  <item>
-Nesse ponto a interface est· ativa, mas a nossa m·quina n„o conhece nada 
-sobre a rede ou como alcanÁar a m·quina 192.168.2.2. Como a conex„o È 
-ponto a ponto, precisamos adicionar uma rota direta para esta m·quina 
+Nesse ponto a interface est√° ativa, mas a nossa m√°quina n√£o conhece nada 
+sobre a rede ou como alcan√ßar a m√°quina 192.168.2.2. Como a conex√£o √© 
+ponto a ponto, precisamos adicionar uma rota direta para esta m√°quina 
 com o comando: <tt>route add -host 192.168.2.2 sl0</tt>.
  <p>
 Este comando diz para criar uma rota com o destino <tt>192.168.2.2</tt> usando
 a interface <file>sl0</file>.
 
  <item>
-Configure a outra m·quina seguindo os passos acima, apenas invertendo os 
-2 endereÁos IPs usados.
+Configure a outra m√°quina seguindo os passos acima, apenas invertendo os 
+2 endere√ßos IPs usados.
 
 </enumlist>
-Pronto, agora verifique se cada uma das m·quinas se comunica com a outra usando
+Pronto, agora verifique se cada uma das m√°quinas se comunica com a outra usando
 o comando <tt>ping 192.168.2.x</tt>. Se ocorrer um erro, verifique 
-os seguintes Ìtens:
+os seguintes √≠tens:
 <list compact>
  <item>
 Se as velocidade e o protocolo especificado em ambos os lados do
-link est„o iguais.
+link est√£o iguais.
  <item>
-Se j· existe um processo <prgn>slattach</prgn> rodando em segundo
+Se j√° existe um processo <prgn>slattach</prgn> rodando em segundo
 plano.
  <item>
 Se existe um firewall bloqueando os pacotes da nova interface 
  <item>
-Se o cabo Lap Link serial est· em bom estado.
+Se o cabo Lap Link serial est√° em bom estado.
 </list>
-O n˙mero m·ximo de interfaces <file>sl?</file> depende da 
-quantidade de portas seriais da sua m·quina. Caso utilize uma 
-placa multi serial, o n˙mero m·ximo de conexıes de rede se torna
-grande (mas isto È apenas para curiosidade, pois n„o compensa uma 
-multi serial para ligar uma quantidade grande de m·quinas a baixa 
+O n√∫mero m√°ximo de interfaces <file>sl?</file> depende da 
+quantidade de portas seriais da sua m√°quina. Caso utilize uma 
+placa multi serial, o n√∫mero m√°ximo de conex√µes de rede se torna
+grande (mas isto √© apenas para curiosidade, pois n√£o compensa uma 
+multi serial para ligar uma quantidade grande de m√°quinas a baixa 
 velocidade).
  <p>
-Para derrubar a conex„o, basta derrubar a interface serial com o 
+Para derrubar a conex√£o, basta derrubar a interface serial com o 
 <tt>ifconfig sl0 down</tt>, dar um kill no daemon do <prgn>slattach</prgn>
-e remover o mÛdulo <file>slip</file> e <file>cslip</file> com o 
+e remover o m√≥dulo <file>slip</file> e <file>cslip</file> com o 
 comando <prgn>rmmod</prgn>.
-Assim sua porta serial ser· liberada e poder· ser usada por outros aplicativos.
+Assim sua porta serial ser√° liberada e poder√° ser usada por outros aplicativos.
 
 
 <sect1 id="cfgs-slattach-cabo">Construindo um cabo LapLink Serial
  <p>
-Se vocÍ È uma pessoa que sabe mexer com eletrÙnica, poder· construir seu 
-prÛprio cabo LapLink serial para fazer os testes desta seÁ„o. Os 
-materiais necess·rios s„o:
+Se voc√™ √© uma pessoa que sabe mexer com eletr√¥nica, poder√° construir seu 
+pr√≥prio cabo LapLink serial para fazer os testes desta se√ß√£o. Os 
+materiais necess√°rios s√£o:
 
 <list compact>
- <item><tt>2</tt> - Conectores seriais DB9 fÍmea
+ <item><tt>2</tt> - Conectores seriais DB9 f√™mea
  <item><tt>2</tt> - Capas para os conectores acima.
- <item>Fios para ligaÁ„o dos conectores. Uma forma 
+ <item>Fios para liga√ß√£o dos conectores. Uma forma 
 que utilizei para montar este cabo foi aproveitar um 
 carretel de cabo SCSI aproveitando 10 metros desfiando
 somente 9 dos 50 fios que acompanha o cabo (deixei um 
 fio extra no caso de algum outro se romper).
- <item>Ferro de solda e solda para as ligaÁıes.
- <item>ConcentraÁ„o e paciÍncia para a confecÁ„o correta dos 
+ <item>Ferro de solda e solda para as liga√ß√µes.
+ <item>Concentra√ß√£o e paci√™ncia para a confec√ß√£o correta dos 
 cabos.
 </list>
 
-Este È o conector fÍmea DB9 (tomada que liga na m·quina) visto por tr·s (hora de 
+Este √© o conector f√™mea DB9 (tomada que liga na m√°quina) visto por tr√°s (hora de 
 mostrar novamente meu talento com arte ASCII :))
 <example>
   --------------
@@ -677,9 +677,9 @@ mostrar novamente meu talento com arte ASCII :))
     ----------
 
 </example>
-A figura acima mostra a posiÁ„o dos pinos como referÍncia para a soldagem 
-dos terminais. A tabela abaixo mostra a ligaÁ„o dos fios nos cabos das 
-2 pontas. Note que cada ponta pode ter a opÁ„o da serial de 9 ou 25 pinos
+A figura acima mostra a posi√ß√£o dos pinos como refer√™ncia para a soldagem 
+dos terminais. A tabela abaixo mostra a liga√ß√£o dos fios nos cabos das 
+2 pontas. Note que cada ponta pode ter a op√ß√£o da serial de 9 ou 25 pinos
 (ou as duas):
 <example> 
 +--------+--------+---------+

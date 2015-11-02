@@ -1,189 +1,189 @@
-<chapt id="d-contas">Gerenciamento de contas e cuidados para a proteção de senhas
+<chapt id="d-contas">Gerenciamento de contas e cuidados para a proteÃ§Ã£o de senhas
  <p>
-Este capítulo traz explicações e comandos úteis para o 
-gerenciamento de contas e proteção de senhas de usuários em sistemas 
-<prgn>Linux</prgn>. Também explica os principais métodos usados para 
-quebra de senha usando diversos métodos como engenharia social, brute 
-force, etc., bem como dicas de como escolher boas senhas para você e seus 
-usuários e métodos automatizados de checagem de senhas vulneráveis. 
+Este capÃ­tulo traz explicaÃ§Ãµes e comandos Ãºteis para o 
+gerenciamento de contas e proteÃ§Ã£o de senhas de usuÃ¡rios em sistemas 
+<prgn>Linux</prgn>. TambÃ©m explica os principais mÃ©todos usados para 
+quebra de senha usando diversos mÃ©todos como engenharia social, brute 
+force, etc., bem como dicas de como escolher boas senhas para vocÃª e seus 
+usuÃ¡rios e mÃ©todos automatizados de checagem de senhas vulnerÃ¡veis. 
  <p>
-Estes métodos são explicados para que você entenda, se previna destes tipos 
-de ataques além de entender a importância de políticas de proteção de senhas. 
+Estes mÃ©todos sÃ£o explicados para que vocÃª entenda, se previna destes tipos 
+de ataques alÃ©m de entender a importÃ¢ncia de polÃ­ticas de proteÃ§Ã£o de senhas. 
 
 
-<sect id="d-contas-intro">Introdução
+<sect id="d-contas-intro">IntroduÃ§Ã£o
  <p>
-A criação de uma conta em uma máquina <prgn>Linux</prgn> pode expor seu sistema 
+A criaÃ§Ã£o de uma conta em uma mÃ¡quina <prgn>Linux</prgn> pode expor seu sistema 
 (ou todas suas redes) a crackers simplesmente com a falta de treinamento e 
-políticas de segurança. 
-Uma invasor com um simples acesso a uma conta de usuário pode conseguir acesso 
-a áreas que contém dados importantes expondo seu sistema a ataques ou 
+polÃ­ticas de seguranÃ§a. 
+Uma invasor com um simples acesso a uma conta de usuÃ¡rio pode conseguir acesso 
+a Ã¡reas que contÃ©m dados importantes expondo seu sistema a ataques ou 
 roubo de dados. 
  <p>
-Um firewall não pode fazer muito em uma situação dessas, um acesso através
-de uma conta de sistema válida é difícil de ser auditado e descoberto, a 
-não ser que o usuário monitore seus acesso via <prgn>lastlog</prgn> e 
-o administrador conheça os hábitos de seus usuários para notar o uso 
-estranho de contas em determinados dias/horários. Evitar situações como esta 
-depende mais de conscientização e treinamento tanto do administrador 
-como dos usuários das contas para não expor o sistema a um ataque direto. 
-Este capítulo do guia explicará as situações mais comuns e alguns exemplos 
+Um firewall nÃ£o pode fazer muito em uma situaÃ§Ã£o dessas, um acesso atravÃ©s
+de uma conta de sistema vÃ¡lida Ã© difÃ­cil de ser auditado e descoberto, a 
+nÃ£o ser que o usuÃ¡rio monitore seus acesso via <prgn>lastlog</prgn> e 
+o administrador conheÃ§a os hÃ¡bitos de seus usuÃ¡rios para notar o uso 
+estranho de contas em determinados dias/horÃ¡rios. Evitar situaÃ§Ãµes como esta 
+depende mais de conscientizaÃ§Ã£o e treinamento tanto do administrador 
+como dos usuÃ¡rios das contas para nÃ£o expor o sistema a um ataque direto. 
+Este capÃ­tulo do guia explicarÃ¡ as situaÃ§Ãµes mais comuns e alguns exemplos 
 de como tais ataques acontecem. 
  <p>
-<strong>ATENÇÃO: </strong> - Os dados aqui disponibilizados são puramente para 
-fins didáticos e compreensão de como tais situações funcionam para se criar 
+<strong>ATENÃ‡ÃƒO: </strong> - Os dados aqui disponibilizados sÃ£o puramente para 
+fins didÃ¡ticos e compreensÃ£o de como tais situaÃ§Ãµes funcionam para se criar 
 mecanismos de defesa personalizados de acordo com o que deseja proteger. 
 
 
-<sect id="d-contas-cms">Criação, monitoramento e segurança de contas
+<sect id="d-contas-cms">CriaÃ§Ã£o, monitoramento e seguranÃ§a de contas
  <p>
-Para adicionar uma conta de usuário ao sistema é simples, basta um 
-comando <tt>adduser [usuário]</tt> e alguns poucos segundos para 
-responder as questões do programa. Quando criamos contas para outros
-usuários temos 2 alternativas: deixarmos a senha em branco ou 
-escolher uma senha que será passada ao usuário para que ele possa 
-fazer a troca mais tarde. A primeira alternativa é muito perigosa, 
-pois uma pessoa com acesso a <file>/etc/passwd</file> poderá 
-facilmente descobrir sua lista de usuários (principalmente 
-em uma grande empresa quando conhecemos as políticas de 
-criação de novas contas). 
-Um funcionário notaria a presença do novato e poderia aproveitar 
+Para adicionar uma conta de usuÃ¡rio ao sistema Ã© simples, basta um 
+comando <tt>adduser [usuÃ¡rio]</tt> e alguns poucos segundos para 
+responder as questÃµes do programa. Quando criamos contas para outros
+usuÃ¡rios temos 2 alternativas: deixarmos a senha em branco ou 
+escolher uma senha que serÃ¡ passada ao usuÃ¡rio para que ele possa 
+fazer a troca mais tarde. A primeira alternativa Ã© muito perigosa, 
+pois uma pessoa com acesso a <file>/etc/passwd</file> poderÃ¡ 
+facilmente descobrir sua lista de usuÃ¡rios (principalmente 
+em uma grande empresa quando conhecemos as polÃ­ticas de 
+criaÃ§Ã£o de novas contas). 
+Um funcionÃ¡rio notaria a presenÃ§a do novato e poderia aproveitar 
 esta oportunidade para tentar incriminar este 
-usando a conta recém criada ou tentar outras coisas para obter 
-benefício próprio através do descuido de outros. 
+usando a conta recÃ©m criada ou tentar outras coisas para obter 
+benefÃ­cio prÃ³prio atravÃ©s do descuido de outros. 
  <p>
-O segundo método de senha inicial é um pouco mais seguro e de 
-preferência a senha deve ser escolhida pelo usuário para que pessoas que 
+O segundo mÃ©todo de senha inicial Ã© um pouco mais seguro e de 
+preferÃªncia a senha deve ser escolhida pelo usuÃ¡rio para que pessoas que 
 conhecem o estilo de senhas iniciais escolhidas pelo administrador 
-não possam deduzir a nova senha criada. É comum vermos senhas como 
-"novo1234", "123456", "abcdef", "a1b3c3", o "nome do usuário" como 
-senhas iniciais, pois é fácil de lembrar. Senhas deste tipo são as 
-primeiras a ser tentadas por crackers e programas específicos para 
-este fim. Mas se o o usuário esquecer de trocar sua senha provisória? 
+nÃ£o possam deduzir a nova senha criada. Ã‰ comum vermos senhas como 
+"novo1234", "123456", "abcdef", "a1b3c3", o "nome do usuÃ¡rio" como 
+senhas iniciais, pois Ã© fÃ¡cil de lembrar. Senhas deste tipo sÃ£o as 
+primeiras a ser tentadas por crackers e programas especÃ­ficos para 
+este fim. Mas se o o usuÃ¡rio esquecer de trocar sua senha provisÃ³ria? 
  <p>
 O programa <prgn>chage</prgn> e <prgn>passwd</prgn> possui recursos que 
-permitem definir limites mínimos e máximo do tempo para troca de senha de 
-acesso, número máximo de dias após expirar o tempo de troca da senha em 
-que a conta será permanentemente desabilitada (até que o administrador a 
-reative) e o período mínimo entre troca de senhas. Alguns exemplos: 
+permitem definir limites mÃ­nimos e mÃ¡ximo do tempo para troca de senha de 
+acesso, nÃºmero mÃ¡ximo de dias apÃ³s expirar o tempo de troca da senha em 
+que a conta serÃ¡ permanentemente desabilitada (atÃ© que o administrador a 
+reative) e o perÃ­odo mÃ­nimo entre troca de senhas. Alguns exemplos: 
 <example>
 passwd -x 10 -w 3 teste
 
 </example>
-A senha do usuário teste expirará após 10 dias (-x 10) e ele será 
-avisado com 3 dias de antecedência (-w 3) para trocar sua senha. Após
-o período máximo o usuário será obrigado a trocar a senha. 
+A senha do usuÃ¡rio teste expirarÃ¡ apÃ³s 10 dias (-x 10) e ele serÃ¡ 
+avisado com 3 dias de antecedÃªncia (-w 3) para trocar sua senha. ApÃ³s
+o perÃ­odo mÃ¡ximo o usuÃ¡rio serÃ¡ obrigado a trocar a senha. 
  <p>
-Quando o usuário efetuar o login receberá a seguinte mensagem: 
+Quando o usuÃ¡rio efetuar o login receberÃ¡ a seguinte mensagem: 
 <tt>Warning: your password will expire in 3 days</tt>.
 
 <example>
 passwd -x 10 -w 3 -i 2 teste
 
 </example>
-A senha do usuário teste expirará após 10 dias (-x 10) e ele será 
-avisado com 3 dias de antecedência (-w 3) para trocar sua senha, 
-após a expiração da senha, o usuário tem 2 dias antes da conta 
+A senha do usuÃ¡rio teste expirarÃ¡ apÃ³s 10 dias (-x 10) e ele serÃ¡ 
+avisado com 3 dias de antecedÃªncia (-w 3) para trocar sua senha, 
+apÃ³s a expiraÃ§Ã£o da senha, o usuÃ¡rio tem 2 dias antes da conta 
 ser desativada (-i 2). 
-Se o período expirar e o usuário tentar um novo login será mostrada a mensagem:
+Se o perÃ­odo expirar e o usuÃ¡rio tentar um novo login serÃ¡ mostrada a mensagem:
  <p> 
 <tt>Your account has expired: Please contact your system administrator</tt>
  <p>
 Para reativar a conta acima, remova totalmente o bloqueio 
-da conta do usuário <tt>teste</tt> com <tt>passwd -x 0 teste</tt>, 
-<tt>passwd -x 99999 -w 7 -i 0 teste</tt> ou especifique um período de dias 
-maior em adição àqueles especificados para que ele possa trocar a senha. 
+da conta do usuÃ¡rio <tt>teste</tt> com <tt>passwd -x 0 teste</tt>, 
+<tt>passwd -x 99999 -w 7 -i 0 teste</tt> ou especifique um perÃ­odo de dias 
+maior em adiÃ§Ã£o Ã queles especificados para que ele possa trocar a senha. 
  <p>
 Por exemplo, caso tenha passado 3 dias desde que a conta acima expirou 
-e deseje dar mais 2 dias para o usuário trocar a conta: 
-<tt>passwd -x 17 -i 0 teste</tt> A conta será reativada por mais 2 dias dando 
-a oportunidade do usuário trocar a senha. Preste atenção neste exemplo para 
-entender bem a situação e prazos. 
+e deseje dar mais 2 dias para o usuÃ¡rio trocar a conta: 
+<tt>passwd -x 17 -i 0 teste</tt> A conta serÃ¡ reativada por mais 2 dias dando 
+a oportunidade do usuÃ¡rio trocar a senha. Preste atenÃ§Ã£o neste exemplo para 
+entender bem a situaÃ§Ã£o e prazos. 
 
 <example>
 passwd -x 90 -n 60 -w 15 -i 0 teste
 
 </example>
-A senha do usuário teste expirará após 90 dias (-x 90), ele será 
+A senha do usuÃ¡rio teste expirarÃ¡ apÃ³s 90 dias (-x 90), ele serÃ¡ 
 avisado para trocar sua senha com 15 dias antes do prazo final 
-(-w 15) e a conta será imediatamente desativada caso o prazo 
-máximo para troca da senha expire (-i 0). O usuário também não 
-poderá trocar sua senha durante os primeiros 60 dias 
-desde a última troca de senha (-n 60).
+(-w 15) e a conta serÃ¡ imediatamente desativada caso o prazo 
+mÃ¡ximo para troca da senha expire (-i 0). O usuÃ¡rio tambÃ©m nÃ£o 
+poderÃ¡ trocar sua senha durante os primeiros 60 dias 
+desde a Ãºltima troca de senha (-n 60).
  <p>
-Em sistemas onde precisa adicionar restrições a muitos usuários na 
-criação da conta, é recomendável seguir os métodos descritos em 
+Em sistemas onde precisa adicionar restriÃ§Ãµes a muitos usuÃ¡rios na 
+criaÃ§Ã£o da conta, Ã© recomendÃ¡vel seguir os mÃ©todos descritos em 
 <ref id="d-contas-cms-padroes">. 
 
 <![ %OBS [ 
  <p>
 <strong>OBS1:</strong> Em sistemas com senhas ocultas ativadas (veja 
-<ref id="d-contas-segsenhas-shadow">) as restrições acima serão especificadas 
-no arquivo <file>/etc/shadow</file>, isto garante que só o usuário <tt>root</tt> 
+<ref id="d-contas-segsenhas-shadow">) as restriÃ§Ãµes acima serÃ£o especificadas 
+no arquivo <file>/etc/shadow</file>, isto garante que sÃ³ o usuÃ¡rio <tt>root</tt> 
 tenha acesso aos detalhes fornecidos neste arquivo.
  <p>
 <strong>OBS2: </strong> A <em>-d</em> do <prgn>passwd</prgn> serve para 
-remover a senha do usuário especificado ou seja somente será necessário
-fornecer o nome de usuário para ter acesso ao sistema. 
+remover a senha do usuÃ¡rio especificado ou seja somente serÃ¡ necessÃ¡rio
+fornecer o nome de usuÃ¡rio para ter acesso ao sistema. 
  <p>
-<strong>OBS3: </strong> Leve em consideração que o uso do recursos de 
-senhas de grupo é um risco de segurança, pois a mesma senha será compartilhada 
+<strong>OBS3: </strong> Leve em consideraÃ§Ã£o que o uso do recursos de 
+senhas de grupo Ã© um risco de seguranÃ§a, pois a mesma senha serÃ¡ compartilhada 
 entre diversas pessoas. 
  <p>
-<strong>OBS4: </strong> O programa <prgn>useradd</prgn> combina as funções do
+<strong>OBS4: </strong> O programa <prgn>useradd</prgn> combina as funÃ§Ãµes do
 <prgn>adduser</prgn> e <prgn>passwd</prgn> para garantir que a conta seja 
-criada com as restrições apropriadas. O único inconveniente é que o 
+criada com as restriÃ§Ãµes apropriadas. O Ãºnico inconveniente Ã© que o 
 <prgn>useradd</prgn> quebra o <em>Debian Policy</em> e precisa de todos todos 
-os parâmetros para a criação correta da conta (como o diretório home, senha 
-criptografada, e UID numérico). Seu uso é indicado em shell scripts que 
-cuidam automaticamente da tarefa de adicionar usuários ao sistema. ]]>
+os parÃ¢metros para a criaÃ§Ã£o correta da conta (como o diretÃ³rio home, senha 
+criptografada, e UID numÃ©rico). Seu uso Ã© indicado em shell scripts que 
+cuidam automaticamente da tarefa de adicionar usuÃ¡rios ao sistema. ]]>
 
 
-<sect1 id="d-contas-cms-padroes">Definindo valores padrões de restrição
+<sect1 id="d-contas-cms-padroes">Definindo valores padrÃµes de restriÃ§Ã£o
  <p>
-Isto é muito útil quando precisa criar diversos usuários com as mesmas 
-restrições de contas, isto tornará o gerenciamento do sistema muito mais 
-prático (tudo em Unix é feito para ser mais prático, só devemos saber onde 
-mexer). O arquivo <file>/etc/defaults/useradd</file> contém valores 
-padrões que serão usados pelo <prgn>useradd</prgn> e <prgn>adduser</prgn> 
-para definir valores de restrições de contas. Estes valores são gerados 
-usando a opção <em>-D</em> em combinação com as seguintes opções do 
+Isto Ã© muito Ãºtil quando precisa criar diversos usuÃ¡rios com as mesmas 
+restriÃ§Ãµes de contas, isto tornarÃ¡ o gerenciamento do sistema muito mais 
+prÃ¡tico (tudo em Unix Ã© feito para ser mais prÃ¡tico, sÃ³ devemos saber onde 
+mexer). O arquivo <file>/etc/defaults/useradd</file> contÃ©m valores 
+padrÃµes que serÃ£o usados pelo <prgn>useradd</prgn> e <prgn>adduser</prgn> 
+para definir valores de restriÃ§Ãµes de contas. Estes valores sÃ£o gerados 
+usando a opÃ§Ã£o <em>-D</em> em combinaÃ§Ã£o com as seguintes opÃ§Ãµes do 
 <prgn>useradd</prgn>:
 <list compact>
- <item><tt>-b [home]</tt> - Especificar o diretório home de usuário. O padrão é 
+ <item><tt>-b [home]</tt> - Especificar o diretÃ³rio home de usuÃ¡rio. O padrÃ£o Ã© 
  <file>/home</file>.
- <item><tt>-e [data]</tt> - Data padrão de expiração de contas, especificada no 
+ <item><tt>-e [data]</tt> - Data padrÃ£o de expiraÃ§Ã£o de contas, especificada no 
  formato AnoMesDia. Por exemplo, 20010920.
- <item><tt>-f [dias]</tt> - Número máximo de dias que a conta permanece válida 
- após a data de expiração até ser desativada. 
- <item><tt>-g [gid/grupo]</tt> - ID do grupo ou nome do grupo que o usuário 
- pertencerá inicialmente. 
- <item><tt>-s [shell]</tt> - Shell do usuário. O padrão é <file>/bin/bash</file>.
+ <item><tt>-f [dias]</tt> - NÃºmero mÃ¡ximo de dias que a conta permanece vÃ¡lida 
+ apÃ³s a data de expiraÃ§Ã£o atÃ© ser desativada. 
+ <item><tt>-g [gid/grupo]</tt> - ID do grupo ou nome do grupo que o usuÃ¡rio 
+ pertencerÃ¡ inicialmente. 
+ <item><tt>-s [shell]</tt> - Shell do usuÃ¡rio. O padrÃ£o Ã© <file>/bin/bash</file>.
 </list>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Note que nem todas as opções acima terão efeito com o 
-<prgn>adduser</prgn> (principalmente as opções <em>-f</em>, <em>-g</em> e 
-<em>-s</em> que são especificadas no seu arquivo de configuração 
+<strong>OBS:</strong> Note que nem todas as opÃ§Ãµes acima terÃ£o efeito com o 
+<prgn>adduser</prgn> (principalmente as opÃ§Ãµes <em>-f</em>, <em>-g</em> e 
+<em>-s</em> que sÃ£o especificadas no seu arquivo de configuraÃ§Ã£o 
 <file>/etc/adduser.conf</file>). ]]>
 
 
-<sect1 id="d-contas-cms-senhas">Senhas fáceis de adivinhar e escolha de boas senhas
+<sect1 id="d-contas-cms-senhas">Senhas fÃ¡ceis de adivinhar e escolha de boas senhas
  <p>
 A senha lhe identifica como o verdadeiro dono de uma conta em um sistema para 
-garantir acesso a seus recursos. A senha de um sistema é tão 
-importante quanto uma senha de sua conta bancária, caso caia em mãos erradas as 
-conseqüências poderão ser catastróficas, todo cuidado é pouco na hora de 
+garantir acesso a seus recursos. A senha de um sistema Ã© tÃ£o 
+importante quanto uma senha de sua conta bancÃ¡ria, caso caia em mÃ£os erradas as 
+conseqÃ¼Ãªncias poderÃ£o ser catastrÃ³ficas, todo cuidado Ã© pouco na hora de 
 escolher uma senha. 
  <p>
-Senhas fáceis de adivinhar são o primeiro motivo de sucesso de 
+Senhas fÃ¡ceis de adivinhar sÃ£o o primeiro motivo de sucesso de 
 crackers no acesso a sistemas de computadores 
 (veja <ref id="d-contas-ataques-deducao"> 
-e <ref id="d-contas-ataques-engsocial">), o administrador pode forçar o usuário 
-a fazer trocas periódicas de senhas através dos recursos citados em 
+e <ref id="d-contas-ataques-engsocial">), o administrador pode forÃ§ar o usuÃ¡rio 
+a fazer trocas periÃ³dicas de senhas atravÃ©s dos recursos citados em 
 <ref id="d-contas-cms">, mas quem vai garantir que ele esteja 
-escolhendo boas senhas para que ninguém as descubra com facilidade? 
-Abaixo uma lista de senhas ruins (que deverá evitar a todo custo 
+escolhendo boas senhas para que ninguÃ©m as descubra com facilidade? 
+Abaixo uma lista de senhas ruins (que deverÃ¡ evitar a todo custo 
 usa-las) e boas: 
  <p>
 <em>Senhas Ruins</em><p>
@@ -191,139 +191,139 @@ usa-las) e boas:
   <item>O uso da palavra <tt>senha</tt> como senha! Isto parece idiota mais 
 existe... 
   <item>Senhas com o mesmo nome do login (joao/joao). 
-  <item>Compostas por letras ou números em seqüencia crescente ou decrescente 
+  <item>Compostas por letras ou nÃºmeros em seqÃ¼encia crescente ou decrescente 
  (abcdef, 123456, 654321, etc, etc). Este tipo de senha pode ser adivinhada 
- por dedução e são uma das primeiras combinações que crackers usam para 
+ por deduÃ§Ã£o e sÃ£o uma das primeiras combinaÃ§Ãµes que crackers usam para 
  acertar senhas. 
   <item>palavras relacionadas com o gosto pessoal. Por exemplo "escort", "vectra", 
-"subaru" se a pessoa é amante de carros.
-  <item>Nome da esposa, filhos, familiares, animal de estimação, time de futebol, 
- ídolo da TV/filmes ou qualquer coisa relacionada a familiares ou indiretamente ao 
- usuário.
-  <item>Idade, data de aniversário, data de casamento, número de identidade, 
- título de eleitor, placa de carro ou qualquer coisa que seja característica do 
- usuário. 
-  <item>Palavras existentes. Um ataque de dicionário poderá descobrir 
+"subaru" se a pessoa Ã© amante de carros.
+  <item>Nome da esposa, filhos, familiares, animal de estimaÃ§Ã£o, time de futebol, 
+ Ã­dolo da TV/filmes ou qualquer coisa relacionada a familiares ou indiretamente ao 
+ usuÃ¡rio.
+  <item>Idade, data de aniversÃ¡rio, data de casamento, nÃºmero de identidade, 
+ tÃ­tulo de eleitor, placa de carro ou qualquer coisa que seja caracterÃ­stica do 
+ usuÃ¡rio. 
+  <item>Palavras existentes. Um ataque de dicionÃ¡rio poderÃ¡ descobrir 
  facilmente sua senha. 
   <item>Senhas com menos de 8 letras
-  <item>Senhas apenas em minúsculas ou MAIÚSCULAS.
+  <item>Senhas apenas em minÃºsculas ou MAIÃšSCULAS.
  </list>
 
  <p>
  <em>Senhas Boas</em><p>
  <list compact>
-  <item>Uma boa senha nunca deverá ser lida mas fácil de lembrar. Por exemplo 
-pense em uma frase importante para você "meu sistema operacional preferido é 
+  <item>Uma boa senha nunca deverÃ¡ ser lida mas fÃ¡cil de lembrar. Por exemplo 
+pense em uma frase importante para vocÃª "meu sistema operacional preferido Ã© 
 o Linux" e pegue a primeira letra de cada palavra: "msopeol". PRONTO esta 
-escolhida uma boa senha que é fácil de se lembrar e difícil de ser quebrada 
-por ataques de dicionário!
-  <item>Uma boa senha deve conter números e letras. A senha acima poderia 
+escolhida uma boa senha que Ã© fÃ¡cil de se lembrar e difÃ­cil de ser quebrada 
+por ataques de dicionÃ¡rio!
+  <item>Uma boa senha deve conter nÃºmeros e letras. A senha acima poderia 
 ser modificada para "msopeol1"
-  <item>Conter letras maiúsculas e minúsculas. "msopeoL1".
-  <item>Conter 8 caracteres sempre que possível. Isto aumenta bastante o 
-número de combinações necessárias para se quebrar uma senha em um ataque 
+  <item>Conter letras maiÃºsculas e minÃºsculas. "msopeoL1".
+  <item>Conter 8 caracteres sempre que possÃ­vel. Isto aumenta bastante o 
+nÃºmero de combinaÃ§Ãµes necessÃ¡rias para se quebrar uma senha em um ataque 
 brute force (veja <ref id="d-contas-ataques-bruteforce">). Mesmo que a senha
-escolhida não chegue a 8 caracteres mínimos, você poderá combina-la com 
-números. 
+escolhida nÃ£o chegue a 8 caracteres mÃ­nimos, vocÃª poderÃ¡ combina-la com 
+nÃºmeros. 
  </list>
  
-Com as dicas acima, a possibilidade de alguém conseguir quebrar uma senha 
+Com as dicas acima, a possibilidade de alguÃ©m conseguir quebrar uma senha 
 criptografada em seu sistema usando os ataques descritos em 
-<ref id="d-contas-ataques"> é praticamente nula! Para os paranóicos de 
-plantão, o utilitário <prgn>makepasswd</prgn> pode criar uma senha 
-com caracteres completamente aleatórios: 
+<ref id="d-contas-ataques"> Ã© praticamente nula! Para os paranÃ³icos de 
+plantÃ£o, o utilitÃ¡rio <prgn>makepasswd</prgn> pode criar uma senha 
+com caracteres completamente aleatÃ³rios: 
 <example>
 makepasswd --chars 8
 4y0sBdwM
 
 </example>
-Este comando retorna uma string com 8 caracteres (--chars 8) "4y0sBdwM". Se você 
+Este comando retorna uma string com 8 caracteres (--chars 8) "4y0sBdwM". Se vocÃª 
 entendeu boa parte deste guia tenho certeza que 1 ou 2 dias de treino e se 
 acostuma com uma senha como esta ;-) 
 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> NUNCA NUNCA dê pistas sobre sua senha! Para você isto pode 
-ser um desafio lançado a outras pessoas quase impossível de ser resolvido, mas 
-não se esqueça que muita gente é especializada neste tipo de dedução. ]]>
+<strong>OBS:</strong> NUNCA NUNCA dÃª pistas sobre sua senha! Para vocÃª isto pode 
+ser um desafio lanÃ§ado a outras pessoas quase impossÃ­vel de ser resolvido, mas 
+nÃ£o se esqueÃ§a que muita gente Ã© especializada neste tipo de deduÃ§Ã£o. ]]>
 
 
-<sect1 id="d-contas-cms-multipasswd">Atualização de senhas de múltiplas contas
+<sect1 id="d-contas-cms-multipasswd">AtualizaÃ§Ã£o de senhas de mÃºltiplas contas
  <p>
-O programa <prgn>chpasswd</prgn> é usado para tal operação. Deve ser especificado 
-um arquivo que contém os campos <tt>usuário:senha</tt> por linha. Caso as senhas
-estejam encriptadas deverá ser especificada a opção <em>-e</em> ao 
+O programa <prgn>chpasswd</prgn> Ã© usado para tal operaÃ§Ã£o. Deve ser especificado 
+um arquivo que contÃ©m os campos <tt>usuÃ¡rio:senha</tt> por linha. Caso as senhas
+estejam encriptadas deverÃ¡ ser especificada a opÃ§Ã£o <em>-e</em> ao 
 programa. 
  <p>
 <example>
 chpasswd -e /localadmin/contas/contas.db
 
 </example>
-O comando acima atualiza a senha de todos os usuários especificados no arquivo 
-<file>contas.db</file> de uma só vez. 
+O comando acima atualiza a senha de todos os usuÃ¡rios especificados no arquivo 
+<file>contas.db</file> de uma sÃ³ vez. 
 
 
-<sect1 id="d-contas-cms-senharoot">A senha do usuário root
+<sect1 id="d-contas-cms-senharoot">A senha do usuÃ¡rio root
  <p>
-<em>Esta seção foi retirada do Manual de Instalação da Debian</em>. 
+<em>Esta seÃ§Ã£o foi retirada do Manual de InstalaÃ§Ã£o da Debian</em>. 
  <p>
-A conta root é também chamada de <em>super usuário</em>, este é um login  
-que não possui restrições de segurança. A conta root somente deve ser  
-usada para fazer a administração do sistema, e usada o menor tempo  
-possível. 
+A conta root Ã© tambÃ©m chamada de <em>super usuÃ¡rio</em>, este Ã© um login  
+que nÃ£o possui restriÃ§Ãµes de seguranÃ§a. A conta root somente deve ser  
+usada para fazer a administraÃ§Ã£o do sistema, e usada o menor tempo  
+possÃ­vel. 
  <p>
-Qualquer senha que criar deverá conter de 6 a 8 caracteres, e também  
-poderá conter letras maiúsculas e minúsculas, e também caracteres de  
-pontuação. Tenha um cuidado especial quando escolher sua senha root,  
-porque ela é a conta mais poderosa. Evite palavras de dicionário ou o 
+Qualquer senha que criar deverÃ¡ conter de 6 a 8 caracteres, e tambÃ©m  
+poderÃ¡ conter letras maiÃºsculas e minÃºsculas, e tambÃ©m caracteres de  
+pontuaÃ§Ã£o. Tenha um cuidado especial quando escolher sua senha root,  
+porque ela Ã© a conta mais poderosa. Evite palavras de dicionÃ¡rio ou o 
 uso de qualquer outros dados pessoais que podem ser adivinhados. 
  <p>
-Se qualquer um lhe pedir senha root, seja extremamente cuidadoso. Você  
-normalmente nunca deve distribuir sua conta root, a não ser que esteja  
+Se qualquer um lhe pedir senha root, seja extremamente cuidadoso. VocÃª  
+normalmente nunca deve distribuir sua conta root, a nÃ£o ser que esteja  
 administrando um computador com mais de um administrador do sistema. 
  <p>
-Utilize uma conta de usuário normal ao invés da conta root para 
-operar seu sistema. Porque não usar a conta root? Bem, uma razão para  
-evitar usar privilégios root é por causa da facilidade de se cometer  
-danos irreparáveis como root. Outra razão é que você pode ser enganado  
-e rodar um programa <em>Cavalo de Tróia</em> -- que é um programa que  
-obtém poderes do <em>super usuário</em> para comprometer a segurança do 
-seu sistema sem que você saiba. 
+Utilize uma conta de usuÃ¡rio normal ao invÃ©s da conta root para 
+operar seu sistema. Porque nÃ£o usar a conta root? Bem, uma razÃ£o para  
+evitar usar privilÃ©gios root Ã© por causa da facilidade de se cometer  
+danos irreparÃ¡veis como root. Outra razÃ£o Ã© que vocÃª pode ser enganado  
+e rodar um programa <em>Cavalo de TrÃ³ia</em> -- que Ã© um programa que  
+obtÃ©m poderes do <em>super usuÃ¡rio</em> para comprometer a seguranÃ§a do 
+seu sistema sem que vocÃª saiba. 
 
 
 <sect id="d-contas-ataques">Tipos de ataques mais comuns para se conseguir uma senha.
 
-<sect1 id="d-contas-ataques-deducao">Dedução
+<sect1 id="d-contas-ataques-deducao">DeduÃ§Ã£o
  <p>
-O cracker se aproveita da ingenuidade de usuários que deixam senhas em branco, 
-usam senhas simples como o próprio nome, "abcdef", "asdfg", "123456", e outros
+O cracker se aproveita da ingenuidade de usuÃ¡rios que deixam senhas em branco, 
+usam senhas simples como o prÃ³prio nome, "abcdef", "asdfg", "123456", e outros
 tipos de senhas comuns para tentar obter acesso ao sistema. Senhas deduzidas 
-são geralmente senhas muito simples e muito usadas... Uma situação comum para 
-a escolha de uma senha deste tipo é o medo de esquecer a senha (quando não se 
-consegue pensar em algo mais difícil e ao mesmo tempo que seja fácil de lembrar) 
-e quando o usuário é pego desprevenido e não se sabe o que usar como senha 
-(como na assinatura de um provedor Internet, muito comum essa situação). 
+sÃ£o geralmente senhas muito simples e muito usadas... Uma situaÃ§Ã£o comum para 
+a escolha de uma senha deste tipo Ã© o medo de esquecer a senha (quando nÃ£o se 
+consegue pensar em algo mais difÃ­cil e ao mesmo tempo que seja fÃ¡cil de lembrar) 
+e quando o usuÃ¡rio Ã© pego desprevenido e nÃ£o se sabe o que usar como senha 
+(como na assinatura de um provedor Internet, muito comum essa situaÃ§Ã£o). 
  <p>
-Geralmente é muito rápido e muito eficaz dependendo das habilidades do 
-atacante dispõe. 
+Geralmente Ã© muito rÃ¡pido e muito eficaz dependendo das habilidades do 
+atacante dispÃµe. 
 
 
 <sect1 id="d-contas-ataques-engsocial">Engenharia Social
  <p>
-Ataques por engenharia social são feitos através de pesquisa de dados 
-pessoais e outras características relacionadas ao usuário (time 
+Ataques por engenharia social sÃ£o feitos atravÃ©s de pesquisa de dados 
+pessoais e outras caracterÃ­sticas relacionadas ao usuÃ¡rio (time 
 de futebol, data de nascimento dele, da esposa, filhos, nome 
 da atriz predileta, etc) e usando estes dados coletados para 
 auxiliar na descoberta da senha. Este ataque requer uma pesquisa 
-sobre os hábitos, gostos, etc. Mas existem outros 
+sobre os hÃ¡bitos, gostos, etc. Mas existem outros 
 tipos de ataque baseados em engenharia social, inclusive com o 
-cracker passando-se pelo usuário. Para diminuir as possibilidades 
+cracker passando-se pelo usuÃ¡rio. Para diminuir as possibilidades 
 deste tipo de ataque entenda e siga os procedimentos da parte "Senhas Boas" 
-na <ref id="d-contas-cms-senhas"> e continue lendo esta seção. 
+na <ref id="d-contas-cms-senhas"> e continue lendo esta seÃ§Ã£o. 
  <p>
 Outro detalhe importante para diminuir as possibilidades de um 
-ataque deste tipo bem sucedido é permitir somente o acesso do 
-serviço de <prgn>finger</prgn> a redes confiáveis (locais onde 
+ataque deste tipo bem sucedido Ã© permitir somente o acesso do 
+serviÃ§o de <prgn>finger</prgn> a redes confiÃ¡veis (locais onde 
 uns conhecem os outros).
 Os detalhes fornecidos pelo finger podem ser suficientes para 
 garantir sucesso deste tipo de ataque: 
@@ -337,11 +337,11 @@ No mail.
 Grupo de cadastramento.
 
 </example>
-As últimas linhas da saída do finger são os dados contidos nos arquivos
-<file>.plan</file> e <file>.project</file> do diretório de usuário.
+As Ãºltimas linhas da saÃ­da do finger sÃ£o os dados contidos nos arquivos
+<file>.plan</file> e <file>.project</file> do diretÃ³rio de usuÃ¡rio.
 O cracker com base nos dados fornecidos acima pelo finger poderia inventar 
-uma situação em que necessitaria de troca de senha por algum motivo. Abaixo 
-uma situação onde o cracker sabe que não existe identificador de chamadas 
+uma situaÃ§Ã£o em que necessitaria de troca de senha por algum motivo. Abaixo 
+uma situaÃ§Ã£o onde o cracker sabe que nÃ£o existe identificador de chamadas 
 na empresa e conhece as fragilidades: 
 <list compact>
  <item>
@@ -350,71 +350,71 @@ Cracker: Disca para o CPD?
 Vitima: CPD?
  <item>
 Cracker: Oi, eu sou o Joao P. M. do grupo de cadastramento aqui do segundo 
-andar, estou tentando entrar no sistema mas por algum motivo ele não aceita minha 
+andar, estou tentando entrar no sistema mas por algum motivo ele nÃ£o aceita minha 
 senha (fazendo-se de ignorante no assunto). 
  <item>
-Vitima: Por favor Sr. verifique se o Caps Lock do seu teclado está ativado, 
-letras em maiúsculas/minúsculas fazem diferença em nossos sistemas.
+Vitima: Por favor Sr. verifique se o Caps Lock do seu teclado estÃ¡ ativado, 
+letras em maiÃºsculas/minÃºsculas fazem diferenÃ§a em nossos sistemas.
  <item>
-Cracker: Ok vou checar (espera um tempo). Não, esta tudo Ok, você poderia 
-agilizar isto de alguma maneira, preciso lançar algumas fichas no sistema.
+Cracker: Ok vou checar (espera um tempo). NÃ£o, esta tudo Ok, vocÃª poderia 
+agilizar isto de alguma maneira, preciso lanÃ§ar algumas fichas no sistema.
  <item>
-Vitima: Posso modificar sua senha para um nome qualquer, depois você poderá 
-trocar por si próprio. 
+Vitima: Posso modificar sua senha para um nome qualquer, depois vocÃª poderÃ¡ 
+trocar por si prÃ³prio. 
  <item>
 Cracker: Ok, por mim tudo bem.
  <item>
-Vitima: Humm, modifiquei para "cad1234", basta você usa-la e terá acesso 
-ao sistema. Após isso execute o utilitário passwd para troca-la para algo 
+Vitima: Humm, modifiquei para "cad1234", basta vocÃª usa-la e terÃ¡ acesso 
+ao sistema. ApÃ³s isso execute o utilitÃ¡rio passwd para troca-la para algo 
 que desejar. 
  <item>
 Cracker: Ok, muito obrigado. Tenha um bom dia. 
 </list>
-Este é um exemplo simples de ataque por engenharia social. Dependendo 
+Este Ã© um exemplo simples de ataque por engenharia social. Dependendo 
 do objetivo, este tipo de ataque pode levar semanas e as vezes requer 
-contatos com diversas empresas criando diversas situações para obter 
-detalhes necessários para atingir o objetivo. 
+contatos com diversas empresas criando diversas situaÃ§Ãµes para obter 
+detalhes necessÃ¡rios para atingir o objetivo. 
  <p>
-As políticas de segurança de senhas minimizam riscos deste tipo. Como este 
-é um caso que o requisitante é um funcionário próximo do departamento de 
-informática, o mais adequado seria o administrador se deslocar ao setor (ou 
-enviar um técnico do setor treinado para tal situação) para saber se quem 
-diz ser quem é está realmente no local enfrentando aquela situação. O 
-contato com o responsável do setor (conhecido do técnico) também pode ser 
+As polÃ­ticas de seguranÃ§a de senhas minimizam riscos deste tipo. Como este 
+Ã© um caso que o requisitante Ã© um funcionÃ¡rio prÃ³ximo do departamento de 
+informÃ¡tica, o mais adequado seria o administrador se deslocar ao setor (ou 
+enviar um tÃ©cnico do setor treinado para tal situaÃ§Ã£o) para saber se quem 
+diz ser quem Ã© estÃ¡ realmente no local enfrentando aquela situaÃ§Ã£o. O 
+contato com o responsÃ¡vel do setor (conhecido do tÃ©cnico) tambÃ©m pode ser 
 uma alternativa antes de entregar uma senha a um desconhecido. 
  <p>
-Para casos externos (principalmente para empresas que mantém determinados 
-serviços em funcionamento em nosso servidor, como servidores de páginas), 
+Para casos externos (principalmente para empresas que mantÃ©m determinados 
+serviÃ§os em funcionamento em nosso servidor, como servidores de pÃ¡ginas), 
 o procedimento correto seria passar uma nova senha por e-mail 
-(de preferência criptografado com <prgn>pgp</prgn>) ao invés de telefone. 
-Isto garantirá que a senha não caia nas mãos erradas. 
+(de preferÃªncia criptografado com <prgn>pgp</prgn>) ao invÃ©s de telefone. 
+Isto garantirÃ¡ que a senha nÃ£o caia nas mÃ£os erradas. 
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Qualquer detalhe sobre a política de criação de senhas, 
-trocas de senhas, etc. poderá ter muito valor para um cracker obter acesso 
+<strong>OBS1:</strong> Qualquer detalhe sobre a polÃ­tica de criaÃ§Ã£o de senhas, 
+trocas de senhas, etc. poderÃ¡ ter muito valor para um cracker obter acesso 
 ao seu sistema. 
  <p>
 <strong>OBS2:</strong> Dificulte as maneiras para se obter acesso 
-<tt>root</tt> ao sistema via conta de usuário comum. É de extrema 
-importância utilizar conexões de dados criptografadas quando for 
-necessário acesso externo ao seu sistema. 
+<tt>root</tt> ao sistema via conta de usuÃ¡rio comum. Ã‰ de extrema 
+importÃ¢ncia utilizar conexÃµes de dados criptografadas quando for 
+necessÃ¡rio acesso externo ao seu sistema. 
  <p>
 <strong>OBS3:</strong> Nunca use uma mesma senha para fazer tudo (banco, 
-acessar seu sistema, conectar-se ao seu provedor, senha de root). Você 
-estará em sérios apuros caso alguém tenha acesso a esta senha. É 
-difícil lembrar de várias senhas, mas você pode aditar uma senha e 
-criar modificações a partir dela para utilização em outros locais, 
+acessar seu sistema, conectar-se ao seu provedor, senha de root). VocÃª 
+estarÃ¡ em sÃ©rios apuros caso alguÃ©m tenha acesso a esta senha. Ã‰ 
+difÃ­cil lembrar de vÃ¡rias senhas, mas vocÃª pode aditar uma senha e 
+criar modificaÃ§Ãµes a partir dela para utilizaÃ§Ã£o em outros locais, 
 por exemplo: "wekpdm" => "Bwekpdm1" => "3wekpdmS", etc. ]]>
 
 
-<sect1 id="d-contas-ataques-dicionario">Ataques por dicionário
+<sect1 id="d-contas-ataques-dicionario">Ataques por dicionÃ¡rio
  <p>
 De posse do arquivo de senhas <file>/etc/passwd</file>, o cracker utiliza
-um arquivo que contém diversas palavras que serão tentadas como senha. Este 
-trabalho é feito automaticamente por ferramentas dedicadas a este tipo de 
+um arquivo que contÃ©m diversas palavras que serÃ£o tentadas como senha. Este 
+trabalho Ã© feito automaticamente por ferramentas dedicadas a este tipo de 
 tarefa e pode levar dias dependendo da lista de senhas do cracker e quantidades 
-de usuários existentes no arquivo de senha. 
+de usuÃ¡rios existentes no arquivo de senha. 
  <p>
 Note que o uso de criptografia <em>md5</em> e <em>senhas ocultas</em> 
 dificultam bastante ao arquivo de senhas e o sucesso de um ataque bem 
@@ -425,95 +425,95 @@ sucedido (veja <ref id="d-contas-segsenhas-shadow"> e
 <sect1 id="d-contas-ataques-bruteforce">Brute Force
  <p>
 De posse do arquivo de senhas <file>/etc/passwd</file> o cracker utiliza 
-uma ferramenta que tenta diversas combinações de letras seqüencialmente 
-na tentativa de descobrir uma senha. Este ataque geralmente é usado 
-como último recurso após um ataque por dicionário, e leva muito tempo para 
+uma ferramenta que tenta diversas combinaÃ§Ãµes de letras seqÃ¼encialmente 
+na tentativa de descobrir uma senha. Este ataque geralmente Ã© usado 
+como Ãºltimo recurso apÃ³s um ataque por dicionÃ¡rio, e leva muito tempo para 
 descobrir uma senha. 
  <p>
-Dependendo se uma senha conter caracteres aleatórios, combinação de letras 
-maiúsculas/minúsculas, números, a senha será praticamente impossível de 
+Dependendo se uma senha conter caracteres aleatÃ³rios, combinaÃ§Ã£o de letras 
+maiÃºsculas/minÃºsculas, nÃºmeros, a senha serÃ¡ praticamente impossÃ­vel de 
 ser descoberta. 
 Note que o uso de criptografia <em>md5</em> e <em>senhas ocultas</em> 
-aumentam bastante a proteção das senhas (veja <ref id="d-contas-segsenhas-shadow"> e 
+aumentam bastante a proteÃ§Ã£o das senhas (veja <ref id="d-contas-segsenhas-shadow"> e 
 <ref id="d-contas-segsenhas-md5">).
 
 
 <sect1 id="d-contas-ataques-monteclad">Monitoramento de toques do teclado
  <p>
-Este ataque é muito comum em sistemas DOS e Windows, um programa é instalado
-sem o conhecimento do usuário que grava todos os toques do teclado em um 
-arquivo escondido pelo cracker. Após certo tempo o cracker obtém acesso ao 
-arquivo e aos dados que ele contém. Este tipo de ataque é muito perigoso 
-e pode capturar senhas não só do sistema como números de cartão de crédito 
-digitados (caso o usuário tenha feito compras on-line), conta bancária+senha
+Este ataque Ã© muito comum em sistemas DOS e Windows, um programa Ã© instalado
+sem o conhecimento do usuÃ¡rio que grava todos os toques do teclado em um 
+arquivo escondido pelo cracker. ApÃ³s certo tempo o cracker obtÃ©m acesso ao 
+arquivo e aos dados que ele contÃ©m. Este tipo de ataque Ã© muito perigoso 
+e pode capturar senhas nÃ£o sÃ³ do sistema como nÃºmeros de cartÃ£o de crÃ©dito 
+digitados (caso o usuÃ¡rio tenha feito compras on-line), conta bancÃ¡ria+senha
 e tudo mais que for digitado pelo teclado. 
 
 
 <sect1 id="d-contas-ataques-loginfalso">Login falso
  <p>
-Esta é uma forma rápida de se conseguir acesso a um sistema. É criada uma 
-tela de login idêntica a original do sistema, só que ao digitar nome e 
-senha, estes são gravados em um arquivo (que será mais tarde recuperado 
-pelo cracker para obter acesso ao sistema) e uma mensagem de erro será exibida 
+Esta Ã© uma forma rÃ¡pida de se conseguir acesso a um sistema. Ã‰ criada uma 
+tela de login idÃªntica a original do sistema, sÃ³ que ao digitar nome e 
+senha, estes sÃ£o gravados em um arquivo (que serÃ¡ mais tarde recuperado 
+pelo cracker para obter acesso ao sistema) e uma mensagem de erro serÃ¡ exibida 
 pelo sistema. 
  <p>
-Naturalmente o usuário pensará que digitou o nome/senha 
-incorretamente e fará uma nova tentativa, a segunda ocorrerá com 
+Naturalmente o usuÃ¡rio pensarÃ¡ que digitou o nome/senha 
+incorretamente e farÃ¡ uma nova tentativa, a segunda ocorrerÃ¡ com 
 sucesso (fazendo este pensar que errou *mesmo* a senha). 
  <p>
-Sua atenção é muito importante para evitar este tipo de ataque, 
-caso desconfie de algo errado, entra no sistema e dê um 
+Sua atenÃ§Ã£o Ã© muito importante para evitar este tipo de ataque, 
+caso desconfie de algo errado, entra no sistema e dÃª um 
 <tt>find --type f -cmin -3</tt> para localizar os arquivos 
-modificados nos últimos 3 minutos e localizar possíveis 
+modificados nos Ãºltimos 3 minutos e localizar possÃ­veis 
 bancos de dados de senhas. 
  <p>
-Outra alternativa é realmente digitar uma senha inválida intencionalmente 
-(e diferente da correta) e na segunda tentativa lançar a senha válida 
+Outra alternativa Ã© realmente digitar uma senha invÃ¡lida intencionalmente 
+(e diferente da correta) e na segunda tentativa lanÃ§ar a senha vÃ¡lida 
 (normalmente sistemas deste tipo bem elaborados chamam o verdadeiro sistema 
 de login na segunda tentativa). 
 
 
-<sect id="d-contas-segsenhas">Melhorando a segurança das senhas armazenadas em 
+<sect id="d-contas-segsenhas">Melhorando a seguranÃ§a das senhas armazenadas em 
 seu sistema
  
 <sect1 id="d-contas-segsenhas-shadow">Shadow Passwords
  <p>
 Senhas Ocultas (shadow passwords) aumentam consideravelmente a senha do seu sistema
-pois as senhas serão armazenadas em um arquivo separado: <file>/etc/shadow</file>
-para senhas de usuários e <file>/etc/gshadow</file> para senhas de grupos. 
-Estes dois arquivos poderão ser acessados somente pelo usuário root. O 
+pois as senhas serÃ£o armazenadas em um arquivo separado: <file>/etc/shadow</file>
+para senhas de usuÃ¡rios e <file>/etc/gshadow</file> para senhas de grupos. 
+Estes dois arquivos poderÃ£o ser acessados somente pelo usuÃ¡rio root. O 
 armazenamento de senhas no arquivo <file>/etc/passwd</file> e 
-<file>/etc/groups</file> não é seguro, estes arquivos devem ser lidos por todos 
-os usuários porque muitos programas mapeiam a UID do usuário com seu nome e vice 
+<file>/etc/groups</file> nÃ£o Ã© seguro, estes arquivos devem ser lidos por todos 
+os usuÃ¡rios porque muitos programas mapeiam a UID do usuÃ¡rio com seu nome e vice 
 versa. 
  <p>
-O utilitário <prgn>shadowconfig</prgn> é usado para ativar/desativar o suporte 
-a senhas ocultas (de usuários e grupos) em seu sistema. Adicionalmente os 
-utilitários <prgn>pwconv</prgn>/<prgn>grpconv</prgn> podem ser usados 
-separadamente para ativar o suporte a senhas ocultas de usuários/grupos e 
+O utilitÃ¡rio <prgn>shadowconfig</prgn> Ã© usado para ativar/desativar o suporte 
+a senhas ocultas (de usuÃ¡rios e grupos) em seu sistema. Adicionalmente os 
+utilitÃ¡rios <prgn>pwconv</prgn>/<prgn>grpconv</prgn> podem ser usados 
+separadamente para ativar o suporte a senhas ocultas de usuÃ¡rios/grupos e 
 <prgn>pwunconv</prgn>/<prgn>grpunconv</prgn> para desativar este suporte. 
 <![ %OBS [
  <p>
-<strong>ATENÇÃO:</strong> Caso você inclua usuários em grupos manualmente no 
-arquivo <file>/etc/passwd</file>, também precisará fazer isto no arquivo 
-<file>/etc/shadow</file> para que não tenha problemas. Esta tarefa é feita 
-automaticamente com o comando <tt>adduser usuário grupo</tt>. O programa 
-<prgn>vipw</prgn> e <prgn>vigr</prgn> também podem ser usados com a opção 
+<strong>ATENÃ‡ÃƒO:</strong> Caso vocÃª inclua usuÃ¡rios em grupos manualmente no 
+arquivo <file>/etc/passwd</file>, tambÃ©m precisarÃ¡ fazer isto no arquivo 
+<file>/etc/shadow</file> para que nÃ£o tenha problemas. Esta tarefa Ã© feita 
+automaticamente com o comando <tt>adduser usuÃ¡rio grupo</tt>. O programa 
+<prgn>vipw</prgn> e <prgn>vigr</prgn> tambÃ©m podem ser usados com a opÃ§Ã£o 
 <em>-s</em> para editar os arquivos <file>/etc/shadow</file> e 
 <file>/etc/gshadow</file> respectivamente. ]]>
 
 
 <sect1 id="d-contas-segsenhas-md5">Senhas MD5
  <p>
-O sistema de criptografia usado pelas senhas MD5 é mais seguro que o padrão
+O sistema de criptografia usado pelas senhas MD5 Ã© mais seguro que o padrÃ£o
 Crypto e permitem o uso de senhas maiores do que 8 caracteres. 
  <p>
-O uso de senhas MD5 é recomendado para aumentar o nível de proteção da senha. 
-Não use caso estiver executando um serviço de NIS. 
+O uso de senhas MD5 Ã© recomendado para aumentar o nÃ­vel de proteÃ§Ã£o da senha. 
+NÃ£o use caso estiver executando um serviÃ§o de NIS. 
 <![ %OBS [
 <strong>OBS:</strong> Caso utilize senhas MD5 em um sistema com PAM, 
-inclua a palavra <tt>md5</tt> na linha de configuração do método 
-de autenticação <tt>password</tt> do módulo <file>pam_unix.so</file>:
+inclua a palavra <tt>md5</tt> na linha de configuraÃ§Ã£o do mÃ©todo 
+de autenticaÃ§Ã£o <tt>password</tt> do mÃ³dulo <file>pam_unix.so</file>:
 <example>
 password required pam_unix.so md5
 

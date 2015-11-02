@@ -1,75 +1,75 @@
 <chapt id="s-telnet">Servidor telnet
  <p>
-Este capÌtulo ensina como instalar, configurar, usar e fazer restriÁıes 
-de acesso ao servidor telnet. TambÈm È explicada a utilizaÁ„o do cliente 
+Este cap√≠tulo ensina como instalar, configurar, usar e fazer restri√ß√µes 
+de acesso ao servidor telnet. Tamb√©m √© explicada a utiliza√ß√£o do cliente 
 telnet e o suporte a criptografia (ssl). 
 
 
-<sect id="s-telnet-intro">IntroduÁ„o
+<sect id="s-telnet-intro">Introdu√ß√£o
  <p>
-O serviÁo telnet È oferece o login remoto em seu computador, que lhe 
-permite trabalhar conectado a dist‚ncia como se estivesse em frente a ela. 
-Ele substitui o <prgn>rlogin</prgn> e possui muitas melhorias em relaÁ„o 
-a ele, como o controle de acesso, personalizaÁ„o de seÁ„o e controle de 
+O servi√ßo telnet √© oferece o login remoto em seu computador, que lhe 
+permite trabalhar conectado a dist√¢ncia como se estivesse em frente a ela. 
+Ele substitui o <prgn>rlogin</prgn> e possui muitas melhorias em rela√ß√£o 
+a ele, como o controle de acesso, personaliza√ß√£o de se√ß√£o e controle de 
 terminal. 
 
-<sect1 id="s-telnet-versao">Vers„o
+<sect1 id="s-telnet-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 0.17.16 do <prgn>telnet</prgn>. As 
-explicaÁıes contidas aqui podem funcionar para versıes posteriores, mas È 
-recomend·vel que leia a documentaÁ„o sobre modificaÁıes no programa (changelog) 
-em busca de mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui. 
+√â assumido que esteja usando a vers√£o 0.17.16 do <prgn>telnet</prgn>. As 
+explica√ß√µes contidas aqui podem funcionar para vers√µes posteriores, mas √© 
+recomend√°vel que leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) 
+em busca de mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui. 
 
-<sect1 id="s-telnet-caracteristicas">CaracterÌsticas
+<sect1 id="s-telnet-caracteristicas">Caracter√≠sticas
  <p>
 <list compact>
  <item>
-Conex„o r·pida (n„o utiliza transmiss„o de dados criptografada), recomendado 
+Conex√£o r√°pida (n√£o utiliza transmiss√£o de dados criptografada), recomendado 
 para ambientes seguros. 
 
  <item>
-Possui uma vers„o com suporte a criptografia via ssl. 
+Possui uma vers√£o com suporte a criptografia via ssl. 
 
  <item>
 Possui controle de acesso tcpd (usando <file>/etc/hosts.allow</file> e 
 <file>/etc/hosts.deny</file>). 
 
  <item>
-A maioria dos sistemas operacionais trazem este utilit·rio por padr„o como 
-sistema de acesso remoto a m·quinas UNIX.
+A maioria dos sistemas operacionais trazem este utilit√°rio por padr√£o como 
+sistema de acesso remoto a m√°quinas UNIX.
 
  <item>
-Suporte a terminais ANSI (cores e cÛdigos de escape especiais para o console) 
+Suporte a terminais ANSI (cores e c√≥digos de escape especiais para o console) 
 e uma grande variedade de outros terminais. 
 
 </list>
 
 
-<sect1 id="s-telnet-ficha">Ficha tÈcnica
+<sect1 id="s-telnet-ficha">Ficha t√©cnica
  <p>
 Pacotes: 
 <list compact>
  <item>
-<package>telnet</package> - Cliente telnet com suporte a autenticaÁ„o.
+<package>telnet</package> - Cliente telnet com suporte a autentica√ß√£o.
  <item>
-<package>telnetd</package> - Servidor telnet com suporte a autenticaÁ„o.
+<package>telnetd</package> - Servidor telnet com suporte a autentica√ß√£o.
  <item>
-<package>telnet-ssl</package> - Cliente telnet com suporte a autenticaÁ„o e ssl. 
-TambÈm suporta conex„o a servidores telnet padr„o quando o servidor n„o suporta 
-ssl. Por padr„o È tentada a conex„o usando ssl, se esta falhar ser· assumida a 
-transmiss„o em texto plano.
+<package>telnet-ssl</package> - Cliente telnet com suporte a autentica√ß√£o e ssl. 
+Tamb√©m suporta conex√£o a servidores telnet padr√£o quando o servidor n√£o suporta 
+ssl. Por padr√£o √© tentada a conex√£o usando ssl, se esta falhar ser√° assumida a 
+transmiss√£o em texto plano.
  <item>
-<package>telnetd-ssl</package> - Servidor telnet com suporte a autenticaÁ„o e ssl. 
-TambÈm suporta conex„o de clientes telnet padr„o (sem suporte a ssl).
+<package>telnetd-ssl</package> - Servidor telnet com suporte a autentica√ß√£o e ssl. 
+Tamb√©m suporta conex√£o de clientes telnet padr√£o (sem suporte a ssl).
 
 </list>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item>
 <file>in.telnetd</file> - Servidor telnet
  <item>
-<file>telnet</file> - Cliente telnet padr„o (quando o pacote
-<package>telnet-ssl</package> est· instalado, È simplesmente um link 
+<file>telnet</file> - Cliente telnet padr√£o (quando o pacote
+<package>telnet-ssl</package> est√° instalado, √© simplesmente um link 
 para <file>telnet-ssl</file>). 
  <item>
 <file>telnet-ssl</file> - Cliente telnet com suporte a ssl.
@@ -78,137 +78,137 @@ para <file>telnet-ssl</file>).
 
 <sect1 id="s-telnet-hwreq">Requerimentos de Hardware
  <p>
-Normalmente o servidor telnet È carregado via inetd, o que permite sua 
-utilizaÁ„o em uma m·quina com a quantidade mÌnima de memÛria RAM requerida 
-para o funcionamento do kernel: 2 MB para kernels da sÈrie 2.2 e 4MB para 
-kernels da sÈrie 2.4. 
+Normalmente o servidor telnet √© carregado via inetd, o que permite sua 
+utiliza√ß√£o em uma m√°quina com a quantidade m√≠nima de mem√≥ria RAM requerida 
+para o funcionamento do kernel: 2 MB para kernels da s√©rie 2.2 e 4MB para 
+kernels da s√©rie 2.4. 
 
 
 <sect1 id="s-telnet-logs">Arquivos de log criados pelo servidor telnet
  <p>
-Mensagens do servidor telnet relacionadas com seÁıes s„o enviadas para 
+Mensagens do servidor telnet relacionadas com se√ß√µes s√£o enviadas para 
 <file>/var/log/daemon.log</file>. Adicionalmente, as mensagens sobre 
-autenticaÁ„o (serviÁos de login) s„o registradas pelos mÛdulos PAM em 
+autentica√ß√£o (servi√ßos de login) s√£o registradas pelos m√≥dulos PAM em 
 <file>/var/log/auth.log</file>. 
 
 
-<sect1 id="s-telnet-install">InstalaÁ„o
+<sect1 id="s-telnet-install">Instala√ß√£o
  <p>
 <tt>apt-get install telnet telnetd</tt> ou 
 <tt>apt-get install telnet-ssl telnetd-ssl</tt>. 
  <p>
 Os pacotes com o <tt>-ssl</tt> no final possuem suporte a criptografia ssl. Por 
-padr„o a porta usada para executar o serviÁo telnet È a 23 (ou outro n˙mero 
-de porta definido no <file>/etc/services</file>). A instalaÁ„o do servidor 
-telnet È feita via inetd (no arquivo <file>/etc/inetd.conf</file>) 
-e o controle de acesso ao serviÁo È feito atravÈs dos arquivos 
+padr√£o a porta usada para executar o servi√ßo telnet √© a 23 (ou outro n√∫mero 
+de porta definido no <file>/etc/services</file>). A instala√ß√£o do servidor 
+telnet √© feita via inetd (no arquivo <file>/etc/inetd.conf</file>) 
+e o controle de acesso ao servi√ßo √© feito atrav√©s dos arquivos 
 <file>/etc/hosts.allow</file> e <file>/etc/hosts.deny</file> 
 <![ %CAPJUNTOS [ (veja <ref id="rede-servicos-inetd"> e 
 <ref id="rede-seg-tcpd">)]]>. 
  <p>
-O servidor tem o nome <file>in.telnetd</file> e este dever· ser 
+O servidor tem o nome <file>in.telnetd</file> e este dever√° ser 
 usado para ajustar o controle de acesso nos arquivos acima. 
 
 
 <sect1 id="s-telnet-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
-O arquivo que controla o funcionamento do servidor <prgn>telnet</prgn> È 
+O arquivo que controla o funcionamento do servidor <prgn>telnet</prgn> √© 
 o <file>/etc/inetd.conf</file> e o controle de acesso sendo feito pelos 
 arquivos <file>/etc/hosts.allow</file> e <file>/etc/hosts.deny</file>. 
-Ser· necess·rio reiniciar o servidor <prgn>inetd</prgn> caso algum destes 
-trÍs arquivos seja modificado: <tt>killall -HUP inetd</tt>. 
-A porta de operaÁ„o padr„o È a 23 e pode ser modificada no 
+Ser√° necess√°rio reiniciar o servidor <prgn>inetd</prgn> caso algum destes 
+tr√™s arquivos seja modificado: <tt>killall -HUP inetd</tt>. 
+A porta de opera√ß√£o padr√£o √© a 23 e pode ser modificada no 
 arquivo <file>/etc/services</file>. 
 
 
-<sect1 id="s-telnet-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-telnet-opcoescmd">Op√ß√µes de linha de comando
  <p>
-OpÁıes de linha de comando do servidor <prgn>telnetd</prgn>:
+Op√ß√µes de linha de comando do servidor <prgn>telnetd</prgn>:
 <list compact>
- <item><tt>-D nÌvel_de_depuraÁ„o</tt> - Permite especificar o que 
- ser· registrado pelo servidor durante a conex„o dos clientes 
- telnet. As seguintes opÁıes s„o suportadas: 
+ <item><tt>-D n√≠vel_de_depura√ß√£o</tt> - Permite especificar o que 
+ ser√° registrado pelo servidor durante a conex√£o dos clientes 
+ telnet. As seguintes op√ß√µes s√£o suportadas: 
  <list compact>
   <item> 
-<tt>options</tt> - Mostra detalhes sobre a negociaÁ„o das opÁıes de conex„o. 
+<tt>options</tt> - Mostra detalhes sobre a negocia√ß√£o das op√ß√µes de conex√£o. 
   <item>
-<tt>report</tt> - Mostra detalhe de opÁıes e o que est· sendo feito.
+<tt>report</tt> - Mostra detalhe de op√ß√µes e o que est√° sendo feito.
   <item>
-<tt>netdata</tt> - Mostra os dados transferidos na conex„o telnetd.
+<tt>netdata</tt> - Mostra os dados transferidos na conex√£o telnetd.
   <item>
 <tt>ptydata</tt> - Mostra os dados mostrados na pty. 
  </list>
  
  <item>
-<tt>-edebug</tt> - Ativa a depuraÁ„o do cÛdigo de criptografia apenas para o 
+<tt>-edebug</tt> - Ativa a depura√ß√£o do c√≥digo de criptografia apenas para o 
 servidor telnet com suporte a ssl.
 
  <item>
-<tt>-h</tt> - Somente mostra os detalhes de configuraÁ„o do seu PC apÛs o usu·rio 
-fornecer um nome/senha v·lidos. 
+<tt>-h</tt> - Somente mostra os detalhes de configura√ß√£o do seu PC ap√≥s o usu√°rio 
+fornecer um nome/senha v√°lidos. 
 
  <item>
 <tt>-L [programa]</tt> - Utiliza o programa especificado para fazer o login do 
-usu·rio (<file>/usr/sbin/telnetlogin</file> È o padr„o).
+usu√°rio (<file>/usr/sbin/telnetlogin</file> √© o padr√£o).
 
  <item>
-<tt>-n</tt> - N„o envia pacotes keep alive para verificar o estado da conex„o. 
-Desativando esta opÁ„o poder· fazer o servidor ficar rodando constantemente 
-caso aconteÁa algum problema e o usu·rio n„o consiga se desconectar 
+<tt>-n</tt> - N√£o envia pacotes keep alive para verificar o estado da conex√£o. 
+Desativando esta op√ß√£o poder√° fazer o servidor ficar rodando constantemente 
+caso aconte√ßa algum problema e o usu√°rio n√£o consiga se desconectar 
 normalmente. 
 
  <item>
-<tt>-S TOS</tt> - Ajusta o tipo de serviÁo usado na conex„o para o valor 
+<tt>-S TOS</tt> - Ajusta o tipo de servi√ßo usado na conex√£o para o valor 
 especificado <![ %CAPJUNTOS [ (veja <ref id="fw-iptables-mangle-TOS"> para 
-maiores detalhes sobre esta opÁ„o e os valores aceitos)]]>.
+maiores detalhes sobre esta op√ß√£o e os valores aceitos)]]>.
  
 </list>
-Estas opÁıes dever„o ser especificadas apÛs o servidor <file>in.telnetd</file> no 
+Estas op√ß√µes dever√£o ser especificadas ap√≥s o servidor <file>in.telnetd</file> no 
 arquivo <file>/etc/inetd.conf</file>. 
 
 
 <sect id="s-telnet-access">Controle de acesso
  <p>
-… feito pelos arquivos <file>hosts.allow</file> e 
+√â feito pelos arquivos <file>hosts.allow</file> e 
 <file>hosts.deny</file>. <![ %CAPJUNTOS [ Veja <ref id="rede-seg-tcpd">. ]]>
 
 
-<sect id="s-telnet-recomend">RecomendaÁıes 
+<sect id="s-telnet-recomend">Recomenda√ß√µes 
  <p>
-O serviÁo telnet utiliza texto plano para seÁ„o (exceto nas versıes 
+O servi√ßo telnet utiliza texto plano para se√ß√£o (exceto nas vers√µes 
 cliente/servidor "-ssl"). 
-Os dados transmitidos por serviÁos que utilizam texto plano podem ser capturados 
+Os dados transmitidos por servi√ßos que utilizam texto plano podem ser capturados 
 por sniffers e trazer perigo ao seu sistema 
 <![ %CAPJUNTOS [ (veja <ref id="d-cripto-sniffer">)]]>. 
  <p>
-… recomend·vel somente executar o servidor telnet padr„o em ambientes seguros (como 
-em uma rede interna) e a vers„o com suporte a ssl para fazer conexıes 
-via redes inseguras (como a Internet). O serviÁo <prgn>ssh</prgn> 
+√â recomend√°vel somente executar o servidor telnet padr√£o em ambientes seguros (como 
+em uma rede interna) e a vers√£o com suporte a ssl para fazer conex√µes 
+via redes inseguras (como a Internet). O servi√ßo <prgn>ssh</prgn> 
 <![ %CAPJUNTOS [(<ref id="s-ssh">) ]]>
-È uma excelente alternativa ao telnet, alÈm de possuir outras caracterÌsticas 
-adicionais que justifiquem seu uso, alÈm de programas cliente para 
+√© uma excelente alternativa ao telnet, al√©m de possuir outras caracter√≠sticas 
+adicionais que justifiquem seu uso, al√©m de programas cliente para 
 <prgn>Linux</prgn> e <prgn>Windows</prgn>. 
 
 
-<sect id="s-telnet-telnet">Fazendo conexıes ao servidor telnet
+<sect id="s-telnet-telnet">Fazendo conex√µes ao servidor telnet
  <p>
-Use o comando: <tt>telnet [endereÁo] [porta]</tt> para realizar conexıes com 
-uma m·quina rodando o servidor telnet. 
+Use o comando: <tt>telnet [endere√ßo] [porta]</tt> para realizar conex√µes com 
+uma m√°quina rodando o servidor telnet. 
  <p>
-Adicionalmente as seguintes opÁıes podem ser usadas:
+Adicionalmente as seguintes op√ß√µes podem ser usadas:
 <list compact>
  <item>
-<tt>-l [usuario]</tt> - Envia o nome de usu·rio ao computador remoto. Muito 
-˙til com o <prgn>telnet-ssl</prgn>. 
+<tt>-l [usuario]</tt> - Envia o nome de usu√°rio ao computador remoto. Muito 
+√∫til com o <prgn>telnet-ssl</prgn>. 
 
  <item>
 <tt>-E</tt> - Desativa o caracter de escape
 
  <item>
-<tt>-a</tt> - Tenta fazer o login autom·tico usando o nome de usu·rio 
-local. Se o login falhar, ser· solicitado o nome de usu·rio. Esta opÁ„o 
-È usada por padr„o com o cliente <prgn>telnet-ssl</prgn>. 
+<tt>-a</tt> - Tenta fazer o login autom√°tico usando o nome de usu√°rio 
+local. Se o login falhar, ser√° solicitado o nome de usu√°rio. Esta op√ß√£o 
+√© usada por padr√£o com o cliente <prgn>telnet-ssl</prgn>. 
 
  <item>
 <tt>-r</tt> - Emula o comportamento do programa <prgn>rlogin</prgn>.
@@ -218,11 +218,11 @@ local. Se o login falhar, ser· solicitado o nome de usu·rio. Esta opÁ„o
 <example>
 Exemplos:
 
-# Conecta-se ao servidor telnet rodando na porta 23 de sua prÛpria m·quina
+# Conecta-se ao servidor telnet rodando na porta 23 de sua pr√≥pria m√°quina
 telnet localhost
 
 # Conecta-se ao servidor telnet 200.200.200.200 operando na porta 53454 usando o 
-# nome de usu·rio john
+# nome de usu√°rio john
 telnet -l john 200.200.200.200 53454
 
 </example>

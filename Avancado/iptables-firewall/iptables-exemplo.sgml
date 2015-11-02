@@ -1,43 +1,43 @@
-<sect id="fw-iptables-exemplo">Exemplos de configuraÁıes do iptables
+<sect id="fw-iptables-exemplo">Exemplos de configura√ß√µes do iptables
  <p>
-Exemplo de como bloquear todas as conexıes para a m·quina do firewall permitindo 
-somente conexıes da m·quina Linux para fora.
+Exemplo de como bloquear todas as conex√µes para a m√°quina do firewall permitindo 
+somente conex√µes da m√°quina Linux para fora.
 
 
-<sect1 id="fw-iptables-exemplo-bloqueio">Bloqueando conexıes de fora para sua m·quina
+<sect1 id="fw-iptables-exemplo-bloqueio">Bloqueando conex√µes de fora para sua m√°quina
  <p>
-As regras a seguir servem para bloquear tentativas de conexıes da interface de 
-Internet (ppp0) a sua rede sem bloquear o tr·fego de conexıes j· iniciadas. 
-O tr·fego de outras interfaces n„o È afetado com as regras a seguir:
+As regras a seguir servem para bloquear tentativas de conex√µes da interface de 
+Internet (ppp0) a sua rede sem bloquear o tr√°fego de conex√µes j√° iniciadas. 
+O tr√°fego de outras interfaces n√£o √© afetado com as regras a seguir:
 <example>
 iptables -A INPUT -i ppp0 -m state --state ! ESTABLISHED,RELATED -j DROP
 
 </example>
-Todas as conexıes vindas de ppp0 de estado diferente de ESTABLISHED e RELATED 
-(NEW e INVALID) ser„o derrubadas. Veja <ref id="fw-iptables-mod-state"> para 
+Todas as conex√µes vindas de ppp0 de estado diferente de ESTABLISHED e RELATED 
+(NEW e INVALID) ser√£o derrubadas. Veja <ref id="fw-iptables-mod-state"> para 
 detalhes. 
 
 <example>
 iptables -A INPUT -i ppp0 --syn -j DROP
 
 </example>
-Este acima È mais simples e possui o mesmo efeito: Pacotes SYN s„o usados para
-iniciar conexıes, derrubando pacotes deste tipo significa bloquear novas conexıes. 
-Pacotes de conexıes j· estabelecidas ainda s„o permitidos.
+Este acima √© mais simples e possui o mesmo efeito: Pacotes SYN s√£o usados para
+iniciar conex√µes, derrubando pacotes deste tipo significa bloquear novas conex√µes. 
+Pacotes de conex√µes j√° estabelecidas ainda s√£o permitidos.
  <p>
-Estas regras acima servem para quem n„o deseja NENHUM acesso indevido a 
-sua m·quina. 
-Existem outras formas de bloquear conexıes de modo mais seletivo usando chains
-especÌficos, endereÁos de origem/destino, portas, etc., este tipo de configuraÁ„o
-È muito usada caso precise fornecer algum tipo de serviÁo que seja acessÌvel 
+Estas regras acima servem para quem n√£o deseja NENHUM acesso indevido a 
+sua m√°quina. 
+Existem outras formas de bloquear conex√µes de modo mais seletivo usando chains
+espec√≠ficos, endere√ßos de origem/destino, portas, etc., este tipo de configura√ß√£o
+√© muito usada caso precise fornecer algum tipo de servi√ßo que seja acess√≠vel 
 externamente e protegendo outros.
 
 
-<sect1 id="fw-iptables-exemplo-trojans">Monitorando tentativa de conex„o de trojans em sua m·quina
+<sect1 id="fw-iptables-exemplo-trojans">Monitorando tentativa de conex√£o de trojans em sua m√°quina
  <p>
-As regras abaixo alertam sobre a tentativa de conex„o dos trojans "For Win" mais 
-conhecidos. Coloquei isto aqui por curiosidade de algumas pessoas, pois m·quinas 
-<prgn>Linux</prgn> s„o imunes a este tipo de coisa:
+As regras abaixo alertam sobre a tentativa de conex√£o dos trojans "For Win" mais 
+conhecidos. Coloquei isto aqui por curiosidade de algumas pessoas, pois m√°quinas 
+<prgn>Linux</prgn> s√£o imunes a este tipo de coisa:
 <example>
 #!/bin/sh
 
@@ -55,25 +55,25 @@ iptables -t filter -A INPUT -i ppp0 -j trojans-in
 </example>
 A primeira linha do <prgn>iptables</prgn> cria o chain <em>trojans-in</em> dentro 
 da tabela <em>filter</em> que usaremos para armazenar nossas regras de firewall. 
-A segunda (dentro do laÁo for) faz uma regra de LOG para registrar as tentativas de 
+A segunda (dentro do la√ßo for) faz uma regra de LOG para registrar as tentativas de 
 acesso de trojans em nosso sistema, a terceira rejeita o acesso. A quarta 
-regra do <prgn>iptables</prgn> cria de todo o tr·fego vindo da interface 
-ppp0 pra o chain trojans-in (queremos que sÛ o tr·fego vindo da internet 
+regra do <prgn>iptables</prgn> cria de todo o tr√°fego vindo da interface 
+ppp0 pra o chain trojans-in (queremos que s√≥ o tr√°fego vindo da internet 
 seja analisado pelo chain <em>trojans-in</em>).
  <p>
-Muitas das portas especificadas na vari·vel <var>TROJAN_PORTS</var> s„o antigas 
-conhecidas de quem j· brincou ou sofreram com o <prgn>Back Orifice</prgn>, 
+Muitas das portas especificadas na vari√°vel <var>TROJAN_PORTS</var> s√£o antigas 
+conhecidas de quem j√° brincou ou sofreram com o <prgn>Back Orifice</prgn>, 
 <prgn>Win Crack</prgn>, <prgn>NetBus</prgn> (quem nunca passou pela fase de ter 
-uma lista com mais de 100 netmasks e conseguir encontrar centenas de m·quinas
+uma lista com mais de 100 netmasks e conseguir encontrar centenas de m√°quinas
 por dia infectadas pelo BO? :-).
  <p>
-No cÛdigo acima a ˙nica coisa que precisa fazer para adicionar mais portas È 
-inseri-las na vari·vel <var>TROJAN_PORTS</var> e executar o programa. O 
-laÁo do <tt>for</tt> executar· as 2 regras para cada porta processada 
+No c√≥digo acima a √∫nica coisa que precisa fazer para adicionar mais portas √© 
+inseri-las na vari√°vel <var>TROJAN_PORTS</var> e executar o programa. O 
+la√ßo do <tt>for</tt> executar√° as 2 regras para cada porta processada 
 (economizando linhas e linhas de regras, me livrando de uma LER e poupando muitos
 bytes neste guia ;-).
  <p>
-Dependendo do n˙mero de portas alvo, este cÛdigo pode ser muito simplificado 
+Dependendo do n√∫mero de portas alvo, este c√≥digo pode ser muito simplificado 
 usando o recurso multiport do <prgn>iptables</prgn> (veja 
 <ref id="fw-iptables-mod-multiport"> para detalhes). 
 
@@ -81,7 +81,7 @@ usando o recurso multiport do <prgn>iptables</prgn> (veja
 <sect1 id="fw-iptables-exemplo-snat">Conectando sua rede interna a Internet
  <p>
 O seguinte exemplo permite ligar sua rede interna com a faixa de IP's 
-<file>192.168.1.*</file> a internet (usando uma conex„o discada do tipo 
+<file>192.168.1.*</file> a internet (usando uma conex√£o discada do tipo 
 ppp):
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -j MASQUERADE
@@ -92,51 +92,51 @@ echo "1" >/proc/sys/net/ipv4/ip_forward
 
 <sect1 id="fw-iptables-exemplo-fw">Um exemplo de firewall simples
  <p>
-Esta seÁ„o possui um exemplo mais elaborado de firewall que servir· para 
-m·quinas conectadas via ppp com uma rede interna conectada via Masquerading. 
-Este exemplo n„o È t„o complexo e cobre as expectativas mais comuns de pessoas 
+Esta se√ß√£o possui um exemplo mais elaborado de firewall que servir√° para 
+m√°quinas conectadas via ppp com uma rede interna conectada via Masquerading. 
+Este exemplo n√£o √© t√£o complexo e cobre as expectativas mais comuns de pessoas 
 que gostam de explorar os potenciais de rede no <prgn>Linux</prgn> ou satisfazer 
-sua curiosidade. Ele poder· ser facilmente adaptado para atender outro tipo 
-de necessidade. A configuraÁ„o assumida È a seguinte: 
+sua curiosidade. Ele poder√° ser facilmente adaptado para atender outro tipo 
+de necessidade. A configura√ß√£o assumida √© a seguinte: 
 <enumlist compact>
  <item>
-M·quina do firewall com 2 interfaces de rede, uma È <file>eth0</file> 
-com o IP <file>192.168.1.1</file> que serve de ligaÁ„o a sua rede Interna, a 
-outra È <file>ppp0</file> que È a interface Internet. 
+M√°quina do firewall com 2 interfaces de rede, uma √© <file>eth0</file> 
+com o IP <file>192.168.1.1</file> que serve de liga√ß√£o a sua rede Interna, a 
+outra √© <file>ppp0</file> que √© a interface Internet. 
 
  <item>
-Qualquer acesso externo a m·quinas da rede interna È bloqueado. 
+Qualquer acesso externo a m√°quinas da rede interna √© bloqueado. 
 
  <item>
-Os usu·rios da rede local tem acesso livre ao servidor <prgn>Linux</prgn>. 
+Os usu√°rios da rede local tem acesso livre ao servidor <prgn>Linux</prgn>. 
 
  <item>
-Qualquer acesso externo a m·quina do firewall È bloqueado, exceto 
-conexıes para o serviÁo <prgn>Apache</prgn> (<tt>httpd</tt>). Outras 
-tentativas de conexıes devem ser explicitamente registradas nos logs 
+Qualquer acesso externo a m√°quina do firewall √© bloqueado, exceto 
+conex√µes para o servi√ßo <prgn>Apache</prgn> (<tt>httpd</tt>). Outras 
+tentativas de conex√µes devem ser explicitamente registradas nos logs 
 do sistema para conhecimento do administrador.
 
  <item>
-Todos os usu·rios possuem acesso livre a Internet via Masquerading, exceto que 
-o acesso para o serviÁo www deve ser obrigatoriamente feito via <prgn>squid</prgn>, 
-e o servidor smtp a ser usado dever· ser o do firewall <prgn>Linux</prgn>. 
+Todos os usu√°rios possuem acesso livre a Internet via Masquerading, exceto que 
+o acesso para o servi√ßo www deve ser obrigatoriamente feito via <prgn>squid</prgn>, 
+e o servidor smtp a ser usado dever√° ser o do firewall <prgn>Linux</prgn>. 
 
  <item>
-Prioridades ser„o estabelecidas para os serviÁos de telnet, IRC,talk e DNS.
+Prioridades ser√£o estabelecidas para os servi√ßos de telnet, IRC,talk e DNS.
 
 </enumlist>
 
 <example>
 #!/bin/sh
-# Modelo de configuraÁ„o de firewall
+# Modelo de configura√ß√£o de firewall
 # Autor: Gleydson M. Silva
 # Data: 05/09/2001
-# DescriÁ„o: Produzido para ser distribuÌdo livremente, acompanha o guia 
+# Descri√ß√£o: Produzido para ser distribu√≠do livremente, acompanha o guia 
 #             Foca GNU/Linux. http://www.guiafoca.org
 #
 
-# … assumido um sistema usando kmod para carga autom·tica dos mÛdulos usados por
-# esta configuraÁ„o do firewall:
+# √â assumido um sistema usando kmod para carga autom√°tica dos m√≥dulos usados por
+# esta configura√ß√£o do firewall:
 # ipt_filter
 # ipt_nat
 # ipt_conntrack
@@ -145,10 +145,10 @@ Prioridades ser„o estabelecidas para os serviÁos de telnet, IRC,talk e DNS.
 # ipt_MASQUERADE
 # ipt_LOG
 
-# Se vocÍ tem um kernel modularizado que n„o utiliza o kmod, ser· necess·rio 
-# carregar estes mÛdulos via modprobe, insmod ou iptables --modprobe=modulo
+# Se voc√™ tem um kernel modularizado que n√£o utiliza o kmod, ser√° necess√°rio 
+# carregar estes m√≥dulos via modprobe, insmod ou iptables --modprobe=modulo
 
-##### DefiniÁ„o de polÌtica padr„o do firewall #####
+##### Defini√ß√£o de pol√≠tica padr√£o do firewall #####
 # Tabela filter
 iptables -t filter -P INPUT DROP
 iptables -t filter -P OUTPUT ACCEPT
@@ -162,7 +162,7 @@ iptables -t mangle -P PREROUTING ACCEPT
 iptables -t mangle -P OUTPUT ACCEPT
 
 
-##### ProteÁ„o contra IP Spoofing #####
+##### Prote√ß√£o contra IP Spoofing #####
 for i in /proc/sys/net/ipv4/conf/*/rp_filter; do
  echo 1 &gt;$i
 done
@@ -170,15 +170,15 @@ done
 ##### Ativamos o redirecionamento de pacotes (requerido para NAT) #####
 echo "1" >/proc/sys/net/ipv4/ip_forward
 
-# O iptables define automaticamente o n˙mero m·ximo de conexıes simult‚neas 
-# com base na memÛria do sistema. Para 32MB = 2048, 64MB = 4096, 128MB = 8192, 
-# sendo que s„o usados 350 bytes de memÛria residente para controlar 
-# cada conex„o. 
-# Quando este limite È excedido a seguinte mensagem È mostrada:
+# O iptables define automaticamente o n√∫mero m√°ximo de conex√µes simult√¢neas 
+# com base na mem√≥ria do sistema. Para 32MB = 2048, 64MB = 4096, 128MB = 8192, 
+# sendo que s√£o usados 350 bytes de mem√≥ria residente para controlar 
+# cada conex√£o. 
+# Quando este limite √© excedido a seguinte mensagem √© mostrada:
 #  "ip_conntrack: maximum limit of XXX entries exceed"
 #
 # Como temos uma rede simples, vamos abaixar este limite. Por outro lado isto 
-# criar· uma certa limitaÁ„o de tr·fego para evitar a sobrecarga do servidor. 
+# criar√° uma certa limita√ß√£o de tr√°fego para evitar a sobrecarga do servidor. 
 echo "2048" > /proc/sys/net/ipv4/ip_conntrack_max
 
 
@@ -187,26 +187,26 @@ echo "2048" > /proc/sys/net/ipv4/ip_conntrack_max
 ###############################################################
 
 ##### Chain INPUT #####
-# Criamos um chain que ser· usado para tratar o tr·fego vindo da Internet e 
+# Criamos um chain que ser√° usado para tratar o tr√°fego vindo da Internet e 
 iptables -N ppp-input
 
-# Aceita todo o tr·fego vindo do loopback e indo pro loopback
+# Aceita todo o tr√°fego vindo do loopback e indo pro loopback
 iptables -A INPUT -i lo -j ACCEPT
-# Todo tr·fego vindo da rede interna tambÈm È aceito
+# Todo tr√°fego vindo da rede interna tamb√©m √© aceito
 iptables -A INPUT -s 192.168.1.0/24 -i eth0 -j ACCEPT
 
-# Conexıes vindas da interface ppp0 s„o tratadas pelo chain ppp-input
+# Conex√µes vindas da interface ppp0 s√£o tratadas pelo chain ppp-input
 iptables -A INPUT -i ppp+ -j ppp-input
 
-# Qualquer outra conex„o desconhecida È imediatamente registrada e derrubada
+# Qualquer outra conex√£o desconhecida √© imediatamente registrada e derrubada
 iptables -A INPUT -j LOG --log-prefix "FIREWALL: INPUT "
 iptables -A INPUT -j DROP
 
 
 ##### Chain FORWARD ####
-# Permite redirecionamento de conexıes entre as interfaces locais
-# especificadas abaixo. Qualquer tr·fego vindo/indo para outras
-# interfaces ser· bloqueado neste passo
+# Permite redirecionamento de conex√µes entre as interfaces locais
+# especificadas abaixo. Qualquer tr√°fego vindo/indo para outras
+# interfaces ser√° bloqueado neste passo
 iptables -A FORWARD -d 192.168.1.0/24 -i ppp+ -o eth0 -j ACCEPT
 iptables -A FORWARD -s 192.168.1.0/24 -i eth0 -o ppp+ -j ACCEPT
 iptables -A FORWARD -j LOG --log-prefix "FIREWALL: FORWARD "
@@ -214,18 +214,18 @@ iptables -A FORWARD -j DROP
 
 
 ##### Chain ppp-input ####
-# Aceitamos todas as mensagens icmp vindas de ppp0 com certa limitaÁ„o
-# O tr·fego de pacotes icmp que superar este limite ser· bloqueado
+# Aceitamos todas as mensagens icmp vindas de ppp0 com certa limita√ß√£o
+# O tr√°fego de pacotes icmp que superar este limite ser√° bloqueado
 # pela regra "...! ESTABLISHED,RELATED -j DROP" no final do 
 # chain ppp-input
 #
 iptables -A ppp-input -p icmp -m limit --limit 2/s -j ACCEPT
 
-# Primeiro aceitamos o tr·fego vindo da Internet para o serviÁo www (porta 80)
+# Primeiro aceitamos o tr√°fego vindo da Internet para o servi√ßo www (porta 80)
 iptables -A ppp-input -p tcp --dport 80 -j ACCEPT
 
-# A tentativa de acesso externo a estes serviÁos ser„o registrados no syslog
-# do sistema e ser„o bloqueados pela ˙ltima regra abaixo.
+# A tentativa de acesso externo a estes servi√ßos ser√£o registrados no syslog
+# do sistema e ser√£o bloqueados pela √∫ltima regra abaixo.
 iptables -A ppp-input -p tcp --dport 21 -j LOG --log-prefix "FIREWALL: ftp "
 iptables -A ppp-input -p tcp --dport 25 -j LOG --log-prefix "FIREWALL: smtp "
 iptables -A ppp-input -p udp --dport 53 -j LOG --log-prefix "FIREWALL: dns "
@@ -235,10 +235,10 @@ iptables -A ppp-input -p udp --dport 111 -j LOG --log-prefix "FIREWALL: rpc"
 iptables -A ppp-input -p tcp --dport 111 -j LOG --log-prefix "FIREWALL: rpc"
 iptables -A ppp-input -p tcp --dport 137:139 -j LOG --log-prefix "FIREWALL: samba "
 iptables -A ppp-input -p udp --dport 137:139 -j LOG --log-prefix "FIREWALL: samba "
-# Bloqueia qualquer tentativa de nova conex„o de fora para esta m·quina
+# Bloqueia qualquer tentativa de nova conex√£o de fora para esta m√°quina
 iptables -A ppp-input -m state --state ! ESTABLISHED,RELATED -j LOG --log-prefix "FIREWALL: ppp-in "
 iptables -A ppp-input -m state --state ! ESTABLISHED,RELATED -j DROP
-# Qualquer outro tipo de tr·fego È aceito
+# Qualquer outro tipo de tr√°fego √© aceito
 iptables -A ppp-input -j ACCEPT
 
 
@@ -247,32 +247,32 @@ iptables -A ppp-input -j ACCEPT
 #######################################################
 
 ##### Chain POSTROUTING #####
-# Permite qualquer conex„o vinda com destino a lo e rede local para eth0
+# Permite qualquer conex√£o vinda com destino a lo e rede local para eth0
 iptables -t nat -A POSTROUTING -o lo -j ACCEPT
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j ACCEPT
 
-# N„o queremos que usu·rios tenham acesso direto a www e smtp da rede externa, o 
-# squid e smtpd do firewall devem ser obrigatoriamente usados. TambÈm registramos
-# as tentativas para monitorarmos qual m·quina est· tentando conectar-se diretamente.
+# N√£o queremos que usu√°rios tenham acesso direto a www e smtp da rede externa, o 
+# squid e smtpd do firewall devem ser obrigatoriamente usados. Tamb√©m registramos
+# as tentativas para monitorarmos qual m√°quina est√° tentando conectar-se diretamente.
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -p tcp --dport 80 -j LOG --log-prefix "FIREWALL: SNAT-www "
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -p tcp --dport 25 -j LOG --log-prefix "FIREWALL: SNAT-smtp "
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -p tcp --dport 25 -j DROP
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -p tcp --dport 80 -j DROP
-# … feito masquerading dos outros serviÁos da rede interna indo para a interface 
+# √â feito masquerading dos outros servi√ßos da rede interna indo para a interface 
 # ppp0 
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp+ -j MASQUERADE
 
-# Qualquer outra origem de tr·fego desconhecida indo para eth0 (conexıes vindas 
-# de ppp+) s„o bloqueadas aqui
+# Qualquer outra origem de tr√°fego desconhecida indo para eth0 (conex√µes vindas 
+# de ppp+) s√£o bloqueadas aqui
 iptables -t nat -A POSTROUTING -o eth0 -d 192.168.1.0/24 -j LOG --log-prefix "FIREWALL: SNAT unknown"
 iptables -t nat -A POSTROUTING -o eth0 -d 192.168.1.0/24 -j DROP
-# Quando iniciamos uma conex„o ppp, obtermos um endereÁo classe A (10.x.x.x) e apÛs
-# estabelecida a conex„o real, este endereÁo È modificado. O tr·fego indo para 
-# a interface ppp n„o dever· ser bloqueado. Os bloqueios ser„o feitos no 
+# Quando iniciamos uma conex√£o ppp, obtermos um endere√ßo classe A (10.x.x.x) e ap√≥s
+# estabelecida a conex√£o real, este endere√ßo √© modificado. O tr√°fego indo para 
+# a interface ppp n√£o dever√° ser bloqueado. Os bloqueios ser√£o feitos no 
 # chain INPUT da tabela filter
 iptables -t nat -A POSTROUTING -o ppp+ -j ACCEPT
 
-# Registra e bloqueia qualquer outro tipo de tr·fego desconhecido
+# Registra e bloqueia qualquer outro tipo de tr√°fego desconhecido
 iptables -t nat -A POSTROUTING -j LOG --log-prefix "FIREWALL: SNAT "
 iptables -t nat -A POSTROUTING -j DROP
 
@@ -282,9 +282,9 @@ iptables -t nat -A POSTROUTING -j DROP
 ###############################################
 
 ##### Chain OUTPUT #####
-# Define mÌnimo de espera para os serviÁos ftp, telnet, irc e DNS, isto 
-# dar· uma melhor sensaÁ„o de conex„o em tempo real e diminuir· o tempo 
-# de espera para conexıes que requerem resoluÁ„o de nomes. 
+# Define m√≠nimo de espera para os servi√ßos ftp, telnet, irc e DNS, isto 
+# dar√° uma melhor sensa√ß√£o de conex√£o em tempo real e diminuir√° o tempo 
+# de espera para conex√µes que requerem resolu√ß√£o de nomes. 
 iptables -t mangle -A OUTPUT -o ppp+ -p tcp --dport 21 -j TOS --set-tos 0x10
 iptables -t mangle -A OUTPUT -o ppp+ -p tcp --dport 23 -j TOS --set-tos 0x10
 iptables -t mangle -A OUTPUT -o ppp+ -p tcp --dport 6665:6668 -j TOS --set-tos 0x10

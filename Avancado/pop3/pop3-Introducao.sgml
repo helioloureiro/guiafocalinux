@@ -1,80 +1,80 @@
 <chapt id="s-pop3">Servidor pop3
  <p>
-Este capÌtulo descreve a instalaÁ„o, configuraÁ„o, criaÁ„o de contas e 
-controle de acesso ao servidor pop3. Este capÌtulo È baseado no 
+Este cap√≠tulo descreve a instala√ß√£o, configura√ß√£o, cria√ß√£o de contas e 
+controle de acesso ao servidor pop3. Este cap√≠tulo √© baseado no 
 servidor qpopper da Qualcomm. 
 
 
-<sect id="s-pop3-intro">IntroduÁ„o
+<sect id="s-pop3-intro">Introdu√ß√£o
  <p>
-… o servidor para recebimento de mensagens eletrÙnicas (e-mails) para o 
-cliente de e-mails. O servidor pop3 documentado È o <prgn>qpopper</prgn> 
-(da Qualcomm), È um dos mais usados em ambiente <prgn>Linux</prgn>, simples 
-de configurar e distribuÌdo livremente. 
-O que este programa faz È ler os e-mails de usu·rios em <file>/var/mail</file> 
+√â o servidor para recebimento de mensagens eletr√¥nicas (e-mails) para o 
+cliente de e-mails. O servidor pop3 documentado √© o <prgn>qpopper</prgn> 
+(da Qualcomm), √© um dos mais usados em ambiente <prgn>Linux</prgn>, simples 
+de configurar e distribu√≠do livremente. 
+O que este programa faz √© ler os e-mails de usu√°rios em <file>/var/mail</file> 
 e os envia via porta 110 ao programa cliente (<prgn>Netscape</prgn>, 
 <prgn>sylpheed</prgn>, <prgn>mutt</prgn>, <prgn>balsa</prgn>, <prgn>Pegasus</prgn>, 
 <prgn>Outlook</prgn>, ou qualquer outro que suporte o protocolo pop3). 
 
 
-<sect1 id="s-pop3-versao">Vers„o
+<sect1 id="s-pop3-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 4.0.3 do <prgn>qpopper</prgn>. As explicaÁıes 
-contidas aqui podem funcionar para versıes posteriores, mas È recomend·vel que 
-leia a documentaÁ„o sobre modificaÁıes no programa (changelog) em busca de 
-mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui. 
+√â assumido que esteja usando a vers√£o 4.0.3 do <prgn>qpopper</prgn>. As explica√ß√µes 
+contidas aqui podem funcionar para vers√µes posteriores, mas √© recomend√°vel que 
+leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) em busca de 
+mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui. 
 
 
 <sect1 id="s-pop3-contribuindo">Contribuindo
  <p>
-O site do <prgn>qpopper</prgn> È <url id="&url-qpopper-www;">, 
-an˙ncios de novas versıes, bugs e correÁıes s„o enviados para 
+O site do <prgn>qpopper</prgn> √© <url id="&url-qpopper-www;">, 
+an√∫ncios de novas vers√µes, bugs e corre√ß√µes s√£o enviados para 
 <email>qpopper-announce@rohan.qualcomm.com</email> (inscreva-se enviando 
 uma mensagem com o assunto "subscribe" para o nome da lista acrescentando 
-"-request"). A lista de suporte aos usu·rios È 
-<email>qpopper@lists.pensive.org</email> (o mÈtodo de inscriÁ„o È idÍntico 
+"-request"). A lista de suporte aos usu√°rios √© 
+<email>qpopper@lists.pensive.org</email> (o m√©todo de inscri√ß√£o √© id√™ntico 
 a lista <tt>announce</tt>). 
 
 
-<sect1 id="s-pop3-caracteristicas">CaracterÌsticas
+<sect1 id="s-pop3-caracteristicas">Caracter√≠sticas
  <p>
 <list compact>
  <item>Simples de configurar.
- <item>Possui um timeout padr„o de 30 segundos ao invÈs de 10 minutos do 
-protocolo pop3 padr„o.
- <item>O protocolo pop3 È mais simples e consome menos recursos no 
+ <item>Possui um timeout padr√£o de 30 segundos ao inv√©s de 10 minutos do 
+protocolo pop3 padr√£o.
+ <item>O protocolo pop3 √© mais simples e consome menos recursos no 
  servidor que o IMAP.
- <item>Suporte a envio de boletins aos usu·rios do sistema. 
+ <item>Suporte a envio de boletins aos usu√°rios do sistema. 
  <item>Inclui suporte a TLS/SSL. 
  <item>Suporte a senhas ocultas (shadow passwords).
  <item>Suporta PAM.
- <item>Suporte a autenticaÁ„o via APOP. 
+ <item>Suporte a autentica√ß√£o via APOP. 
  <item>Alta performance.
 </list>
 
 
-<sect1 id="s-pop3-ficha">Ficha tÈcnica
+<sect1 id="s-pop3-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>qpopper</package>.
  <p>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item>
 <file>in.qpopper</file> - Servidor pop3.
  <item>
-<file>popauth</file> - Manipula os bancos de dados de autorizaÁ„o quando 
-È usado o mÈtodo de autenticaÁ„o APOP. 
+<file>popauth</file> - Manipula os bancos de dados de autoriza√ß√£o quando 
+√© usado o m√©todo de autentica√ß√£o APOP. 
 </list>
-Arquivos de configuraÁ„o: 
+Arquivos de configura√ß√£o: 
 <list compact>
  <item>
-<file>/etc/popper.allow</file> - ContÈm a lista de usu·rios autorizados a usar 
-o serviÁo pop3.
+<file>/etc/popper.allow</file> - Cont√©m a lista de usu√°rios autorizados a usar 
+o servi√ßo pop3.
  <item>
-<file>/etc/popper.deny</file> - ContÈm uma lista de usu·rios N√O autorizados a 
-usar o serviÁo pop3.
+<file>/etc/popper.deny</file> - Cont√©m uma lista de usu√°rios N√ÉO autorizados a 
+usar o servi√ßo pop3.
  <item>
-<file>/etc/pop.auth</file> - ContÈm dados de autenticaÁ„o criados pelo 
+<file>/etc/pop.auth</file> - Cont√©m dados de autentica√ß√£o criados pelo 
 programa <prgn>popauth</prgn>. 
 
 </list>
@@ -82,55 +82,55 @@ programa <prgn>popauth</prgn>.
 
 <sect1 id="s-pop3-hwreq">Requerimentos de Hardware
  <p>
-O servidor <prgn>qpopper</prgn> requer no mÌnimo 6MB de memÛria para 
-rodar e espaÁo em disco suficiente para acomodar os e-mails de usu·rios. 
+O servidor <prgn>qpopper</prgn> requer no m√≠nimo 6MB de mem√≥ria para 
+rodar e espa√ßo em disco suficiente para acomodar os e-mails de usu√°rios. 
 
 
 <sect1 id="s-pop3-logs">Arquivos de log criados pelo qpopper
  <p>
-Mensagens sobre a execuÁ„o do <prgn>qpopper</prgn> s„o enviadas aos 
+Mensagens sobre a execu√ß√£o do <prgn>qpopper</prgn> s√£o enviadas aos 
 seguintes arquivos em <file>/var/log</file>:
 <list compact>
  <item>
-<file>mail.info</file> - Detalhes sobre autenticaÁ„o de usu·rios e mensagens.
+<file>mail.info</file> - Detalhes sobre autentica√ß√£o de usu√°rios e mensagens.
  <item>
-<file>mail.warn</file> - Erros e avisos diversos ocorridos na seÁ„o pop3. 
+<file>mail.warn</file> - Erros e avisos diversos ocorridos na se√ß√£o pop3. 
  <item>
-<file>syslog</file> e <file>daemon.log</file> - Mensagens sobre a execuÁ„o do 
+<file>syslog</file> e <file>daemon.log</file> - Mensagens sobre a execu√ß√£o do 
 servidor qpopper.
  <item>
-<file>auth.log</file> - Mensagens de autenticaÁ„o gerados pelo PAM. 
+<file>auth.log</file> - Mensagens de autentica√ß√£o gerados pelo PAM. 
 </list>
 
 
-<sect1 id="s-pop3-install">InstalaÁ„o
+<sect1 id="s-pop3-install">Instala√ß√£o
  <p>
 <tt>apt-get install qpopper</tt> 
  <p>
-Por padr„o o servidor qpopper È instalado via inetd:
+Por padr√£o o servidor qpopper √© instalado via inetd:
 <example>
 pop-3		stream	tcp	nowait.60	root	/usr/sbin/tcpd	/usr/sbin/in.qpopper -s
 
 </example>
-Se estiver configurando um servidor pop3 com um grande n˙mero de conexıes, È 
-recomend·vel aumentar o n˙mero de execuÁıes do serviÁo pop3 por minuto 
+Se estiver configurando um servidor pop3 com um grande n√∫mero de conex√µes, √© 
+recomend√°vel aumentar o n√∫mero de execu√ß√µes do servi√ßo pop3 por minuto 
 (no <file>inetd.conf</file>) ou rodar o servidor <prgn>qpopper</prgn> como daemon 
 (preferido). Para fazer isto, remova a linha que inicia o <prgn>qpopper</prgn> no 
-<file>inetd.conf</file> e construa um script que inicie o serviÁo como daemon 
-usando a opÁ„o <em>-S</em> (veja outras opÁıes em <ref id="s-pop3-opcoescmd">). 
+<file>inetd.conf</file> e construa um script que inicie o servi√ßo como daemon 
+usando a op√ß√£o <em>-S</em> (veja outras op√ß√µes em <ref id="s-pop3-opcoescmd">). 
 
 
 <sect1 id="s-pop3-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
-O serviÁo È executado por padr„o via inetd e utiliza o controle de 
+O servi√ßo √© executado por padr√£o via inetd e utiliza o controle de 
 acesso <prgn>tcpd</prgn> <![ %CAPJUNTOS [ (veja <ref id="rede-seg-tcpd">)]]>. 
-Adicionalmente vocÍ pode definir que usu·rios ter„o/n„o acesso ao serviÁo pop3 
-nos arquivos <file>/etc/popper.allow</file> e <file>popper.deny</file>. Por padr„o, 
-o acesso È garantido para qualquer usu·rio. 
+Adicionalmente voc√™ pode definir que usu√°rios ter√£o/n√£o acesso ao servi√ßo pop3 
+nos arquivos <file>/etc/popper.allow</file> e <file>popper.deny</file>. Por padr√£o, 
+o acesso √© garantido para qualquer usu√°rio. 
  <p>
-ApÛs instalar o servidor pop3 instalado, resta configurar o cliente para conectar 
-ao servidor pop3 do servidor. O nome de usu·rio e senha s„o os usados no 
+Ap√≥s instalar o servidor pop3 instalado, resta configurar o cliente para conectar 
+ao servidor pop3 do servidor. O nome de usu√°rio e senha s√£o os usados no 
 arquivo <file>/etc/passwd</file>. 
 
 
@@ -144,130 +144,130 @@ Escape character is '^]'.
 +OK Qpopper (version 4.0.3) at server.org starting.  <2122.11132222@server.org>
 
 </example>
-A resposta acima indica que o servidor pop3 est· funcionando corretamente. 
+A resposta acima indica que o servidor pop3 est√° funcionando corretamente. 
 
 
-<sect1 id="s-pop3-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-pop3-opcoescmd">Op√ß√µes de linha de comando
  <p>
-OpÁıes de linha de comando do servidor <prgn>in.qpopper</prgn>: 
+Op√ß√µes de linha de comando do servidor <prgn>in.qpopper</prgn>: 
 <taglist compact>
- <tag>endereÁo:porta</tag>
+ <tag>endere√ßo:porta</tag>
   <item>
-Quando est· operando em modo daemon (iniciado com <em>-S</em>), espera por 
-conexıes no <em>endereÁo</em> e opcionalmente na <em>porta</em> especificada. 
-O endereÁo dever· ser o da interface de rede local do servidor (como 
-<file>192.168.1.1</file>) caso n„o seja especificado, o servidor 
-<prgn>qpopper</prgn> monitorar· todos os endereÁos. A porta padr„o È 110 
-caso n„o seja especificada. 
+Quando est√° operando em modo daemon (iniciado com <em>-S</em>), espera por 
+conex√µes no <em>endere√ßo</em> e opcionalmente na <em>porta</em> especificada. 
+O endere√ßo dever√° ser o da interface de rede local do servidor (como 
+<file>192.168.1.1</file>) caso n√£o seja especificado, o servidor 
+<prgn>qpopper</prgn> monitorar√° todos os endere√ßos. A porta padr√£o √© 110 
+caso n√£o seja especificada. 
 
- <tag>-b [diretÛrio]</tag>
+ <tag>-b [diret√≥rio]</tag>
   <item>
-Ativa o sistema de envio de boletins. O diretÛrio especificado È o que 
-contÈm os boletins que ser„o enviados (na distribuiÁ„o <prgn>Debian</prgn>, o 
-<file>/var/spool/popbull</file> È o indicado). Veja <ref id="s-pop3-boletins"> 
-para instruÁıes de utilizaÁ„o deste recurso. 
+Ativa o sistema de envio de boletins. O diret√≥rio especificado √© o que 
+cont√©m os boletins que ser√£o enviados (na distribui√ß√£o <prgn>Debian</prgn>, o 
+<file>/var/spool/popbull</file> √© o indicado). Veja <ref id="s-pop3-boletins"> 
+para instru√ß√µes de utiliza√ß√£o deste recurso. 
 
  <tag>-c</tag>
   <item>
-Modifica a senha para caracteres min˙sculos antes de autenticar, permitindo 
-que clientes conectem com a senha em MAI⁄SCULAS ou caracteres mIsTurados. 
+Modifica a senha para caracteres min√∫sculos antes de autenticar, permitindo 
+que clientes conectem com a senha em MAI√öSCULAS ou caracteres mIsTurados. 
 
  <tag>-f [arquivo]</tag>
   <item>
-Especifica um arquivo de configuraÁ„o para o servidor qpopper. Veja a p·gina 
-de manual para detalhes sobre as opÁıes. Recomendo usar as opÁıes de linha 
-de comando exceto se for requerida configuraÁıes especiais para modificar o 
+Especifica um arquivo de configura√ß√£o para o servidor qpopper. Veja a p√°gina 
+de manual para detalhes sobre as op√ß√µes. Recomendo usar as op√ß√µes de linha 
+de comando exceto se for requerida configura√ß√µes especiais para modificar o 
 comportamento do servidor pop3. 
 
 <tag>-l [num]</tag>
  <item>
-Modifica as opÁıes de criptografia TLS/SSL usada no transporta da seÁ„o. Os 
-seguintes valores s„o aceitos:
+Modifica as op√ß√µes de criptografia TLS/SSL usada no transporta da se√ß√£o. Os 
+seguintes valores s√£o aceitos:
  <list compact>
   <item>
- <tt>0</tt> - Desativa TLS/SSL. … o padr„o. 
+ <tt>0</tt> - Desativa TLS/SSL. √â o padr√£o. 
   <item>
- <tt>1</tt> - Ativa o suporte a TLS/SSL. Se o cliente n„o suportar 
- criptografia, os dados ser„o transmitidos usando a forma padr„o.
+ <tt>1</tt> - Ativa o suporte a TLS/SSL. Se o cliente n√£o suportar 
+ criptografia, os dados ser√£o transmitidos usando a forma padr√£o.
   <item>
- <tt>2</tt> - Tenta ativar uma conex„o TLS quando o cliente conecta ao 
+ <tt>2</tt> - Tenta ativar uma conex√£o TLS quando o cliente conecta ao 
  servidor usando uma porta alternativa. 
  </list>
 
 <tag>-p [num]</tag>
  <item>
-Seleciona como a senha em texto plano ser· manipulada. O servidor dever· 
-estar compilado com suporte a outras formas de autenticaÁ„o (como APOP) 
-ao invÈs de texto plano. As seguintes opÁıes s„o suportadas.
+Seleciona como a senha em texto plano ser√° manipulada. O servidor dever√° 
+estar compilado com suporte a outras formas de autentica√ß√£o (como APOP) 
+ao inv√©s de texto plano. As seguintes op√ß√µes s√£o suportadas.
  <list compact>
   <item>
- <tt>0</tt> - Senhas em texto plano podem ser usadas para usu·rios n„o 
+ <tt>0</tt> - Senhas em texto plano podem ser usadas para usu√°rios n√£o 
  cadastrados no arquivo <file>/etc/pop.auth</file> (gerenciado pelo 
- <prgn>popauth</prgn>. Este È o padr„o. 
+ <prgn>popauth</prgn>. Este √© o padr√£o. 
   <item>
- <tt>1</tt> - Somente permite acesso de usu·rios cadastrados no arquivo 
- <file>/etc/pop.auth</file>. Qualquer acesso usando texto plano È negado. 
+ <tt>1</tt> - Somente permite acesso de usu√°rios cadastrados no arquivo 
+ <file>/etc/pop.auth</file>. Qualquer acesso usando texto plano √© negado. 
   <item>
- <tt>2</tt> - Permite autenticaÁ„o usando texto plano como preferÍncia, 
- atÈ mesmo para usu·rios que estejam no <file>/etc/pop.auth</file>). … 
- ˙til para clientes que n„o suportam autenticaÁ„o usando texto plano. 
+ <tt>2</tt> - Permite autentica√ß√£o usando texto plano como prefer√™ncia, 
+ at√© mesmo para usu√°rios que estejam no <file>/etc/pop.auth</file>). √â 
+ √∫til para clientes que n√£o suportam autentica√ß√£o usando texto plano. 
   <item>
- <tt>3</tt> - Somente usu·rios conectando da mesma m·quina (127.0.0.1) podem 
- usar autenticaÁ„o em texto plano. 
+ <tt>3</tt> - Somente usu√°rios conectando da mesma m√°quina (127.0.0.1) podem 
+ usar autentica√ß√£o em texto plano. 
   <item>
- <tt>4</tt> - Permite autenticaÁ„o usando texto plano somente se uma conex„o 
- criptogr·fica foi estabelecida usando TLS ou SSL. 
+ <tt>4</tt> - Permite autentica√ß√£o usando texto plano somente se uma conex√£o 
+ criptogr√°fica foi estabelecida usando TLS ou SSL. 
  </list>
 
 <tag>-R</tag> 
  <item>
-Desativa a resoluÁ„o reversa de endereÁos IP de clientes. 
+Desativa a resolu√ß√£o reversa de endere√ßos IP de clientes. 
 
 <tag>-s</tag>
  <item>
-Registra dados de inicio da seÁ„o, nome de usu·rio, n˙mero 
-de bytes/mensagens apagadas, n˙mero de mensagens deixadas no servidor e 
-fim da seÁ„o. Estes detalhes s„o registrados pelo <prgn>syslogd</prgn>. 
-Seu uso È recomend·vel para ter controle sobre o que est· acontecendo em 
+Registra dados de inicio da se√ß√£o, nome de usu√°rio, n√∫mero 
+de bytes/mensagens apagadas, n√∫mero de mensagens deixadas no servidor e 
+fim da se√ß√£o. Estes detalhes s√£o registrados pelo <prgn>syslogd</prgn>. 
+Seu uso √© recomend√°vel para ter controle sobre o que est√° acontecendo em 
 seu servidor. 
 
 <tag>-S</tag>
  <item>
-Ativa o modo daemon. ⁄til para servidores pop3 com grande n˙mero de acessos. 
+Ativa o modo daemon. √ötil para servidores pop3 com grande n√∫mero de acessos. 
 
 <tag>-T [num]</tag>
  <item>
-Tempo m·ximo em segundos para finalizaÁ„o da seÁ„o quando o cliente n„o 
+Tempo m√°ximo em segundos para finaliza√ß√£o da se√ß√£o quando o cliente n√£o 
 envia nenhuma resposta ou comando. Valores pequenos (como 20) podem ser 
-especificados para servidores que possuem poucos usu·rios e um link r·pido. 
-Para grande quantidade de usu·rios ou conex„o feita via links lentos (como ppp, 
-slip, plip, etc.) use valores como 600 (10 minutos) ou mais. O valor padr„o È 
+especificados para servidores que possuem poucos usu√°rios e um link r√°pido. 
+Para grande quantidade de usu√°rios ou conex√£o feita via links lentos (como ppp, 
+slip, plip, etc.) use valores como 600 (10 minutos) ou mais. O valor padr√£o √© 
 120 segundos (2 minutos). 
 
  <tag>-u</tag>
   <item>
-LÍ o arquivo <file>~/.qpopper.options</file> no diretÛrio do usu·rio em busca 
-de opÁıes adicionais para o servidor. Este arquivo È lido apÛs o processo de 
-autenticaÁ„o e deve ter permissıes leitura/gravaÁ„o para o dono. Isto n„o È 
-recomend·vel em servidores seguros, a criptografia ou mÈtodo de autenticaÁ„o 
+L√™ o arquivo <file>~/.qpopper.options</file> no diret√≥rio do usu√°rio em busca 
+de op√ß√µes adicionais para o servidor. Este arquivo √© lido ap√≥s o processo de 
+autentica√ß√£o e deve ter permiss√µes leitura/grava√ß√£o para o dono. Isto n√£o √© 
+recomend√°vel em servidores seguros, a criptografia ou m√©todo de autentica√ß√£o 
 podem ser desativados sem o conhecimento do administrador comprometendo 
-a seguranÁa dos dados. 
+a seguran√ßa dos dados. 
 
  <tag>-U</tag> 
   <item>
-IdÍntica a opÁ„o acima, mas o arquivo deve residir no diretÛrio 
+Id√™ntica a op√ß√£o acima, mas o arquivo deve residir no diret√≥rio 
 de spool (<file>/var/spool/pop</file>) e ter o formato:
 <example>
 .usuario.qpopper-options
 
 </example>
 Este arquivo deve ter como dono o administrador ou dono do servidor 
-pop3. Esta alternativa È mais segura que a anterior porque o usu·rio 
-n„o ter· acesso ou desativar opÁıes especÌficas. 
+pop3. Esta alternativa √© mais segura que a anterior porque o usu√°rio 
+n√£o ter√° acesso ou desativar op√ß√µes espec√≠ficas. 
 
  <tag>-y [facilidade]</tag>
   <item>
-Permite modificar o nÌvel <em>facilidade</em> que as mensagens s„o 
+Permite modificar o n√≠vel <em>facilidade</em> que as mensagens s√£o 
 registradas no <prgn>syslogd</prgn> <![ %CAPJUNTOS [(veja 
 <ref id="log-syslogd-exemplo">)]]>. 
 </taglist>
@@ -275,27 +275,27 @@ registradas no <prgn>syslogd</prgn> <![ %CAPJUNTOS [(veja
 
 <sect1 id="s-pop3-boletins">Enviando boletins de mensagens
  <p>
-Este recurso È muito ˙til para enviar alertas ou avisos para todos os 
-usu·rios em seu sistema de uma sÛ vez. A mensagem È escrita 
-no diretÛrio <file>/var/spool/popbull</file> seguindo um formato 
-especial e quando o usu·rio pop3 se conecta para pegar seus e-mails 
-receber· tambÈm uma cÛpia do boletim. O controle de boletins j· recebido 
-pelo usu·rio È feito no arquivo <file>~/.popbull</file>. Siga os passos 
+Este recurso √© muito √∫til para enviar alertas ou avisos para todos os 
+usu√°rios em seu sistema de uma s√≥ vez. A mensagem √© escrita 
+no diret√≥rio <file>/var/spool/popbull</file> seguindo um formato 
+especial e quando o usu√°rio pop3 se conecta para pegar seus e-mails 
+receber√° tamb√©m uma c√≥pia do boletim. O controle de boletins j√° recebido 
+pelo usu√°rio √© feito no arquivo <file>~/.popbull</file>. Siga os passos 
 a seguir para configurar este sistema:
 <enumlist>
  <item>
 Ative o suporte a envio de boletins no servidor qpopper, adicionando
-a opÁ„o <tt>-b /var/spool/popbull</tt> a linha de comando.
+a op√ß√£o <tt>-b /var/spool/popbull</tt> a linha de comando.
 
  <item>
-Os n˙meros de boletins s„o controlados seq¸encialmente pelos 
-arquivos <file>~/.popbull</file>, portanto È importante 
-comeÁar com o nome do boletim com pelo menos 5 dÌgitos 
+Os n√∫meros de boletins s√£o controlados seq√ºencialmente pelos 
+arquivos <file>~/.popbull</file>, portanto √© importante 
+come√ßar com o nome do boletim com pelo menos 5 d√≠gitos 
 (00001, 00002, 00003, etc). Vamos usar <file>00001-teste</file> em 
 nosso exemplo.
 
  <item>
-A primeira linha do boletim deve conter a palavra "From" e um espaÁo e 
+A primeira linha do boletim deve conter a palavra "From" e um espa√ßo e 
 deve ser completada com um nome e data, seguido de campos essenciais 
 para o envio da mensagem: 
 <example>
@@ -305,44 +305,44 @@ From: Administrador do Sistema &lt;root@localhost&gt;
 Date: Fri, 29 Sep 2001 21:40:00 -0800 (PST)
 Subject: Teste do sistema de boletins
 
-Este È apenas um teste para o sistema de boletins. Se tudo estiver OK 
-vocÍ receber· esta mensagem quando pegar seus e-mails no cliente pop3 
-e este boletim ser· registrado no arquivo ~/.popbull para que n„o seja 
+Este √© apenas um teste para o sistema de boletins. Se tudo estiver OK 
+voc√™ receber√° esta mensagem quando pegar seus e-mails no cliente pop3 
+e este boletim ser√° registrado no arquivo ~/.popbull para que n√£o seja 
 novamente recebido. 
 
 </example>
-Deve haver uma linha em branco para separar o cabeÁalho da mensagem. 
+Deve haver uma linha em branco para separar o cabe√ßalho da mensagem. 
 
 </enumlist>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Quando incluir novos usu·rios no sistema, somente os 
-˙ltimos 10 boletins ser„o enviados. ]]>
+<strong>OBS:</strong> Quando incluir novos usu√°rios no sistema, somente os 
+√∫ltimos 10 boletins ser√£o enviados. ]]>
 
 
 <sect1 id="s-pop3-quotas">Especificando quotas para as caixas de correio
  <p>
-Crie o diretÛrio de spool <file>/var/mail</file> em uma partiÁ„o 
+Crie o diret√≥rio de spool <file>/var/mail</file> em uma parti√ß√£o 
 separada e ative o sistema de quota do <prgn>Linux</prgn> nela. 
-<![ %CAPJUNTOS [ Leia as instruÁıes em <ref id="d-restr-quotas">. ]]>
+<![ %CAPJUNTOS [ Leia as instru√ß√µes em <ref id="d-restr-quotas">. ]]>
 
 
 <sect1 id="s-pop3-restricao">Restringindo acesso ao servidor pop3
  <p>
-O controle de acesso de conexıes È feito via mÈtodo 
+O controle de acesso de conex√µes √© feito via m√©todo 
 <prgn>tcpd</prgn> usando o daemon <prgn>in.qpopper</prgn> 
 <![ %CAPJUNTOS [ (veja <ref id="rede-seg-tcpd">)]]>. O controle de 
-acesso dos usu·rios È feito atravÈs do arquivos 
+acesso dos usu√°rios √© feito atrav√©s do arquivos 
 <file>/etc/popper.allow</file> e <file>/etc/popper.deny</file>, 
-respectivamente contÈm os nomes de usu·rios que podem e n„o 
+respectivamente cont√©m os nomes de usu√°rios que podem e n√£o 
 podem ter acesso ao servidor <prgn>qpopper</prgn>. Por motivos 
-de seguranÁa È recomend·vel redirecionar os e-mails do 
-usu·rio <tt>root</tt> para outra conta (no arquivo 
-<file>/etc/aliases</file> e bloquear o acesso do usu·rio root ao 
+de seguran√ßa √© recomend√°vel redirecionar os e-mails do 
+usu√°rio <tt>root</tt> para outra conta (no arquivo 
+<file>/etc/aliases</file> e bloquear o acesso do usu√°rio root ao 
 pop3 no arquivo <file>/etc/popper.deny</file>. 
  <p>
-Se a m·quina servidora pop3 n„o for utilizada para acesso remoto, 
-È recomend·vel desativar os serviÁos de login <![ %CAPJUNTOS [ (veja 
+Se a m√°quina servidora pop3 n√£o for utilizada para acesso remoto, 
+√© recomend√°vel desativar os servi√ßos de login <![ %CAPJUNTOS [ (veja 
 <ref id="d-restr-bash-desshell">)]]>. 
 
 

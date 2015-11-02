@@ -1,55 +1,55 @@
-<sect id="s-apache-dso">MÛdulos DSO
+<sect id="s-apache-dso">M√≥dulos DSO
  <p>
-Os mÛdulos <em>DSO</em> permitem adicionar/remover caracterÌsticas do 
+Os m√≥dulos <em>DSO</em> permitem adicionar/remover caracter√≠sticas do 
 <prgn>Apache</prgn> sem necessidade de recompilar todo o servidor web, 
-assim interrompendo o serviÁo para a atualizaÁ„o dos arquivos. 
-MÛdulos de programas terceiros tambÈm podem ser compilados e adicionado 
-sem problemas atravÈs deste recurso. 
+assim interrompendo o servi√ßo para a atualiza√ß√£o dos arquivos. 
+M√≥dulos de programas terceiros tamb√©m podem ser compilados e adicionado 
+sem problemas atrav√©s deste recurso. 
  <p>
-Os mÛdulos s„o carregados para a memÛria no momento que o <prgn>apache</prgn> È 
-iniciado atravÈs da diretiva <em>LoadModule</em> no arquivo de configuraÁ„o. 
-Dessa forma, toda vez que um novo mÛdulo for adicionado, removido ou alterado, 
-ser· necess·rio reiniciar o servidor <prgn>apache</prgn>. A sintaxe da linha 
-para carregar mÛdulos <file>.so</file> È a seguinte: 
+Os m√≥dulos s√£o carregados para a mem√≥ria no momento que o <prgn>apache</prgn> √© 
+iniciado atrav√©s da diretiva <em>LoadModule</em> no arquivo de configura√ß√£o. 
+Dessa forma, toda vez que um novo m√≥dulo for adicionado, removido ou alterado, 
+ser√° necess√°rio reiniciar o servidor <prgn>apache</prgn>. A sintaxe da linha 
+para carregar m√≥dulos <file>.so</file> √© a seguinte: 
  <p>
 <tt>LoadModule [<em>nome_do_modulo</em>] [<em>caminho_do_arquivo_so</em>]</tt>
  <p>
 <![ %OPCOES [
  <taglist compact>
  <tag><em>nome_do_modulo</em></tag>
- <item>Especifica o nome do mÛdulo, n„o deve conter espaÁos.
+ <item>Especifica o nome do m√≥dulo, n√£o deve conter espa√ßos.
 
  <tag><em>caminho_do_arquivo_so</em></tag>
  <item>
-Define a localizaÁ„o do arquivo que contÈm o mÛdulo especificado. Por 
-padr„o os mÛdulos est„o localizados em <file>/usr/lib/apache/[vers„o]</file>
+Define a localiza√ß√£o do arquivo que cont√©m o m√≥dulo especificado. Por 
+padr√£o os m√≥dulos est√£o localizados em <file>/usr/lib/apache/[vers√£o]</file>
 </taglist> ]]>
-A posiÁ„o em que os mÛdulos aparecem podem ter influÍncia em seu funcionamento, 
-alguns requerem que sejam especificados antes de outros mÛdulos para 
-funcionarem corretamente (como o mÛdulo <em>php3_module</em>, que deve ser 
-carregado antes de qualquer mÛdulo de controle de CGI's). Leia a documentaÁ„o 
-especÌfica sobe o mÛdulo em caso de d˙vidas, os mÛdulos que acompanham o 
-<prgn>Apache</prgn> s„o documentados em detalhes no manual do <prgn>Apache</prgn>.
+A posi√ß√£o em que os m√≥dulos aparecem podem ter influ√™ncia em seu funcionamento, 
+alguns requerem que sejam especificados antes de outros m√≥dulos para 
+funcionarem corretamente (como o m√≥dulo <em>php3_module</em>, que deve ser 
+carregado antes de qualquer m√≥dulo de controle de CGI's). Leia a documenta√ß√£o 
+espec√≠fica sobe o m√≥dulo em caso de d√∫vidas, os m√≥dulos que acompanham o 
+<prgn>Apache</prgn> s√£o documentados em detalhes no manual do <prgn>Apache</prgn>.
  <p>
-Para usar uma caracterÌstica/diretiva/opÁ„o do <prgn>Apache</prgn> que dependa 
-de um certo mÛdulo, obviamente vocÍ dever· carregar o mÛdulo correspondente 
-(em caso de d˙vidas, leia a documentaÁ„o sobre o mÛdulo). Veja a 
+Para usar uma caracter√≠stica/diretiva/op√ß√£o do <prgn>Apache</prgn> que dependa 
+de um certo m√≥dulo, obviamente voc√™ dever√° carregar o m√≥dulo correspondente 
+(em caso de d√∫vidas, leia a documenta√ß√£o sobre o m√≥dulo). Veja a 
 <ref id="s-apache-exemplo-httpd"> para exemplos do uso da diretiva 
 <em>LoadModule</em>. 
 
 <![ %EXEMPLO [
  <p>
-Por exemplo, se vocÍ quiser utilizar as diretivas de autorizaÁ„o 
-(<em>allow, deny, order</em>) dever· ter o mÛdulo <em>mod_access</em> 
-carregado, para usar as diretivas de autorizaÁ„o (<em>authname, authuserfile, authtype, etc</em>) dever· ter o mÛdulo <em>mod_auth</em> carregado. Mais 
+Por exemplo, se voc√™ quiser utilizar as diretivas de autoriza√ß√£o 
+(<em>allow, deny, order</em>) dever√° ter o m√≥dulo <em>mod_access</em> 
+carregado, para usar as diretivas de autoriza√ß√£o (<em>authname, authuserfile, authtype, etc</em>) dever√° ter o m√≥dulo <em>mod_auth</em> carregado. Mais 
 detalhes podem ser encontrados em <ref id="s-apache-acesso-restr-autor">. ]]>
 
 <![ %OBS [ 
-<strong>OBS1</strong>: O suporte a <em>DSO</em> atualmente sÛ est· disponÌvel 
+<strong>OBS1</strong>: O suporte a <em>DSO</em> atualmente s√≥ est√° dispon√≠vel 
 para plataforma <prgn>UNIX</prgn> e seus derivados, como o <prgn>Linux</prgn>. ]]>
  <p>
-TambÈm È possÌvel ativar certas diretivas verificando se o mÛdulo correspondente 
-estiver ou n„o carregado atravÈs da diretiva <em>IfModule</em>: 
+Tamb√©m √© poss√≠vel ativar certas diretivas verificando se o m√≥dulo correspondente 
+estiver ou n√£o carregado atrav√©s da diretiva <em>IfModule</em>: 
 <example>
 &lt;IfModule mod_userdir.c&gt;
  UserDir disabled root
@@ -58,65 +58,65 @@ estiver ou n„o carregado atravÈs da diretiva <em>IfModule</em>:
 
 </example>
 
-Nas linhas acima, as diretivas <em>UserDir</em> somente ser„o executadas 
-se o mÛdulo <em>mod_userdir.c</em> estiver carregado atravÈs da diretiva 
+Nas linhas acima, as diretivas <em>UserDir</em> somente ser√£o executadas 
+se o m√≥dulo <em>mod_userdir.c</em> estiver carregado atrav√©s da diretiva 
 <em>LoadModule</em>.
  <p>
-Segue abaixo uma lista de mÛdulos padrıes que acompanham do <prgn>Apache</prgn>, 
-os mÛdulos marcados com "*" s„o ativados por padr„o: 
+Segue abaixo uma lista de m√≥dulos padr√µes que acompanham do <prgn>Apache</prgn>, 
+os m√≥dulos marcados com "*" s√£o ativados por padr√£o: 
 <taglist compact>
- <tag>CriaÁ„o de Ambiente</tag>
+ <tag>Cria√ß√£o de Ambiente</tag>
  <item>
  <list compact>
-  <item><tt>* mod_env</tt> - Ajusta vari·veis de ambiente para scripts CGI/SSI
-  <item><tt>* mod_setenvif</tt> - Ajusta vari·veis de ambiente de acordo com cabeÁalhos http
-  <item><tt>mod_unique_id</tt> - Gera identificadores ˙nicos para requisiÁıes
+  <item><tt>* mod_env</tt> - Ajusta vari√°veis de ambiente para scripts CGI/SSI
+  <item><tt>* mod_setenvif</tt> - Ajusta vari√°veis de ambiente de acordo com cabe√ßalhos http
+  <item><tt>mod_unique_id</tt> - Gera identificadores √∫nicos para requisi√ß√µes
  </list>
 
- <tag>Decis„o de tipo de conte˙do de arquivos</tag>
+ <tag>Decis√£o de tipo de conte√∫do de arquivos</tag>
  <item>
  <list compact>
-  <item><tt>* mod_mime</tt> - DeterminaÁ„o de tipo/encodificaÁ„o do conte˙do (configurado)
-  <item><tt>mod_mime_magic</tt> - DeterminaÁ„o de tipo/encodificaÁ„o do conte˙do  (autom·tico)
-  <item><tt>* mod_negotiation</tt> - SeleÁ„o de conte˙do baseado nos cabeÁalhos "HTTP Accept*"
+  <item><tt>* mod_mime</tt> - Determina√ß√£o de tipo/encodifica√ß√£o do conte√∫do (configurado)
+  <item><tt>mod_mime_magic</tt> - Determina√ß√£o de tipo/encodifica√ß√£o do conte√∫do  (autom√°tico)
+  <item><tt>* mod_negotiation</tt> - Sele√ß√£o de conte√∫do baseado nos cabe√ßalhos "HTTP Accept*"
  </list>
 
  <tag>Mapeamento de URL</tag>
  <item>
  <list compact>
-  <item><tt>* mod_alias</tt> - TraduÁ„o e redirecionamento de URL simples
-  <item><tt>mod_rewrite</tt> - TraduÁ„o e redirecionamento de URL avanÁado
-  <item><tt>* mod_userdir</tt> - SeleÁ„o de diretÛrios de recursos por nome de usu·rio
-  <item><tt>mod_speling</tt> - CorreÁ„o de URLs digitadas incorretamente 
+  <item><tt>* mod_alias</tt> - Tradu√ß√£o e redirecionamento de URL simples
+  <item><tt>mod_rewrite</tt> - Tradu√ß√£o e redirecionamento de URL avan√ßado
+  <item><tt>* mod_userdir</tt> - Sele√ß√£o de diret√≥rios de recursos por nome de usu√°rio
+  <item><tt>mod_speling</tt> - Corre√ß√£o de URLs digitadas incorretamente 
   <item><tt>mod_vhost_alias</tt> - Suporte para virtual hosts dinamicamente 
   configurados em massa.
  </list>
 
- <tag>ManipulaÁ„o de DiretÛrios</tag>
+ <tag>Manipula√ß√£o de Diret√≥rios</tag>
  <item>
  <list compact>
-  <item><tt>* mod_dir</tt> - ManipulaÁ„o de DiretÛrio e arquivo padr„o de diretÛrio
-  <item><tt>* mod_autoindex</tt> - GeraÁ„o de Ìndice autom·tico de diretÛrio
+  <item><tt>* mod_dir</tt> - Manipula√ß√£o de Diret√≥rio e arquivo padr√£o de diret√≥rio
+  <item><tt>* mod_autoindex</tt> - Gera√ß√£o de √≠ndice autom√°tico de diret√≥rio
  </list>
  
  <tag>Controle de Acesso</tag>
  <item>
  <list compact>
-  <item><tt>* mod_access</tt> - Controle de acesso por autorizaÁ„o (usu·rio, endereÁo, rede)
-  <item><tt>* mod_auth</tt> - AutenticaÁ„o HTTP b·sica (usu·rio, senha)
-  <item><tt>mod_auth_dbm</tt> - AutenticaÁ„o HTTP b·sica (atravÈs de arquivos NDBM do Unix)
-  <item><tt>mod_auth_db</tt> - AutenticaÁ„o HTTP b·sica (atravÈs de arquivos Berkeley-DB)
-  <item><tt>mod_auth_anon</tt> - AutenticaÁ„o HTTP b·sica para usu·rios no estilo anÙnimo
-  <item><tt>mod_auth_digest</tt> - AutenticaÁ„o MD5
-  <item><tt>mod_digest</tt> - AutenticaÁ„o HTTP Digest
+  <item><tt>* mod_access</tt> - Controle de acesso por autoriza√ß√£o (usu√°rio, endere√ßo, rede)
+  <item><tt>* mod_auth</tt> - Autentica√ß√£o HTTP b√°sica (usu√°rio, senha)
+  <item><tt>mod_auth_dbm</tt> - Autentica√ß√£o HTTP b√°sica (atrav√©s de arquivos NDBM do Unix)
+  <item><tt>mod_auth_db</tt> - Autentica√ß√£o HTTP b√°sica (atrav√©s de arquivos Berkeley-DB)
+  <item><tt>mod_auth_anon</tt> - Autentica√ß√£o HTTP b√°sica para usu√°rios no estilo an√¥nimo
+  <item><tt>mod_auth_digest</tt> - Autentica√ß√£o MD5
+  <item><tt>mod_digest</tt> - Autentica√ß√£o HTTP Digest
  </list>
  
  <tag>Respostas HTTP</tag>
  <item>
  <list compact>
-  <item><tt>mod_headers</tt> - CabeÁalhos de respostas HTTP (configurado)
-  <item><tt>mod_cern_meta</tt> - CabeÁalhos de respostas HTTP (arquivos no estilo CERN)
-  <item><tt>mod_expires</tt> - Respostas de expiraÁ„o HTTP
+  <item><tt>mod_headers</tt> - Cabe√ßalhos de respostas HTTP (configurado)
+  <item><tt>mod_cern_meta</tt> - Cabe√ßalhos de respostas HTTP (arquivos no estilo CERN)
+  <item><tt>mod_expires</tt> - Respostas de expira√ß√£o HTTP
   <item><tt>* mod_asis</tt> - Respostas HTTP em formato simples (raw)
  </list>
 
@@ -128,40 +128,40 @@ os mÛdulos marcados com "*" s„o ativados por padr„o:
   <item><tt>* mod_actions</tt> - Mapeia scripts CGI para funcionarem como 'handlers'  internos.
  </list>
  
- <tag>Manipuladores de conte˙do Interno</tag>
+ <tag>Manipuladores de conte√∫do Interno</tag>
  <item>
  <list compact>
-  <item><tt>* mod_status</tt> - Visualiza status do servidor em tempo de execuÁ„o.
-  <item><tt>mod_info</tt> - Visualiza sum·rio de configuraÁ„o do servidor.
+  <item><tt>* mod_status</tt> - Visualiza status do servidor em tempo de execu√ß√£o.
+  <item><tt>mod_info</tt> - Visualiza sum√°rio de configura√ß√£o do servidor.
  </list>
  
- <tag>Registros de RequisiÁıes</tag>
+ <tag>Registros de Requisi√ß√µes</tag>
  <item>
  <list compact>
-  <item><tt>* mod_log_config</tt> - Registro de requisiÁıes personaliz·veis
+  <item><tt>* mod_log_config</tt> - Registro de requisi√ß√µes personaliz√°veis
   <item><tt>mod_log_agent</tt> - Registro especializado do User-Agent HTTP (depreciado)
   <item><tt>mod_log_refer</tt> - Registro especializado do Referrer HTTP (depreciado)
-  <item><tt>mod_usertrack</tt> - Registro de cliques de usu·rios atravÈs de Cookies HTTP
+  <item><tt>mod_usertrack</tt> - Registro de cliques de usu√°rios atrav√©s de Cookies HTTP
  </list>
 
  <tag>Outros</tag>
  <item>
  <list compact>
   <item><tt>* mod_imap</tt> - Suporte a Mapeamento de Imagem no lado do servidor.
-  <item><tt>mod_proxy</tt> - MÛdulo de Cache do Proxy (HTTP, HTTPS, FTP).
-  <item><tt>mod_so</tt> - InicializaÁ„o do Dynamic Shared Object (DSO)
+  <item><tt>mod_proxy</tt> - M√≥dulo de Cache do Proxy (HTTP, HTTPS, FTP).
+  <item><tt>mod_so</tt> - Inicializa√ß√£o do Dynamic Shared Object (DSO)
  </list>
  
  <tag>Experimental</tag>
  <item>
  <list compact>
-  <item><tt>mod_mmap_static</tt> - Cache de p·ginas freq¸entemente servidas via mmap()
+  <item><tt>mod_mmap_static</tt> - Cache de p√°ginas freq√ºentemente servidas via mmap()
  </list>
 
  <tag>Desenvolvimento</tag>
  <item>
  <list compact>
-  <item><tt>mod_example</tt> - DemonstraÁ„o da API do Apache (somente desenvolvedores)
+  <item><tt>mod_example</tt> - Demonstra√ß√£o da API do Apache (somente desenvolvedores)
  </list>
 </taglist>
 

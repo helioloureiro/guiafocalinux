@@ -1,23 +1,23 @@
-<sect id="s-samba-wrkgrp">ConfiguraÁ„o em  <tt>Grupo de Trabalho</tt>
+<sect id="s-samba-wrkgrp">Configura√ß√£o em  <tt>Grupo de Trabalho</tt>
  <p>
-A configuraÁ„o <em>grupo de trabalho</em> È o mÈtodo mais simples 
-para compartilhar recursos em uma rede e tambÈm È indicado quando 
-se possui uma rede pequena (atÈ 30 m·quinas) pois o gerenciamento 
-n„o È t„o complicado. Acima deste n˙mero, È recomendada a utilizaÁ„o 
-da configuraÁ„o de domÌnio para definiÁ„o de polÌticas de acesso mais 
+A configura√ß√£o <em>grupo de trabalho</em> √© o m√©todo mais simples 
+para compartilhar recursos em uma rede e tamb√©m √© indicado quando 
+se possui uma rede pequena (at√© 30 m√°quinas) pois o gerenciamento 
+n√£o √© t√£o complicado. Acima deste n√∫mero, √© recomendada a utiliza√ß√£o 
+da configura√ß√£o de dom√≠nio para defini√ß√£o de pol√≠ticas de acesso mais 
 precisas pelo administrador e para manter o controle sobre os recursos 
 da rede (veja <ref id="s-samba-dom-config">).
  <p>
-A configuraÁ„o do nÌvel de acesso por grupo de trabalho tem como 
-caracterÌsticas principais essa simplicidade na configuraÁ„o e o 
-controle de acesso aos recursos sendo feito pela m·quina local 
-atravÈs de senhas e controle de IP.
+A configura√ß√£o do n√≠vel de acesso por grupo de trabalho tem como 
+caracter√≠sticas principais essa simplicidade na configura√ß√£o e o 
+controle de acesso aos recursos sendo feito pela m√°quina local 
+atrav√©s de senhas e controle de IP.
  <p>
-Quanto ao mÈtodo de senhas, vocÍ pode optar tanto por usar senhas 
+Quanto ao m√©todo de senhas, voc√™ pode optar tanto por usar senhas 
 criptografadas (<ref id="s-samba-senhas-crypto">) ou senhas 
 em texto limpo (<ref id="s-samba-senhas-plano">).
  <p>
-Veja abaixo um exemplo explicado de configuraÁ„o do <prgn>SAMBA</prgn> 
+Veja abaixo um exemplo explicado de configura√ß√£o do <prgn>SAMBA</prgn> 
 para grupo de trabalho:
 <example>
  [global]
@@ -33,38 +33,38 @@ para grupo de trabalho:
   domain master = false
 
  [homes]
-  comment = DiretÛrios de usu·rios
+  comment = Diret√≥rios de usu√°rios
   create mask= 0700
   directory mask = 0700
   browseable = no
   
  [tmp]
   path = /tmp
-  comment = DiretÛrio tempor·rio do sistema
+  comment = Diret√≥rio tempor√°rio do sistema
   read only = yes
   valid users = gleydson
   public = no
   
 </example>
-Agora, verifique se existem erros na configuraÁ„o com o comando
+Agora, verifique se existem erros na configura√ß√£o com o comando
 <prgn>testparm</prgn> (<ref id="s-samba-s-testparm">) e reinicie o 
 <prgn>SAMBA</prgn> (<ref id="s-samba-rodando">).
-O nome do grupo de trabalho que a m·quina pertencer· È <tt>focalinux</tt> 
-(<tt>workgroup = focalinux</tt>). O nÌvel de acesso usado neste exemplo 
-È de usu·rio (<tt>security = user</tt>), para mais detalhes sobre este 
-mÈtodo, veja <ref id="s-samba-s-global-nivelauth">. O par‚metro 
+O nome do grupo de trabalho que a m√°quina pertencer√° √© <tt>focalinux</tt> 
+(<tt>workgroup = focalinux</tt>). O n√≠vel de acesso usado neste exemplo 
+√© de usu√°rio (<tt>security = user</tt>), para mais detalhes sobre este 
+m√©todo, veja <ref id="s-samba-s-global-nivelauth">. O par√¢metro 
 <tt>local master</tt> foi definido para <tt>yes</tt> para o <prgn>SAMBA</prgn> 
 tentar ser o navegador local do grupo de trabalho (veja 
 <ref id="s-samba-dom-lmbrowser">). 
  <p>
-Para testar se o servidor est· funcionando, digite o seguinte comando:
+Para testar se o servidor est√° funcionando, digite o seguinte comando:
 <example>
 smbclient -L servidor -U usuario
 
 </example>
-Digite a senha de usu·rio quando solicitado. O comando dever· listar os 
-recuros da m·quina, indicando que a configuraÁ„o est· funcionando 
-corretamente. Se vocÍ È paranÛico e est· preocupado com a seguranÁa 
-da m·quina, recomendo ler a <ref id="s-samba-a">.
+Digite a senha de usu√°rio quando solicitado. O comando dever√° listar os 
+recuros da m√°quina, indicando que a configura√ß√£o est√° funcionando 
+corretamente. Se voc√™ √© paran√≥ico e est√° preocupado com a seguran√ßa 
+da m√°quina, recomendo ler a <ref id="s-samba-a">.
 
 

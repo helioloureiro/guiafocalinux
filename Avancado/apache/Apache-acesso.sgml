@@ -1,69 +1,69 @@
-<sect id="s-apache-bindaddress">Configurando as interfaces que o Apache atender·
+<sect id="s-apache-bindaddress">Configurando as interfaces que o Apache atender√°
  <p>
-A diretiva <em>BindAddress</em> È usada para especificar endereÁos IP 
-das interfaces ou endereÁos FQDN que o <prgn>Apache</prgn> responder· 
-requisiÁıes. Mais de um endereÁo podem ser especificados separados por 
-espaÁos. Caso n„o seja definido, o <prgn>Apache</prgn> assumir· o 
-valor "*" (atender· requisiÁıes vindas de qualquer interface). 
+A diretiva <em>BindAddress</em> √© usada para especificar endere√ßos IP 
+das interfaces ou endere√ßos FQDN que o <prgn>Apache</prgn> responder√° 
+requisi√ß√µes. Mais de um endere√ßo podem ser especificados separados por 
+espa√ßos. Caso n√£o seja definido, o <prgn>Apache</prgn> assumir√° o 
+valor "*" (atender√° requisi√ß√µes vindas de qualquer interface). 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> - … permitido usar somente uma diretiva 
-<em>BindAddress</em>. A diretiva <em>Listen</em> dever· ser 
+<strong>OBS1:</strong> - √â permitido usar somente uma diretiva 
+<em>BindAddress</em>. A diretiva <em>Listen</em> dever√° ser 
 usada se desejar mais controle sobre as portas do servidor web. 
 Veja <ref id="s-apache-listen"> para detalhes.
  <p>
 <strong>OBS2:</strong> - As interfaces especificadas pela 
-diretiva <em>Listen</em> substituir· as especificadas em 
+diretiva <em>Listen</em> substituir√° as especificadas em 
 <em>BindAddress</em>. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: 
 <list compact>
 <item><tt>BindAddress 192.168.1.1</tt> - Especifica que os 
-usu·rios da faixa de rede <file>192.168.1.*</file> ter„o acesso
-ao servidor <prgn>httpd</prgn>. Isto assume que a m·quina 
-possui o endereÁo <file>192.168.1.1</file> em sua interface de 
+usu√°rios da faixa de rede <file>192.168.1.*</file> ter√£o acesso
+ao servidor <prgn>httpd</prgn>. Isto assume que a m√°quina 
+possui o endere√ßo <file>192.168.1.1</file> em sua interface de 
 rede interna. 
-<item><tt>BindAddress *</tt> - Atender· requisiÁıes vindas 
+<item><tt>BindAddress *</tt> - Atender√° requisi√ß√µes vindas 
 de qualquer interface de rede. 
 </list> ]]>
 
 
-<sect id="s-apache-listen">Especificando endereÁos/portas adicionais (a 
+<sect id="s-apache-listen">Especificando endere√ßos/portas adicionais (a 
 diretiva <em>Listen</em>)
  <p>
-A diretiva <em>Listen</em> È usada para se ter um controle maior sobre 
-a especificaÁ„o de endereÁos/portas alternativas que o servidor web 
-esperar· por requisiÁıes externas. Esta diretiva È muito usada na 
-construÁ„o de <em>Virtual Hosts</em>. Esta diretiva pode substituir 
+A diretiva <em>Listen</em> √© usada para se ter um controle maior sobre 
+a especifica√ß√£o de endere√ßos/portas alternativas que o servidor web 
+esperar√° por requisi√ß√µes externas. Esta diretiva √© muito usada na 
+constru√ß√£o de <em>Virtual Hosts</em>. Esta diretiva pode substituir 
 completamente as diretivas <em>Port</em> e <em>BindAddress</em>. Podem 
-ser usados o n˙mero da porta, ou o par <tt>endereÁo:porta</tt>: 
+ser usados o n√∫mero da porta, ou o par <tt>endere√ßo:porta</tt>: 
 <example>
 Listen 192.168.1.1:80
 Listen 192.168.7.1:81
 Listen 60000
 </example>
-O endereÁo que dever· ser usado È o da interface de rede (assim como 
+O endere√ßo que dever√° ser usado √© o da interface de rede (assim como 
 na diretiva <em>BindAddress</em>). No exemplo acima, o servidor 
-<prgn>httpd</prgn> esperar· por requisiÁıes vindas de 
-<file>192.168.1.*</file> na porta 80 e tambÈm 60000, e requisiÁıes
-vindas de 192.168.7.1 na porta 81 e tambÈm 60000.
+<prgn>httpd</prgn> esperar√° por requisi√ß√µes vindas de 
+<file>192.168.1.*</file> na porta 80 e tamb√©m 60000, e requisi√ß√µes
+vindas de 192.168.7.1 na porta 81 e tamb√©m 60000.
 
 
-<sect id="s-apache-acesso">Especificando opÁıes/permissıes para as p·ginas
+<sect id="s-apache-acesso">Especificando op√ß√µes/permiss√µes para as p√°ginas
  <p>
-As opÁıes de restriÁ„o podem tanto ser especificadas nas diretivas 
+As op√ß√µes de restri√ß√£o podem tanto ser especificadas nas diretivas 
 &lt;Directory&gt;, &lt;Location&gt; ou &lt;Files&gt; quanto nos arquivos 
 <file>.htaccess</file> (ou outro nome de arquivo de controle de acesso 
-especificado pela opÁ„o <em>AccessFileName</em> do arquivo de configuraÁ„o 
-do <prgn>Apache</prgn>). Cada diretiva de acesso È especificada entre 
+especificado pela op√ß√£o <em>AccessFileName</em> do arquivo de configura√ß√£o 
+do <prgn>Apache</prgn>). Cada diretiva de acesso √© especificada entre 
 &lt;tags&gt; e devem ser fechadas com &lt;/tag&gt; (como na linguagem HTML). 
-As seguintes diretivas de acesso s„o v·lidas no <prgn>Apache</prgn>: 
+As seguintes diretivas de acesso s√£o v√°lidas no <prgn>Apache</prgn>: 
 <taglist>
  <tag>Directory</tag>
  <item>
-As restriÁ„o afetar· o diretÛrio no disco especificado, conseq¸entemente a 
-p·gina armazenada nele. Por exemplo: 
+As restri√ß√£o afetar√° o diret√≥rio no disco especificado, conseq√ºentemente a 
+p√°gina armazenada nele. Por exemplo: 
 <example>
 &lt;Directory /var/www&gt;
  Order deny,allow
@@ -71,13 +71,13 @@ p·gina armazenada nele. Por exemplo:
  allow from 10.1.0.1
 &lt;Directory&gt;
 </example>
-O acesso ao diretÛrio <file>/var/www</file> ser· permitido somente ao computador 
-com o endereÁo IP <tt>10.1.0.1</tt>.
+O acesso ao diret√≥rio <file>/var/www</file> ser√° permitido somente ao computador 
+com o endere√ßo IP <tt>10.1.0.1</tt>.
 
 
  <tag>DirectoryMatch</tag>
  <item>
-Funciona como a diretiva &lt;Directory&gt; mas trabalha com expressıes 
+Funciona como a diretiva &lt;Directory&gt; mas trabalha com express√µes 
 regulares como argumento. Por exemplo: 
 <example>
 &lt;DirectoryMatch "^/www/.*"&gt;
@@ -85,22 +85,22 @@ regulares como argumento. Por exemplo:
  deny from all
 &lt;DirectoryMatch&gt;
 </example>
-Bloquear· o acesso ao diretÛrio <file>/www</file> e sub-diretÛrios dentro dele. 
+Bloquear√° o acesso ao diret√≥rio <file>/www</file> e sub-diret√≥rios dentro dele. 
 
 
  <tag>Files</tag>
  <item>
-As restriÁıes afetar„o os arquivos do disco que conferem com o 
-especificado. … possÌvel usar os coringas <em>?</em> e <em>*</em> como no shell. 
-TambÈm podem ser usadas expressıes regulares especificando um "~" apÛs 
-<tt>Files</tt> e antes da express„o. Por exemplo: 
+As restri√ß√µes afetar√£o os arquivos do disco que conferem com o 
+especificado. √â poss√≠vel usar os coringas <em>?</em> e <em>*</em> como no shell. 
+Tamb√©m podem ser usadas express√µes regulares especificando um "~" ap√≥s 
+<tt>Files</tt> e antes da express√£o. Por exemplo: 
 <example>
 &lt;Files *.txt&gt;
  Order deny,allow
  deny from all
 &lt;/Files&gt;
 </example>
-Bloqueia o acesso a todos os arquivos com a extens„o <file>.txt</file>
+Bloqueia o acesso a todos os arquivos com a extens√£o <file>.txt</file>
 
 <example>
 &lt;Files ~ "\.(gif|jpe?g|bmp|png)$"&gt;
@@ -108,13 +108,13 @@ Bloqueia o acesso a todos os arquivos com a extens„o <file>.txt</file>
 &lt;/Files&gt;
 </example>
 Bloqueia o acesso a arquivos <file>gif, jpg, jpeg, bmp, png</file> (note 
-que o "~" ativa o modo de interpretaÁ„o de expressıes regulares). 
+que o "~" ativa o modo de interpreta√ß√£o de express√µes regulares). 
 
 
  <tag>FilesMatch</tag>
  <item>
-Permite usar expressıes regulares na especificaÁ„o de arquivos 
-(equivalente a diretiva &lt;Files ~ "express„o"&gt;). Por exemplo:
+Permite usar express√µes regulares na especifica√ß√£o de arquivos 
+(equivalente a diretiva &lt;Files ~ "express√£o"&gt;). Por exemplo:
 <example>
 &lt;FilesMatch "\.(gif|jpe?g|bmp|png)$"&gt;
  Order deny,allow
@@ -125,20 +125,20 @@ Bloqueia o acesso a arquivos <file>gif, jpg, jpeg, bmp, png</file>.
 
  <tag>Location</tag>
  <item>
-As restriÁıes afetar„o o diretÛrio base especificado na URL e seus 
-sub-diretÛrios. Por exemplo: 
+As restri√ß√µes afetar√£o o diret√≥rio base especificado na URL e seus 
+sub-diret√≥rios. Por exemplo: 
 <example>
 &lt;Location /security&gt;
  Order allow,deny
 &lt;/Location&gt;
 </example>
-Bloqueia o acesso de todos os usu·rios ao diretÛrio <file>/security</file> 
-da URL (a explicaÁ„o porque o acesso È bloqueado neste caso ser· explicado 
+Bloqueia o acesso de todos os usu√°rios ao diret√≥rio <file>/security</file> 
+da URL (a explica√ß√£o porque o acesso √© bloqueado neste caso ser√° explicado 
 em <ref id="s-apache-acesso-restr-autor">).
 
  <tag>LocationMatch</tag>
  <item>
-IdÍntico a diretiva &lt;Location&gt; mas trabalha com expressıes regulares. 
+Id√™ntico a diretiva &lt;Location&gt; mas trabalha com express√µes regulares. 
 Por exemplo: 
 <example>
 &lt;LocationMatch "/(extra|special)/data"&gt;
@@ -146,90 +146,90 @@ Por exemplo:
  deny from all
 &lt;/LocationMatch&gt;
 </example>
-Bloquear· URLs que contÈm a substring "/extra/data" ou "/special/data".
+Bloquear√° URLs que cont√©m a substring "/extra/data" ou "/special/data".
 </taglist>
-O uso das diretivas &lt;Directory&gt; e &lt;Files&gt; È apropriada quando 
-vocÍ deseja trabalhar com permissıes a nÌvel de diretÛrios/arquivos no disco 
-local (o controle do proxy tambÈm È feito via &lt;Directory&gt;), o uso da 
-diretiva &lt;Location&gt; È adequado para trabalhar com permissıes a nÌvel de URL.
-A ordem de processamento das diretivas de acesso s„o processadas È a seguinte: 
+O uso das diretivas &lt;Directory&gt; e &lt;Files&gt; √© apropriada quando 
+voc√™ deseja trabalhar com permiss√µes a n√≠vel de diret√≥rios/arquivos no disco 
+local (o controle do proxy tamb√©m √© feito via &lt;Directory&gt;), o uso da 
+diretiva &lt;Location&gt; √© adequado para trabalhar com permiss√µes a n√≠vel de URL.
+A ordem de processamento das diretivas de acesso s√£o processadas √© a seguinte: 
  <enumlist compact>
- <item>A diretiva &lt;Directory&gt; (com exceÁ„o de &lt;DirectoryMatch&gt;) e os 
- arquivos <file>.htaccess</file> s„o processados simultaneamente. As definiÁıes 
+ <item>A diretiva &lt;Directory&gt; (com exce√ß√£o de &lt;DirectoryMatch&gt;) e os 
+ arquivos <file>.htaccess</file> s√£o processados simultaneamente. As defini√ß√µes 
  dos arquivos <file>.htaccess</file> substituem as de &lt;Directory&gt;) 
- <item>Expressıes regulares de &lt;DirectoryMatch&gt;, &lt;Directory&gt;.
- <item>&lt;Files&gt; e &lt;FilesMatch&gt; s„o processados simultaneamente.
- <item>&lt;Location&gt; e &lt;LocationMatch&gt; s„o processados simultaneamente.
+ <item>Express√µes regulares de &lt;DirectoryMatch&gt;, &lt;Directory&gt;.
+ <item>&lt;Files&gt; e &lt;FilesMatch&gt; s√£o processados simultaneamente.
+ <item>&lt;Location&gt; e &lt;LocationMatch&gt; s√£o processados simultaneamente.
 </enumlist>
-Normalmente È encontrado a opÁ„o <em>Options</em> dentro de uma das diretivas 
-acima, a funÁ„o desta diretiva È controlar os seguintes aspectos da listagem de 
-diretÛrios: 
+Normalmente √© encontrado a op√ß√£o <em>Options</em> dentro de uma das diretivas 
+acima, a fun√ß√£o desta diretiva √© controlar os seguintes aspectos da listagem de 
+diret√≥rios: 
 <taglist compact>
 
  <tag>All</tag> 
  <item>
-Todas as opÁıes s„o usadas exceto a <tt>MultiViews</tt>. … a padr„o caso a opÁ„o
-<em>Options</em> n„o seja especificada. 
+Todas as op√ß√µes s√£o usadas exceto a <tt>MultiViews</tt>. √â a padr√£o caso a op√ß√£o
+<em>Options</em> n√£o seja especificada. 
 
  <tag>ExecCGI</tag>
  <item>
-Permite a execuÁ„o de scripts CGI.
+Permite a execu√ß√£o de scripts CGI.
 
  <tag>FollowSymLinks</tag>
  <item>
-O servidor seguir· links simbÛlicos neste diretÛrio (o caminho 
-n„o È modificado). Esta opÁ„o È ignorada caso apareÁa dentro das diretivas 
+O servidor seguir√° links simb√≥licos neste diret√≥rio (o caminho 
+n√£o √© modificado). Esta op√ß√£o √© ignorada caso apare√ßa dentro das diretivas 
 &lt;Location&gt;, &lt;LocationMatch&gt; e &lt;DirectoryMatch&gt;.
 
  <tag>Includes</tag>
  <item>
-… permitido o uso de includes no lado do servidor. 
+√â permitido o uso de includes no lado do servidor. 
 
  <tag>IncludesNOEXEC</tag>
  <item>
-… permitido o uso de includes do lado do servidor, mas o 
-comando <tt>#exec</tt> e <tt>#include</tt> de um script CGI s„o desativados.
+√â permitido o uso de includes do lado do servidor, mas o 
+comando <tt>#exec</tt> e <tt>#include</tt> de um script CGI s√£o desativados.
 
  <tag>Indexes</tag>
  <item>
-Se n„o existir um arquivo especificado pela diretiva &lt;DirectoryIndex&gt; 
-no diretÛrio especificado, o servidor formatar· automaticamente a listagem 
-ao invÈs de gerar uma resposta de acesso negado.
+Se n√£o existir um arquivo especificado pela diretiva &lt;DirectoryIndex&gt; 
+no diret√≥rio especificado, o servidor formatar√° automaticamente a listagem 
+ao inv√©s de gerar uma resposta de acesso negado.
 
  <tag>MultiViews</tag>
  <item>
-Permite o uso da NegociaÁ„o de conte˙do naquele diretÛrio. A negociaÁ„o 
-de conte˙do permite o envio de um documento no idioma requisitado pelo 
+Permite o uso da Negocia√ß√£o de conte√∫do naquele diret√≥rio. A negocia√ß√£o 
+de conte√∫do permite o envio de um documento no idioma requisitado pelo 
 navegador do cliente. 
 
  <tag>SymLinksIfOwnerMatch</tag>
  <item>
-O servidor somente seguir· links simbÛlicos se o arquivo ou diretÛrio 
-alvo tiver como dono o mesmo user ID do link. Esta opÁ„o È ignorada 
-caso apareÁa dentro das diretivas &lt;Location&gt;, &lt;LocationMatch&gt; 
+O servidor somente seguir√° links simb√≥licos se o arquivo ou diret√≥rio 
+alvo tiver como dono o mesmo user ID do link. Esta op√ß√£o √© ignorada 
+caso apare√ßa dentro das diretivas &lt;Location&gt;, &lt;LocationMatch&gt; 
 e &lt;DirectoryMatch&gt;.
 </taglist>
-M˙ltiplos par‚metros para <em>Options</em> podem ser especificados atravÈs 
-de espaÁos. 
+M√∫ltiplos par√¢metros para <em>Options</em> podem ser especificados atrav√©s 
+de espa√ßos. 
 
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: A opÁ„o Options n„o tem efeito dentro da diretiva FILES.
+<strong>OBS1</strong>: A op√ß√£o Options n√£o tem efeito dentro da diretiva FILES.
  <p>
-<strong>OBS2</strong>: Tanto faz usar mai˙sculas quanto min˙sculas nas diretivas de 
-configuraÁ„o, opÁıes e par‚metros de configuraÁ„o do <prgn>Apache</prgn>, 
-a capitalizaÁ„o apenas ajuda a leitura e interpretaÁ„o: 
-SymLinksIfOwnerMatch (LinksSimbÛlicosSeDonoConferir). ]]>
+<strong>OBS2</strong>: Tanto faz usar mai√∫sculas quanto min√∫sculas nas diretivas de 
+configura√ß√£o, op√ß√µes e par√¢metros de configura√ß√£o do <prgn>Apache</prgn>, 
+a capitaliza√ß√£o apenas ajuda a leitura e interpreta√ß√£o: 
+SymLinksIfOwnerMatch (LinksSimb√≥licosSeDonoConferir). ]]>
  <p>
-As opÁıes especificadas para o diretÛrio afetam tambÈm seus sub-diretÛrios, a n„o 
-ser que sejam especificadas opÁıes separadas para o sub-diretÛrio:
+As op√ß√µes especificadas para o diret√≥rio afetam tamb√©m seus sub-diret√≥rios, a n√£o 
+ser que sejam especificadas op√ß√µes separadas para o sub-diret√≥rio:
 <example>
 &lt;Directory /var/www&gt;
  Options Indexes FollowSymLinks
 &lt;/Directory&gt;
 </example>
-Ao acessar o diretÛrio <file>/var/www/focalinux</file>, as permissıes usadas
-ser„o de <file>/var/www</file>, ao menos que uma diretiva &lt;Directory&gt; 
+Ao acessar o diret√≥rio <file>/var/www/focalinux</file>, as permiss√µes usadas
+ser√£o de <file>/var/www</file>, ao menos que uma diretiva &lt;Directory&gt; 
 ou &lt;Location&gt; seja especificada:
 <example>
 &lt;Directory /var/www&gt;
@@ -241,10 +241,10 @@ ou &lt;Location&gt; seja especificada:
 &lt;/Directory&gt;
 </example>
 
-As opÁıes e restriÁıes de acesso de <file>/var/www/focalinux</file> 
-ser„o EXATAMENTE as especificadas no bloco da 
+As op√ß√µes e restri√ß√µes de acesso de <file>/var/www/focalinux</file> 
+ser√£o EXATAMENTE as especificadas no bloco da 
 diretiva &lt;Directory /var/www/focalinux&gt; e somente os <em>includes</em> 
-ser„o permitidos. Para adicionar ou remover uma opÁ„o individual definidas por 
+ser√£o permitidos. Para adicionar ou remover uma op√ß√£o individual definidas por 
 diretivas anteriores, podem ser usado os sinais "+" ou "-", por exemplo:
 <example>
 &lt;Directory /var/www&gt;
@@ -255,13 +255,13 @@ diretivas anteriores, podem ser usado os sinais "+" ou "-", por exemplo:
  Options +Includes -Indexes
 &lt;/Directory&gt;
 </example>
-As opÁıes <em>Indexes</em> e <em>FollowSymLinks</em> s„o definidas para o 
-diretÛrio <file>/var/www</file>, ent„o as permissıes do diretÛrio 
-<file>/var/www/focalinux</file> ser„o <em>FollowSymLinks</em> 
-(do diretÛrio <file>/web/docs</file>) e <em>Includes</em> (adicionada) e o 
-par‚metro <em>Indexes</em> n„o ter· efeito neste diretÛrio. 
+As op√ß√µes <em>Indexes</em> e <em>FollowSymLinks</em> s√£o definidas para o 
+diret√≥rio <file>/var/www</file>, ent√£o as permiss√µes do diret√≥rio 
+<file>/var/www/focalinux</file> ser√£o <em>FollowSymLinks</em> 
+(do diret√≥rio <file>/web/docs</file>) e <em>Includes</em> (adicionada) e o 
+par√¢metro <em>Indexes</em> n√£o ter√° efeito neste diret√≥rio. 
  <p>
-… permitido fazer um aninhamento das diretivas &lt;Directory&gt; e &lt;Files&gt;:
+√â permitido fazer um aninhamento das diretivas &lt;Directory&gt; e &lt;Files&gt;:
 <example>
 &lt;Directory /var/www&gt;
  Order allow,deny
@@ -275,15 +275,15 @@ par‚metro <em>Indexes</em> n„o ter· efeito neste diretÛrio.
 &lt;/Directory&gt;
 </example>
 Neste caso, somente os arquivos <file>LEIAME-DONO.txt</file> existentes no 
-diretÛrio <file>/var/www</file> e seus sub-diretÛrios ser„o bloqueados.
+diret√≥rio <file>/var/www</file> e seus sub-diret√≥rios ser√£o bloqueados.
  <p>
 Se a diretiva &lt;Files&gt; for usada fora de uma estrutura &lt;Directory&gt;, 
-ela ter· efeito em todos os arquivos disponibilizados pelo servidor. Este È 
-excelente mÈtodo para proteger os arquivos de acesso, senhas e grupos, 
-conforme ser· explicado mais adiante. 
+ela ter√° efeito em todos os arquivos disponibilizados pelo servidor. Este √© 
+excelente m√©todo para proteger os arquivos de acesso, senhas e grupos, 
+conforme ser√° explicado mais adiante. 
  <p>
-Qualquer outro tipo de aninhamento de diretivas resultar· em um erro 
-de configuraÁ„o ao se tentar carregar/recarregar o <prgn>Apache</prgn>. 
+Qualquer outro tipo de aninhamento de diretivas resultar√° em um erro 
+de configura√ß√£o ao se tentar carregar/recarregar o <prgn>Apache</prgn>. 
 Um exemplo de diretiva incorreta: 
 <example>
 &lt;Directory /var/www&gt;
@@ -295,7 +295,7 @@ Um exemplo de diretiva incorreta:
 
 &lt;/Directory&gt;
 </example>
-O correto È:
+O correto √©:
 <example>
 &lt;Directory /var/www&gt;
  Options Indexes FollowSymLinks
@@ -308,44 +308,44 @@ O correto È:
 Espero que tenha observado o erro no exemplo acima.
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: VocÍ pode verificar se a configuraÁ„o do apache est· 
-correta digitando <tt>apache -t</tt> como usu·rio root, se tudo estiver correto 
-com suas configuraÁıes ele retornar· a mensagem: "Syntax OK". 
+<strong>OBS1</strong>: Voc√™ pode verificar se a configura√ß√£o do apache est√° 
+correta digitando <tt>apache -t</tt> como usu√°rio root, se tudo estiver correto 
+com suas configura√ß√µes ele retornar√° a mensagem: "Syntax OK". 
  <p>
-<strong>OBS2</strong>: Se <em>Options</em> n„o for especificado, o padr„o 
-ser· permitir tudo exceto <em>MultiViews</em>.
+<strong>OBS2</strong>: Se <em>Options</em> n√£o for especificado, o padr√£o 
+ser√° permitir tudo exceto <em>MultiViews</em>.
  <p>
-<strong>OBS3</strong>: Qualquer restriÁ„o afetar· o diretÛrio atual e todos 
-os seus sub-diretÛrios! 
-Defina permissıes de sub-diretÛrios especÌficos separadamente caso precise de um 
-nÌvel de acesso diferente. Veja tambÈm a seÁ„o sobre arquivos OverRide 
+<strong>OBS3</strong>: Qualquer restri√ß√£o afetar√° o diret√≥rio atual e todos 
+os seus sub-diret√≥rios! 
+Defina permiss√µes de sub-diret√≥rios espec√≠ficos separadamente caso precise de um 
+n√≠vel de acesso diferente. Veja tamb√©m a se√ß√£o sobre arquivos OverRide 
 (<file>.htaccess</file>) para detalhes sobre este tipo de arquivo.
  <p>
-<strong>OBS4</strong>: A diretiva de acesso "&lt;Directory /&gt;" n„o afetar· 
-outros sistemas de arquivos montados dentro de seus subdiretÛrios. Caso uma 
-diretiva de acesso padr„o n„o seja especificada para outros sistemas de 
-arquivos, o acesso ser· automaticamente negado. ]]>
+<strong>OBS4</strong>: A diretiva de acesso "&lt;Directory /&gt;" n√£o afetar√° 
+outros sistemas de arquivos montados dentro de seus subdiret√≥rios. Caso uma 
+diretiva de acesso padr√£o n√£o seja especificada para outros sistemas de 
+arquivos, o acesso ser√° automaticamente negado. ]]>
 
 
-<sect id="s-apache-acesso-restr">RestriÁıes de Acesso
+<sect id="s-apache-acesso-restr">Restri√ß√µes de Acesso
  <p>
-A restriÁ„o de acesso do <prgn>Apache</prgn> È feita atravÈs de 
-<em>AutorizaÁ„o</em> (<ref id="s-apache-acesso-restr-autor">) e 
-<em>AutenticaÁ„o</em> (<ref id="s-apache-acesso-restr-auth">). 
-AtravÈs da <em>autorizaÁ„o</em>, È checado se o endereÁo/rede 
-especificada tem ou n„o permiss„o para acessar a p·gina. 
-A <em>autenticaÁ„o</em> requer que seja passado nome e senha para 
-garantir acesso a p·gina. Os mÈtodos de <em>AutorizaÁ„o</em> e 
-<em>AutenticaÁ„o</em> podem ser combinados como veremos mais adiante. 
+A restri√ß√£o de acesso do <prgn>Apache</prgn> √© feita atrav√©s de 
+<em>Autoriza√ß√£o</em> (<ref id="s-apache-acesso-restr-autor">) e 
+<em>Autentica√ß√£o</em> (<ref id="s-apache-acesso-restr-auth">). 
+Atrav√©s da <em>autoriza√ß√£o</em>, √© checado se o endere√ßo/rede 
+especificada tem ou n√£o permiss√£o para acessar a p√°gina. 
+A <em>autentica√ß√£o</em> requer que seja passado nome e senha para 
+garantir acesso a p√°gina. Os m√©todos de <em>Autoriza√ß√£o</em> e 
+<em>Autentica√ß√£o</em> podem ser combinados como veremos mais adiante. 
 
 
-<sect1 id="s-apache-acesso-restr-autor">AutorizaÁ„o
+<sect1 id="s-apache-acesso-restr-autor">Autoriza√ß√£o
  <p>
-A restriÁ„o de acesso por autorizaÁ„o (controlado pelo mÛdulo 
-<file>mod_access</file>), permite ou n„o o acesso ao cliente de acordo com o 
-endereÁo/rede especificada. As restriÁıes afetam tambÈm os sub-diretÛrios do 
-diretÛrio alvo. Abaixo um exemplo de restriÁ„o de acesso que bloqueia o acesso 
-de qualquer host que faz parte do domÌnio <em>.spammers.com.br</em> a URL 
+A restri√ß√£o de acesso por autoriza√ß√£o (controlado pelo m√≥dulo 
+<file>mod_access</file>), permite ou n√£o o acesso ao cliente de acordo com o 
+endere√ßo/rede especificada. As restri√ß√µes afetam tamb√©m os sub-diret√≥rios do 
+diret√≥rio alvo. Abaixo um exemplo de restri√ß√£o de acesso que bloqueia o acesso 
+de qualquer host que faz parte do dom√≠nio <em>.spammers.com.br</em> a URL 
 <file>http://servidor/teste</file>:
 <example>
 &lt;Location /teste&gt;
@@ -356,141 +356,141 @@ de qualquer host que faz parte do domÌnio <em>.spammers.com.br</em> a URL
 &lt;/Location&gt;
 </example>
 
-A opÁ„o <tt>Option</tt> foi explicada acima, seguem as explicaÁıes das outras 
+A op√ß√£o <tt>Option</tt> foi explicada acima, seguem as explica√ß√µes das outras 
 diretivas: 
 <taglist compact>
  <tag>Order</tag>
  <item>
-Especifica em que ordem as opÁıes de acesso <em>allow/deny</em> ser„o 
-pesquisadas. Caso n„o seja especificada, o padr„o ser· <em>deny/allow</em>. 
-Note que a ordem de pesquisa de <em>allow</em> e <em>deny</em> È a inversa 
+Especifica em que ordem as op√ß√µes de acesso <em>allow/deny</em> ser√£o 
+pesquisadas. Caso n√£o seja especificada, o padr√£o ser√° <em>deny/allow</em>. 
+Note que a ordem de pesquisa de <em>allow</em> e <em>deny</em> √© a inversa 
 da especificada. 
 A diretiva <em>Order</em> aceita os seguintes valores: 
  <list compact>
   <item>
-<tt>deny,allow</tt> - Esta È a padr„o, significa um servidor mais restritivo; a 
-diretiva <em>allow</em> È processada primeiro e somente depois a diretiva 
-<em>deny</em>. Caso nenhuma diretiva allow e deny forem especificadas ou n„o 
-conferirem, <strong>PERMITE TUDO</strong> como padr„o. 
+<tt>deny,allow</tt> - Esta √© a padr√£o, significa um servidor mais restritivo; a 
+diretiva <em>allow</em> √© processada primeiro e somente depois a diretiva 
+<em>deny</em>. Caso nenhuma diretiva allow e deny forem especificadas ou n√£o 
+conferirem, <strong>PERMITE TUDO</strong> como padr√£o. 
   
   <item>
-<tt>allow,deny</tt> - Significa um servidor mais permissivo, a opÁ„o 
-<em>deny</em> È processada primeiro e somente depois a opÁ„o <em>allow</em>. 
-Caso nenhuma diretiva allow e deny for especificadas ou n„o conferirem, 
-<strong>BLOQUEIA TUDO</strong> como padr„o. 
+<tt>allow,deny</tt> - Significa um servidor mais permissivo, a op√ß√£o 
+<em>deny</em> √© processada primeiro e somente depois a op√ß√£o <em>allow</em>. 
+Caso nenhuma diretiva allow e deny for especificadas ou n√£o conferirem, 
+<strong>BLOQUEIA TUDO</strong> como padr√£o. 
   
   <item>
-<tt>mutual-failure</tt> - Somente permite o acesso se o usu·rio receber 
-autorizaÁ„o atravÈs da opÁ„o <em>allow</em> e <strong>N√O</strong> ser 
-bloqueado pela opÁ„o <em>deny</em>, caso uma das checagens falhe, o 
-acesso È imediatamente negado. … uma opÁ„o interessante quando vocÍ 
-quer somente pessoas de um determinado endereÁo/rede acessando o seu 
-sistema e n„o estejam em sua lista negra :-)
+<tt>mutual-failure</tt> - Somente permite o acesso se o usu√°rio receber 
+autoriza√ß√£o atrav√©s da op√ß√£o <em>allow</em> e <strong>N√ÉO</strong> ser 
+bloqueado pela op√ß√£o <em>deny</em>, caso uma das checagens falhe, o 
+acesso √© imediatamente negado. √â uma op√ß√£o interessante quando voc√™ 
+quer somente pessoas de um determinado endere√ßo/rede acessando o seu 
+sistema e n√£o estejam em sua lista negra :-)
 </list>
 <![ %OBS [
  <p>
-<strong>ATEN«√O</strong>: … importante saber se a p·gina ser· permissiva 
-ou restritiva para escolher a ordem mais adequada ao seu caso, tambÈm leve 
-em consideraÁ„o a possibilidade do processamento cair na diretiva de acesso 
-padr„o, caso nem a diretiva allow e deny conferiram e estiver usando a ordem 
+<strong>ATEN√á√ÉO</strong>: √â importante saber se a p√°gina ser√° permissiva 
+ou restritiva para escolher a ordem mais adequada ao seu caso, tamb√©m leve 
+em considera√ß√£o a possibilidade do processamento cair na diretiva de acesso 
+padr√£o, caso nem a diretiva allow e deny conferiram e estiver usando a ordem 
 de acesso "allow,deny" ou "deny,allow". Um sistema mal configurado neste 
-aspecto poder· trazer sÈrias conseq¸Íncias. ]]>
+aspecto poder√° trazer s√©rias conseq√º√™ncias. ]]>
  <p>
-… comum em p·ginas permissivas se definir a seguinte configuraÁ„o:
+√â comum em p√°ginas permissivas se definir a seguinte configura√ß√£o:
 
 <example>
 Order allow,deny
 allow from all
 </example>
 
-O motivo È que em um grande site, se forem adicionadas mais restriÁıes nesta
-p·gina (devido a alguns domÌnios que tem usu·rios mal comportados, bloqueio 
-de acesso a rede do concorrente, potenciais atacantes, etc...), estas dever„o 
+O motivo √© que em um grande site, se forem adicionadas mais restri√ß√µes nesta
+p√°gina (devido a alguns dom√≠nios que tem usu√°rios mal comportados, bloqueio 
+de acesso a rede do concorrente, potenciais atacantes, etc...), estas dever√£o 
 ser lidas antes da diretiva "allow from all" e podem passar desapercebidas ao 
-administrador e podem simplesmente n„o funcionar caso a opÁ„o <em>Order</em> n„o 
-esteja ajustada corretamente (lembre-se, vocÍ È o administrador e a integridade 
-do site depende de sua atenÁ„o na escolha da ordem correta das diretivas de acesso).
+administrador e podem simplesmente n√£o funcionar caso a op√ß√£o <em>Order</em> n√£o 
+esteja ajustada corretamente (lembre-se, voc√™ √© o administrador e a integridade 
+do site depende de sua aten√ß√£o na escolha da ordem correta das diretivas de acesso).
 
 
  <tag>allow from</tag>
  <item>
-Especifica o endereÁo que ter· acesso ao recurso especificado. 
+Especifica o endere√ßo que ter√° acesso ao recurso especificado. 
 A diretiva <em>allow</em> from aceita os seguintes valores:
 <list compact>
  <item>
-<tt>all</tt> - O acesso È permitido a todos.
+<tt>all</tt> - O acesso √© permitido a todos.
  <item>
-um endereÁo de domÌnio completo (FQDN). Por exemplo <file>www.debian.org.br</file>.
+um endere√ßo de dom√≠nio completo (FQDN). Por exemplo <file>www.debian.org.br</file>.
  <item>
-um endereÁo de domÌnio parcial. Qualquer computador que confira com o inicio 
-ou fim ter· o acesso permitido. Por exemplo, <file>.spammers.com.br</file>, 
+um endere√ßo de dom√≠nio parcial. Qualquer computador que confira com o inicio 
+ou fim ter√° o acesso permitido. Por exemplo, <file>.spammers.com.br</file>, 
 <file>.debian.org</file>.
  <item>
-um endereÁo IP completo, como <tt>192.168.1.1</tt>
+um endere√ßo IP completo, como <tt>192.168.1.1</tt>
  <item>
-um endereÁo IP parcial como <tt>192.168.1.</tt>
+um endere√ßo IP parcial como <tt>192.168.1.</tt>
  <item>
-um par rede/m·scara como <tt>10.1.0.0/255.255.0.0</tt> ou <tt>10.1.0.0/16</tt>, 
-uma faixa de acesso a m·quinas de uma mesma rede pode ser definida facilmente 
-atravÈs deste mÈtodo. 
+um par rede/m√°scara como <tt>10.1.0.0/255.255.0.0</tt> ou <tt>10.1.0.0/16</tt>, 
+uma faixa de acesso a m√°quinas de uma mesma rede pode ser definida facilmente 
+atrav√©s deste m√©todo. 
 </list>
 
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: … necess·rio reiniciar o <prgn>Apache</prgn> depois de 
-qualquer modificaÁ„o em seu arquivo de configuraÁ„o 
+<strong>OBS1</strong>: √â necess√°rio reiniciar o <prgn>Apache</prgn> depois de 
+qualquer modifica√ß√£o em seu arquivo de configura√ß√£o 
 (executando <tt>apachectl restart</tt>), ou recarregar os arquivos de 
-configuraÁ„o (<tt>apachectl graceful</tt>). 
+configura√ß√£o (<tt>apachectl graceful</tt>). 
  <p>
 <strong>OBS2</strong>: Mais de um host pode ser especificado separando com um 
-espaÁo: 
+espa√ßo: 
 <example>
 allow from 192.168. .debian.org.br
 </example>
-Permitir· o acesso de qualquer m·quina que o endereÁo IP confira com 
-<tt>192.168.*.*</tt> e qualquer computador do domÌnio <tt>debian.org.br</tt>
+Permitir√° o acesso de qualquer m√°quina que o endere√ßo IP confira com 
+<tt>192.168.*.*</tt> e qualquer computador do dom√≠nio <tt>debian.org.br</tt>
  <p>
 <strong>OBS3</strong>: Regras baseadas em nomes simples de hosts (como <tt>www</tt>) 
-n„o conferir„o! Dever· ser usado o FQDN ou IP: <tt>www.dominio.com.br</tt>
+n√£o conferir√£o! Dever√° ser usado o FQDN ou IP: <tt>www.dominio.com.br</tt>
  <p>
-<strong>OBS4</strong>: Caso Order n„o seja especificado, <em>deny,allow</em> 
-ser· usado como padr„o (ou seja, permitir· tudo como padr„o). <p> ]]>
+<strong>OBS4</strong>: Caso Order n√£o seja especificado, <em>deny,allow</em> 
+ser√° usado como padr√£o (ou seja, permitir√° tudo como padr√£o). <p> ]]>
 
  <tag>deny from</tag>
  <item>
-Especifica os endereÁos que N√O ter„o acesso ao recurso especificado. 
-As explicaÁıes referentes a esta diretiva de acesso s„o idÍntica as de 
+Especifica os endere√ßos que N√ÉO ter√£o acesso ao recurso especificado. 
+As explica√ß√µes referentes a esta diretiva de acesso s√£o id√™ntica as de 
 <em>allow from</em>. 
 </taglist>
-… recomend·vel o uso de endereÁos IP ao invÈs de endereÁos DNS e um 
-mecanismo anti-spoofing no firewall ou cÛdigo de roteamento, pois ficar· 
-mais difÌcil um ataque baseado em DNS spoofing, aumentando 
-consideravelmente a seguranÁa de seu servidor web. 
+√â recomend√°vel o uso de endere√ßos IP ao inv√©s de endere√ßos DNS e um 
+mecanismo anti-spoofing no firewall ou c√≥digo de roteamento, pois ficar√° 
+mais dif√≠cil um ataque baseado em DNS spoofing, aumentando 
+consideravelmente a seguran√ßa de seu servidor web. 
 
 <![ %OBS [
  <p>
-<strong>ATEN«√O</strong>: Caso receba erros 403 (acesso negado) sem 
+<strong>ATEN√á√ÉO</strong>: Caso receba erros 403 (acesso negado) sem 
 bloquear a URL nas diretivas de acesso, uma dos seguintes problemas 
 pode ser a causa:
 <list>
  <item>
-O servidor Web n„o tem permissıes para acessar/abrir o diretÛrio da p·gina. 
+O servidor Web n√£o tem permiss√µes para acessar/abrir o diret√≥rio da p√°gina. 
 Certifique-se que o <em>dono</em> e <em>grupo</em> do processo 
 <prgn>Apache</prgn> (especificado pela diretiva <em>User</em> e <em>Group</em>) 
-possuem permissıes de acesso ‡quele diretÛrio. 
+possuem permiss√µes de acesso √†quele diret√≥rio. 
  <item>
-Quando quer fazer uma listagem de arquivos do diretÛrio e n„o especifica a 
-opÁ„o <tt>Option Indexes</tt> como opÁ„o de listagem.
+Quando quer fazer uma listagem de arquivos do diret√≥rio e n√£o especifica a 
+op√ß√£o <tt>Option Indexes</tt> como op√ß√£o de listagem.
  <item>
-Quando n„o est· usando <tt>Option Indexes</tt> para impedir a listagem de 
-conte˙do do diretÛrio e o n„o foi encontrado um arquivo de Ìndice v·lido dentre 
-os existentes na diretiva <tt>DirectoryIndex</tt> no diretÛrio atual.
+Quando n√£o est√° usando <tt>Option Indexes</tt> para impedir a listagem de 
+conte√∫do do diret√≥rio e o n√£o foi encontrado um arquivo de √≠ndice v√°lido dentre 
+os existentes na diretiva <tt>DirectoryIndex</tt> no diret√≥rio atual.
 </list>
 ]]>
 
 <![ %EXEMPLO [
  <p>
-Abaixo alguns exemplos de permissıes de acesso:
+Abaixo alguns exemplos de permiss√µes de acesso:
 <example>
 &lt;Directory /var/www&gt;
  Options SymLinksIfOwnerMatch Indexes MultiViews
@@ -498,10 +498,10 @@ Abaixo alguns exemplos de permissıes de acesso:
  allow from all
 &lt;/Directory&gt;
 </example>
-Permite o acesso a de qualquer usu·rio de qualquer lugar (allow from all), 
-permite tambÈm a visualizaÁ„o da listagem formatada de arquivos caso nenhum arquivo 
+Permite o acesso a de qualquer usu√°rio de qualquer lugar (allow from all), 
+permite tamb√©m a visualiza√ß√£o da listagem formatada de arquivos caso nenhum arquivo 
 especificado na diretiva <em>DirectoryIndex</em> seja encontrado (Indexes), 
-permite negociaÁ„o de conte˙do (<em>MultiViews</em>) e seguir links caso o dono 
+permite negocia√ß√£o de conte√∫do (<em>MultiViews</em>) e seguir links caso o dono 
 do arquivo confira com o nome do link (<em>SymLinksIfOwnerMatch</em>).
 
 <example>
@@ -510,10 +510,10 @@ do arquivo confira com o nome do link (<em>SymLinksIfOwnerMatch</em>).
 &lt;/Directory&gt;
 </example>
 
-Tem o mesmo significado da diretiva acima por mÈtodos diferentes; quando nenhuma
-opÁ„o <em>Order</em> È especificada, <em>deny,allow</em> È definido como padr„o, 
-e como nenhuma opÁ„o de acesso <em>allow/deny</em> foi especificada, o padr„o
-"Order deny,allow" È usado e permite TUDO como padr„o.
+Tem o mesmo significado da diretiva acima por m√©todos diferentes; quando nenhuma
+op√ß√£o <em>Order</em> √© especificada, <em>deny,allow</em> √© definido como padr√£o, 
+e como nenhuma op√ß√£o de acesso <em>allow/deny</em> foi especificada, o padr√£o
+"Order deny,allow" √© usado e permite TUDO como padr√£o.
 
 <example>
 &lt;Directory /var/www&gt;
@@ -523,8 +523,8 @@ e como nenhuma opÁ„o de acesso <em>allow/deny</em> foi especificada, o padr„o
 &lt;/Directory&gt;
 </example>
 
-Esta regra acima n„o tem muita lÛgica pois restringe o acesso de todos os 
-usu·rios ao diretÛrio <file>/var/www</file>, ao menos se esta for sua intenÁ„o...
+Esta regra acima n√£o tem muita l√≥gica pois restringe o acesso de todos os 
+usu√°rios ao diret√≥rio <file>/var/www</file>, ao menos se esta for sua inten√ß√£o...
 
 <example>
 &lt;Location /focalinux&gt;
@@ -556,7 +556,7 @@ Bloqueia o acesso a qualquer arquivo <file>.htaccess</file> do sistema
 Bloqueia o acesso a qualquer arquivo <file>leiame-arm.txt</file>, 
 <file>leiame-alpha.txt</file>, <file>leiame-m68k.txt</file>, 
 <file>leiame-sparc.txt</file> e <file>leiame-powerpc.txt</file> 
-fazendo uso de expressıes regulares. 
+fazendo uso de express√µes regulares. 
 
 <example>
 &lt;Directory /var/www&gt;
@@ -567,9 +567,9 @@ fazendo uso de expressıes regulares.
 &lt;/Directory&gt;
 </example>
 
-A diretiva acima somente permite acesso ao diretÛrio <file>/var/www</file> 
-de m·quinas pertencentes ao domÌnio <file>.dominio.com.br</file> desde que 
-n„o seja <file>lammer.dominio.com.br</file>.
+A diretiva acima somente permite acesso ao diret√≥rio <file>/var/www</file> 
+de m√°quinas pertencentes ao dom√≠nio <file>.dominio.com.br</file> desde que 
+n√£o seja <file>lammer.dominio.com.br</file>.
 
 <example>
 &lt;Directory /var/www&gt;
@@ -580,8 +580,8 @@ n„o seja <file>lammer.dominio.com.br</file>.
 &lt;/Directory&gt;
 </example>
 
-Bloqueia o acesso ao diretÛrio <file>/var/www</file> de computadores 
-pertencentes aos domÌnios <em>.com</em> e <em>.com.br</em>.
+Bloqueia o acesso ao diret√≥rio <file>/var/www</file> de computadores 
+pertencentes aos dom√≠nios <em>.com</em> e <em>.com.br</em>.
 
 <example>
 &lt;Directory /var/www&gt;
@@ -592,16 +592,16 @@ pertencentes aos domÌnios <em>.com</em> e <em>.com.br</em>.
 &lt;/Directory&gt;
 </example>
 
-A regra acima permite o acesso de m·quinas da rede <tt>192.168.1.*</tt>, 
-do domÌnio <tt>*.guiafoca.org</tt> e <tt>*.debian.org</tt>, o acesso de 
-m·quinas da rede <tt>200.200.123.*</tt> È bloqueado (nada contra, peguei 
-nesse n˙mero ao acaso :-). 
+A regra acima permite o acesso de m√°quinas da rede <tt>192.168.1.*</tt>, 
+do dom√≠nio <tt>*.guiafoca.org</tt> e <tt>*.debian.org</tt>, o acesso de 
+m√°quinas da rede <tt>200.200.123.*</tt> √© bloqueado (nada contra, peguei 
+nesse n√∫mero ao acaso :-). 
  <p>
-Note que a m·quina <tt>192.168.4.10</tt> ter· acesso LIVRE a regra acima, 
-pois n„o conferir· nem com <em>allow</em> nem com <em>deny</em>, ent„o o 
-processamento cair· na diretiva padr„o de <em>deny,allow</em>, que neste 
+Note que a m√°quina <tt>192.168.4.10</tt> ter√° acesso LIVRE a regra acima, 
+pois n√£o conferir√° nem com <em>allow</em> nem com <em>deny</em>, ent√£o o 
+processamento cair√° na diretiva padr√£o de <em>deny,allow</em>, que neste 
 caso permite o acesso caso nem <em>allow</em> e <em>deny</em> conferiram 
-com o padr„o. 
+com o padr√£o. 
 
 <example>
 &lt;Directory /var/www&gt;
@@ -612,60 +612,60 @@ com o padr„o.
 &lt;/Directory&gt;
 </example>
 
-A regra acima È idÍntica a anterior somente com a mudanÁa da opÁ„o 
-<em>Order</em>. Bloqueia o acesso de m·quinas da rede <tt>200.200.123.*</tt> 
-e permite o acesso de m·quinas da rede <tt>192.168.1.*</tt>, do domÌnio 
+A regra acima √© id√™ntica a anterior somente com a mudan√ßa da op√ß√£o 
+<em>Order</em>. Bloqueia o acesso de m√°quinas da rede <tt>200.200.123.*</tt> 
+e permite o acesso de m√°quinas da rede <tt>192.168.1.*</tt>, do dom√≠nio 
 <tt>*.cipsga.org.br</tt> e <tt>*.debian.org</tt>.
  <p>
-Note que a m·quina <tt>192.168.4.10</tt> ter· acesso BLOQUEADO a regra acima, 
-pois n„o conferir· nem com <em>allow</em> nem com <em>deny</em>, ent„o o 
-processamento cair· na diretiva padr„o de <em>allow,deny</em> que neste caso 
+Note que a m√°quina <tt>192.168.4.10</tt> ter√° acesso BLOQUEADO a regra acima, 
+pois n√£o conferir√° nem com <em>allow</em> nem com <em>deny</em>, ent√£o o 
+processamento cair√° na diretiva padr√£o de <em>allow,deny</em> que neste caso 
 bloqueia o acesso. ]]>
 
 
-<sect1 id="s-apache-acesso-restr-auth">AutenticaÁ„o
+<sect1 id="s-apache-acesso-restr-auth">Autentica√ß√£o
  <p>
-AtravÈs da <em>autenticaÁ„o</em> (controlado pelo mÛdulo <file>mod_auth</file>) 
-È possÌvel especificar um <em>nome</em> e <em>senha</em> para acesso ao recurso 
-solicitado. As senhas s„o gravadas em formato criptografado usando 
+Atrav√©s da <em>autentica√ß√£o</em> (controlado pelo m√≥dulo <file>mod_auth</file>) 
+√© poss√≠vel especificar um <em>nome</em> e <em>senha</em> para acesso ao recurso 
+solicitado. As senhas s√£o gravadas em formato criptografado usando 
 <em>Crypto</em> ou <em>MD5</em> (conforme desejado). O arquivo 
-de senhas pode ser centralizado ou especificado individualmente por usu·rio, 
-diretÛrio ou atÈ mesmo por arquivo acessado. 
+de senhas pode ser centralizado ou especificado individualmente por usu√°rio, 
+diret√≥rio ou at√© mesmo por arquivo acessado. 
 
 
 <sect2 id="s-apache-acesso-restr-auth-arqsenha">Criando um arquivo de Senhas
  <p>
-O arquivo de senhas pode ser criado e mantido atravÈs do uso de 3 utilit·rios:
+O arquivo de senhas pode ser criado e mantido atrav√©s do uso de 3 utilit√°rios:
 <prgn>htpasswd</prgn>, <prgn>htdigest</prgn> e <prgn>dbmmanage</prgn>:
 
 
 <sect3 id="s-apache-acesso-restr-auth-arqsenha-htpasswd">htpasswd
  <p>
-Este È usado para criar o arquivo de senhas. Para criar um 
-banco de dados com o nome <file>senhas</file> para o usu·rio 
-<var>convidado</var>, È usada a seguinte sintaxe:
+Este √© usado para criar o arquivo de senhas. Para criar um 
+banco de dados com o nome <file>senhas</file> para o usu√°rio 
+<var>convidado</var>, √© usada a seguinte sintaxe:
  <p>
 <tt>htpasswd -c -m senhas convidado</tt>
  <p>
-VocÍ ser· perguntado por uma senha para o usu·rio <var>convidado</var> e para 
-redigita-la. A opÁ„o "-c" indica que dever· ser criado um arquivo, a opÁ„o "-m" 
-indica a utilizaÁ„o de senhas criptografadas usando o algoritmo <em>MD5</em>, que 
-garante maior seguranÁa que o mÈtodo <em>Crypto</em>. 
-A senha pode ser especificada diretamente na linha de comando atravÈs 
-da opÁ„o "-b" (isto È um Ûtimo recurso para utilizaÁ„o em shell scripts ou 
-programas CGI de integraÁ„o com o navegador). 
+Voc√™ ser√° perguntado por uma senha para o usu√°rio <var>convidado</var> e para 
+redigita-la. A op√ß√£o "-c" indica que dever√° ser criado um arquivo, a op√ß√£o "-m" 
+indica a utiliza√ß√£o de senhas criptografadas usando o algoritmo <em>MD5</em>, que 
+garante maior seguran√ßa que o m√©todo <em>Crypto</em>. 
+A senha pode ser especificada diretamente na linha de comando atrav√©s 
+da op√ß√£o "-b" (isto √© um √≥timo recurso para utiliza√ß√£o em shell scripts ou 
+programas CGI de integra√ß√£o com o navegador). 
  <p>
 <tt>htpasswd -b -d senhas chefe abcdef</tt>
  <p>
-No exemplo acima, uma senha de alta seguranÁa ser· introduzida no 
-banco de dados <file>senhas</file> tornando impossÌvel o acesso a 
-p·gina do usu·rio :-)
+No exemplo acima, uma senha de alta seguran√ßa ser√° introduzida no 
+banco de dados <file>senhas</file> tornando imposs√≠vel o acesso a 
+p√°gina do usu√°rio :-)
  <p>
 Note que esta senha foi cadastrada usando o algoritmo de criptografia 
-Crypto (opÁ„o -d). O algoritmo <em>SHA</em> tambÈm pode ser usado como 
-alternativa, atravÈs da opÁ„o "-s". 
-Para modificar a senha do usu·rio convidado, basta usar a mesma sintaxe 
-(sem a opÁ„o "-c" que È usada para criar um novo arquivo):
+Crypto (op√ß√£o -d). O algoritmo <em>SHA</em> tamb√©m pode ser usado como 
+alternativa, atrav√©s da op√ß√£o "-s". 
+Para modificar a senha do usu√°rio convidado, basta usar a mesma sintaxe 
+(sem a op√ß√£o "-c" que √© usada para criar um novo arquivo):
  <p>
 <tt>htpasswd -m senhas convidado</tt>
  <p>
@@ -673,35 +673,35 @@ ou
  <p>
 <tt>htpasswd -b -m senhas convidado nova_senha</tt>
  <p>
-Opcionalmente vocÍ pode especificar a opÁ„o "-d" para atualizar tambÈm 
+Opcionalmente voc√™ pode especificar a op√ß√£o "-d" para atualizar tamb√©m 
 o formato da senha para <em>Crypto</em>. Podem existir senhas de criptografias 
 mistas (<em>SHA, Crypto, MD5</em>) no mesmo arquivo sem nenhum problema. 
  <p>
-A mudanÁa do formato de senhas È ˙til quando se deseja aumentar o nÌvel de 
-seguranÁa oferecido por um melhor sistema ou para manter a compatibilidade 
+A mudan√ßa do formato de senhas √© √∫til quando se deseja aumentar o n√≠vel de 
+seguran√ßa oferecido por um melhor sistema ou para manter a compatibilidade 
 com alguns scripts/programas que compartilhem o arquivo de senhas. 
 
 
 <sect3 id="s-apache-acesso-restr-auth-arqsenha-htdigest">htdigest e dbmmanage
  <p>
-Estes s„o idÍnticos ao <prgn>htpasswd</prgn>, a diferenÁa È que o 
+Estes s√£o id√™nticos ao <prgn>htpasswd</prgn>, a diferen√ßa √© que o 
 <prgn>htdigest</prgn> permite criar/manter um arquivo de senhas 
-usando a autenticaÁ„o Digest, enquanto o <prgn>dbmmanage</prgn> 
+usando a autentica√ß√£o Digest, enquanto o <prgn>dbmmanage</prgn> 
 permite manter o banco de dados de senhas em um arquivo 
 <file>DB, DBM, GDBM</file> e <file>NDBM</file>, formatos conhecidos 
 pelo Perl. 
 
 
-<sect2 id="s-apache-acesso-restr-auth-usuarios">AutenticaÁ„o atravÈs de usu·rios
+<sect2 id="s-apache-acesso-restr-auth-usuarios">Autentica√ß√£o atrav√©s de usu√°rios
  <p>
-AtravÈs deste mÈtodo È possÌvel especificar que usu·rios ter„o acesso 
+Atrav√©s deste m√©todo √© poss√≠vel especificar que usu√°rios ter√£o acesso 
 ao recurso definido, usando senhas de acesso individuais criptografadas 
-usando um dos utilit·rios da seÁ„o anterior. Para 
-restringir o acesso ao endereÁo <file>http://servidor.org/teste</file>: 
+usando um dos utilit√°rios da se√ß√£o anterior. Para 
+restringir o acesso ao endere√ßo <file>http://servidor.org/teste</file>: 
 
 <example>
 &lt;Location /teste&gt;
- AuthName "Acesso a p·gina do Foca Linux"
+ AuthName "Acesso a p√°gina do Foca Linux"
  AuthType basic
  AuthUserFile /home/gleydson/SenhaUsuario
 # AuthGroupFile /home/users/SenhaGrupo
@@ -709,73 +709,73 @@ restringir o acesso ao endereÁo <file>http://servidor.org/teste</file>:
 &lt;/Location&gt;
 </example>
 
-Ao tentar acessar o endereÁo <file>http://servidor/teste</file>, ser· aberta 
-uma janela no navegador com o tÌtulo <em>Enter username for Acesso a p·gina do 
+Ao tentar acessar o endere√ßo <file>http://servidor/teste</file>, ser√° aberta 
+uma janela no navegador com o t√≠tulo <em>Enter username for Acesso a p√°gina do 
 Foca Linux at servidor.org</em>, a diretiva <em>Require valid-user</em> 
-definem que o usu·rio e senha digitados devem existir no arquivo especificado 
-por <em>AuthUserFile</em> para que o acesso seja garantido. Uma explicaÁ„o de 
-cada opÁ„o de acesso usado na autenticaÁ„o: 
+definem que o usu√°rio e senha digitados devem existir no arquivo especificado 
+por <em>AuthUserFile</em> para que o acesso seja garantido. Uma explica√ß√£o de 
+cada op√ß√£o de acesso usado na autentica√ß√£o: 
 <taglist compact>
  <tag>AuthName</tag>
  <item>
-Ser· o nome que aparecer· na janela de autenticaÁ„o do seu navegador 
-indicando qual ·rea restrita est· solicitando senha (podem existir 
-v·rias no servidor, bastando especificar v·rias diretivas de 
-restriÁıes).
+Ser√° o nome que aparecer√° na janela de autentica√ß√£o do seu navegador 
+indicando qual √°rea restrita est√° solicitando senha (podem existir 
+v√°rias no servidor, bastando especificar v√°rias diretivas de 
+restri√ß√µes).
 
  <tag>AuthType</tag>
  <item>
-Especifica o mÈtodo de que o nome e senha ser„o passados ao servidor. 
-Este mÈtodo de autenticaÁ„o pode ser <em>Basic</em> ou <em>Digest</em>
+Especifica o m√©todo de que o nome e senha ser√£o passados ao servidor. 
+Este m√©todo de autentica√ß√£o pode ser <em>Basic</em> ou <em>Digest</em>
  <list compact>
   <item>
- <tt>Basic</tt> - Utiliza a codificaÁ„o <em>base64</em> para encodificaÁ„o 
- de nome e senha, enviando o resultado ao servidor. Este È um mÈtodo muito usado e 
+ <tt>Basic</tt> - Utiliza a codifica√ß√£o <em>base64</em> para encodifica√ß√£o 
+ de nome e senha, enviando o resultado ao servidor. Este √© um m√©todo muito usado e 
  pouco seguro, pois qualquer sniffer instalado em um roteador pode capturar e 
  descobrir facilmente seu nome e senha. 
   <item>
- <tt>Digest</tt> - Transmite os dados de uma maneira que n„o pode ser 
- facilmente decodificada, incluindo a codificaÁ„o da ·rea protegida
- (especificada pela diretiva <em>AuthName</em>) que possui a seq¸encia de 
- login/senha v·lida. A diferenÁa deste mÈtodo È que vocÍ precisar· 
- de arquivos de senhas diferentes para cada ·rea protegida especificada 
- por <em>AuthName</em> (tambÈm chamada de Realm). 
+ <tt>Digest</tt> - Transmite os dados de uma maneira que n√£o pode ser 
+ facilmente decodificada, incluindo a codifica√ß√£o da √°rea protegida
+ (especificada pela diretiva <em>AuthName</em>) que possui a seq√ºencia de 
+ login/senha v√°lida. A diferen√ßa deste m√©todo √© que voc√™ precisar√° 
+ de arquivos de senhas diferentes para cada √°rea protegida especificada 
+ por <em>AuthName</em> (tamb√©m chamada de Realm). 
  </list>
 
  <tag>AuthUserFile</tag>
  <item>
-… o arquivo gerado pelo utilit·rio <prgn>htpasswd</prgn> que contÈm a senha 
-correspondente ao usu·rio
+√â o arquivo gerado pelo utilit√°rio <prgn>htpasswd</prgn> que cont√©m a senha 
+correspondente ao usu√°rio
 
  <tag>AuthGroupFile</tag>
  <item>
-… um arquivo texto que contÈm o nome do grupo, dois pontos (":") 
-e o nome dos usu·rios que podem ter acesso ao recurso, separados por 
-vÌrgulas. No exemplo acima ele se encontra comentado, mas a seguir
-encontrar· exemplos que explicam em detalhes o funcionamento desta diretiva. 
+√â um arquivo texto que cont√©m o nome do grupo, dois pontos (":") 
+e o nome dos usu√°rios que podem ter acesso ao recurso, separados por 
+v√≠rgulas. No exemplo acima ele se encontra comentado, mas a seguir
+encontrar√° exemplos que explicam em detalhes o funcionamento desta diretiva. 
 
  <tag>Require</tag>
  <item>
-Especifica que usu·rios podem ter acesso ao diretÛrio. Podem ser 
+Especifica que usu√°rios podem ter acesso ao diret√≥rio. Podem ser 
 usadas uma das 3 sintaxes:
  <list compact>
   <item>
- <tt>Require user usu·rio1 usu·rio2 usu·rio3</tt> - Somente os usu·rios 
- especificados s„o considerados v·lidos para ter acesso ao diretÛrio.
+ <tt>Require user usu√°rio1 usu√°rio2 usu√°rio3</tt> - Somente os usu√°rios 
+ especificados s√£o considerados v√°lidos para ter acesso ao diret√≥rio.
   
   <item>
- <tt>Require group grupo1 grupo2 grupo3</tt> - Somente os usu·rios dos 
- grupos especificados s„o considerados v·lidos para terem acesso ao 
- diretÛrio. Esta diretiva È ˙til quando deseja que somente alguns 
- usu·rios de determinado grupo tenham acesso ao recurso (por exemplo, 
- usu·rios do grupo admins).
+ <tt>Require group grupo1 grupo2 grupo3</tt> - Somente os usu√°rios dos 
+ grupos especificados s√£o considerados v√°lidos para terem acesso ao 
+ diret√≥rio. Esta diretiva √© √∫til quando deseja que somente alguns 
+ usu√°rios de determinado grupo tenham acesso ao recurso (por exemplo, 
+ usu√°rios do grupo admins).
  
   <item>
- <tt>Require valid-user</tt> - Qualquer usu·rio v·lido no banco de dados 
- de senhas pode acessar o diretÛrio. … bem ˙til quando as opÁıes de acesso 
- especificadas por Require user s„o muito longas.
+ <tt>Require valid-user</tt> - Qualquer usu√°rio v√°lido no banco de dados 
+ de senhas pode acessar o diret√≥rio. √â bem √∫til quando as op√ß√µes de acesso 
+ especificadas por Require user s√£o muito longas.
   <p>
- A opÁ„o Require deve ser acompanhado das diretivas <em>AuthName</em>, 
+ A op√ß√£o Require deve ser acompanhado das diretivas <em>AuthName</em>, 
  <em>AuthType</em> e as diretivas <em>AuthUserFile</em> e <em>AuthGroupFile</em> 
  para funcionar adequadamente.
 </list>
@@ -783,33 +783,33 @@ usadas uma das 3 sintaxes:
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: … necess·rio reiniciar o <prgn>Apache</prgn> depois de 
-qualquer modificaÁ„o em seu arquivo de configuraÁ„o (<tt>apachectl restart</tt>), 
-ou recarregar os arquivos de configuraÁ„o (<tt>apachectl graceful</tt>). Note que 
-o <prgn>apachectl</prgn> È somente um shell script para interaÁ„o mais amig·vel 
+<strong>OBS</strong>: √â necess√°rio reiniciar o <prgn>Apache</prgn> depois de 
+qualquer modifica√ß√£o em seu arquivo de configura√ß√£o (<tt>apachectl restart</tt>), 
+ou recarregar os arquivos de configura√ß√£o (<tt>apachectl graceful</tt>). Note que 
+o <prgn>apachectl</prgn> √© somente um shell script para intera√ß√£o mais amig√°vel 
 com o servidor web <prgn>apache</prgn>, retornando mensagens indicando o 
-sucesso/falha no comando ao invÈs de cÛdigos de saÌda. ]]>
+sucesso/falha no comando ao inv√©s de c√≥digos de sa√≠da. ]]>
 
 <![ %EXEMPLO [
  <p>
-Alguns exemplos para melhor assimilaÁ„o:
+Alguns exemplos para melhor assimila√ß√£o:
 
 <example>
 &lt;Location /teste&gt;
- AuthName "Acesso a p·gina do Foca Linux"
+ AuthName "Acesso a p√°gina do Foca Linux"
  AuthType basic
  AuthUserFile /home/gleydson/SenhaUsuario
  Require user gleydson
 &lt;/Location&gt;
 </example>
 
-As explicaÁıes s„o idÍnticas a anterior, mas somente permite o acesso do 
-usu·rio <tt>gleydson</tt> a URL <file>http://servidor.org/teste</file>, bloqueando 
-o acesso de outros usu·rios contidos no arquivo <em>AuthUserFile</em>.
+As explica√ß√µes s√£o id√™nticas a anterior, mas somente permite o acesso do 
+usu√°rio <tt>gleydson</tt> a URL <file>http://servidor.org/teste</file>, bloqueando 
+o acesso de outros usu√°rios contidos no arquivo <em>AuthUserFile</em>.
 
 <example>
 &lt;Location /teste&gt;
- AuthName "Acesso a p·gina do Foca Linux"
+ AuthName "Acesso a p√°gina do Foca Linux"
  AuthType basic
  AuthUserFile /home/gleydson/SenhaUsuario
  Require user gleydson usuario1 usuario2
@@ -819,7 +819,7 @@ o acesso de outros usu·rios contidos no arquivo <em>AuthUserFile</em>.
 
 <example>
 &lt;Location /teste&gt;
- AuthName "Acesso a p·gina do Foca Linux"
+ AuthName "Acesso a p√°gina do Foca Linux"
  AuthType basic
  AuthUserFile /home/gleydson/SenhaUsuario
  Require user gleydson
@@ -828,34 +828,34 @@ o acesso de outros usu·rios contidos no arquivo <em>AuthUserFile</em>.
 &lt;/Location&gt;
 </example>
 
-As 2 especificaÁıes acima s„o equivalentes e permite o acesso aos usu·rios
-<tt>gleydson</tt>, <tt>usuario1</tt> e <tt>usuario2</tt> a p·gina 
+As 2 especifica√ß√µes acima s√£o equivalentes e permite o acesso aos usu√°rios
+<tt>gleydson</tt>, <tt>usuario1</tt> e <tt>usuario2</tt> a p√°gina 
 <file>http://servidor.org/teste</file>. ]]>
 
 
-<sect2 id="s-apache-acesso-restr-auth-grupos">AutenticaÁ„o usando grupos
+<sect2 id="s-apache-acesso-restr-auth-grupos">Autentica√ß√£o usando grupos
  <p>
-H· casos onde existem usu·rios de um arquivo de senhas que devem 
-ter acesso a um diretÛrio e outros n„o, neste caso a diretiva 
-<em>valid-user</em> n„o pode ser especificada (porque permitiria o acesso de 
-todos os usu·rios do arquivo de senha ao diretÛrio) e uma grande lista de 
-usu·rios ficaria bastante complicada de ser gerenciada com v·rios usu·rios 
+H√° casos onde existem usu√°rios de um arquivo de senhas que devem 
+ter acesso a um diret√≥rio e outros n√£o, neste caso a diretiva 
+<em>valid-user</em> n√£o pode ser especificada (porque permitiria o acesso de 
+todos os usu√°rios do arquivo de senha ao diret√≥rio) e uma grande lista de 
+usu√°rios ficaria bastante complicada de ser gerenciada com v√°rios usu√°rios 
 na diretiva <em>Require user</em>. 
  <p>
-Quando existe esta situaÁ„o, È recomendado o uso de grupos de usu·rios. Para 
-fazer uso desse recurso, primeiro dever· ser criado um arquivo quer armazenar· 
-o nome do <em>grupo</em> e dos usu·rios pertencente ‡quele grupo usando a 
+Quando existe esta situa√ß√£o, √© recomendado o uso de grupos de usu√°rios. Para 
+fazer uso desse recurso, primeiro dever√° ser criado um arquivo quer armazenar√° 
+o nome do <em>grupo</em> e dos usu√°rios pertencente √†quele grupo usando a 
 seguinte sintaxe (vamos chamar este arquivo de <file>SenhaGrupo</file>): 
 <example>
 admins: gleydson usuario2
 usuarios: usuario1 usuario2 usuario3 gleydson
 </example>
 
-Agora adaptamos o exemplo anterior para que somente os usu·rios 
+Agora adaptamos o exemplo anterior para que somente os usu√°rios 
 especificados no grupo admins do arquivo criado acima:
 <example>
 &lt;Location /teste&gt;
- AuthName "Acesso a p·gina do Foca Linux"
+ AuthName "Acesso a p√°gina do Foca Linux"
  AuthType basic
  AuthUserFile /home/gleydson/SenhaUsuario
  AuthGroupFile /home/gleydson/SenhaGrupo
@@ -863,49 +863,49 @@ especificados no grupo admins do arquivo criado acima:
 &lt;/Location&gt;
 </example>
 
-Agora somente os usu·rios pertencentes ao grupo <em>admins</em> (<em>gleydson</em> 
-e <em>usuario2</em>) poder„o ter acesso ao diretÛrio <file>/teste</file>. 
+Agora somente os usu√°rios pertencentes ao grupo <em>admins</em> (<em>gleydson</em> 
+e <em>usuario2</em>) poder√£o ter acesso ao diret√≥rio <file>/teste</file>. 
 <![ %OBS [ 
  <p>
 <strong>OBS1</strong>: Verifique se o servidor Web possui acesso a leitura no 
-arquivo de senhas de usu·rios e grupos, caso contr·rio ser· retornado um 
-cÛdigo "500 - Internal Server Error". Este tipo de erro È caracterizado
-por tudo estar OK na sintaxe dos arquivos de configuraÁ„o 
-apÛs checagem com "apache -t" e todas as diretivas de controle de acesso 
-apontam para os diretÛrios e arquivos corretos. 
+arquivo de senhas de usu√°rios e grupos, caso contr√°rio ser√° retornado um 
+c√≥digo "500 - Internal Server Error". Este tipo de erro √© caracterizado
+por tudo estar OK na sintaxe dos arquivos de configura√ß√£o 
+ap√≥s checagem com "apache -t" e todas as diretivas de controle de acesso 
+apontam para os diret√≥rios e arquivos corretos. 
  <p>
-<strong>OBS2:</strong>: Sempre use espaÁos para separar os nomes de 
-usu·rios pertencentes a um grupo. 
+<strong>OBS2:</strong>: Sempre use espa√ßos para separar os nomes de 
+usu√°rios pertencentes a um grupo. 
  <p>
-<strong>OBS3</strong>: NUNCA coloque os arquivos que contÈm senhas e grupos 
-em diretÛrios de acesso p˙blico onde usu·rios podem ter acesso via o servidor 
-Web. Tais localizaÁıes s„o <file>/var/www</file>, 
-<file>/home/"usuario"/public_html</file> e qualquer outro diretÛrio de acesso 
-p˙blico que defina em seu sistema. 
+<strong>OBS3</strong>: NUNCA coloque os arquivos que cont√©m senhas e grupos 
+em diret√≥rios de acesso p√∫blico onde usu√°rios podem ter acesso via o servidor 
+Web. Tais localiza√ß√µes s√£o <file>/var/www</file>, 
+<file>/home/"usuario"/public_html</file> e qualquer outro diret√≥rio de acesso 
+p√∫blico que defina em seu sistema. 
  <p>
-… recomend·vel tambÈm ocultar estes arquivos atravÈs da diretiva &lt;Files&gt; 
-evitando possÌveis riscos de seguranÁa com usu·rios acessando os arquivos 
+√â recomend√°vel tamb√©m ocultar estes arquivos atrav√©s da diretiva &lt;Files&gt; 
+evitando poss√≠veis riscos de seguran√ßa com usu√°rios acessando os arquivos 
 de senha e grupo. ]]>
 
  <p>
-Na distribuiÁ„o <prgn>Debian</prgn>, qualquer arquivo iniciando com 
-<file>.ht*</file> ser· automaticamente ocultado pelo sistema, pois 
-j· existe uma diretiva &lt;Files ~ "\.ht"&gt;. Tal diretiva pode 
-tambÈm ser especificada no arquivo de acesso <file>.htaccess</file>. 
-Assim um arquivo <file>.htsenha</file> e <file>.htgroup</file> s„o bons 
+Na distribui√ß√£o <prgn>Debian</prgn>, qualquer arquivo iniciando com 
+<file>.ht*</file> ser√° automaticamente ocultado pelo sistema, pois 
+j√° existe uma diretiva &lt;Files ~ "\.ht"&gt;. Tal diretiva pode 
+tamb√©m ser especificada no arquivo de acesso <file>.htaccess</file>. 
+Assim um arquivo <file>.htsenha</file> e <file>.htgroup</file> s√£o bons 
 nomes se estiver desejando ocultar dados de olhos curiosos...
 
 
-<![ %CONSTRUCAO [ Incluir um exemplo funcional do funcionamento da opÁ„o 
+<![ %CONSTRUCAO [ Incluir um exemplo funcional do funcionamento da op√ß√£o 
                   AuthType Digest ]]>
 
 
-<sect1 id="s-apache-acesso-restr-autor+auth">Usando autorizaÁ„o e autenticaÁ„o juntos
+<sect1 id="s-apache-acesso-restr-autor+auth">Usando autoriza√ß√£o e autentica√ß√£o juntos
  <p>
-Os mÈtodos de <em>autorizaÁ„o</em> e <em>autenticaÁ„o</em> podem ser 
+Os m√©todos de <em>autoriza√ß√£o</em> e <em>autentica√ß√£o</em> podem ser 
 usados ao mesmo tempo dentro de qualquer uma das diretivas de controle 
-de acesso. As diretivas de <em>autorizaÁ„o</em> s„o processadas primeiro 
-(mod_access) e depois as diretivas de <em>autenticaÁ„o</em> (mod_auth). Segue 
+de acesso. As diretivas de <em>autoriza√ß√£o</em> s√£o processadas primeiro 
+(mod_access) e depois as diretivas de <em>autentica√ß√£o</em> (mod_auth). Segue 
 um exemplo:
 <example>
 &lt;Directory /var/www&gt;
@@ -913,19 +913,19 @@ um exemplo:
  Order deny,allow
  allow from .dominiolocal.com.br
  deny from all
- AuthName "Acesso ao diretÛrio do servidor Web"
+ AuthName "Acesso ao diret√≥rio do servidor Web"
  AuthType basic
  AuthUserFile /var/cache/apache/senhas
  Require valid-user
 &lt;/Directory&gt;
 </example>
 
-Para ter acesso ao diretÛrio <file>/var/www</file>, primeiro o computador 
-deve fazer parte do domÌnio <file>.dominiolocal.com.br</file>, assim ela 
-passa pelo teste de autorizaÁ„o, depois disso ser· necess·rio fornecer o 
-login e senha para acesso a p·gina, digitando o login e senha corretos, 
-o teste de autenticaÁ„o ser· completado com sucesso e o acesso 
-ao diretÛrio <file>/var/www</file> autorizado.
+Para ter acesso ao diret√≥rio <file>/var/www</file>, primeiro o computador 
+deve fazer parte do dom√≠nio <file>.dominiolocal.com.br</file>, assim ela 
+passa pelo teste de autoriza√ß√£o, depois disso ser√° necess√°rio fornecer o 
+login e senha para acesso a p√°gina, digitando o login e senha corretos, 
+o teste de autentica√ß√£o ser√° completado com sucesso e o acesso 
+ao diret√≥rio <file>/var/www</file> autorizado.
 
 <example>
 &lt;Directory /var/www&gt;
@@ -933,7 +933,7 @@ ao diretÛrio <file>/var/www</file> autorizado.
  Order mutual-failure
  allow from .dominiolocal.com.br
  deny from lammer.dominiolocal.com.br
- AuthName "Acesso ao diretÛrio do servidor Web"
+ AuthName "Acesso ao diret√≥rio do servidor Web"
  AuthType basic
  AuthUserFile /var/cache/apache/senhas
  AuthGroupFile /var/cache/apache/grupos
@@ -941,27 +941,27 @@ ao diretÛrio <file>/var/www</file> autorizado.
 &lt;/Directory&gt;
 </example>
 
-No exemplo acima, È usado o mÈtodo de autorizaÁ„o com a 
-opÁ„o <em>Order mutual-failure</em> e o mÈtodo de autenticaÁ„o atravÈs de 
+No exemplo acima, √© usado o m√©todo de autoriza√ß√£o com a 
+op√ß√£o <em>Order mutual-failure</em> e o m√©todo de autentica√ß√£o atrav√©s de 
 <em>grupos</em>. 
-Primeiro È verificado se o usu·rio pertence ao domÌnio 
-<file>.dominiolocal.com.br</file> e se ele n„o est· acessando da m·quina 
+Primeiro √© verificado se o usu√°rio pertence ao dom√≠nio 
+<file>.dominiolocal.com.br</file> e se ele n√£o est√° acessando da m√°quina 
 <file>lammer.dominiolocal.com.br</file>, neste caso ele passa pelo teste 
-de autorizaÁ„o. Depois disso ele precisar· fornecer o nome e senha v·lidos, 
+de autoriza√ß√£o. Depois disso ele precisar√° fornecer o nome e senha v√°lidos, 
 com o login pertencente ao <em>AuthGroupFile</em>, passando pelo processo 
-de autenticaÁ„o e obtendo acesso ao diretÛrio <file>/var/www</file>.
+de autentica√ß√£o e obtendo acesso ao diret√≥rio <file>/var/www</file>.
 
 
 <sect2 id="s-apache-acesso-restr-autor+auth-diferenciado">Acesso diferenciado 
 em uma mesma diretiva
  <p>
-… interessante permitir usu·rios fazendo conexıes de locais confi·veis 
+√â interessante permitir usu√°rios fazendo conex√µes de locais confi√°veis 
 terem acesso direto sem precisar fornecer nome e senha e de locais 
-inseguros acessarem somente apÛs comprovarem <strong>quem</strong> realmente s„o. 
-Como È o caso de permitir usu·rios de uma rede privada terem acesso completo 
+inseguros acessarem somente ap√≥s comprovarem <strong>quem</strong> realmente s√£o. 
+Como √© o caso de permitir usu√°rios de uma rede privada terem acesso completo 
 aos recursos e permitir o acesso externo ao mesmo recurso somente 
-atravÈs de senha. Isto pode ser feito com o uso da diretiva 
-<em>Satisfy</em> junto ao bloco de <em>autorizaÁ„o/autenticaÁ„o</em>. Vamos 
+atrav√©s de senha. Isto pode ser feito com o uso da diretiva 
+<em>Satisfy</em> junto ao bloco de <em>autoriza√ß√£o/autentica√ß√£o</em>. Vamos 
 tomar como base o exemplo anterior: 
 
 <example>
@@ -970,7 +970,7 @@ tomar como base o exemplo anterior:
  Order mutual-failure
  allow from .dominiolocal.com.br
  deny from lammer.dominiolocal.com.br
- AuthName "Acesso ao diretÛrio do servidor Web"
+ AuthName "Acesso ao diret√≥rio do servidor Web"
  AuthType basic
  AuthUserFile /var/cache/apache/senhas
  AuthGroupFile /var/cache/apache/grupos
@@ -979,32 +979,32 @@ tomar como base o exemplo anterior:
 &lt;/Directory&gt;
 </example>
 
-Note que o exemplo È o mesmo com a adiÁ„o da diretiva <em>Satisfy any</em> 
-no final do bloco do arquivo. Quando a opÁ„o <em>Satisfy</em> n„o È especificada, 
-ela assumir· "all" como padr„o, ou seja, o usu·rio dever· passar no
-teste de autorizaÁ„o e autenticaÁ„o para ter acesso. 
+Note que o exemplo √© o mesmo com a adi√ß√£o da diretiva <em>Satisfy any</em> 
+no final do bloco do arquivo. Quando a op√ß√£o <em>Satisfy</em> n√£o √© especificada, 
+ela assumir√° "all" como padr√£o, ou seja, o usu√°rio dever√° passar no
+teste de autoriza√ß√£o e autentica√ß√£o para ter acesso. 
  <p>
-A diferenÁa do exemplo acima em relaÁ„o ao da seÁ„o anterior È se a 
-m·quina passar no teste de autorizaÁ„o ela j· ter· acesso garantido. 
-Caso falhe no teste de autorizaÁ„o, ainda ter· a chance de ter acesso 
-a p·gina passando na checagem de autenticaÁ„o. 
+A diferen√ßa do exemplo acima em rela√ß√£o ao da se√ß√£o anterior √© se a 
+m√°quina passar no teste de autoriza√ß√£o ela j√° ter√° acesso garantido. 
+Caso falhe no teste de autoriza√ß√£o, ainda ter√° a chance de ter acesso 
+a p√°gina passando na checagem de autentica√ß√£o. 
  <p>
-Isto garante acesso livre aos usu·rios do domÌnio 
-<file>.dominiolocal.com.br</file>. J· os outros usu·rios, 
+Isto garante acesso livre aos usu√°rios do dom√≠nio 
+<file>.dominiolocal.com.br</file>. J√° os outros usu√°rios, 
 incluindo acessos vindos de <file>lammer.dominiolocal.com.br</file> que 
-pode ser uma m·quina com muito uso, poder· ter acesso ao 
-recurso caso tenha fornecido um nome e senha v·lidos para passar pelo 
-processo de autenticaÁ„o. Tenha isto em mente... este tipo de 
-problema È comum e depende mais de uma polÌtica de seguranÁa e 
-conduta interna, o sistema de seguranÁa n„o pode fazer nada 
-a n„o ser permitir acesso a um nome e senha v·lidos. 
+pode ser uma m√°quina com muito uso, poder√° ter acesso ao 
+recurso caso tenha fornecido um nome e senha v√°lidos para passar pelo 
+processo de autentica√ß√£o. Tenha isto em mente... este tipo de 
+problema √© comum e depende mais de uma pol√≠tica de seguran√ßa e 
+conduta interna, o sistema de seguran√ßa n√£o pode fazer nada 
+a n√£o ser permitir acesso a um nome e senha v√°lidos. 
  <p>
-Tenha cuidado com o uso da opÁ„o <em>Satisfy</em> em diretivas que 
-especificam somente o mÈtodo de autenticaÁ„o: 
+Tenha cuidado com o uso da op√ß√£o <em>Satisfy</em> em diretivas que 
+especificam somente o m√©todo de autentica√ß√£o: 
 <example>
 &lt;Directory /var/www&gt;
  Options Indexes
- AuthName "Acesso ao diretÛrio do servidor Web"
+ AuthName "Acesso ao diret√≥rio do servidor Web"
  AuthType basic
  AuthUserFile /var/cache/apache/senhas
  AuthGroupFile /var/cache/apache/grupos
@@ -1013,82 +1013,82 @@ especificam somente o mÈtodo de autenticaÁ„o:
 &lt;/Directory&gt;
 </example>
 
-ATEN«√O PARA O DESCUIDO ACIMA!: Como o mÈtodo de autorizaÁ„o N√O È especificado, 
-È assumido <em>deny,allow</em> como padr„o, que permite o acesso a TODOS os 
-usu·rios. 
-O bloco acima <strong>NUNCA</strong> executar· o mÈtodo de autenticaÁ„o por este 
-motivo. A melhor coisa È N√O usar a opÁ„o <em>Satisfy</em> em casos que sÛ 
-requerem autenticaÁ„o ou usar <em>Satisfy all</em> (que ter· o mesmo efeito 
-de n„o usa-la, hehehe). 
+ATEN√á√ÉO PARA O DESCUIDO ACIMA!: Como o m√©todo de autoriza√ß√£o N√ÉO √© especificado, 
+√© assumido <em>deny,allow</em> como padr√£o, que permite o acesso a TODOS os 
+usu√°rios. 
+O bloco acima <strong>NUNCA</strong> executar√° o m√©todo de autentica√ß√£o por este 
+motivo. A melhor coisa √© N√ÉO usar a op√ß√£o <em>Satisfy</em> em casos que s√≥ 
+requerem autentica√ß√£o ou usar <em>Satisfy all</em> (que ter√° o mesmo efeito 
+de n√£o usa-la, hehehe). 
  <p>
-A falta de atenÁ„o nisto pode comprometer silenciosamente a seguranÁa de 
+A falta de aten√ß√£o nisto pode comprometer silenciosamente a seguran√ßa de 
 seu sistema. 
 
 
 <sect1 id="s-apache-acesso-restr-htaccess">O arquivo <file>.htaccess</file>
  <p>
-O arquivo <file>.htaccess</file> deve ser colocado no diretÛrio da p·gina 
-que dever· ter suas permissıes de acesso/listagem controladas. A vantagem 
-em relaÁ„o a inclus„o direta de diretivas de acesso dentro do arquivo de 
-configuraÁ„o do <prgn>Apache</prgn>, È que o controle de 
-acesso poder· ser definido pelo prÛprio webmaster da p·gina, sem precisar 
-ter acesso direto a configuraÁ„o do <prgn>Apache</prgn>, que requerem 
-privilÈgios de root. 
+O arquivo <file>.htaccess</file> deve ser colocado no diret√≥rio da p√°gina 
+que dever√° ter suas permiss√µes de acesso/listagem controladas. A vantagem 
+em rela√ß√£o a inclus√£o direta de diretivas de acesso dentro do arquivo de 
+configura√ß√£o do <prgn>Apache</prgn>, √© que o controle de 
+acesso poder√° ser definido pelo pr√≥prio webmaster da p√°gina, sem precisar 
+ter acesso direto a configura√ß√£o do <prgn>Apache</prgn>, que requerem 
+privil√©gios de root. 
  <p>
-Outro ponto fundamental È que n„o h· necessidade de reiniciar o servidor 
-Web, pois este arquivo È lido no momento de cada acesso ao diretÛrio que 
-controla. O nome do arquivo OverRide pode ser definido atravÈs da diretiva
-<em>AccessFileName</em> no arquivo de configuraÁ„o do <prgn>Apache</prgn>, 
-<file>.htaccess</file> È usado como padr„o. 
+Outro ponto fundamental √© que n√£o h√° necessidade de reiniciar o servidor 
+Web, pois este arquivo √© lido no momento de cada acesso ao diret√≥rio que 
+controla. O nome do arquivo OverRide pode ser definido atrav√©s da diretiva
+<em>AccessFileName</em> no arquivo de configura√ß√£o do <prgn>Apache</prgn>, 
+<file>.htaccess</file> √© usado como padr√£o. 
  <p>
-O controle de que opÁıes estar„o disponÌveis no <file>.htaccess</file> 
-s„o definidas na diretiva <em>AllowOverride</em> que pode conter o seguintes 
-par‚metros: 
+O controle de que op√ß√µes estar√£o dispon√≠veis no <file>.htaccess</file> 
+s√£o definidas na diretiva <em>AllowOverride</em> que pode conter o seguintes 
+par√¢metros: 
 <list compact>
- <item><tt>None</tt> - O servidor n„o buscar· o arquivo <tt>.htaccess</tt> nos 
- diretÛrios 
- <item><tt>All</tt> - O servidor utilizar· todas as opÁıes abaixo no arquivo 
+ <item><tt>None</tt> - O servidor n√£o buscar√° o arquivo <tt>.htaccess</tt> nos 
+ diret√≥rios 
+ <item><tt>All</tt> - O servidor utilizar√° todas as op√ß√µes abaixo no arquivo 
  <file>.htaccess</file>
- <item><tt>AuthConfig</tt> - Permite o uso de diretivas de autenticaÁ„o 
+ <item><tt>AuthConfig</tt> - Permite o uso de diretivas de autentica√ß√£o 
  (<em>AuthDBMGroupFile</em>, <em>AuthDBMUserFile</em>, <em>AuthGroupFile</em>, 
  <em>AuthName</em>, <em>AuthType</em>, <em>AuthUserFile</em>, <em>Require</em>, 
  etc.). 
  <item><tt>FileInfo</tt> - Permite o uso de diretivas controlando o tipo de 
  documento (<em>AddEncoding</em>, <em>AddLanguage</em>, <em>AddType</em>, 
  <em>DefaultType</em>, <em>ErrorDocument</em>, <em>LanguagePriority</em>, etc.). 
- <item><tt>Indexes</tt> - Permite o uso de diretivas controlando a indexaÁ„o de 
- diretÛrio (<em>AddDescription</em>, <em>AddIcon</em>, <em>AddIconByEncoding</em>, 
+ <item><tt>Indexes</tt> - Permite o uso de diretivas controlando a indexa√ß√£o de 
+ diret√≥rio (<em>AddDescription</em>, <em>AddIcon</em>, <em>AddIconByEncoding</em>, 
  <em>AddIconByType</em>, <em>DefaultIcon</em>, <em>DirectoryIndex</em>, 
  <em>FancyIndexing</em>, <em>HeaderName</em>, <em>IndexIgnore</em>, 
  <em>IndexOptions</em>, <em>ReadmeName</em>, etc.). 
  <item><tt>Limit</tt>  - Permite o uso de diretivas controlando o acesso ao 
  computador (<em>allow</em>, <em>deny</em> e <em>order</em>). 
- <item><tt>Options</tt> - Permite o uso de diretivas controlando caracterÌsticas 
- especÌficas do diretÛrio (<em>Options</em> e <em>XBitHack</em>). 
+ <item><tt>Options</tt> - Permite o uso de diretivas controlando caracter√≠sticas 
+ espec√≠ficas do diret√≥rio (<em>Options</em> e <em>XBitHack</em>). 
 </list>
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: N„o tem sentido usar a opÁ„o <em>AllowOverride</em> dentro 
-da diretiva &lt;Location&gt;, ela ser· simplesmente ignorada. ]]>
+<strong>OBS</strong>: N√£o tem sentido usar a op√ß√£o <em>AllowOverride</em> dentro 
+da diretiva &lt;Location&gt;, ela ser√° simplesmente ignorada. ]]>
  <p>
-Para acesso ao arquivo <file>.htaccess</file> do diretÛrio 
+Para acesso ao arquivo <file>.htaccess</file> do diret√≥rio 
 <file>/var/www/focalinux</file>, o <prgn>Apache</prgn> 
-buscar· os arquivos <file>.htaccess</file> na seq¸encia: <file>/.htaccess</file>, 
+buscar√° os arquivos <file>.htaccess</file> na seq√ºencia: <file>/.htaccess</file>, 
 <file>/var/.htaccess</file>, <file>/var/www/.htaccess</file>, 
-<file>/var/www/focalinux/.htaccess</file>, qualquer diretiva que n„o 
-exista no <file>.htaccess</file> do diretÛrio <file>/var/www/focalinux</file> 
-ter· seu valor definido pela diretiva dos arquivos <file>.htaccess</file> dos 
-diretÛrios anteriores. Somente apÛs esta seq¸encia de checagens o acesso 
-ao documento È permitido (ou negado). 
+<file>/var/www/focalinux/.htaccess</file>, qualquer diretiva que n√£o 
+exista no <file>.htaccess</file> do diret√≥rio <file>/var/www/focalinux</file> 
+ter√° seu valor definido pela diretiva dos arquivos <file>.htaccess</file> dos 
+diret√≥rios anteriores. Somente ap√≥s esta seq√ºencia de checagens o acesso 
+ao documento √© permitido (ou negado). 
  <p>
 Por este motivo, muitos administradores decidem desativar completamente o uso 
-de arquivos <file>.htaccess</file> no diretÛrio raÌz e habilitar somente nos 
-diretÛrios especificados pela diretiva &lt;Directory&gt; no arquivo de 
-configuraÁ„o do <prgn>Apache</prgn>, evitando brechas de seguranÁa na 
-manipulaÁ„o destes arquivos (esta È uma boa idÈia a n„o ser que se dedique 24 
-horas somente na administraÁ„o do seu servidor Web e conheÁa toda sua estrutura 
-hier·rquica de seguranÁa: 
+de arquivos <file>.htaccess</file> no diret√≥rio ra√≠z e habilitar somente nos 
+diret√≥rios especificados pela diretiva &lt;Directory&gt; no arquivo de 
+configura√ß√£o do <prgn>Apache</prgn>, evitando brechas de seguran√ßa na 
+manipula√ß√£o destes arquivos (esta √© uma boa id√©ia a n√£o ser que se dedique 24 
+horas somente na administra√ß√£o do seu servidor Web e conhe√ßa toda sua estrutura 
+hier√°rquica de seguran√ßa: 
 
 <example>
 &lt;Directory /&gt;
@@ -1100,53 +1100,53 @@ hier·rquica de seguranÁa:
 &lt;/Directory&gt;
 </example>
 
-Na especificaÁ„o acima, o arquivo <file>.htaccess</file> ser· procurado 
-no diretÛrio <file>/var/www</file> e seus sub-diretÛrios, usando somente 
-opÁıes que controlam a autorizaÁ„o de acesso (<em>limit</em>), 
-autenticaÁ„o e opÁıes (<em>authconfig</em>) e de indexaÁ„o de documentos 
+Na especifica√ß√£o acima, o arquivo <file>.htaccess</file> ser√° procurado 
+no diret√≥rio <file>/var/www</file> e seus sub-diret√≥rios, usando somente 
+op√ß√µes que controlam a autoriza√ß√£o de acesso (<em>limit</em>), 
+autentica√ß√£o e op√ß√µes (<em>authconfig</em>) e de indexa√ß√£o de documentos 
 (<em>indexes</em>). 
 
 <![ %EXEMPLO [
  <p>
 Alguns exemplos do uso do arquivo <file>.htaccess</file>:
  <p>
-Para permitir o acesso direto de usu·rios da rede <tt>192.168.1.*</tt> 
-diretamente, e requerer senha de acesso para outros usu·rios, o seguinte 
-arquivo <file>.htaccess</file> deve ser criado no diretÛrio 
+Para permitir o acesso direto de usu√°rios da rede <tt>192.168.1.*</tt> 
+diretamente, e requerer senha de acesso para outros usu√°rios, o seguinte 
+arquivo <file>.htaccess</file> deve ser criado no diret√≥rio 
 <file>/var/www</file>:
 <example>
 Order deny,allow
 allow from 192.168.1.0/24
 deny from all
-AuthName "Acesso a p·gina Web principal da Empresa"
+AuthName "Acesso a p√°gina Web principal da Empresa"
 AuthType basic
 AuthUserFile /var/cache/apache/senhas
 Require valid-user
 Satisfy any
 </example>
 
-Note que a sintaxe È exatamente a mesma das usadas na diretivas de acesso, 
-por este motivo vou dispensar explicaÁıes detalhadas a respeito. ]]>
+Note que a sintaxe √© exatamente a mesma das usadas na diretivas de acesso, 
+por este motivo vou dispensar explica√ß√µes detalhadas a respeito. ]]>
 <![ %OBS [
  <p>
-<strong>ATEN«√O</strong>: A diretiva <em>Options Indexes</em> dever· ser 
-especificada no <em>AllowOverRide</em> e n„o no arquivo <file>.htaccess</file>. 
-Agora vocÍ j· sabe o que fazer se estiver recebendo erros 500 
-ao tentar acessar a p·gina (Erro interno no servidor)... ]]>
+<strong>ATEN√á√ÉO</strong>: A diretiva <em>Options Indexes</em> dever√° ser 
+especificada no <em>AllowOverRide</em> e n√£o no arquivo <file>.htaccess</file>. 
+Agora voc√™ j√° sabe o que fazer se estiver recebendo erros 500 
+ao tentar acessar a p√°gina (Erro interno no servidor)... ]]>
 
 
 <sect1 id="s-apache-acesso-setenvif">Usando a diretiva SetEnvIf com Allow e Deny
  <p>
-… possÌvel especificar o acesso baseado em vari·veis 
+√â poss√≠vel especificar o acesso baseado em vari√°veis 
 de ambiente usando a diretiva <em>SetEnvIf</em>, isto lhe 
-permite controlar o acesso de acordo com o conte˙do
-de cabeÁalhos HTTP. A sintaxe È a seguinte: 
+permite controlar o acesso de acordo com o conte√∫do
+de cabe√ßalhos HTTP. A sintaxe √© a seguinte: 
  <p>
-<tt>SetEnvIf [<em>atributo</em>] [<em>express„o</em>] [<em>vari·vel</em>]</tt>
+<tt>SetEnvIf [<em>atributo</em>] [<em>express√£o</em>] [<em>vari√°vel</em>]</tt>
  <p>
 Isto poder ser facilmente interpretado como: 
-Se o "atributo" especificado conter a "express„o", a 
-"vari·vel" ser· criada e armazenar· o valor verdadeiro. Veja abaixo:
+Se o "atributo" especificado conter a "express√£o", a 
+"vari√°vel" ser√° criada e armazenar√° o valor verdadeiro. Veja abaixo:
 <example>
 SetEnvIf User-Agent ".*MSIE*." EXPLODER
 &lt;Directory /var/www&gt;
@@ -1156,31 +1156,31 @@ SetEnvIf User-Agent ".*MSIE*." EXPLODER
 &lt;/Directory&gt;
 </example>
 
-Se o Navegador (campo <em>User-Agent</em> do cabeÁalho http) usado 
-para acessar a p·gina for o <tt>Internet Explorer</tt>, a vari·vel 
-<var>EXPLODER</var> ser· criada e ter· o valor verdadeiro (porque a 
-express„o de <em>SetEnvIf</em> conferiu com a express„o).
+Se o Navegador (campo <em>User-Agent</em> do cabe√ßalho http) usado 
+para acessar a p√°gina for o <tt>Internet Explorer</tt>, a vari√°vel 
+<var>EXPLODER</var> ser√° criada e ter√° o valor verdadeiro (porque a 
+express√£o de <em>SetEnvIf</em> conferiu com a express√£o).
  <p>
-Note o uso de "deny from env=VARI¡VEL". Neste caso se o navegador for 
-o <tt>Internet Explorer</tt>, o acesso ser· bloqueado (pois o navegador 
-conferiu, assim a vari·vel <var>EXPLODER</var> recebeu o valor verdadeiro).
+Note o uso de "deny from env=VARI√ÅVEL". Neste caso se o navegador for 
+o <tt>Internet Explorer</tt>, o acesso ser√° bloqueado (pois o navegador 
+conferiu, assim a vari√°vel <var>EXPLODER</var> recebeu o valor verdadeiro).
  <p>
-… permitido especificar as diretivas de acesso normais junto com 
-especificaÁ„o de vari·veis de ambiente, basta separa-los com espaÁos.
-Uma descriÁ„o completa dos cabeÁalhos HTTP, conte˙do e par‚metros 
-aceitos por cada um s„o descritos na <tt>RFC 2068</tt>.
+√â permitido especificar as diretivas de acesso normais junto com 
+especifica√ß√£o de vari√°veis de ambiente, basta separa-los com espa√ßos.
+Uma descri√ß√£o completa dos cabe√ßalhos HTTP, conte√∫do e par√¢metros 
+aceitos por cada um s√£o descritos na <tt>RFC 2068</tt>.
 
 
 <sect1 id="s-apache-acesso-limit">A diretiva &lt;Limit&gt;
  <p>
-Esta diretiva È semelhante a &lt;Directory&gt; mas trabalha com mÈtodos HTTP (como 
-GET, PUT, POST, etc) ao invÈs de diretÛrios. A diretiva &lt;Limit&gt; pode ser usada 
+Esta diretiva √© semelhante a &lt;Directory&gt; mas trabalha com m√©todos HTTP (como 
+GET, PUT, POST, etc) ao inv√©s de diret√≥rios. A diretiva &lt;Limit&gt; pode ser usada 
 dentro da diretiva de acesso &lt;Directory&gt;, &lt;Location&gt;, mas nenhuma 
 diretiva de controle de acesso pode ser colocada dentro de &lt;Limit&gt;. 
  <p>
-Os mÈtodos HTTP v·lidos s„o: GET, POST, PUT DELETE, CONNECT, OPTIONS, TRACE, 
+Os m√©todos HTTP v√°lidos s√£o: GET, POST, PUT DELETE, CONNECT, OPTIONS, TRACE, 
 PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK e UNLOCK. Note que 
-os mÈtodos s„o case-sensitive. Por exemplo:
+os m√©todos s√£o case-sensitive. Por exemplo:
 
 <example>
 &lt;Directory /var/www&gt;
@@ -1193,21 +1193,21 @@ os mÈtodos s„o case-sensitive. Por exemplo:
 &lt;/Directory&gt;
 </example>
 
-Somente permitem o uso dos mÈtodos POST, PUT, DELETE de m·quinas da rede interna. 
+Somente permitem o uso dos m√©todos POST, PUT, DELETE de m√°quinas da rede interna. 
 
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: Se o mÈtodo GET È bloqueado, o cabeÁalho HTTP tambÈm 
-ser· bloqueado. 
+<strong>OBS1</strong>: Se o m√©todo GET √© bloqueado, o cabe√ßalho HTTP tamb√©m 
+ser√° bloqueado. 
  <p>
-<strong>OBS2</strong>: A diretiva de acesso &lt;Limit&gt; somente ter· efeito 
-na diretiva &lt;Location&gt; se for especificada no arquivo de configuraÁ„o do 
-servidor web. A diretiva &lt;Location&gt; simplesmente È ignorada nos arquivos 
+<strong>OBS2</strong>: A diretiva de acesso &lt;Limit&gt; somente ter√° efeito 
+na diretiva &lt;Location&gt; se for especificada no arquivo de configura√ß√£o do 
+servidor web. A diretiva &lt;Location&gt; simplesmente √© ignorada nos arquivos 
 <file>.htaccess</file>... ]]>
  <p>
-Este abaixo È usado por padr„o na distribuiÁ„o <prgn>Debian</prgn> para 
-restringir para somente leitura o acesso aos diretÛrios de usu·rios 
-acessados via mÛdulo <file>mod_userdir</file>: 
+Este abaixo √© usado por padr√£o na distribui√ß√£o <prgn>Debian</prgn> para 
+restringir para somente leitura o acesso aos diret√≥rios de usu√°rios 
+acessados via m√≥dulo <file>mod_userdir</file>: 
 
 <example>
 &lt;Directory /home/*/public_html&gt;
@@ -1227,7 +1227,7 @@ acessados via mÛdulo <file>mod_userdir</file>:
 
 <sect1 id="s-apache-acesso-limitexcept">Diretiva &lt;LimitExcept&gt;
  <p>
-Esta diretiva È semelhante a &lt;Limit&gt;, mas atinge todos os mÈtodos HTTP, 
+Esta diretiva √© semelhante a &lt;Limit&gt;, mas atinge todos os m√©todos HTTP, 
 menos os especificados. 
 
           

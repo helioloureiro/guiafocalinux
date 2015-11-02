@@ -1,30 +1,30 @@
-<sect id="s-samba-s">Conceitos gerais para a configuraÁ„o do SAMBA
+<sect id="s-samba-s">Conceitos gerais para a configura√ß√£o do SAMBA
  <p>
-Este capÌtulo documenta como configurar o seu servidor <prgn>SAMBA</prgn> 
-permitindo o acesso a compartilhamento de arquivos e impress„o no sistema.
+Este cap√≠tulo documenta como configurar o seu servidor <prgn>SAMBA</prgn> 
+permitindo o acesso a compartilhamento de arquivos e impress√£o no sistema.
 
 
-<sect1 id="s-samba-nome">Nome de m·quina (nome NetBios)
+<sect1 id="s-samba-nome">Nome de m√°quina (nome NetBios)
  <p>
-Toda a m·quina em uma rede NetBEUI È identificada por um nome, este nome 
-deve ser ˙nico na rede e permite que outras m·quinas acessem os recursos 
-disponibilizados ou que sejam enviadas mensagens para a m·quina. Este 
-nome È composto de 16 caracteres, sendo 15 que identificam a m·quina e o 
-˙ltimo o tipo de serviÁo que ela disponibiliza. O tipo de serviÁo È associado
-com o nome da m·quina e registrado em servidores de nomes confirme a 
-configuraÁ„o da m·quina (vocÍ ver· isto mais adiante).
+Toda a m√°quina em uma rede NetBEUI √© identificada por um nome, este nome 
+deve ser √∫nico na rede e permite que outras m√°quinas acessem os recursos 
+disponibilizados ou que sejam enviadas mensagens para a m√°quina. Este 
+nome √© composto de 16 caracteres, sendo 15 que identificam a m√°quina e o 
+√∫ltimo o tipo de servi√ßo que ela disponibiliza. O tipo de servi√ßo √© associado
+com o nome da m√°quina e registrado em servidores de nomes confirme a 
+configura√ß√£o da m√°quina (voc√™ ver√° isto mais adiante).
  <p>
-O nome de m·quina È especificado nas diretivas <em>netbios name</em> e 
+O nome de m√°quina √© especificado nas diretivas <em>netbios name</em> e 
 <em>netbios aliases</em> (veja <ref id="s-samba-s-global-nome">) para detalhes. 
 
 
 <sect1 id="s-samba-workgroup">Grupo de trabalho
  <p>
-O grupo de trabalho organiza a estrutura de m·quinas da rede em 
-forma de ·rvore, facilitando sua pesquisa e localizaÁ„o. Tomemos como exemplo 
-uma empresa grande com os departamentos <tt>comunicaÁ„o</tt>, <tt>redes</tt>, 
-<tt>web</tt>, <tt>rh</tt>, as m·quinas que pertencem ao grupo de 
-<tt>redes</tt> ser„o agrupadas no programa de navegaÁ„o: 
+O grupo de trabalho organiza a estrutura de m√°quinas da rede em 
+forma de √°rvore, facilitando sua pesquisa e localiza√ß√£o. Tomemos como exemplo 
+uma empresa grande com os departamentos <tt>comunica√ß√£o</tt>, <tt>redes</tt>, 
+<tt>web</tt>, <tt>rh</tt>, as m√°quinas que pertencem ao grupo de 
+<tt>redes</tt> ser√£o agrupadas no programa de navega√ß√£o: 
 <example>
 redes
   gleydson
@@ -47,182 +47,182 @@ comunicacao
   comunic3
 
 </example>
-A seguranÁa no acesso a arquivos e diretÛrios na configuraÁ„o de 
-<em>grupo de trabalho</em> È controlada pela prÛpria m·quina, normalmente 
-usando seguranÁa a nÌvel de compartilhamento. Esta seguranÁa funciona 
-definindo um usu·rio/senha para acessar cada compartilhamento que a m·quina 
+A seguran√ßa no acesso a arquivos e diret√≥rios na configura√ß√£o de 
+<em>grupo de trabalho</em> √© controlada pela pr√≥pria m√°quina, normalmente 
+usando seguran√ßa a n√≠vel de compartilhamento. Esta seguran√ßa funciona 
+definindo um usu√°rio/senha para acessar cada compartilhamento que a m√°quina 
 possui. O <prgn>Lan Manager</prgn>, <prgn>Windows for Workgroups</prgn>, 
 <prgn>Windows 95</prgn>, <prgn>Windows 98</prgn>, 
-<prgn>XP Home Edition</prgn> usam este nÌvel de acesso por padr„o. Se 
-deseja configurar uma rede usando o nÌvel de grupo de trabalho, veja
-<ref id="s-samba-wrkgrp"> para detalhes passo a passo e exemplos pr·ticos.
+<prgn>XP Home Edition</prgn> usam este n√≠vel de acesso por padr√£o. Se 
+deseja configurar uma rede usando o n√≠vel de grupo de trabalho, veja
+<ref id="s-samba-wrkgrp"> para detalhes passo a passo e exemplos pr√°ticos.
  <p>
-Os programas para navegaÁ„o na rede NetBIOS s„o mostrados em 
+Os programas para navega√ß√£o na rede NetBIOS s√£o mostrados em 
 <ref id="s-samba-c-workgroup-linux-smbclient">, 
 <ref id="s-samba-c-workgroup-linux-nmblookup"> e 
 <ref id="s-samba-c-graficos">. 
 
 
-<sect1 id="s-samba-dominio">DomÌnio
+<sect1 id="s-samba-dominio">Dom√≠nio
  <p>
-O funcionamento È semelhante ao grupo de trabalho, com a diferenÁa
-que a seguranÁa È controlada pela m·quina central (PDC) usando diretivas 
-de acesso e grupos. O PDC (Primary Domain Controller) dever· ter todas as 
-contas de acesso que ser„o utilizadas pelo usu·rio para acessar os recursos 
-existentes em outras m·quinas, script de logon que poder· ser executado em 
-cada m·quina para fazer ajustes, sincronismo, manutenÁ„o ou qualquer outra 
+O funcionamento √© semelhante ao grupo de trabalho, com a diferen√ßa
+que a seguran√ßa √© controlada pela m√°quina central (PDC) usando diretivas 
+de acesso e grupos. O PDC (Primary Domain Controller) dever√° ter todas as 
+contas de acesso que ser√£o utilizadas pelo usu√°rio para acessar os recursos 
+existentes em outras m√°quinas, script de logon que poder√° ser executado em 
+cada m√°quina para fazer ajustes, sincronismo, manuten√ß√£o ou qualquer outra 
 tarefa programada pelo administrador do sistema. 
  <p>
-Estas caracterÌsticas para configuraÁ„o de m·quinas em domÌnio s„o documentadas
+Estas caracter√≠sticas para configura√ß√£o de m√°quinas em dom√≠nio s√£o documentadas
 passo a passo em <ref id="s-samba-dom-intro">.
 
 
 <sect1 id="s-samba-compart">Compartilhamento
  <p>
-Um compartilhamento È um recurso da m·quina local que È disponibilizado para 
-acesso via rede, que poder· ser <em>mapeada</em> 
-(veja <ref id="s-samba-mapeamento">) por outra m·quina. O compartilhamento 
-pode ser um diretÛrio, arquivo, impressora. AlÈm de 
-permitir o acesso do usu·rio, o compartilhamento pode ser protegido por 
-senha, e ter controle de acesso de leitura/gravaÁ„o, monitoraÁ„o de acessos, 
-diretÛrios ocultos, autenticaÁ„o via PDC (domÌnio) e outras formas para 
-restringir e garantir seguranÁa na disponibilizaÁ„o dos dados (veja 
-<ref id="s-samba-a"> para aprender os mÈtodos de como fazer isto).
+Um compartilhamento √© um recurso da m√°quina local que √© disponibilizado para 
+acesso via rede, que poder√° ser <em>mapeada</em> 
+(veja <ref id="s-samba-mapeamento">) por outra m√°quina. O compartilhamento 
+pode ser um diret√≥rio, arquivo, impressora. Al√©m de 
+permitir o acesso do usu√°rio, o compartilhamento pode ser protegido por 
+senha, e ter controle de acesso de leitura/grava√ß√£o, monitora√ß√£o de acessos, 
+diret√≥rios ocultos, autentica√ß√£o via PDC (dom√≠nio) e outras formas para 
+restringir e garantir seguran√ßa na disponibiliza√ß√£o dos dados (veja 
+<ref id="s-samba-a"> para aprender os m√©todos de como fazer isto).
  <p>
-Um compartilhamento no SAMBA pode ser acessÌvel publicamente (sem senha) ou 
+Um compartilhamento no SAMBA pode ser acess√≠vel publicamente (sem senha) ou 
 estar rigidamente protegido tendo que passar por diversas barreiras 
-para chegar ao seu conte˙do, como senhas, endereÁo de origem, interfaces,
-usu·rio autorizados, permissıes de visualizaÁ„o, etc.
+para chegar ao seu conte√∫do, como senhas, endere√ßo de origem, interfaces,
+usu√°rio autorizados, permiss√µes de visualiza√ß√£o, etc.
  <p>
-O guia <em>Foca Linux</em> abordar· estes assuntos com detalhes e explicar· 
+O guia <em>Foca Linux</em> abordar√° estes assuntos com detalhes e explicar√° 
 didaticamente como tornar seguro seu servidor samba e garantir um minucioso 
 controle de acesso a seus compartilhamentos.
 
 
 <sect1 id="s-samba-mapeamento">Mapeamento
  <p>
-Mapear significa pegar um diretÛrio/arquivo/impressora compartilhado 
-por alguma m·quina da rede para ser acessada pela m·quina local. Para 
-mapear algum recurso de rede, È necess·rio que ele seja compartilhado 
-na outra m·quina (veja <ref id="s-samba-compart">). Por 
-exemplo, o diretÛrio <file>/usr</file> <tt>compartilhado</tt> com o nome 
-<tt>usr</tt>, pode ser mapeado por uma m·quina <prgn>Windows</prgn> como 
-a unidade <em>F:</em>, ou mapeado por uma m·quina <prgn>Linux</prgn> 
-no diretÛrio <file>/mnt/samba</file>.
+Mapear significa pegar um diret√≥rio/arquivo/impressora compartilhado 
+por alguma m√°quina da rede para ser acessada pela m√°quina local. Para 
+mapear algum recurso de rede, √© necess√°rio que ele seja compartilhado 
+na outra m√°quina (veja <ref id="s-samba-compart">). Por 
+exemplo, o diret√≥rio <file>/usr</file> <tt>compartilhado</tt> com o nome 
+<tt>usr</tt>, pode ser mapeado por uma m√°quina <prgn>Windows</prgn> como 
+a unidade <em>F:</em>, ou mapeado por uma m√°quina <prgn>Linux</prgn> 
+no diret√≥rio <file>/mnt/samba</file>.
  <p>
-O programa respons·vel por mapear unidades compartilhadas no <prgn>Linux</prgn> 
-È o <prgn>smbmount</prgn> e <prgn>smbclient</prgn> (veja 
+O programa respons√°vel por mapear unidades compartilhadas no <prgn>Linux</prgn> 
+√© o <prgn>smbmount</prgn> e <prgn>smbclient</prgn> (veja 
 <ref id="s-samba-c-workgroup-linux">). 
 
 
-<sect1 id="s-samba-nmbd">NavegaÁ„o na Rede e controle de domÌnio
+<sect1 id="s-samba-nmbd">Navega√ß√£o na Rede e controle de dom√≠nio
  <p>
-Esta funÁ„o È controlada pelo <prgn>nmbd</prgn> que fica ativo o tempo todo
-disponibilizando os recursos da m·quina na rede, participando de eleiÁıes 
-NetBIOS (<ref id="s-samba-s-oslevel">), fazer logon de m·quinas no domÌnio 
+Esta fun√ß√£o √© controlada pelo <prgn>nmbd</prgn> que fica ativo o tempo todo
+disponibilizando os recursos da m√°quina na rede, participando de elei√ß√µes 
+NetBIOS (<ref id="s-samba-s-oslevel">), fazer logon de m√°quinas no dom√≠nio 
 (<ref id="s-samba-dom-intro">), etc.
  <p>
-A funÁ„o de navegaÁ„o na rede È feita utilizando o compartilhamento <file>IPC$</file>. 
-Este compartilhamento possui acesso p˙blico somente leitura e utiliza o usu·rio 
-"guest" para disponibilizaÁ„o de seus. Como deve ter percebido, È necess·rio 
-especificar esta ID de usu·rio atravÈs do par‚metro <tt>guest account</tt> 
-(<ref id="s-samba-s-a-param">), ou a navegaÁ„o de recursos no sistema (ou na
-rede, dependendo da configuraÁ„o do SAMBA) n„o funcionar·.
+A fun√ß√£o de navega√ß√£o na rede √© feita utilizando o compartilhamento <file>IPC$</file>. 
+Este compartilhamento possui acesso p√∫blico somente leitura e utiliza o usu√°rio 
+"guest" para disponibiliza√ß√£o de seus. Como deve ter percebido, √© necess√°rio 
+especificar esta ID de usu√°rio atrav√©s do par√¢metro <tt>guest account</tt> 
+(<ref id="s-samba-s-a-param">), ou a navega√ß√£o de recursos no sistema (ou na
+rede, dependendo da configura√ß√£o do SAMBA) n√£o funcionar√°.
 <![ %OBS [
  <p>
-<strong>OBS: </strong> A funÁ„o de navegaÁ„o (browsing) poder· n„o funcionar 
-corretamente caso a m·quina n„o consiga resolver nomes NetBIOS 
-para endereÁos IP.
+<strong>OBS: </strong> A fun√ß√£o de navega√ß√£o (browsing) poder√° n√£o funcionar 
+corretamente caso a m√°quina n√£o consiga resolver nomes NetBIOS 
+para endere√ßos IP.
 ]]>
 
-<sect1 id="s-samba-arquivocfg">Arquivo de configuraÁ„o do samba
+<sect1 id="s-samba-arquivocfg">Arquivo de configura√ß√£o do samba
  <p>
-Toda a configuraÁ„o relacionada com nomes, grupo de trabalho, tipo de servidor, 
-log, compartilhamento de arquivos e impress„o do <prgn>samba</prgn> È colocada
-no arquivo de configuraÁ„o <file>/etc/samba/smb.conf</file>. Este arquivo È 
-dividido em <em>seÁıes</em> e <em>par‚metros</em>. 
+Toda a configura√ß√£o relacionada com nomes, grupo de trabalho, tipo de servidor, 
+log, compartilhamento de arquivos e impress√£o do <prgn>samba</prgn> √© colocada
+no arquivo de configura√ß√£o <file>/etc/samba/smb.conf</file>. Este arquivo √© 
+dividido em <em>se√ß√µes</em> e <em>par√¢metros</em>. 
   <p>
-Uma seÁ„o no arquivo de configuraÁ„o do <prgn>samba</prgn> (<file>smb.conf</file>) 
-È definido por um nome entre "[ ]". As seÁıes tem o objetivo de organizar os 
-par‚metros pra que tenham efeito somente em algumas configuraÁıes de 
-compartilhamento do servidor (exceto os da seÁ„o <tt>[global]</tt> que n„o 
-especificam compartilhamentos, mas suas diretivas podem ser v·lidas para 
-todas os compartilhamentos do arquivo de configuraÁ„o). 
-Alguns nomes de seÁıes foram reservados para configuraÁıes especÌficas do 
-<prgn>samba</prgn>, eles s„o os seguintes: 
+Uma se√ß√£o no arquivo de configura√ß√£o do <prgn>samba</prgn> (<file>smb.conf</file>) 
+√© definido por um nome entre "[ ]". As se√ß√µes tem o objetivo de organizar os 
+par√¢metros pra que tenham efeito somente em algumas configura√ß√µes de 
+compartilhamento do servidor (exceto os da se√ß√£o <tt>[global]</tt> que n√£o 
+especificam compartilhamentos, mas suas diretivas podem ser v√°lidas para 
+todas os compartilhamentos do arquivo de configura√ß√£o). 
+Alguns nomes de se√ß√µes foram reservados para configura√ß√µes espec√≠ficas do 
+<prgn>samba</prgn>, eles s√£o os seguintes: 
 <taglist compact>
  <tag><tt>[global]</tt></tag>
   <item>
-Define configuraÁıes que afetam o servidor samba como um todo, fazendo efeito 
-em todos os compartilhamentos existentes na m·quina. Por exemplo, o grupo de 
-trabalho, nome do servidor, p·gina de cÛdigo, restriÁıes de acesso por nome, etc.
+Define configura√ß√µes que afetam o servidor samba como um todo, fazendo efeito 
+em todos os compartilhamentos existentes na m√°quina. Por exemplo, o grupo de 
+trabalho, nome do servidor, p√°gina de c√≥digo, restri√ß√µes de acesso por nome, etc.
 Veja <ref id="s-samba-s-global">.
 
  <tag><tt>[homes]</tt></tag>
   <item>
-Especifica opÁıes de acesso a diretÛrios homes de usu·rios. O diretÛrio 
-home È disponibilizado somente para seu dono, apÛs se autenticar no sistema.
+Especifica op√ß√µes de acesso a diret√≥rios homes de usu√°rios. O diret√≥rio 
+home √© disponibilizado somente para seu dono, ap√≥s se autenticar no sistema.
 Veja <ref id="s-samba-s-homes">.
 
  <tag><tt>[printers]</tt></tag>
   <item>
-Define opÁıes gerais para controle das impressoras do sistema. Este 
+Define op√ß√µes gerais para controle das impressoras do sistema. Este 
 compartilhamento mapeia os nomes de todas as impressoras encontradas 
-no <file>/etc/printcap</file>. ConfiguraÁıes especiais podem ser feitas 
+no <file>/etc/printcap</file>. Configura√ß√µes especiais podem ser feitas 
 separadamente. Veja <ref id="s-samba-s-printers">.
 
 <tag><tt>[profile]</tt></tag>
  <item>
-Define um perfil quando o servidor <prgn>samba</prgn> È usado como PDC de 
-domÌnio. Veja <ref id="s-samba-dom-profiles">.
+Define um perfil quando o servidor <prgn>samba</prgn> √© usado como PDC de 
+dom√≠nio. Veja <ref id="s-samba-dom-profiles">.
 
 </taglist>
-Qualquer outro nome de [seÁ„o] no arquivo <file>smb.conf</file> que n„o 
-sejam as acima, s„o tratadas como um compartilhamento ou impressora. 
+Qualquer outro nome de [se√ß√£o] no arquivo <file>smb.conf</file> que n√£o 
+sejam as acima, s√£o tratadas como um compartilhamento ou impressora. 
  <p>
-Um <em>par‚metro</em> È definido no formato <em>nome = valor</em>. Para um 
-exemplo pr·tico, veja um exemplo de arquivo <file>smb.conf</file> em 
-<ref id="s-samba-exemplos">. Na configuraÁ„o de booleanos, a seguinte sintaxe 
+Um <em>par√¢metro</em> √© definido no formato <em>nome = valor</em>. Para um 
+exemplo pr√°tico, veja um exemplo de arquivo <file>smb.conf</file> em 
+<ref id="s-samba-exemplos">. Na configura√ß√£o de booleanos, a seguinte sintaxe 
 pode ser usada:
 <list compact>
  <item><tt>0</tt> ou <tt>1</tt>
  <item><tt>yes</tt> ou <tt>no</tt>
  <item><tt>true</tt> ou <tt>false</tt>
 </list>
-Assim, as seguintes configuraÁıes s„o equivalentes
+Assim, as seguintes configura√ß√µes s√£o equivalentes
 <example>
 master browse = 0
 master browse = no
 master browse = false
 </example>
-Todos significam "N√O ser o navegador principal de domÌnio". A escolha fica 
-a gosto do administrador. Durante a configuraÁ„o, vocÍ notar· o poder da 
-flexibilidade oferecida pelo samba na configuraÁ„o de um servidor 
+Todos significam "N√ÉO ser o navegador principal de dom√≠nio". A escolha fica 
+a gosto do administrador. Durante a configura√ß√£o, voc√™ notar√° o poder da 
+flexibilidade oferecida pelo samba na configura√ß√£o de um servidor 
 SMB :-)
  <p>
-Linhas iniciadas por <tt>#</tt> ou <tt>;</tt> s„o tratadas como coment·rio. 
+Linhas iniciadas por <tt>#</tt> ou <tt>;</tt> s√£o tratadas como coment√°rio. 
 Quebras de linha pode ser especificadas com uma <tt>\</tt> no final da linha.
 
 
-<sect1 id="s-samba-s-global">SeÁ„o <tt>[global]</tt>
+<sect1 id="s-samba-s-global">Se√ß√£o <tt>[global]</tt>
  <p>
-Os par‚metros especificados nesta seÁ„o tem efeito em todo o servidor 
-<prgn>samba</prgn> incluindo os compartilhamentos. Caso o par‚metro 
+Os par√¢metros especificados nesta se√ß√£o tem efeito em todo o servidor 
+<prgn>samba</prgn> incluindo os compartilhamentos. Caso o par√¢metro 
 seja novamente especificado para o compartilhamento, o valor que 
-valer· È o do compartilhamento. 
+valer√° √© o do compartilhamento. 
  <p>
-Por exemplo, se <tt>guest user = nobody</tt> for usado na seÁ„o 
+Por exemplo, se <tt>guest user = nobody</tt> for usado na se√ß√£o 
 <em>[global]</em> e o <tt>guest user = foca</tt> for usado no compartilhamento 
-<tt>[focalinux]</tt>, o usu·rio que far· acesso p˙blico a todos os 
-compartilhamentos do servidor ser· o <tt>nobody</tt>, exceto para o 
-compartilhamento <tt>[focalinux]</tt>, que ser· feito pelo usu·rio 
+<tt>[focalinux]</tt>, o usu√°rio que far√° acesso p√∫blico a todos os 
+compartilhamentos do servidor ser√° o <tt>nobody</tt>, exceto para o 
+compartilhamento <tt>[focalinux]</tt>, que ser√° feito pelo usu√°rio 
 <tt>foca</tt>. Veja <ref id="s-samba-s-a"> para obter uma lista e 
-descriÁ„o dos principais par‚metros de compartilhamentos existentes. 
-Uma lista completa pode ser obtida na p·gina de manual do 
+descri√ß√£o dos principais par√¢metros de compartilhamentos existentes. 
+Uma lista completa pode ser obtida na p√°gina de manual do 
 <file>smb.conf</file>.
  <p>
-Irei descrever alguns par‚metros utilizados nesta seÁ„o, organizado de 
-forma did·tica e simplificada. 
+Irei descrever alguns par√¢metros utilizados nesta se√ß√£o, organizado de 
+forma did√°tica e simplificada. 
 
 
 <sect2 id="s-samba-s-global-nome">Nomes e grupos de trabalho
@@ -230,144 +230,144 @@ forma did·tica e simplificada.
 <taglist compact>
  <tag>netbios name = [nome do servidor]</tag>
   <item>
-Especifica o nome NetBIOS prim·rio do servidor samba. Caso n„o seja 
-ajustado, ele usar· o hostname de sua m·quina como valor 
-padr„o.
+Especifica o nome NetBIOS prim√°rio do servidor samba. Caso n√£o seja 
+ajustado, ele usar√° o hostname de sua m√°quina como valor 
+padr√£o.
  <p>
 Ex.: <tt>netbios name = focasamba</tt>.
 
- <tag>workgroup = [grupo de trabalho/domÌnio]</tag>
+ <tag>workgroup = [grupo de trabalho/dom√≠nio]</tag>
   <item>
-Diz qual o nome do grupo de trabalho/domÌnio que a m·quina samba 
-pertencer·.
+Diz qual o nome do grupo de trabalho/dom√≠nio que a m√°quina samba 
+pertencer√°.
  <p>
 Ex.: <tt>workgroup = focalinux</tt>.
 
  <tag>netbios aliases = [nomes alternativos ao sistema]</tag>
   <item>
-Permite o uso de nomes alternativos ao servidor, separados por espaÁos.
+Permite o uso de nomes alternativos ao servidor, separados por espa√ßos.
 <p>
 Ex.: <tt>teste1 teste2</tt>.
 
- <tag>server string = [identificaÁ„o]</tag>
+ <tag>server string = [identifica√ß√£o]</tag>
   <item>
-IdentificaÁ„o enviada do servidor samba para o ambiente de rede. 
-A string padr„o È <tt>Samba %v</tt> (%v È substituÌda pela vers„o 
+Identifica√ß√£o enviada do servidor samba para o ambiente de rede. 
+A string padr√£o √© <tt>Samba %v</tt> (%v √© substitu√≠da pela vers√£o 
 do samba, para maiores detalhes, veja <ref id="s-samba-s-varsubst">).
  <p>
-Ex: <tt>server string = Servidor Samba vers„o %v</tt>.
+Ex: <tt>server string = Servidor Samba vers√£o %v</tt>.
 
  <tag>name resolve order = [ordem] </tag>
   <item>
-Define a ordem de pesquisa para a resoluÁ„o de nomes no 
-samba. A ordem padr„o È: <tt>lmhosts host wins bcast</tt>, 
-que È a melhor para resoluÁ„o r·pida e que tente gerar 
-menos tr·fego broadcast possÌvel. Veja <ref id="s-samba-s-nameresolv"> 
-para uma explicaÁ„o mais detalhada. 
+Define a ordem de pesquisa para a resolu√ß√£o de nomes no 
+samba. A ordem padr√£o √©: <tt>lmhosts host wins bcast</tt>, 
+que √© a melhor para resolu√ß√£o r√°pida e que tente gerar 
+menos tr√°fego broadcast poss√≠vel. Veja <ref id="s-samba-s-nameresolv"> 
+para uma explica√ß√£o mais detalhada. 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-carac">Caracteres e p·gina de cÛdigo
+<sect2 id="s-samba-s-global-carac">Caracteres e p√°gina de c√≥digo
  <p>
-Uma das partes essenciais apÛs colocar o <prgn>SAMBA</prgn> em funcionamento, 
-È configurar a p·gina de cÛdigo para que os caracteres sejam gravados 
+Uma das partes essenciais ap√≥s colocar o <prgn>SAMBA</prgn> em funcionamento, 
+√© configurar a p√°gina de c√≥digo para que os caracteres sejam gravados 
 e exibidos corretamente no cliente. A primeira coisa que precisa 
-verificar È se seu kernel possui o suporte a p·gina de cÛdigo local. Caso 
-n„o tenha, baixe o fonte do kernel e siga os seguintes passos na 
-configuraÁ„o: 
+verificar √© se seu kernel possui o suporte a p√°gina de c√≥digo local. Caso 
+n√£o tenha, baixe o fonte do kernel e siga os seguintes passos na 
+configura√ß√£o: 
 <list compact>
  <item>
-Dentro da opÁ„o "File Systems", "Network File Systems" defina como 
-"Default Remote NLS Option" a iso8859-1. Esta opÁ„o permite ao 
+Dentro da op√ß√£o "File Systems", "Network File Systems" defina como 
+"Default Remote NLS Option" a iso8859-1. Esta op√ß√£o permite ao 
 <prgn>smbmount</prgn> montar os volumes locais usando os caracteres 
 corretos.
 
  <item>
-Entre na opÁ„o "File Systems", "Native Language Support". Na opÁ„o
-"Default NLS Option" coloque "iso8859-1". Ative tambÈm o suporte 
-as p·ginas de cÛdigo 437, 850 e 860 e tambÈm ao conjunto de 
+Entre na op√ß√£o "File Systems", "Native Language Support". Na op√ß√£o
+"Default NLS Option" coloque "iso8859-1". Ative tamb√©m o suporte 
+as p√°ginas de c√≥digo 437, 850 e 860 e tamb√©m ao conjunto de 
 caracteres iso8859-1 e UTF8.
 </list>
-Note que esta ordem pode variar dependendo da vers„o do seu kernel, basta 
-que as entenda para fazer as modificaÁıes apropriadas. 
-<![ %INIC-INTER [ Em caso de d˙vidas sobre a compilaÁ„o do kernel, 
+Note que esta ordem pode variar dependendo da vers√£o do seu kernel, basta 
+que as entenda para fazer as modifica√ß√µes apropriadas. 
+<![ %INIC-INTER [ Em caso de d√∫vidas sobre a compila√ß√£o do kernel, 
 veja <ref id="kern-recompilando">. ]]>
 <taglist compact>
 
  <tag>character set = [conjunto_caracteres]</tag>
   <item>
 Seleciona o conjunto de caracteres dos arquivos exibidos pelo servidor samba. 
-Para os idiomas de lÌngua latina, sempre utilize iso8859-1.
+Para os idiomas de l√≠ngua latina, sempre utilize iso8859-1.
  <p>
 Ex.: <tt>character set = iso8859-1</tt>.
 
  <tag>client code page = [pagina_de_codigo]</tag>
   <item>
-Seleciona a p·gina de cÛdigo do servidor samba para tratar os caracteres. 
-Para os idiomas de lÌngua latina, sempre utilize 850.
+Seleciona a p√°gina de c√≥digo do servidor samba para tratar os caracteres. 
+Para os idiomas de l√≠ngua latina, sempre utilize 850.
  <p>
 Ex.: <tt>client code page = 850</tt>.
 
  <tag>preserve case = </tag>
   <item>
-Seleciona se arquivos com nomes extensos criados ser„o criados com os caracteres 
-em mai˙sculas/min˙sculas definidos pelo cliente (no) ou se ser· usado o valor de 
+Seleciona se arquivos com nomes extensos criados ser√£o criados com os caracteres 
+em mai√∫sculas/min√∫sculas definidos pelo cliente (no) ou se ser√° usado o valor de 
 <em>default case</em> (caso seja especificado <tt>yes</tt>).
 
  <tag>short preserve case = </tag>
   <item>
-Seleciona se os arquivos com nomes curtos (formato 8.3) ser„o criados com 
-os caracteres mixtos enviados pelo cliente (no) ou se ser· usando o valor 
+Seleciona se os arquivos com nomes curtos (formato 8.3) ser√£o criados com 
+os caracteres mixtos enviados pelo cliente (no) ou se ser√° usando o valor 
 de <em>default case</em> (caso seja especificado <tt>yes</tt>).
 
  <tag>default case = [lower/upper]</tag>
   <item>
-Define se os arquivos criados ter„o seus nomes todos em min˙sculas (lower) ou
-mai˙sculas (upper).
+Define se os arquivos criados ter√£o seus nomes todos em min√∫sculas (lower) ou
+mai√∫sculas (upper).
 
 <tag>valid chars = [caracteres]</tag>
   <item>
-Define caracteres v·lidos nos nomes de arquivos: 
-<tt>valid chars =·:¡ È:… Ì:Õ Û:” ˙:⁄ ‚:¬ Í:  Ù:‘ „:√ ı:’ ‡:¿ Ú:“</tt>. Este 
-par‚metro <strong>DEVER¡</strong> ser sempre especificado depois
-do <tt>client code page</tt>, pois caso contr·rio, eles ser„o substituÌdos
+Define caracteres v√°lidos nos nomes de arquivos: 
+<tt>valid chars =√°:√Å √©:√â √≠:√ç √≥:√ì √∫:√ö √¢:√Ç √™:√ä √¥:√î √£:√É √µ:√ï √†:√Ä √≤:√í</tt>. Este 
+par√¢metro <strong>DEVER√Å</strong> ser sempre especificado depois
+do <tt>client code page</tt>, pois caso contr√°rio, eles ser√£o substitu√≠dos
 por estes.
 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-restrusu">RestriÁıes de acesso/mapeamento de usu·rios
+<sect2 id="s-samba-s-global-restrusu">Restri√ß√µes de acesso/mapeamento de usu√°rios
  <p>
 <taglist compact>
   <tag><tt>guest account = [conta]</tt></tag>
    <item>
-Define a conta local de usu·rio que ser· mapeada quando um usu·rio 
-se conectar sem senha (usu·rio guest). Veja mais detalhes em 
+Define a conta local de usu√°rio que ser√° mapeada quando um usu√°rio 
+se conectar sem senha (usu√°rio guest). Veja mais detalhes em 
 <ref id="s-samba-s-a-param">.
 
 <tag><tt>invalid users</tt></tag>
  <item>
-Define uma lista de usu·rios que n„o ter„o acesso aos recursos do servidor 
-ou compartilhamento. … seguro restringir o acesso samba a usu·rios com grande 
+Define uma lista de usu√°rios que n√£o ter√£o acesso aos recursos do servidor 
+ou compartilhamento. √â seguro restringir o acesso samba a usu√°rios com grande 
 poder no sistema (como o <tt>root</tt>). Veja mais detalhes em 
 <ref id="s-samba-a-restrusu">.
 
 <tag><tt>valid users</tt></tag>
  <item>
-Semelhante a opÁ„o <tt>invalid users</tt> mas permite que somente os usu·rios
+Semelhante a op√ß√£o <tt>invalid users</tt> mas permite que somente os usu√°rios
 especificados tenham acesso ao sistema. Veja mais detalhes em 
 <ref id="s-samba-a-restrusu">.
 
 <tag><tt>default service = nome</tt></tag>
  <item>
-Caso o serviÁo que o usu·rio deseja se conectar n„o for encontrado no 
-servidor, o SAMBA mapear· o serviÁo especificado nesta diretiva como 
-alternativa. A vari·vel "%S" e o caracter "_" podem ser interessantes 
-em algumas alternativas de configuraÁ„o. A opÁ„o <tt>default</tt> È um 
-sinÙnimo para esta opÁ„o. Caso utilize esta opÁ„o, crie o compartilhamento 
-em modo somente leitura e com acesso p˙blico, caso contr·rio (dependendo 
-do planejamento de partiÁıes e seguranÁa do sistema de arquivos) a m·quina 
-poder· ser derrubada sem dificuldades. 
+Caso o servi√ßo que o usu√°rio deseja se conectar n√£o for encontrado no 
+servidor, o SAMBA mapear√° o servi√ßo especificado nesta diretiva como 
+alternativa. A vari√°vel "%S" e o caracter "_" podem ser interessantes 
+em algumas alternativas de configura√ß√£o. A op√ß√£o <tt>default</tt> √© um 
+sin√¥nimo para esta op√ß√£o. Caso utilize esta op√ß√£o, crie o compartilhamento 
+em modo somente leitura e com acesso p√∫blico, caso contr√°rio (dependendo 
+do planejamento de parti√ß√µes e seguran√ßa do sistema de arquivos) a m√°quina 
+poder√° ser derrubada sem dificuldades. 
 
 <tag><tt>username map = [arquivo]</tt></tag>
  <item>
@@ -377,293 +377,293 @@ detalhes de como configurar este recurso.
 
 <tag>obey pam restrictions = yes</tag>
  <item>
-Indica se as restriÁıes do usu·rio nos mÛdulos PAM ter„o efeito 
-tambÈm no SAMBA.
+Indica se as restri√ß√µes do usu√°rio nos m√≥dulos PAM ter√£o efeito 
+tamb√©m no SAMBA.
 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-nivelauth">NÌveis de autenticaÁ„o
+<sect2 id="s-samba-s-global-nivelauth">N√≠veis de autentica√ß√£o
  <p>
-(esta seÁ„o contÈm algumas explicaÁıes que dependem do resto 
-do conte˙do do guia, caso n„o entenda de imediato a fundo 
-as explicaÁıes, recomendo que a leia novamente mais tarde).
+(esta se√ß√£o cont√©m algumas explica√ß√µes que dependem do resto 
+do conte√∫do do guia, caso n√£o entenda de imediato a fundo 
+as explica√ß√µes, recomendo que a leia novamente mais tarde).
 <taglist compact>
-<tag><tt>security = [nÌvel]</tt></tag>
+<tag><tt>security = [n√≠vel]</tt></tag>
   <item>
-Define o nÌvel de seguranÁa do servidor. Os seguintes valores s„o 
-v·lidos:
+Define o n√≠vel de seguran√ßa do servidor. Os seguintes valores s√£o 
+v√°lidos:
 <list compact>
  <item>
-<tt>share</tt> - Usada principalmente quando apenas a senha È enviada por 
-compartilhamento acessado para o servidor, caso muito tÌpico em sistemas 
+<tt>share</tt> - Usada principalmente quando apenas a senha √© enviada por 
+compartilhamento acessado para o servidor, caso muito t√≠pico em sistemas 
 <prgn>Lan Manager</prgn> e <prgn>Windows for Workgroups</prgn>.
  <p>
-Mesmo assim o samba tenta mapear para um UID de usu·rio local do 
-sistema usando os seguintes mÈtodos (retirado da p·gina de 
+Mesmo assim o samba tenta mapear para um UID de usu√°rio local do 
+sistema usando os seguintes m√©todos (retirado da p√°gina de 
 manual do samba):
 <enumlist compact>
  <item>
-Se o par‚metro <tt>guest only</tt> È usado no compartilhamento junto com 
-o <tt>guest ok</tt>, o acesso È imediatamente permitido, sem verificar 
+Se o par√¢metro <tt>guest only</tt> √© usado no compartilhamento junto com 
+o <tt>guest ok</tt>, o acesso √© imediatamente permitido, sem verificar 
 inclusive a senha.
  <item>
-Caso um nome de usu·rio seja enviado junto com a senha, ele È utilizado 
-para mapear o UID e aplicar as permissıes deste usu·rio (como acontece
-no nÌvel de seguranÁa <em>user</em>).
+Caso um nome de usu√°rio seja enviado junto com a senha, ele √© utilizado 
+para mapear o UID e aplicar as permiss√µes deste usu√°rio (como acontece
+no n√≠vel de seguran√ßa <em>user</em>).
  <item>
 Se ele usou um nome para fazer o logon no <prgn>Windows</prgn> este nome
-ser· usado como usu·rio local do SAMBA. Caso ele seja diferente, vocÍ 
-dever· usar o mapeamento de nomes para associar o nome remoto do 
+ser√° usado como usu√°rio local do SAMBA. Caso ele seja diferente, voc√™ 
+dever√° usar o mapeamento de nomes para associar o nome remoto do 
 nome local (veja <ref id="s-samba-a-usernamemap">)
  <item>
-O nome do serviÁo È tentado como nome de usu·rio.
+O nome do servi√ßo √© tentado como nome de usu√°rio.
  <item>
-O nome da m·quina NetBios È tentada como nome de usu·rio
+O nome da m√°quina NetBios √© tentada como nome de usu√°rio
  <item>
-Os usu·rios especificados na opÁ„o <tt>user</tt> do compartilhamentos
-s„o utilizados (veja <ref id="s-samba-s-a-param">).
+Os usu√°rios especificados na op√ß√£o <tt>user</tt> do compartilhamentos
+s√£o utilizados (veja <ref id="s-samba-s-a-param">).
 
  <item>
-Caso nenhum destes mÈtodos acima for satisfeito, o acesso È NEGADO.
+Caso nenhum destes m√©todos acima for satisfeito, o acesso √© NEGADO.
 </enumlist>
-Hoje em dia, o uso do nÌvel de acesso <tt>share</tt> È raramente
+Hoje em dia, o uso do n√≠vel de acesso <tt>share</tt> √© raramente
 usado, porque todos os sistemas a partir do <prgn>Windows 95</prgn> 
-e acima enviam o nome de usu·rio ao acessar um compartilhamento 
-(caindo na segunda checagem do nÌvel <em>share</em>), sendo equivalente 
-a usar o nÌvel <em>user</em>. Entretanto, o nÌvel de seguranÁa 
-<em>share</em> È recomendado para servidores onde TODO o conte˙do 
-deve ter acesso p˙blico (seja leitura ou gravaÁ„o) e o par‚metro
-<tt>guest shares</tt> tambÈm funciona nativamente.
+e acima enviam o nome de usu√°rio ao acessar um compartilhamento 
+(caindo na segunda checagem do n√≠vel <em>share</em>), sendo equivalente 
+a usar o n√≠vel <em>user</em>. Entretanto, o n√≠vel de seguran√ßa 
+<em>share</em> √© recomendado para servidores onde TODO o conte√∫do 
+deve ter acesso p√∫blico (seja leitura ou grava√ß√£o) e o par√¢metro
+<tt>guest shares</tt> tamb√©m funciona nativamente.
  <p>
-As senhas criptografadas (<tt>encrypt passwords = 1</tt>) <strong>N√O</strong>
-funcionar„o no nÌvel <em>share</em>, lembre-se deste detalhe.
+As senhas criptografadas (<tt>encrypt passwords = 1</tt>) <strong>N√ÉO</strong>
+funcionar√£o no n√≠vel <em>share</em>, lembre-se deste detalhe.
 
 
  <item>
-<tt>user</tt> - Este È o padr„o. O usu·rio precisa ter uma conta de usu·rio 
+<tt>user</tt> - Este √© o padr√£o. O usu√°rio precisa ter uma conta de usu√°rio 
 no <prgn>Linux</prgn> para acessar seus compartilhamentos. A mesma conta de 
-usu·rio/senha dever· ser usada no <prgn>Windows</prgn> para acessar seus 
-recursos ou realizado um mapeamento de nomes de usu·rios (veja 
-<ref id="s-samba-a-usernamemap">). Este È o padr„o do SAMBA.
-No nÌvel de acesso <em>user</em> o usu·rio precisa ser autenticado de 
-qualquer forma, inclusive se for usado o par‚metro <tt>guest only</tt> ou 
-<tt>user</tt>. Os seguintes passos s„o usados para autorizar uma conex„o
-usando o nÌvel <em>user</em> (retirado da documentaÁ„o do SAMBA):
+usu√°rio/senha dever√° ser usada no <prgn>Windows</prgn> para acessar seus 
+recursos ou realizado um mapeamento de nomes de usu√°rios (veja 
+<ref id="s-samba-a-usernamemap">). Este √© o padr√£o do SAMBA.
+No n√≠vel de acesso <em>user</em> o usu√°rio precisa ser autenticado de 
+qualquer forma, inclusive se for usado o par√¢metro <tt>guest only</tt> ou 
+<tt>user</tt>. Os seguintes passos s√£o usados para autorizar uma conex√£o
+usando o n√≠vel <em>user</em> (retirado da documenta√ß√£o do SAMBA):
 <list compact>
  <item>
-… tentada a validaÁ„o usando o nome/senha passados pelo cliente. Se 
-tudo estiver OK, a conex„o È permitida.
+√â tentada a valida√ß√£o usando o nome/senha passados pelo cliente. Se 
+tudo estiver OK, a conex√£o √© permitida.
  <item>
-Caso j· tenha se autenticado anteriormente para acessar o recurso e 
-forneceu a senha correta, o acesso È permitido.
+Caso j√° tenha se autenticado anteriormente para acessar o recurso e 
+forneceu a senha correta, o acesso √© permitido.
  <item>
-O nome NetBIOS da m·quina do cliente e qualquer nome de usu·rio que 
-foi usado È novamente tentado junto com a senha para tentar permitir
+O nome NetBIOS da m√°quina do cliente e qualquer nome de usu√°rio que 
+foi usado √© novamente tentado junto com a senha para tentar permitir
 o acesso ao recurso compartilhado.
  <item>
 Caso o cliente tenha validado o nome/senha com o servidor e o cliente
-enviou novamente o token de validaÁ„o, este nome de usu·rio È 
+enviou novamente o token de valida√ß√£o, este nome de usu√°rio √© 
 usado.
  <item>
-… tentada a checagem com o par‚metro <em>user</em> no compartilhamento
+√â tentada a checagem com o par√¢metro <em>user</em> no compartilhamento
 (veja <ref id="s-samba-s-a-param">.
  <item>
-… verificado se o serviÁo È p˙blico, ent„o a conex„o È feita usando 
-o usu·rio <tt>guest account</tt> e ignorando a senha (veja 
+√â verificado se o servi√ßo √© p√∫blico, ent√£o a conex√£o √© feita usando 
+o usu√°rio <tt>guest account</tt> e ignorando a senha (veja 
 <ref id="s-samba-a-publico">).
 </list>
 
  <item>
-<tt>domain</tt> - Neste nÌvel, o acesso sÛ ser· permitido quando a m·quina
-for adicionada ao domÌnio com o <prgn>smbpasswd</prgn> 
-(<ref id="s-samba-c-dominio-linux">). Neste nÌvel de acesso, a conta de 
-usu·rio ser· validada em um servidor PDC (controlador de domÌnio) e o 
-acesso aos recursos das m·quinas que fazem parte do domÌnio ser· feito 
+<tt>domain</tt> - Neste n√≠vel, o acesso s√≥ ser√° permitido quando a m√°quina
+for adicionada ao dom√≠nio com o <prgn>smbpasswd</prgn> 
+(<ref id="s-samba-c-dominio-linux">). Neste n√≠vel de acesso, a conta de 
+usu√°rio ser√° validada em um servidor PDC (controlador de dom√≠nio) e o 
+acesso aos recursos das m√°quinas que fazem parte do dom√≠nio ser√° feito 
 a partir do PDC. Veja <ref id="s-samba-c-dominio-linux"> para detalhes.
 
  <item>
-<tt>server</tt> - A m·quina samba tentara autenticar o usu·rio em outro 
-servidor NT (ou samba). No caso da autenticaÁ„o falhar, ser· usado o nÌvel de 
-acesso <em>user</em> na base de usu·rios local (ser· necess·rio o 
-arquivo de senhas criptografado do samba para que a autenticaÁ„o local
-funcione, veja <ref id="s-samba-senhas-crypto">). Este nÌvel È bastante 
-usado quando configuramos um servidor de perfis de usu·rios ou 
+<tt>server</tt> - A m√°quina samba tentara autenticar o usu√°rio em outro 
+servidor NT (ou samba). No caso da autentica√ß√£o falhar, ser√° usado o n√≠vel de 
+acesso <em>user</em> na base de usu√°rios local (ser√° necess√°rio o 
+arquivo de senhas criptografado do samba para que a autentica√ß√£o local
+funcione, veja <ref id="s-samba-senhas-crypto">). Este n√≠vel √© bastante 
+usado quando configuramos um servidor de perfis de usu√°rios ou 
 logon separado do PDC. 
 
 </list> 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-log">Log de acessos/serviÁos
+<sect2 id="s-samba-s-global-log">Log de acessos/servi√ßos
  <p>
 <taglist compact>
  <tag>log file= [arquivo]</tag>
   <item>
-Define a localizaÁ„o e nome do arquivo de log gerado pelo samba. As vari·veis de 
-expans„o podem ser usadas caso o administrador queira ter um melhor controle dos
+Define a localiza√ß√£o e nome do arquivo de log gerado pelo samba. As vari√°veis de 
+expans√£o podem ser usadas caso o administrador queira ter um melhor controle dos
 logs gerados (veja <ref id="s-samba-s-varsubst">).
  <p>
 Ex.: <tt>/var/log/samba/samba-log-%m</tt>.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Se possÌvel coloque uma extens„o no arquivo de 
+<strong>OBS:</strong> Se poss√≠vel coloque uma extens√£o no arquivo de 
 log gerado pelo <prgn>SAMBA</prgn> (como <file>.log</file>). O motivo 
-disto È porque se estes logs forem rotacionados pelo <prgn>logrotate</prgn> 
-vocÍ ter· problemas de recompactaÁ„o m˙ltiplas caso utilize um coringa
+disto √© porque se estes logs forem rotacionados pelo <prgn>logrotate</prgn> 
+voc√™ ter√° problemas de recompacta√ß√£o m√∫ltiplas caso utilize um coringa
 <file>samba-log-*</file>, gerando arquivos como <file>.gz.gz.gz..</file>,
-lotando a tabela de arquivos do diretÛrio e deixando sua m·quina em
-um loop de compactaÁ„o. ]]>
+lotando a tabela de arquivos do diret√≥rio e deixando sua m√°quina em
+um loop de compacta√ß√£o. ]]>
 
  <tag>max log size = [tamanho]
   <item>
-Especifica o tamanho m·ximo em Kb do arquivo de log gerado pelo samba. O 
-valor padr„o È 5000Kb (5MB).
+Especifica o tamanho m√°ximo em Kb do arquivo de log gerado pelo samba. O 
+valor padr√£o √© 5000Kb (5MB).
 
  <tag>debug pid = [valor]</tag>
   <item>
 Este processo adiciona a pid aos logs gerados pelo processo <prgn>smbd</prgn>
-Isto È ˙til para depuraÁ„o caso existam m˙ltiplos processos rodando. O valor
-padr„o È <em>no</em> e a opÁ„o <em>debug timestamp</em> deve ser <tt>yes</tt> para 
-esta opÁ„o ter efeito.
+Isto √© √∫til para depura√ß√£o caso existam m√∫ltiplos processos rodando. O valor
+padr√£o √© <em>no</em> e a op√ß√£o <em>debug timestamp</em> deve ser <tt>yes</tt> para 
+esta op√ß√£o ter efeito.
 
  <tag>debug timestamp = [valor]</tag>
   <item>
-Ativa ou desativa a gravaÁ„o de data/hora nos arquivos de log gerados pelo samba.
-O valor padr„o È <tt>yes</tt>.
+Ativa ou desativa a grava√ß√£o de data/hora nos arquivos de log gerados pelo samba.
+O valor padr√£o √© <tt>yes</tt>.
 
  <tag>debug level = [valor]</tag>
   <item>
-Aumenta o nÌvel de depuraÁ„o dos daemons do SAMBA de <tt>0</tt> a <tt>9</tt>. 
-Um nÌvel de depuraÁ„o interessante e que produz uma quantidade razo·vel 
-de dados para configuraÁ„o de um <prgn>logrotate</prgn> sÛ para o SAMBA È o 
+Aumenta o n√≠vel de depura√ß√£o dos daemons do SAMBA de <tt>0</tt> a <tt>9</tt>. 
+Um n√≠vel de depura√ß√£o interessante e que produz uma quantidade razo√°vel 
+de dados para configura√ß√£o de um <prgn>logrotate</prgn> s√≥ para o SAMBA √© o 
 <tt>2</tt>, produzindo a lista de todos os compartilhamentos acessados, quem 
-acessou, data/hora (dependendo das outras opÁıes de depuraÁ„o). Isto permite 
-ao administrador saber exatamente o que est· sendo acessado e por quem, 
-quais as tentativas de acesso. Assim ter· certeza que o conte˙do n„o 
-est· sendo acessado indevidamente. O nÌvel de depuraÁ„o <tt>0</tt> È o padr„o. 
+acessou, data/hora (dependendo das outras op√ß√µes de depura√ß√£o). Isto permite 
+ao administrador saber exatamente o que est√° sendo acessado e por quem, 
+quais as tentativas de acesso. Assim ter√° certeza que o conte√∫do n√£o 
+est√° sendo acessado indevidamente. O n√≠vel de depura√ß√£o <tt>0</tt> √© o padr√£o. 
 
  <tag>debug uid = [valor]</tag>
   <item>
-Este par‚metro inclui o euid, egid, uid, gid nos arquivos de log. O valor padr„o È 
+Este par√¢metro inclui o euid, egid, uid, gid nos arquivos de log. O valor padr√£o √© 
 <tt>no</tt>.
  
- <tag>lock directory = [diretÛrio]</tag>
+ <tag>lock directory = [diret√≥rio]</tag>
   <item>
-Define onde ser„o gravados os arquivos de lock gerados pelo samba. 
+Define onde ser√£o gravados os arquivos de lock gerados pelo samba. 
 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-browsing">NavegaÁ„o no servidor/tipo de servidor
+<sect2 id="s-samba-s-global-browsing">Navega√ß√£o no servidor/tipo de servidor
  <p>
 <taglist compact>
  <tag>os level=[num]</tag>
   <item>
-Especifica o nÌvel do sistema operacional. Este n˙mero È usado para as 
-eleiÁıes netbios para definir o navegador de grupo local e controlador 
-de domÌnio (veja <ref id="s-samba-s-oslevel"> para detalhes). O valor pode 
-ser de 0 a 255, o padr„o È 32. 
+Especifica o n√≠vel do sistema operacional. Este n√∫mero √© usado para as 
+elei√ß√µes netbios para definir o navegador de grupo local e controlador 
+de dom√≠nio (veja <ref id="s-samba-s-oslevel"> para detalhes). O valor pode 
+ser de 0 a 255, o padr√£o √© 32. 
 
  <tag>announce as = [sistema]</tag>
   <item>
-Selecione o nome que o <prgn>samba</prgn> (<prgn>nmbd</prgn>) se anunciar· na 
+Selecione o nome que o <prgn>samba</prgn> (<prgn>nmbd</prgn>) se anunciar√° na 
 lista de pesquisa de rede. Os seguintes nomes podem ser usados:
 <list compact>
- <item><tt>NT Server (ou NT)</tt> - Anuncia como <em>Windows NT Server</em>. Este È
-o padr„o.
+ <item><tt>NT Server (ou NT)</tt> - Anuncia como <em>Windows NT Server</em>. Este √©
+o padr√£o.
  <item><tt>NT Workstation</tt> - Anuncia-se como um <em>NT Workstation</em>.
- <item><tt>Win95 ou WfW</tt> - Anuncia-se na rede como uma estaÁ„o <em>Windows 9x</em>, <em>Windows for Workgroups</em>, <em>Windows NT Server</em> e <em>Windows NT 
-Workstation</em> de uma sÛ vez.
+ <item><tt>Win95 ou WfW</tt> - Anuncia-se na rede como uma esta√ß√£o <em>Windows 9x</em>, <em>Windows for Workgroups</em>, <em>Windows NT Server</em> e <em>Windows NT 
+Workstation</em> de uma s√≥ vez.
 </list>
 
  <tag>domain master = [valor]</tag>
   <item>
-Diz se o servidor tentar· se tornar o navegador principal de domÌnio. Os 
-valores que podem ser especificados s„o: <tt>yes, no e auto</tt>. O valor 
-padr„o È <tt>auto</tt>. Veja <ref id="s-samba-dom-dmbrowser">.
+Diz se o servidor tentar√° se tornar o navegador principal de dom√≠nio. Os 
+valores que podem ser especificados s√£o: <tt>yes, no e auto</tt>. O valor 
+padr√£o √© <tt>auto</tt>. Veja <ref id="s-samba-dom-dmbrowser">.
 
  <tag>local master = [valor]</tag>
   <item>
-Diz se o servidor participar· ou n„o das eleiÁıes para navegador local do 
-grupo de trabalho (workgroup). Os valores que podem ser especificados s„o: 
-<tt>yes, no</tt>. O valor padr„o È <tt>yes</tt>. Para vencer a eleiÁ„o, 
+Diz se o servidor participar√° ou n√£o das elei√ß√µes para navegador local do 
+grupo de trabalho (workgroup). Os valores que podem ser especificados s√£o: 
+<tt>yes, no</tt>. O valor padr√£o √© <tt>yes</tt>. Para vencer a elei√ß√£o, 
 o samba precisa ter o valor de <tt>os level</tt> maior que os demais. 
  <p>
-Note tambÈm que o Windows NT n„o aceita perder as eleiÁıes e convoca uma nova 
-eleiÁ„o caso ele perca. Como esta eleiÁ„o È feita via broadcasting, isso gera 
-um tr·fego grande na rede. Desta forma, se tiver um computador NT na rede configure 
+Note tamb√©m que o Windows NT n√£o aceita perder as elei√ß√µes e convoca uma nova 
+elei√ß√£o caso ele perca. Como esta elei√ß√£o √© feita via broadcasting, isso gera 
+um tr√°fego grande na rede. Desta forma, se tiver um computador NT na rede configure 
 este valor para "no". Veja <ref id="s-samba-dom-lmbrowser">.
 
  <tag>preferred master = [valor]</tag>
   <item>
-Diz se o servidor samba ter· ou n„o vantagens de ganhar uma eleiÁ„o local. 
-Se estiver configurado para "yes", o servidor samba pedir· uma eleiÁ„o e 
-ter· vantagens para ganha-la. O servidor poder· se tornar garantidamente o 
-<em>navegador principal do domÌnio</em> se esta opÁ„o for usada em conjunto com 
+Diz se o servidor samba ter√° ou n√£o vantagens de ganhar uma elei√ß√£o local. 
+Se estiver configurado para "yes", o servidor samba pedir√° uma elei√ß√£o e 
+ter√° vantagens para ganha-la. O servidor poder√° se tornar garantidamente o 
+<em>navegador principal do dom√≠nio</em> se esta op√ß√£o for usada em conjunto com 
 <em>domain master = 1</em>. Os valores especificados podem ser <tt>yes, no e 
-auto</tt>, o padr„o È <tt>auto</tt>. 
+auto</tt>, o padr√£o √© <tt>auto</tt>. 
  <p>
 Antes de ajustar este valor para <tt>yes</tt>, verifique se existem outros 
-servidores NetBIOS em sua rede que tem preferÍncia para se tornar o master 
-principal, pois poder· ocorrer um tr·fego alto de broadcasting causado pelas 
-eleiÁıes solicitadas pelas outras m·quinas. 
+servidores NetBIOS em sua rede que tem prefer√™ncia para se tornar o master 
+principal, pois poder√° ocorrer um tr√°fego alto de broadcasting causado pelas 
+elei√ß√µes solicitadas pelas outras m√°quinas. 
 
 </taglist>
 
 
-<sect2 id="s-samba-s-global-outras">Outros par‚metros de configuraÁ„o
+<sect2 id="s-samba-s-global-outras">Outros par√¢metros de configura√ß√£o
  <p>
 <taglist compact>
  <tag><tt>include</tt></tag>
   <item>
-Inclui um outro arquivo de configuraÁ„o na porÁ„o atual do arquivo de 
-configuraÁ„o. VocÍ pode utilizar vari·veis de substituiÁ„o, exceto 
+Inclui um outro arquivo de configura√ß√£o na por√ß√£o atual do arquivo de 
+configura√ß√£o. Voc√™ pode utilizar vari√°veis de substitui√ß√£o, exceto 
 <tt>%u</tt>, <tt>%P</tt> e <tt>%S</tt> (veja <ref id="s-samba-s-varsubst">).
 
 </taglist>
 
 
-<sect1 id="s-samba-s-homes">SeÁ„o <tt>[homes]</tt>
+<sect1 id="s-samba-s-homes">Se√ß√£o <tt>[homes]</tt>
  <p>
-Esta seÁ„o tem a funÁ„o especial de disponibilizar o diretÛrio home do usu·rio. 
-Quando o usu·rio envia seu nome de login como compartilhamento È feita uma busca 
+Esta se√ß√£o tem a fun√ß√£o especial de disponibilizar o diret√≥rio home do usu√°rio. 
+Quando o usu√°rio envia seu nome de login como compartilhamento √© feita uma busca 
 no arquivo <file>smb.conf</file> procurando por um nome de compartilhamento que 
-confira. Caso nenhum seja encontrado, È feita uma busca 
-por um nome de usu·rio correspondente no arquivo <file>/etc/passwd</file>, 
-se um nome conferir e a senha enviada tambÈm, o diretÛrio de usu·rio 
-È disponibilizado como um compartilhamento com o mesmo nome do usu·rio local. 
-O diretÛrio home do usu·rio poder· ser modificado com o uso de 
+confira. Caso nenhum seja encontrado, √© feita uma busca 
+por um nome de usu√°rio correspondente no arquivo <file>/etc/passwd</file>, 
+se um nome conferir e a senha enviada tamb√©m, o diret√≥rio de usu√°rio 
+√© disponibilizado como um compartilhamento com o mesmo nome do usu√°rio local. 
+O diret√≥rio home do usu√°rio poder√° ser modificado com o uso de 
 mapeamento de nomes, veja <ref id="s-samba-a-usernamemap">.
-Quando o caminho do compartilhamento n„o for especificado, o SAMBA 
-utilizar· o diretÛrio home do usu·rio (no <file>/etc/passwd</file>). 
+Quando o caminho do compartilhamento n√£o for especificado, o SAMBA 
+utilizar√° o diret√≥rio home do usu√°rio (no <file>/etc/passwd</file>). 
  <p>
-Para maior seguranÁa da instalaÁ„o, principalmente porque o diretÛrio
-home do usu·rio n„o È um requerimento para a autenticaÁ„o de usu·rio, 
-recomendo usar a vari·vel de substituiÁ„o <tt>%S</tt> apontando para 
-um diretÛrio com as permissıes apropriadas configuradas em seu sistema, 
+Para maior seguran√ßa da instala√ß√£o, principalmente porque o diret√≥rio
+home do usu√°rio n√£o √© um requerimento para a autentica√ß√£o de usu√°rio, 
+recomendo usar a vari√°vel de substitui√ß√£o <tt>%S</tt> apontando para 
+um diret√≥rio com as permiss√µes apropriadas configuradas em seu sistema, 
 por exemplo:
 <example>
  [homes]
-  comment = DiretÛrios de Usu·rios
+  comment = Diret√≥rios de Usu√°rios
   path=/pub/usuarios/%S
 
 </example>
-VocÍ apenas ter· o trabalho extra de criar os diretÛrios de usu·rios
-que far„o acesso ao sistema. Isto n„o ser· nenhum problema apÛs vocÍ 
+Voc√™ apenas ter√° o trabalho extra de criar os diret√≥rios de usu√°rios
+que far√£o acesso ao sistema. Isto n√£o ser√° nenhum problema ap√≥s voc√™ 
 programar um shell script simples que verifique os nomes de contas em 
-<file>/etc/passwd</file> e crie os diretÛrios com as permissıes/grupos 
-adequados (isso n„o ser· abordado por este capÌtulo do guia, embora 
-n„o seja complicado). Se deseja, existem exemplos em 
-<ref id="s-samba-exemplos"> sobre a seÁ„o <em>[homes]</em> no arquivo
-de configuraÁ„o.
+<file>/etc/passwd</file> e crie os diret√≥rios com as permiss√µes/grupos 
+adequados (isso n√£o ser√° abordado por este cap√≠tulo do guia, embora 
+n√£o seja complicado). Se deseja, existem exemplos em 
+<ref id="s-samba-exemplos"> sobre a se√ß√£o <em>[homes]</em> no arquivo
+de configura√ß√£o.
  <p>
-Os par‚metros aceitos em <em>[homes]</em> aqui s„o os mesmos usados para 
+Os par√¢metros aceitos em <em>[homes]</em> aqui s√£o os mesmos usados para 
 compartilhamentos normais (veja <ref id="s-samba-s-a-param">). Abaixo segue mais
-um exemplo de seÁ„o <em>[homes]</em>:
+um exemplo de se√ß√£o <em>[homes]</em>:
 <example>
 [homes] 
-comment = DiretÛrio home de usu·rios
+comment = Diret√≥rio home de usu√°rios
 writable = yes
 public = no
 invalid users = root nobody @adm
@@ -672,62 +672,62 @@ create mode = 0640
 directory mode = 0750
 
 </example>
-A explicaÁ„o de cada um dos par‚metros podem ser encontradas em 
-<ref id="s-samba-s-a-param">. O guia est· com os par‚metros bem 
-organizados em seÁıes especÌficas, apenas de uma olhada para entender 
-com o capÌtulo do SAMBA foi organizado e n„o ter· dificuldades de se 
+A explica√ß√£o de cada um dos par√¢metros podem ser encontradas em 
+<ref id="s-samba-s-a-param">. O guia est√° com os par√¢metros bem 
+organizados em se√ß√µes espec√≠ficas, apenas de uma olhada para entender 
+com o cap√≠tulo do SAMBA foi organizado e n√£o ter√° dificuldades de se 
 localizar. 
 <![ %OBS [
  <p>
 <strong>OBS1:</strong>Caso nenhum caminho de compartilhamento seja 
-utilizado, o diretÛrio home do usu·rio ser· compartilhado. 
+utilizado, o diret√≥rio home do usu√°rio ser√° compartilhado. 
  <p>
-<strong>OBS2: </strong>N„o utilize o par‚metro <em>public yes</em> na 
-seÁ„o guest, caso contr·rio todos os diretÛrios de usu·rios ser„o lidos 
+<strong>OBS2: </strong>N√£o utilize o par√¢metro <em>public yes</em> na 
+se√ß√£o guest, caso contr√°rio todos os diret√≥rios de usu√°rios ser√£o lidos 
 por todos. Veja <ref id="s-samba-a-public-access"> para maiores detalhes.
 ]]>
 
 
-<sect1 id="s-samba-s-printers">SeÁ„o <tt>[printers]</tt>
+<sect1 id="s-samba-s-printers">Se√ß√£o <tt>[printers]</tt>
  <p>
-Esta seÁ„o tem a funÁ„o de disponibilizar as impressoras existentes no 
+Esta se√ß√£o tem a fun√ß√£o de disponibilizar as impressoras existentes no 
 sistema (lp, lp1, lp2, etc) existentes no <file>/etc/printcap</file> 
-como compartilhamento de sistemas Windows. O mÈtodo que os nomes de 
-impressoras s„o pesquisados È idÍntico a forma feita para a seÁ„o 
-<em>[homes]</em>: Primeiro o nome do compartilhamento È pesquisado 
-como um nome de serviÁo, depois se ele È um nome de usu·rio (tentando 
-mapear o serviÁo disponibilizado em [homes]), depois ser· verificado 
-a seÁ„o <em>[printers]</em>. 
+como compartilhamento de sistemas Windows. O m√©todo que os nomes de 
+impressoras s√£o pesquisados √© id√™ntico a forma feita para a se√ß√£o 
+<em>[homes]</em>: Primeiro o nome do compartilhamento √© pesquisado 
+como um nome de servi√ßo, depois se ele √© um nome de usu√°rio (tentando 
+mapear o servi√ßo disponibilizado em [homes]), depois ser√° verificado 
+a se√ß√£o <em>[printers]</em>. 
 <![ %CONSTRUCAO [
  <p>
-Para utilizar a impressora compartilhada, È preciso que seu driver 
+Para utilizar a impressora compartilhada, √© preciso que seu driver 
 correspondente seja instalado no Windows ou que sejam utilizados os 
-filtros apropriados para tratar e enviar a impress„o no 
+filtros apropriados para tratar e enviar a impress√£o no 
 <prgn>Linux</prgn> (veja **************). ]]>
  <p>
-Ao invÈs de usar este recurso, se preferir vocÍ poder· compartilhar as 
+Ao inv√©s de usar este recurso, se preferir voc√™ poder√° compartilhar as 
 impressoras individualmente. Para detalhes, veja <ref id="s-samba-i-win-linux">. 
 <![ %OBS [
  <p>
-<strong>OBS:</strong>… importante lembrar que a seÁ„o <em>[printers]</em> 
+<strong>OBS:</strong>√â importante lembrar que a se√ß√£o <em>[printers]</em> 
 <strong>DEVE</strong> ser definida como <tt>printable</tt> usando o 
-par‚metro <em>printable = yes</em> para funcionar. O utilit·rio
-<prgn>testparm</prgn> poder· ser usado para verificar problemas no 
-arquivo cd configuraÁ„o do SAMBA (veja <ref id="s-samba-s-testparm">).
+par√¢metro <em>printable = yes</em> para funcionar. O utilit√°rio
+<prgn>testparm</prgn> poder√° ser usado para verificar problemas no 
+arquivo cd configura√ß√£o do SAMBA (veja <ref id="s-samba-s-testparm">).
 ]]>
 
 
-<sect1 id="s-samba-s-testparm">Buscando problemas na configuraÁ„o
+<sect1 id="s-samba-s-testparm">Buscando problemas na configura√ß√£o
  <p>
-Durante o processo de configuraÁ„o do SAMBA, È comum cometer erros 
-de digitaÁ„o, usar par‚metros em lugares indevidos, etc. … recomend·vel 
-o uso do <prgn>testparm</prgn> para checar a configuraÁ„o do SAMBA sempre 
-que houver modificaÁıes para ter certeza nada comprometa o funcionamento que 
-planejou para sua m·quina.
+Durante o processo de configura√ß√£o do SAMBA, √© comum cometer erros 
+de digita√ß√£o, usar par√¢metros em lugares indevidos, etc. √â recomend√°vel 
+o uso do <prgn>testparm</prgn> para checar a configura√ß√£o do SAMBA sempre 
+que houver modifica√ß√µes para ter certeza nada comprometa o funcionamento que 
+planejou para sua m√°quina.
  <p>
-Para usar o <prgn>testparm</prgn> È sÛ digitar <tt>testparm</tt>. 
-Logo apÛs executa-lo, analise se existem erros nas seÁıes de 
-configuraÁ„o e te pedir· para pressionar &lt;ENTER&gt; para ver 
+Para usar o <prgn>testparm</prgn> √© s√≥ digitar <tt>testparm</tt>. 
+Logo ap√≥s executa-lo, analise se existem erros nas se√ß√µes de 
+configura√ß√£o e te pedir√° para pressionar &lt;ENTER&gt; para ver 
 um dump do arquivo:
 <example>
 Load smb config files from /etc/samba/smb.conf
@@ -739,38 +739,38 @@ Loaded services file OK.
 Press enter to see a dump of your service definitions
 
 </example>
-A saÌda acima indica que est· tudo OK com todas as configuraÁıes 
-que foram realizadas no servidor. … possÌvel especificar um outro 
-arquivo de configuraÁ„o do SAMBA usando <tt>testparm /etc/samba/smb2.conf</tt>. 
+A sa√≠da acima indica que est√° tudo OK com todas as configura√ß√µes 
+que foram realizadas no servidor. √â poss√≠vel especificar um outro 
+arquivo de configura√ß√£o do SAMBA usando <tt>testparm /etc/samba/smb2.conf</tt>. 
  <p>
-TambÈm È permitido simular o nome NetBIOS que far· acesso a m·quina usando o 
-par‚metro <tt>-L nome</tt> (que ser· substituÌdo na vari·vel <var>%L</var>). 
+Tamb√©m √© permitido simular o nome NetBIOS que far√° acesso a m√°quina usando o 
+par√¢metro <tt>-L nome</tt> (que ser√° substitu√≠do na vari√°vel <var>%L</var>). 
 
 
-<sect1 id="s-samba-s-oslevel">NÌveis de sistema para eleiÁ„o de rede
+<sect1 id="s-samba-s-oslevel">N√≠veis de sistema para elei√ß√£o de rede
  <p>
-Para selecionar qual sistema NetBIOS ser· o local master browse ou 
-domain master browse, È usado um mÈtodo bastante interessante: o de 
-eleiÁıes.
+Para selecionar qual sistema NetBIOS ser√° o local master browse ou 
+domain master browse, √© usado um m√©todo bastante interessante: o de 
+elei√ß√µes.
  <p>
-Quando uma nova m·quina entra na rede NetBIOS, ela solicita quem È 
-o Local Master Browser, caso nenhuma responda, ela forÁa uma 
-eleiÁ„o na rede atravÈs de uma requisiÁ„o Broadcasting especial. 
-Vence a eleiÁ„o quem tiver o ***maior n˙mero***, chamado de OS 
-Level (nÌvel de sistema operacional). Caso duas m·quinas 
-empatem, o desempate È feito usando outros critÈrios.
+Quando uma nova m√°quina entra na rede NetBIOS, ela solicita quem √© 
+o Local Master Browser, caso nenhuma responda, ela for√ßa uma 
+elei√ß√£o na rede atrav√©s de uma requisi√ß√£o Broadcasting especial. 
+Vence a elei√ß√£o quem tiver o ***maior n√∫mero***, chamado de OS 
+Level (n√≠vel de sistema operacional). Caso duas m√°quinas 
+empatem, o desempate √© feito usando outros crit√©rios.
  <p>
-Se vocÍ for a ˙nica m·quina de um workgroup, automaticamente vocÍ ser· 
-o Local Master Browser. De meia em meia hora uma nova eleiÁ„o È feita, 
-forÁando mais tr·fego broadcasting na rede. Durante este novo processo 
-de eleiÁ„o, a lista de computadores È atualizada; as novas m·quinas 
-s„o adicionadas e as desligadas saem da lista apÛs 36 minutos. Este È o 
-motivo porque as m·quinas Windows continuam aparecendo no ambiente de rede 
-por algum tempo mesmo depois que desligadas ou porque elas n„o aparecem de 
+Se voc√™ for a √∫nica m√°quina de um workgroup, automaticamente voc√™ ser√° 
+o Local Master Browser. De meia em meia hora uma nova elei√ß√£o √© feita, 
+for√ßando mais tr√°fego broadcasting na rede. Durante este novo processo 
+de elei√ß√£o, a lista de computadores √© atualizada; as novas m√°quinas 
+s√£o adicionadas e as desligadas saem da lista ap√≥s 36 minutos. Este √© o 
+motivo porque as m√°quinas Windows continuam aparecendo no ambiente de rede 
+por algum tempo mesmo depois que desligadas ou porque elas n√£o aparecem de 
 imediato.
  <p>
-O OS Level È um n˙mero que È caracterÌstico de cada sistema operacional ficando 
-entre 0 (mais baixo) e 255. Os nÌveis de acessos dos sistemas operacionais s„o 
+O OS Level √© um n√∫mero que √© caracter√≠stico de cada sistema operacional ficando 
+entre 0 (mais baixo) e 255. Os n√≠veis de acessos dos sistemas operacionais s√£o 
 os seguintes:
 <example>
 Windows for Workgroups                         1
@@ -793,131 +793,131 @@ SAMBA                                          32
 
 </example>
 
-O valor padr„o do OS Level do SAMBA È 32, entretanto ele È bastante flexÌvel
-para permitir sua mudanÁa atravÈs do par‚metro "os level" (veja 
-<ref id="s-samba-s-global-browsing">), isto garante que o SAMBA sempre venÁa 
-as eleiÁıes da rede sobre qualquer outro sistema operacional. 
+O valor padr√£o do OS Level do SAMBA √© 32, entretanto ele √© bastante flex√≠vel
+para permitir sua mudan√ßa atrav√©s do par√¢metro "os level" (veja 
+<ref id="s-samba-s-global-browsing">), isto garante que o SAMBA sempre ven√ßa 
+as elei√ß√µes da rede sobre qualquer outro sistema operacional. 
  <p>
 No caso de um servidor que estiver configurado para ser o navegador de 
-rede, assim que for iniciado ele solicitar· uma eleiÁ„o de rede. As 
-regras s„o as mesmas, vence o que tiver o *maior* n˙mero. Este n˙mero
-pode ser configurado facilmente no SAMBA para que ele sempre venÁa as 
-eleiÁıes de rede, tomando conta da lista de m·quinas. Isto È especialmente 
+rede, assim que for iniciado ele solicitar√° uma elei√ß√£o de rede. As 
+regras s√£o as mesmas, vence o que tiver o *maior* n√∫mero. Este n√∫mero
+pode ser configurado facilmente no SAMBA para que ele sempre ven√ßa as 
+elei√ß√µes de rede, tomando conta da lista de m√°quinas. Isto √© especialmente 
 interessante por causa da estabilidade do servidor <prgn>Linux</prgn>, quando 
-migramos de servidor NT ou para fornecer mais serviÁos de navegaÁ„o, como 
+migramos de servidor NT ou para fornecer mais servi√ßos de navega√ß√£o, como 
 servidor WINS. 
 <![ %OBS [
  <p>
 <strong>OBS</strong>: Nunca deixe um servidor NT configurado para ser o 
 Local Browser ou Domain Master Browser competir com o SAMBA. Mesmo que o 
-SAMBA ganhe, o NT È um pÈssimo perdedor e convoca uma nova eleiÁ„o para 
-tentar novamente se eleger, gerando um *extremo* tr·fego broadcasting em 
+SAMBA ganhe, o NT √© um p√©ssimo perdedor e convoca uma nova elei√ß√£o para 
+tentar novamente se eleger, gerando um *extremo* tr√°fego broadcasting em 
 redes grandes.
 ]]>
 
 
-<sect1 id="s-samba-s-varsubst">Vari·veis de substituiÁ„o 
+<sect1 id="s-samba-s-varsubst">Vari√°veis de substitui√ß√£o 
  <p>
-Esta seÁ„o foi baseada nos dados da p·gina de manual do samba, com adiÁıes que 
-n„o estavam presentes na vers„o original e exemplos. Existem vari·veis especiais 
-que podem ser usadas no arquivo de configuraÁ„o do samba e s„o substituÌdas por 
-par‚metros especiais no momento da conex„o do usu·rio. Um exemplo de utilizaÁ„o 
-de vari·veis de substituiÁ„o seria mudar a localizaÁ„o do diretÛrio home do usu·rio: 
+Esta se√ß√£o foi baseada nos dados da p√°gina de manual do samba, com adi√ß√µes que 
+n√£o estavam presentes na vers√£o original e exemplos. Existem vari√°veis especiais 
+que podem ser usadas no arquivo de configura√ß√£o do samba e s√£o substitu√≠das por 
+par√¢metros especiais no momento da conex√£o do usu√°rio. Um exemplo de utiliza√ß√£o 
+de vari√°veis de substitui√ß√£o seria mudar a localiza√ß√£o do diret√≥rio home do usu√°rio: 
 <example>
 [homes]
- comment = DiretÛrio home do usu·rio
+ comment = Diret√≥rio home do usu√°rio
  path = /home/usuarios/%u
 
 </example>
-Cada uma das vari·veis s„o descritas em detalhes abaixo: 
+Cada uma das vari√°veis s√£o descritas em detalhes abaixo: 
 
 <taglist>
  <tag>%S</tag>
   <item>
-O nome do serviÁo atual, se existir. Seu uso È interessante, principalmente no 
-uso de diretÛrios homes.
+O nome do servi√ßo atual, se existir. Seu uso √© interessante, principalmente no 
+uso de diret√≥rios homes.
 
  <tag>%P</tag>
   <item>
-O diretÛrio raÌz do serviÁo atual, se existir.
+O diret√≥rio ra√≠z do servi√ßo atual, se existir.
 
  <tag>%u</tag>
   <item>
-O nome de usu·rio do serviÁo atual, se aplic·vel. Esta vari·vel È bastante ˙til 
-para programaÁ„o de scripts e tambÈm para criar arquivos de log personalizados, etc.
+O nome de usu√°rio do servi√ßo atual, se aplic√°vel. Esta vari√°vel √© bastante √∫til 
+para programa√ß√£o de scripts e tamb√©m para criar arquivos de log personalizados, etc.
 
  <tag>%g</tag>
   <item>
-O grupo prim·rio do usu·rio %u.
+O grupo prim√°rio do usu√°rio %u.
 
  <tag>%U</tag>
   <item>
-O nome de usu·rio da seÁ„o (o nome de usu·rio solicitado pelo cliente, n„o È uma 
-regra que ele ser· sempre o mesmo que ele recebeu).
+O nome de usu√°rio da se√ß√£o (o nome de usu√°rio solicitado pelo cliente, n√£o √© uma 
+regra que ele ser√° sempre o mesmo que ele recebeu).
 
  <tag>%G</tag>
   <item>
-O nome do grupo prim·rio de %U.
+O nome do grupo prim√°rio de %U.
 
  <tag>%H</tag>
   <item>
-O diretÛrio home do usu·rio, de acordo com %u.
+O diret√≥rio home do usu√°rio, de acordo com %u.
 
  <tag>%v</tag>
   <item>
-A vers„o do Samba.
+A vers√£o do Samba.
 
  <tag>%h</tag>
   <item>
-O nome DNS da m·quina que est· executando o Samba.
+O nome DNS da m√°quina que est√° executando o Samba.
 
  <tag>%m</tag>
   <item>
-O nome NetBIOS da m·quina do cliente. Isto È muito ˙til para 
-log de conexıes personalizados e outras coisas ˙teis.
+O nome NetBIOS da m√°quina do cliente. Isto √© muito √∫til para 
+log de conex√µes personalizados e outras coisas √∫teis.
 
  <tag>%L</tag>
   <item>
 O nome NetBIOS do servidor. Como o servidor pode usar mais de um nome no samba
-(aliases), vocÍ poder· saber com qual nome o seu servidor est· sendo acessado e 
-possivelmente torna-lo o nome prim·rio de sua m·quina.
+(aliases), voc√™ poder√° saber com qual nome o seu servidor est√° sendo acessado e 
+possivelmente torna-lo o nome prim√°rio de sua m√°quina.
 
  <tag>%M</tag>
   <item>
-O nome DNS da m·quina cliente.
+O nome DNS da m√°quina cliente.
 
  <tag>%N</tag>
   <item>
-O nome do seu servidor de diretÛrios home NIS. Este par‚metro È obtido de uma entrada
-no seu arquivo auto.map. Se n„o tiver compilado o SAMBA com a opÁ„o 
-<tt>--with-automount</tt> ent„o este valor ser· o mesmo de %L.
+O nome do seu servidor de diret√≥rios home NIS. Este par√¢metro √© obtido de uma entrada
+no seu arquivo auto.map. Se n√£o tiver compilado o SAMBA com a op√ß√£o 
+<tt>--with-automount</tt> ent√£o este valor ser√° o mesmo de %L.
 
  <tag>%p</tag>
   <item>
-O caminho do diretÛrio home do serviÁo, obtido de uma entrada mapeada no arquivo
-<file>auto.map</file> do NIS. A entrada NIS do arquivo <file>auto.map</file> È 
+O caminho do diret√≥rio home do servi√ßo, obtido de uma entrada mapeada no arquivo
+<file>auto.map</file> do NIS. A entrada NIS do arquivo <file>auto.map</file> √© 
 dividida na forma "%N:%p".
 
  <tag>%R</tag>
   <item>
-O nÌvel de protocolo selecionado apÛs a negociaÁ„o. O valor retornado pode ser
+O n√≠vel de protocolo selecionado ap√≥s a negocia√ß√£o. O valor retornado pode ser
 CORE, COREPLUS, LANMAN1, LANMAN2 ou NT1.
 
  <tag>%d</tag>
   <item>
-A identificaÁ„o de processo do processo atual do servidor.
+A identifica√ß√£o de processo do processo atual do servidor.
 
  <tag>%a</tag>
   <item>
-A arquitetura da m·quina remota. Somente algumas s„o reconhecidas e a resposta
-pode n„o ser totalmente confi·vel. O <prgn>samba</prgn> atualmente reconhece 
+A arquitetura da m√°quina remota. Somente algumas s√£o reconhecidas e a resposta
+pode n√£o ser totalmente confi√°vel. O <prgn>samba</prgn> atualmente reconhece 
 <em>Samba</em>, <em>Windows for Workgroups</em>, <em>Windows 95</em>, 
-<em>Windows NT</em> e <em>Windows 2000</em>. Qualquer outra coisa ser· 
+<em>Windows NT</em> e <em>Windows 2000</em>. Qualquer outra coisa ser√° 
 mostrado como "UNKNOWN" (<em>desconhecido</em>). 
 
  <tag>%I</tag>
   <item>
-O endereÁo IP da m·quina do cliente.
+O endere√ßo IP da m√°quina do cliente.
 
  <tag>%T</tag>
   <item>
@@ -925,7 +925,7 @@ A data e hora atual.
 
  <tag>%$(var_ambiente)</tag>
   <item>
-Retorna o valor da <em>vari·vel de ambiente</em> especificada.
+Retorna o valor da <em>vari√°vel de ambiente</em> especificada.
 </taglist>
 
 

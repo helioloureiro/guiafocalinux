@@ -1,13 +1,13 @@
-<sect id="s-apache-exemplo">Exemplo comentado de um arquivo de configuraÁ„o do Apache
+<sect id="s-apache-exemplo">Exemplo comentado de um arquivo de configura√ß√£o do Apache
  <p>
-O exemplo abaixo foi retirado da distribuiÁ„o <prgn>Debian GNU/Linux</prgn>, 
-fiz sua traduÁ„o, modificaÁıes e inclui alguns coment·rios sobre as 
-diretivas para deixa-lo mais de acordo com o conte˙do abordado pelo guia e 
+O exemplo abaixo foi retirado da distribui√ß√£o <prgn>Debian GNU/Linux</prgn>, 
+fiz sua tradu√ß√£o, modifica√ß√µes e inclui alguns coment√°rios sobre as 
+diretivas para deixa-lo mais de acordo com o conte√∫do abordado pelo guia e 
 mais auto-explicativo. 
  <p>
-A configuraÁ„o do <prgn>Apache</prgn> est· distribuÌda nos arquivos 
+A configura√ß√£o do <prgn>Apache</prgn> est√° distribu√≠da nos arquivos 
 <file>httpd.conf</file>, <file>srm.conf</file> e <file>access.conf</file> e 
-podem ser usados como modelo para a construÁ„o da configuraÁ„o de seu servidor. 
+podem ser usados como modelo para a constru√ß√£o da configura√ß√£o de seu servidor. 
 
 
 
@@ -15,119 +15,119 @@ podem ser usados como modelo para a construÁ„o da configuraÁ„o de seu servidor.
  <p>
 <example>
 ##
-## httpd.conf -- Arquivo de configuraÁ„o do servidor httpd Apache
+## httpd.conf -- Arquivo de configura√ß√£o do servidor httpd Apache
 ##
 
 #
-# Baseado nos arquivos de configuraÁ„o originais do servidor NCSA por Rob McCool.
-# Modificado para distribuiÁ„o junto ao guia Foca GNU/Linux AvanÁado
+# Baseado nos arquivos de configura√ß√£o originais do servidor NCSA por Rob McCool.
+# Modificado para distribui√ß√£o junto ao guia Foca GNU/Linux Avan√ßado
 # http://focalinux.cipsga.org.br/ &lt;gleydson@guiafoca.org&gt;
 #
-# Este È o arquivo de configuraÁ„o principal do servidor Apache. Ele contÈm as
-# diretivas de configuraÁ„o que d„o ao servidor suas instruÁıes.
-# Veja &lt;http://www.apache.org/docs/&gt; para informaÁıes detalhadas sobre as 
+# Este √© o arquivo de configura√ß√£o principal do servidor Apache. Ele cont√©m as
+# diretivas de configura√ß√£o que d√£o ao servidor suas instru√ß√µes.
+# Veja &lt;http://www.apache.org/docs/&gt; para informa√ß√µes detalhadas sobre as 
 # diretivas.
 #
-# N√O leia simplesmente as instruÁıes deste arquivo sem entender o que significam
-# e o que fazem, se n„o tiver certeza do que est· fazendo consulte a documentaÁ„o
-# on-line ou leia as seÁıes apropriadas do guia. VocÍ foi avisado.
+# N√ÉO leia simplesmente as instru√ß√µes deste arquivo sem entender o que significam
+# e o que fazem, se n√£o tiver certeza do que est√° fazendo consulte a documenta√ß√£o
+# on-line ou leia as se√ß√µes apropriadas do guia. Voc√™ foi avisado.
 #
-# ApÛs este arquivo ser processado, o servidor procurar· e processar· o arquivo
-# /etc/apache/srm.conf e ent„o /etc/apache/access.conf
-# a n„o ser que vocÍ tenha modificado o nome dos arquivos acima atravÈs das 
+# Ap√≥s este arquivo ser processado, o servidor procurar√° e processar√° o arquivo
+# /etc/apache/srm.conf e ent√£o /etc/apache/access.conf
+# a n√£o ser que voc√™ tenha modificado o nome dos arquivos acima atrav√©s das 
 # diretivas ResourceConfig e/ou AccessConfig neste arquivo.
 #
-# ConfiguraÁ„o e nomes de arquivos de log: Se os nomes de arquivos que 
+# Configura√ß√£o e nomes de arquivos de log: Se os nomes de arquivos que 
 # especificar para os arquivos de controle do servidor iniciam com uma 
-# "/", o servidor usar· aquele caminho explicitamente. Se os nomes *n„o*
-# iniciarem com uma "/", o valor de ServerRoot È adicionado -- assim 
-# "logs/foo.log" com ServerRoot ajustado para "/usr/local/apache" ser· 
+# "/", o servidor usar√° aquele caminho explicitamente. Se os nomes *n√£o*
+# iniciarem com uma "/", o valor de ServerRoot √© adicionado -- assim 
+# "logs/foo.log" com ServerRoot ajustado para "/usr/local/apache" ser√° 
 # interpretado pelo servidor como "/usr/local/apache/logs/foo.log".
 #
 # Originalmente por Rob McCool
 # modificado por Gleydson Mazioli da Silva para o guia Foca GNU/Linux
 
-# Carga dos MÛdulos de Objetos Compartilhados:
-# Para vocÍ ser capaz de usa a funcionalidade de um mÛdulo que foi construÌdo como
-# um mÛdulo compartilhado, ser· necess·rio adicionar as linhas 'LoadModule'
-# correspondente a sua localizaÁ„o, assim as diretivas que os mÛdulos contÈm
-# estar„o disponÌveis _antes_ de serem usadas. 
+# Carga dos M√≥dulos de Objetos Compartilhados:
+# Para voc√™ ser capaz de usa a funcionalidade de um m√≥dulo que foi constru√≠do como
+# um m√≥dulo compartilhado, ser√° necess√°rio adicionar as linhas 'LoadModule'
+# correspondente a sua localiza√ß√£o, assim as diretivas que os m√≥dulos cont√©m
+# estar√£o dispon√≠veis _antes_ de serem usadas. 
 # Exemplo:
 
 #
-# ServerType pode ser inetd, ou standalone.  O modo Inetd somente È suportado nas 
+# ServerType pode ser inetd, ou standalone.  O modo Inetd somente √© suportado nas 
 # plataformas Unix. O modo standalone inicia o servidor como um daemon.
 #
 
 ServerType standalone
 
-# Se estiver executando a partir do inetd, v· atÈ a diretiva "ServerAdmin".
+# Se estiver executando a partir do inetd, v√° at√© a diretiva "ServerAdmin".
 
-# Port: A porta que o servidor standalone escutar·. Para portas &lt; 1023, ser· 
-# necess·rio o servidor funcionando como root inicialmente.
+# Port: A porta que o servidor standalone escutar√°. Para portas &lt; 1023, ser√° 
+# necess√°rio o servidor funcionando como root inicialmente.
 
 Port 80
 
 #
-# HostnameLookups: Registra os nomes DNS dos clientes ou apenas seus endereÁos
+# HostnameLookups: Registra os nomes DNS dos clientes ou apenas seus endere√ßos
 # IP's
 # ex., www.apache.org (on) ou 204.62.129.132 (off).
-# O valor padr„o È off porque permitir· menos tr·fego na rede. Ativando
-# esta opÁ„o significa que cada acesso de um cliente resultar· em 
-# NO MÕNIMO uma requisiÁ„o de procura ao servidor de nomes (DNS).
+# O valor padr√£o √© off porque permitir√° menos tr√°fego na rede. Ativando
+# esta op√ß√£o significa que cada acesso de um cliente resultar√° em 
+# NO M√çNIMO uma requisi√ß√£o de procura ao servidor de nomes (DNS).
 #
 
 HostnameLookups off
 
-# Caso desejar que o servidor http seja executado como um usu·rio ou grupo diferente
-# vocÍ deve executar o httpd inicialmente como root e ele modificar· sua ID para a 
+# Caso desejar que o servidor http seja executado como um usu√°rio ou grupo diferente
+# voc√™ deve executar o httpd inicialmente como root e ele modificar√° sua ID para a 
 # especificada.  
 
-# User/Group: O nome (ou #n˙mero) do usu·rio/grupo que executar· o servidor httpd.
+# User/Group: O nome (ou #n√∫mero) do usu√°rio/grupo que executar√° o servidor httpd.
 # No SCO (ODT 3) use "User nouser" e "Group nogroup"
-# No HPUX vocÍ pode n„o ser· capaz de usar memÛria compartilhada como nobody, e 
-# È sugerido que seja criado um usu·rio www e executar o servidor httpd como 
-# este usu·rio, adequando as permissıes onde necess·rias.
+# No HPUX voc√™ pode n√£o ser√° capaz de usar mem√≥ria compartilhada como nobody, e 
+# √© sugerido que seja criado um usu√°rio www e executar o servidor httpd como 
+# este usu√°rio, adequando as permiss√µes onde necess√°rias.
 
 User www-data
 Group www-data
 
-# ServerAdmin: Seu endereÁo de e-mail, onde os problemas com o servidor devem ser 
-# enviadas. Este endereÁo aparecer· nas mensagens de erro do servidor.
+# ServerAdmin: Seu endere√ßo de e-mail, onde os problemas com o servidor devem ser 
+# enviadas. Este endere√ßo aparecer√° nas mensagens de erro do servidor.
 ServerAdmin gleydson@guiafoca.org
 
 #
-# ServerRoot: O topo da ·rvore de diretÛrios onde os arquivos de configuraÁ„o do 
-# servidor, erros, e log s„o mantidos.
+# ServerRoot: O topo da √°rvore de diret√≥rios onde os arquivos de configura√ß√£o do 
+# servidor, erros, e log s√£o mantidos.
 #
-# NOTA: Se tiver a intenÁ„o de colocar isto em um sistema de arquivos montado 
-# em um servidor NFS (ou outra rede) ent„o por favor leia a documentaÁ„o do 
+# NOTA: Se tiver a inten√ß√£o de colocar isto em um sistema de arquivos montado 
+# em um servidor NFS (ou outra rede) ent√£o por favor leia a documenta√ß√£o do 
 # LockFile 
-# (disponÌvel em &lt;http://www.apache.org/docs/mod/core.html#lockfile&gt;);
-# e se salvar· de v·rios problemas.
+# (dispon√≠vel em &lt;http://www.apache.org/docs/mod/core.html#lockfile&gt;);
+# e se salvar√° de v√°rios problemas.
 #
-# N„o adicione uma barra no fim do caminho do diretÛrio.
+# N√£o adicione uma barra no fim do caminho do diret√≥rio.
 #
 
 ServerRoot /etc/apache
 
-# BindAddress: VocÍ pode usar esta opÁ„o em virtual hosts. Esta
-# opÁ„o È usada para dizer ao servidor que endereÁo IP escutar. Ele pode 
-# conter ou "*", um endereÁo IP, ou um nome de domÌnio completamente qualificado
-# (FQDN). Veja tambÈm a diretiva VirtualHost.
+# BindAddress: Voc√™ pode usar esta op√ß√£o em virtual hosts. Esta
+# op√ß√£o √© usada para dizer ao servidor que endere√ßo IP escutar. Ele pode 
+# conter ou "*", um endere√ßo IP, ou um nome de dom√≠nio completamente qualificado
+# (FQDN). Veja tamb√©m a diretiva VirtualHost.
 
 BindAddress *
 
 #
 # Suporte a Objetos Compartilhados Dinamicamente (DSO - Dynamic Shared Object)
 #
-# Para ser capaz de usar a funcionalidade de um mÛdulo que foi compilado como 
-# um mÛdulo DSO, vocÍ ter· que adicionar as linhas 'LoadModule' correspondentes
-# nesta localizaÁ„o, assim as diretivas contidas nela estar„o disponÌveis 
-# _antes_ de serem usadas. Por favor leia o arquivo README.DSO na distribuiÁ„o
+# Para ser capaz de usar a funcionalidade de um m√≥dulo que foi compilado como 
+# um m√≥dulo DSO, voc√™ ter√° que adicionar as linhas 'LoadModule' correspondentes
+# nesta localiza√ß√£o, assim as diretivas contidas nela estar√£o dispon√≠veis 
+# _antes_ de serem usadas. Por favor leia o arquivo README.DSO na distribui√ß√£o
 # 1.3 do Apache para mais detalhes sobre o mecanismo DSO e execute o comando
-# "apache -l" para a lista de mÛdulos j· compilados (estaticamente linkados e 
-# assim sempre disponÌveis) em seu bin·rio do Apache.
+# "apache -l" para a lista de m√≥dulos j√° compilados (estaticamente linkados e 
+# assim sempre dispon√≠veis) em seu bin√°rio do Apache.
 #
 # Please keep this LoadModule: line here, it is needed for installation.
 # LoadModule vhost_alias_module /usr/lib/apache/1.3/mod_vhost_alias.so
@@ -173,31 +173,31 @@ LoadModule setenvif_module /usr/lib/apache/1.3/mod_setenvif.so
 # LoadModule roaming_module /usr/lib/apache/1.3/mod_roaming.so
 
 #
-# ExtendedStatus: Controla de o Apache gerar· detalhes completos de status
-# (ExtendedStatus On) ou apenas detalhes b·sicos (ExtendedStatus Off) quando o 
-# manipulador (handler) "server-status" for usado. O padr„o È Off.
+# ExtendedStatus: Controla de o Apache gerar√° detalhes completos de status
+# (ExtendedStatus On) ou apenas detalhes b√°sicos (ExtendedStatus Off) quando o 
+# manipulador (handler) "server-status" for usado. O padr√£o √© Off.
 #
 ExtendedStatus on
 
 #
-# ErrorLog: A localizaÁ„o do arquivo de log de erros.
-# Se n„o estiver especificando a diretiva ErrorLog dentro de &lt;VirtualHost&gt;, 
-# as mensagens de erros relativas aos hosts virtuais ser„o registradas neste 
+# ErrorLog: A localiza√ß√£o do arquivo de log de erros.
+# Se n√£o estiver especificando a diretiva ErrorLog dentro de &lt;VirtualHost&gt;, 
+# as mensagens de erros relativas aos hosts virtuais ser√£o registradas neste 
 # arquivo. Se definir um arquivo de log de erros para &lt;VirtualHost&gt;, as 
-# mensagens relativas ao servidor controlados por ela ser„o registradas l· e 
-# n„o neste arquivo.
+# mensagens relativas ao servidor controlados por ela ser√£o registradas l√° e 
+# n√£o neste arquivo.
 #
 ErrorLog /var/log/apache/error.log
 
 #
-# LogLevel: Controla o n˙mero de mensagens registradas no ErrorLog.
-# Facilidades possÌveis incluem: debug, info, notice, warn, error, crit,
+# LogLevel: Controla o n√∫mero de mensagens registradas no ErrorLog.
+# Facilidades poss√≠veis incluem: debug, info, notice, warn, error, crit,
 # alert, emerg.
-# Veja as facilidades na seÁ„o do guia sobre o syslog para detalhes
+# Veja as facilidades na se√ß√£o do guia sobre o syslog para detalhes
 #
 LogLevel warn
 
-# As seguintes diretivas definem alguns formatos de nomes que ser„o usadas com a 
+# As seguintes diretivas definem alguns formatos de nomes que ser√£o usadas com a 
 # diretiva CustomLog (veja abaixo).
 
 LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %T %v" full
@@ -208,16 +208,16 @@ LogFormat "%{Referer}i -> %U" referer
 LogFormat "%{User-agent}i" agent
 
 #
-# A localizaÁ„o e formato do arquivo de log de acesso (definida pela diretiva 
+# A localiza√ß√£o e formato do arquivo de log de acesso (definida pela diretiva 
 # LogFormat acima).
-# Se n„o definir quaisquer arquivos de log de acesso dentro de um 
-# &lt;VirtualHost&gt;, elas ser„o registradas aqui. Se for definida dentro
-# de &lt;VirtualHost&gt; o arquivo de log de acesso ser· registrado no 
-# arquivo especificado na diretiva e n„o aqui.
+# Se n√£o definir quaisquer arquivos de log de acesso dentro de um 
+# &lt;VirtualHost&gt;, elas ser√£o registradas aqui. Se for definida dentro
+# de &lt;VirtualHost&gt; o arquivo de log de acesso ser√° registrado no 
+# arquivo especificado na diretiva e n√£o aqui.
 #
 #CustomLog /var/log/apache/access.log common
 
-# Se vocÍ desejar ter um arquivo de log separado para o agent (navegador usado) 
+# Se voc√™ desejar ter um arquivo de log separado para o agent (navegador usado) 
 # e referer, descomente as seguintes diretivas.
 
 #CustomLog /var/log/apache/referer.log referer
@@ -230,16 +230,16 @@ LogFormat "%{User-agent}i" agent
 CustomLog /var/log/apache/access.log combined
 
 #
-# Incluir uma linha contendo a vers„o do servidor e um nome de host virtual
-# para as p·ginas geradas pelo servidor (documentos de erro, listagens 
-# de diretÛrios FTP, saÌda dos mÛdulos mod_status e mod_info, etc., exceto 
-# para documentos gerados via CGI). Use o valor "EMail" para tambÈm incluir 
+# Incluir uma linha contendo a vers√£o do servidor e um nome de host virtual
+# para as p√°ginas geradas pelo servidor (documentos de erro, listagens 
+# de diret√≥rios FTP, sa√≠da dos m√≥dulos mod_status e mod_info, etc., exceto 
+# para documentos gerados via CGI). Use o valor "EMail" para tamb√©m incluir 
 # um link mailto: para o ServerAdmin. Escolha entre "On", "Off" ou "EMail".
 #
 ServerSignature On
 
 #
-# PidFile: O arquivo que o servidor gravar· os detalhes sobre seu PID quando 
+# PidFile: O arquivo que o servidor gravar√° os detalhes sobre seu PID quando 
 # iniciar.
 #
 PidFile /var/run/apache.pid
@@ -247,15 +247,15 @@ PidFile /var/run/apache.pid
 #
 # ScoreBoardFile: Arquivo usado para armazenar detalhes do processo interno do 
 # servidor. Nem todas as arquiteturas requerem esta diretiva, mas se a sua 
-# requerer (vocÍ saber· porque este arquivo ser· criado quando executar o 
-# Apache) ent„o vocÍ *dever·* ter certeza que dois processos do Apache n„o
+# requerer (voc√™ saber√° porque este arquivo ser√° criado quando executar o 
+# Apache) ent√£o voc√™ *dever√°* ter certeza que dois processos do Apache n√£o
 # utilizam o mesmo arquivo ScoreBoardFile.
 #
 ScoreBoardFile /var/run/apache.scoreboard
 
 #
-# Na configuraÁ„o padr„o, o servidor processar· este arquivo, o 
-# srm.conf e o access.conf neste ordem. VocÍ pode fazer o servidor
+# Na configura√ß√£o padr√£o, o servidor processar√° este arquivo, o 
+# srm.conf e o access.conf neste ordem. Voc√™ pode fazer o servidor
 # ignorar estes arquivos usando "/dev/null".
 #
 ResourceConfig /etc/apache/srm.conf
@@ -263,123 +263,123 @@ AccessConfig /etc/apache/access.conf
 
 #
 # A diretiva LockFile define o caminho do lockfile usado quando o servidor 
-# Apache for compilado com a opÁ„o USE_FCNTL_SERIALIZED_ACCEPT ou
+# Apache for compilado com a op√ß√£o USE_FCNTL_SERIALIZED_ACCEPT ou
 # USE_FLOCK_SERIALIZED_ACCEPT. Esta diretiva normalmente deve ser deixada em seu
-# valor padr„o. A raz„o principal de modifica-la È no caso do diretÛrio de logs
+# valor padr√£o. A raz√£o principal de modifica-la √© no caso do diret√≥rio de logs
 # for montado via um servidor NFS< pois o arquivo especificado em LockFile
 # DEVE SER ARMAZENADO EM UM DISCO LOCAL. O PID do processo do servidor principal
-# È automaticamente adicionado neste arquivo.
+# √© automaticamente adicionado neste arquivo.
 #
 LockFile /var/run/apache.lock
 
-# ServerName permite ajustar o nome de host que ser· enviado 
+# ServerName permite ajustar o nome de host que ser√° enviado 
 # aos clientes, caso for diferente do nome real (por exemplo, se desejar usar 
-# www ao invÈs do nome real de seu servidor).
+# www ao inv√©s do nome real de seu servidor).
 #
-# Nota: VocÍ n„o pode simplesmente inventar nomes e esperar que funcionem. O nome
-# que definir dever· ser um nome DNS v·lido para sua m·quina. 
+# Nota: Voc√™ n√£o pode simplesmente inventar nomes e esperar que funcionem. O nome
+# que definir dever√° ser um nome DNS v√°lido para sua m√°quina. 
 
 ServerName debian.meudominio.org
 
-# UseCanonicalName: Com esta opÁ„o ligada, se o Apache precisar construir uma 
-# URL de referÍncia (uma url que È um retorno do servidor a uma requisiÁ„o) ele 
-# usar· ServerName e Port para fazer o "nome canÙnico". Com esta opÁ„o desligada,
-# o Apache usar· computador:porta que o cliente forneceu, quando possÌvel. 
-# Isto tambÈm afeta SERVER_NAME e SERVER_PORT nos scripts CGIs.
+# UseCanonicalName: Com esta op√ß√£o ligada, se o Apache precisar construir uma 
+# URL de refer√™ncia (uma url que √© um retorno do servidor a uma requisi√ß√£o) ele 
+# usar√° ServerName e Port para fazer o "nome can√¥nico". Com esta op√ß√£o desligada,
+# o Apache usar√° computador:porta que o cliente forneceu, quando poss√≠vel. 
+# Isto tamb√©m afeta SERVER_NAME e SERVER_PORT nos scripts CGIs.
 # 
-# Dependendo de sua configuraÁ„o, principalmente em virtual hosts, È recomend·vel
-# deixa-la desativada ou com o valor DNS. O valor DNS obtÈm o nome do servidor
-# atravÈs de uma requisiÁ„o DNS reversa do endereÁo IP (muito ˙til para virtual
+# Dependendo de sua configura√ß√£o, principalmente em virtual hosts, √© recomend√°vel
+# deixa-la desativada ou com o valor DNS. O valor DNS obt√©m o nome do servidor
+# atrav√©s de uma requisi√ß√£o DNS reversa do endere√ßo IP (muito √∫til para virtual
 # hosts baseados em IP).
 UseCanonicalName off
 
-# CacheNegotiatedDocs: Por padr„o, o Apache envia Pragma: no-cache com cada 
-# documento que foi negociado na base do conte˙do. Isto permite dizer a 
-# servidores proxy para n„o fazerem cache do documento. Descomentando a 
-# seguinte linha desativa esta caracterÌstica, e os proxyes ser„o capazes
+# CacheNegotiatedDocs: Por padr√£o, o Apache envia Pragma: no-cache com cada 
+# documento que foi negociado na base do conte√∫do. Isto permite dizer a 
+# servidores proxy para n√£o fazerem cache do documento. Descomentando a 
+# seguinte linha desativa esta caracter√≠stica, e os proxyes ser√£o capazes
 # de fazer cache dos documentos.
 
 #CacheNegotiatedDocs
 
-# Timeout: O n˙mero de segundos antes de receber e enviar um time out
+# Timeout: O n√∫mero de segundos antes de receber e enviar um time out
 
 Timeout 300
 
-# KeepAlive: Se vai permitir ou n„o conexıes persistentes (mais que uma requisiÁ„o
-# por conex„o). Mude para "Off" para desativar.
+# KeepAlive: Se vai permitir ou n√£o conex√µes persistentes (mais que uma requisi√ß√£o
+# por conex√£o). Mude para "Off" para desativar.
 KeepAlive On
 
-# MaxKeepAliveRequests: O n˙mero m·ximo de requisiÁıes que ser„o permitidas 
-# durante uma conex„o persistente. Mude para 0 para permitir uma quantidade 
-# ilimitada. NÛs recomendamos deixar este n˙mero alto, para obter a m·xima 
+# MaxKeepAliveRequests: O n√∫mero m√°ximo de requisi√ß√µes que ser√£o permitidas 
+# durante uma conex√£o persistente. Mude para 0 para permitir uma quantidade 
+# ilimitada. N√≥s recomendamos deixar este n√∫mero alto, para obter a m√°xima 
 # performance
 
 MaxKeepAliveRequests 100
 
-# KeepAliveTimeout: N˙mero de segundos que aguardar· a prÛxima requisiÁ„o
+# KeepAliveTimeout: N√∫mero de segundos que aguardar√° a pr√≥xima requisi√ß√£o
 
 KeepAliveTimeout 15
 
-# Regulagem do tamanho de pool do servidor. Ao invÈs de fazer vocÍ adivinhar
-# quantos processos servidores precisar·, o Apache adapta dinamicamente 
-# de acordo com a carga que ele vÍ --- isto È, ele tenta manter o n˙mero de 
+# Regulagem do tamanho de pool do servidor. Ao inv√©s de fazer voc√™ adivinhar
+# quantos processos servidores precisar√°, o Apache adapta dinamicamente 
+# de acordo com a carga que ele v√™ --- isto √©, ele tenta manter o n√∫mero de 
 # processos o bastante para manipular a carga atual, mas alguns poucos 
-# servidores esparsos para manipular requisiÁıes transientes (ex. requisiÁıes
-# simult‚neas m˙ltiplas de um navegador Netscape simples).
+# servidores esparsos para manipular requisi√ß√µes transientes (ex. requisi√ß√µes
+# simult√¢neas m√∫ltiplas de um navegador Netscape simples).
 
-# Ele faz isto verificando periodicamente quantos servidores est„o 
-# aguardando por uma requisiÁ„o. Se l· existe menos que MinSpareServers, 
+# Ele faz isto verificando periodicamente quantos servidores est√£o 
+# aguardando por uma requisi√ß√£o. Se l√° existe menos que MinSpareServers, 
 # ele cria um novo processo. Se existe mais que MaxSpareServers, ele 
-# fecha alguns processos. Os valores abaixo est„o adequados para muitos
+# fecha alguns processos. Os valores abaixo est√£o adequados para muitos
 # sites
 
 MinSpareServers 5
 MaxSpareServers 10
 
-# N˙mero de servidores que ser„o iniciados --- deve conter um valor razo·vel.
+# N√∫mero de servidores que ser√£o iniciados --- deve conter um valor razo√°vel.
 
 StartServers 5
 
-# Limita o n˙mero total de servidores rodando, i.e., limita o n˙mero de clientes
-# que podem conectar simultaneamente --- se este limite È sempre atingido,
-# os clientes podem ser„o BARRADOS, assim este valor N√O DEVE SER MUITO PEQUENO.
-# Ele tem a intenÁ„o principal de ser um freio para manter um em execuÁ„o com 
-# uma performance aceit·vel de acordo com os requerimentos de construÁ„o e 
+# Limita o n√∫mero total de servidores rodando, i.e., limita o n√∫mero de clientes
+# que podem conectar simultaneamente --- se este limite √© sempre atingido,
+# os clientes podem ser√£o BARRADOS, assim este valor N√ÉO DEVE SER MUITO PEQUENO.
+# Ele tem a inten√ß√£o principal de ser um freio para manter um em execu√ß√£o com 
+# uma performance aceit√°vel de acordo com os requerimentos de constru√ß√£o e 
 # carga calculada no servidor.
 
 MaxClients 150
 
 #
-# MaxRequestsPerChild: O n˙mero de requisiÁıes que cada processo tem permiss„o
-# de processar antes do processo filho ser finalizado. O filho ser· finalizado 
-# para evitar problemas apÛs uso prolongado quando o Apache (e talvez as 
-# bibliotecas que utiliza) tomar memÛria e outros recursos. Na maioria dos 
-# sistemas, isto realmente n„o È necess·rio, exceto para alguns (como o 
-# Solaris) que possuem ponteiros not·veis em suas bibliotecas. Para estas 
+# MaxRequestsPerChild: O n√∫mero de requisi√ß√µes que cada processo tem permiss√£o
+# de processar antes do processo filho ser finalizado. O filho ser√° finalizado 
+# para evitar problemas ap√≥s uso prolongado quando o Apache (e talvez as 
+# bibliotecas que utiliza) tomar mem√≥ria e outros recursos. Na maioria dos 
+# sistemas, isto realmente n√£o √© necess√°rio, exceto para alguns (como o 
+# Solaris) que possuem ponteiros not√°veis em suas bibliotecas. Para estas 
 # plataformas, ajuste para algo em torno de 10000 ou algo assim; uma
-# configuraÁ„o de 0 significa ilimitado. 
+# configura√ß√£o de 0 significa ilimitado. 
 #
-# NOTA: Este valor n„o inclui requisiÁıes keepalive apÛs a requisiÁ„o
-#       inicial por conex„o. Por exemplo, se um processo filho manipula
-#       uma requisiÁ„o inicial e 10 requisiÁıes "keptalive" subseq¸entes, 
-#       ele somente contar· 1 requisiÁ„o neste limite.
+# NOTA: Este valor n√£o inclui requisi√ß√µes keepalive ap√≥s a requisi√ß√£o
+#       inicial por conex√£o. Por exemplo, se um processo filho manipula
+#       uma requisi√ß√£o inicial e 10 requisi√ß√µes "keptalive" subseq√ºentes, 
+#       ele somente contar√° 1 requisi√ß√£o neste limite.
 #
 MaxRequestsPerChild 30
 
 
 # Listen: Permite fazer o Apache escutar um IP determinado e/ou porta, em 
-# adiÁ„o a padr„o. Veja tambÈm o comando VirtualHost
+# adi√ß√£o a padr√£o. Veja tamb√©m o comando VirtualHost
 
 #Listen 3000
 #Listen 12.34.56.78:80
 
-# VirtualHost: Permite o daemon responder a requisiÁıes para mais que um 
-# endereÁo IP do servidor, se sua m·quina estiver configurada para aceitar pacotes
-# para m˙ltiplos endereÁos de rede. Isto pode ser feito com a opÁ„o de aliasing
-# do ifconfig ou atravÈs de patches do kernel como o de VIF.
+# VirtualHost: Permite o daemon responder a requisi√ß√µes para mais que um 
+# endere√ßo IP do servidor, se sua m√°quina estiver configurada para aceitar pacotes
+# para m√∫ltiplos endere√ßos de rede. Isto pode ser feito com a op√ß√£o de aliasing
+# do ifconfig ou atrav√©s de patches do kernel como o de VIF.
 
 # Qualquer diretiva httpd.conf ou srm.conf pode ir no comando VirtualHost.
-# Veja tambÈm a entrada BindAddress.
+# Veja tamb√©m a entrada BindAddress.
 
 #&lt;VirtualHost host.some_domain.com&gt;
 #ServerAdmin webmaster@host.some_domain.com
@@ -390,16 +390,16 @@ MaxRequestsPerChild 30
 #&lt;/VirtualHost&gt;
 
 
-# VirtualHost: Se vocÍ quiser manter m˙ltiplos domÌnios/nomes de m·quinas em sua 
-# m·quina vocÍ pode ajustar o conte˙do de VirtualHost para eles.
-# Por favor veja a documentaÁ„o em &lt;http://www.apache.org/docs/vhosts/&gt;
+# VirtualHost: Se voc√™ quiser manter m√∫ltiplos dom√≠nios/nomes de m√°quinas em sua 
+# m√°quina voc√™ pode ajustar o conte√∫do de VirtualHost para eles.
+# Por favor veja a documenta√ß√£o em &lt;http://www.apache.org/docs/vhosts/&gt;
 # para mais detalhes antes de tentar configurar seus hosts virtuais.
-# VocÍ pode usar a opÁ„o de linha de comando '-S' para verificar sua configuraÁ„o
+# Voc√™ pode usar a op√ß√£o de linha de comando '-S' para verificar sua configura√ß√£o
 # de hosts virtuais.
 
 #
-# Se desejar usar hosts virtuais baseados em nome, ser· necess·rio definir no
-# mÌnimo um endereÁo IP (e n˙mero de porta) para eles.
+# Se desejar usar hosts virtuais baseados em nome, ser√° necess√°rio definir no
+# m√≠nimo um endere√ßo IP (e n√∫mero de porta) para eles.
 #
 #NameVirtualHost 12.34.56.78:80
 #NameVirtualHost 12.34.56.78
@@ -427,57 +427,57 @@ MaxRequestsPerChild 30
 <sect1 id="s-apache-exemplo-srm">srm.conf
  <p>
 <example>
-# Neste arquivo s„o definidos o espaÁo de nomes que os usu·rios visualizar„o no
-# seu servidor http. Este arquivo tambÈm define configuraÁıes do servidor que
-# afetam como as requisiÁıes s„o servidas e como os resultados dever„o ser 
+# Neste arquivo s√£o definidos o espa√ßo de nomes que os usu√°rios visualizar√£o no
+# seu servidor http. Este arquivo tamb√©m define configura√ß√µes do servidor que
+# afetam como as requisi√ß√µes s√£o servidas e como os resultados dever√£o ser 
 # formatados. 
 
 # Veja os tutoriais em http://www.apache.org/ para mais detalhes
 
-# DocumentRoot: O diretÛrio principal onde vocÍ servira seus documentos.
-# Por padr„o, todas as requisiÁıes s„o tomadas atravÈs deste diretÛrio, 
-# exceto links simbÛlicos e aliases que podem ser usados para apontar para
-# outras localizaÁıes no sistema de arquivos.
+# DocumentRoot: O diret√≥rio principal onde voc√™ servira seus documentos.
+# Por padr√£o, todas as requisi√ß√µes s√£o tomadas atrav√©s deste diret√≥rio, 
+# exceto links simb√≥licos e aliases que podem ser usados para apontar para
+# outras localiza√ß√µes no sistema de arquivos.
 DocumentRoot /var/www
 
 #
-# UserDir: O nome do diretÛrio que ser· adicionado ao diretÛrio home do usu·rio
-# caso uma requisiÁ„o ~usu·rio for recebida.
+# UserDir: O nome do diret√≥rio que ser√° adicionado ao diret√≥rio home do usu√°rio
+# caso uma requisi√ß√£o ~usu√°rio for recebida.
 #
 &lt;IfModule mod_userdir.c&gt;
-    # Linha abaixo por recomendaÁ„o de seguranÁa do manual do Apache
+    # Linha abaixo por recomenda√ß√£o de seguran√ßa do manual do Apache
     UserDir disabled root
     UserDir public_html
 &lt;/IfModule&gt;
 
 
 #
-# DirectoryIndex: Nome do arquivo ou arquivos que ser„o usados como Ìndice do 
-# diretÛrio. Especifique mais de um arquivos separados por espaÁos ao invÈs
-# de um sÛ um nome (como "index") para aumentar a performance do servidor. 
+# DirectoryIndex: Nome do arquivo ou arquivos que ser√£o usados como √≠ndice do 
+# diret√≥rio. Especifique mais de um arquivos separados por espa√ßos ao inv√©s
+# de um s√≥ um nome (como "index") para aumentar a performance do servidor. 
 #
 &lt;IfModule mod_dir.c&gt;
     DirectoryIndex index.html index.htm index.shtml index.cgi
 &lt;/IfModule&gt;
 
 #
-# Diretivas que controlam a exibiÁ„o de listagem de diretÛrios geradas pelo servidor.
+# Diretivas que controlam a exibi√ß√£o de listagem de diret√≥rios geradas pelo servidor.
 #
 
 &lt;IfModule mod_autoindex.c&gt;
 
     #
-    # FancyIndexing: se vocÍ deseja o padr„o fancy index ou padr„o para a indexaÁ„o
-    #                de arquivos no diretÛrio. Usando FancyIndexing o servidor
-    #                apache gerar· uma listagem de arquivos que poder· ser 
-    #                ordenada, usar tipos de Ìcones e encoding, etc. Veja as 
-    #                prÛximas opÁıes
+    # FancyIndexing: se voc√™ deseja o padr√£o fancy index ou padr√£o para a indexa√ß√£o
+    #                de arquivos no diret√≥rio. Usando FancyIndexing o servidor
+    #                apache gerar√° uma listagem de arquivos que poder√° ser 
+    #                ordenada, usar tipos de √≠cones e encoding, etc. Veja as 
+    #                pr√≥ximas op√ß√µes
     IndexOptions FancyIndexing
 
     #
-    # As diretivas AddIcon* dizem ao servidor que Ìcone mostrar para um determinado
-    # arquivo ou extens„o de arquivos. Estes somente s„o mostrados para os 
-    # diretÛrios classificados atravÈs da opÁ„o FancyIndexing.
+    # As diretivas AddIcon* dizem ao servidor que √≠cone mostrar para um determinado
+    # arquivo ou extens√£o de arquivos. Estes somente s√£o mostrados para os 
+    # diret√≥rios classificados atrav√©s da op√ß√£o FancyIndexing.
     #
     AddIconByEncoding (CMP,/icons/compressed.gif) x-compress x-gzip
 
@@ -509,69 +509,69 @@ DocumentRoot /var/www
     AddIcon /icons/folder.gif ^^DIRECTORY^^
     AddIcon /icons/blank.gif ^^BLANKICON^^
 
-    # DefaultIcon È o Ìcone que ser· mostrado para aplicativos que n„o tiverem um 
-    # Ìcone explicitamente definido.
+    # DefaultIcon √© o √≠cone que ser√° mostrado para aplicativos que n√£o tiverem um 
+    # √≠cone explicitamente definido.
 
     DefaultIcon /icons/unknown.gif
 
     #
-    # AddDescription: isto lhe permite colocar uma curta descriÁ„o apÛs um arquivo
-    # nos Ìndices gerados pelo servidor. Estes somente s„o mostrados para diretÛrios
-    # com Ìndices organizados usando a opÁ„o FancyIndexing.
-    # Formato: AddDescription "descriÁ„o" extens„o
+    # AddDescription: isto lhe permite colocar uma curta descri√ß√£o ap√≥s um arquivo
+    # nos √≠ndices gerados pelo servidor. Estes somente s√£o mostrados para diret√≥rios
+    # com √≠ndices organizados usando a op√ß√£o FancyIndexing.
+    # Formato: AddDescription "descri√ß√£o" extens√£o
     #
     #AddDescription "GZIP compressed document" .gz
     #AddDescription "tar archive" .tar
     #AddDescription "GZIP compressed tar archive" .tgz
 
 
-    # ReadmeName È o nome do arquivo LEIAME que o servidor procurar· como 
-    # padr„o. Estes ser„o inseridos no fim da listagem de diretÛrios.
+    # ReadmeName √© o nome do arquivo LEIAME que o servidor procurar√° como 
+    # padr√£o. Estes ser√£o inseridos no fim da listagem de diret√≥rios.
     Formato: ReadmeName nome
     #
-    # O servidor procurar· primeiro por nome.html, incluÌdo se ele for encontrado,
-    # e ent„o procurar· pelo nome e incluir· ele como texto plano se encontrado..
+    # O servidor procurar√° primeiro por nome.html, inclu√≠do se ele for encontrado,
+    # e ent√£o procurar√° pelo nome e incluir√° ele como texto plano se encontrado..
 
     ReadmeName README
     
-    # HeaderName È o nome do arquivo que deve ser colocado no topo do Ìndice
-    # de diretÛrios. As regras de procura de nome s„o as mesmas do arquivo
+    # HeaderName √© o nome do arquivo que deve ser colocado no topo do √≠ndice
+    # de diret√≥rios. As regras de procura de nome s√£o as mesmas do arquivo
     # README
     HeaderName HEADER
 
     #
-    # IndexIgnore: um conjunto de nomes de arquivos que a listagem de diretÛrios
-    # deve ignorar e n„o incluir na listagem. … permitido o uso de coringas 
+    # IndexIgnore: um conjunto de nomes de arquivos que a listagem de diret√≥rios
+    # deve ignorar e n√£o incluir na listagem. √â permitido o uso de coringas 
     # como no interpretador de comandos.
     #
     IndexIgnore .??* *~ *# HEADER* README* RCS CVS *,v *,t
 
 &lt;/IfModule&gt;
 
-# AccessFileName: O nome do arquivo que ser· procurado em cada diretÛrio
-# que contÈm detalhes sobre as permissıes de acesso a um determinado 
-# diretÛrio e opÁıes de listagem. Tenha cuidado ao modificar o nome 
-# deste arquivo, muitas definiÁıes que trabalham em cima do nome
-# .htaccess nos arquivos de configuraÁ„o dever„o ser modificados para
-# n„o comprometer a seguranÁa de seu servidor. 
-# Uma falta de atenÁ„o neste ponto poder· deixar este arquivo visÌvel
-# em qualquer listagem de diretÛrios facilmente...
+# AccessFileName: O nome do arquivo que ser√° procurado em cada diret√≥rio
+# que cont√©m detalhes sobre as permiss√µes de acesso a um determinado 
+# diret√≥rio e op√ß√µes de listagem. Tenha cuidado ao modificar o nome 
+# deste arquivo, muitas defini√ß√µes que trabalham em cima do nome
+# .htaccess nos arquivos de configura√ß√£o dever√£o ser modificados para
+# n√£o comprometer a seguran√ßa de seu servidor. 
+# Uma falta de aten√ß√£o neste ponto poder√° deixar este arquivo vis√≠vel
+# em qualquer listagem de diret√≥rios facilmente...
 
 AccessFileName .htaccess
 
-# TypesConfig especifica o arquivo de configuraÁ„o que contÈm os tipos
+# TypesConfig especifica o arquivo de configura√ß√£o que cont√©m os tipos
 # usados pelo servidor
 TypesConfig /etc/mime.types
 
 #
-# DefaultType È o tipo MIME padr„o que o servidor utilizar· para um documento
-# caso ele n„o possa determinar seu conte˙do, como atravÈs de extensıes 
-# de arquivos. Se o servidor contÈm em sua maioria texto ou documentos em HTML,
-# "text/plain" È um bom valor. Caso a maioria do conte˙do seja bin·rios, tal
-# como aplicativos ou fotos, o tipo mais adequado ao seu caso poder· ser 
+# DefaultType √© o tipo MIME padr√£o que o servidor utilizar√° para um documento
+# caso ele n√£o possa determinar seu conte√∫do, como atrav√©s de extens√µes 
+# de arquivos. Se o servidor cont√©m em sua maioria texto ou documentos em HTML,
+# "text/plain" √© um bom valor. Caso a maioria do conte√∫do seja bin√°rios, tal
+# como aplicativos ou fotos, o tipo mais adequado ao seu caso poder√° ser 
 # "application/octet-stream" para evitar que navegadores tentem exibir
-# aplicativos bin·rios como se fossem texto.
-# Se desejar uma referÍncia r·pida sobre tipos mime, consulte o arquivo
+# aplicativos bin√°rios como se fossem texto.
+# Se desejar uma refer√™ncia r√°pida sobre tipos mime, consulte o arquivo
 # /etc/mime.types
 #
 DefaultType text/plain
@@ -583,31 +583,31 @@ DefaultType text/plain
 
     # AddEncoding permite que alguns navegadores (Mosaic/X 2.1+, Netscape, etc)
     # descompactem dados durante sua abertura. N
-    # Nota: Nem todos os navegadores suportam isto. EsqueÁa os nomes parecidos,
-    # as seguintes diretivas Add* n„o tem nada a ver com personalizaÁıes
-    # da opÁ„o FancyIndexing usada nas diretivas acima.
+    # Nota: Nem todos os navegadores suportam isto. Esque√ßa os nomes parecidos,
+    # as seguintes diretivas Add* n√£o tem nada a ver com personaliza√ß√µes
+    # da op√ß√£o FancyIndexing usada nas diretivas acima.
 
     AddEncoding x-compress Z
     AddEncoding x-gzip gz tgz
 
     #
-    # AddLanguage: permite especificar o idioma do documento. VocÍ pode
-    # ent„o usar a negociaÁ„o de conte˙do para dar ao navegador um 
+    # AddLanguage: permite especificar o idioma do documento. Voc√™ pode
+    # ent√£o usar a negocia√ß√£o de conte√∫do para dar ao navegador um 
     # arquivo no idioma solicitado.
     #
-    # Nota 1: O sufixo n„o precisa ser o mesmo da palavra chave do 
-    # idioma --- estes com o documento em PolonÍs (no qual o 
-    # cÛdigo padr„o da rede È pl) pode desejar usar "AddLanguage pl .po" 
-    # para evitar confus„o de nomes com a extens„o comum de scripts
+    # Nota 1: O sufixo n√£o precisa ser o mesmo da palavra chave do 
+    # idioma --- estes com o documento em Polon√™s (no qual o 
+    # c√≥digo padr√£o da rede √© pl) pode desejar usar "AddLanguage pl .po" 
+    # para evitar confus√£o de nomes com a extens√£o comum de scripts
     # scripts em linguagem Perl.
     #
     # Nota 2: As entradas de exemplos abaixo mostram que em alguns casos
-    # as duas letras de abreviaÁ„o do 'Idioma' n„o È idÍntico as duas letras
-    # do 'PaÌs' para seu paÌs, como 'Danmark/dk' versus 'Danish/da'.
+    # as duas letras de abrevia√ß√£o do 'Idioma' n√£o √© id√™ntico as duas letras
+    # do 'Pa√≠s' para seu pa√≠s, como 'Danmark/dk' versus 'Danish/da'.
     #
-    # Nota 3: No caso de 'ltz' nÛs violamos a RFC usando uma especificaÁ„o de 
-    # trÍs caracteres. Mas existe um 'trabalho em progresso' para corrigir isto
-    # e obter os dados de referÍncia para limpar a RFC1766.
+    # Nota 3: No caso de 'ltz' n√≥s violamos a RFC usando uma especifica√ß√£o de 
+    # tr√™s caracteres. Mas existe um 'trabalho em progresso' para corrigir isto
+    # e obter os dados de refer√™ncia para limpar a RFC1766.
     #
     # Danish (da) - Dutch (nl) - English (en) - Estonian (ee)
     # French (fr) - German (de) - Greek-Modern (el)
@@ -635,11 +635,11 @@ DefaultType text/plain
     AddLanguage sv .se
     AddLanguage cz .cz
 
-    # LanguagePriority: permite definir a prioridade para a exibiÁ„o de 
-    # documentos caso nenhum documento confira durante a negociaÁ„o de 
-    # conte˙do.
+    # LanguagePriority: permite definir a prioridade para a exibi√ß√£o de 
+    # documentos caso nenhum documento confira durante a negocia√ß√£o de 
+    # conte√∫do.
     #
-    # Para fazer isto, especifique os idiomas em ordem de preferÍncia de exibiÁ„o
+    # Para fazer isto, especifique os idiomas em ordem de prefer√™ncia de exibi√ß√£o
     # de idiomas. 
     #
     &lt;IfModule mod_negotiation.c&gt;
@@ -648,9 +648,9 @@ DefaultType text/plain
 
     #
     # AddType permite modificar o mime.types sem editar o arquivo, ou fazer 
-    # a associaÁ„o de arquivos a certos tipos de conte˙do.
+    # a associa√ß√£o de arquivos a certos tipos de conte√∫do.
     #
-    # Por exemplo, o mÛdulo PHP 3.x (que n„o faz parte da distribuiÁ„o do 
+    # Por exemplo, o m√≥dulo PHP 3.x (que n√£o faz parte da distribui√ß√£o do 
     # Apache - veja http://www.php.net) tipicamente utiliza isto:
     #
     #AddType application/x-httpd-php3 .php3
@@ -668,11 +668,11 @@ DefaultType text/plain
     AddType text/x-hdml .hdml
 
     #
-    # AddHandler permite mapear certas extensıes de arquivos a programas
-    # "manipuladores" adequados a seu conte˙do. Estes podem ser construÌdos
+    # AddHandler permite mapear certas extens√µes de arquivos a programas
+    # "manipuladores" adequados a seu conte√∫do. Estes podem ser constru√≠dos
     # no servidor ou adicionados com o comando Action (veja abaixo).
     #
-    # Se desejar usar includes no lado do servidor, ou servir diretÛrios
+    # Se desejar usar includes no lado do servidor, ou servir diret√≥rios
     # com scripts CGI para fora, descomente as seguintes linhas.
     #
     # Para usar scripts CGI:
@@ -680,13 +680,13 @@ DefaultType text/plain
     #AddHandler cgi-script .cgi .sh .pl
 
     #
-    # Para usar arquivos html gerados atravÈs do servidor
+    # Para usar arquivos html gerados atrav√©s do servidor
     #
     #AddType text/html .shtml
     #AddHandler server-parsed .shtml
 
     #
-    # Descomente as seguintes linhas para ativar a caracterÌsticas de arquivos
+    # Descomente as seguintes linhas para ativar a caracter√≠sticas de arquivos
     # send-asis HTTP do servidor Apache
     #
     #AddHandler send-as-is asis
@@ -697,31 +697,31 @@ DefaultType text/plain
     #AddHandler imap-file map
 
     #
-    # Para ativar tipo de mapas, vocÍ poder· usar
+    # Para ativar tipo de mapas, voc√™ poder√° usar
     #
     #AddHandler type-map var
 
 &lt;/IfModule&gt;
 # Fim dos tipos de documentos
 
-# PreferÍncias padrıes de exibiÁ„o de caracteres (veja http://www.apache.org/info/css-security/).
+# Prefer√™ncias padr√µes de exibi√ß√£o de caracteres (veja http://www.apache.org/info/css-security/).
 
 AddDefaultCharset on
 AddDefaultCharsetName iso-8859-1
 
-# Redirect permite dizer aos clientes que documentos n„o existem mais no seu servidor 
-# e a nova localizaÁ„o do documento. 
+# Redirect permite dizer aos clientes que documentos n√£o existem mais no seu servidor 
+# e a nova localiza√ß√£o do documento. 
 # Format: Redirect nomeurl url
-# "nomeurl" È o caminho especificado na url e "url" È a nova localizaÁ„o do 
+# "nomeurl" √© o caminho especificado na url e "url" √© a nova localiza√ß√£o do 
 # documento
 
-# Aliases: Inclua aqui quantos apelidos vocÍ desejar (sem limite) o formato È:
+# Aliases: Inclua aqui quantos apelidos voc√™ desejar (sem limite) o formato √©:
 # Alias nomeurl nomereal
-# "nomeurl" È o caminho especificado na url e "nomereal" È a localizaÁ„o
+# "nomeurl" √© o caminho especificado na url e "nomereal" √© a localiza√ß√£o
 # do documento no sistema de arquivos local
 
-# Note que se vocÍ incluir uma / no fim de "nomeurl", ent„o o servidor 
-# requisitar· que tambÈm esteja presente na URL. 
+# Note que se voc√™ incluir uma / no fim de "nomeurl", ent√£o o servidor 
+# requisitar√° que tamb√©m esteja presente na URL. 
 
 Alias /icons/ /usr/share/apache/icons/
 Alias /doc/ /usr/doc/
@@ -729,23 +729,23 @@ Alias /focalinux /var/www/focalinux
 Alias /debian-br /var/www/debian-br/htdocs
 Alias /debian /pub/mirror/debian
 
-# ScriptAlias: Esta diretiva controla que diretÛrios contÈm scripts do servidor.
+# ScriptAlias: Esta diretiva controla que diret√≥rios cont√©m scripts do servidor.
 # Format: ScriptAlias fakename realname
 
 ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 
 #
-# Action: permite definir os tipos de mÌdia que executar„o um script quando um 
+# Action: permite definir os tipos de m√≠dia que executar√£o um script quando um 
 # arquivo que conferir for chamado. Isto elimina a necessidade de caminhos de URLs
-# repetidas para processadores de arquivos CGI freq¸entemente usados.
+# repetidas para processadores de arquivos CGI freq√ºentemente usados.
 # Format: Action media/type /cgi-script/location
 # Format: Action handler-name /cgi-script/location
 #
 
 #
-# MetaDir: especifica o nome do diretÛrio no qual o apache procurar· arquivos de 
-# detalhes do mÛdulo mod_cern_meta. Os mÛdulos meta contÈm cabeÁalhos HTTP
-# adicionais que ser„o incluÌdos durante o envio do documento. 
+# MetaDir: especifica o nome do diret√≥rio no qual o apache procurar√° arquivos de 
+# detalhes do m√≥dulo mod_cern_meta. Os m√≥dulos meta cont√©m cabe√ßalhos HTTP
+# adicionais que ser√£o inclu√≠dos durante o envio do documento. 
 #
 #MetaDir .web
 
@@ -755,30 +755,30 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 #
 #    1) texto plano
 #ErrorDocument 500 "O servidor fez boo boo.
-#  n.b.  a aspa (") marca como texto, ela n„o ser· exibida
+#  n.b.  a aspa (") marca como texto, ela n√£o ser√° exibida
 #
 #    2) redirecionamentos locais
 #ErrorDocument 404 /missing.html
 #  para redirecionar para a URL local /missing.html
 #ErrorDocument 404 /cgi-bin/missing_handler.pl
-#  N.B.: … tambÈm possÌvel redirecionar a um script o documento usando includes
+#  N.B.: √â tamb√©m poss√≠vel redirecionar a um script o documento usando includes
 #  do lado do servidor (server-side-includes).
 #
 #    3) redirecionamentos externos
 #ErrorDocument 402 http://algum.outro_servidor.com/inscricao.html
-#  N.B.: Muitas das vari·veis de ambientes associada com a requisiÁ„o atual *n„o*
-# estar„o disponÌveis para tal script.
+#  N.B.: Muitas das vari√°veis de ambientes associada com a requisi√ß√£o atual *n√£o*
+# estar√£o dispon√≠veis para tal script.
 
 #
-# O mÛdulo mod_mime_magic permite o servidor usar v·rias dicas atravÈs do conte˙do
-# do arquivo para determinar o seu tipo. A diretiva MIMEMagicFile diz ao mÛdulo
-# onde as definiÁıes de dicas est„o localizadas. O mÛdulo mod_mime_magic n„o È 
-# parte do servidor padr„o Apache (vocÍ precisar· adiciona-lo manualmente com 
-# uma linha LoadModule (veja o par·grafo DSO na seÁ„o Ambiente Global no 
+# O m√≥dulo mod_mime_magic permite o servidor usar v√°rias dicas atrav√©s do conte√∫do
+# do arquivo para determinar o seu tipo. A diretiva MIMEMagicFile diz ao m√≥dulo
+# onde as defini√ß√µes de dicas est√£o localizadas. O m√≥dulo mod_mime_magic n√£o √© 
+# parte do servidor padr√£o Apache (voc√™ precisar√° adiciona-lo manualmente com 
+# uma linha LoadModule (veja o par√°grafo DSO na se√ß√£o Ambiente Global no 
 # arquivo httpd.conf), ou recompile o servidor e inclua mod_mime_magic como
-# parte de sua configuraÁ„o), por este motivo ele est· entre as condicionais
-# &lt;IfModule&gt;. Isto significa que a diretiva MIMEMagicFile somente ser· processada
-# caso o mÛdulo estiver ativo no servidor. 
+# parte de sua configura√ß√£o), por este motivo ele est√° entre as condicionais
+# &lt;IfModule&gt;. Isto significa que a diretiva MIMEMagicFile somente ser√° processada
+# caso o m√≥dulo estiver ativo no servidor. 
 #
 &lt;IfModule mod_mime_magic.c&gt;
     MIMEMagicFile conf/magic
@@ -790,9 +790,9 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
     # As seguintes diretivas modificam o funcionamento da resposta normal do 
     # servidor HTTP.
     # A primeira diretiva desativa o keepalive para o Netscape 2.x e navegadores que
-    # as falsificam. Existem problemas conhecidos com estas implementaÁıes de 
-    # navegadores. A segunda diretiva È para o MS IE 4.0b2 que tem uma implementaÁ„o
-    # defeituosa do HTTP/1.1 e n„o suporta adequadamente o keepalive quando ele
+    # as falsificam. Existem problemas conhecidos com estas implementa√ß√µes de 
+    # navegadores. A segunda diretiva √© para o MS IE 4.0b2 que tem uma implementa√ß√£o
+    # defeituosa do HTTP/1.1 e n√£o suporta adequadamente o keepalive quando ele
     # utiliza as respostas de redirecionamento 301 e 302.
     #
     BrowserMatch "Mozilla/2" nokeepalive
@@ -800,15 +800,15 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 
     #
     # As seguintes diretivas desativam as respostas HTTP/1.1 para navegadores que
-    # violam a especificaÁ„o HTTP/1.0 n„o sendo capaz de enviar uma resposta 
-    # 1.1 b·sica.
+    # violam a especifica√ß√£o HTTP/1.0 n√£o sendo capaz de enviar uma resposta 
+    # 1.1 b√°sica.
     #
     BrowserMatch "RealPlayer 4\.0" force-response-1.0
     BrowserMatch "Java/1\.0" force-response-1.0
     BrowserMatch "JDK/1\.0" force-response-1.0
 &lt;/IfModule&gt;
 
-# Se o mÛdulo Perl est· instalado, isto ser· ativado.
+# Se o m√≥dulo Perl est√° instalado, isto ser√° ativado.
 &lt;IfModule mod_perl.c&gt;
   Alias /perl/ /var/www/perl/
   &lt;Location /perl&gt;
@@ -824,17 +824,17 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 <sect1 id="s-apache-exemplo-access">access.conf
  <p>
 <example>
-# access.conf: ConfiguraÁ„o de acesso Global
+# access.conf: Configura√ß√£o de acesso Global
 # Documentos on-line em http://www.apache.org/
 
-# Este arquivo define as configuraÁıes do servidor que afetam que tipos de 
-# serviÁos s„o permitidos e em quais circunst‚ncias. 
+# Este arquivo define as configura√ß√µes do servidor que afetam que tipos de 
+# servi√ßos s√£o permitidos e em quais circunst√¢ncias. 
 
-# Cada diretÛrio que o Apache possui acesso, pode ser configurado respectivamente
-# com quais serviÁos e caracterÌsticas que podem ser permitidas e/ou bloqueadas 
-# no diretÛrio (e seus subdiretÛrios).
+# Cada diret√≥rio que o Apache possui acesso, pode ser configurado respectivamente
+# com quais servi√ßos e caracter√≠sticas que podem ser permitidas e/ou bloqueadas 
+# no diret√≥rio (e seus subdiret√≥rios).
 #
-# Primeiro a configuraÁ„o restringe uma sÈrie de permissıes
+# Primeiro a configura√ß√£o restringe uma s√©rie de permiss√µes
 &lt;Directory /&gt;
     Options SymLinksIfOwnerMatch
     AllowOverride None
@@ -842,29 +842,29 @@ ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
 #    Deny from all
 &lt;/Directory&gt;
 
-# Desse ponto em diante, È necess·rio especificar o que ser· permitido
-# caso contr·rio ser· bloqueado pelo bloco acima
+# Desse ponto em diante, √© necess√°rio especificar o que ser√° permitido
+# caso contr√°rio ser√° bloqueado pelo bloco acima
 
-# Esta parte deve ser modificada para a localizaÁ„o do documento raÌz do servidor.
+# Esta parte deve ser modificada para a localiza√ß√£o do documento ra√≠z do servidor.
 
 &lt;Directory /var/www&gt;
 
-# A opÁ„o Options pode conter os valores "None", "All", ou quaisquer combinaÁ„o
+# A op√ß√£o Options pode conter os valores "None", "All", ou quaisquer combina√ß√£o
 # de "Indexes", "Includes", "FollowSymLinks", "ExecCGI", ou "MultiViews".
 #
 # Note que "MultiViews" deve ser *explicitamente* especificada --- "Options All"
-# n„o a ativa (pelo menos n„o ainda).
+# n√£o a ativa (pelo menos n√£o ainda).
 
 Options Indexes FollowSymLinks Includes MultiViews
 
-# Esta opÁ„o controla que opÁıes os arquivos .htaccess nos diretÛrios podem ser
-# substituÌdas. Pode tambÈm conter "All", ou qualquer combinaÁ„o de "Options", 
+# Esta op√ß√£o controla que op√ß√µes os arquivos .htaccess nos diret√≥rios podem ser
+# substitu√≠das. Pode tamb√©m conter "All", ou qualquer combina√ß√£o de "Options", 
 # "FileInfo", "AuthConfig", e "Limit"
 
 AllowOverride None
 
-# Controla quem pode obter materiais deste servidor. Leia a seÁ„o adequada no
-# guia para mais explicaÁıes sobre a ordem de acesso, padrıes e valores permitidos.
+# Controla quem pode obter materiais deste servidor. Leia a se√ß√£o adequada no
+# guia para mais explica√ß√µes sobre a ordem de acesso, padr√µes e valores permitidos.
 
 order allow,deny
 allow from all
@@ -872,7 +872,7 @@ allow from all
 &lt;/Directory&gt;
 
 #
-# O diretÛrio "/usr/lib/cgi-bin" deve ser modificado para o diretÛrio que 
+# O diret√≥rio "/usr/lib/cgi-bin" deve ser modificado para o diret√≥rio que 
 # possuem seus scripts CGI, caso tenha configurado o suporte a CGI's no 
 # servidor. 
 #
@@ -884,9 +884,9 @@ allow from all
 &lt;/Directory&gt;
 
 #
-# Permite ver relatÛrios de status e funcionamento do servidor web e 
-# processos filhos, atravÈs da URL http://servidor/server-status
-# isto requer o mÛdulo status_module (mod_status.c) carregado no arquivo 
+# Permite ver relat√≥rios de status e funcionamento do servidor web e 
+# processos filhos, atrav√©s da URL http://servidor/server-status
+# isto requer o m√≥dulo status_module (mod_status.c) carregado no arquivo 
 # httpd.conf
 #
 #&lt;Location /server-status&gt;
@@ -897,9 +897,9 @@ allow from all
 #&lt;/Location&gt;
 
 #
-# Permite relatÛrio de configuraÁ„o remota do servidor, atravÈs da URL 
+# Permite relat√≥rio de configura√ß√£o remota do servidor, atrav√©s da URL 
 # http://servername/server-info 
-# Isto requer o mÛdulo info_module (mod_info.c) carregado no arquivo 
+# Isto requer o m√≥dulo info_module (mod_info.c) carregado no arquivo 
 # httpd.conf
 #
 #&lt;Location /server-info&gt;
@@ -909,7 +909,7 @@ allow from all
 #    Allow from .meudominio.org
 #&lt;/Location&gt;
 
-# VisualizaÁ„o do diretÛrio de Ìcones
+# Visualiza√ß√£o do diret√≥rio de √≠cones
 &lt;Directory /usr/share/apache/icons&gt;
     Options Indexes MultiViews
     AllowOverride None
@@ -918,7 +918,7 @@ allow from all
 &lt;/Directory&gt;
 
 
-# O Debian Policy assume que /usr/doc È "/doc/" e linkado com /usr/share/doc, 
+# O Debian Policy assume que /usr/doc √© "/doc/" e linkado com /usr/share/doc, 
 # pelo menos para localhost.
 
 &lt;Directory /usr/doc&gt;
@@ -928,7 +928,7 @@ allow from all
    allow from 192.168.1.10/24
 &lt;/Directory&gt;
 
-# Esta define a localizaÁ„o visualiz·vel do monitor de status mod_throttle
+# Esta define a localiza√ß√£o visualiz√°vel do monitor de status mod_throttle
 #
 &lt;location /throttle-info&gt;
    SetHandler throttle-info
@@ -936,14 +936,14 @@ allow from all
 
 #
 # As seguintes linhas previnem os arquivos .htaccess de serem mostrados nos
-# clientes Web. Pois os arquivos .htaccess freq¸entemente contÈm detalhes
-# de autorizaÁ„o, o acesso È desabilitado por razıes de seguranÁa. Comente
-# estas linhas se desejar que seus visitantes vejam o conte˙do dos arquivos
+# clientes Web. Pois os arquivos .htaccess freq√ºentemente cont√©m detalhes
+# de autoriza√ß√£o, o acesso √© desabilitado por raz√µes de seguran√ßa. Comente
+# estas linhas se desejar que seus visitantes vejam o conte√∫do dos arquivos
 # .htaccess. Se modificar a diretiva AccessFileName acima, tenha certeza de 
-# fazer as modificaÁıes correspondentes aqui.
+# fazer as modifica√ß√µes correspondentes aqui.
 #
-# As pessoas tambÈm tendem a usar nomes como .htpasswd nos arquivos de senhas
-# a diretiva abaixo os proteger· tambÈm.
+# As pessoas tamb√©m tendem a usar nomes como .htpasswd nos arquivos de senhas
+# a diretiva abaixo os proteger√° tamb√©m.
 #
 &lt;Files ~ "^\.ht"&gt;
     Order allow,deny
@@ -951,9 +951,9 @@ allow from all
 &lt;/Files&gt;
 
 #
-# Controla o acesso a diretÛrios UserDir. As seguintes diretivas s„o um exemplo
-# para um site onde estes diretÛrios est„o restritos a somente-leitura. Veja
-# detalhes sobre as opÁıes de acesso, e limites na seÁ„o sobre controle
+# Controla o acesso a diret√≥rios UserDir. As seguintes diretivas s√£o um exemplo
+# para um site onde estes diret√≥rios est√£o restritos a somente-leitura. Veja
+# detalhes sobre as op√ß√µes de acesso, e limites na se√ß√£o sobre controle
 # de acesso do guia
 #
 &lt;Directory /home/*/public_html&gt;
@@ -971,10 +971,10 @@ allow from all
 
 #
 # As vezes ocorrem relatos de pessoas tentando abusar de uma falha antiga nos 
-# dias do Apache 1.1 (muitas p·ginas na Net documentam isso). Esta falha envolve
-# um script CGI distribuÌdo como parte do Apache. Descomentando estas linhas vocÍ
-# poder· redirecionar estes ataques a um script de registro em phf.apache.org. Ou
-# poder· gravar em sua prÛpria m·quina, usando o script support/phf_abuse_log.cgi.
+# dias do Apache 1.1 (muitas p√°ginas na Net documentam isso). Esta falha envolve
+# um script CGI distribu√≠do como parte do Apache. Descomentando estas linhas voc√™
+# poder√° redirecionar estes ataques a um script de registro em phf.apache.org. Ou
+# poder√° gravar em sua pr√≥pria m√°quina, usando o script support/phf_abuse_log.cgi.
 #
 #&lt;Location /cgi-bin/phf*&gt;
 #    Deny from all
@@ -982,16 +982,16 @@ allow from all
 #&lt;/Location&gt;
 
 
-# Acesso aos serviÁos proxy do apache
+# Acesso aos servi√ßos proxy do apache
 #&lt;Directory proxy:*&gt;
 #    Order deny,allow
 #    Deny from all
 #    Allow from .your_domain.com
 #&lt;/Directory&gt;
 
-# a seguinte diretiva permite o acesso a todos os usu·rios ao conte˙do da p·gina
+# a seguinte diretiva permite o acesso a todos os usu√°rios ao conte√∫do da p√°gina
 # do guia Foca GNU/Linux exceto os que possuem navegadores MSIE ;-)
-# Veja a seÁ„o sobre restriÁıes de acesso para detalhes sobre a diretiva de 
+# Veja a se√ß√£o sobre restri√ß√µes de acesso para detalhes sobre a diretiva de 
 # controle de acesso baseado no user-agent
 SetEnvIf User-Agent MSIE EXPLODER
 &lt;Directory /var/www/focalinux&gt;
@@ -999,27 +999,27 @@ SetEnvIf User-Agent MSIE EXPLODER
  Order allow,deny
  allow from all
  deny from env=EXPLODER
- ErrorDocument 403 "Explorer n„o entra, p·gina com o conte˙do potencialmente perigoso ao Windows, use um navegador seguro para ter acesso a esta p·gina ;-)
+ ErrorDocument 403 "Explorer n√£o entra, p√°gina com o conte√∫do potencialmente perigoso ao Windows, use um navegador seguro para ter acesso a esta p√°gina ;-)
 &lt;/Directory&gt;
 
 # A diretiva abaixo somente permite acesso a leitura do arquivo
 # h-supor-fonte.txt a pessoas que fornecerem o nome/senha corretos
 # que constam no arquivo passwd1
-# Este bloco contÈm um erro que È a localizaÁ„o do arquivo da senha em um
-# diretÛrio p˙blico, vocÍ dever· adapta-lo se n„o quiser se ver em apuros.
+# Este bloco cont√©m um erro que √© a localiza√ß√£o do arquivo da senha em um
+# diret√≥rio p√∫blico, voc√™ dever√° adapta-lo se n√£o quiser se ver em apuros.
 #
-# A permiss„o do diretÛrio de nÌvel superior prevalece sobre seus 
-# sub-diretÛrios no caso as permissıes de /focalinux, a menos que 
-# sejam definidas opÁıes de acesso especÌficas ao arquivo abaixo
+# A permiss√£o do diret√≥rio de n√≠vel superior prevalece sobre seus 
+# sub-diret√≥rios no caso as permiss√µes de /focalinux, a menos que 
+# sejam definidas op√ß√µes de acesso espec√≠ficas ao arquivo abaixo
 &lt;Location /focalinux/humor/h-supor-fonte.txt&gt;
- AuthName "Piada de fonte de alimentaÁ„o"
+ AuthName "Piada de fonte de alimenta√ß√£o"
  AuthType basic
  AuthUserFile /home/gleydson/public_html/passwd1
  Require valid-user
 # Satisfy all
 &lt;/Location&gt;
 
-# Libera o acesso a localizaÁ„o /debian (acessada atravÈs de /pub/mirror/debian, 
+# Libera o acesso a localiza√ß√£o /debian (acessada atrav√©s de /pub/mirror/debian, 
 # definida no Alias acima)
 &lt;Location /debian&gt;
  Options Indexes

@@ -1,42 +1,42 @@
-<sect id="s-samba-c">ConfiguraÁ„o de Clientes NetBEUI
+<sect id="s-samba-c">Configura√ß√£o de Clientes NetBEUI
  <p>
-Este capÌtulo documenta a configuraÁ„o de m·quinas clientes NetBEUI, requerimentos
-de cada configuraÁ„o e documenta os passos necess·rios para ter o cliente
-se comunicando perfeitamente com o seu servidor. Ser„o explicadas tanto a 
-configuraÁ„o de <em>grupo de trabalho</em> como de <em>domÌnio</em> e como 
-a configuraÁ„o È compatÌvel entre <prgn>Linux</prgn> e <prgn>Windows</prgn>, 
-estas explicaÁıes s„o perfeitamente v·lidas para configurar clientes que 
+Este cap√≠tulo documenta a configura√ß√£o de m√°quinas clientes NetBEUI, requerimentos
+de cada configura√ß√£o e documenta os passos necess√°rios para ter o cliente
+se comunicando perfeitamente com o seu servidor. Ser√£o explicadas tanto a 
+configura√ß√£o de <em>grupo de trabalho</em> como de <em>dom√≠nio</em> e como 
+a configura√ß√£o √© compat√≠vel entre <prgn>Linux</prgn> e <prgn>Windows</prgn>, 
+estas explica√ß√µes s√£o perfeitamente v√°lidas para configurar clientes que 
 acessem servidores <prgn>Windows</prgn>.
 
 
-<sect1 id="s-samba-c-wfw-lman">ConsideraÁıes sobre o Windows for Workgroups e LanManager
+<sect1 id="s-samba-c-wfw-lman">Considera√ß√µes sobre o Windows for Workgroups e LanManager
  <p>
-Sistemas com implementaÁıes NetBIOS mais antigos, como o <prgn>Windows for 
+Sistemas com implementa√ß√µes NetBIOS mais antigos, como o <prgn>Windows for 
 Workgroups</prgn> (Windows 3.11) e o <prgn>Lan Manager</prgn> (DOS), enviam 
 somente a senha para acesso ao compartilhamento, desta forma, para o acesso ser 
-autorizado pelo <prgn>samba</prgn>, vocÍ dever· especificar a diretiva 
-<em>user = usuario</em> para que a senha confira com o usu·rio local do sistema. 
-A senha enviada tambÈm È em formato texto plano. Este problema n„o ocorre no 
-Windows 95 e superiores, que enviam o nome de usu·rio que efetuou o logon junto 
+autorizado pelo <prgn>samba</prgn>, voc√™ dever√° especificar a diretiva 
+<em>user = usuario</em> para que a senha confira com o usu√°rio local do sistema. 
+A senha enviada tamb√©m √© em formato texto plano. Este problema n√£o ocorre no 
+Windows 95 e superiores, que enviam o nome de usu√°rio que efetuou o logon junto 
 com a respectiva senha.
  <p>
-Se a seguranÁa do seu samba depende de senhas criptografadas, ser· necess·rio 
-utilizar a diretiva <tt>"include = outro_arquivo_de_configuraÁ„o.%m</tt> para 
-definir configuraÁıes especÌficas de acesso para estas m·quinas. 
+Se a seguran√ßa do seu samba depende de senhas criptografadas, ser√° necess√°rio 
+utilizar a diretiva <tt>"include = outro_arquivo_de_configura√ß√£o.%m</tt> para 
+definir configura√ß√µes espec√≠ficas de acesso para estas m√°quinas. 
  <p>
-Outro detalhe que deve ser lembrado È que o <prgn>Windows for Workgroups</prgn>
-envia sempre a senha em MAI⁄SCULAS, ent„o È preciso configurar o SAMBA para 
-tentar combinaÁıes de mai˙sculas/min˙sculas usando o 
-par‚metro <em>mangle case</em> e <em>default case</em> na seÁ„o global 
+Outro detalhe que deve ser lembrado √© que o <prgn>Windows for Workgroups</prgn>
+envia sempre a senha em MAI√öSCULAS, ent√£o √© preciso configurar o SAMBA para 
+tentar combina√ß√µes de mai√∫sculas/min√∫sculas usando o 
+par√¢metro <em>mangle case</em> e <em>default case</em> na se√ß√£o global 
 do <file>smb.conf</file>.
 
 
 <sect1 id="s-samba-c-workgroup">Configurando clientes em Grupo de Trabalho
  <p>
 Para configurar o cliente para fazer parte de um <em>grupo de trabalho</em>, 
-È necess·rio apenas que tenha em m„os o <tt>nome do grupo de trabalho</tt> 
-(workgroup) que os clientes far„o parte e o nome de uma outra m·quina que 
-faz parte do mesmo grupo (para testes iniciais). Com estes dados em m„os, 
+√© necess√°rio apenas que tenha em m√£os o <tt>nome do grupo de trabalho</tt> 
+(workgroup) que os clientes far√£o parte e o nome de uma outra m√°quina que 
+faz parte do mesmo grupo (para testes iniciais). Com estes dados em m√£os, 
 selecione na lista abaixo o nome do cliente que deseja configurar para 
 incluir no grupo de trabalho: 
 <list compact>
@@ -62,50 +62,50 @@ Em workgroup ]]>
 
 <sect2 id="s-samba-c-workgroup-w9x">Windows 9X
  <p>
-Estas configuraÁıes s„o v·lidas para clientes Windows 95, Windows 95OSR/2, 
+Estas configura√ß√µes s√£o v√°lidas para clientes Windows 95, Windows 95OSR/2, 
 Windows 98. Caso utilize o <prgn>Windows 95</prgn> (qualquer uma das 
-sÈries) È aconselh·vel atualizar a stack TCP/IP e NetBEUI para corrigir 
-alguns problemas que podem deixar sua m·quina vulner·vel na vers„o 
+s√©ries) √© aconselh√°vel atualizar a stack TCP/IP e NetBEUI para corrigir 
+alguns problemas que podem deixar sua m√°quina vulner√°vel na vers√£o 
 que acompanha o WinSock do Windows 95. 
  <p>
-Para tornar uma m·quina parte do grupo de trabalho, siga os seguintes passos:
+Para tornar uma m√°quina parte do grupo de trabalho, siga os seguintes passos:
 <list compact>
  <item>Entre nas propriedades de rede no Painel de Controle
- <item>Instale o Cliente para redes Microsoft (caso n„o esteja instalado).
- <item>Instale o Protocolo TCP/IP. VocÍ tambÈm pode instalar o protocolo
-NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que È o usado pelo
-<prgn>SAMBA</prgn> alÈm de ter um melhor desempenho, permitir integraÁ„o com
+ <item>Instale o Cliente para redes Microsoft (caso n√£o esteja instalado).
+ <item>Instale o Protocolo TCP/IP. Voc√™ tamb√©m pode instalar o protocolo
+NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que √© o usado pelo
+<prgn>SAMBA</prgn> al√©m de ter um melhor desempenho, permitir integra√ß√£o com
 servidores WINS, etc.
  <item>Clique em "Protocolo TCP/IP" e em Propriedades. Clique na tab
-"NetBIOS" e marque a opÁ„o "Desejo ativar o NetBIOS atravÈs do TCP/IP".
-Caso esta caixa esteja em cinza, ent„o est· tudo certo tambÈm.
- <item>Clique na tab "IdentificaÁ„o" e coloque l· o nome que identificar· o 
-computador (atÈ 15 caracteres) e o nome do grupo de trabalho que ele far·
-parte(por exemplo "workgroup", "suporte", etc) . No campo "DescriÁ„o do 
-Computador", coloque algo que identifique a m·quina na rede (por exemplo, 
-"Computador da ·rea de suporte").
+"NetBIOS" e marque a op√ß√£o "Desejo ativar o NetBIOS atrav√©s do TCP/IP".
+Caso esta caixa esteja em cinza, ent√£o est√° tudo certo tamb√©m.
+ <item>Clique na tab "Identifica√ß√£o" e coloque l√° o nome que identificar√° o 
+computador (at√© 15 caracteres) e o nome do grupo de trabalho que ele far√°
+parte(por exemplo "workgroup", "suporte", etc) . No campo "Descri√ß√£o do 
+Computador", coloque algo que identifique a m√°quina na rede (por exemplo, 
+"Computador da √°rea de suporte").
  <item>Clique na tab "Controle de Acesso" e marque o "Controle de 
-acesso a nÌvel de compartilhamento" (a n„o ser que tenha configurado um 
-servidor que mantenha um controle de nÌvel de usu·rio na rede para as 
-m·quinas fora do domÌnio). 
+acesso a n√≠vel de compartilhamento" (a n√£o ser que tenha configurado um 
+servidor que mantenha um controle de n√≠vel de usu√°rio na rede para as 
+m√°quinas fora do dom√≠nio). 
  <item>
-Clique em OK atÈ reiniciar o computador. 
+Clique em OK at√© reiniciar o computador. 
 </list>
-A m·quina cliente agora faz parte do grupo de trabalho! Tente acessar 
-um outro computador da rede e navegar atravÈs do ambiente de rede. Caso 
-a lista de m·quinas demore em aparecer, tente acessar diretamente pelo nome do 
+A m√°quina cliente agora faz parte do grupo de trabalho! Tente acessar 
+um outro computador da rede e navegar atrav√©s do ambiente de rede. Caso 
+a lista de m√°quinas demore em aparecer, tente acessar diretamente pelo nome do 
 computador, usando o seguinte formato: "\\computador"
 
 <![ %CONSTRUCAO [
 <sect2 id="s-samba-c-workgroup-wME">Windows ME
  <p>
 Em workgroup
-Em domÌnio ]]>
+Em dom√≠nio ]]>
 
 
 <sect2 id="s-samba-c-workgroup-wXPHome">Windows XP Home Edition
  <p>
-Siga as instruÁıes de <ref id="s-samba-c-workgroup-wXPprofessional">.
+Siga as instru√ß√µes de <ref id="s-samba-c-workgroup-wXPprofessional">.
 
 
 <sect2 id="s-samba-c-workgroup-wXPprofessional">Windows XP Professional Edition
@@ -115,27 +115,27 @@ Siga as instruÁıes de <ref id="s-samba-c-workgroup-wXPprofessional">.
 Logue como administrador do sistemas local.
  <item>
 Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
-de sistema ser· aberta.
+de sistema ser√° aberta.
  <item>
-No campo <em>DescriÁ„o do Computador</em>, coloque algo que descreva a 
-m·quina (opcional).
+No campo <em>Descri√ß√£o do Computador</em>, coloque algo que descreva a 
+m√°quina (opcional).
  <item>
-Clique na TAB <em>Nome do Computador</em> e no bot„o <em>Alterar</em> na 
+Clique na TAB <em>Nome do Computador</em> e no bot√£o <em>Alterar</em> na 
 parte de baixo da janela.
  <item>
-No campo <em>nome do computador</em>, coloque um nome de no m·ximo 15 
-caracteres para identificar a m·quina na rede.
+No campo <em>nome do computador</em>, coloque um nome de no m√°ximo 15 
+caracteres para identificar a m√°quina na rede.
  <item>
 Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
-trabalho</em> na caixa de di·logo.
+trabalho</em> na caixa de di√°logo.
  <item>
 Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
-trabalho. Ser· necess·rio reiniciar a m·quina.
+trabalho. Ser√° necess√°rio reiniciar a m√°quina.
 </list>
 
 <sect2 id="s-samba-c-workgroup-wXPServer">Windows XP Server Edition
  <p>
-Siga as instruÁıes de <ref id="s-samba-c-workgroup-wXPprofessional">.
+Siga as instru√ß√µes de <ref id="s-samba-c-workgroup-wXPprofessional">.
 
 
 <sect2 id="s-samba-c-workgroup-NTWorkstation">Windows NT WorkStation
@@ -149,24 +149,24 @@ Veja <ref id="s-samba-c-dominio-NTServer">.
  <item>
 Clique no item <tt>Rede</tt> do painel de controle.
  <item>
-Na tab <tt>ServiÁos</tt>, confira se os serviÁos <tt>EstaÁ„o de trabalho</tt>,
-<tt>Interface de NetBIOS</tt> e <tt>ServiÁos TCP/IP simples</tt> est„o instalados. 
-Caso n„o estejam, faÁa sua instalaÁ„o usando o bot„o <tt>Adicionar</tt>
+Na tab <tt>Servi√ßos</tt>, confira se os servi√ßos <tt>Esta√ß√£o de trabalho</tt>,
+<tt>Interface de NetBIOS</tt> e <tt>Servi√ßos TCP/IP simples</tt> est√£o instalados. 
+Caso n√£o estejam, fa√ßa sua instala√ß√£o usando o bot√£o <tt>Adicionar</tt>
 nesta mesma janela.
  <item>
 Na tab <tt>Protocolos</tt>, verifique se os protocolos <em>NetBEUI</em> e <em>TCP/IP</em> 
-est„o instalados. Caso n„o estejam, faÁa sua instalaÁ„o clicando 
-no bot„o <tt>Adicionar</tt> nesta mesma janela.
+est√£o instalados. Caso n√£o estejam, fa√ßa sua instala√ß√£o clicando 
+no bot√£o <tt>Adicionar</tt> nesta mesma janela.
  <item>
-Na tab identificaÁ„o, clique no bot„o <tt>Alterar</tt>
+Na tab identifica√ß√£o, clique no bot√£o <tt>Alterar</tt>
  <item>
-Na janela que se abrir·, coloque o nome do computador
+Na janela que se abrir√°, coloque o nome do computador
 no campo <tt>Nome do Computador</tt>
  <item>
 Clique em <tt>Grupo de trabalho</tt> e escreva
 o nome do grupo de trabalho em frente.
  <item>
-Clique em <tt>OK</tt> atÈ voltar.
+Clique em <tt>OK</tt> at√© voltar.
  <item>
 Pronto, seu computador agora faz parte do grupo de trabalho.
 </list>
@@ -179,17 +179,17 @@ Pronto, seu computador agora faz parte do grupo de trabalho.
 Logue como administrador do sistemas local.
  <item>
 Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
-de sistema ser· aberta. Clique em "Computador" e ent„o no bot„o
+de sistema ser√° aberta. Clique em "Computador" e ent√£o no bot√£o
 "Propriedades".
  <item>
-No campo <em>nome do computador</em>, coloque um nome de no m·ximo 15 
-caracteres para identificar a m·quina na rede.
+No campo <em>nome do computador</em>, coloque um nome de no m√°ximo 15 
+caracteres para identificar a m√°quina na rede.
  <item>
 Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
-trabalho</em> na caixa de di·logo.
+trabalho</em> na caixa de di√°logo.
  <item>
 Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
-trabalho. Ser· necess·rio reiniciar a m·quina.
+trabalho. Ser√° necess√°rio reiniciar a m√°quina.
 </list>
 
 
@@ -200,70 +200,70 @@ trabalho. Ser· necess·rio reiniciar a m·quina.
 Logue como administrador do sistemas local.
  <item>
 Entre no item <em>Sistema</em> dentro do painel de controle. A tela propriedades
-de sistema ser· aberta. Clique em "DescriÁ„o de rede" e ent„o no bot„o
+de sistema ser√° aberta. Clique em "Descri√ß√£o de rede" e ent√£o no bot√£o
 "Propriedades".
  <item>
-No campo <em>nome do computador</em>, coloque um nome de no m·ximo 15 
-caracteres para identificar a m·quina na rede.
+No campo <em>nome do computador</em>, coloque um nome de no m√°ximo 15 
+caracteres para identificar a m√°quina na rede.
  <item>
 Clique em <em>grupo de trabalho</em> e digite o nome do <em>grupo de 
-trabalho</em> na caixa de di·logo.
+trabalho</em> na caixa de di√°logo.
  <item>
 Clique em OK e aguarde a mensagem confirmando sua entrada no grupo de 
-trabalho. Ser· necess·rio reiniciar a m·quina.
+trabalho. Ser√° necess√°rio reiniciar a m√°quina.
 </list>
 
 
 <sect2 id="s-samba-c-workgroup-linux">Linux
  <p>
 Os aplicativos <prgn>smbclient</prgn> e <prgn>smbmount</prgn> 
-s„o usados para navegaÁ„o e montagem dos discos e impressoras 
-compartilhadas em m·quinas <prgn>Linux</prgn>. Se vocÍ procura
-programas de navegaÁ„o gr·ficos, como o <em>Ambiente de Rede</em> 
+s√£o usados para navega√ß√£o e montagem dos discos e impressoras 
+compartilhadas em m√°quinas <prgn>Linux</prgn>. Se voc√™ procura
+programas de navega√ß√£o gr√°ficos, como o <em>Ambiente de Rede</em> 
 do <prgn>Windows</prgn> ou mais poderosos, veja <ref id="s-samba-c-graficos">. 
-Como complemento, tambÈm È explicado o programa
-<prgn>nmblookup</prgn> para resoluÁ„o de endereÁos NetBIOS em 
-IP e vice-versa e a forma que as funÁıes de m·quinas s„o 
+Como complemento, tamb√©m √© explicado o programa
+<prgn>nmblookup</prgn> para resolu√ß√£o de endere√ßos NetBIOS em 
+IP e vice-versa e a forma que as fun√ß√µes de m√°quinas s√£o 
 definidas em uma rede NetBEUI.
 
 
 <sect3 id="s-samba-c-workgroup-linux-smbmount">smbmount
  <p>
-O <prgn>smbmount</prgn> È uma ferramenta que permite a 
-montagem de um disco compartilhado por uma m·quina NetBEUI remota 
-como uma partiÁ„o. Veja alguns exemplos:
+O <prgn>smbmount</prgn> √© uma ferramenta que permite a 
+montagem de um disco compartilhado por uma m√°quina NetBEUI remota 
+como uma parti√ß√£o. Veja alguns exemplos:
 <taglist compact>
  <tag>smbmount //servidor/discoc /mnt/discoc</tag>
   <item>
 Monta o compartilhamento de <em>//servidor/discoc</em> em 
-<file>/mnt/discoc</file> usando o nome de usu·rio atual. 
-Ser· pedido uma senha para acessar o conte˙do do compartilhamento,
-caso ele seja p˙blico, vocÍ pode digitar qualquer senha ou 
+<file>/mnt/discoc</file> usando o nome de usu√°rio atual. 
+Ser√° pedido uma senha para acessar o conte√∫do do compartilhamento,
+caso ele seja p√∫blico, voc√™ pode digitar qualquer senha ou 
 simplesmente pressionar enter.
 
  <tag>smbmount //servidor/discoc /mnt/discoc -N</tag>
   <item>
-Semelhante ao comando cima, com a diferenÁa que o par‚metro
-<tt>-N</tt> n„o pergunta por uma senha. Isto È ideal para 
-acessar compartilhamentos anÙnimos.
+Semelhante ao comando cima, com a diferen√ßa que o par√¢metro
+<tt>-N</tt> n√£o pergunta por uma senha. Isto √© ideal para 
+acessar compartilhamentos an√¥nimos.
 
  <tag>smbmount //servidor/discoc /mnt/discoc -o username=gleydson,workgroup=teste</tag>
   <item>
 Semelhante aos anteriores, mas acessa o compartilhamento usando 
-<em>gleydson</em> como nome de usu·rio e <em>teste</em> como grupo de trabalho.
-Este mÈtodo È ideal para redes que tem o nÌvel de acesso por usu·rio ou 
-para acessar recursos compartilhados em um domÌnio.
+<em>gleydson</em> como nome de usu√°rio e <em>teste</em> como grupo de trabalho.
+Este m√©todo √© ideal para redes que tem o n√≠vel de acesso por usu√°rio ou 
+para acessar recursos compartilhados em um dom√≠nio.
 
 </taglist>
 
 <sect3 id="s-samba-c-workgroup-linux-smbclient">smbclient
  <p>
-O <prgn>smbclient</prgn> È uma ferramenta de navegaÁ„o em servidores SAMBA. 
-Ao invÈs dela montar o compartilhamento como um disco local, vocÍ poder· 
+O <prgn>smbclient</prgn> √© uma ferramenta de navega√ß√£o em servidores SAMBA. 
+Ao inv√©s dela montar o compartilhamento como um disco local, voc√™ poder√° 
 navegar na estrutura do servidor de forma semelhante a um cliente FTP e 
 executar comandos como <tt>ls</tt>, <tt>get</tt>, <tt>put</tt> para 
-fazer a transferÍncia de arquivos entre a m·quina remota e a m·quina 
-local. TambÈm È atravÈs dele que È feita a interface com impressoras
+fazer a transfer√™ncia de arquivos entre a m√°quina remota e a m√°quina 
+local. Tamb√©m √© atrav√©s dele que √© feita a interface com impressoras
 compartilhadas remotamente. Veja exemplos do uso do <prgn>smbclient</prgn>:
 <taglist compact>
  <tag>smbclient -L samba1</tag>
@@ -273,109 +273,109 @@ Lista todos os compartilhamentos existentes (<tt>-L</tt>) no servidor
 
  <tag>smbclient //samba1/discoc</tag>
   <item>
-Acessa o conte˙do do compartilhamento <tt>discoc</tt> no servidor <tt>samba1</tt>.
+Acessa o conte√∫do do compartilhamento <tt>discoc</tt> no servidor <tt>samba1</tt>.
 
  <tag>smbclient //samba1/discoc -N</tag>
   <item>
-IdÍntico ao acima, mas n„o utiliza senha (ideal para compartilhamentos com 
-acesso anÙnimo).
+Id√™ntico ao acima, mas n√£o utiliza senha (ideal para compartilhamentos com 
+acesso an√¥nimo).
 
  <tag>smbclient //samba1/discoc -I 192.168.1.2</tag>
   <item>
-Se conecta ao compartilhamento usando o endereÁo IP <file>192.168.1.2</file> 
-ao invÈs da resoluÁ„o de nomes. 
+Se conecta ao compartilhamento usando o endere√ßo IP <file>192.168.1.2</file> 
+ao inv√©s da resolu√ß√£o de nomes. 
 
  <tag>smbclient //samba1/discoc -U gleydson -W teste</tag>
   <item>
-Se conecta ao compartilhamento como usu·rio <tt>gleydson</tt> usando o 
+Se conecta ao compartilhamento como usu√°rio <tt>gleydson</tt> usando o 
 grupo de trabalho <tt>teste</tt>.
 
  <tag>smbclient //samba1/discoc -U gleydson%teste1 -W teste</tag>
   <item>
-IdÍntico ao acima, mas tambÈm envia a senha <tt>teste1</tt> para fazer 
-a conex„o diretamente.
+Id√™ntico ao acima, mas tamb√©m envia a senha <tt>teste1</tt> para fazer 
+a conex√£o diretamente.
 
 </taglist>
 Caso receba a mensagem <tt>NT Status Access Denied</tt>, isto quer 
-dizer que n„o possui direitos de acesso adequados para listas ou 
-acessar os compartilhamentos da m·quina. Nesse caso, utilize as 
-opÁıes <tt>-U usu·rio</tt> e <tt>-W grupo/domÌnio</tt> para fazer 
-acesso com uma conta v·lida de usu·rio existente na m·quina.
+dizer que n√£o possui direitos de acesso adequados para listas ou 
+acessar os compartilhamentos da m√°quina. Nesse caso, utilize as 
+op√ß√µes <tt>-U usu√°rio</tt> e <tt>-W grupo/dom√≠nio</tt> para fazer 
+acesso com uma conta v√°lida de usu√°rio existente na m√°quina.
 <![ %OBS [
  <p>
-<strong>OBS: </strong>Note que a ordem das opÁıes faz diferenÁa no 
+<strong>OBS: </strong>Note que a ordem das op√ß√µes faz diferen√ßa no 
 <prgn>smbmount</prgn>. ]]>
 
 
 <sect3 id="s-samba-c-workgroup-linux-nmblookup">nmblookup
  <p>
-Esta È uma ferramenta usada para procurar nomes de cliente 
-usando o endereÁo IP, procurar um IP usando o nome e listar 
-as caracterÌsticas de cada cliente. Veja alguns exemplos:
+Esta √© uma ferramenta usada para procurar nomes de cliente 
+usando o endere√ßo IP, procurar um IP usando o nome e listar 
+as caracter√≠sticas de cada cliente. Veja alguns exemplos:
 <taglist compact>
  <tag>nmblookup -A 127.0.0.1</tag>
   <item>
- Lista o nome e as opÁıes usadas pelo servidor <file>127.0.0.1</file>
+ Lista o nome e as op√ß√µes usadas pelo servidor <file>127.0.0.1</file>
  
  <tag>nmblookup servidor</tag>
   <item>
- Resolve o endereÁo IP da m·quina <tt>servidor</tt>.
+ Resolve o endere√ßo IP da m√°quina <tt>servidor</tt>.
 
 </taglist>
 A listagem exibida pela procura de IP do <prgn>nmblookup</prgn> possui 
-cÛdigos hexadecimais e cada um deles possui um significado especial no 
-protocolo NetBEUI. Segue a explicaÁ„o de cada um:
+c√≥digos hexadecimais e cada um deles possui um significado especial no 
+protocolo NetBEUI. Segue a explica√ß√£o de cada um:
 <taglist compact>
- <tag>IdentificaÁ„o da m·quina</tag>
+ <tag>Identifica√ß√£o da m√°quina</tag>
   <item>
    <list compact>
     <item>
-COMPUTADOR&lt;00&gt;= O serviÁo NetBEUI est· sendo executado na m·quina.
+COMPUTADOR&lt;00&gt;= O servi√ßo NetBEUI est√° sendo executado na m√°quina.
     <item>
-COMPUTADOR&lt;03&gt; = Nome genÈrico da m·quina (nome NetBIOS).
+COMPUTADOR&lt;03&gt; = Nome gen√©rico da m√°quina (nome NetBIOS).
     <item>
-COMPUTADOR&lt;20&gt; = ServiÁo LanManager est· sendo executado na m·quina.
+COMPUTADOR&lt;20&gt; = Servi√ßo LanManager est√° sendo executado na m√°quina.
    </list>
 
- <tag>IdentificaÁ„o de grupos/domÌnio</tag>
+ <tag>Identifica√ß√£o de grupos/dom√≠nio</tag>
   <item>
    <list compact>
     <item>
-GRUPO_TRABALHO&lt;1d&gt; - &lt;GRUPO&gt; = Navegador Local de DomÌnio/Grupo.
+GRUPO_TRABALHO&lt;1d&gt; - &lt;GRUPO&gt; = Navegador Local de Dom√≠nio/Grupo.
     <item>
-GRUPO_TRABALHO&lt;1b&gt; = Navegador Principal de DomÌnio.
+GRUPO_TRABALHO&lt;1b&gt; = Navegador Principal de Dom√≠nio.
     <item>
-GRUPO_TRABALHO&lt;03&gt; - &lt;GRUPO&gt; = Nome GenÈrico registrado por todos os membros do grupo de trabalho.
+GRUPO_TRABALHO&lt;03&gt; - &lt;GRUPO&gt; = Nome Gen√©rico registrado por todos os membros do grupo de trabalho.
     <item>
-GRUPO_TRABALHO&lt;1c&gt; - &lt;GRUPO&gt; = Controladores de DomÌnio / Servidores de logon na rede.
+GRUPO_TRABALHO&lt;1c&gt; - &lt;GRUPO&gt; = Controladores de Dom√≠nio / Servidores de logon na rede.
     <item>
 GRUPO_TRABALHO&lt;1e&gt; - &lt;GRUPO&gt; = Resolvedores de Nomes Internet (<tt>WINS</tt>).
    </list>
 </taglist>
-Estes cÛdigos podem lhe ser ˙teis para localizar problemas mais 
-complicados que possam ocorrer durante a configuraÁ„o de um servidor.
+Estes c√≥digos podem lhe ser √∫teis para localizar problemas mais 
+complicados que possam ocorrer durante a configura√ß√£o de um servidor.
 
 
-<sect1 id="s-samba-c-dominio">Configurando clientes em DomÌnio
+<sect1 id="s-samba-c-dominio">Configurando clientes em Dom√≠nio
  <p>
 Para configurar qualquer um dos cliente abaixo para fazer parte de um 
-domÌnio de rede, È necess·rio apenas que tenha em m„os os seguintes
+dom√≠nio de rede, √© necess√°rio apenas que tenha em m√£os os seguintes
 dados:
 <list compact>
- <item>Nome do controlador de domÌnio PDC
- <item>Nome do domÌnio
- <item>Nome de usu·rio e senha que foram cadastrados no servidor.
+ <item>Nome do controlador de dom√≠nio PDC
+ <item>Nome do dom√≠nio
+ <item>Nome de usu√°rio e senha que foram cadastrados no servidor.
  <item>Acesso administrador no SERVIDOR PDC (SAMBA, NT, etc).
- <item>Cria uma conta de m·quina no domÌnio (no caso da m·quina
+ <item>Cria uma conta de m√°quina no dom√≠nio (no caso da m√°quina
 ser um Windows NT, Windows XP, Windows 2k ou Linux). Veja 
 <ref id="s-samba-dom-contasmac"> para maiores detalhes.
 </list>
-Como o Windows 3.11, Windows 95, Windows 98, Windows ME n„o possuem
-uma conta de m·quina, eles nunca ser„o um membro real de um domÌnio, 
+Como o Windows 3.11, Windows 95, Windows 98, Windows ME n√£o possuem
+uma conta de m√°quina, eles nunca ser√£o um membro real de um dom√≠nio, 
 podendo sofrer um name spoofing e terem a identidade roubada. Mesmo 
-assim, eles ter„o pleno acesso aos recursos do domÌnio e uma 
-configuraÁ„o mais f·cil que os demais clientes.
-Com estes dados em m„os, selecione na lista abaixo o nome do cliente
+assim, eles ter√£o pleno acesso aos recursos do dom√≠nio e uma 
+configura√ß√£o mais f√°cil que os demais clientes.
+Com estes dados em m√£os, selecione na lista abaixo o nome do cliente
 que deseja integrar no grupo de trabalho:
 <list compact>
 <![ %CONSTRUCAO [ <item><ref id="s-samba-c-workgroup-wfw"> ]]>
@@ -394,8 +394,8 @@ que deseja integrar no grupo de trabalho:
 <![ %OBS [ 
  <p>
 <strong>OBS:</strong> O Windows 2000 apresenta algumas dificuldades em 
-entrar na rede do SAMBA 2.2, sendo necess·rio o uso do SAMBA TNG 2.2.x 
-para aceitar o logon de estaÁıes Windows 2000.
+entrar na rede do SAMBA 2.2, sendo necess√°rio o uso do SAMBA TNG 2.2.x 
+para aceitar o logon de esta√ß√µes Windows 2000.
 ]]>
 
 <![ %CONSTRUCAO [
@@ -406,54 +406,54 @@ Em workgroup ]]>
 
 <sect2 id="s-samba-c-dominio-w9x">Windows 9X
  <p>
-Estas configuraÁıes s„o v·lidas para clientes Windows 95, Windows 95OSR/2, 
+Estas configura√ß√µes s√£o v√°lidas para clientes Windows 95, Windows 95OSR/2, 
 Windows 98. Caso utilize o <prgn>Windows 95</prgn> (qualquer uma das 
-sÈries) È aconselh·vel atualizar a stack TCP/IP e NetBEUI para corrigir 
-alguns problemas que podem deixar sua m·quina vulner·vel na vers„o 
+s√©ries) √© aconselh√°vel atualizar a stack TCP/IP e NetBEUI para corrigir 
+alguns problemas que podem deixar sua m√°quina vulner√°vel na vers√£o 
 que acompanha o WinSock do Windows 95. 
  <p>
-Para tornar uma m·quina parte do domÌnio, siga os seguintes passos:
+Para tornar uma m√°quina parte do dom√≠nio, siga os seguintes passos:
 <list compact>
  <item>Entre nas propriedades de rede no Painel de Controle
- <item>Instale o Cliente para redes Microsoft (caso n„o esteja instalado).
- <item>Instale o Protocolo TCP/IP. VocÍ tambÈm pode instalar o protocolo 
-NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que È o usado pelo 
-<prgn>SAMBA</prgn> alÈm de ter um melhor desempenho, permitir integraÁ„o com 
+ <item>Instale o Cliente para redes Microsoft (caso n√£o esteja instalado).
+ <item>Instale o Protocolo TCP/IP. Voc√™ tamb√©m pode instalar o protocolo 
+NetBIOS, mas utilizaremos o suporte NetBIOS sobre TCP/IP que √© o usado pelo 
+<prgn>SAMBA</prgn> al√©m de ter um melhor desempenho, permitir integra√ß√£o com 
 servidores WINS, etc.
- <item>Clique em "Cliente para redes Microsoft", marque a opÁ„o 
-"Efetuar logon no domÌnio do Windows NT". Coloque o nome do domÌnio
-que ir· configurar o cliente para fazer parte na caixa "DomÌnio do Windows NT"
-(por exemplo, "suporte"). Na parte de baixo da caixa de di·logo, vocÍ 
-poder· escolher como ser· o mÈtodo para restaurar as conexıes de rede. 
+ <item>Clique em "Cliente para redes Microsoft", marque a op√ß√£o 
+"Efetuar logon no dom√≠nio do Windows NT". Coloque o nome do dom√≠nio
+que ir√° configurar o cliente para fazer parte na caixa "Dom√≠nio do Windows NT"
+(por exemplo, "suporte"). Na parte de baixo da caixa de di√°logo, voc√™ 
+poder√° escolher como ser√° o m√©todo para restaurar as conex√µes de rede. 
 Inicialmente, recomendo que utilize a "Efetuar logon e restaurar as 
-conexıes de rede" que È mais ˙til para depurar problemas (possÌveis erros 
-ser„o mostrados logo que fizer o logon no domÌnio). 
+conex√µes de rede" que √© mais √∫til para depurar problemas (poss√≠veis erros 
+ser√£o mostrados logo que fizer o logon no dom√≠nio). 
  <p>
-Adeque esta configuraÁ„o as suas necessidades quando estiver funcionando :)
+Adeque esta configura√ß√£o as suas necessidades quando estiver funcionando :)
  <item>Clique em "Protocolo TCP/IP" e em Propriedades. Clique na tab
-"NetBIOS" e marque a opÁ„o "Desejo ativar o NetBIOS atravÈs do TCP/IP".
-Caso esta caixa esteja em cinza, ent„o est· tudo certo tambÈm.
- <item>Clique na tab "IdentificaÁ„o" e coloque l· o nome que identificar· o 
-computador (atÈ 15 caracteres). 
- <item>Digite o nome de um grupo de trabalho que a m·quina far· parte 
+"NetBIOS" e marque a op√ß√£o "Desejo ativar o NetBIOS atrav√©s do TCP/IP".
+Caso esta caixa esteja em cinza, ent√£o est√° tudo certo tamb√©m.
+ <item>Clique na tab "Identifica√ß√£o" e coloque l√° o nome que identificar√° o 
+computador (at√© 15 caracteres). 
+ <item>Digite o nome de um grupo de trabalho que a m√°quina far√° parte 
 no campo "Grupo de Trabalho" (por exemplo "workgroup", "suporte", etc). 
-Este campo somente ser· usado caso o logon no domÌnio NT n„o seja feito 
-com sucesso. No campo "DescriÁ„o do Computador", coloque algo que 
-identifique a m·quina na rede (por exemplo, "Computador da ·rea de 
+Este campo somente ser√° usado caso o logon no dom√≠nio NT n√£o seja feito 
+com sucesso. No campo "Descri√ß√£o do Computador", coloque algo que 
+identifique a m√°quina na rede (por exemplo, "Computador da √°rea de 
 suporte").
 <item>Clique na tab "Controle de Acesso" e marque o "Controle de 
-acesso a nÌvel de usu·rio e especifique o nome da m·quina que 
-serve a lista de usu·rios, que normalmente È a mesma do PDC. 
+acesso a n√≠vel de usu√°rio e especifique o nome da m√°quina que 
+serve a lista de usu√°rios, que normalmente √© a mesma do PDC. 
  <item>
-Clique em OK atÈ reiniciar o computador. 
+Clique em OK at√© reiniciar o computador. 
 </list>
 Quando for mostrada a tela pedindo o nome/senha, preencha com os dados 
-da conta de usu·rio que criou no servidor. No campo domÌnio, coloque 
-o domÌnio que esta conta de usu·rio pertence e tecle &lt;Enter&gt;. 
-VocÍ ver· o script de logon em aÁ„o (caso esteja configurado) e a 
-m·quina cliente agora faz parte do domÌnio! Tente acessar 
-um outro computador da rede e navegar atravÈs do ambiente de rede. Caso 
-a lista de m·quinas demore em aparecer, tente acessar diretamente pelo nome do 
+da conta de usu√°rio que criou no servidor. No campo dom√≠nio, coloque 
+o dom√≠nio que esta conta de usu√°rio pertence e tecle &lt;Enter&gt;. 
+Voc√™ ver√° o script de logon em a√ß√£o (caso esteja configurado) e a 
+m√°quina cliente agora faz parte do dom√≠nio! Tente acessar 
+um outro computador da rede e navegar atrav√©s do ambiente de rede. Caso 
+a lista de m√°quinas demore em aparecer, tente acessar diretamente pelo nome do 
 computador, usando o seguinte formato: "\\computador"
 
 
@@ -461,26 +461,26 @@ computador, usando o seguinte formato: "\\computador"
 <sect2 id="s-samba-c-dominio-wME">Windows ME
  <p>
 Em workgroup
-Em domÌnio ]]>
+Em dom√≠nio ]]>
 
 
 <sect2 id="s-samba-c-dominio-wXPHome">Windows XP Home Edition
  <p>
-N„o È possÌvel fazer o <prgn>Windows XP Home Edition</prgn> ser parte de 
-um domÌnio, por causa de limitaÁıes desta vers„o.
+N√£o √© poss√≠vel fazer o <prgn>Windows XP Home Edition</prgn> ser parte de 
+um dom√≠nio, por causa de limita√ß√µes desta vers√£o.
 
 
 <sect2 id="s-samba-c-dominio-wXPprofessional">Windows XP Professional Edition
  <p>
 <list compact>
  <item>
-Primeiro, siga todos os passos para ingressar a m·quina em um grupo de trabalho 
+Primeiro, siga todos os passos para ingressar a m√°quina em um grupo de trabalho 
 como documentado em <ref id="s-samba-c-workgroup-wXPprofessional">.
  <item>
-Atualize o registro para permitir a entrada no domÌnio:
+Atualize o registro para permitir a entrada no dom√≠nio:
   <enumlist compact>
    <item>
-Copie o seguinte conte˙do para o arquivo <file>WinXP-Dom.reg</file>:
+Copie o seguinte conte√∫do para o arquivo <file>WinXP-Dom.reg</file>:
    <example>
 REGEDIT4
 
@@ -494,21 +494,21 @@ Execute o comando <tt>regedit WinXP-Dom.reg</tt> no cliente XP.
   </enumlist>
 
  <item>
-Entre nos Ìtens (em seq¸encia) Painel de controle/Ferramentas Administrativas/
-PolÌtica de seguranÁa local/polÌticas locais e depois em "opÁıes de seguranÁa".
-Na janela de opÁıes de seguranÁa, desative as opÁıes "Encriptar digitalmente ou 
-assinar um canal seguro (sempre)", "Desativar modificaÁıes de senha na conta de m·quina"
-e "Requer chave de seÁ„o forte (Windows 2000 ou superior)."
+Entre nos √≠tens (em seq√ºencia) Painel de controle/Ferramentas Administrativas/
+Pol√≠tica de seguran√ßa local/pol√≠ticas locais e depois em "op√ß√µes de seguran√ßa".
+Na janela de op√ß√µes de seguran√ßa, desative as op√ß√µes "Encriptar digitalmente ou 
+assinar um canal seguro (sempre)", "Desativar modifica√ß√µes de senha na conta de m√°quina"
+e "Requer chave de se√ß√£o forte (Windows 2000 ou superior)."
  <item>
-Reinicie a m·quina.
+Reinicie a m√°quina.
  <item>
-ApÛs reiniciar a m·quina, volte na tela de alteraÁ„o de identificaÁ„o de m·quina na rede.
+Ap√≥s reiniciar a m√°quina, volte na tela de altera√ß√£o de identifica√ß√£o de m√°quina na rede.
  <item>
-Clique com o mouse em "DomÌnio" e digite o nome do domÌnio na caixa de di·logo.
+Clique com o mouse em "Dom√≠nio" e digite o nome do dom√≠nio na caixa de di√°logo.
  <item>
-Na tela seguinte, ser· lhe pedido o nome de usu·rio e senha com poderes administrativos que podem inserir/remover m·quinas do domÌnio.
+Na tela seguinte, ser√° lhe pedido o nome de usu√°rio e senha com poderes administrativos que podem inserir/remover m√°quinas do dom√≠nio.
  <item>
-Clique em OK e aguarde a mensagem confirmando sua entrada no domÌnio. Ser· necess·rio reiniciar a m·quina apÛs concluir este passo.
+Clique em OK e aguarde a mensagem confirmando sua entrada no dom√≠nio. Ser√° necess√°rio reiniciar a m√°quina ap√≥s concluir este passo.
 </list>
 
 
@@ -528,33 +528,33 @@ Veja os passos em <ref id="s-samba-c-dominio-NTServer">.
  <item>
 Clique no item <tt>Rede</tt> do painel de controle.
  <item>
-Na tab <tt>ServiÁos</tt>, confira se os serviÁos <tt>EstaÁ„o de trabalho</tt>,
-<tt>Interface de NetBIOS</tt> e <tt>ServiÁos TCP/IP simples</tt> est„o instalados. 
-Caso n„o estejam, faÁa sua instalaÁ„o usando o bot„o <tt>Adicionar</tt>
+Na tab <tt>Servi√ßos</tt>, confira se os servi√ßos <tt>Esta√ß√£o de trabalho</tt>,
+<tt>Interface de NetBIOS</tt> e <tt>Servi√ßos TCP/IP simples</tt> est√£o instalados. 
+Caso n√£o estejam, fa√ßa sua instala√ß√£o usando o bot√£o <tt>Adicionar</tt>
 nesta mesma janela.
  <item>
 Na tab <tt>Protocolos</tt>, verifique se os protocolos <em>NetBEUI</em> e <em>TCP/IP</em> 
-est„o instalados. Caso n„o estejam, faÁa sua instalaÁ„o clicando 
-no bot„o <tt>Adicionar</tt> nesta mesma janela.
+est√£o instalados. Caso n√£o estejam, fa√ßa sua instala√ß√£o clicando 
+no bot√£o <tt>Adicionar</tt> nesta mesma janela.
  <item>
-Na tab identificaÁ„o, clique no bot„o <tt>Alterar</tt>
+Na tab identifica√ß√£o, clique no bot√£o <tt>Alterar</tt>
  <item>
-Na janela que se abrir·, coloque o nome do computador
+Na janela que se abrir√°, coloque o nome do computador
 no campo <tt>Nome do Computador</tt>
  <item>
-Clique em <tt>Dominio</tt> e escreva o nome do domÌnio que deseja entrar.
+Clique em <tt>Dominio</tt> e escreva o nome do dom√≠nio que deseja entrar.
  <item>
-Para criar uma <em>conta de m·quina</em> no domÌnio, clique em <tt>criar uma 
-conta de computador no domÌnio</tt> e coloque na parte de baixo o 
-nome do usu·rio sua senha. O usu·rio dever· ter poderes para 
-adicionar m·quinas no domÌnio.
-Caso a conta de m·quina n„o seja criada, o Windows NT ser· como 
-um Windows 95/98 na rede, sem a seguranÁa que seu nome NetBIOS 
-n„o seja usado por outros (veja <ref id="s-samba-dom-contasmac">). 
+Para criar uma <em>conta de m√°quina</em> no dom√≠nio, clique em <tt>criar uma 
+conta de computador no dom√≠nio</tt> e coloque na parte de baixo o 
+nome do usu√°rio sua senha. O usu√°rio dever√° ter poderes para 
+adicionar m√°quinas no dom√≠nio.
+Caso a conta de m√°quina n√£o seja criada, o Windows NT ser√° como 
+um Windows 95/98 na rede, sem a seguran√ßa que seu nome NetBIOS 
+n√£o seja usado por outros (veja <ref id="s-samba-dom-contasmac">). 
  <item>
-Clique em OK atÈ voltar.
+Clique em OK at√© voltar.
  <item>
-Pronto, seu computador agora faz parte do domÌnio.
+Pronto, seu computador agora faz parte do dom√≠nio.
 
 </list>
 
@@ -568,33 +568,33 @@ Siga os passos descritos em <ref id="s-samba-c-dominio-w2kServer">.
  <p>
 <list compact>
  <item>
-Primeiro, siga todos os passos para ingressar a m·quina em um grupo de trabalho 
+Primeiro, siga todos os passos para ingressar a m√°quina em um grupo de trabalho 
 como documentado em <ref id="s-samba-c-workgroup-w2kServer">.
  <item>
-ApÛs reiniciar a m·quina, volte na tela de alteraÁ„o de identificaÁ„o de m·quina na rede.
+Ap√≥s reiniciar a m√°quina, volte na tela de altera√ß√£o de identifica√ß√£o de m√°quina na rede.
  <item>
-Clique com o mouse em "DomÌnio" e digite o nome do domÌnio na caixa de di·logo.
+Clique com o mouse em "Dom√≠nio" e digite o nome do dom√≠nio na caixa de di√°logo.
  <item>
-Na tela seguinte, ser· lhe pedido o nome de usu·rio e senha com poderes administrativos que podem inserir/remover m·quinas do domÌnio.
+Na tela seguinte, ser√° lhe pedido o nome de usu√°rio e senha com poderes administrativos que podem inserir/remover m√°quinas do dom√≠nio.
  <item>
-Clique em OK e aguarde a mensagem confirmando sua entrada no domÌnio. Ser· necess·rio reiniciar a m·quina apÛs concluir este passo.
+Clique em OK e aguarde a mensagem confirmando sua entrada no dom√≠nio. Ser√° necess√°rio reiniciar a m√°quina ap√≥s concluir este passo.
 </list>
-Caso n„o consiga trocar a senha do Windows 2000 no servidor PDC, desative a 
-opÁ„o <tt>unix password sync</tt>.
+Caso n√£o consiga trocar a senha do Windows 2000 no servidor PDC, desative a 
+op√ß√£o <tt>unix password sync</tt>.
 
 <sect2 id="s-samba-c-dominio-linux">Linux
  <p>
 <list compact>
  <item>
-Entre no sistema como usu·rio <em>root</em>.
+Entre no sistema como usu√°rio <em>root</em>.
  <item>
-Instale o <prgn>SAMBA</prgn> caso n„o esteja ainda instalado.
+Instale o <prgn>SAMBA</prgn> caso n√£o esteja ainda instalado.
  <item>
-Edite o arquivo de configuraÁ„o do samba <file>/etc/samba/smb.conf</file>, 
-ser· necess·rio modificar as seguintes linhas na seÁ„o <em>[global]</em>: 
+Edite o arquivo de configura√ß√£o do samba <file>/etc/samba/smb.conf</file>, 
+ser√° necess√°rio modificar as seguintes linhas na se√ß√£o <em>[global]</em>: 
 <example>
 [global]
- workgroup = nome_domÌnio
+ workgroup = nome_dom√≠nio
  security = domain
  password server = nome_pdc nome_bdc
  encrypt passwords = true
@@ -603,147 +603,147 @@ ser· necess·rio modificar as seguintes linhas na seÁ„o <em>[global]</em>:
 Onde:
 <list compact>
  <item>
-<tt>workgroup</tt> - Nome do domÌnio que deseja fazer parte.
+<tt>workgroup</tt> - Nome do dom√≠nio que deseja fazer parte.
  <item>
-<tt>security</tt> - NÌvel de seguranÁa. Nesta configuraÁ„o, utilize "domain".
+<tt>security</tt> - N√≠vel de seguran√ßa. Nesta configura√ß√£o, utilize "domain".
  <item>
-<tt>password server</tt> - Nome da m·quina PDC, BDC. TambÈm poder· ser 
-usado <tt>*</tt>, assim o <prgn>SAMBA</prgn> tentar· descobrir o 
+<tt>password server</tt> - Nome da m√°quina PDC, BDC. Tamb√©m poder√° ser 
+usado <tt>*</tt>, assim o <prgn>SAMBA</prgn> tentar√° descobrir o 
 servidor PDC e BDC automaticamente, da mesma forma usada pelo 
 <prgn>Windows</prgn>.
  <item>
-<tt>encrypt passwords</tt> - Diz se as senhas ser„o encriptadas ou n„o. Sempre
-utilize senhas criptografadas para colocar uma m·quina em um domÌnio.
+<tt>encrypt passwords</tt> - Diz se as senhas ser√£o encriptadas ou n√£o. Sempre
+utilize senhas criptografadas para colocar uma m√°quina em um dom√≠nio.
 </list>
-Reinicie o servidor <prgn>SAMBA</prgn> apÛs estas modificaÁıes.
+Reinicie o servidor <prgn>SAMBA</prgn> ap√≥s estas modifica√ß√µes.
  <item>
-Execute o comando: <tt>smbpasswd -j domÌnio -r PDC/BDC -U usuario_admin</tt>.
+Execute o comando: <tt>smbpasswd -j dom√≠nio -r PDC/BDC -U usuario_admin</tt>.
 Onde:
 <list compact>
- <item><tt>domÌnio</tt> - DomÌnio que deseja fazer o logon
- <item><tt>PDC/BDC</tt> - Nome da m·quina PDC/BDC do domÌnio. Em alguns casos, 
+ <item><tt>dom√≠nio</tt> - Dom√≠nio que deseja fazer o logon
+ <item><tt>PDC/BDC</tt> - Nome da m√°quina PDC/BDC do dom√≠nio. Em alguns casos, 
 pode ser omitido.
- <item><tt>usuario_admin</tt> - Usu·rio com poderes administrativos para ingressara
-a m·quina no domÌnio.
+ <item><tt>usuario_admin</tt> - Usu√°rio com poderes administrativos para ingressara
+a m√°quina no dom√≠nio.
 </list>
  <item>
-Se tudo der certo, apÛs executar este comando, vocÍ ver· a mensagem:
+Se tudo der certo, ap√≥s executar este comando, voc√™ ver√° a mensagem:
 <example>
-Joined domain "domÌnio".
+Joined domain "dom√≠nio".
 </example>
 </list>
-Se sua configuraÁ„o n„o funcionou, revise com atenÁ„o todos os Ìtens acima. 
-Verifique se a conta de m·quina foi criada no servidor e se o <prgn>SAMBA</prgn>
-na m·quina cliente foi reiniciado. De tambÈm uma olhada em 
+Se sua configura√ß√£o n√£o funcionou, revise com aten√ß√£o todos os √≠tens acima. 
+Verifique se a conta de m√°quina foi criada no servidor e se o <prgn>SAMBA</prgn>
+na m√°quina cliente foi reiniciado. De tamb√©m uma olhada em 
 <ref id="s-samba-c-dominio-erros">.
 <![ %OBS [
  <p>
-<strong>OBS: </strong>O SAMBA envia primeiramente um usu·rio/senha falso para 
+<strong>OBS: </strong>O SAMBA envia primeiramente um usu√°rio/senha falso para 
 verificar se o servidor rejeita o acesso antes de enviar o par de nome/senha 
-corretos. Por este motivo, seu usu·rio pode ser bloqueado apÛs um determinado 
-n˙mero de tentativas em alguns servidores mais restritivos.
+corretos. Por este motivo, seu usu√°rio pode ser bloqueado ap√≥s um determinado 
+n√∫mero de tentativas em alguns servidores mais restritivos.
 ]]>
 
 Para acessar os recursos compartilhados, veja 
-<ref id="s-samba-c-workgroup-linux">. Note que n„o È obrigatÛrio 
-realizar as configuraÁıes acima para acessar os recursos de uma m·quina em 
-domÌnio, basta apenas que autentique com seu nome de usu·rio/senha no 
-domÌnio e que ela seja autorizada pelo PDC. 
+<ref id="s-samba-c-workgroup-linux">. Note que n√£o √© obrigat√≥rio 
+realizar as configura√ß√µes acima para acessar os recursos de uma m√°quina em 
+dom√≠nio, basta apenas que autentique com seu nome de usu√°rio/senha no 
+dom√≠nio e que ela seja autorizada pelo PDC. 
 
 
 <sect1 id="s-samba-c-dominio-erros">Erros conhecidos durante o logon do cliente
  <p>
-Esta seÁ„o contÈm os erros mais comuns e a forma de correÁ„o da maioria dos 
-problemas que ocorrem quando um cliente SAMBA tenta entrar em domÌnio.
+Esta se√ß√£o cont√©m os erros mais comuns e a forma de corre√ß√£o da maioria dos 
+problemas que ocorrem quando um cliente SAMBA tenta entrar em dom√≠nio.
 <list compact>
  <item>
-<tt>error creating domain user: NT_STATUS_ACCESS_DENIED</tt> - A conta de m·quina
-no domÌnio n„o foi criada. Veja <ref id="s-samba-dom-contasmac"> para mais 
+<tt>error creating domain user: NT_STATUS_ACCESS_DENIED</tt> - A conta de m√°quina
+no dom√≠nio n√£o foi criada. Veja <ref id="s-samba-dom-contasmac"> para mais 
 detalhes.
 
  <item>
-<tt>NT_STATUS_NO_TRUST_SAM_ACCOUNT</tt> - N„o existe conta de m·quina no 
-<prgn>Windows NT</prgn> para autenticar uma m·quina no domÌnio. Esta 
-mensagem È mostrada quando a m·quina SAMBA È cliente de um domÌnio NT.
+<tt>NT_STATUS_NO_TRUST_SAM_ACCOUNT</tt> - N√£o existe conta de m√°quina no 
+<prgn>Windows NT</prgn> para autenticar uma m√°quina no dom√≠nio. Esta 
+mensagem √© mostrada quando a m√°quina SAMBA √© cliente de um dom√≠nio NT.
 
  <item>
 <tt>error setting trust account password: NT_STATUS_ACCESS_DENIED</tt> - A senha 
-para criaÁ„o de conta na m·quina est· incorreta ou a conta utilizada n„o tem
-permissıes para ingressar uma m·quina no domÌnio (veja 
+para cria√ß√£o de conta na m√°quina est√° incorreta ou a conta utilizada n√£o tem
+permiss√µes para ingressar uma m√°quina no dom√≠nio (veja 
 <ref id="s-samba-dom-admin">). Caso esteja usando um cliente SAMBA, verifique 
-se o par‚metro <tt>encrypt passwords</tt> est· ativado. 
+se o par√¢metro <tt>encrypt passwords</tt> est√° ativado. 
  <item>
-<tt>A senha informada n„o est· correta ou o acesso ao seu servidor de logon foi 
+<tt>A senha informada n√£o est√° correta ou o acesso ao seu servidor de logon foi 
 negado</tt> - Verifique primeiro os logs de acessos do sistema. Caso o SAMBA 
-esteja sendo executado via <prgn>inetd</prgn>, verifique se a configuraÁ„o 
-padr„o È restritiva e se o acesso est· sendo negado pelos arquivos do tcp 
+esteja sendo executado via <prgn>inetd</prgn>, verifique se a configura√ß√£o 
+padr√£o √© restritiva e se o acesso est√° sendo negado pelos arquivos do tcp 
 wrappers <file>hosts.allow</file> e <file>hosts.deny</file>.
 
  <item>
-<tt>n„o existem servidores de logon no domÌnio</tt> - Verifique se o par‚metro 
-<tt>domain logons = yes</tt> foi usado para permitir o logon em domÌnio. 
+<tt>n√£o existem servidores de logon no dom√≠nio</tt> - Verifique se o par√¢metro 
+<tt>domain logons = yes</tt> foi usado para permitir o logon em dom√≠nio. 
 </list>
 
 
-<sect1 id="s-samba-c-graficos">Programas de navegaÁ„o gr·ficos
+<sect1 id="s-samba-c-graficos">Programas de navega√ß√£o gr√°ficos
  <p>
 O <prgn>smbclient</prgn>, <prgn>nmblookup</prgn> e <prgn>smbmount</prgn>
-s„o ferramentas extremamente poderosas auxiliando bastante o administrador
-na tarefa de configuraÁ„o de sua rede e resolver problemas. Para o uso
-no dia a dia ou quando n„o È necess·ria a operaÁ„o via console, vocÍ pode 
-utilizar uma das alternativas abaixo que s„o front-ends a estas ferramentas
-e facilitam o trabalho de navegaÁ„o na rede.
+s√£o ferramentas extremamente poderosas auxiliando bastante o administrador
+na tarefa de configura√ß√£o de sua rede e resolver problemas. Para o uso
+no dia a dia ou quando n√£o √© necess√°ria a opera√ß√£o via console, voc√™ pode 
+utilizar uma das alternativas abaixo que s√£o front-ends a estas ferramentas
+e facilitam o trabalho de navega√ß√£o na rede.
 
 
 <sect2 id="s-samba-c-graficos-linneighborhood">linneighborhood
  <p>
-Cliente SAMBA baseado em GTK, muito leve e possibilita a navegaÁ„o 
-entre os grupos m·quinas em forma de ·rvore. Ele tambÈm permite a 
+Cliente SAMBA baseado em GTK, muito leve e possibilita a navega√ß√£o 
+entre os grupos m√°quinas em forma de √°rvore. Ele tamb√©m permite a 
 montagem de compartilhamentos remotos. Caso precise de recursos mais 
-complexos e autenticaÁ„o, recomendo o <ref id="s-samba-c-graficos-tksmb">.
+complexos e autentica√ß√£o, recomendo o <ref id="s-samba-c-graficos-tksmb">.
 
 
 <sect2 id="s-samba-c-graficos-tksmb">TkSmb
  <p>
-Cliente SAMBA baseado em TCL/TK. Seu ponto forte È a navegaÁ„o nos 
-recursos da m·quina ao invÈs da rede completa, possibilitando 
-autenticaÁ„o em domÌnio/grupo de trabalho, montagem de recursos, etc.
+Cliente SAMBA baseado em TCL/TK. Seu ponto forte √© a navega√ß√£o nos 
+recursos da m√°quina ao inv√©s da rede completa, possibilitando 
+autentica√ß√£o em dom√≠nio/grupo de trabalho, montagem de recursos, etc.
 
 
-<sect1 id="s-samba-c-conf">Cliente de configuraÁ„o gr·ficos
+<sect1 id="s-samba-c-conf">Cliente de configura√ß√£o gr√°ficos
  <p>
-S„o ferramentas que permitem a configuraÁ„o do samba usando a 
-interface gr·fica. Isto facilita bastante o processo, principalmente
-se estiver em d˙vidas em algumas configuraÁıes, mas como todo bom 
-administrador UNIX sabe, isto n„o substitui o conhecimento sobre o 
-funcionamento de cada opÁ„o e ajustes e organizaÁ„o feita diretamente
-no arquivo de configuraÁ„o.
+S√£o ferramentas que permitem a configura√ß√£o do samba usando a 
+interface gr√°fica. Isto facilita bastante o processo, principalmente
+se estiver em d√∫vidas em algumas configura√ß√µes, mas como todo bom 
+administrador UNIX sabe, isto n√£o substitui o conhecimento sobre o 
+funcionamento de cada op√ß√£o e ajustes e organiza√ß√£o feita diretamente
+no arquivo de configura√ß√£o.
 
 
 <sect2 id="s-samba-c-conf-gnosamba">gnosamba
  <p>
-Ferramenta de configuraÁ„o gr·fica usando o GNOME. Com ele È possÌvel 
-definir configuraÁıes localmente. Ele ocupa pouco espaÁo em disco, e 
-se vocÍ gosta de GTK, este È o recomendado.
+Ferramenta de configura√ß√£o gr√°fica usando o GNOME. Com ele √© poss√≠vel 
+definir configura√ß√µes localmente. Ele ocupa pouco espa√ßo em disco, e 
+se voc√™ gosta de GTK, este √© o recomendado.
  <p>
-As opÁıes do SAMBA s„o divididas em categorias facilitando sua 
-localizaÁ„o e uso.
+As op√ß√µes do SAMBA s√£o divididas em categorias facilitando sua 
+localiza√ß√£o e uso.
 
 
 <sect2 id="s-samba-c-conf-swat">swat
  <p>
-Ferramenta de administraÁ„o via web do samba. Este È um daemon que 
-opera na porta 901 da m·quina onde o servidor samba foi instalado. 
-A configuraÁ„o È feita atravÈs de qualquer navegador acessando 
-<tt>http://ip_do_servidor:901</tt> e logando-se como usu·rio root
-(o ˙nico com poderes para escrever no arquivo de configuraÁ„o).
+Ferramenta de administra√ß√£o via web do samba. Este √© um daemon que 
+opera na porta 901 da m√°quina onde o servidor samba foi instalado. 
+A configura√ß√£o √© feita atrav√©s de qualquer navegador acessando 
+<tt>http://ip_do_servidor:901</tt> e logando-se como usu√°rio root
+(o √∫nico com poderes para escrever no arquivo de configura√ß√£o).
  <p>
 Esta ferramenta vem evoluindo bastante ao decorrer dos meses e 
-È a recomendada para a configuraÁ„o do servidor SAMBA remotamente. 
-Seu modo de operaÁ„o divide-se em <em>b·sico</em> e <em>avanÁado</em>.
-No modo <tt>b·sico</tt>, vocÍ ter· disponÌvel as opÁıes mais comuns 
-e necess·rias para compartilhar recursos na rede.
-O modo <tt>avanÁado</tt> apresenta praticamente todos os par‚metros 
-aceitos pelo servidor samba (restriÁıes, controle de acesso, 
-otimizaÁıes, etc.).
+√© a recomendada para a configura√ß√£o do servidor SAMBA remotamente. 
+Seu modo de opera√ß√£o divide-se em <em>b√°sico</em> e <em>avan√ßado</em>.
+No modo <tt>b√°sico</tt>, voc√™ ter√° dispon√≠vel as op√ß√µes mais comuns 
+e necess√°rias para compartilhar recursos na rede.
+O modo <tt>avan√ßado</tt> apresenta praticamente todos os par√¢metros 
+aceitos pelo servidor samba (restri√ß√µes, controle de acesso, 
+otimiza√ß√µes, etc.).
 

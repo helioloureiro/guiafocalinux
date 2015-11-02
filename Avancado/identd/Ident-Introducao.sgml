@@ -1,114 +1,114 @@
 <chapt id="s-ident">Servidor ident
  <p>
-Este capÌtulo documenta o uso, benefÌcios, configuraÁ„o, utilizaÁ„o e 
-exemplos do servidor identd. TambÈm s„o explicados alguns pontos 
-positivos/negativos de sua utilizaÁ„o para aumentar a seguranÁa 
+Este cap√≠tulo documenta o uso, benef√≠cios, configura√ß√£o, utiliza√ß√£o e 
+exemplos do servidor identd. Tamb√©m s√£o explicados alguns pontos 
+positivos/negativos de sua utiliza√ß√£o para aumentar a seguran√ßa 
 quando usado junto com o mecanismo de controle de acesso. 
  <p>
-O servidor identd escolhido para ser descrito nesta seÁ„o do guia foi o 
+O servidor identd escolhido para ser descrito nesta se√ß√£o do guia foi o 
 <prgn>oidentd</prgn>. 
 
 
-<sect id="s-ident-intro">IntroduÁ„o
+<sect id="s-ident-intro">Introdu√ß√£o
  <p>
-O ident (identidade) È um servidor que permite identificar qual o usu·rio efetuou 
-determinada conex„o e o sistema operacional usado. Ele opera na porta <tt>113</tt> 
-por padr„o e retorna nomes de usu·rios localmente v·lidos, e È consultado por 
-serviÁos conhecidos como <tt>IRC</tt>, alguns servidores <tt>ftp</tt>, 
-<tt>smtp</tt> e outros. Outro benefÌcio È a utilizaÁ„o de mecanismos 
-de restriÁıes de acesso baseadas em usu·rios/endereÁoIP (o <prgn>tcpd</prgn> È 
-um exemplo de serviÁo que permite esta caracterÌstica). A sintaxe usada para fazer 
-tal restriÁ„o È universal: <em>usu·rio@endereÁoIP</em> onde normalmente 
-aparece o <em>endereÁoIP</em> que È usado para bloquear/permitir o acesso. 
+O ident (identidade) √© um servidor que permite identificar qual o usu√°rio efetuou 
+determinada conex√£o e o sistema operacional usado. Ele opera na porta <tt>113</tt> 
+por padr√£o e retorna nomes de usu√°rios localmente v√°lidos, e √© consultado por 
+servi√ßos conhecidos como <tt>IRC</tt>, alguns servidores <tt>ftp</tt>, 
+<tt>smtp</tt> e outros. Outro benef√≠cio √© a utiliza√ß√£o de mecanismos 
+de restri√ß√µes de acesso baseadas em usu√°rios/endere√ßoIP (o <prgn>tcpd</prgn> √© 
+um exemplo de servi√ßo que permite esta caracter√≠stica). A sintaxe usada para fazer 
+tal restri√ß√£o √© universal: <em>usu√°rio@endere√ßoIP</em> onde normalmente 
+aparece o <em>endere√ßoIP</em> que √© usado para bloquear/permitir o acesso. 
  <p>
-No momento da conex„o, o endereÁo IP È checado pra ver se confere, e o servidor 
-Ident da m·quina que est· efetuando a conex„o È consultado para checar se o 
-usu·rio que tem acesso È o mesmo especificado no controle de acesso. Isso aumenta 
-um pouco a seguranÁa do sistema, mas existem algumas implicaÁıes e pontos fr·geis 
-do <prgn>identd</prgn> que ser„o explicados no decorrer deste capÌtulo. 
+No momento da conex√£o, o endere√ßo IP √© checado pra ver se confere, e o servidor 
+Ident da m√°quina que est√° efetuando a conex√£o √© consultado para checar se o 
+usu√°rio que tem acesso √© o mesmo especificado no controle de acesso. Isso aumenta 
+um pouco a seguran√ßa do sistema, mas existem algumas implica√ß√µes e pontos fr√°geis 
+do <prgn>identd</prgn> que ser√£o explicados no decorrer deste cap√≠tulo. 
 
 
-<sect1 id="s-ident-versao">Vers„o
+<sect1 id="s-ident-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 1.7 do <prgn>oidentd</prgn>. As explicaÁıes 
-contidas aqui podem funcionar para versıes posteriores, mas È recomend·vel que 
-leia a documentaÁ„o sobre modificaÁıes no programa (changelog) em busca de 
-mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui.  
+√â assumido que esteja usando a vers√£o 1.7 do <prgn>oidentd</prgn>. As explica√ß√µes 
+contidas aqui podem funcionar para vers√µes posteriores, mas √© recomend√°vel que 
+leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) em busca de 
+mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui.  
 
 
 <sect1 id="s-ident-contribuindo">Contribuindo
  <p>
-A Home page do projeto <prgn>oidentd</prgn> È <file>http://ojnk.sourceforge.net</file>
-Sugestıes, crÌticas, coment·rios, etc., podem ser enviados para 
+A Home page do projeto <prgn>oidentd</prgn> √© <file>http://ojnk.sourceforge.net</file>
+Sugest√µes, cr√≠ticas, coment√°rios, etc., podem ser enviados para 
 <email>odin@numb.org</email>. 
 
 
-<sect1 id="s-ident-caracteristicas">CaracterÌsticas
+<sect1 id="s-ident-caracteristicas">Caracter√≠sticas
  <p>
-CaracterÌsticas do <prgn>oidentd</prgn>: 
+Caracter√≠sticas do <prgn>oidentd</prgn>: 
 <list compact>
  <item>
 Pode ser executado tanto como <em>daemon</em> quanto via <em>inetd</em> (este 
-˙ltimo È indicado para sistemas com pouca memÛria onde o serviÁo È pouco solicitado). 
+√∫ltimo √© indicado para sistemas com pouca mem√≥ria onde o servi√ßo √© pouco solicitado). 
  
  <item>
-Pode mapear identificaÁıes de usu·rio via IP Masquerading, tornando este 
-servidor muito vers·til podendo ser usado tanto em m·quina individuais como 
+Pode mapear identifica√ß√µes de usu√°rio via IP Masquerading, tornando este 
+servidor muito vers√°til podendo ser usado tanto em m√°quina individuais como 
 em servidores proxy/roteadores. 
 
  <item>
-Pode fazer forwarding de conexıes para outras m·quinas da rede local, quando 
-n„o È executado no proxy/roteador. 
+Pode fazer forwarding de conex√µes para outras m√°quinas da rede local, quando 
+n√£o √© executado no proxy/roteador. 
 
  <item>
-Spoofing de nomes: È possÌvel mapear um nome de usu·rio para outra 
-identificaÁ„o; por exemplo, o usu·rio <tt>root</tt> poder· ser mapeado 
-para outra conta de usu·rio antes da identificaÁ„o ser enviada. 
+Spoofing de nomes: √© poss√≠vel mapear um nome de usu√°rio para outra 
+identifica√ß√£o; por exemplo, o usu√°rio <tt>root</tt> poder√° ser mapeado 
+para outra conta de usu√°rio antes da identifica√ß√£o ser enviada. 
 
 </list>
 
 
-<sect1 id="s-ident-ficha">Ficha tÈcnica
+<sect1 id="s-ident-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>oidentd</package>
  <p>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item><tt>oidentd</tt> - Servidor identd
 </list>
 
-Arquivos de configuraÁ„o do <prgn>oidentd</prgn>: 
+Arquivos de configura√ß√£o do <prgn>oidentd</prgn>: 
 <taglist compact>
  <tag>identd.spoof</tag>
  <item>
-Controla o spoof (falsificaÁ„o) de nomes de usu·rios. O formato deste arquivo 
-s„o dois campos separados por ":", o primeiro contendo a identificaÁ„o original do 
-usu·rio e o segundo o nome que ser· enviado pelo <prgn>identd</prgn>. O 
-segundo campo pode ser omitido, neste caso a resposta de identificaÁ„o È 
-lida atravÈs do arquivo <file>~/.ispoof</file>. 
+Controla o spoof (falsifica√ß√£o) de nomes de usu√°rios. O formato deste arquivo 
+s√£o dois campos separados por ":", o primeiro contendo a identifica√ß√£o original do 
+usu√°rio e o segundo o nome que ser√° enviado pelo <prgn>identd</prgn>. O 
+segundo campo pode ser omitido, neste caso a resposta de identifica√ß√£o √© 
+lida atrav√©s do arquivo <file>~/.ispoof</file>. 
  <p>
-Este arquivo deve ter como dono o usu·rio do primeiro campo do 
-<file>identd.spoof</file> e a identificaÁ„o retornada ser· a contida no arquivo. 
-Esteja certo que o daemon <prgn>oidentd</prgn> tem permissıes para acessar este 
-arquivo, caso contr·rio nenhum spoof de identidade ser· realizado. 
+Este arquivo deve ter como dono o usu√°rio do primeiro campo do 
+<file>identd.spoof</file> e a identifica√ß√£o retornada ser√° a contida no arquivo. 
+Esteja certo que o daemon <prgn>oidentd</prgn> tem permiss√µes para acessar este 
+arquivo, caso contr√°rio nenhum spoof de identidade ser√° realizado. 
  <p>
-Para o spoof ser habilitado, o serviÁo <prgn>oidentd</prgn> dever· ser iniciado 
-com a opÁ„o <em>-s</em> ou <em>-S</em> (veja mais detalhes 
+Para o spoof ser habilitado, o servi√ßo <prgn>oidentd</prgn> dever√° ser iniciado 
+com a op√ß√£o <em>-s</em> ou <em>-S</em> (veja mais detalhes 
 <ref id="s-ident-opcoescmd">). 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Certifique-se de colocar as permissıes adequadas para que 
+<strong>OBS:</strong> Certifique-se de colocar as permiss√µes adequadas para que 
 somente o daemon <em>oidentd</em> tenha acesso a este arquivo (de acordo com 
-o <em>usu·rio</em> e <em>grupo</em> usado para executar o <prgn>oidentd</prgn>), os 
-detalhes de mapeamento de nomes podem ser perigosos em m„os erradas, e garantir 
-o sucesso de uma conex„o indesej·vel. ]]> 
+o <em>usu√°rio</em> e <em>grupo</em> usado para executar o <prgn>oidentd</prgn>), os 
+detalhes de mapeamento de nomes podem ser perigosos em m√£os erradas, e garantir 
+o sucesso de uma conex√£o indesej√°vel. ]]> 
 
  <tag>oidentd.users</tag>
  <item>
-Mapeamento de nomes de usu·rios efetuando conexıes via Masquerading. O formato 
-deste arquivo È o seguinte:
+Mapeamento de nomes de usu√°rios efetuando conex√µes via Masquerading. O formato 
+deste arquivo √© o seguinte:
 <example>
-#EndereÁoIP/m·scara            Usu·rio    Sistema
+#Endere√ßoIP/m√°scara            Usu√°rio    Sistema
 192.168.1.1                    john        WINDOWS
 192.168.1.2                    usuario1    WINDOWS
 192.168.1.1/32                 usuario2    UNIX
@@ -116,47 +116,47 @@ deste arquivo È o seguinte:
 192.168.1.0/16                 usuario4    UNIX
 
 </example>
-As conexıes vindas dos endereÁos da primeira coluna s„o mapeados para o nome/sistema
-da segunda/terceira coluna e enviados a m·quina que requisitou a identificaÁ„o. 
-Para o suporta a mapeamento de usu·rios via Masquerading funcionar, o daemon 
-<prgn>oidentd</prgn> dever· ser iniciado com a opÁ„o <em>-m</em>.
+As conex√µes vindas dos endere√ßos da primeira coluna s√£o mapeados para o nome/sistema
+da segunda/terceira coluna e enviados a m√°quina que requisitou a identifica√ß√£o. 
+Para o suporta a mapeamento de usu√°rios via Masquerading funcionar, o daemon 
+<prgn>oidentd</prgn> dever√° ser iniciado com a op√ß√£o <em>-m</em>.
 
 </taglist>
 
 
 <sect1 id="s-ident-hwreq">Requerimentos de Hardware
  <p>
-O <prgn>oidentd</prgn> requer pouca memÛria e pode ser executado sem 
-problemas em um sistema com o mÌnimo de memÛria necess·ria para rodar o kernel 
-do <prgn>Linux</prgn> (2 MB para 2.2 e 4MB para as sÈries 2.4 do kernel). Mesmo 
-assim È interessante considerar 1 MB a mais que o mÌnimo requerido pelo kernel 
-para uma folga na execuÁ„o do serviÁo de identificaÁ„o junto a outros do sistema. 
+O <prgn>oidentd</prgn> requer pouca mem√≥ria e pode ser executado sem 
+problemas em um sistema com o m√≠nimo de mem√≥ria necess√°ria para rodar o kernel 
+do <prgn>Linux</prgn> (2 MB para 2.2 e 4MB para as s√©ries 2.4 do kernel). Mesmo 
+assim √© interessante considerar 1 MB a mais que o m√≠nimo requerido pelo kernel 
+para uma folga na execu√ß√£o do servi√ßo de identifica√ß√£o junto a outros do sistema. 
 
 
 <sect1 id="s-ident-logs">Arquivos de log criados pelo Ident
  <p>
-Mensagens informativas, erros, e outras sobre execuÁıes do serviÁo 
-<prgn>oidentd</prgn> s„o enviadas ao <prgn>syslog</prgn> do sistema. 
+Mensagens informativas, erros, e outras sobre execu√ß√µes do servi√ßo 
+<prgn>oidentd</prgn> s√£o enviadas ao <prgn>syslog</prgn> do sistema. 
 
 
-<sect1 id="s-ident-install">InstalaÁ„o
+<sect1 id="s-ident-install">Instala√ß√£o
  <p>
 Para instalar o daemon do <prgn>oidentd</prgn> digite:
 <example>
 apt-get install oidentd
 
 </example>
-Por padr„o o serviÁo È instalado para ser executado como daemon, para executa-lo 
-atravÈs do <prgn>inetd</prgn> siga os passos em <ref id="s-ident-install-inetd">. 
-O serviÁo ser· executado sob o usu·rio <tt>nobody</tt> e grupo <tt>nogroup</tt> 
-por motivos de seguranÁa, alteraÁıes de nome/grupo que executar· o 
+Por padr√£o o servi√ßo √© instalado para ser executado como daemon, para executa-lo 
+atrav√©s do <prgn>inetd</prgn> siga os passos em <ref id="s-ident-install-inetd">. 
+O servi√ßo ser√° executado sob o usu√°rio <tt>nobody</tt> e grupo <tt>nogroup</tt> 
+por motivos de seguran√ßa, altera√ß√µes de nome/grupo que executar√° o 
 <prgn>oidentd</prgn> podem ser feitas no arquivo 
 <file>/etc/defaults/oidentd</file> ou <file>/etc/init.d/oidentd</file>.
 
 
-<sect1 id="s-ident-install-inetd">InstalaÁ„o via Inetd
+<sect1 id="s-ident-install-inetd">Instala√ß√£o via Inetd
  <p>
-Siga os procedimentos de instalaÁ„o em <ref id="s-ident-install"> e 
+Siga os procedimentos de instala√ß√£o em <ref id="s-ident-install"> e 
 os seguintes passos: 
 <enumlist compact>
  <item>
@@ -166,142 +166,142 @@ Edite o arquivo <file>/etc/inetd.conf</file> e adicione a seguinte linha:
 auth		stream	tcp	nowait.40	nobody.nogroup	/usr/sbin/oidentd oidentd -q -i -t 40
 
 </example> 
-A opÁ„o <em>-i</em> permite o <prgn>oidentd</prgn> aceitar requisiÁıes via 
-<prgn>inetd</prgn> (sem ela ele ser· executado no modo daemon). As opÁıes 
-<em>-s</em> e <em>-m</em> devem tambÈm ser especificadas caso desejar os 
-recursos de falsificaÁ„o de identificaÁ„o (mapeamento de nomes) e masquerading
-(veja <ref id="s-ident-opcoescmd">). Aqui foi definido um par‚metro m·ximo de 
-40 requisiÁıes por minuto (tÌpico de um serviÁo poucos usado no sistema), caso
-este limite seja ultrapassado o serviÁo ser· desativado na seÁ„o atual do 
-<prgn>inetd</prgn>). <![ %CAPJUNTOS [ Os outros campos s„o descritos em 
+A op√ß√£o <em>-i</em> permite o <prgn>oidentd</prgn> aceitar requisi√ß√µes via 
+<prgn>inetd</prgn> (sem ela ele ser√° executado no modo daemon). As op√ß√µes 
+<em>-s</em> e <em>-m</em> devem tamb√©m ser especificadas caso desejar os 
+recursos de falsifica√ß√£o de identifica√ß√£o (mapeamento de nomes) e masquerading
+(veja <ref id="s-ident-opcoescmd">). Aqui foi definido um par√¢metro m√°ximo de 
+40 requisi√ß√µes por minuto (t√≠pico de um servi√ßo poucos usado no sistema), caso
+este limite seja ultrapassado o servi√ßo ser√° desativado na se√ß√£o atual do 
+<prgn>inetd</prgn>). <![ %CAPJUNTOS [ Os outros campos s√£o descritos em 
 <ref id="rede-servicos-inetd-c">. ]]>
 
  <item>
-Interrompa a execuÁ„o do daemon do <prgn>oidentd</prgn> atual dando um 
+Interrompa a execu√ß√£o do daemon do <prgn>oidentd</prgn> atual dando um 
 <tt>./etc/init.d/oidentd stop</tt>. 
 
  <item>
 Remova os links dos runlevels em <file>/etc/rc?.d</file> que iniciam/interrompem 
-a execuÁ„o do daemon com o comando: <tt>update-rc.d -f oidentd remove</tt>. 
-Neste ponto o daemon <prgn>oidentd</prgn> n„o ser· mais iniciado. Para reverter 
-esta aÁ„o, execute o comando: <tt>udpate-rc.d oidentd defaults</tt>. 
+a execu√ß√£o do daemon com o comando: <tt>update-rc.d -f oidentd remove</tt>. 
+Neste ponto o daemon <prgn>oidentd</prgn> n√£o ser√° mais iniciado. Para reverter 
+esta a√ß√£o, execute o comando: <tt>udpate-rc.d oidentd defaults</tt>. 
  <item>
-De um comando <tt>killall -HUP inetd</tt> para fazer o serviÁo <prgn>inetd</prgn> 
-recarregar o arquivo de configuraÁ„o <file>/etc/inetd.conf</file>. O serviÁo 
-de identd j· estar· funcionando. 
+De um comando <tt>killall -HUP inetd</tt> para fazer o servi√ßo <prgn>inetd</prgn> 
+recarregar o arquivo de configura√ß√£o <file>/etc/inetd.conf</file>. O servi√ßo 
+de identd j√° estar√° funcionando. 
 </enumlist>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> A configuraÁ„o da distribuiÁ„o <prgn>Debian</prgn> 
-permite detectar quando o serviÁo ident (auth) est· sendo executado no 
-<file>/etc/inetd.conf</file> atravÈs de seus scripts de inicializaÁ„o. 
-VocÍ poder· fazer as coisas manualmente baseado nisso se desejar. ]]>
+<strong>OBS:</strong> A configura√ß√£o da distribui√ß√£o <prgn>Debian</prgn> 
+permite detectar quando o servi√ßo ident (auth) est√° sendo executado no 
+<file>/etc/inetd.conf</file> atrav√©s de seus scripts de inicializa√ß√£o. 
+Voc√™ poder√° fazer as coisas manualmente baseado nisso se desejar. ]]>
 
 
 <sect1 id="s-ident-tcpwrappers">Usando tcpwrappers com oidentd
  <p>
-Especifique a opÁ„o <em>-W</em> para fazer o <prgn>oidentd</prgn> 
+Especifique a op√ß√£o <em>-W</em> para fazer o <prgn>oidentd</prgn> 
 utilizar o mecanismo de acesso em <file>hosts.allow</file> e 
-<file>hosts.deny</file> para garantir/bloquear ao serviÁo de acordo 
-com endereÁos/hosts especificados. 
+<file>hosts.deny</file> para garantir/bloquear ao servi√ßo de acordo 
+com endere√ßos/hosts especificados. 
 <![ %OBS [
  <p>
-<strong>OBS</strong> O <prgn>oidentd</prgn> È somente 
-executado apÛs a conferÍncia de todos os par‚metros de endereÁos 
-nestes arquivos de acesso, n„o utilize a sintaxe "usu·rio@endereÁo" 
-como endereÁo na linha de acesso do serviÁo <prgn>oidentd</prgn> 
-(por motivos Ûbvios). ]]>
+<strong>OBS</strong> O <prgn>oidentd</prgn> √© somente 
+executado ap√≥s a confer√™ncia de todos os par√¢metros de endere√ßos 
+nestes arquivos de acesso, n√£o utilize a sintaxe "usu√°rio@endere√ßo" 
+como endere√ßo na linha de acesso do servi√ßo <prgn>oidentd</prgn> 
+(por motivos √≥bvios). ]]>
 
 
 <sect1 id="s-ident-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
-O arquivo que controla o funcionamento do daemon do <prgn>oidentd</prgn> È 
+O arquivo que controla o funcionamento do daemon do <prgn>oidentd</prgn> √© 
 controlado pelo arquivo <file>/etc/init.d/oidentd</file>. 
  <p>
-A execuÁ„o do <prgn>oidentd</prgn> atravÈs de <prgn>inetd</prgn> È 
-autom·tica quando È feita uma requisiÁ„o para a porta <em>113</em>. 
+A execu√ß√£o do <prgn>oidentd</prgn> atrav√©s de <prgn>inetd</prgn> √© 
+autom√°tica quando √© feita uma requisi√ß√£o para a porta <em>113</em>. 
 
 
-<sect1 id="s-ident-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-ident-opcoescmd">Op√ß√µes de linha de comando
  <p>
-OpÁıes de linha de comando do <prgn>oidentd</prgn>:
+Op√ß√µes de linha de comando do <prgn>oidentd</prgn>:
 <list compact>
  <item>
-<tt>-a [endereÁoIP]</tt> - Espera por requisiÁıes somente no nome ou endereÁo IP 
+<tt>-a [endere√ßoIP]</tt> - Espera por requisi√ß√µes somente no nome ou endere√ßo IP 
 da interface especificada. 
 
  <item>
-<tt>-A</tt> Quando o spoofing esta ativado, permite os usu·rios falsificaram 
-o ident em conexıes para portas privilegiadas. 
+<tt>-A</tt> Quando o spoofing esta ativado, permite os usu√°rios falsificaram 
+o ident em conex√µes para portas privilegiadas. 
 
  <item>
-<tt>-c [p·ginacodigo]</tt> - Especifica uma p·gina de cÛdigo alternativa. 
-O padr„o È "US-ASCII".
+<tt>-c [p√°ginacodigo]</tt> - Especifica uma p√°gina de c√≥digo alternativa. 
+O padr√£o √© "US-ASCII".
 
  <item>
-<tt>-d</tt> - Ativa o modo de depuraÁ„o, mais detalhes ser„o exibidos.
+<tt>-d</tt> - Ativa o modo de depura√ß√£o, mais detalhes ser√£o exibidos.
 
  <item>
 <tt>-e</tt> - Retorna "UNKNOWN-ERROR" (erro desconhecido) para qualquer tipo de 
 erro.
 
  <item>
-<tt>-f [porta]</tt> - Redireciona requisiÁıes de m·quinas usando 
+<tt>-f [porta]</tt> - Redireciona requisi√ß√µes de m√°quinas usando 
 MASQUERADE para o computador na porta especificada. 
 
  <item>
-<tt>-F</tt> - O mesmo que <em>-f</em>, mas usa a porta 113 como padr„o. 
+<tt>-F</tt> - O mesmo que <em>-f</em>, mas usa a porta 113 como padr√£o. 
 
  <item>
 <tt>-g [gid]</tt> - Executa o daemon do <prgn>oidentd</prgn> no grupo especificado. 
 
  <item>
-<tt>-i</tt> - Permite ser executado atravÈs do <prgn>inetd</prgn>.
+<tt>-i</tt> - Permite ser executado atrav√©s do <prgn>inetd</prgn>.
 
  <item>
 <tt>-m</tt> - Ativa o suporta a IP Masquerading. 
 
  <item>
-<tt>-n</tt> - Retorna n˙meros UID ao invÈs de nomes de usu·rios. 
+<tt>-n</tt> - Retorna n√∫meros UID ao inv√©s de nomes de usu√°rios. 
 
  <item>
-<tt>-N</tt> - Permite ocultar a identificaÁ„o de determinados usu·rios atravÈs 
+<tt>-N</tt> - Permite ocultar a identifica√ß√£o de determinados usu√°rios atrav√©s 
 de arquivos <file>~/.noident</file>. 
 
  <item>
-<tt>-o</tt> - Retorna "OTHER" (outro qualquer) ao invÈs do sistema operacional 
+<tt>-o</tt> - Retorna "OTHER" (outro qualquer) ao inv√©s do sistema operacional 
 especificado. 
 
  <item>
-<tt>-p [porta]</tt> - Espera por conexıes na porta especificadas (a padr„o È 
-a 113 - serviÁo auth). 
+<tt>-p [porta]</tt> - Espera por conex√µes na porta especificadas (a padr√£o √© 
+a 113 - servi√ßo auth). 
 
  <item>
 <tt>-q</tt> - Oculta o logging normal. 
 
  <item>
-<tt>-P [proxy]</tt> - O proxy especificado (endereÁo IP) faz redirecionamento 
-de conexıes para a m·quina executando o <prgn>oidentd</prgn>. 
+<tt>-P [proxy]</tt> - O proxy especificado (endere√ßo IP) faz redirecionamento 
+de conex√µes para a m√°quina executando o <prgn>oidentd</prgn>. 
 
  <item>
-<tt>-r</tt> - Retorna respostas aleatÛrias de identd. As opÁıes 
-<em>-n</em> e <em>-r</em> n„o podem ser usadas juntas. 
+<tt>-r</tt> - Retorna respostas aleat√≥rias de identd. As op√ß√µes 
+<em>-n</em> e <em>-r</em> n√£o podem ser usadas juntas. 
 
  <item>
-<tt>-s</tt> - Permite utilizar os mecanismos de spoofing (falsificaÁ„o) do 
+<tt>-s</tt> - Permite utilizar os mecanismos de spoofing (falsifica√ß√£o) do 
 <prgn>oidentd</prgn>. 
 
  <item>
-<tt>-S</tt> - O mesmo que <em>-s</em> mas permitem todos os usu·rios EXCETO os 
+<tt>-S</tt> - O mesmo que <em>-s</em> mas permitem todos os usu√°rios EXCETO os 
 especificados em <file>/etc/identd.spoof</file> falsificarem suas respostas. 
 
  <item>
 <tt>-t [segundos]</tt> - Espera o tempo especificado antes de ser encerrado. 
 
  <item>
-<tt>-T [segundos]</tt> - O <prgn>oidentd</prgn> permanecer· aceitando 
-conexıes quando È executado com a opÁ„o <em>-w</em> pelo n˙mero de segundos 
+<tt>-T [segundos]</tt> - O <prgn>oidentd</prgn> permanecer√° aceitando 
+conex√µes quando √© executado com a op√ß√£o <em>-w</em> pelo n√∫mero de segundos 
 especificado. 
 
  <item>
@@ -309,54 +309,54 @@ especificado.
 especificada. 
 
  <item>
-<tt>-v/-V</tt> - Mostra detalhes sobre a vers„o do servidor. 
+<tt>-v/-V</tt> - Mostra detalhes sobre a vers√£o do servidor. 
 
  <item>
-<tt>-w</tt> - Modo de espera de conexıes.
+<tt>-w</tt> - Modo de espera de conex√µes.
 
  <item>
-<tt>-x [texto]</tt> - Se uma requisiÁ„o falha, o texto especificado È retornado. 
+<tt>-x [texto]</tt> - Se uma requisi√ß√£o falha, o texto especificado √© retornado. 
 
  <item>
 <tt>-W</tt> - Utiliza os mecanismos de acesso <file>hosts.allow</file> e 
 <file>hosts.deny</file> do <prgn>tcpd</prgn>.
 
  <item>
-<tt>-h</tt> - Mostra as opÁıes de linha de comando do <prgn>oidentd</prgn>. 
+<tt>-h</tt> - Mostra as op√ß√µes de linha de comando do <prgn>oidentd</prgn>. 
 
 </list>
 
 
 <sect1 id="s-ident-exemplo">Exemplos
  <p>
-N„o faz muito sentido exemplos de arquivo de configuraÁ„o do <prgn>oidentd</prgn> 
+N√£o faz muito sentido exemplos de arquivo de configura√ß√£o do <prgn>oidentd</prgn> 
 por estes serem muito simples e estarem bem explicados em <ref id="s-ident-ficha">.
-No entanto acho interessante mostrar alguns exemplos de configuraÁıes do 
+No entanto acho interessante mostrar alguns exemplos de configura√ß√µes do 
 <file>hosts.allow</file> e <file>hosts.deny</file> fazendo uso dos recursos 
-de restriÁıes baseadas em usu·rio@endereÁo : 
+de restri√ß√µes baseadas em usu√°rio@endere√ßo : 
 <example>
 # Arquivo hosts.allow
 #
-# Permite requisiÁıes talk de qualquer lugar
+# Permite requisi√ß√µes talk de qualquer lugar
 in.ntalkd: ALL
 in.talkd: ALL
 #
-# Permite que o usu·rio john acesse os serviÁos de ftp de qualquer m·quina da 
+# Permite que o usu√°rio john acesse os servi√ßos de ftp de qualquer m√°quina da 
 # rede 191.168.1.*
 in.ftpd: john@192.168.1.
 #
-# O serviÁo telnet est· permitido somente para john conectando de 192.168.1.1
+# O servi√ßo telnet est√° permitido somente para john conectando de 192.168.1.1
 in.telnetd: john@192.168.1.1
-# Todos podem acessar os serviÁos samba (nomes e compartilhamentos) exceto 
-# o usu·rio evil conectando de qualquer host com o endereÁo cracker.com.*
+# Todos podem acessar os servi√ßos samba (nomes e compartilhamentos) exceto 
+# o usu√°rio evil conectando de qualquer host com o endere√ßo cracker.com.*
 smbd, nmbd: ALL EXCEPT evil@cracker.com.
 
 
 # Arquivo hosts.deny
-# Qualquer finger È bloqueado exceto vindos do usu·rio admin feitos em qualquer 
-# m·quina da rede 192.168.1.*
+# Qualquer finger √© bloqueado exceto vindos do usu√°rio admin feitos em qualquer 
+# m√°quina da rede 192.168.1.*
 in.fingerd: ALL EXCEPT admin@192.168.1.
-# Qualquer outra coisa È bloqueada
+# Qualquer outra coisa √© bloqueada
 ALL: ALL
 
 </example>

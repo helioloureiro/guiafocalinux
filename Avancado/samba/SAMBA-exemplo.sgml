@@ -1,75 +1,75 @@
-<sect id="s-samba-exemplos">Exemplos de configuraÁ„o do servidor SAMBA
+<sect id="s-samba-exemplos">Exemplos de configura√ß√£o do servidor SAMBA
  <p>
-Os exemplos existentes nesta seÁ„o cobrem diferentes tipos de configuraÁ„o do 
-servidor, tanto em modo de compartilhamento com acesso p˙blico ou um 
-domÌnio restrito de rede. Todos os exemplos est„o bem comentados e 
-explicativos, apenas pegue o que se enquadre mais em sua situaÁ„o para 
-uso prÛprio e adaptaÁıes.
+Os exemplos existentes nesta se√ß√£o cobrem diferentes tipos de configura√ß√£o do 
+servidor, tanto em modo de compartilhamento com acesso p√∫blico ou um 
+dom√≠nio restrito de rede. Todos os exemplos est√£o bem comentados e 
+explicativos, apenas pegue o que se enquadre mais em sua situa√ß√£o para 
+uso pr√≥prio e adapta√ß√µes.
 
 
-<sect1 id="s-samba-exemplos-workgroup-p">Grupo de Trabalho com acesso p˙blico
+<sect1 id="s-samba-exemplos-workgroup-p">Grupo de Trabalho com acesso p√∫blico
  <p>
-Este exemplo pode ser usado de modelo para construir uma configuraÁ„o baseada
-no controle de acesso usando o nÌvel de seguranÁa <em>share</em> e quando 
-possui compartilhamentos de acesso p˙blico. Esta configuraÁ„o È indicada 
+Este exemplo pode ser usado de modelo para construir uma configura√ß√£o baseada
+no controle de acesso usando o n√≠vel de seguran√ßa <em>share</em> e quando 
+possui compartilhamentos de acesso p√∫blico. Esta configura√ß√£o √© indicada 
 quando necessita de compatibilidade com softwares NetBIOS antigos.
 <example>
- # Arquivo de configuraÁ„o do SAMBA criado por 
+ # Arquivo de configura√ß√£o do SAMBA criado por 
  # Gleydson Mazioli da Silva &lt;gleydson@debian.org&gt;
- # para o guia Foca GNU/Linux AvanÁado - CapÌtulo SAMBA
- # Este script pode ser copiado e distribuÌdo livremente de 
- # acordo com os termos da GPL. Ele n„o tem a intenÁ„o de 
+ # para o guia Foca GNU/Linux Avan√ßado - Cap√≠tulo SAMBA
+ # Este script pode ser copiado e distribu√≠do livremente de 
+ # acordo com os termos da GPL. Ele n√£o tem a inten√ß√£o de 
  # atender uma determinada finalidade, sendo usado apenas 
- # para fins did·ticos, portanto fica a inteira responsabilidade
- # do usu·rio sua utilizaÁ„o.
+ # para fins did√°ticos, portanto fica a inteira responsabilidade
+ # do usu√°rio sua utiliza√ß√£o.
 
 [global]
- # nome da m·quina na rede
+ # nome da m√°quina na rede
  netbios name = teste
- # nome do grupo de trabalho que a m·quina pertencer·
+ # nome do grupo de trabalho que a m√°quina pertencer√°
  workgroup = focalinux
- # nÌvel de seguranÁa share permite que clientes antigos mantenham a compatibilidade
- # enviando somente a senha para acesso ao recurso, determinando o nome de usu·rio
+ # n√≠vel de seguran√ßa share permite que clientes antigos mantenham a compatibilidade
+ # enviando somente a senha para acesso ao recurso, determinando o nome de usu√°rio
  # de outras formas
  security = share
- # O recurso de senhas criptografadas n„o funciona quando usamos o nÌvel share 
- # de seguranÁa. O motivo disto È porque automaticamente È assumido que vocÍ 
- # est· selecionando este nÌvel por manter compatibilidade com sistemas antigos
- # ou para disponibilizar compartilhamentos p˙blicos, onde 
+ # O recurso de senhas criptografadas n√£o funciona quando usamos o n√≠vel share 
+ # de seguran√ßa. O motivo disto √© porque automaticamente √© assumido que voc√™ 
+ # est√° selecionando este n√≠vel por manter compatibilidade com sistemas antigos
+ # ou para disponibilizar compartilhamentos p√∫blicos, onde 
  encrypt passwords = false
- # Conta que ser· mapeada para o usu·rio guest
+ # Conta que ser√° mapeada para o usu√°rio guest
  guest account = nobody
- # Como todos os compartilhamentos desta configuraÁ„o s„o de acesso p˙blico
- # coloquei este par‚metro na seÁ„o [global], assim esta opÁ„o afetar· todos
+ # Como todos os compartilhamentos desta configura√ß√£o s√£o de acesso p√∫blico
+ # coloquei este par√¢metro na se√ß√£o [global], assim esta op√ß√£o afetar√° todos
  # os compartilhamentos.
  guest ok = 1
- # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr„o
- # para o Brasil e paÌses de lÌngua latina È o ISO 8859-1
+ # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr√£o
+ # para o Brasil e pa√≠ses de l√≠ngua latina √© o ISO 8859-1
  character set = ISO8859-1
  
 
-# Compartilha o diretÛrio /tmp (path = /tmp) com o nome "temporario" ([temporario]),
-# È adicionada a descriÁ„o "DiretÛrio tempor·rio" com acesso leitura/gravaÁ„o 
-# (read only = no) e exibido na janela de navegaÁ„o da rede (browseable = yes).
+# Compartilha o diret√≥rio /tmp (path = /tmp) com o nome "temporario" ([temporario]),
+# √© adicionada a descri√ß√£o "Diret√≥rio tempor√°rio" com acesso leitura/grava√ß√£o 
+# (read only = no) e exibido na janela de navega√ß√£o da rede (browseable = yes).
 [temporario]
  path = /tmp
- comment = DiretÛrio tempor·rio
+ comment = Diret√≥rio tempor√°rio
  read only = no
  browseable = yes
 
-# Compartilha o diretÛrio /pub (path = /pub) com o nome "publico" ([publico]).
-# A descriÁ„o "DiretÛrio de acesso p˙blico" È associada ao compartilhamento
-# com acesso somente leitura (read only = yes) e exibido na janela de navegaÁ„o 
+# Compartilha o diret√≥rio /pub (path = /pub) com o nome "publico" ([publico]).
+# A descri√ß√£o "Diret√≥rio de acesso p√∫blico" √© associada ao compartilhamento
+# com acesso somente leitura (read only = yes) e exibido na janela de navega√ß√£o 
 # da rede (browseable = yes).
 [publico] 
  path =/pub
- comment = DiretÛrio de acesso p˙blico
+ comment = Diret√≥rio de acesso p√∫blico
  read only = yes
  browseable = yes
 
 # Compartilha todas as impressoras encontradas no /etc/printcap do sistema
-# Uma descriÁ„o melhor do tipo especial de compartilhamento "[printers]"
-# È explicado no inicio do guia Foca Linux
+# Uma descri√ß√£o melhor do tipo especial de compartilhamento "[printers]"
+# √© explicado no inicio do guia Foca Linux
 [printers]
  comment = All Printers
  path = /tmp
@@ -80,67 +80,67 @@ quando necessita de compatibilidade com softwares NetBIOS antigos.
 </example>
 
 
-<sect1 id="s-samba-exemplos-workgroup-u">Grupo de Trabalho com acesso por usu·rio
+<sect1 id="s-samba-exemplos-workgroup-u">Grupo de Trabalho com acesso por usu√°rio
  <p>
-O exemplo abaixo descreve uma configuraÁ„o a nÌvel de seguranÁa por usu·rio
-onde existem compartilhamentos que requerem login e usu·rios especÌficos, 
-e restriÁıes de IPs e interface onde o servidor opera. Esta configuraÁ„o 
-utiliza senhas em texto claro para acesso dos usu·rios, mas pode ser 
+O exemplo abaixo descreve uma configura√ß√£o a n√≠vel de seguran√ßa por usu√°rio
+onde existem compartilhamentos que requerem login e usu√°rios espec√≠ficos, 
+e restri√ß√µes de IPs e interface onde o servidor opera. Esta configura√ß√£o 
+utiliza senhas em texto claro para acesso dos usu√°rios, mas pode ser 
 facilmente modificada para suportar senhas criptografadas.
 <example>
- # Arquivo de configuraÁ„o do SAMBA criado por 
+ # Arquivo de configura√ß√£o do SAMBA criado por 
  # Gleydson Mazioli da Silva &gt;gleydson@debian.org&gt;
- # para o guia Foca GNU/Linux AvanÁado - CapÌtulo SAMBA
- # Este script pode ser copiado e distribuÌdo livremente de 
- # acordo com os termos da GPL. Ele n„o tem a intenÁ„o de 
+ # para o guia Foca GNU/Linux Avan√ßado - Cap√≠tulo SAMBA
+ # Este script pode ser copiado e distribu√≠do livremente de 
+ # acordo com os termos da GPL. Ele n√£o tem a inten√ß√£o de 
  # atender uma determinada finalidade, sendo usado apenas 
- # para fins did·ticos, portanto fica a inteira responsabilidade
- # do usu·rio sua utilizaÁ„o.
+ # para fins did√°ticos, portanto fica a inteira responsabilidade
+ # do usu√°rio sua utiliza√ß√£o.
 
 [global]
- # nome da m·quina na rede
+ # nome da m√°quina na rede
  netbios name = teste
- # nome do grupo de trabalho que a m·quina pertencer·
+ # nome do grupo de trabalho que a m√°quina pertencer√°
  workgroup = focalinux
- # nÌvel de seguranÁa user somente aceita usu·rios autenticados apÛs o envio 
+ # n√≠vel de seguran√ßa user somente aceita usu√°rios autenticados ap√≥s o envio 
  # de login/senha
  security = user
- # … utilizada senhas em texto claro nesta configuraÁ„o
+ # √â utilizada senhas em texto claro nesta configura√ß√£o
  encrypt passwords = false
- # Conta que ser· mapeada para o usu·rio guest
+ # Conta que ser√° mapeada para o usu√°rio guest
  guest account = nobody
- # Permite restringir quais interfaces o SAMBA responder·
+ # Permite restringir quais interfaces o SAMBA responder√°
  bind interfaces only = yes
- # Faz o samba sÛ responder requisiÁıes vindo de eth0
+ # Faz o samba s√≥ responder requisi√ß√µes vindo de eth0
  interfaces = eth0
- # Supondo que nossa interface eth0 receba conexıes roteadas de diversas 
- # outras redes, permite somente as conexıes vindas da rede 192.168.1.0/24
+ # Supondo que nossa interface eth0 receba conex√µes roteadas de diversas 
+ # outras redes, permite somente as conex√µes vindas da rede 192.168.1.0/24
  hosts allow = 192.168.1.0/24
- # A m·quina 192.168.1.57 possui gateway para acesso interno, como medida
- # de seguranÁa, bloqueamos o acesso desta m·quina.
+ # A m√°quina 192.168.1.57 possui gateway para acesso interno, como medida
+ # de seguran√ßa, bloqueamos o acesso desta m√°quina.
  hosts deny = 192.168.1.57/32
  
- # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr„o
- # para o Brasil e paÌses de lÌngua latina È o ISO 8859-1
+ # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr√£o
+ # para o Brasil e pa√≠ses de l√≠ngua latina √© o ISO 8859-1
  character set = ISO8859-1
 
- # As restriÁıes do PAM ter„o efeito sobre os usu·rios e recursos usados do SAMBA
+ # As restri√ß√µes do PAM ter√£o efeito sobre os usu√°rios e recursos usados do SAMBA
  obey pam restriction = yes 
 
-# Mapeia o diretÛrio home do usu·rio autenticado. Este compartilhamento especial
-# È descrito em mais detalhes no inicio do capÌtulo sobre o SAMBA no Foca Linux.
+# Mapeia o diret√≥rio home do usu√°rio autenticado. Este compartilhamento especial
+# √© descrito em mais detalhes no inicio do cap√≠tulo sobre o SAMBA no Foca Linux.
 [homes]
-  comment = DiretÛrio do Usu·rio
+  comment = Diret√≥rio do Usu√°rio
   create mask = 0700
   directory mask = 0700
   browseable = No
 
-# Compartilha o diretÛrio win (path = /win) com o nome "win" ([win]). 
-# A descriÁ„o associada ao compartilhamento ser· "Disco do Windows", 
+# Compartilha o diret√≥rio win (path = /win) com o nome "win" ([win]). 
+# A descri√ß√£o associada ao compartilhamento ser√° "Disco do Windows", 
 # o nome de volume precisa ser especificado pois usamos programas 
-# que a proteÁ„o anti cÛpia È o serial. Ainda fazemos uma proteÁ„o
-# onde qualquer usu·rio existente no grupo @adm È automaticamente 
-# rejeitado e o usu·rio "baduser" somente possui permiss„o de leitura
+# que a prote√ß√£o anti c√≥pia √© o serial. Ainda fazemos uma prote√ß√£o
+# onde qualquer usu√°rio existente no grupo @adm √© automaticamente 
+# rejeitado e o usu√°rio "baduser" somente possui permiss√£o de leitura
 # (read list = baduser).
 #
 [win]
@@ -151,15 +151,15 @@ facilmente modificada para suportar senhas criptografadas.
  browseable = yes
  read list = baduser
 
-# Compartilha o diretÛrio /pub (path = /pub) com o nome "publico" ([publico]).
-# A descriÁ„o "DiretÛrio de acesso p˙blico" È associada ao compartilhamento
-# com acesso somente leitura (read only = yes) e exibido na janela de navegaÁ„o 
-# da rede (browseable = yes). O par‚metro public = yes permite que este 
-# compartilhamento seja acessado usando o usu·rio "nobody" sem o fornecimento
+# Compartilha o diret√≥rio /pub (path = /pub) com o nome "publico" ([publico]).
+# A descri√ß√£o "Diret√≥rio de acesso p√∫blico" √© associada ao compartilhamento
+# com acesso somente leitura (read only = yes) e exibido na janela de navega√ß√£o 
+# da rede (browseable = yes). O par√¢metro public = yes permite que este 
+# compartilhamento seja acessado usando o usu√°rio "nobody" sem o fornecimento
 # de senha.
 [publico] 
  path =/pub
- comment = DiretÛrio de acesso p˙blico
+ comment = Diret√≥rio de acesso p√∫blico
  read only = yes
  browseable = yes
  public = yes
@@ -168,89 +168,89 @@ facilmente modificada para suportar senhas criptografadas.
 
 
 
-<sect1 id="s-samba-exemplos-dominio">DomÌnio
+<sect1 id="s-samba-exemplos-dominio">Dom√≠nio
  <p>
 <example>
- # Arquivo de configuraÁ„o do SAMBA criado por 
+ # Arquivo de configura√ß√£o do SAMBA criado por 
  # Gleydson Mazioli da Silva &lt;gleydson@debian.org&gt;
- # para o guia Foca GNU/Linux AvanÁado - CapÌtulo SAMBA
- # Este script pode ser copiado e distribuÌdo livremente de 
- # acordo com os termos da GPL. Ele n„o tem a intenÁ„o de 
+ # para o guia Foca GNU/Linux Avan√ßado - Cap√≠tulo SAMBA
+ # Este script pode ser copiado e distribu√≠do livremente de 
+ # acordo com os termos da GPL. Ele n√£o tem a inten√ß√£o de 
  # atender uma determinada finalidade, sendo usado apenas 
- # para fins did·ticos, portanto fica a inteira responsabilidade
- # do usu·rio sua utilizaÁ„o.
+ # para fins did√°ticos, portanto fica a inteira responsabilidade
+ # do usu√°rio sua utiliza√ß√£o.
 
 [global]
- # nome da m·quina na rede
+ # nome da m√°quina na rede
  netbios name = teste
- # nome do grupo de trabalho que a m·quina pertencer·
+ # nome do grupo de trabalho que a m√°quina pertencer√°
  workgroup = focalinux
- # String que ser· mostrada junto com a descriÁ„o do servidor
+ # String que ser√° mostrada junto com a descri√ß√£o do servidor
  server string = servidor PDC principal de testes
- # nÌvel de seguranÁa user somente aceita usu·rios autenticados apÛs o envio 
+ # n√≠vel de seguran√ßa user somente aceita usu√°rios autenticados ap√≥s o envio 
  # de login/senha
  security = user
- # Utilizamos senhas criptografadas nesta configuraÁ„o
+ # Utilizamos senhas criptografadas nesta configura√ß√£o
  encrypt passwords = true
  smb passwd file = /etc/samba/smbpasswd
- # Conta que ser· mapeada para o usu·rio guest
+ # Conta que ser√° mapeada para o usu√°rio guest
  guest account = nobody
- # Permite restringir quais interfaces o SAMBA responder·
+ # Permite restringir quais interfaces o SAMBA responder√°
  bind interfaces only = yes
- # Faz o samba sÛ responder requisiÁıes vindo de eth0
+ # Faz o samba s√≥ responder requisi√ß√µes vindo de eth0
  interfaces = eth0
 
- # como estamos planejando ter um grande n˙mero de usu·rios na rede, dividimos
- # os arquivos de log do servidor por m·quina.
+ # como estamos planejando ter um grande n√∫mero de usu√°rios na rede, dividimos
+ # os arquivos de log do servidor por m√°quina.
  log file =  /var/log/samba/samba-%m-%I.log
- # O tamanho de CADA arquivo de log criado dever· ser 1MB (1024Kb). 
+ # O tamanho de CADA arquivo de log criado dever√° ser 1MB (1024Kb). 
  max log size = 1000 
- # Escolhemos um nÌvel de OS com uma boa folga para vencer as eleiÁıes de 
- # controlador de domÌnio local
+ # Escolhemos um n√≠vel de OS com uma boa folga para vencer as elei√ß√µes de 
+ # controlador de dom√≠nio local
  os level = 80 
- # Dizemos que queremos ser o Domain Master Browse (o padr„o È auto)
+ # Dizemos que queremos ser o Domain Master Browse (o padr√£o √© auto)
  domain master = yes
- # Damos algumas vantagens para o servidor ganhar a eleiÁ„o caso 
- # aconteÁa desempate por critÈrios
+ # Damos algumas vantagens para o servidor ganhar a elei√ß√£o caso 
+ # aconte√ßa desempate por crit√©rios
  preferred master = yes
- # TambÈm queremos ser o local master browser para nosso segmento de rede
+ # Tamb√©m queremos ser o local master browser para nosso segmento de rede
  local master = yes
- # Este servidor suportar· logon de usu·rios
+ # Este servidor suportar√° logon de usu√°rios
  domain logons = yes
- # Usu·rios que possuem poderes para adicionar/remover m·quinas no domÌnio
- # (ter„o seu nÌvel de acesso igual a root)
+ # Usu√°rios que possuem poderes para adicionar/remover m√°quinas no dom√≠nio
+ # (ter√£o seu n√≠vel de acesso igual a root)
  admin users = gleydson
- # Unidade que ser· mapeada para o usu·rio local durante o logon (apenas
+ # Unidade que ser√° mapeada para o usu√°rio local durante o logon (apenas
  # sistemas baseados no NT).
  logon drive = m:
- # Nome do script que ser· executado pelas m·quinas clientes
+ # Nome do script que ser√° executado pelas m√°quinas clientes
  logon script = logon.bat
 
- # AÁ„o que ser· tomada durante o recebimento de mensagens do 
+ # A√ß√£o que ser√° tomada durante o recebimento de mensagens do 
  # Winpopup. 
  message command = /bin/sh -c '/usr/bin/linpopup "%f" "%m" %s; rm %s' &
 
- # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr„o
- # para o Brasil e paÌses de lÌngua latina È o ISO 8859-1
+ # Conjunto de caracteres utilizados para acessar os compartilhamentos. O padr√£o
+ # para o Brasil e pa√≠ses de l√≠ngua latina √© o ISO 8859-1
  character set = ISO8859-1
 
- # As restriÁıes do PAM ter„o efeito sobre os usu·rios e recursos usados do SAMBA
+ # As restri√ß√µes do PAM ter√£o efeito sobre os usu√°rios e recursos usados do SAMBA
  obey pam restriction = yes 
 
-# Mapeia o diretÛrio home do usu·rio autenticado. Este compartilhamento especial
-# È descrito em mais detalhes no inicio do capÌtulo sobre o SAMBA no Foca Linux.
+# Mapeia o diret√≥rio home do usu√°rio autenticado. Este compartilhamento especial
+# √© descrito em mais detalhes no inicio do cap√≠tulo sobre o SAMBA no Foca Linux.
 [homes]
-  comment = DiretÛrio do Usu·rio
+  comment = Diret√≥rio do Usu√°rio
   create mask = 0700
   directory mask = 0700
   browseable = No
 
-# Compartilha o diretÛrio win (path = /win) com o nome "win" ([win]). 
-# A descriÁ„o associada ao compartilhamento ser· "Disco do Windows", 
+# Compartilha o diret√≥rio win (path = /win) com o nome "win" ([win]). 
+# A descri√ß√£o associada ao compartilhamento ser√° "Disco do Windows", 
 # o nome de volume precisa ser especificado pois usamos programas 
-# que a proteÁ„o anti cÛpia È o serial. Ainda fazemos uma proteÁ„o
-# onde qualquer usu·rio existente no grupo @adm È automaticamente 
-# rejeitado e o usu·rio "baduser" somente possui permiss„o de leitura
+# que a prote√ß√£o anti c√≥pia √© o serial. Ainda fazemos uma prote√ß√£o
+# onde qualquer usu√°rio existente no grupo @adm √© automaticamente 
+# rejeitado e o usu√°rio "baduser" somente possui permiss√£o de leitura
 # (read list = baduser).
 #
 [win]
@@ -261,20 +261,20 @@ facilmente modificada para suportar senhas criptografadas.
  browseable = yes
  read list = baduser
 
-# Compartilha o diretÛrio /pub (path = /pub) com o nome "publico" ([publico]).
-# A descriÁ„o "DiretÛrio de acesso p˙blico" È associada ao compartilhamento
-# com acesso somente leitura (read only = yes) e exibido na janela de navegaÁ„o 
-# da rede (browseable = yes). O par‚metro public = yes permite que este 
-# compartilhamento seja acessado usando o usu·rio "nobody" sem o fornecimento
+# Compartilha o diret√≥rio /pub (path = /pub) com o nome "publico" ([publico]).
+# A descri√ß√£o "Diret√≥rio de acesso p√∫blico" √© associada ao compartilhamento
+# com acesso somente leitura (read only = yes) e exibido na janela de navega√ß√£o 
+# da rede (browseable = yes). O par√¢metro public = yes permite que este 
+# compartilhamento seja acessado usando o usu√°rio "nobody" sem o fornecimento
 # de senha.
 [publico] 
  path =/pub
- comment = DiretÛrio de acesso p˙blico
+ comment = Diret√≥rio de acesso p√∫blico
  read only = yes
  browseable = yes
  public = yes
 
-# Compartilhamento especial utilizado para o logon de m·quinas na rede
+# Compartilhamento especial utilizado para o logon de m√°quinas na rede
 [netlogon]
  path=/pub/samba/netlogon/logon.bat
  read only = yes

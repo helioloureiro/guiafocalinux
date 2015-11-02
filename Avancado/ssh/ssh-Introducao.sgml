@@ -1,269 +1,269 @@
 <chapt id="s-ssh">Servidor ssh
  <p>
-Este capÌtulo documenta a instalaÁ„o, configuraÁ„o e personalizaÁ„o do 
-servidor de shell seguro <prgn>sshd</prgn>, alÈm de explicar as vantagens 
-da utilizaÁ„o dos serviÁos criptogr·ficos. A utilizaÁ„o do programa cliente 
-<prgn>ssh</prgn> tambÈm È explicada, alÈm de utilit·rios usados para geraÁ„o 
-de chaves p˙blica/privada para o <prgn>ssh</prgn> (autenticaÁ„o RSA/DAS - o que È, 
-vantagens), cÛpia de arquivos e mÈtodos de autenticaÁ„o usando o mÈtodo de chave 
-p˙blica/privada RSA. 
+Este cap√≠tulo documenta a instala√ß√£o, configura√ß√£o e personaliza√ß√£o do 
+servidor de shell seguro <prgn>sshd</prgn>, al√©m de explicar as vantagens 
+da utiliza√ß√£o dos servi√ßos criptogr√°ficos. A utiliza√ß√£o do programa cliente 
+<prgn>ssh</prgn> tamb√©m √© explicada, al√©m de utilit√°rios usados para gera√ß√£o 
+de chaves p√∫blica/privada para o <prgn>ssh</prgn> (autentica√ß√£o RSA/DAS - o que √©, 
+vantagens), c√≥pia de arquivos e m√©todos de autentica√ß√£o usando o m√©todo de chave 
+p√∫blica/privada RSA. 
  <p>
-Ambas as versıes 1 e 2 do ssh s„o documentadas neste capÌtulo. OpÁıes especÌficas 
-do protocolo 1 ou 2 do ssh ser„o destacadas. 
+Ambas as vers√µes 1 e 2 do ssh s√£o documentadas neste cap√≠tulo. Op√ß√µes espec√≠ficas 
+do protocolo 1 ou 2 do ssh ser√£o destacadas. 
 
 
-<sect id="s-ssh-intro">IntroduÁ„o
+<sect id="s-ssh-intro">Introdu√ß√£o
  <p>
-O serviÁo de <prgn>ssh</prgn> permite fazer o acesso remoto ao console de 
-sua m·quina, em outras palavras, vocÍ poder· acessar sua m·quina como se 
+O servi√ßo de <prgn>ssh</prgn> permite fazer o acesso remoto ao console de 
+sua m√°quina, em outras palavras, voc√™ poder√° acessar sua m√°quina como se 
 estivesse conectado localmente ao seu console (substituindo o 
-<prgn>rlogin</prgn> e <prgn>rsh</prgn>). A principal diferenÁa com relaÁ„o 
-ao serviÁo <prgn>telnet</prgn> padr„o, <prgn>rlogin</prgn> e <prgn>rsh</prgn> 
-È que toda a comunicaÁ„o entre cliente/servidor È feita de forma encriptada 
-usando chaves p˙blicas/privadas RSA para criptografia garantindo uma 
-transferÍncia segura de dados. 
+<prgn>rlogin</prgn> e <prgn>rsh</prgn>). A principal diferen√ßa com rela√ß√£o 
+ao servi√ßo <prgn>telnet</prgn> padr√£o, <prgn>rlogin</prgn> e <prgn>rsh</prgn> 
+√© que toda a comunica√ß√£o entre cliente/servidor √© feita de forma encriptada 
+usando chaves p√∫blicas/privadas RSA para criptografia garantindo uma 
+transfer√™ncia segura de dados. 
  <p>
-A velocidade do console remoto conectado via Internet È excelente (melhor que 
-a obtida pelo <prgn>telnet</prgn> e serviÁos r*) dando a impress„o de uma 
-conex„o em tempo real (mesmo em links discados de 9.600 KB/s), a compactaÁ„o 
-dos dados tambÈm pode ser ativada para elevar ainda mais a velocidade entre 
-cliente-servidor ssh. AlÈm do serviÁo de acesso 
-remoto, o <prgn>scp</prgn> possibilita a transferÍncia/recepÁ„o segura 
+A velocidade do console remoto conectado via Internet √© excelente (melhor que 
+a obtida pelo <prgn>telnet</prgn> e servi√ßos r*) dando a impress√£o de uma 
+conex√£o em tempo real (mesmo em links discados de 9.600 KB/s), a compacta√ß√£o 
+dos dados tamb√©m pode ser ativada para elevar ainda mais a velocidade entre 
+cliente-servidor ssh. Al√©m do servi√ßo de acesso 
+remoto, o <prgn>scp</prgn> possibilita a transfer√™ncia/recep√ß√£o segura 
 de arquivos (substituindo o <prgn>rcp</prgn>). 
  <p>
-Em conexıes sem criptografia (rsh, rlogin) os dados trafegam de 
+Em conex√µes sem criptografia (rsh, rlogin) os dados trafegam de 
 forma desprotegida e caso exista algum sniffer instalado em sua rota com 
-a m·quina destino, todo o que fizer poder· ser capturado (incluindo senhas). 
+a m√°quina destino, todo o que fizer poder√° ser capturado (incluindo senhas). 
 
 
-<sect1 id="s-ssh-versao">Vers„o
+<sect1 id="s-ssh-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 2.0 do <prgn>ssh</prgn>. As explicaÁıes 
-contidas aqui podem funcionar para versıes posteriores, mas È recomend·vel que 
-leia a documentaÁ„o sobre modificaÁıes no programa (changelog) em busca de 
-mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui. 
+√â assumido que esteja usando a vers√£o 2.0 do <prgn>ssh</prgn>. As explica√ß√µes 
+contidas aqui podem funcionar para vers√µes posteriores, mas √© recomend√°vel que 
+leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) em busca de 
+mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui. 
 
 
-<sect1 id="s-ssh-historia">HistÛria
+<sect1 id="s-ssh-historia">Hist√≥ria
  <p>
-O <prgn>openSSH</prgn> (explicado neste capÌtulo) È baseado na ˙ltima vers„o 
-livre do implementaÁ„o de Tatu Ylonen com todos os algoritmos patenteados 
-(para bibliotecas externas) removidos, todos as falhas de seguranÁa corrigidas, 
-novas caracterÌsticas e muitas outras melhorias. O openSSH foi 
+O <prgn>openSSH</prgn> (explicado neste cap√≠tulo) √© baseado na √∫ltima vers√£o 
+livre do implementa√ß√£o de Tatu Ylonen com todos os algoritmos patenteados 
+(para bibliotecas externas) removidos, todos as falhas de seguran√ßa corrigidas, 
+novas caracter√≠sticas e muitas outras melhorias. O openSSH foi 
 criado por Aaron Campbell, Bob Beck, Markus Friedl, Niels Provos, Theo de Raadt 
 e Dug Song. 
 
 
 <sect1 id="s-ssh-contribuindo">Contribuindo
  <p>
-A Home page principal È 
+A Home page principal √© 
 <url id="http://www.unixuser.org/~haruyama/security/openssh/index.html">. 
-Falhas, correÁıes e sugestıes podem ser enviadas para a lista de discuss„o 
-<email>openssh-unix-dev@mindrot.org</email> (aberta a postagens de usu·rios n„o 
+Falhas, corre√ß√µes e sugest√µes podem ser enviadas para a lista de discuss√£o 
+<email>openssh-unix-dev@mindrot.org</email> (aberta a postagens de usu√°rios n√£o 
 inscritos). 
 
 
-<sect1 id="s-ssh-caracteristicas">CaracterÌsticas
+<sect1 id="s-ssh-caracteristicas">Caracter√≠sticas
  <p>
-Abaixo as principais caracterÌsticas do serviÁo <prgn>ssh</prgn> 
+Abaixo as principais caracter√≠sticas do servi√ßo <prgn>ssh</prgn> 
 (<prgn>Openssh</prgn>). 
 <list compact> 
- <item>Conex„o de dados criptografada entre cliente/servidor.
- <item>CÛpia de arquivos usando conex„o criptografada.
+ <item>Conex√£o de dados criptografada entre cliente/servidor.
+ <item>C√≥pia de arquivos usando conex√£o criptografada.
  <item>Suporte a ftp criptografado (sftp).
- <item>Suporte a compactaÁ„o de dados entre cliente/servidor.
+ <item>Suporte a compacta√ß√£o de dados entre cliente/servidor.
  <item>Controle de acesso das interfaces servidas pelo servidor <prgn>ssh</prgn>.
  <item>Suporte a controle de acesso tcp wrappers.
- <item>AutenticaÁ„o usando um par de chaves p˙blica/privada RSA ou DSA.
+ <item>Autentica√ß√£o usando um par de chaves p√∫blica/privada RSA ou DSA.
  <item>Algoritmo de criptografia livre de patentes.
  <item>Suporte a PAM.
- <item>Suporte a caracteres ANSI (cores e cÛdigos de escape especiais no console). 
+ <item>Suporte a caracteres ANSI (cores e c√≥digos de escape especiais no console). 
 </list>
 
 
-<sect1 id="s-ssh-ficha">Ficha tÈcnica
+<sect1 id="s-ssh-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>ssh</package>
  <p>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item>
 <tt>ssh</tt> - Cliente ssh (console remoto). 
 
  <item>
-<tt>slogin</tt> - Link simbÛlico para o programa <prgn>ssh</prgn>. 
+<tt>slogin</tt> - Link simb√≥lico para o programa <prgn>ssh</prgn>. 
 
  <item>
 <tt>sshd</tt> - Servidor de shell seguro ssh.
 
  <item>
-<tt>scp</tt> - Programa para transferÍncia de arquivos entre cliente/servidor
+<tt>scp</tt> - Programa para transfer√™ncia de arquivos entre cliente/servidor
 
  <item>
-<tt>ssh-keygen</tt> - Gera chaves de autenticaÁ„o para o ssh
+<tt>ssh-keygen</tt> - Gera chaves de autentica√ß√£o para o ssh
 
  <item>
-<tt>sftp</tt> - Cliente ftp com suporte a comunicaÁ„o segura. 
+<tt>sftp</tt> - Cliente ftp com suporte a comunica√ß√£o segura. 
 
  <item>
-<tt>sftp-server</tt> - Servidor ftp com suporte a comunicaÁ„o segura. 
+<tt>sftp-server</tt> - Servidor ftp com suporte a comunica√ß√£o segura. 
 
  <item>
-<tt>ssh-add</tt> - Adiciona chaves de autenticaÁ„o DSA ou RSA ao programa de 
-autenticaÁ„o. 
+<tt>ssh-add</tt> - Adiciona chaves de autentica√ß√£o DSA ou RSA ao programa de 
+autentica√ß√£o. 
 
  <item>
-<tt>ssh-agent</tt> - Agente de autenticaÁ„o, sua funÁ„o È armazenar a chave 
-privada para autenticaÁ„o via chave p˙blica (DSA ou RSA). 
+<tt>ssh-agent</tt> - Agente de autentica√ß√£o, sua fun√ß√£o √© armazenar a chave 
+privada para autentica√ß√£o via chave p√∫blica (DSA ou RSA). 
 
  <item>
-<tt>ssh-keyscan</tt> - Scaneia por chaves p˙blicas de autenticaÁ„o de hosts especificados. O principal objetivo È ajudar na construÁ„o do arquivo local 
+<tt>ssh-keyscan</tt> - Scaneia por chaves p√∫blicas de autentica√ß√£o de hosts especificados. O principal objetivo √© ajudar na constru√ß√£o do arquivo local 
 <file>know_hosts</file>. 
 
  <item>
-<tt>ssh-copy-id</tt> - Usado para instalaÁ„o do arquivo <file>identity.pub</file> 
-em uma m·quina remota. 
+<tt>ssh-copy-id</tt> - Usado para instala√ß√£o do arquivo <file>identity.pub</file> 
+em uma m√°quina remota. 
  
 </list>
-Arquivos de configuraÁ„o:
+Arquivos de configura√ß√£o:
 <list compact>
  <item>
-<file>/etc/ssh/sshd_config</file> - Arquivo de configuraÁ„o do 
+<file>/etc/ssh/sshd_config</file> - Arquivo de configura√ß√£o do 
 servidor ssh.
  <item>
-<file>/etc/ssh/ssh_config</file> - Arquivo de configuraÁ„o do cliente ssh. 
+<file>/etc/ssh/ssh_config</file> - Arquivo de configura√ß√£o do cliente ssh. 
  <item>
-<file>~/.ssh/config</file> - Arquivo de configuraÁ„o pessoal do cliente ssh. 
+<file>~/.ssh/config</file> - Arquivo de configura√ß√£o pessoal do cliente ssh. 
 </list>
 
 
 <sect1 id="s-ssh-hwreq">Requerimentos de Hardware
  <p>
-… recomendado no mÌnimo 6MB de memÛria RAM para a execuÁ„o do serviÁo 
+√â recomendado no m√≠nimo 6MB de mem√≥ria RAM para a execu√ß√£o do servi√ßo 
 <prgn>ssh</prgn> mais o kernel do <prgn>Linux</prgn>. Este 
 limite deve ser redimensionado para servidores de acesso dedicado, 
-uma quantidade de 64MB deve ser confort·vel para centenas de usu·rios 
+uma quantidade de 64MB deve ser confort√°vel para centenas de usu√°rios 
 conectados simultaneamente (o que raramente acontece). 
  <p>
-<![ %CAPJUNTOS [ Veja tambÈm <ref id="d-restr"> para configuraÁ„o de 
-restriÁıes usando PAM. ]]>
-O <prgn>ssh</prgn> que acompanha a distribuiÁ„o <prgn>Debian</prgn> 
-vem com o suporte a tcp wrappers compilado por padr„o. 
+<![ %CAPJUNTOS [ Veja tamb√©m <ref id="d-restr"> para configura√ß√£o de 
+restri√ß√µes usando PAM. ]]>
+O <prgn>ssh</prgn> que acompanha a distribui√ß√£o <prgn>Debian</prgn> 
+vem com o suporte a tcp wrappers compilado por padr√£o. 
 
 
 <sect1 id="s-ssh-logs">Arquivos de log criados pelo servidor ssh
  <p>
-Detalhes sobre a execuÁ„o do servidor <prgn>sshd</prgn> (como inicio, 
-autenticaÁ„o e tÈrmino) s„o enviadas ao <prgn>syslog</prgn> do sistema. 
-A <em>prioridade</em> e <em>nÌvel</em> s„o definidos no arquivo de 
-configuraÁ„o <file>/etc/ssh/sshd_config</file> (veja 
+Detalhes sobre a execu√ß√£o do servidor <prgn>sshd</prgn> (como inicio, 
+autentica√ß√£o e t√©rmino) s√£o enviadas ao <prgn>syslog</prgn> do sistema. 
+A <em>prioridade</em> e <em>n√≠vel</em> s√£o definidos no arquivo de 
+configura√ß√£o <file>/etc/ssh/sshd_config</file> (veja 
 <ref id="s-ssh-server-sshd_config">). 
 
 
-<sect1 id="s-ssh-install">InstalaÁ„o do servidor openSSH
+<sect1 id="s-ssh-install">Instala√ß√£o do servidor openSSH
  <p>
 <tt>apt-get install ssh</tt>. 
  <p>
-Por padr„o o servidor <prgn>sshd</prgn> È instalado como daemon, tambÈm 
-È possÌvel executa-lo via <prgn>inetd</prgn> mas isto n„o È aconselh·vel porque 
-o servidor gera uma chave aleatÛria de seÁ„o toda vez que È iniciado, isto podendo 
-levar v·rios segundos (quando È usada a vers„o 1 do protocolo ssh, veja 
+Por padr√£o o servidor <prgn>sshd</prgn> √© instalado como daemon, tamb√©m 
+√© poss√≠vel executa-lo via <prgn>inetd</prgn> mas isto n√£o √© aconselh√°vel porque 
+o servidor gera uma chave aleat√≥ria de se√ß√£o toda vez que √© iniciado, isto podendo 
+levar v√°rios segundos (quando √© usada a vers√£o 1 do protocolo ssh, veja 
 <ref id="s-ssh-server-protodiff">). 
 
 
 <sect1 id="s-ssh-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
-O arquivo que controla o funcionamento do daemon do <prgn>ssh</prgn> È 
+O arquivo que controla o funcionamento do daemon do <prgn>ssh</prgn> √© 
 controlado pelo arquivo <file>/etc/init.d/ssh</file>. 
  <p>
-A execuÁ„o do <prgn>ssh</prgn> atravÈs de <prgn>inetd</prgn> È 
-autom·tica quando È feita uma requisiÁ„o para a porta <em>22</em>. 
+A execu√ß√£o do <prgn>ssh</prgn> atrav√©s de <prgn>inetd</prgn> √© 
+autom√°tica quando √© feita uma requisi√ß√£o para a porta <em>22</em>. 
 
 
-<sect1 id="s-ssh-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-ssh-opcoescmd">Op√ß√µes de linha de comando
  <p>
-OpÁıes de linha de comando do servidor <prgn>sshd</prgn>: 
+Op√ß√µes de linha de comando do servidor <prgn>sshd</prgn>: 
 <list compact>
  <item>
-<tt>-b bits</tt> - Especifica o n˙mero de bits da chave do servidor (768 por padr„o). 
+<tt>-b bits</tt> - Especifica o n√∫mero de bits da chave do servidor (768 por padr√£o). 
  
  <item>
-<tt>-d</tt> - Modo de depuraÁ„o - O servidor envia detalhes sobre seu funcionamento 
-aos logs do sistema e n„o È executado em segundo plano. Ele tambÈm responder· 
-conexıes pelo mesmo processo. Podem ser usadas no m·ximo 3 opÁıes <em>-d</em> para 
-aumentar os detalhes de depuraÁ„o. 
+<tt>-d</tt> - Modo de depura√ß√£o - O servidor envia detalhes sobre seu funcionamento 
+aos logs do sistema e n√£o √© executado em segundo plano. Ele tamb√©m responder√° 
+conex√µes pelo mesmo processo. Podem ser usadas no m√°ximo 3 op√ß√µes <em>-d</em> para 
+aumentar os detalhes de depura√ß√£o. 
 
  <item>
-<tt>-f arquivo_configuraÁ„o</tt> Indica um arquivo de configuraÁ„o alternativo 
-(por padr„o È usado <file>/etc/ssh/sshd_config</file>). O <prgn>ssh</prgn> pode 
-ser configurado atravÈs de opÁıes de linha de comando mas requer um arquivo 
-de configuraÁ„o para ser executado. OpÁıes de linha de comando substituem as 
-especificadas no arquivo de configuraÁ„o. 
+<tt>-f arquivo_configura√ß√£o</tt> Indica um arquivo de configura√ß√£o alternativo 
+(por padr√£o √© usado <file>/etc/ssh/sshd_config</file>). O <prgn>ssh</prgn> pode 
+ser configurado atrav√©s de op√ß√µes de linha de comando mas requer um arquivo 
+de configura√ß√£o para ser executado. Op√ß√µes de linha de comando substituem as 
+especificadas no arquivo de configura√ß√£o. 
 
  <item>
-<tt>-g segundos</tt> - Especifica o tempo m·ximo para a digitaÁ„o de 
-senha de acesso. ApÛs o tempo especificado o servidor encerra a conex„o. 
-O valor padr„o È 600 segundos e 0 desativa este recurso. 
+<tt>-g segundos</tt> - Especifica o tempo m√°ximo para a digita√ß√£o de 
+senha de acesso. Ap√≥s o tempo especificado o servidor encerra a conex√£o. 
+O valor padr√£o √© 600 segundos e 0 desativa este recurso. 
 
  <item>
-<tt>-h arquivo_chave</tt> - Diz qual arquivo contÈm a chave privada local. 
-O padr„o È <file>/etc/ssh/ssh_host_key</file> e somente o usu·rio <tt>root</tt> 
-deve ter permissıes de leitura neste arquivo. Ser· necess·rio especificar esta 
-opÁ„o caso o <prgn>sshd</prgn> n„o esteja sendo executado como usu·rio <tt>root</tt>. 
+<tt>-h arquivo_chave</tt> - Diz qual arquivo cont√©m a chave privada local. 
+O padr√£o √© <file>/etc/ssh/ssh_host_key</file> e somente o usu√°rio <tt>root</tt> 
+deve ter permiss√µes de leitura neste arquivo. Ser√° necess√°rio especificar esta 
+op√ß√£o caso o <prgn>sshd</prgn> n√£o esteja sendo executado como usu√°rio <tt>root</tt>. 
  <p>
-… possÌvel ter m˙ltiplos arquivos de chaves para os protocolos 1 e 2 do ssh.
+√â poss√≠vel ter m√∫ltiplos arquivos de chaves para os protocolos 1 e 2 do ssh.
 
  <item>
-<tt>-i</tt> - Indica que o servidor <prgn>sshd</prgn> ser· executado pelo 
-<prgn>inetd</prgn>. Isto n„o È aconselh·vel porque o servidor gerar· a 
-chave aleatÛria de seÁ„o toda vez que for iniciado e isto pode levar alguns 
-segundos. Esta opÁ„o pode se tornar vi·vel com o uso do protocolo 2 ou criando 
-chaves pequenas como 512 bytes (no ssh 1), mas a seguranÁa criptogr·fica tambÈm 
-ser· diminuÌda. Veja as diferenÁas entre os dois protocolos em 
+<tt>-i</tt> - Indica que o servidor <prgn>sshd</prgn> ser√° executado pelo 
+<prgn>inetd</prgn>. Isto n√£o √© aconselh√°vel porque o servidor gerar√° a 
+chave aleat√≥ria de se√ß√£o toda vez que for iniciado e isto pode levar alguns 
+segundos. Esta op√ß√£o pode se tornar vi√°vel com o uso do protocolo 2 ou criando 
+chaves pequenas como 512 bytes (no ssh 1), mas a seguran√ßa criptogr√°fica tamb√©m 
+ser√° diminu√≠da. Veja as diferen√ßas entre os dois protocolos em 
 <ref id="s-ssh-server-protodiff">. 
 
 <item>
-<tt>-k segundos</tt> - Especifica a freq¸Íncia da geraÁ„o de novas chaves do 
-daemon <prgn>sshd</prgn>. O valor padr„o È 3600 segundos e 0 desativa 
+<tt>-k segundos</tt> - Especifica a freq√º√™ncia da gera√ß√£o de novas chaves do 
+daemon <prgn>sshd</prgn>. O valor padr√£o √© 3600 segundos e 0 desativa 
 este recurso. 
 <![ %OBS [ 
  <p>
-<strong>ATEN«√O:</strong> N√O desative este recurso!!! Esta opÁ„o traz a 
-seguranÁa que uma nova chave gerada de servidor ser· gerada constantemente (esta 
-chave È enviada junto com a chave p˙blica quando o cliente conecta e fica 
-residente na memÛria vol·til), assim mesmo que um cracker consiga obtÍ-la 
-interceptando as conexıes, ser· praticamente impossÌvel tentar qualquer coisa. 
-Valores menores tendem a aumentar ainda mais a seguranÁa. ]]>
+<strong>ATEN√á√ÉO:</strong> N√ÉO desative este recurso!!! Esta op√ß√£o traz a 
+seguran√ßa que uma nova chave gerada de servidor ser√° gerada constantemente (esta 
+chave √© enviada junto com a chave p√∫blica quando o cliente conecta e fica 
+residente na mem√≥ria vol√°til), assim mesmo que um cracker consiga obt√™-la 
+interceptando as conex√µes, ser√° praticamente imposs√≠vel tentar qualquer coisa. 
+Valores menores tendem a aumentar ainda mais a seguran√ßa. ]]>
 
  <item>
-<tt>-p porta</tt> - Especifica a porta que o daemon <prgn>sshd</prgn> atender· 
-as requisiÁıes. Por padr„o È usada a porta 22.
+<tt>-p porta</tt> - Especifica a porta que o daemon <prgn>sshd</prgn> atender√° 
+as requisi√ß√µes. Por padr√£o √© usada a porta 22.
 
  <item>
-<tt>-q</tt> - Nenhuma mensagem ser· enviada ao <prgn>syslog</prgn> do sistema. 
+<tt>-q</tt> - Nenhuma mensagem ser√° enviada ao <prgn>syslog</prgn> do sistema. 
 
  <item>
-<tt>-u tam</tt> - Especifica o tamanho do campo de nome do computador que ser· 
-armazenado no arquivo <file>utmp</file>. A opÁ„o <em>u0</em> faz somente endereÁos 
+<tt>-u tam</tt> - Especifica o tamanho do campo de nome do computador que ser√° 
+armazenado no arquivo <file>utmp</file>. A op√ß√£o <em>u0</em> faz somente endere√ßos 
 IP serem gravados. 
 
  <item>
-<tt>-D</tt> - Quando usada n„o faz o <prgn>sshd</prgn> iniciar em segundo plano. 
+<tt>-D</tt> - Quando usada n√£o faz o <prgn>sshd</prgn> iniciar em segundo plano. 
 
  <item>
-<tt>-V vers„o_cliente</tt> - Assume que o cliente possui a vers„o ssh especificada 
-(1 ou 2) e n„o faz os testes de identificaÁ„o de protocolo. 
+<tt>-V vers√£o_cliente</tt> - Assume que o cliente possui a vers√£o ssh especificada 
+(1 ou 2) e n√£o faz os testes de identifica√ß√£o de protocolo. 
 
  <item>
-<tt>-4</tt> - ForÁa o uso do protocolo IP tradicional (IPv4). 
+<tt>-4</tt> - For√ßa o uso do protocolo IP tradicional (IPv4). 
 
  <item>
-<tt>-6</tt> - ForÁa o uso da nova geraÁ„o do protocolo IP (IPv6). 
+<tt>-6</tt> - For√ßa o uso da nova gera√ß√£o do protocolo IP (IPv6). 
 </list>
-A maioria das opÁıes s„o realmente ˙teis para modificar o comportamento do 
-servidor <prgn>ssh</prgn> sem mexer em seu arquivo de configuraÁ„o (para 
+A maioria das op√ß√µes s√£o realmente √∫teis para modificar o comportamento do 
+servidor <prgn>ssh</prgn> sem mexer em seu arquivo de configura√ß√£o (para 
 fins de testes) ou para executar um servidor <prgn>ssh</prgn> pessoal, que 
-dever· ter arquivos de configuraÁ„o especÌficos. 
+dever√° ter arquivos de configura√ß√£o espec√≠ficos. 
 
 

@@ -1,8 +1,8 @@
-<sect id="s-cvs-d">Servidor de CVS - configurando mÈtodos de acesso ao repositÛrio
+<sect id="s-cvs-d">Servidor de CVS - configurando m√©todos de acesso ao reposit√≥rio
  <p>
-O CVS È uma aplicaÁ„o cliente/servidor, possuindo diversas maneiras de fazer 
-o acesso seu repositÛrio (veja <ref id="s-cvs-p-repos"> repositÛrios). Estes 
-mÈtodos s„o os seguintes: 
+O CVS √© uma aplica√ß√£o cliente/servidor, possuindo diversas maneiras de fazer 
+o acesso seu reposit√≥rio (veja <ref id="s-cvs-p-repos"> reposit√≥rios). Estes 
+m√©todos s√£o os seguintes: 
 <list compact>
  <item>local (<ref id="s-cvs-d-metodos-local">).
  <item>ext (<ref id="s-cvs-d-metodos-ext">).
@@ -10,28 +10,28 @@ mÈtodos s„o os seguintes:
  <item>fork (<ref id="s-cvs-d-metodos-fork">).
  <item>GSSAPI (<ref id="s-cvs-d-metodos-gssapi">).
 </list>
-Eles s„o explicados em detalhes nas sub-seÁıes a seguir.
+Eles s√£o explicados em detalhes nas sub-se√ß√µes a seguir.
 
 
 <sect1 id="s-cvs-d-metodos-local">local
  <p>
-Acessa o diretÛrio do repositÛrio diretamente no disco local. 
-A vantagem deste mÈtodo È que n„o È requerido nem nome nem senha
-para acesso (vocÍ precisa apenas ter permissıes para acesso aos arquivos
-que deseja trabalhar) e tambÈm n„o È preciso nenhuma conex„o de rede. 
+Acessa o diret√≥rio do reposit√≥rio diretamente no disco local. 
+A vantagem deste m√©todo √© que n√£o √© requerido nem nome nem senha
+para acesso (voc√™ precisa apenas ter permiss√µes para acesso aos arquivos
+que deseja trabalhar) e tamb√©m n√£o √© preciso nenhuma conex√£o de rede. 
  <p>
-Este mÈtodo È ideal para trabalhar na m·quina local ou com os arquivos 
-administrativos do CVS existentes no diretÛrio <file>CVSROOT</file> 
-do repositÛrio. … muito ˙til tambÈm para configurar outros mÈtodos de 
+Este m√©todo √© ideal para trabalhar na m√°quina local ou com os arquivos 
+administrativos do CVS existentes no diret√≥rio <file>CVSROOT</file> 
+do reposit√≥rio. √â muito √∫til tamb√©m para configurar outros m√©todos de 
 acesso, como o <tt>pserver</tt>.
  <p>
-Para criar seu repositÛrio, veja <ref id="s-cvs-p-mkrepos">.
+Para criar seu reposit√≥rio, veja <ref id="s-cvs-p-mkrepos">.
 
 
-<sect2 id="s-cvs-d-metodos-local-c">Configurando o mÈtodo local
+<sect2 id="s-cvs-d-metodos-local-c">Configurando o m√©todo local
  <p>
-Para utilizar o mÈtodo de acesso local, basta definir a vari·vel
-<var>CVSROOT</var> da seguinte forma (assumindo que o repositÛrio 
+Para utilizar o m√©todo de acesso local, basta definir a vari√°vel
+<var>CVSROOT</var> da seguinte forma (assumindo que o reposit√≥rio 
 esteja instalado em <file>/var/lib/cvs</file>):
 <example>
 export CVSROOT=/var/lib/cvs
@@ -42,60 +42,60 @@ export CVSROOT=local:/var/lib/cvs
 
 </example>
 Depois disso, basta utilizar os comandos normais do <prgn>cvs</prgn> sem 
-precisar se autenticar no sistema. Veja os detalhes de utilizaÁ„o dos 
-comandos de CVS apÛs o login na seÁ„o <ref id="s-cvs-c">.
+precisar se autenticar no sistema. Veja os detalhes de utiliza√ß√£o dos 
+comandos de CVS ap√≥s o login na se√ß√£o <ref id="s-cvs-c">.
 
 
 <sect1 id="s-cvs-d-metodos-fork">fork
  <p>
-Este mÈtodo È semelhante ao local, mas ele "simula" uma conex„o de rede com 
-o servidor. … muito usado para fins de testes. 
+Este m√©todo √© semelhante ao local, mas ele "simula" uma conex√£o de rede com 
+o servidor. √â muito usado para fins de testes. 
 
 
-<sect2 id="s-cvs-d-metodos-fork-c">Configurando o mÈtodo fork
+<sect2 id="s-cvs-d-metodos-fork-c">Configurando o m√©todo fork
  <p>
-Para utilizar o mÈtodo de acesso <em>fork</em>, basta definir a vari·vel
-<var>CVSROOT</var> da seguinte forma (assumindo que o repositÛrio 
+Para utilizar o m√©todo de acesso <em>fork</em>, basta definir a vari√°vel
+<var>CVSROOT</var> da seguinte forma (assumindo que o reposit√≥rio 
 esteja instalado em <file>/var/lib/cvs</file>):
 <example>
 export CVSROOT=fork:/var/lib/cvs
 
 </example>
 Depois disso, basta utilizar os comandos normais do <prgn>cvs</prgn>, sem 
-precisar se autenticar no sistema. Veja os detalhes de utilizaÁ„o dos comandos 
-do CVS apÛs o login em <ref id="s-cvs-c">.
+precisar se autenticar no sistema. Veja os detalhes de utiliza√ß√£o dos comandos 
+do CVS ap√≥s o login em <ref id="s-cvs-c">.
 
 
 <sect1 id="s-cvs-d-metodos-ext">ext
  <p>
-Este mÈtodo de acesso lhe permite especificar um programa externo que ser· 
-usado para fazer uma conex„o remota com o servidor <prgn>cvs</prgn>.Este programa 
-È definido na vari·vel <var>CVS_RSH</var> e caso n„o ela seja especificada 
-o padr„o È <prgn>rsh</prgn>.
+Este m√©todo de acesso lhe permite especificar um programa externo que ser√° 
+usado para fazer uma conex√£o remota com o servidor <prgn>cvs</prgn>.Este programa 
+√© definido na vari√°vel <var>CVS_RSH</var> e caso n√£o ela seja especificada 
+o padr√£o √© <prgn>rsh</prgn>.
  <p>
-Este mÈtodo requer que o usu·rio possua um login/senha no banco de dados 
-de autenticaÁ„o <file>/etc/passwd</file> do servidor de destino. Suas 
-permissıes de acesso ao CVS (leitura/gravaÁ„o) ser„o as mesmas definidas 
+Este m√©todo requer que o usu√°rio possua um login/senha no banco de dados 
+de autentica√ß√£o <file>/etc/passwd</file> do servidor de destino. Suas 
+permiss√µes de acesso ao CVS (leitura/grava√ß√£o) ser√£o as mesmas definidas 
 neste arquivo. 
  <p>
-O uso do acesso criptografado via <prgn>ssh</prgn> È possÌvel definindo o 
-programa <prgn>ssh</prgn> na vari·vel <var>CVS_RSH</var>. Veja os exemplos 
+O uso do acesso criptografado via <prgn>ssh</prgn> √© poss√≠vel definindo o 
+programa <prgn>ssh</prgn> na vari√°vel <var>CVS_RSH</var>. Veja os exemplos 
 a seguir em <ref id="s-cvs-d-metodos-ext-c">.
  <p>
-Para criar seu repositÛrio, veja <ref id="s-cvs-p-mkrepos">.
+Para criar seu reposit√≥rio, veja <ref id="s-cvs-p-mkrepos">.
 
 
-<sect2 id="s-cvs-d-metodos-ext-c">Configurando o mÈtodo ext
+<sect2 id="s-cvs-d-metodos-ext-c">Configurando o m√©todo ext
  <p>
-Defina a vari·vel <var>CVSROOT</var> da seguinte forma para 
-utilizar este mÈtodo de acesso (assumindo <file>/var/lib/cvs</file>
-como repositÛrio):
+Defina a vari√°vel <var>CVSROOT</var> da seguinte forma para 
+utilizar este m√©todo de acesso (assumindo <file>/var/lib/cvs</file>
+como reposit√≥rio):
 <example>
 export CVSROOT=:ext:conta@servidor.org.br:/var/lib/cvs
 cvs login
 
 </example>
-A "conta" È uma conta de usu·rio existente no servidor remoto 
+A "conta" √© uma conta de usu√°rio existente no servidor remoto 
 (por exemplo, <tt>gleydson</tt>) seguido do nome do servidor 
 remoto (separado por uma "@"). Por exemplo para acessar o 
 servidor <em>cvs.cipsga.org.br</em> usando a conta 
@@ -105,11 +105,11 @@ export CVSROOT=:ext:michelle@cvs.cipsga.org.br:/var/lib/cvs
 cvs checkout
 
 </example>
-OBS: A senha via mÈtodo de acesso "ext" ser· pedida somente uma vez 
-quando for necess·rio o primeiro acesso ao servidor remoto. Veja os detalhes de 
-utilizaÁ„o dos comandos de CVS apÛs o login na seÁ„o 
-<ref id="s-cvs-c">. O uso mais freq¸ente do <tt>ext</tt> È para 
-conexıes seguras feitas via <prgn>ssh</prgn>, feita da seguinte
+OBS: A senha via m√©todo de acesso "ext" ser√° pedida somente uma vez 
+quando for necess√°rio o primeiro acesso ao servidor remoto. Veja os detalhes de 
+utiliza√ß√£o dos comandos de CVS ap√≥s o login na se√ß√£o 
+<ref id="s-cvs-c">. O uso mais freq√ºente do <tt>ext</tt> √© para 
+conex√µes seguras feitas via <prgn>ssh</prgn>, feita da seguinte
 forma: 
 <example>
 export CVS_RSH=ssh
@@ -117,148 +117,148 @@ export CVSROOT=:ext:michelle@cvs.cipsga.org.br:/var/lib/cvs
 cvs checkout
 
 </example>
-O acesso de leitura/gravaÁ„o do usu·rio, È definido de acordo com as 
-permissıes deste usu·rio no sistema. Uma maneira recomendada È 
-definir um grupo que ter· acesso a gravaÁ„o no CVS e adicionar usu·rios
-que possam fazer gravaÁ„o neste grupo.
+O acesso de leitura/grava√ß√£o do usu√°rio, √© definido de acordo com as 
+permiss√µes deste usu√°rio no sistema. Uma maneira recomendada √© 
+definir um grupo que ter√° acesso a grava√ß√£o no CVS e adicionar usu√°rios
+que possam fazer grava√ß√£o neste grupo.
 <![ %OBS [ 
  <p>
 <strong>OBS1: </strong> O acesso via <prgn>ssh</prgn> traz a vantagem de 
-que as senhas trafegar„o de forma segura via rede, n„o sendo facilmente
-capturadas por sniffers e outros programas de monitoraÁ„o que possam 
-estar instalados na rota entre vocÍ e o servidor.
+que as senhas trafegar√£o de forma segura via rede, n√£o sendo facilmente
+capturadas por sniffers e outros programas de monitora√ß√£o que possam 
+estar instalados na rota entre voc√™ e o servidor.
  <p>
-<strong>OBS2: </strong> … possÌvel especificar a senha na vari·vel 
+<strong>OBS2: </strong> √â poss√≠vel especificar a senha na vari√°vel 
 <var>CVSROOT</var> usando a sintaxe semelhante a usada no ftp:
 <example>
 export CVSROOT=:ext:michelle:senha@cvs.cipsga.org.br:/var/lib/cvs
 
 </example>
-Entretanto isto n„o È recomendado, pois os processos da m·quina poder„o 
-capturar facilmente a senha (incluindo usu·rios normais, caso a m·quina
-n„o esteja com patches de restriÁıes de acesso a processos configurada, 
-que È o padr„o em quase todas as distribuiÁıes de <prgn>Linux</prgn>).
+Entretanto isto n√£o √© recomendado, pois os processos da m√°quina poder√£o 
+capturar facilmente a senha (incluindo usu√°rios normais, caso a m√°quina
+n√£o esteja com patches de restri√ß√µes de acesso a processos configurada, 
+que √© o padr√£o em quase todas as distribui√ß√µes de <prgn>Linux</prgn>).
 ]]>
 
 
 <sect1 id="s-cvs-d-metodos-pserver">pserver (password server)
  <p>
-Este È um mÈtodo de acesso remoto que utiliza um banco de dados de usu·rios 
-senhas para acesso ao repositÛrio. A diferenÁa em relaÁ„o ao mÈtodo de acesso 
-<em>ext</em> È que o <em>pserver</em> roda atravÈs de um servidor prÛprio 
-na porta 2401. O acesso dos usu·rios (leitura/gravaÁ„o) no repositÛrio pode 
-ser feita tanto atravÈs do banco de dados de usu·rios do sistema 
-(<file>/etc/passwd</file>) como atravÈs de um banco de dados separado 
-por repositÛrio.
+Este √© um m√©todo de acesso remoto que utiliza um banco de dados de usu√°rios 
+senhas para acesso ao reposit√≥rio. A diferen√ßa em rela√ß√£o ao m√©todo de acesso 
+<em>ext</em> √© que o <em>pserver</em> roda atrav√©s de um servidor pr√≥prio 
+na porta 2401. O acesso dos usu√°rios (leitura/grava√ß√£o) no reposit√≥rio pode 
+ser feita tanto atrav√©s do banco de dados de usu√°rios do sistema 
+(<file>/etc/passwd</file>) como atrav√©s de um banco de dados separado 
+por reposit√≥rio.
  <p>
-A grande vantagem deste segundo mÈtodo È que cada projeto poder· ter membros
-com acessos diferenciados; o membro x poder· ter acesso ao projeto <tt>sgml</tt> 
-mas n„o ao projeto <tt>focalinux</tt>; ou o usu·rio y poder· ter acesso de 
-gravaÁ„o (para trabalhar no projeto <tt>focalinux</tt>) mas somente acesso 
+A grande vantagem deste segundo m√©todo √© que cada projeto poder√° ter membros
+com acessos diferenciados; o membro x poder√° ter acesso ao projeto <tt>sgml</tt> 
+mas n√£o ao projeto <tt>focalinux</tt>; ou o usu√°rio y poder√° ter acesso de 
+grava√ß√£o (para trabalhar no projeto <tt>focalinux</tt>) mas somente acesso 
 de leitura ao projeto <tt>sgml</tt>. 
  <p>
-Este È o mÈtodo de acesso preferido para a criaÁ„o de usu·rios anÙnimos
-(uma vez que o administrador de um servidor que hospede muitos projetos n„o vai 
-querer abrir um acesso anÙnimo via <tt>ext</tt> para todos os projetos). 
+Este √© o m√©todo de acesso preferido para a cria√ß√£o de usu√°rios an√¥nimos
+(uma vez que o administrador de um servidor que hospede muitos projetos n√£o vai 
+querer abrir um acesso an√¥nimo via <tt>ext</tt> para todos os projetos). 
  <p>
-TambÈm existe a vantagem que novos membros do projeto e tarefas administrativas 
-s„o feitas por qualquer pessoa que possua acesso de gravaÁ„o aos arquivos do 
-repositÛrio.
+Tamb√©m existe a vantagem que novos membros do projeto e tarefas administrativas 
+s√£o feitas por qualquer pessoa que possua acesso de grava√ß√£o aos arquivos do 
+reposit√≥rio.
 
 
 <sect1 id="s-cvs-d-metodos-pserver-c">Configurando um servidor pserver
 
 <sect2 id="s-cvs-d-metodos-pserver-c-pserver">Ativando o servidor pserver
  <p>
-Para ativar o pserver (caso ainda n„o o tenha feito). Execute o comando 
-<tt>dpkg-reconfigure cvs</tt> e selecione a opÁ„o <tt>Ativar o servidor pserver</tt>.
-Uma maneira de fazer isso automaticamente È modificando o arquivo 
+Para ativar o pserver (caso ainda n√£o o tenha feito). Execute o comando 
+<tt>dpkg-reconfigure cvs</tt> e selecione a op√ß√£o <tt>Ativar o servidor pserver</tt>.
+Uma maneira de fazer isso automaticamente √© modificando o arquivo 
 <file>/etc/inetd.conf</file> adicionando a seguinte linha: 
 <example>
 # na Debian
 cvspserver      stream  tcp     nowait.400      root    /usr/sbin/tcpd /usr/sbin/cvs-pserver
 
-# em outras DistribuiÁıes 
+# em outras Distribui√ß√µes 
 cvspserver  stream  tcp  nowait  root  /usr/bin/cvs cvs -f --allow-root=/var/lib/cvs pserver
 </example>
-Na <prgn>Debian</prgn>, o cvs È iniciado atravÈs do script <file>/usr/sbin/cvs-pserver</file> que checa os bin·rios e executa o <prgn>cvs</prgn> para todos os repositÛrios 
+Na <prgn>Debian</prgn>, o cvs √© iniciado atrav√©s do script <file>/usr/sbin/cvs-pserver</file> que checa os bin√°rios e executa o <prgn>cvs</prgn> para todos os reposit√≥rios 
 especificados no arquivo <file>/etc/cvs-pserver.conf</file>.
  <p>
-Caso precise adicionar mais repositÛrios para acesso via <em>pserver</em> ou outro
-mÈtodo de acesso, veja <ref id="s-cvs-p-mkrepos">. 
+Caso precise adicionar mais reposit√≥rios para acesso via <em>pserver</em> ou outro
+m√©todo de acesso, veja <ref id="s-cvs-p-mkrepos">. 
  <p>
-VocÍ tambÈm poder· executar o mÈtodo <tt>pserver</tt> sob um usu·rio que n„o
-seja o root, para isto, modifique a entreada referÍnte ao usu·rio.grupo no
-<file>inetd.conf</file> e tenha certeza que o daemon consegue fazer as operaÁıes
-de suid/sgid no diretÛrio onde o repositÛrio se encontra.
+Voc√™ tamb√©m poder√° executar o m√©todo <tt>pserver</tt> sob um usu√°rio que n√£o
+seja o root, para isto, modifique a entreada refer√™nte ao usu√°rio.grupo no
+<file>inetd.conf</file> e tenha certeza que o daemon consegue fazer as opera√ß√µes
+de suid/sgid no diret√≥rio onde o reposit√≥rio se encontra.
 
 
-<sect2 id="s-cvs-d-metodos-pserver-c-system">Servidor pserver usando autenticaÁ„o do sistema
+<sect2 id="s-cvs-d-metodos-pserver-c-system">Servidor pserver usando autentica√ß√£o do sistema
  <p>
-Para usar o banco de dados de autenticaÁ„o do sistema (<file>/etc/passwd</file>) para 
-autenticar os usu·rios remotos, primeiro tenha certeza que o servidor 
-<em>pserver</em> est· ativado (como descrito em <ref id="s-cvs-d-metodos-pserver-c-pserver">. Repetindo o exemplo anterior, a usu·ria <em>Michelle</em> dever· ter 
+Para usar o banco de dados de autentica√ß√£o do sistema (<file>/etc/passwd</file>) para 
+autenticar os usu√°rios remotos, primeiro tenha certeza que o servidor 
+<em>pserver</em> est√° ativado (como descrito em <ref id="s-cvs-d-metodos-pserver-c-pserver">. Repetindo o exemplo anterior, a usu√°ria <em>Michelle</em> dever√° ter 
 uma conta em <file>/etc/passwd</file> para fazer acesso ao cvs:
 <example>
 export CVSROOT=:pserver:michelle@cvs.cipsga.org.br:/var/lib/cvs
 cvs login
 
 </example>
-Ser· pedido a senha da usu·ria <tt>michelle</tt>. Entrando com a senha 
-correta, o sistema retornar· para o aviso de comando. Uma mensagem 
-ser· mostrada caso a senha entrada seja incorreta. Daqui em diante, 
-o resto da seÁ„o CVS È normal e vocÍ ter· as permissıes de acesso 
-ao repositÛrio de acordo com as suas permissıes de acesso naquele 
-diretÛrio. 
+Ser√° pedido a senha da usu√°ria <tt>michelle</tt>. Entrando com a senha 
+correta, o sistema retornar√° para o aviso de comando. Uma mensagem 
+ser√° mostrada caso a senha entrada seja incorreta. Daqui em diante, 
+o resto da se√ß√£o CVS √© normal e voc√™ ter√° as permiss√µes de acesso 
+ao reposit√≥rio de acordo com as suas permiss√µes de acesso naquele 
+diret√≥rio. 
 <![ %OBS [ 
  <p>
-<strong>OBS1: </strong> A senha poder· ser passada junto com o login da mesma 
-forma como o ftp. Veja a observaÁ„o em <ref id="s-cvs-d-metodos-ext-c">. 
+<strong>OBS1: </strong> A senha poder√° ser passada junto com o login da mesma 
+forma como o ftp. Veja a observa√ß√£o em <ref id="s-cvs-d-metodos-ext-c">. 
  <p> 
-<strong>OBS2: </strong> A desvantagem do mÈtodo pserver padr„o È que a seÁ„o 
-È feita em texto plano, desta forma, alguns cuidados podem ser tomados 
-para tornar o sistema um pouco mais seguro. Um deles È dar <file>/bin/false</file>
-como shell de usu·rio (para desativar o login no sistema) ou usar o mÈtodo 
-de acesso descrito em <ref id="s-cvs-d-metodos-pserver-c-system"> em combinaÁ„o 
-com este. Tenha conciencia das influÍncias disso se a m·quina for usada para 
+<strong>OBS2: </strong> A desvantagem do m√©todo pserver padr√£o √© que a se√ß√£o 
+√© feita em texto plano, desta forma, alguns cuidados podem ser tomados 
+para tornar o sistema um pouco mais seguro. Um deles √© dar <file>/bin/false</file>
+como shell de usu√°rio (para desativar o login no sistema) ou usar o m√©todo 
+de acesso descrito em <ref id="s-cvs-d-metodos-pserver-c-system"> em combina√ß√£o 
+com este. Tenha conciencia das influ√™ncias disso se a m√°quina for usada para 
 outras tarefas, como um servidor "pop3" por exemplo. ]]>
 
 
-<sect2 id="s-cvs-d-metodos-pserver-c-pwrepos">Servidor pserver com autenticaÁ„o prÛpria
+<sect2 id="s-cvs-d-metodos-pserver-c-pwrepos">Servidor pserver com autentica√ß√£o pr√≥pria
  <p>
-Esta forma de acesso armazena os usu·rios em um banco de dados prÛprio, n„o 
-requerendo a criaÁ„o de contas locais no arquivo <file>/etc/passwd</file>. 
+Esta forma de acesso armazena os usu√°rios em um banco de dados pr√≥prio, n√£o 
+requerendo a cria√ß√£o de contas locais no arquivo <file>/etc/passwd</file>. 
 Para criar um servidor deste tipo siga os seguintes procedimentos:
 <enumlist compact>
  <item>
-Exporte a vari·vel <var>CVSROOT</var> apontando para o repositÛrio que deseja 
-configurar o acesso. Como isto È uma configuraÁ„o administrativa, assumo o mÈtodo de 
-acesso <em>local</em> sendo usada pelo usu·rio administrador do servidor: 
+Exporte a vari√°vel <var>CVSROOT</var> apontando para o reposit√≥rio que deseja 
+configurar o acesso. Como isto √© uma configura√ß√£o administrativa, assumo o m√©todo de 
+acesso <em>local</em> sendo usada pelo usu√°rio administrador do servidor: 
 <tt>export CVSROOT=/var/lib/cvs</tt>.
 
  <item>
-Crie um diretÛrio para trabalhar nos arquivos administrativos do 
-repositÛrio: <tt>mkdir /tmp/repos</tt>
+Crie um diret√≥rio para trabalhar nos arquivos administrativos do 
+reposit√≥rio: <tt>mkdir /tmp/repos</tt>
 
  <item>
-Entre no diretÛrio criado acima e execute o comando: <tt>cvs checkout .</tt>
+Entre no diret√≥rio criado acima e execute o comando: <tt>cvs checkout .</tt>
 
  <item>
-Quando terminar de baixar os arquivos, entre no subdiretÛrio <file>CVSROOT</file>, 
-os arquivos de configuraÁ„o do repositÛrio se encontram l· (para detalhes sobre 
+Quando terminar de baixar os arquivos, entre no subdiret√≥rio <file>CVSROOT</file>, 
+os arquivos de configura√ß√£o do reposit√≥rio se encontram l√° (para detalhes sobre 
 cada um destes arquivos, veja <ref id="s-cvs-cvsroot">.
 
  <item>
-Edite o arquivo <file>config</file> e mude a vari·vel <var>SystemAuth</var> para 
-<tt>no</tt>. Isto diz ao servidor <em>pserver</em> n„o usar os arquivos de 
-autenticaÁ„o do sistema, mas a invÈs disso usar seu banco de dados prÛprio.
+Edite o arquivo <file>config</file> e mude a vari√°vel <var>SystemAuth</var> para 
+<tt>no</tt>. Isto diz ao servidor <em>pserver</em> n√£o usar os arquivos de 
+autentica√ß√£o do sistema, mas a inv√©s disso usar seu banco de dados pr√≥prio.
  <p>
-Em algumas instalaÁıes, caso exista o arquivo <file>passwd</file> no repositÛrio, 
-o <em>pserver</em> automaticamente o utiliza ao invÈs do <file>/etc/passwd</file>. 
+Em algumas instala√ß√µes, caso exista o arquivo <file>passwd</file> no reposit√≥rio, 
+o <em>pserver</em> automaticamente o utiliza ao inv√©s do <file>/etc/passwd</file>. 
 
  <item>
-Crie um arquivo <file>passwd</file> no diretÛrio <file>CVSROOT</file> o formato 
-deste arquivo È:
+Crie um arquivo <file>passwd</file> no diret√≥rio <file>CVSROOT</file> o formato 
+deste arquivo √©:
 <example>
 usuario:senha:usuario_local
 
@@ -267,49 +267,49 @@ Onde:
 <taglist compact>
  <tag>usuario</tag>
   <item>
-Nome da conta de usu·rio que far· acesso ao CVS. 
+Nome da conta de usu√°rio que far√° acesso ao CVS. 
 
  <tag>senha</tag>
   <item>
-Senha que ser· usada pelo usu·rio. Ela dever· ser criptografada usando o 
+Senha que ser√° usada pelo usu√°rio. Ela dever√° ser criptografada usando o 
 algoritmo crypt. O comando <prgn>mkpasswd senha</prgn> pode ser usado para 
 gerar a senha criptografada. Caso este campo seja deixado em branco, nenhuma 
-senha de usu·rio ser· utilizada. O utilit·rio <prgn>mkpasswd</prgn> 
-est· presente no pacote <package>whois</package> na <prgn>Debian</prgn>.
+senha de usu√°rio ser√° utilizada. O utilit√°rio <prgn>mkpasswd</prgn> 
+est√° presente no pacote <package>whois</package> na <prgn>Debian</prgn>.
 
  <tag>usuario_local</tag>
   <item>
-Usu·rio local que ter· suas permissıes mapeadas ao usu·rio do CVS. Como a 
-conta de usu·rio do <prgn>cvs</prgn> n„o existe no sistema, È necess·rio que 
-o sistema tenha uma maneira de saber que nÌvel de acesso este usu·rio ter·. 
-Caso n„o crie este usu·rio ou ele seja inv·lido, vocÍ ter· erros do tipo 
+Usu√°rio local que ter√° suas permiss√µes mapeadas ao usu√°rio do CVS. Como a 
+conta de usu√°rio do <prgn>cvs</prgn> n√£o existe no sistema, √© necess√°rio que 
+o sistema tenha uma maneira de saber que n√≠vel de acesso este usu√°rio ter√°. 
+Caso n√£o crie este usu√°rio ou ele seja inv√°lido, voc√™ ter√° erros do tipo 
 ": no such user" no momento que fizer o "cvs login".
  <p>
-Uma forma segura de se fazer isto, È criar uma conta de usu·rio *somente* com
-acesso aos arquivos do CVS, sem shell e senha. Isto permitir· 
-mapear a UID/GID do usu·rio criado com o acesso do CVS sem comprometer a 
-seguranÁa do sistema de arquivos. Isto pode ser feito 
-atravÈs do seguinte comando: 
+Uma forma segura de se fazer isto, √© criar uma conta de usu√°rio *somente* com
+acesso aos arquivos do CVS, sem shell e senha. Isto permitir√° 
+mapear a UID/GID do usu√°rio criado com o acesso do CVS sem comprometer a 
+seguran√ßa do sistema de arquivos. Isto pode ser feito 
+atrav√©s do seguinte comando: 
 <example>
 adduser --disabled-password --disabled-login usuario
 </example>
-… necess·rio especificar um diretÛrio home do usu·rio, pois o servidor 
+√â necess√°rio especificar um diret√≥rio home do usu√°rio, pois o servidor 
 cvs precisa ter acesso ao arquivo <file>/home/do/cvs/.cvsignore</file>.
 
 <![ %OBS [
  <p>
 <strong>OBS1: </strong> Mais uma vez: Leve sempre em conta a forma que os outros 
-serviÁos em sua m·quina est„o configurados (como eles fazem acesso, permissıes 
-de acesso, diretÛrios onde gravam arquivos, s„o algumas delas) antes de escolher como 
-um serviÁo novo na m·quina funcionar·. Isto poder· modificar ou deixar 
-vulner·vel a seguranÁa de sua instalaÁ„o.
+servi√ßos em sua m√°quina est√£o configurados (como eles fazem acesso, permiss√µes 
+de acesso, diret√≥rios onde gravam arquivos, s√£o algumas delas) antes de escolher como 
+um servi√ßo novo na m√°quina funcionar√°. Isto poder√° modificar ou deixar 
+vulner√°vel a seguran√ßa de sua instala√ß√£o.
  <p>
-<strong>OBS2: </strong> Permita que os usu·rios <strong>somente</strong>
-tenham acesso a m·quina via CVS.
+<strong>OBS2: </strong> Permita que os usu√°rios <strong>somente</strong>
+tenham acesso a m√°quina via CVS.
  <p>
-<strong>OBS3: </strong> Certifique-se sempre que o dono/grupo do repositÛrio 
+<strong>OBS3: </strong> Certifique-se sempre que o dono/grupo do reposit√≥rio 
 seja <tt>root.src</tt> (ou outro grupo que tenha criado) adicione 
-somente usu·rios de confianÁa no grupo <file>src</file> para criar novos
+somente usu√°rios de confian√ßa no grupo <file>src</file> para criar novos
 projetos.
 ]]>
  <p>
@@ -319,32 +319,32 @@ gleydsonm:K32dk1234k:cvsuser
 anonymous::pooruser
 
 </example>
-O usu·rio cvs <em>gleydsonm</em> quando logar no cvs, ter· as permissıes de 
-acesso do usu·rio <em>cvsuser</em> do sistema. 
+O usu√°rio cvs <em>gleydsonm</em> quando logar no cvs, ter√° as permiss√µes de 
+acesso do usu√°rio <em>cvsuser</em> do sistema. 
 
 <![ %OBS [
  <p>
-<strong>OBS1: </strong> Certifique-se que o usu·rio local possui permissıes de 
-gravaÁ„o no diretÛrio do CVS, caso contr·rio ele n„o poder· fazer <em>commits</em>.
-Lembre-se que as permissıes de leitura/gravaÁ„o do usu·rio ser„o controladas 
-atravÈs de arquivos do prÛprio pserver, mas tambÈm È necess·ria a permiss„o de 
-gravaÁ„o do usu·rio no repositÛrio. Isto poder· ser feito atravÈs de grupos 
-de sistema e garante uma dupla camada de seguranÁa. 
+<strong>OBS1: </strong> Certifique-se que o usu√°rio local possui permiss√µes de 
+grava√ß√£o no diret√≥rio do CVS, caso contr√°rio ele n√£o poder√° fazer <em>commits</em>.
+Lembre-se que as permiss√µes de leitura/grava√ß√£o do usu√°rio ser√£o controladas 
+atrav√©s de arquivos do pr√≥prio pserver, mas tamb√©m √© necess√°ria a permiss√£o de 
+grava√ß√£o do usu√°rio no reposit√≥rio. Isto poder√° ser feito atrav√©s de grupos 
+de sistema e garante uma dupla camada de seguran√ßa. 
  <p>
 <strong>OBS2:</strong> Caso tenha preferido usar o <tt>pserver</tt> sob um
-usu·rio diferente de root e esteja obtendo a mensagem 
+usu√°rio diferente de root e esteja obtendo a mensagem 
 <tt>setgid failed: Operation not permitted</tt>, significa que o servidor 
-CVS n„o consegue mudar para o grupo referente ao usado no diretÛrio do 
-repositÛrio. Verifique se as permissıes est„o adequadas e se o grupo 
-do usu·rio CVS no <file>/etc/passwd</file> È o mesmo que especificou para 
-acesso ao repositÛrio. ]]>
+CVS n√£o consegue mudar para o grupo referente ao usado no diret√≥rio do 
+reposit√≥rio. Verifique se as permiss√µes est√£o adequadas e se o grupo 
+do usu√°rio CVS no <file>/etc/passwd</file> √© o mesmo que especificou para 
+acesso ao reposit√≥rio. ]]>
 </taglist>
 
  <item>
-Para dar direito de leitura ao repositÛrio, crie um arquivo chamado 
-<file>readers</file> e adicione os nomes de usu·rios que ter„o acesso
-ao repositÛrio (um por linha). O nome que dever· ser usado È o nome 
-do usu·rio de <em>CVS</em> e n„o do sistema (usu·rio <tt>gleydsonm</tt>,
+Para dar direito de leitura ao reposit√≥rio, crie um arquivo chamado 
+<file>readers</file> e adicione os nomes de usu√°rios que ter√£o acesso
+ao reposit√≥rio (um por linha). O nome que dever√° ser usado √© o nome 
+do usu√°rio de <em>CVS</em> e n√£o do sistema (usu√°rio <tt>gleydsonm</tt>,
  segundo o exemplo). 
  <p>
 Exemplo:
@@ -355,8 +355,8 @@ anonymous
 </example>
 
 <item>
-Para dar direito de gravaÁ„o ao repositÛrio, crie um arquivo chamado 
-<file>writers</file>. Seu formato È idÍntico ao arquivo <file>readers</file>.
+Para dar direito de grava√ß√£o ao reposit√≥rio, crie um arquivo chamado 
+<file>writers</file>. Seu formato √© id√™ntico ao arquivo <file>readers</file>.
  <p>
 Exemplo:
 <example>
@@ -369,37 +369,37 @@ kov
 </example>
 
 <item>
-Pronto, o acesso a CVS usando um banco de dados prÛprio est· pronto! basta dar o 
+Pronto, o acesso a CVS usando um banco de dados pr√≥prio est√° pronto! basta dar o 
 commit nos arquivos, adicionar os arquivos <file>readers</file>, <file>writers</file>
-e <file>passwd</file> no repositÛrio (veja <ref id="s-cvs-p-add">) para o servidor de 
-CVS para te-lo funcionando. Note que em versıes mais novas do CVS, n„o 
-È possÌvel transferir o arquivo <file>passwd</file> via rede, ent„o 
-ser· necess·rio cria-lo manualmente dentro do repositÛrio do servidor.
+e <file>passwd</file> no reposit√≥rio (veja <ref id="s-cvs-p-add">) para o servidor de 
+CVS para te-lo funcionando. Note que em vers√µes mais novas do CVS, n√£o 
+√© poss√≠vel transferir o arquivo <file>passwd</file> via rede, ent√£o 
+ser√° necess√°rio cria-lo manualmente dentro do reposit√≥rio do servidor.
 <![ %OBS [
  <p>
-<strong>OBS: </strong> O arquivo <file>passwd</file> n„o È transferido pelo 
-commit por motivos de seguranÁa, pois ele contÈm senhas que podem ser 
-capturadas e usada por pessoas maliciosas. Ser· necess·rio transferi-lo 
-manualmente para o repositÛrio do servidor remoto (vocÍ ter· que ser o 
-usu·rio <em>root</em> ou ter permissıes adequadas). O recomend·vel È 
+<strong>OBS: </strong> O arquivo <file>passwd</file> n√£o √© transferido pelo 
+commit por motivos de seguran√ßa, pois ele cont√©m senhas que podem ser 
+capturadas e usada por pessoas maliciosas. Ser√° necess√°rio transferi-lo 
+manualmente para o reposit√≥rio do servidor remoto (voc√™ ter√° que ser o 
+usu√°rio <em>root</em> ou ter permiss√µes adequadas). O recomend√°vel √© 
 utilizar o <prgn>scp</prgn> <![ %CAPJUNTOS [ (<ref id="s-ssh-cliente-scp">) ]]> 
-para realizar transferÍncias seguras.
+para realizar transfer√™ncias seguras.
 ]]>.
 
 
 </enumlist>
-O mÈtodo de acesso do CVS aos arquivos <file>readers</file> e 
-<file>writers</file> È restritiva, portanto se um nome de 
-usu·rio existir no arquivo <file>readers</file> e <file>writers</file> o que 
-valer· ser· o menor nÌvel de acesso. Vendo os exemplos acima, os usu·rios
-<em>gleydsonm e anonymous</em> ter„o somente acesso a leitura do repositÛrio e 
-<em>macan, otavio, hmh, kov</em> acesso de leitura e gravaÁ„o. 
+O m√©todo de acesso do CVS aos arquivos <file>readers</file> e 
+<file>writers</file> √© restritiva, portanto se um nome de 
+usu√°rio existir no arquivo <file>readers</file> e <file>writers</file> o que 
+valer√° ser√° o menor n√≠vel de acesso. Vendo os exemplos acima, os usu√°rios
+<em>gleydsonm e anonymous</em> ter√£o somente acesso a leitura do reposit√≥rio e 
+<em>macan, otavio, hmh, kov</em> acesso de leitura e grava√ß√£o. 
 
 
 <sect1 id="s-cvs-d-metodos-gssapi">gssapi
  <p>
-Quando o CVS È compilado com o suporte a Kerberos 5, ele tenta estabelecer 
-automaticamente uma conex„o segura usando este mÈtodo. Este mÈtodo 
+Quando o CVS √© compilado com o suporte a Kerberos 5, ele tenta estabelecer 
+automaticamente uma conex√£o segura usando este m√©todo. Este m√©todo 
 funciona somente se o CVS estiver compilado com o suporte a Kerberos
-(opÁ„o <tt>--with-gssapi</tt>).
+(op√ß√£o <tt>--with-gssapi</tt>).
 

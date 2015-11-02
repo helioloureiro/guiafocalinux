@@ -1,7 +1,7 @@
-<sect id="s-cvs-exemplo">Exemplo de uma seÁ„o CVS
+<sect id="s-cvs-exemplo">Exemplo de uma se√ß√£o CVS
  <p>
-Nota: este exemplo È apenas did·tico, n„o foi feita nenhuma modificaÁ„o
-real no conte˙do do repositÛrio do <prgn>dillo</prgn> :-)
+Nota: este exemplo √© apenas did√°tico, n√£o foi feita nenhuma modifica√ß√£o
+real no conte√∫do do reposit√≥rio do <prgn>dillo</prgn> :-)
 <example>
 # Definir o CVSROOT
 export CVSROOT=:pserver:gleydson@ima.cipsga.org.br:/var/lib/cvs
@@ -13,7 +13,7 @@ CVS password: &lt;password&gt;
 
 gleydson@oberon:/tmp/teste$ 
 
-# Pegar o mÛdulo "dillo do cvs"
+# Pegar o m√≥dulo "dillo do cvs"
 cvs -z 3 co dillo
 
 cvs server: Updating dillo
@@ -64,7 +64,7 @@ cd /dillo/dillo/doc
 vi Cache.txt
 
 
-# Update no arquivo para atualizar a cÛpia local com a remota
+# Update no arquivo para atualizar a c√≥pia local com a remota
 cvs update Cache.txt
 M Cache.txt
 

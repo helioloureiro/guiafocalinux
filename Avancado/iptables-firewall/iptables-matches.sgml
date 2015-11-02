@@ -1,60 +1,60 @@
-<sect id="fw-iptables-mod">Outros mÛdulos do iptables
+<sect id="fw-iptables-mod">Outros m√≥dulos do iptables
  <p>
-Os mÛdulos do iptables s„o especificados com a opÁ„o <em>-m mÛdulo</em> 
-ou <em>--match mÛdulo</em> e permitem expandir a funcionalidade do firewall 
-atravÈs de novas conferÍncias e recursos de filtragem adicionais, como limitar a 
-conferÍncia de regras do firewall (um mÈtodo ˙til de limitar 
+Os m√≥dulos do iptables s√£o especificados com a op√ß√£o <em>-m m√≥dulo</em> 
+ou <em>--match m√≥dulo</em> e permitem expandir a funcionalidade do firewall 
+atrav√©s de novas confer√™ncias e recursos de filtragem adicionais, como limitar a 
+confer√™ncia de regras do firewall (um m√©todo √∫til de limitar 
 ping floods, syn floods, etc). 
 
 
-<sect1 id="fw-iptables-mod-state">Conferindo de acordo com o estado da conex„o
+<sect1 id="fw-iptables-mod-state">Conferindo de acordo com o estado da conex√£o
  <p>
-Este mÛdulo permite especificar regras de acordo com o estado da conex„o do 
-pacote, isto È feito atravÈs da interpretaÁ„o da saÌda do mÛdulo 
-<file>ip_conntrack</file>. O par‚metro <em>--state OP«’ES</em> deve acompanhar
-este mÛdulo. As opÁıes permitidas s„o as seguintes: 
+Este m√≥dulo permite especificar regras de acordo com o estado da conex√£o do 
+pacote, isto √© feito atrav√©s da interpreta√ß√£o da sa√≠da do m√≥dulo 
+<file>ip_conntrack</file>. O par√¢metro <em>--state OP√á√ïES</em> deve acompanhar
+este m√≥dulo. As op√ß√µes permitidas s√£o as seguintes: 
 <list>
  <item>
-<tt>NEW</tt> - Confere com pacotes que criam novas conexıes
+<tt>NEW</tt> - Confere com pacotes que criam novas conex√µes
 
  <item>
-<tt>ESTABLISHED</tt> - Confere com conexıes j· estabelecidas
+<tt>ESTABLISHED</tt> - Confere com conex√µes j√° estabelecidas
 
  <item>
 <tt>RELATED</tt> - Confere com pacotes relacionados indiretamente 
-a uma conex„o, como mensagens de erro icmp, etc. 
+a uma conex√£o, como mensagens de erro icmp, etc. 
 
  <item>
-<tt>INVALID</tt> - Confere com pacotes que n„o puderam ser identificados 
-por algum motivo. Como respostas de conexıes desconhecidas. 
+<tt>INVALID</tt> - Confere com pacotes que n√£o puderam ser identificados 
+por algum motivo. Como respostas de conex√µes desconhecidas. 
 
 </list>
-Caso seja necess·rio especificar mais de uma opÁıes estas devem ser separadas
-por vÌrgulas. 
+Caso seja necess√°rio especificar mais de uma op√ß√µes estas devem ser separadas
+por v√≠rgulas. 
 <example>
 iptables -A INPUT -m state --state NEW -i ppp0 -j DROP
 
 </example>
-Bloqueia qualquer tentativa de nova conex„o vindo da interface ppp0. 
+Bloqueia qualquer tentativa de nova conex√£o vindo da interface ppp0. 
 
 <example>
 iptables -A INPUT -m state --state NEW,INVALID -i ppp0 -j LOG
 
 </example>
-Permite registrar novas conexıes e pacotes inv·lidos vindos da interface 
+Permite registrar novas conex√µes e pacotes inv√°lidos vindos da interface 
 ppp0. 
 
 
-<sect1 id="fw-iptables-mod-limit">Limitando o n˙mero de vezes que a regra confere
+<sect1 id="fw-iptables-mod-limit">Limitando o n√∫mero de vezes que a regra confere
  <p>
-A opÁ„o <em>-m limit</em> permite especificar o n˙mero de vezes que uma regra 
-conferir· quando todas as outras condiÁıes forem satisfeitas. O n˙mero 
-padr„o de conferÍncia È de 3 por hora, a n„o ser que seja modificado atravÈs 
+A op√ß√£o <em>-m limit</em> permite especificar o n√∫mero de vezes que uma regra 
+conferir√° quando todas as outras condi√ß√µes forem satisfeitas. O n√∫mero 
+padr√£o de confer√™ncia √© de 3 por hora, a n√£o ser que seja modificado atrav√©s 
 dos argumentos aceitos pelo <em>limit</em>:
 <list>
  <item>
-<tt>--limit num/tempo</tt> - Permite especificar a taxa de conferÍncias do limit.
-O par‚metro <em>num</em> especifica um n˙mero e <em>tempo</em> pode ser 
+<tt>--limit num/tempo</tt> - Permite especificar a taxa de confer√™ncias do limit.
+O par√¢metro <em>num</em> especifica um n√∫mero e <em>tempo</em> pode ser 
  <list compact>
   <item><tt>s</tt> - Segundo
   <item><tt>m</tt> - Minuto
@@ -62,28 +62,28 @@ O par‚metro <em>num</em> especifica um n˙mero e <em>tempo</em> pode ser
   <item><tt>d</tt> - Dia
  </list>
 Assim uma regra como <tt>iptables -A INPUT -m limit --limit 5/m -j ACCEPT</tt> 
-permitir· que a regra acima confira apenas 5 vezes por minuto (<em>--limit 2/s</em>).
+permitir√° que a regra acima confira apenas 5 vezes por minuto (<em>--limit 2/s</em>).
 Este limite pode ser facilmente adaptado para uma regra de log que confere 
-constantemente n„o causar uma avalanche em seus logs. O valor padr„o È 3/h. 
+constantemente n√£o causar uma avalanche em seus logs. O valor padr√£o √© 3/h. 
 
 
  <item>
-<tt>--limit-burst num</tt> - Especifica o n˙mero inicial m·ximo de pacotes que 
-ir„o conferir, este n˙mero È aumentado por 1 a cada vez que o par‚metro 
-<em>--limit</em> acima n„o for atingido. O valor padr„o È 5. 
+<tt>--limit-burst num</tt> - Especifica o n√∫mero inicial m√°ximo de pacotes que 
+ir√£o conferir, este n√∫mero √© aumentado por 1 a cada vez que o par√¢metro 
+<em>--limit</em> acima n√£o for atingido. O valor padr√£o √© 5. 
 </list>
 
 
-<sect1 id="fw-iptables-mod-limit-ping">ProteÁ„o contra ping da morte
+<sect1 id="fw-iptables-mod-limit-ping">Prote√ß√£o contra ping da morte
  <p>
-A regra abaixo pode tomada como base para proteÁ„o contra ping flood: 
+A regra abaixo pode tomada como base para prote√ß√£o contra ping flood: 
 <example>
 iptables -t filter -A ping-chain -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
 iptables -t filter -A ping-chain -j DROP
 
 </example>
 A regra acima limita em 1 vez por segundo (--limit 1/s) a passagem de pings 
-(echo requests) para a m·quina <prgn>Linux</prgn>. 
+(echo requests) para a m√°quina <prgn>Linux</prgn>. 
 
 <example>
 iptables -t filter -A ping-chain -i ppp0 -p icmp --icmp-type echo-reply -m limit --limit 1/s -j RETURN
@@ -94,81 +94,81 @@ Limita respostas a pings (echo reply) vindos da interface ppp0 (-i ppp0) a 1 por
 segundo.
 <![ %OBS [
  <p>
-<strong>ATEN«√O:</strong> O exemplo acima È somente para a criaÁ„o de suas 
-prÛprias regras com limitaÁıes, caso um pacote n„o confira 
-ele ser· bloqueado pela prÛxima regra. Se uma regra como esta
-for colocada no chain INPUT sem modificaÁıes, ela n„o ter· o efeito 
-desejado, podendo colocar em risco a sua instalaÁ„o pela falsa 
-impress„o de seguranÁa. Portanto, È recomend·vel sempre testar as 
-modificaÁıes para ter certeza que elas tem efeito. ]]>
+<strong>ATEN√á√ÉO:</strong> O exemplo acima √© somente para a cria√ß√£o de suas 
+pr√≥prias regras com limita√ß√µes, caso um pacote n√£o confira 
+ele ser√° bloqueado pela pr√≥xima regra. Se uma regra como esta
+for colocada no chain INPUT sem modifica√ß√µes, ela n√£o ter√° o efeito 
+desejado, podendo colocar em risco a sua instala√ß√£o pela falsa 
+impress√£o de seguran√ßa. Portanto, √© recomend√°vel sempre testar as 
+modifica√ß√µes para ter certeza que elas tem efeito. ]]>
 
 
-<sect1 id="fw-iptables-mod-limit-synflood">ProteÁ„o contra syn flood
+<sect1 id="fw-iptables-mod-limit-synflood">Prote√ß√£o contra syn flood
  <p>
-A regra abaixo È uma boa proteÁ„o para os ataques syn floods:
+A regra abaixo √© uma boa prote√ß√£o para os ataques syn floods:
 <example>
 iptables -t filter -A syn-chain -p tcp --syn -m limit --limit 2/s -j ACCEPT
 iptables -t filter -A syn-chain -j DROP
 
 </example>
-Esta regra limita o atendimento de requisiÁıes de conexıes a 2 por segundo. Outra
-forma de aumentar a seguranÁa contra syn-floods È atravÈs do prÛprio kernel 
-ativando a opÁ„o "TCP Synflood" na compilaÁ„o e depois executando: 
+Esta regra limita o atendimento de requisi√ß√µes de conex√µes a 2 por segundo. Outra
+forma de aumentar a seguran√ßa contra syn-floods √© atrav√©s do pr√≥prio kernel 
+ativando a op√ß√£o "TCP Synflood" na compila√ß√£o e depois executando: 
 <tt>echo "1" >/proc/sys/net/ipv4/tcp_synflood</tt>. No entanto, utilize estas 
-opÁıes com cautela em servidores que possuem um grande n˙mero de acessos para
-n„o ter problemas que afetem seu clientes.
+op√ß√µes com cautela em servidores que possuem um grande n√∫mero de acessos para
+n√£o ter problemas que afetem seu clientes.
 <![ %OBS [
  <p>
-<strong>ATEN«√O:</strong> Os exemplos acima devem s„o somente exemplos para 
-criaÁ„o de suas prÛprias regras com limitaÁıes, caso um pacote n„o confira 
-com a regra ele ser· bloqueado pela prÛxima regra. Se uma regra como esta
-for colocada no chain INPUT sem modificaÁıes, ela n„o ter· o efeito 
-desejado, podendo colocar em risco a sua instalaÁ„o pela falsa 
-impress„o de seguranÁa. Portanto, È recomend·vel sempre testar as 
-modificaÁıes para ter certeza que elas tem efeito. ]]>
+<strong>ATEN√á√ÉO:</strong> Os exemplos acima devem s√£o somente exemplos para 
+cria√ß√£o de suas pr√≥prias regras com limita√ß√µes, caso um pacote n√£o confira 
+com a regra ele ser√° bloqueado pela pr√≥xima regra. Se uma regra como esta
+for colocada no chain INPUT sem modifica√ß√µes, ela n√£o ter√° o efeito 
+desejado, podendo colocar em risco a sua instala√ß√£o pela falsa 
+impress√£o de seguran√ßa. Portanto, √© recomend√°vel sempre testar as 
+modifica√ß√µes para ter certeza que elas tem efeito. ]]>
 
 
-<sect1 id="fw-iptables-outras-ipspoof">ProteÁ„o contra IP spoofing
+<sect1 id="fw-iptables-outras-ipspoof">Prote√ß√£o contra IP spoofing
  <p>
-A especificaÁ„o de endereÁos de origem/destino junto com a interface
-de rede pode ser usado como um detector de ataques spoofing. A lÛgica
-È que todos os endereÁos que NUNCA devem vir da interface X devem ser 
-negados imediatamente. As regras abaixo s„o colocadas no inicio do chain
+A especifica√ß√£o de endere√ßos de origem/destino junto com a interface
+de rede pode ser usado como um detector de ataques spoofing. A l√≥gica
+√© que todos os endere√ßos que NUNCA devem vir da interface X devem ser 
+negados imediatamente. As regras abaixo s√£o colocadas no inicio do chain
 INPUT para detectar tais ataques:
 <example>
 iptables -A INPUT -s 192.168.1.0/24 -i ! eth0 -j DROP
 iptables -A INPUT ! -s 192.168.1.0/24 -i eth0 -j DROP
 
 </example>
-A primeira regra diz para bloquear todos os endereÁos da faixa de 
-rede 192.168.1.* que N√O vem da interface eth0, a segunda regra diz para 
-bloquear todos os endereÁos que n„o sejam 192.168.1.* vindos da 
-interface eth0. O sÌmbolo "!" serve para especificar exceÁıes 
+A primeira regra diz para bloquear todos os endere√ßos da faixa de 
+rede 192.168.1.* que N√ÉO vem da interface eth0, a segunda regra diz para 
+bloquear todos os endere√ßos que n√£o sejam 192.168.1.* vindos da 
+interface eth0. O s√≠mbolo "!" serve para especificar exce√ß√µes 
 (veja <ref id="fw-iptables-outras-excessoes">.
 O kernel do <prgn>Linux</prgn> automaticamente bloqueia a passagem de pacotes
-que dizem ser de 127.0.0.1 e n„o est· vindo da interface loopback. 
+que dizem ser de 127.0.0.1 e n√£o est√° vindo da interface loopback. 
  <p>
-O mÈtodo preferido para controlar o ip spoofing È atravÈs do cÛdigo de roteamento
-do kernel (a n„o ser que esteja usando algum tipo de roteamento de origem 
-assimÈtrico necess·rio por alguns programas especiais):
+O m√©todo preferido para controlar o ip spoofing √© atrav√©s do c√≥digo de roteamento
+do kernel (a n√£o ser que esteja usando algum tipo de roteamento de origem 
+assim√©trico necess√°rio por alguns programas especiais):
 <example>
 for i in /proc/sys/net/ipv4/conf/*/rp_filter; do
  echo 1 &gt;$i
 done
 
 </example>
-Desta forma qualquer endereÁo dizendo ser 192.168.1.5 vindo de <file>ppp0</file> ser· 
+Desta forma qualquer endere√ßo dizendo ser 192.168.1.5 vindo de <file>ppp0</file> ser√° 
 imediatamente rejeitado. Uma checagem adicional contra IP spoofing pode 
 ser feita no arquivo <file>/etc/host.conf</file> <![ %CAPJUNTOS [ (veja 
 <ref id="rede-dns-a-hostconf">)]]>. 
 
 
-<sect1 id="fw-iptables-mod-multiport">Especificando m˙ltiplas portas de origem/destino
+<sect1 id="fw-iptables-mod-multiport">Especificando m√∫ltiplas portas de origem/destino
  <p>
-O mÛdulo <file>multiport</file> permite que seja especificado m˙ltiplas portas 
-para um alvo. Podem ser especificadas atÈ 15 portas em um ˙nico par‚metro e 
-basta que uma porta confira para que a regra entre em aÁ„o, pois a comparaÁ„o
-È feita usando condiÁıes "or". O par‚metro <file>multiport</file> deve ser 
+O m√≥dulo <file>multiport</file> permite que seja especificado m√∫ltiplas portas 
+para um alvo. Podem ser especificadas at√© 15 portas em um √∫nico par√¢metro e 
+basta que uma porta confira para que a regra entre em a√ß√£o, pois a compara√ß√£o
+√© feita usando condi√ß√µes "or". O par√¢metro <file>multiport</file> deve ser 
 acompanhado de um dos argumentos abaixo:
 <list compact>
  <item>
@@ -179,9 +179,9 @@ porta de origem estiver presente entre as portas especificadas.
 a porta de destino estiver presente entre as portas especificadas. 
  <item>
 <tt>--port [porta1, porta2...]</tt> - Faz a regra conferir caso a porta 
-de origem ou destino esteja presente no par‚metro. 
+de origem ou destino esteja presente no par√¢metro. 
 </list>
-Este mÛdulo pode eliminar muitas regras de firewall que fazem o mesmo tratamento 
+Este m√≥dulo pode eliminar muitas regras de firewall que fazem o mesmo tratamento 
 de pacotes para diversas portas diferentes. 
 <example>
 iptables -A INPUT -p tcp -i ppp0 -m multiport --destination-port 21,23,25,80,110,113,6667 -j DROP
@@ -191,33 +191,33 @@ Bloqueia todos os pacotes vindo de ppp0 para as portas 21 (ftp), 23 (telnet),
 25 (smtp), 80 (www), 110 (pop3), 113 (ident), 6667 (irc).
 
 
-<sect1 id="fw-iptables-mod-mac">Especificando o endereÁo MAC da interface
+<sect1 id="fw-iptables-mod-mac">Especificando o endere√ßo MAC da interface
  <p>
-O mÛdulo <file>mac</file> serve para conferir com o endereÁo Ethernet dos pacotes 
+O m√≥dulo <file>mac</file> serve para conferir com o endere√ßo Ethernet dos pacotes 
 de origem. Somente faz sentido se usado nos chains de PREROUTING (da tabela nat) ou 
-INPUT (da tabela filter). Aceita como argumento a opÁ„o 
-<em>--mac-source endereÁo</em>. O sÌmbolo "!" pode ser usado para especificar 
-uma exceÁ„o. 
+INPUT (da tabela filter). Aceita como argumento a op√ß√£o 
+<em>--mac-source endere√ßo</em>. O s√≠mbolo "!" pode ser usado para especificar 
+uma exce√ß√£o. 
 <example>
 iptables -t filter -A INPUT -m mac --mac-source 00:80:AD:B2:60:0B -j DROP
 
 </example>
-Confere com a m·quina com endereÁo ethernet igual a <tt>00:80:AD:B2:60:0B</tt>. 
+Confere com a m√°quina com endere√ßo ethernet igual a <tt>00:80:AD:B2:60:0B</tt>. 
 
 
 <sect1 id="fw-iptables-mod-owner">Conferindo com quem criou o pacote
  <p>
-Este mÛdulo confere com o usu·rio que iniciou a conex„o. … somente v·lido
-no chain <em>OUTPUT</em> da tabela filter. Os seguintes argumentos s„o v·lidas
-para este mÛdulo: 
+Este m√≥dulo confere com o usu√°rio que iniciou a conex√£o. √â somente v√°lido
+no chain <em>OUTPUT</em> da tabela filter. Os seguintes argumentos s√£o v√°lidas
+para este m√≥dulo: 
 <list>
  <item>
 <tt>--uid-owner UID</tt> - Confere se o pacote foi criado por um processo
-com o UID especificado. AtÈ o momento somente UID numÈricos s„o aceitos.
+com o UID especificado. At√© o momento somente UID num√©ricos s√£o aceitos.
 
  <item>
-<tt>--gid-owner GID</tt> - Confere se o pacote foi criado por um usu·rio
-pertencente ao grupo GID. AtÈ o momento somente GID numÈricos s„o aceitos. 
+<tt>--gid-owner GID</tt> - Confere se o pacote foi criado por um usu√°rio
+pertencente ao grupo GID. At√© o momento somente GID num√©ricos s√£o aceitos. 
 
  <item>
 <tt>--pid-owner PID</tt> - Confere se o pacote foi criado por um 
@@ -225,56 +225,56 @@ processo com o PID especificado.
 
  <item>
 <tt>--sid-owner ID</tt> - Confere se o pacote foi criado por um processo
-no grupo de seÁ„o especificado. 
+no grupo de se√ß√£o especificado. 
  
 </list> 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> - Lembre-se que pacotes que n„o possuem detalhes suficientes
-de cabeÁalho nunca conferir„o! ]]>
+<strong>OBS:</strong> - Lembre-se que pacotes que n√£o possuem detalhes suficientes
+de cabe√ßalho nunca conferir√£o! ]]>
 <example>
 iptables -A OUTPUT -m owner --gid-owner 100 -p udp -j DROP
 
 </example>
-Rejeita um conexıes indo para portas UDP de pacotes criados pelo usu·rios 
+Rejeita um conex√µes indo para portas UDP de pacotes criados pelo usu√°rios 
 pertencentes ao grupo 100. 
 
 
-<sect1 id="fw-iptables-mod-string">Conferindo com o conte˙do do pacote
+<sect1 id="fw-iptables-mod-string">Conferindo com o conte√∫do do pacote
  <p>
-O mÛdulo <file>string</file> do <prgn>iptables</prgn> permite a 
-inspeÁ„o de conte˙do de um pacote e tomar uma aÁ„o se determinado tipo de 
-tr·fego for encontrado em um pacote. Esta tÈcnica pode ser usada tanto para 
-seguranÁa como para economia de banda dentro da rede. Esta opÁ„o *N√O* torna 
+O m√≥dulo <file>string</file> do <prgn>iptables</prgn> permite a 
+inspe√ß√£o de conte√∫do de um pacote e tomar uma a√ß√£o se determinado tipo de 
+tr√°fego for encontrado em um pacote. Esta t√©cnica pode ser usada tanto para 
+seguran√ßa como para economia de banda dentro da rede. Esta op√ß√£o *N√ÉO* torna 
 o iptables como um firewall proxy, pois o proxy tem a habilidade de 
-inspecionar o conte˙do, protocolo, comandos do pacote e decidir se o seu 
-conte˙do È nocivo ou n„o. O firewall em nÌvel de pacotes fazendo inspeÁ„o de 
-conte˙do, chega a ser 3 a 10 vezes mais r·pido do que um proxy, assim seu uso 
-deve ser analisado dependendo do tr·fego que circula pelo link e da seguranÁa 
-dos dados que trafegam atravÈs dele.
+inspecionar o conte√∫do, protocolo, comandos do pacote e decidir se o seu 
+conte√∫do √© nocivo ou n√£o. O firewall em n√≠vel de pacotes fazendo inspe√ß√£o de 
+conte√∫do, chega a ser 3 a 10 vezes mais r√°pido do que um proxy, assim seu uso 
+deve ser analisado dependendo do tr√°fego que circula pelo link e da seguran√ßa 
+dos dados que trafegam atrav√©s dele.
  <p>
-Uma boa pr·tica È aliar esta opÁ„o a um IDS externo usando o alvo 
-<em>QUEUE</em> e deixando o trabalho de espeÁ„o de conte˙do para ele.
-Um exemplo de restriÁ„o direta È o bloqueio do envio de qualquer informaÁ„o 
-confidencial sigilosa para fora da rede interna (n˙mero de contas, tudo que 
-conferir com CPF, CGC, endereÁos de e-mail, memorandos, etc). De qualquer forma, 
-analise o tr·fego de sua rede antes de querer implementar qualquer soluÁ„o 
-baseada neste mÈtodo sob o risco de afetar tr·fego legÌtimo.
+Uma boa pr√°tica √© aliar esta op√ß√£o a um IDS externo usando o alvo 
+<em>QUEUE</em> e deixando o trabalho de espe√ß√£o de conte√∫do para ele.
+Um exemplo de restri√ß√£o direta √© o bloqueio do envio de qualquer informa√ß√£o 
+confidencial sigilosa para fora da rede interna (n√∫mero de contas, tudo que 
+conferir com CPF, CGC, endere√ßos de e-mail, memorandos, etc). De qualquer forma, 
+analise o tr√°fego de sua rede antes de querer implementar qualquer solu√ß√£o 
+baseada neste m√©todo sob o risco de afetar tr√°fego leg√≠timo.
  <p>
-Outra utilidade eficiente È a diminuiÁ„o de tr·fego, pois podemos barrar programas 
-que sobrecarregam o link em uma rede com muitos usu·rios como, por exemplo, usando 
-o <prgn>Kazaa</prgn> ou qualquer outro programa para cÛpia de arquivos via 
+Outra utilidade eficiente √© a diminui√ß√£o de tr√°fego, pois podemos barrar programas 
+que sobrecarregam o link em uma rede com muitos usu√°rios como, por exemplo, usando 
+o <prgn>Kazaa</prgn> ou qualquer outro programa para c√≥pia de arquivos via 
 Internet. Veja alguns exemplos:
 <example>
 # Bloqueia qualquer tentativa de acesso ao programa Kazaa
 iptables -A INPUT -m string --string "X-Kazaa" -j DROP
 
-# N„o permite que dados confidenciais sejam enviados para fora da empresa
+# N√£o permite que dados confidenciais sejam enviados para fora da empresa
 # e registra o ocorrido.
 iptables -A OUTPUT -m string --string "conta" -j LOG --log-prefix "ALERTA: dados confidencial "
 iptables -A OUTPUT -m string --string "conta" -j DROP
 
-# Somente permite a passagem de pacotes que n„o contÈm ".exe" em seu conte˙do
+# Somente permite a passagem de pacotes que n√£o cont√©m ".exe" em seu conte√∫do
 iptables -A INPUT -m string --string ! ".exe" -j ACCEPT
 
 </example>
@@ -282,8 +282,8 @@ iptables -A INPUT -m string --string ! ".exe" -j ACCEPT
 
 <sect1 id="fw-iptables-mod-ttl">Conferindo com o tempo de vida do pacote
  <p>
-O mÛdulo <file>ttl</file> pode ser usado junto com as seguintes
-opÁıes para conferir com o tempo de vida (TTL) de um pacote:
+O m√≥dulo <file>ttl</file> pode ser usado junto com as seguintes
+op√ß√µes para conferir com o tempo de vida (TTL) de um pacote:
  <list compact>
   <item><tt>--ttl-eq [num]</tt>
   <item><tt>--ttl-lt [num]</tt>
@@ -300,37 +300,37 @@ iptables -A INPUT -m ttl --ttl-eq 1 -j DROP
 </example>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Tenha um especial cuidado durante a programaÁ„o de 
-regras que usem TTL, como elas est„o especialmente associadas com o estado 
-da comunicaÁ„o estabelecida entre as duas pontas e o tipo de protocolo, 
-cuidados especiais devem ser tomados para que seu firewall n„o 
-manipule de forma incorreta tr·fego v·lido.  ]]>
+<strong>OBS:</strong> Tenha um especial cuidado durante a programa√ß√£o de 
+regras que usem TTL, como elas est√£o especialmente associadas com o estado 
+da comunica√ß√£o estabelecida entre as duas pontas e o tipo de protocolo, 
+cuidados especiais devem ser tomados para que seu firewall n√£o 
+manipule de forma incorreta tr√°fego v√°lido.  ]]>
 
 
-<sect1 id="fw-iptables-mod-rpc">Conferindo com n˙meros RPC
+<sect1 id="fw-iptables-mod-rpc">Conferindo com n√∫meros RPC
  <p>
-O mÛdulo <file>rpc</file> permite um controle especial sobre o 
-tr·fego RPC que chega atÈ a sua m·quina. Um uso ˙til È 
-restringir a chamada a determinados n˙meros RPC e permitir 
-outros (por exemplo, permitindo somente o serviÁo <em>keyserv</em>
+O m√≥dulo <file>rpc</file> permite um controle especial sobre o 
+tr√°fego RPC que chega at√© a sua m√°quina. Um uso √∫til √© 
+restringir a chamada a determinados n√∫meros RPC e permitir 
+outros (por exemplo, permitindo somente o servi√ßo <em>keyserv</em>
 e bloqueando outros como o <em>ypserv</em> ou <em>portmapper</em>). As 
-seguintes opÁıes podem ser usadas com o mÛdulo <file>nfs</file>:
+seguintes op√ß√µes podem ser usadas com o m√≥dulo <file>nfs</file>:
 <list compact>
  <item>
 <tt>--rpcs [procedimentos]</tt> - Confere com a lista de 
 chamadas RPC especificadas. Mais de um procedimento RPC pode 
-ser especificado como <tt>nome</tt> ou <tt>n˙mero</tt> separando-os 
-com vÌrgulas. Um arquivo ˙til que contÈm esta lista È o <file>/etc/rpc</file>. 
+ser especificado como <tt>nome</tt> ou <tt>n√∫mero</tt> separando-os 
+com v√≠rgulas. Um arquivo √∫til que cont√©m esta lista √© o <file>/etc/rpc</file>. 
 
  <item>
-<tt>--strict</tt> - Ignora serviÁos RPC que n„o contenham a chamada 
-<em>get</em> do portmapper. Em situaÁıes normais, o inicio de qualquer 
-solicitaÁ„o RPC.
+<tt>--strict</tt> - Ignora servi√ßos RPC que n√£o contenham a chamada 
+<em>get</em> do portmapper. Em situa√ß√µes normais, o inicio de qualquer 
+solicita√ß√£o RPC.
  
 </list>
 Veja alguns exemplos:
 <example>
-# Para conferir com todas as chamadas RPC referentes a conexıes iniciadas
+# Para conferir com todas as chamadas RPC referentes a conex√µes iniciadas
 # para o portmapper
 iptables -A INPUT -m rpc --rpcs portmapper --strict -j DROP
 
@@ -342,21 +342,21 @@ iptables -A INPUT -m rpc --rpcs 100023,100024 -j ACCEPT
 
 <sect1 id="fw-iptables-mod-pkttype">Conferindo com tipo de pacote
  <p>
-O mÛdulo <file>pkttype</file> permite identificar um pacote do tipo 
-<em>unicast</em> (direcionado a vocÍ), <em>broadcast</em> 
+O m√≥dulo <file>pkttype</file> permite identificar um pacote do tipo 
+<em>unicast</em> (direcionado a voc√™), <em>broadcast</em> 
 (direcionado a uma determinada rede, definida pela netmask) ou 
 <em>multicast</em> (destinado a grupos de redes) e desta forma realizar 
-aÁıes em cima destes. O tipo de pacote È identificado logo apÛs a 
-opÁ„o <em>--pkt-type</em>. Veja alguns exemplos:
+a√ß√µes em cima destes. O tipo de pacote √© identificado logo ap√≥s a 
+op√ß√£o <em>--pkt-type</em>. Veja alguns exemplos:
 <example>
 # Bloqueia a passagem de pacotes multicast de uma rede para outra
 iptables -A FORWARD -i eth0 -o eth0 -m pkttype --pkt-type multicast -j DROP 
 
-# Como deve ter notado, È possÌvel fazer a associaÁ„o com diversas especificaÁıes
-# de mÛdulos, bastando apenas especificar uma opÁ„o "-m" para cada mÛdulo
+# Como deve ter notado, √© poss√≠vel fazer a associa√ß√£o com diversas especifica√ß√µes
+# de m√≥dulos, bastando apenas especificar uma op√ß√£o "-m" para cada m√≥dulo
 # adicional:
 # Permite a passagem de pacotes broadcast de uma rede para outra com
-# limitaÁ„o de 5/s.
+# limita√ß√£o de 5/s.
 iptables -A FORWARD -i eth0 -o eth0 -m pkttype --pkt-type broadcast -m limit --limit 5/s -j ACCEPT
 
 </example>
@@ -364,9 +364,9 @@ iptables -A FORWARD -i eth0 -o eth0 -m pkttype --pkt-type broadcast -m limit --l
 
 <sect1 id="fw-iptables-mod-length">Conferindo com o tamanho do pacote
  <p>
-O tamanho do pacote pode ser usado como condiÁ„o de filtragem atravÈs do 
-mÛdulo <file>length</file>. O tamanho do pacote È especificado atravÈs da 
-opÁ„o <em>--length</em> e o argumento segue a mesma sintaxe da especificaÁ„o 
+O tamanho do pacote pode ser usado como condi√ß√£o de filtragem atrav√©s do 
+m√≥dulo <file>length</file>. O tamanho do pacote √© especificado atrav√©s da 
+op√ß√£o <em>--length</em> e o argumento segue a mesma sintaxe da especifica√ß√£o 
 de portas no <prgn>iptables</prgn> sendo separados por <em>:</em>. Veja 
 alguns exemplos:
 <example>

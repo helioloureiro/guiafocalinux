@@ -1,89 +1,89 @@
 <sect id="s-apache-ssl">Uso de criptografia SSL
  <p>
-Esta seÁ„o È uma referÍncia r·pida para configuraÁ„o e uso do mÛdulo 
-<file>apache-ssl</file> com o servidor <prgn>Apache</prgn>. Este mÛdulo 
-realiza a comunicaÁ„o segura de dados (criptografada) via porta 443 (que 
-È usada como padr„o quando especificamos uma url iniciando com <em>https://</em>). 
-A transmiss„o criptografada de dados È importante quanto temos dados 
-confidenciais que precisamos transmitir como movimentaÁ„o banc·ria, senhas, 
-n˙mero de cartıes de crÈdito, fazer a administraÁ„o remota do servidor, etc. 
-SSL significa <em>Secure Sockets Layer</em> (camada segura de transferÍncia) e 
+Esta se√ß√£o √© uma refer√™ncia r√°pida para configura√ß√£o e uso do m√≥dulo 
+<file>apache-ssl</file> com o servidor <prgn>Apache</prgn>. Este m√≥dulo 
+realiza a comunica√ß√£o segura de dados (criptografada) via porta 443 (que 
+√© usada como padr√£o quando especificamos uma url iniciando com <em>https://</em>). 
+A transmiss√£o criptografada de dados √© importante quanto temos dados 
+confidenciais que precisamos transmitir como movimenta√ß√£o banc√°ria, senhas, 
+n√∫mero de cart√µes de cr√©dito, fazer a administra√ß√£o remota do servidor, etc. 
+SSL significa <em>Secure Sockets Layer</em> (camada segura de transfer√™ncia) e 
 TLS <em>Transport Layer Security</em> (camada segura de Transporte). 
  <p>
-A intenÁ„o aqui È fornecer explicaÁıes pr·ticas para colocar um servidor 
-<prgn>Apache</prgn> com suporte a SSL funcionando no menor tempo possÌvel. 
-Detalhes sobre funcionamento de certificados, mÈtodos de criptografia, 
-assinatura, etc. dever„o ser buscados na documentaÁ„o deste mÛdulo ou 
-em sites especializados (È um assunto muito longo). 
+A inten√ß√£o aqui √© fornecer explica√ß√µes pr√°ticas para colocar um servidor 
+<prgn>Apache</prgn> com suporte a SSL funcionando no menor tempo poss√≠vel. 
+Detalhes sobre funcionamento de certificados, m√©todos de criptografia, 
+assinatura, etc. dever√£o ser buscados na documenta√ß√£o deste m√≥dulo ou 
+em sites especializados (√© um assunto muito longo). 
 
 
 <sect1 id="s-apache-ssl-s">Servidor apache com suporte a ssl
  <p>
-Ao invÈs de utilizar o mÛdulo <file>mod_ssl</file>, vocÍ poder· usar o 
-pacote <package>apache-ssl</package>, ele nada mais È que um 
-servidor <prgn>Apache</prgn> com o suporte SSL j· incluso e 
-n„o interfere no servidor <prgn>Apache</prgn> padr„o, porque 
-È executado somente na porta 443. 
+Ao inv√©s de utilizar o m√≥dulo <file>mod_ssl</file>, voc√™ poder√° usar o 
+pacote <package>apache-ssl</package>, ele nada mais √© que um 
+servidor <prgn>Apache</prgn> com o suporte SSL j√° incluso e 
+n√£o interfere no servidor <prgn>Apache</prgn> padr√£o, porque 
+√© executado somente na porta 443. 
  <p>
-Se vocÍ tem um grande site com configuraÁıes de acesso personalizadas, ele 
-trar· mais trabalho de administraÁ„o, pois as configuraÁıes e diretivas 
-de restriÁıes de acesso dever„o ser copiadas para este servidor web. No 
-entanto, ele È indicado para m·quinas que ser„o servidores SSL dedicados 
-ou quando n„o possui configuraÁıes especiais em seu servidor web principal. 
+Se voc√™ tem um grande site com configura√ß√µes de acesso personalizadas, ele 
+trar√° mais trabalho de administra√ß√£o, pois as configura√ß√µes e diretivas 
+de restri√ß√µes de acesso dever√£o ser copiadas para este servidor web. No 
+entanto, ele √© indicado para m√°quinas que ser√£o servidores SSL dedicados 
+ou quando n√£o possui configura√ß√µes especiais em seu servidor web principal. 
  <p>
-Esta seÁ„o tem por objetivo a instalaÁ„o do suporte ao mÛdulo 
-SSL (<file>mod_ssl</file>) no servidor <prgn>Apache</prgn> padr„o. 
+Esta se√ß√£o tem por objetivo a instala√ß√£o do suporte ao m√≥dulo 
+SSL (<file>mod_ssl</file>) no servidor <prgn>Apache</prgn> padr√£o. 
 
 
-<sect1 id="s-apache-ssl-instal">Instalando o suporte a mÛdulo SSL no Apache
+<sect1 id="s-apache-ssl-instal">Instalando o suporte a m√≥dulo SSL no Apache
  <p>
-Instale o pacote <package>libapache-mod-ssl</package>. ApÛs instala-lo, 
+Instale o pacote <package>libapache-mod-ssl</package>. Ap√≥s instala-lo, 
 edite o arquivo <file>/etc/apache/httpd.conf</file> adicionando a 
 linha:
 <example>
 LoadModule ssl_module /usr/lib/apache/1.3/mod_ssl.so
 </example>
 Depois, gere um certificado digital ssl com o programa 
-<prgn>mod-ssl-makecert</prgn>. Ele ser· armazenado por padr„o nos 
-diretÛrios em <file>/etc/apache/ssl.???</file> e seu uso explicado
-no resto desta seÁ„o. 
+<prgn>mod-ssl-makecert</prgn>. Ele ser√° armazenado por padr√£o nos 
+diret√≥rios em <file>/etc/apache/ssl.???</file> e seu uso explicado
+no resto desta se√ß√£o. 
 
 
 <sect1 id="s-apache-ssl-mkcert">Gerando um certificado digital
  <p>
-O certificado digital È a peÁa que garante a transferÍncia segura de dados. 
-Ele contÈm detalhes sobre a empresa que far· seu uso e quem o emitiu. Para 
+O certificado digital √© a pe√ßa que garante a transfer√™ncia segura de dados. 
+Ele cont√©m detalhes sobre a empresa que far√° seu uso e quem o emitiu. Para 
 gerar ou modificar um certificado digital, execute o comando 
-<tt>mod-ssl-makecert</tt> e siga as instruÁıes. O mÈtodo de criptografia 
-usado pelo certificado digital È baseado no conceito de chave 
-p˙blica/privada<![ %CAPJUNTOS [, a descriÁ„o sobre o funcionamento deste 
-sistema de criptografia È feito em <ref id="d-cripto-gpg">]]>.
+<tt>mod-ssl-makecert</tt> e siga as instru√ß√µes. O m√©todo de criptografia 
+usado pelo certificado digital √© baseado no conceito de chave 
+p√∫blica/privada<![ %CAPJUNTOS [, a descri√ß√£o sobre o funcionamento deste 
+sistema de criptografia √© feito em <ref id="d-cripto-gpg">]]>.
 <![ %OBS [ 
  <p>
-<strong>OBS</strong> N„o utilize acentos nos dados de seu certificado. ]]>
+<strong>OBS</strong> N√£o utilize acentos nos dados de seu certificado. ]]>
 
 
-<sect1 id="s-apache-ssl-exemplo">Exemplo de configuraÁ„o do mÛdulo mod-ssl
+<sect1 id="s-apache-ssl-exemplo">Exemplo de configura√ß√£o do m√≥dulo mod-ssl
  <p>
-Abaixo uma configuraÁ„o r·pida para quem deseja ter um servidor com suporte 
-a SSL funcionando em menor tempo possÌvel (ela È feita para operar em todas as 
-instalaÁıes e n„o leva em consideraÁ„o o projeto de seguranÁa de sua configuraÁ„o 
+Abaixo uma configura√ß√£o r√°pida para quem deseja ter um servidor com suporte 
+a SSL funcionando em menor tempo poss√≠vel (ela √© feita para operar em todas as 
+instala√ß√µes e n√£o leva em considera√ß√£o o projeto de seguran√ßa de sua configura√ß√£o 
 atual do <prgn>Apache</prgn>). Note que todas as diretivas relacionadas 
-com o mÛdulo <file>mod_ssl</file> comeÁam com o nome "SSL": 
+com o m√≥dulo <file>mod_ssl</file> come√ßam com o nome "SSL": 
 <example>
-# Somente processa as diretivas relacionadas a SSL caso o mÛdulo mod_ssl estiver
+# Somente processa as diretivas relacionadas a SSL caso o m√≥dulo mod_ssl estiver
 # carregado pela diretiva LoadModule
 &lt;IfModule mod_ssl.c&gt;
-# … necess·rio especificar as portas que o servidor Web aguardar· conexıes (normais e 
+# √â necess√°rio especificar as portas que o servidor Web aguardar√° conex√µes (normais e 
 # ssl). 
 Listen 80
 Listen 443
 
-# Ativa o tratamento de conexıes com o destino na porta 443 pela diretiva
+# Ativa o tratamento de conex√µes com o destino na porta 443 pela diretiva
 # VirtualHost abaixo
 &lt;VirtualHost _default_:443&gt;
 
-# Ativa ou desativa o mÛdulo SSL para este host virtual
+# Ativa ou desativa o m√≥dulo SSL para este host virtual
 SSLEngine on
 
 # Certificado do servidor
@@ -92,11 +92,11 @@ SSLCertificateFile    /etc/apache/ssl.crt/server.crt
 # Chave privada de certificado do servidor. 
 SSLCertificateKeyFile /etc/apache/ssl.key/server.key
 
-# A linha abaixo forÁa o fechamento de conexıes quando a 
-# conex„o com o navegador Internet Explorer È interrompida. Isto
-# viola o padr„o SSL/TLS mas È necess·rio para este tipo de 
-# navegador. Alguns problemas de conexıes de navegadores tambÈm
-# s„o causados por n„o saberem lidar com pacotes keepalive.
+# A linha abaixo for√ßa o fechamento de conex√µes quando a 
+# conex√£o com o navegador Internet Explorer √© interrompida. Isto
+# viola o padr√£o SSL/TLS mas √© necess√°rio para este tipo de 
+# navegador. Alguns problemas de conex√µes de navegadores tamb√©m
+# s√£o causados por n√£o saberem lidar com pacotes keepalive.
 SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 
 &lt;/VirtualHost&gt;
@@ -104,27 +104,27 @@ SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
 &lt;/IfModule&gt;
 
 #################################################################################
-# Adicionalmente poder„o ser especificadas as seguintes opÁıes para modificar   #
-# o comportamento da seÁ„o SSL (veja mais detalhes na documentaÁ„o do mod-ssl)  #
+# Adicionalmente poder√£o ser especificadas as seguintes op√ß√µes para modificar   #
+# o comportamento da se√ß√£o SSL (veja mais detalhes na documenta√ß√£o do mod-ssl)  #
 #################################################################################
 
-# Formato e localizaÁ„o do cache paralelo de processos da seÁ„o. O cache de seÁ„o È 
-# feito internamente pelo mÛdulo mas esta diretiva acelera o processamento 
-# de requisiÁıes paralelas feitas por modernos clientes navegadores. Por padr„o 
-# nenhum cache È usado ("none"). 
+# Formato e localiza√ß√£o do cache paralelo de processos da se√ß√£o. O cache de se√ß√£o √© 
+# feito internamente pelo m√≥dulo mas esta diretiva acelera o processamento 
+# de requisi√ß√µes paralelas feitas por modernos clientes navegadores. Por padr√£o 
+# nenhum cache √© usado ("none"). 
 SSLSessionCache         dbm:/var/run/ssl-cache
 
-# LocalizaÁ„o do arquivo de lock que o mÛdulo SSL utiliza para 
-# sincronizaÁ„o entre processos. O padr„o È nenhum. 
+# Localiza√ß√£o do arquivo de lock que o m√≥dulo SSL utiliza para 
+# sincroniza√ß√£o entre processos. O padr√£o √© nenhum. 
 SSLMutex  file:/var/run/ssl-mutex
 
-# Especifica o mÈtodo de embaralhamento de dados que ser· utilizado
-# durante o inicio de uma seÁ„o SSL (startup) ou durante o processo 
-# de conex„o (connect). Podem ser especificados "builtin" (È muito r·pido 
-# pois consome poucos ciclos da CPU mas n„o gera tanta combinaÁ„o aleatÛria), um 
-# programa que gera n˙meros aleatÛrios (com "exec") ou os dispositivos aleatÛrios 
-# /dev/random e /dev/urandom (com "file"). Por padr„o nenhuma fonte 
-# adicional de n˙meros aleatÛrios È usada. 
+# Especifica o m√©todo de embaralhamento de dados que ser√° utilizado
+# durante o inicio de uma se√ß√£o SSL (startup) ou durante o processo 
+# de conex√£o (connect). Podem ser especificados "builtin" (√© muito r√°pido 
+# pois consome poucos ciclos da CPU mas n√£o gera tanta combina√ß√£o aleat√≥ria), um 
+# programa que gera n√∫meros aleat√≥rios (com "exec") ou os dispositivos aleat√≥rios 
+# /dev/random e /dev/urandom (com "file"). Por padr√£o nenhuma fonte 
+# adicional de n√∫meros aleat√≥rios √© usada. 
 SSLRandomSeed startup builtin
 SSLRandomSeed connect builtin
 #SSLRandomSeed startup file:/dev/urandom 512
@@ -135,35 +135,35 @@ SSLRandomSeed connect builtin
 AddType application/x-x509-ca-cert .crt
 AddType application/x-pkcs7-crl    .crl
 
-# Tempo m·ximo de permanÍncia dos objetos do cache acima. O valor padr„o È 
+# Tempo m√°ximo de perman√™ncia dos objetos do cache acima. O valor padr√£o √© 
 # 300 segundos (5 minutos).
 SSLSessionCacheTimeout  300
 
-# Vers„o do protocolo SSL que ser· usada. Podem ser especificadas 
-# SSLv2, SSLv3 TLSv1 ou all. O mais compatÌvel com os navegadores atuais 
-# È o "SSLv2". Por padr„o "all" È usado.
+# Vers√£o do protocolo SSL que ser√° usada. Podem ser especificadas 
+# SSLv2, SSLv3 TLSv1 ou all. O mais compat√≠vel com os navegadores atuais 
+# √© o "SSLv2". Por padr√£o "all" √© usado.
 #SSLProtocol all
 #SSLProtocol -all +SSLv3
 
-# Registra detalhes sobre o tr·fego neste arquivo. Mensagens de erro 
-# tambÈm s„o armazenadas no arquivo de registro padr„o do Apache
+# Registra detalhes sobre o tr√°fego neste arquivo. Mensagens de erro 
+# tamb√©m s√£o armazenadas no arquivo de registro padr√£o do Apache
 SSLLog      /var/log/apache/ssl-mod.log
 
-# NÌvel das mensagens de log registradas por SSLLog
+# N√≠vel das mensagens de log registradas por SSLLog
 SSLLogLevel info
 
 </example>
-Algumas diretivas deste mÛdulo podem fazer parte tanto da configuraÁ„o global do 
+Algumas diretivas deste m√≥dulo podem fazer parte tanto da configura√ß√£o global do 
 servidor como diretivas de acesso (<tt>Directory</tt>, <tt>Location</tt>, 
-<tt>.htaccess</tt>, veja a opÁ„o "Context" na documentaÁ„o do <file>mod_ssl</file>). 
+<tt>.htaccess</tt>, veja a op√ß√£o "Context" na documenta√ß√£o do <file>mod_ssl</file>). 
 
 
-<sect1 id="s-apache-ssl-sslreq">Autorizando acesso somente a conexıes SSL
+<sect1 id="s-apache-ssl-sslreq">Autorizando acesso somente a conex√µes SSL
  <p>
-Existem casos que precisa restringir o uso de conexıes normais e permitir 
-somente conexıes via SSL (como por exemplo, dentro da diretiva de acesso que 
-controla seu acesso a uma p·gina com listagem de clientes). A opÁ„o 
-<em>SSLRequereSSL</em> È usada para tal e deve ser usada dentro das 
+Existem casos que precisa restringir o uso de conex√µes normais e permitir 
+somente conex√µes via SSL (como por exemplo, dentro da diretiva de acesso que 
+controla seu acesso a uma p√°gina com listagem de clientes). A op√ß√£o 
+<em>SSLRequereSSL</em> √© usada para tal e deve ser usada dentro das 
 diretivas de controle acesso: 
 <example>
 &lt;Directory /var/www/secure/clientes&gt;
@@ -174,58 +174,58 @@ diretivas de controle acesso:
 &lt;/Directory&gt;
 
 </example>
-A diretiva acima <em>requer</em> que sejam feitas conexıes SSL 
-(porta 443 - https://) para acesso ao diretÛrio 
-<file>/var/www/secure/clientes</file>, qualquer conex„o padr„o n„o 
-criptografada (feita na porta 80) ser· rejeitada com o erro 403. 
+A diretiva acima <em>requer</em> que sejam feitas conex√µes SSL 
+(porta 443 - https://) para acesso ao diret√≥rio 
+<file>/var/www/secure/clientes</file>, qualquer conex√£o padr√£o n√£o 
+criptografada (feita na porta 80) ser√° rejeitada com o erro 403. 
 <![ %OBS [
  <p>
 <strong>OBS:</strong> A diretiva <em>SSLRequireSSL</em> podia ser 
 colocada entre as condicionais "IfModule mod_ssl.c" mas o servidor web 
-permitiria conexıes n„o criptografadas se por algum motivo esse mÛdulo n„o 
-estivesse carregado. Na configuraÁ„o acima, ocorrer· um erro e impedir· o 
+permitiria conex√µes n√£o criptografadas se por algum motivo esse m√≥dulo n√£o 
+estivesse carregado. Na configura√ß√£o acima, ocorrer√° um erro e impedir√° o 
 funcionamento do servidor web caso ocorra algum problema com o 
 <file>mod_ssl</file>. ]]>
 
 
 <sect1 id="s-apache-ssl-inic">Iniciando o servidor Web com suporte a SSL
  <p>
-Verifique se a configuraÁ„o do <prgn>Apache</prgn> est· ok com <tt>apache -t</tt>. 
-Caso positivo, reinicie o servidor usando um dos mÈtodos descritos em 
-<ref id="s-apache-rodando">. O servidor web lhe pedir· a FraseSenha para 
+Verifique se a configura√ß√£o do <prgn>Apache</prgn> est√° ok com <tt>apache -t</tt>. 
+Caso positivo, reinicie o servidor usando um dos m√©todos descritos em 
+<ref id="s-apache-rodando">. O servidor web lhe pedir√° a FraseSenha para 
 descriptografar a chave privada SSL (esta senha foi escolhida durante o processo 
-de criaÁ„o do certificado). 
+de cria√ß√£o do certificado). 
  <p>
-Esta senha garante uma seguranÁa adicional caso a chave privada do servidor seja 
-copiada de alguma forma. Somente quem tem conhecimento da FraseSenha poder· iniciar 
-o servidor com suporte a transferÍncia segura de dados. Verifique se o virtual host 
-est· servindo as requisiÁıes na porta 443 com <tt>apache -S</tt>. 
+Esta senha garante uma seguran√ßa adicional caso a chave privada do servidor seja 
+copiada de alguma forma. Somente quem tem conhecimento da FraseSenha poder√° iniciar 
+o servidor com suporte a transfer√™ncia segura de dados. Verifique se o virtual host 
+est√° servindo as requisi√ß√µes na porta 443 com <tt>apache -S</tt>. 
  <p>
-O ˙nico mÈtodo para fazer o servidor web evitar de pedir a senha para 
-descriptografar a chave privada È colocando uma senha em branco. Isto sÛ È 
-recomendado em ambientes seguros e o diretÛrio que contÈm a chave privada 
-dever· ter somente permissıes para o dono/grupo que executa o servidor Web. 
-Qualquer outra permiss„o poder· por em risco a seguranÁa da instalaÁ„o caso a 
+O √∫nico m√©todo para fazer o servidor web evitar de pedir a senha para 
+descriptografar a chave privada √© colocando uma senha em branco. Isto s√≥ √© 
+recomendado em ambientes seguros e o diret√≥rio que cont√©m a chave privada 
+dever√° ter somente permiss√µes para o dono/grupo que executa o servidor Web. 
+Qualquer outra permiss√£o poder√° por em risco a seguran√ßa da instala√ß√£o caso a 
 chave privada seja roubada. Depois disso, execute o comando: 
 <example>
-# entre no diretÛrio que contÈm a chave privada
+# entre no diret√≥rio que cont√©m a chave privada
 cd /etc/apache/ssl.key
 # renomeie a chave privada para outro nome
 ren server.key server.key-Csenha
 openssl rsa -in server.key-Csenha -out server.key
 
 </example>
-Digite a senha quando pedido. A chave original (com senha) estar· 
-gravada no arquivo <file>server.key-Csenha</file> e poder· ser 
-restaurada se necess·rio. Reinicie o servidor <prgn>Apache</prgn>, desta 
-vez ele n„o pedir· a senha. 
+Digite a senha quando pedido. A chave original (com senha) estar√° 
+gravada no arquivo <file>server.key-Csenha</file> e poder√° ser 
+restaurada se necess√°rio. Reinicie o servidor <prgn>Apache</prgn>, desta 
+vez ele n√£o pedir√° a senha. 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Tire uma cÛpia de seguranÁa da chave privada 
-original antes de executar esta operaÁ„o. 
+<strong>OBS1:</strong> Tire uma c√≥pia de seguran√ßa da chave privada 
+original antes de executar esta opera√ß√£o. 
  <p>
-<strong>OBS2:</strong> N„o se esqueÁa de ajustar as permissıes de 
-acesso no diretÛrio <file>/etc/apache/ssl.key</file> caso n„o 
+<strong>OBS2:</strong> N√£o se esque√ßa de ajustar as permiss√µes de 
+acesso no diret√≥rio <file>/etc/apache/ssl.key</file> caso n√£o 
 utilize senha para proteger seu certificado digital. ]]>
 
 

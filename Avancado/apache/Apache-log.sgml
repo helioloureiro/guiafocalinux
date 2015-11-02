@@ -1,8 +1,8 @@
 <sect id="s-apache-log">Sistema de Log do Apache
  <p>
-O <prgn>Apache</prgn> È bem flexÌvel na especificaÁ„o do que ser· registrado em 
-seus arquivos de log, possibilitando utilizar um arquivo de log ˙nico, diversos 
-arquivos de logs registrando cada evento ocorrido no sistema (conex„o, navegador, 
+O <prgn>Apache</prgn> √© bem flex√≠vel na especifica√ß√£o do que ser√° registrado em 
+seus arquivos de log, possibilitando utilizar um arquivo de log √∫nico, diversos 
+arquivos de logs registrando cada evento ocorrido no sistema (conex√£o, navegador, 
 bloqueio de acesso, erros, etc) incluindo os campos que deseja em cada arquivo e 
 a ordem dos campos em cada um deles. 
  <p>
@@ -12,16 +12,16 @@ necessidades particulares de logging.
 
 <sect1 id="s-apache-log-agentlog">AgentLog
  <p>
-<tt>AgentLog arquivo/pipe</tt>: Indica o nome do arquivo que registrar· o nome 
-do navegador que est· acessando a p·gina (conte˙do do cabeÁalho 
-<tt>User-Agent</tt>). … possÌvel usar o pipe "|" para direcionar os erros para 
-um programa de formataÁ„o ou processamento.
+<tt>AgentLog arquivo/pipe</tt>: Indica o nome do arquivo que registrar√° o nome 
+do navegador que est√° acessando a p√°gina (conte√∫do do cabe√ßalho 
+<tt>User-Agent</tt>). √â poss√≠vel usar o pipe "|" para direcionar os erros para 
+um programa de formata√ß√£o ou processamento.
 
 <![ %OBS [
-<strong>ATEN«√O</strong>: Se um programa for usado como pipe, ele ser· executado 
-sob o usu·rio que iniciou o <prgn>apache</prgn>. Revise o cÛdigo fonte do 
-programa para ter certeza que n„o contÈm falhas que possam comprometer a 
-seguranÁa de seu sistema. ]]>
+<strong>ATEN√á√ÉO</strong>: Se um programa for usado como pipe, ele ser√° executado 
+sob o usu√°rio que iniciou o <prgn>apache</prgn>. Revise o c√≥digo fonte do 
+programa para ter certeza que n√£o cont√©m falhas que possam comprometer a 
+seguran√ßa de seu sistema. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>AgentLog /var/log/apache/agent.log</tt><p> ]]>
@@ -29,9 +29,9 @@ Exemplo: <tt>AgentLog /var/log/apache/agent.log</tt><p> ]]>
 
 <sect1 id="s-apache-log-errorlog">ErrorLog
  <p>
-<tt>ErrorLog arquivo/pipe</tt> - Especifica o arquivo que registrar· as 
-mensagens de erro do servidor <prgn>Apache</prgn>. … possÌvel usar o pipe 
-"|" para direcionar os erros para um programa de formataÁ„o ou processamento.
+<tt>ErrorLog arquivo/pipe</tt> - Especifica o arquivo que registrar√° as 
+mensagens de erro do servidor <prgn>Apache</prgn>. √â poss√≠vel usar o pipe 
+"|" para direcionar os erros para um programa de formata√ß√£o ou processamento.
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>ErrorLog /var/log/apache/errors.log</tt> ]]>
@@ -39,9 +39,9 @@ Exemplo: <tt>ErrorLog /var/log/apache/errors.log</tt> ]]>
 
 <sect1 id="s-apache-log-customlog">CustomLog
  <p>
-Permite especificar onde os logs ser„o gravados para os arquivos 
+Permite especificar onde os logs ser√£o gravados para os arquivos 
 de logs personalizados. 
-<![ %DESCRICAOD [ Esta diretiva tambÈm aceita apelidos definidos 
+<![ %DESCRICAOD [ Esta diretiva tamb√©m aceita apelidos definidos 
 pela diretiva <em>LogFormat</em>. ]]>
  <p>
 <tt>CustomLog [arquivo/pipe] [formato/nome]</tt>
@@ -56,12 +56,12 @@ Arquivo de log personalizado ou pipe.
   <tag><em>formato/nome</em></tag>
   <item>
 Especifica o formato do arquivo de log (da mesma forma que o especificado 
-na opÁ„o <em>LogFormat</em>). Dever· ser especificado entre "aspas" caso 
-tiver espaÁos. Veja <ref id="s-apache-log-logformat"> para detalhes. 
+na op√ß√£o <em>LogFormat</em>). Dever√° ser especificado entre "aspas" caso 
+tiver espa√ßos. Veja <ref id="s-apache-log-logformat"> para detalhes. 
  </taglist> ]]>
-Ao invÈs de especificar o formato, tambÈm È possÌvel usar um apelido definido 
-pela opÁ„o <em>LogFormat</em> (<ref id="s-apache-log-logformat">), neste caso 
-os par‚metros definidos pelo <em>LogFormat</em> para "nome" ser„o atribuÌdos 
+Ao inv√©s de especificar o formato, tamb√©m √© poss√≠vel usar um apelido definido 
+pela op√ß√£o <em>LogFormat</em> (<ref id="s-apache-log-logformat">), neste caso 
+os par√¢metros definidos pelo <em>LogFormat</em> para "nome" ser√£o atribu√≠dos 
 a diretiva <em>CustomLog</em>. 
 <![ %EXEMPLO [
  <p>
@@ -74,12 +74,12 @@ Exemplos:
 
 <sect1 id="s-apache-log-refererlog">RefererLog
  <p>
-<tt>RefererLog [arquivo/pipe]</tt>: Indica que arquivo/pipe registrar· os campos 
-Referer do cabeÁalho HTTP. Esta diretiva È mantida por compatibilidade com 
+<tt>RefererLog [arquivo/pipe]</tt>: Indica que arquivo/pipe registrar√° os campos 
+Referer do cabe√ßalho HTTP. Esta diretiva √© mantida por compatibilidade com 
 o servidor web NCSA 1.4.
  <p>
-A configuraÁ„o padr„o do <prgn>Apache</prgn> usa uma diretiva alternativa 
-para a especificaÁ„o do <em>referer</em> que È a seguinte:
+A configura√ß√£o padr√£o do <prgn>Apache</prgn> usa uma diretiva alternativa 
+para a especifica√ß√£o do <em>referer</em> que √© a seguinte:
 <example>
 LogFormat "%{Referer}i -> %U" referer
 CustomLog /var/log/apache/referer.log referer
@@ -92,16 +92,16 @@ Exemplo: <tt>RefererLog /var/log/apache/referer.log</tt> ]]>
 
 <sect1 id="s-apache-log-rewritelog">RewriteLog
  <p>
-<tt>RewriteLog: [arquivo/pipe]</tt>: Indica o arquivo/pipe que registrar· qualquer 
-regravaÁ„o de URL feita pelo <prgn>Apache</prgn>. 
+<tt>RewriteLog: [arquivo/pipe]</tt>: Indica o arquivo/pipe que registrar√° qualquer 
+regrava√ß√£o de URL feita pelo <prgn>Apache</prgn>. 
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: N„o È recomend·vel direcionar o nome de arquivo para 
-<file>/dev/null</file> como forma de desativar este log, porque o mÛdulo de 
-regravaÁ„o n„o cria a saÌda para um arquivo de log, ele cria a saÌda de log 
-internamente. Isto somente deixar· o servidor lento. Para desativar este 
-registro, simplesmente remova/comente a diretiva RewriteLog ou use a opÁ„o
+<strong>OBS</strong>: N√£o √© recomend√°vel direcionar o nome de arquivo para 
+<file>/dev/null</file> como forma de desativar este log, porque o m√≥dulo de 
+regrava√ß√£o n√£o cria a sa√≠da para um arquivo de log, ele cria a sa√≠da de log 
+internamente. Isto somente deixar√° o servidor lento. Para desativar este 
+registro, simplesmente remova/comente a diretiva RewriteLog ou use a op√ß√£o
 RewriteLogLevel 0. ]]>
 <![ %EXEMPLO [
  <p>
@@ -110,9 +110,9 @@ Exemplo: <tt>RewriteLog "/usr/local/var/apache/logs/rewrite.log</tt> ]]>
 
 <sect1 id="s-apache-log-rewriteloglevel">RewriteLogLevel
  <p>
-<tt>RewriteLogLevel [num]</tt>: Especifica os detalhes que ser„o incluÌdos no 
-registro da opÁ„o RewriteLog, os valores permitidos est„o entre 0 e 9. Se 
-for usado 0, o registro do RewriteLog È totalmente desativado (esta È a padr„o). 
+<tt>RewriteLogLevel [num]</tt>: Especifica os detalhes que ser√£o inclu√≠dos no 
+registro da op√ß√£o RewriteLog, os valores permitidos est√£o entre 0 e 9. Se 
+for usado 0, o registro do RewriteLog √© totalmente desativado (esta √© a padr√£o). 
 
 <![ %OBS [ 
 <strong>OBS</strong>: Qualquer valor acima de 2 deixa o servidor Web cada vez 
@@ -123,16 +123,16 @@ arquivo especificado por <em>RewriteLog</em>. ]]>
 <sect1 id="s-apache-log-scriptlog">ScriptLog
  <p>
 <tt>ScriptLog [arquivo]</tt>: Especifica o nome do arquivo de log que 
-receber· as mensagens de erros gerados por scripts CGI executados no servidor. 
-Esta opÁ„o È controlada pelo mÛdulos <em>mod_cgi</em>.
+receber√° as mensagens de erros gerados por scripts CGI executados no servidor. 
+Esta op√ß√£o √© controlada pelo m√≥dulos <em>mod_cgi</em>.
  <p>
-Os arquivos de log ser„o abertos por um sub-processo rodando com as 
-permissıes do usu·rio especificado na diretiva "user".
+Os arquivos de log ser√£o abertos por um sub-processo rodando com as 
+permiss√µes do usu√°rio especificado na diretiva "user".
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: Esta opÁ„o somente È recomendada como depuradora de 
-scripts CGI, n„o para uso contÌnuo em servidores ativos. ]]>
+<strong>OBS</strong>: Esta op√ß√£o somente √© recomendada como depuradora de 
+scripts CGI, n√£o para uso cont√≠nuo em servidores ativos. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>ScriptLog /var/log/apache/cgiscripts.log</tt> ]]>
@@ -140,9 +140,9 @@ Exemplo: <tt>ScriptLog /var/log/apache/cgiscripts.log</tt> ]]>
 
 <sect1 id="s-apache-log-scriptlogbuffer">ScriptLogBuffer
  <p>
-<tt>ScriptLogBuffer</tt>: Especifica o tamanho do cabeÁalho PUT ou POST 
-gravado no arquivo especificado por <em>ScriptLog</em>. O valor padr„o È 
-1024 bytes. Esta opÁ„o È controlada pelo mÛdulos <em>mod_cgi</em>
+<tt>ScriptLogBuffer</tt>: Especifica o tamanho do cabe√ßalho PUT ou POST 
+gravado no arquivo especificado por <em>ScriptLog</em>. O valor padr√£o √© 
+1024 bytes. Esta op√ß√£o √© controlada pelo m√≥dulos <em>mod_cgi</em>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>ScriptLogBuffer 512</tt> ]]>
@@ -150,9 +150,9 @@ Exemplo: <tt>ScriptLogBuffer 512</tt> ]]>
 
 <sect1 id="s-apache-log-scriptloglength">ScriptLogLength
  <p>
-<tt>ScriptLogLength: [tamanho]</tt>: Especifica o tamanho m·ximo do arquivo 
-de log gerado pela opÁ„o ScriptLog. O valor padr„o È 10385760 bytes (10.3MB). 
-Esta opÁ„o È controlada pelo mÛdulos <em>mod_cgi</em>
+<tt>ScriptLogLength: [tamanho]</tt>: Especifica o tamanho m√°ximo do arquivo 
+de log gerado pela op√ß√£o ScriptLog. O valor padr√£o √© 10385760 bytes (10.3MB). 
+Esta op√ß√£o √© controlada pelo m√≥dulos <em>mod_cgi</em>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>ScriptLogLength 1024480</tt> ]]>
@@ -160,45 +160,45 @@ Exemplo: <tt>ScriptLogLength 1024480</tt> ]]>
 
 <sect1 id="s-apache-log-logformat">LogFormat
  <p>
-<tt>LogFormat</tt>: Define os campos padrıes do arquivo gerado pela opÁ„o 
+<tt>LogFormat</tt>: Define os campos padr√µes do arquivo gerado pela op√ß√£o 
 <em>TransferLog</em>.
-O seu formato È o seguinte:
+O seu formato √© o seguinte:
  <p>
 <tt>LogFormat [formato] [nome]</tt>
  <p>
-Quando o formato n„o È especificado, assume o valor padr„o 
-<tt>%h %l %u %t \"%r\" %s %b</tt>. A especificaÁ„o do [<em>nome</em>] 
-permite que vocÍ utilize o formato especificado em uma opÁ„o <em>CustomLog</em> 
-ou outra diretiva <em>LogFormat</em>, facilitando a especificaÁ„o do formato do 
+Quando o formato n√£o √© especificado, assume o valor padr√£o 
+<tt>%h %l %u %t \"%r\" %s %b</tt>. A especifica√ß√£o do [<em>nome</em>] 
+permite que voc√™ utilize o formato especificado em uma op√ß√£o <em>CustomLog</em> 
+ou outra diretiva <em>LogFormat</em>, facilitando a especifica√ß√£o do formato do 
 log. 
  <p>
-Os seguintes formatos s„o v·lidos:
+Os seguintes formatos s√£o v√°lidos:
 <list compact>
- <item><tt>%b</tt> - Bytes enviados, excluindo cabeÁalhos HTTP.
+ <item><tt>%b</tt> - Bytes enviados, excluindo cabe√ßalhos HTTP.
  <item><tt>%f</tt> - Nome do arquivo.
- <item><tt>%{FOOBAR}e</tt> - O conte˙do da vari·vel de ambiente FOOBAR.
- <item><tt>%h</tt> - M·quina cliente.
- <item><tt>%a</tt> - EndereÁo IP da m·quina cliente.
- <item><tt>%A</tt> - EndereÁo IP local. Muito ˙til em virtual hostings.
- <item><tt>%{Foobar}i</tt> - O conte˙do de Foobar: linhas de cabeÁalho na requisiÁ„o
+ <item><tt>%{FOOBAR}e</tt> - O conte√∫do da vari√°vel de ambiente FOOBAR.
+ <item><tt>%h</tt> - M√°quina cliente.
+ <item><tt>%a</tt> - Endere√ßo IP da m√°quina cliente.
+ <item><tt>%A</tt> - Endere√ßo IP local. Muito √∫til em virtual hostings.
+ <item><tt>%{Foobar}i</tt> - O conte√∫do de Foobar: linhas de cabe√ßalho na requisi√ß√£o
  enviada ao servidor.
  <item><tt>%l</tt> - O nome de login remoto enviado pelo identd (se fornecido).
- <item><tt>%{Foobar}n</tt> - O conte˙do de "FooBar" de outro mÛdulo.
- <item><tt>%{Foobar}o:</tt> - O conte˙do de Foobar: linhas de cabeÁalho na resposta.
- <item><tt>%p</tt> - A porta do servidor servindo a requisiÁ„o.
- <item><tt>%P</tt> - A identificaÁ„o do processo filho que serviu a requisiÁ„o. 
- <item><tt>%r</tt> - A primeira linha da requisiÁ„o.
- <item><tt>%s</tt> - Status. Para requisiÁıes que foram redirecionadas. 
- internamente. Este È o status de uma requisiÁ„o *original*. Use %s para a ˙ltima.
- <item><tt>%t</tt> - Hora, no formato do arquivo de log (formato inglÍs padr„o).
+ <item><tt>%{Foobar}n</tt> - O conte√∫do de "FooBar" de outro m√≥dulo.
+ <item><tt>%{Foobar}o:</tt> - O conte√∫do de Foobar: linhas de cabe√ßalho na resposta.
+ <item><tt>%p</tt> - A porta do servidor servindo a requisi√ß√£o.
+ <item><tt>%P</tt> - A identifica√ß√£o do processo filho que serviu a requisi√ß√£o. 
+ <item><tt>%r</tt> - A primeira linha da requisi√ß√£o.
+ <item><tt>%s</tt> - Status. Para requisi√ß√µes que foram redirecionadas. 
+ internamente. Este √© o status de uma requisi√ß√£o *original*. Use %s para a √∫ltima.
+ <item><tt>%t</tt> - Hora, no formato do arquivo de log (formato ingl√™s padr√£o).
  <item><tt>%{format}t</tt> - Hora, no formato definido por strftime.
- <item><tt>%T</tt> - O tempo necess·rio para servir a requisiÁ„o, em segundos. 
- <item><tt>%u</tt> - Usu·rio remoto (atravÈs do auth, pode ser falso se o status de 
+ <item><tt>%T</tt> - O tempo necess√°rio para servir a requisi√ß√£o, em segundos. 
+ <item><tt>%u</tt> - Usu√°rio remoto (atrav√©s do auth, pode ser falso se o status de 
  retorno (%s) for 401).
  <item><tt>%U</tt> - O caminho da URL requisitada.
- <item><tt>%v</tt> - O nome canÙnico definido por <em>ServerName</em> que serviu a 
- requisiÁ„o.
- <item><tt>%V</tt> - O nome do servidor de acordo com a configuraÁ„o de 
+ <item><tt>%v</tt> - O nome can√¥nico definido por <em>ServerName</em> que serviu a 
+ requisi√ß√£o.
+ <item><tt>%V</tt> - O nome do servidor de acordo com a configura√ß√£o de 
 <em>UseCanonicalName</em>. 
 </list> 
 <![ %EXEMPLO [
@@ -216,53 +216,53 @@ Exemplos:
 
 <sect1 id="s-apache-log-transferlog">TransferLog
  <p>
-<tt>TransferLog [arquivo/pipe]</tt>: Indica o arquivo que armazenar· as 
-transferÍncias entre o servidor http e o cliente. Ela cria o arquivo de log 
-com o formato definido pela opÁ„o <em>LogFormat</em> mais recente (sem 
-a especificaÁ„o do nome associado a diretiva) ou o formato 
-padr„o CLF do log do <prgn>Apache</prgn>. 
-<![ %DESCRICAOD [ <p> Se omitido, o arquivo n„o ser· gerado ]]>
+<tt>TransferLog [arquivo/pipe]</tt>: Indica o arquivo que armazenar√° as 
+transfer√™ncias entre o servidor http e o cliente. Ela cria o arquivo de log 
+com o formato definido pela op√ß√£o <em>LogFormat</em> mais recente (sem 
+a especifica√ß√£o do nome associado a diretiva) ou o formato 
+padr√£o CLF do log do <prgn>Apache</prgn>. 
+<![ %DESCRICAOD [ <p> Se omitido, o arquivo n√£o ser√° gerado ]]>
 <![ %EXEMPLO [
  <p>
-Exemplo: <tt>TransferLog /var/log/apache/transferÍncias.log</tt> ]]>
+Exemplo: <tt>TransferLog /var/log/apache/transfer√™ncias.log</tt> ]]>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Se esta n„o È uma opÁ„o muito utilizada 
-na administraÁ„o de seus sistemas, È recomend·vel o uso da 
+<strong>OBS:</strong> Se esta n√£o √© uma op√ß√£o muito utilizada 
+na administra√ß√£o de seus sistemas, √© recomend√°vel o uso da 
 diretiva <em>CustomLog</em> (veja <ref id="s-apache-log-customlog">) para 
-evitar confusıes futuras.
+evitar confus√µes futuras.
 ]]>
 
 <sect1 id="s-apache-log-loglevel">LogLevel
  <p>
-Define o nÌvel de alerta das mensagens que ser„o gravadas no arquivo 
-especificado pela diretiva <em>ErrorLog</em>. Quando n„o È especificado, 
-assume o nÌvel "error" como padr„o. Abaixo os par‚metros aceitos em sua 
-respectiva ordem de import‚ncia: 
+Define o n√≠vel de alerta das mensagens que ser√£o gravadas no arquivo 
+especificado pela diretiva <em>ErrorLog</em>. Quando n√£o √© especificado, 
+assume o n√≠vel "error" como padr√£o. Abaixo os par√¢metros aceitos em sua 
+respectiva ordem de import√¢ncia: 
 <list compact>
- <item><tt>emerg</tt> - O sistema est· inutiliz·vel. 
- <item><tt>alert</tt> - A aÁ„o deve ser tomada imediatamente. 
- <item><tt>crit</tt> - CondiÁıes crÌticas. 
- <item><tt>error</tt> - CondiÁıes de erro. 
- <item><tt>warn</tt> - CondiÁıes de alerta. 
- <item><tt>notice</tt> - CondiÁ„o normal mas significante. 
+ <item><tt>emerg</tt> - O sistema est√° inutiliz√°vel. 
+ <item><tt>alert</tt> - A a√ß√£o deve ser tomada imediatamente. 
+ <item><tt>crit</tt> - Condi√ß√µes cr√≠ticas. 
+ <item><tt>error</tt> - Condi√ß√µes de erro. 
+ <item><tt>warn</tt> - Condi√ß√µes de alerta. 
+ <item><tt>notice</tt> - Condi√ß√£o normal mas significante. 
  <item><tt>info</tt> - Mensagens informativas. 
- <item><tt>debug</tt> - Mensagens do nÌvel de depuraÁ„o. 
+ <item><tt>debug</tt> - Mensagens do n√≠vel de depura√ß√£o. 
 </list>
 
 <![ %OBS [
  <p>
-Note que os nÌveis s„o os mesmos usados pelo <prgn>syslog</prgn>. ]]>
-Quando um nÌvel particular È especificado, as mensagens de todos os nÌveis de 
-maior import‚ncia tambÈm ser„o registrados. Por exemplo, se o nÌvel "info" for 
-especificado, as mensagens com os nÌveis de "notice" e "warn" tambÈm ser„o 
-registradas. … recomendado o uso de um nÌvel de no mÌnimo <em>crit</em>.
+Note que os n√≠veis s√£o os mesmos usados pelo <prgn>syslog</prgn>. ]]>
+Quando um n√≠vel particular √© especificado, as mensagens de todos os n√≠veis de 
+maior import√¢ncia tamb√©m ser√£o registrados. Por exemplo, se o n√≠vel "info" for 
+especificado, as mensagens com os n√≠veis de "notice" e "warn" tamb√©m ser√£o 
+registradas. √â recomendado o uso de um n√≠vel de no m√≠nimo <em>crit</em>.
 
 
 <sect1 id="s-apache-log-anonylogmail">Anonymous_LogEmail
  <p>
-Se estiver como "on" a senha digitada ser· registrada no arquivo especificado 
-por <em>ErrorLog</em>. Esta diretiva È <em>ativada</em> por padr„o. 
+Se estiver como "on" a senha digitada ser√° registrada no arquivo especificado 
+por <em>ErrorLog</em>. Esta diretiva √© <em>ativada</em> por padr√£o. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>Anonymous_LogEmail off</tt> ]]>
@@ -270,34 +270,34 @@ Exemplo: <tt>Anonymous_LogEmail off</tt> ]]>
 
 <sect1 id="s-apache-log-cookielog">CookieLog
  <p>
-Especifica o arquivo que ser· usado para registrar os cookies
+Especifica o arquivo que ser√° usado para registrar os cookies
 
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: Caso o caminho do arquivo n„o for especificado nas 
-diretivas, ser· assumido <em>DocumentRoot</em> como diretÛrio padr„o.
+<strong>OBS1</strong>: Caso o caminho do arquivo n√£o for especificado nas 
+diretivas, ser√° assumido <em>DocumentRoot</em> como diret√≥rio padr√£o.
  <p>
-<strong>OBS2</strong>: Caso esteja usando o pipe, o dono do processo ser· 
+<strong>OBS2</strong>: Caso esteja usando o pipe, o dono do processo ser√° 
 o mesmo que iniciou o servidor WEB Apache. Tenha certeza do funcionamento 
-do programa para n„o comprometer o seu sistema, e cuide para que ele 
-n„o possa ser modificado indevidamente por outros usu·rios. ]]>
+do programa para n√£o comprometer o seu sistema, e cuide para que ele 
+n√£o possa ser modificado indevidamente por outros usu√°rios. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>CookieLog /var/log/apache/cookies.log</tt> ]]>
 
 
-<sect1 id="s-apache-log-webalizer">RelatÛrio gr·fico de acesso ao sistema
+<sect1 id="s-apache-log-webalizer">Relat√≥rio gr√°fico de acesso ao sistema
  <p>
-O programa <prgn>webalizer</prgn> poder· ser instalado para gerar 
-um relatÛrio gr·fico com a estatÌsticas de visitas por ano/mes/dia/hora usando 
-os dados do <file>access.log</file>. Outra interessante caracterÌstica s„o as
-estatÌsticas de cÛdigos http (veja <ref id="s-apache-httpcodes">), onde È 
-possÌvel saber a quantidade de links quebrados existentes em nosso servidor 
-(estes poder„o ser detectados usando o pacote de an·lise de sites 
-<package>linbot</package>). O <prgn>webalizer</prgn> tambÈm È compatÌvel com os 
-formatos de log do <prgn>squid</prgn> e <prgn>proftpd</prgn>. Na distribuiÁ„o 
+O programa <prgn>webalizer</prgn> poder√° ser instalado para gerar 
+um relat√≥rio gr√°fico com a estat√≠sticas de visitas por ano/mes/dia/hora usando 
+os dados do <file>access.log</file>. Outra interessante caracter√≠stica s√£o as
+estat√≠sticas de c√≥digos http (veja <ref id="s-apache-httpcodes">), onde √© 
+poss√≠vel saber a quantidade de links quebrados existentes em nosso servidor 
+(estes poder√£o ser detectados usando o pacote de an√°lise de sites 
+<package>linbot</package>). O <prgn>webalizer</prgn> tamb√©m √© compat√≠vel com os 
+formatos de log do <prgn>squid</prgn> e <prgn>proftpd</prgn>. Na distribui√ß√£o 
 <prgn>Debian</prgn> ele pode ser instalado a partir do pacote 
-<package>webalizer</package> e gera um relatÛrio geral quando È executado sem 
-opÁıes. 
+<package>webalizer</package> e gera um relat√≥rio geral quando √© executado sem 
+op√ß√µes. 
 
 

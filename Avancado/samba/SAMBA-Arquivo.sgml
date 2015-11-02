@@ -1,146 +1,146 @@
-<sect id="s-samba-s-a">Compartilhamento de arquivos e diretÛrios
+<sect id="s-samba-s-a">Compartilhamento de arquivos e diret√≥rios
  <p>
-Esta seÁ„o documenta como disponibilizar arquivos e impressoras com o 
-SAMBA e os par‚metros usados para realizar restriÁıes de compartilhamento, 
-modo que os dados ser„o disponibilizados e Ìtens de performance. A maior 
-parte destes par‚metros s„o empregados em serviÁos do SAMBA, mas nada impede 
-que tambÈm sejam colocado na seÁ„o <em>[global]</em> do arquivo de configuraÁ„o, 
-principalmente quando isto È v·lido para diversos serviÁos compartilhados
+Esta se√ß√£o documenta como disponibilizar arquivos e impressoras com o 
+SAMBA e os par√¢metros usados para realizar restri√ß√µes de compartilhamento, 
+modo que os dados ser√£o disponibilizados e √≠tens de performance. A maior 
+parte destes par√¢metros s√£o empregados em servi√ßos do SAMBA, mas nada impede 
+que tamb√©m sejam colocado na se√ß√£o <em>[global]</em> do arquivo de configura√ß√£o, 
+principalmente quando isto √© v√°lido para diversos servi√ßos compartilhados
 (veja <ref id="s-samba-s-global">).
 
 
-<sect1 id="s-samba-s-a-param">DescriÁ„o de par‚metros usados em compartilhamento
+<sect1 id="s-samba-s-a-param">Descri√ß√£o de par√¢metros usados em compartilhamento
  <p>
-Abaixo o guia traz algumas das opÁıes que podem ser usadas para 
+Abaixo o guia traz algumas das op√ß√µes que podem ser usadas para 
 controlar o comportamento do compartilhamento de arquivos por 
-<em>serviÁos</em> no servidor SAMBA:
+<em>servi√ßos</em> no servidor SAMBA:
 
 <taglist compact>
  <tag>path</tag>
   <item>
-Indica o diretÛrio que ser· compartilhado. Lembre-se que o usu·rio 
-ter· as permissıes de acesso que ele teria caso estivesse logado no sistema como 
-um usu·rio UNIX normal, exceto se estiver fazendo mapeamento para outros nomes de 
-usu·rios (veja <ref id="s-samba-a-usernamemap">).
+Indica o diret√≥rio que ser√° compartilhado. Lembre-se que o usu√°rio 
+ter√° as permiss√µes de acesso que ele teria caso estivesse logado no sistema como 
+um usu√°rio UNIX normal, exceto se estiver fazendo mapeamento para outros nomes de 
+usu√°rios (veja <ref id="s-samba-a-usernamemap">).
  <p>
-Ex: <tt>path=/pub</tt> - Compartilha o diretÛrio local <file>/pub</file>.
+Ex: <tt>path=/pub</tt> - Compartilha o diret√≥rio local <file>/pub</file>.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Quando n„o È definido um <tt>path</tt>, o diretÛrio
-<file>/tmp</file> È usado como padr„o.
+<strong>OBS:</strong> Quando n√£o √© definido um <tt>path</tt>, o diret√≥rio
+<file>/tmp</file> √© usado como padr√£o.
 ]]>
 
  <tag>comment</tag>
   <item>
-DescriÁ„o do compartilhamento que ser· mostrada na janela de procura de rede ou 
+Descri√ß√£o do compartilhamento que ser√° mostrada na janela de procura de rede ou 
 no <tt>smbclient -L maquina</tt>.
  <p>
-Ex: <tt>comment=Pasta de conte˙do p˙blico do sistema</tt>.
+Ex: <tt>comment=Pasta de conte√∫do p√∫blico do sistema</tt>.
 
  <tag>browseable</tag>
   <item>
-Define se o compartilhamento ser· ou n„o exibido na janela de procura de rede.
-Mesmo n„o sendo exibido, o compartilhamento poder· ser acessado. Veja 
-<ref id="s-samba-a-invisivel"> para uma explicaÁ„o mais detalhada.
+Define se o compartilhamento ser√° ou n√£o exibido na janela de procura de rede.
+Mesmo n√£o sendo exibido, o compartilhamento poder√° ser acessado. Veja 
+<ref id="s-samba-a-invisivel"> para uma explica√ß√£o mais detalhada.
  <p>
 Ex: <tt>browseable=yes</tt> - Lista o compartilhamento na janela de pesquisa
 de servidores.
 
  <tag>guest account</tag>
   <item>
-Conta que ser· usada para fazer acesso sem senha (convidado) quando o 
-par‚metro <tt>guest ok</tt> ou <tt>public</tt> forem usados em um compartilhamento. 
-Por padr„o ela È mapeada para o usu·rio <tt>nobody</tt>. … importante especificar 
-uma nome de usu·rio <em>guest</em> (convidado), principalmente porque seu 
-UID ser· usado para fazer v·rias operaÁıes no SAMBA, como exibir os recursos 
-disponÌveis na m·quina para a rede. Por motivos claros, È recomend·vel que este 
-usu·rio <strong>n„o</strong> tenha acesso login ao sistema. 
+Conta que ser√° usada para fazer acesso sem senha (convidado) quando o 
+par√¢metro <tt>guest ok</tt> ou <tt>public</tt> forem usados em um compartilhamento. 
+Por padr√£o ela √© mapeada para o usu√°rio <tt>nobody</tt>. √â importante especificar 
+uma nome de usu√°rio <em>guest</em> (convidado), principalmente porque seu 
+UID ser√° usado para fazer v√°rias opera√ß√µes no SAMBA, como exibir os recursos 
+dispon√≠veis na m√°quina para a rede. Por motivos claros, √© recomend√°vel que este 
+usu√°rio <strong>n√£o</strong> tenha acesso login ao sistema. 
  <p>
-Caso n„o tenha a intenÁ„o de ocultar o SAMBA na lista de m·quinas da 
+Caso n√£o tenha a inten√ß√£o de ocultar o SAMBA na lista de m√°quinas da 
 rede (fazendo apenas acesso direto aos recursos), especifique um valor
-para esta opÁ„o.
+para esta op√ß√£o.
  <p>
-Ex: <tt>guest account = sambausr</tt> - Mapeia os usu·rio se conectando sem 
-senha para o usu·rio <tt>sambausr</tt>, desde que o acesso guest seja permitido 
-pela opÁ„o <tt>public</tt>. 
+Ex: <tt>guest account = sambausr</tt> - Mapeia os usu√°rio se conectando sem 
+senha para o usu√°rio <tt>sambausr</tt>, desde que o acesso guest seja permitido 
+pela op√ß√£o <tt>public</tt>. 
 
  <tag>public</tag>
   <item>
-Permitem aos usu·rios usu·rios se conectarem ao compartilhamento sem fornecer uma 
-senha usando o usu·rio guest. O UID que o usu·rio guest ser· mapeado È 
-especificado pelo par‚metro <tt>guest account</tt>). Veja 
+Permitem aos usu√°rios usu√°rios se conectarem ao compartilhamento sem fornecer uma 
+senha usando o usu√°rio guest. O UID que o usu√°rio guest ser√° mapeado √© 
+especificado pelo par√¢metro <tt>guest account</tt>). Veja 
 <ref id="s-samba-a-publico">.
-O par‚metro <tt>guest ok</tt> È equivalente a <tt>public</tt>.
+O par√¢metro <tt>guest ok</tt> √© equivalente a <tt>public</tt>.
  <p>
-Ex: <tt>public = no</tt> - N„o permite
+Ex: <tt>public = no</tt> - N√£o permite
 
  <tag>guest only</tag>
   <item>
-Permite somente conexıes guest ao recurso. O UID do usu·rio È mapeado para 
-guest, mesmo que forneÁa uma senha correta. O valor padr„o È <tt>no</tt>.
+Permite somente conex√µes guest ao recurso. O UID do usu√°rio √© mapeado para 
+guest, mesmo que forne√ßa uma senha correta. O valor padr√£o √© <tt>no</tt>.
  <p>
 Ex: <tt>guest only = no</tt>.
 
  <tag>write list</tag>
   <item>
-Lista de usu·rios separados por espaÁo ou vÌrgula que poder„o ler e gravar 
+Lista de usu√°rios separados por espa√ßo ou v√≠rgula que poder√£o ler e gravar 
 no compartilhamento. 
-Caso o nome for iniciado por "@", o nome especificado ser· tratado como um 
-grupo UNIX (<file>/etc/group</file>) e todos os usu·rios daquele grupo 
-ter„o acesso de gravaÁ„o. O uso deste par‚metro ignora o <tt>read only = yes</tt>.
+Caso o nome for iniciado por "@", o nome especificado ser√° tratado como um 
+grupo UNIX (<file>/etc/group</file>) e todos os usu√°rios daquele grupo 
+ter√£o acesso de grava√ß√£o. O uso deste par√¢metro ignora o <tt>read only = yes</tt>.
 Veja <ref id="s-samba-a-restr"> para mais detalhes.
  <p>
-Ex: <tt>write list = gleydson, @usuarios</tt> - Permite acesso gravaÁ„o 
-somente do usu·rio <tt>gleydson</tt> e todos os usu·rios pertencentes ao 
+Ex: <tt>write list = gleydson, @usuarios</tt> - Permite acesso grava√ß√£o 
+somente do usu√°rio <tt>gleydson</tt> e todos os usu√°rios pertencentes ao 
 grupo <tt>@usuarios</tt>. 
 
 <![ %OBS [ 
  <p>
-<strong>OBS:</strong> - O significado de "@" nos par‚metros 
-"invalid users"/"valid users"  È diferente das opÁıes <tt>write list</tt> 
+<strong>OBS:</strong> - O significado de "@" nos par√¢metros 
+"invalid users"/"valid users"  √© diferente das op√ß√µes <tt>write list</tt> 
 e <tt>read list</tt>. ]]>
 
  <tag>read list</tag>
   <item>
-Lista de usu·rios separados por espaÁo ou vÌrgula que poder„o apenas 
+Lista de usu√°rios separados por espa√ßo ou v√≠rgula que poder√£o apenas 
 ler o compartilhamento. 
-O caracter "@" pode ser especificado para fazer referÍncia a grupos, como 
-no <tt>write list</tt>. O uso deste par‚metro ignora o <tt>read only = no</tt>.
+O caracter "@" pode ser especificado para fazer refer√™ncia a grupos, como 
+no <tt>write list</tt>. O uso deste par√¢metro ignora o <tt>read only = no</tt>.
 Veja <ref id="s-samba-a-restr"> para mais detalhes.
  <p>
 Ex: <tt>read list = nobody, system, operador, @usuarios</tt> - Permite acesso 
-de leitura somente do usu·rio <tt>nobody, system, operador</tt> e todos os 
-usu·rios pertencentes ao grupo <tt>@usuarios</tt>. 
+de leitura somente do usu√°rio <tt>nobody, system, operador</tt> e todos os 
+usu√°rios pertencentes ao grupo <tt>@usuarios</tt>. 
 
  <tag>user</tag>
   <item>
- Especifica um ou mais nomes de usu·rios ou grupos (caso o 
+ Especifica um ou mais nomes de usu√°rios ou grupos (caso o 
  nome seja seguido de "@")  para checagem de senha.
  Quando o cliente somente fornece uma senha (especialmente na rede 
  <prgn>Lan Manager</prgn>, <prgn>Windows for Workgroups</prgn> e 
- primeira vers„o do <prgn>Windows 95</prgn>) ela ser· validada no 
- banco de dados de senhas  usando o usu·rio especificado nesta opÁ„o.
+ primeira vers√£o do <prgn>Windows 95</prgn>) ela ser√° validada no 
+ banco de dados de senhas  usando o usu√°rio especificado nesta op√ß√£o.
   <p>
  Ex: <tt>user = john @usuariosrede</tt>
 
  <tag>only user</tag>
   <item>
-Especifica se somente ser„o permitidas conexıes vindas de usu·rios 
-da diretiva <tt>user</tt>. O padr„o È <tt>no</tt>. Caso deseje 
-restringir o acesso a determinados usu·rios, o certo È faze-lo 
+Especifica se somente ser√£o permitidas conex√µes vindas de usu√°rios 
+da diretiva <tt>user</tt>. O padr√£o √© <tt>no</tt>. Caso deseje 
+restringir o acesso a determinados usu√°rios, o certo √© faze-lo 
 usando <tt>valid users</tt> e <tt>invalid users</tt> (veja 
 <ref id="s-samba-a-restrusu">).
-O uso de <tt>only user</tt> È apropriado quando È necess·rio um controle 
-especÌfico de acesso sobre a diretiva <tt>user</tt>.
+O uso de <tt>only user</tt> √© apropriado quando √© necess√°rio um controle 
+espec√≠fico de acesso sobre a diretiva <tt>user</tt>.
  <p>
 Ex: <tt>only user = no</tt>.
  
  <tag>locking</tag>
   <item>
 Permite ao SAMBA fazer um lock real de arquivo ou apenas simular. Caso 
-seja especificado como "0", o arquivo n„o È bloqueado para acesso 
-exclusivo no servidor mas uma resposta positiva de lock È retornada 
-ao cliente. Se definido como "1", um lock real È feito. O padr„o È 
+seja especificado como "0", o arquivo n√£o √© bloqueado para acesso 
+exclusivo no servidor mas uma resposta positiva de lock √© retornada 
+ao cliente. Se definido como "1", um lock real √© feito. O padr√£o √© 
 <tt>yes</tt>.
  <p>
 Ex: <tt>locking = yes</tt>
@@ -148,92 +148,92 @@ Ex: <tt>locking = yes</tt>
  <tag>available</tag>
   <item>
 Faz o SAMBA ignorar o compartilhamento (como se tivesse retirado do 
-servidor). O valor padr„o È "no".
+servidor). O valor padr√£o √© "no".
 
  <tag>follow symlinks</tag>
   <item>
-Permite o uso de links simbÛlicos no compartilhamento (veja tambÈm a opÁ„o 
-<tt>wide links</tt>). A desativaÁ„o desta opÁ„o diminui um pouco a 
-performance de acesso aos arquivos. Como È restrita a compartilhamento, o 
-impacto de seguranÁa depende dos dados sendo compartilhados. O valor padr„o 
-desta opÁ„o È "YES".
+Permite o uso de links simb√≥licos no compartilhamento (veja tamb√©m a op√ß√£o 
+<tt>wide links</tt>). A desativa√ß√£o desta op√ß√£o diminui um pouco a 
+performance de acesso aos arquivos. Como √© restrita a compartilhamento, o 
+impacto de seguran√ßa depende dos dados sendo compartilhados. O valor padr√£o 
+desta op√ß√£o √© "YES".
  <p>
 Ex: <tt>follow symlinks = yes</tt>
 
  <tag>wide links</tag>
   <item>
-Permite apontar para links simbÛlicos para fora do compartilhamento 
-exportada pelo SAMBA. O valor padr„o esta opÁ„o È "YES". 
+Permite apontar para links simb√≥licos para fora do compartilhamento 
+exportada pelo SAMBA. O valor padr√£o esta op√ß√£o √© "YES". 
  <p>
 Ex: <tt>wide links = yes</tt>.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> - A desativaÁ„o desta opÁ„o causa um aumento na 
-performance do servidor SAMBA, evitando a chamada de funÁıes do sistema 
-para resolver os links. Entretanto, diminui a seguranÁa do seu servidor, 
-pois facilita a ocorrÍncia de ataques usando links simbÛlicos.
+<strong>OBS:</strong> - A desativa√ß√£o desta op√ß√£o causa um aumento na 
+performance do servidor SAMBA, evitando a chamada de fun√ß√µes do sistema 
+para resolver os links. Entretanto, diminui a seguran√ßa do seu servidor, 
+pois facilita a ocorr√™ncia de ataques usando links simb√≥licos.
  <p>
-Lembre-se mais uma vez que a seguranÁa do seu sistema comeÁa pela polÌtica e 
-uma instalaÁ„o bem configurada, isso j· implica desde a escolha de sua 
-distribuiÁ„o atÈ o conhecimento de permissıes e planejamento na implantaÁ„o do 
+Lembre-se mais uma vez que a seguran√ßa do seu sistema come√ßa pela pol√≠tica e 
+uma instala√ß√£o bem configurada, isso j√° implica desde a escolha de sua 
+distribui√ß√£o at√© o conhecimento de permiss√µes e planejamento na implanta√ß√£o do 
 servidor de arquivos. ]]>
 
  <tag>dont descend</tag>
   <item>
-N„o mostra o conte˙do de diretÛrios especificados.
+N√£o mostra o conte√∫do de diret√≥rios especificados.
  <p>
 Ex: <tt>dont descend = /root, /proc, /win/windows, "/win/Arquivos de Programas", 
      "/win/program files"</tt>.
 
  <tag>printable</tag>
   <item>
-Especifica se o compartilhamento È uma impressora (yes) ou um compartilhamento
-de arquivo/diretÛrio (no). O padr„o È "no".
+Especifica se o compartilhamento √© uma impressora (yes) ou um compartilhamento
+de arquivo/diret√≥rio (no). O padr√£o √© "no".
 
  <tag>read only</tag>
   <item>
-Especifica se o compartilhamento È somente para leitura (yes) ou n„o (no) para todos 
-os usu·rios. O par‚metro <tt>writable</tt> È um antÙnimo equivalente a este 
-par‚metro, sÛ que utiliza as opÁıes invertidas. Por seguranÁa, o valor padr„o È 
-somente leitura. Veja uma explicaÁ„o mais detalhada em <ref id="s-samba-a-ro">.
+Especifica se o compartilhamento √© somente para leitura (yes) ou n√£o (no) para todos 
+os usu√°rios. O par√¢metro <tt>writable</tt> √© um ant√¥nimo equivalente a este 
+par√¢metro, s√≥ que utiliza as op√ß√µes invertidas. Por seguran√ßa, o valor padr√£o √© 
+somente leitura. Veja uma explica√ß√£o mais detalhada em <ref id="s-samba-a-ro">.
  <p>
 Ex: <tt>read only = yes</tt>.
 
  <tag>create mask</tag>
   <item>
-Modo padr„o para criaÁ„o de arquivos no compartilhamento. O par‚metro 
-"create mode" È um sinÙnimo para este. O modo de arquivos deve ser 
+Modo padr√£o para cria√ß√£o de arquivos no compartilhamento. O par√¢metro 
+"create mode" √© um sin√¥nimo para este. O modo de arquivos deve ser 
 especificado em formato octal. <![ %INIC-INTER [ Veja <ref id="perm-octal">). ]]>
 <p>
 Ex: <tt>create mask = 0600</tt>.
 
  <tag>directory mask</tag>
   <item>
-Modo padr„o para a criaÁ„o de diretÛrios no compartilhamento. O par‚metro
-"directory mode" È um sinÙnimo para este. O modo de diretÛrio deve 
+Modo padr√£o para a cria√ß√£o de diret√≥rios no compartilhamento. O par√¢metro
+"directory mode" √© um sin√¥nimo para este. O modo de diret√≥rio deve 
 ser especificado em formato octal. 
  <p>
 Ex: <tt>directory mask = 0700</tt>.
 
  <tag>getwd cache</tag>
   <item>
-Permite utilizar um cache para acesso as requisiÁıes getwd, diminuindo o 
-n˙mero de ciclos de processamento para acesso a arquivos/diretÛrios. O valor 
-padr„o È "Yes".
+Permite utilizar um cache para acesso as requisi√ß√µes getwd, diminuindo o 
+n√∫mero de ciclos de processamento para acesso a arquivos/diret√≥rios. O valor 
+padr√£o √© "Yes".
 
  <tag>write cache size</tag>
   <item>
-Tamanho do cache de leitura/gravaÁ„o do compartilhamento. Este valor È 
-especificado em bytes e o padr„o È "0". Veja <ref id="s-samba-perf"> 
+Tamanho do cache de leitura/grava√ß√£o do compartilhamento. Este valor √© 
+especificado em bytes e o padr√£o √© "0". Veja <ref id="s-samba-perf"> 
 para detalhes sobre seu uso.
  <p>
 Ex: <tt>write cache size = 384000</tt>.
 
  <tag>inherit permissions</tag>
   <item>
-Permite herdar permissıes de arquivos/diretÛrios do diretÛrio pai quando novos 
-arquivos/diretÛrios s„o criados, isto inclui bits SGID (set group ID). O padr„o 
-È <tt>N√O</tt> herdar permissıes. O uso desta opÁ„o substitui as opÁıes 
+Permite herdar permiss√µes de arquivos/diret√≥rios do diret√≥rio pai quando novos 
+arquivos/diret√≥rios s√£o criados, isto inclui bits SGID (set group ID). O padr√£o 
+√© <tt>N√ÉO</tt> herdar permiss√µes. O uso desta op√ß√£o substitui as op√ß√µes 
 fornecidas por <tt>create mask</tt>, <tt>directory mask</tt>, <tt>force 
 create mask</tt> e <tt>force directory mask</tt>.
  <p>
@@ -241,29 +241,29 @@ Ex: <tt>inherit permissions</tt>.
 
  <tag>preexec</tag>
   <item>
-Executa um comando antes a abertura de um compartilhamento. O par‚metro 
-<tt>exec</tt> È um sinÙnimo para este. Veja <ref id="s-samba-a-comandos">.
+Executa um comando antes a abertura de um compartilhamento. O par√¢metro 
+<tt>exec</tt> √© um sin√¥nimo para este. Veja <ref id="s-samba-a-comandos">.
 
  <tag>postexec</tag>
   <item>
-Executa um comando depois da utilizaÁ„o do compartilhamento. Veja 
+Executa um comando depois da utiliza√ß√£o do compartilhamento. Veja 
 <ref id="s-samba-a-comandos">.
 
  <tag>preexec close</tag>
   <item>
 Fecha imediatamente o compartilhamento caso o valor do comando executado
-pela opÁ„o <tt>preexec</tt> seja diferente de 0. O uso desta opÁ„o sÛ 
-faz sentido em conjunto com <tt>preexec</tt>. O valor padr„o È "no". 
+pela op√ß√£o <tt>preexec</tt> seja diferente de 0. O uso desta op√ß√£o s√≥ 
+faz sentido em conjunto com <tt>preexec</tt>. O valor padr√£o √© "no". 
 Veja <ref id="s-samba-a-comandos">.
  <p>
 Exemplo: <tt>preexec close = yes</tt>.
 
  <tag>volume = nome</tag>
   <item>
-Retorna o nome de volume especificado quando È feito o acesso ao compartilhamento.
-Isto È muito ˙til para instalaÁıes onde o serial do CD, disquete ou HD È 
-verificado durante o acesso. Isto acontece com freq¸Íncia em produtos 
-de fabricantes propriet·rios como forma de evitar a execuÁ„o ilegal do programa.
+Retorna o nome de volume especificado quando √© feito o acesso ao compartilhamento.
+Isto √© muito √∫til para instala√ß√µes onde o serial do CD, disquete ou HD √© 
+verificado durante o acesso. Isto acontece com freq√º√™ncia em produtos 
+de fabricantes propriet√°rios como forma de evitar a execu√ß√£o ilegal do programa.
 
 </taglist>
 

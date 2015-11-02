@@ -1,8 +1,8 @@
-<sect id="s-samba-s-nameresolv">ResoluÁ„o de nomes de m·quinas no samba
+<sect id="s-samba-s-nameresolv">Resolu√ß√£o de nomes de m√°quinas no samba
  <p>
-O Samba pode utiliza os seguintes mÈtodos para resoluÁ„o de nomes de 
-m·quinas na rede (<ref id="s-samba-nome">). Eles est„o listados em 
-ordem de prioridade do mais para o menos recomend·vel:
+O Samba pode utiliza os seguintes m√©todos para resolu√ß√£o de nomes de 
+m√°quinas na rede (<ref id="s-samba-nome">). Eles est√£o listados em 
+ordem de prioridade do mais para o menos recomend√°vel:
 <list compact> 
  <item>
 <tt>lmhosts</tt> - Pesquisa primeiro o arquivo <file>/etc/samba/lmhosts</file> 
@@ -10,60 +10,60 @@ ordem de prioridade do mais para o menos recomend·vel:
 
  <item>
 <tt>host</tt> - Faz a pesquisa no arquivo <file>/etc/hosts</file> e no DNS em 
-busca do nome da m·quina.
+busca do nome da m√°quina.
 
  <item>
-<tt>wins</tt> - Pesquisa no servidor WINS especificado pelo par‚metro <em>
+<tt>wins</tt> - Pesquisa no servidor WINS especificado pelo par√¢metro <em>
 wins server</em> do <file>smb.conf</file> (veja <ref id="s-samba-s-nameresolv-wins">).
 
  <item>
-<tt>bcast</tt> - Envia um pacote para o endereÁo de broadcast de sua 
-configuraÁ„o de rede. Este geralmente deve ser o ˙ltimo mÈtodo por gerar 
-tr·fego excessivo em uma rede com um consider·vel n˙mero de computadores.
+<tt>bcast</tt> - Envia um pacote para o endere√ßo de broadcast de sua 
+configura√ß√£o de rede. Este geralmente deve ser o √∫ltimo m√©todo por gerar 
+tr√°fego excessivo em uma rede com um consider√°vel n√∫mero de computadores.
 </list>
-A ordem que a resoluÁ„o de nomes È feita pelo samba, pode ser modificada 
-usando o par‚metro "name resolve order = [ordem]" no arquivo de 
-configuraÁ„o do samba (ex. <tt>name resolve order = lmhosts host wins bcast</tt>).
+A ordem que a resolu√ß√£o de nomes √© feita pelo samba, pode ser modificada 
+usando o par√¢metro "name resolve order = [ordem]" no arquivo de 
+configura√ß√£o do samba (ex. <tt>name resolve order = lmhosts host wins bcast</tt>).
 
 
 <sect1 id="s-samba-s-nameresolv-lmhosts">Arquivo <file>/etc/samba/lmhosts</file>
  <p>
-Este arquivo È um banco de dados que mapeia o endereÁo IP com o nome NetBIOS 
-de uma m·quina, semelhante ao formato do <file>/etc/hosts</file>. Este arquivo 
-È ˙til quando temos servidores que s„o acessados com freq¸Íncia, quando servidores 
-de rede est„o em segmentos separados e n„o temos um servidor WINS entre os dois 
-pontos para resoluÁ„o de nomes, para definir m·quinas WINS que ser„o acessados 
-pela internet, etc. Para ter certeza da localizaÁ„o do arquivo 
-<file>lmhosts</file> em sua m·quina, digite <tt>smbclient -d 3 -L localhost</tt> 
-e veja o diretÛrio de pesquisa deste arquivo. Veja um exemplo de arquivo 
+Este arquivo √© um banco de dados que mapeia o endere√ßo IP com o nome NetBIOS 
+de uma m√°quina, semelhante ao formato do <file>/etc/hosts</file>. Este arquivo 
+√© √∫til quando temos servidores que s√£o acessados com freq√º√™ncia, quando servidores 
+de rede est√£o em segmentos separados e n√£o temos um servidor WINS entre os dois 
+pontos para resolu√ß√£o de nomes, para definir m√°quinas WINS que ser√£o acessados 
+pela internet, etc. Para ter certeza da localiza√ß√£o do arquivo 
+<file>lmhosts</file> em sua m√°quina, digite <tt>smbclient -d 3 -L localhost</tt> 
+e veja o diret√≥rio de pesquisa deste arquivo. Veja um exemplo de arquivo 
 <file>lmhosts</file> em <ref id="s-samba-s-nameresolv-lmhosts-unix-ex">.
  <p>
 O uso do arquivo <file>lmhosts</file> evita o excesso de broadcasting na 
-rede, pois a ordem padr„o usada para a resoluÁ„o de nomes do <prgn>samba</prgn>, 
+rede, pois a ordem padr√£o usada para a resolu√ß√£o de nomes do <prgn>samba</prgn>, 
 procura primeiro resolver o nome procurando em arquivos lmhosts, depois 
 usando <em>dns</em>, <em>wins</em> e <em>broadcast</em>. Dependendo do 
-projeto de sua rede e como as m·quinas resolvem os nomes, ele pode ser uma 
-camada a mais de seguranÁa contra um simples hijacking de servidor atravÈs 
-de NetBEUI ou WINS (isso È evitado com o uso de domÌnios, veja 
+projeto de sua rede e como as m√°quinas resolvem os nomes, ele pode ser uma 
+camada a mais de seguran√ßa contra um simples hijacking de servidor atrav√©s 
+de NetBEUI ou WINS (isso √© evitado com o uso de dom√≠nios, veja 
 <ref id="s-samba-dom-config">).
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Note que em clientes <prgn>Windows</prgn> que 
-estejam em outra subrede, È necess·rio o arquivo <file>\windows\lmhosts</file> 
+estejam em outra subrede, √© necess√°rio o arquivo <file>\windows\lmhosts</file> 
 apontando para um servidor PDC mesmo que ele esteja apontando para o 
-servidor WINS, caso contr·rio, a m·quina n„o efetuar· o logon.
+servidor WINS, caso contr√°rio, a m√°quina n√£o efetuar√° o logon.
  <p>
-O formato do arquivo <file>lmhosts</file> do <prgn>Windows</prgn> È mais 
+O formato do arquivo <file>lmhosts</file> do <prgn>Windows</prgn> √© mais 
 complexo do que o do <prgn>Linux</prgn> pois o sistema precisa de mais 
-detalhes para resolver os nomes e tipos de m·quinas no domÌnio. Veja o 
+detalhes para resolver os nomes e tipos de m√°quinas no dom√≠nio. Veja o 
 modelo <file>lmhosts.sam</file> em seu sistema <prgn>Windows</prgn> para
 compreender seu funcionamento.
 ]]>
 
 <sect2 id="s-samba-s-nameresolv-lmhosts-unix-ex">Exemplo de <file>lmhosts</file> do UNIX
  <p>
-O exemplo abaixo mapeia o endereÁo IP das m·quinas (primeira coluna) com o 
-respectivo nome de m·quina (segunda coluna):
+O exemplo abaixo mapeia o endere√ßo IP das m√°quinas (primeira coluna) com o 
+respectivo nome de m√°quina (segunda coluna):
 <example>
 172.16.0.34 servarq
 172.16.0.30 serverdom
@@ -75,71 +75,71 @@ respectivo nome de m·quina (segunda coluna):
 
 <sect2 id="s-samba-s-nameresolve-lmhosts-windows-ex">Exemplo de <file>lmhosts</file> do Windows
  <p>
-O arquivo possui uma sintaxe idÍntica a do <file>lmhosts</file> do UNIX, mas 
-alguns par‚metros especiais s„o especificados para ajudar o <prgn>Windows</prgn>
-resolver algumas coisas que n„o consegue fazer sozinho (principalmente com relaÁ„o
-a identificaÁ„o de funÁ„o de m·quinas em redes segmentadas):
+O arquivo possui uma sintaxe id√™ntica a do <file>lmhosts</file> do UNIX, mas 
+alguns par√¢metros especiais s√£o especificados para ajudar o <prgn>Windows</prgn>
+resolver algumas coisas que n√£o consegue fazer sozinho (principalmente com rela√ß√£o
+a identifica√ß√£o de fun√ß√£o de m√°quinas em redes segmentadas):
 <example>
 192.168.0.5 servarq
 192.168.0.1 serverpdc #PRE #DOM:dominio
 192.168.0.2 "serverwins    \0x1e" #PRE
 #INCLUDE \\serverpdc\lmhosts
 </example>
-A primeira entrada do arquivo È a tradicional, onde o nome da m·quina 
-NetBIOS È associada ao IP. A segunda utiliza dois par‚metros adicionais:
+A primeira entrada do arquivo √© a tradicional, onde o nome da m√°quina 
+NetBIOS √© associada ao IP. A segunda utiliza dois par√¢metros adicionais:
 <list compact>
- <item><tt>#PRE</tt> - Faz a entrada ser carregada logo na inicializaÁ„o e 
+ <item><tt>#PRE</tt> - Faz a entrada ser carregada logo na inicializa√ß√£o e 
  se tornando uma entrada permanente no cache NetBIOS.
- <item><tt>#DOM</tt> - Especifica que a m·quina È um controlador de domÌnio.
- A m·quina dever· ter sido configurada para a funÁ„o de domÌnio, pois caso 
- contr·rio isso simplesmente n„o funcionar·.
+ <item><tt>#DOM</tt> - Especifica que a m√°quina √© um controlador de dom√≠nio.
+ A m√°quina dever√° ter sido configurada para a fun√ß√£o de dom√≠nio, pois caso 
+ contr√°rio isso simplesmente n√£o funcionar√°.
 </list>
 Note que ambos <tt>#PRE</tt> e <tt>#DOM</tt> devem ser especificados em 
-mai˙sculas. O terceiro exemplo faz uma referÍncia permanente (#PRE) a 
-m·quina servidora WINS <em>serverwins</em>. Neste exemplo È usada uma 
-caracterÌstica especial para especificar a ID hexadecimal da m·quina 
+mai√∫sculas. O terceiro exemplo faz uma refer√™ncia permanente (#PRE) a 
+m√°quina servidora WINS <em>serverwins</em>. Neste exemplo √© usada uma 
+caracter√≠stica especial para especificar a ID hexadecimal da m√°quina 
 na rede <em>1e</em>. O quarto utiliza um include para associar outro 
-arquivo ao atual, ˙til quando temos um compartilhamento que 
-distribui um arquivo <file>lmhosts</file> para diversas m·quinas na 
-rede. De preferÍncia, utilize sempre uma diretiva <em>#PRE</em> para todas 
-as m·quinas especificadas na diretiva <em>#INCLUDE</em> em seu 
-arquivo de configuraÁ„o.
+arquivo ao atual, √∫til quando temos um compartilhamento que 
+distribui um arquivo <file>lmhosts</file> para diversas m√°quinas na 
+rede. De prefer√™ncia, utilize sempre uma diretiva <em>#PRE</em> para todas 
+as m√°quinas especificadas na diretiva <em>#INCLUDE</em> em seu 
+arquivo de configura√ß√£o.
  <p>
-Para a especificaÁ„o de ID de serviÁo manual, È necess·rio manter os 15
-caracteres no nome da m·quina (preenchendo os restantes com espaÁos, 
-caso seja preciso). O ˙ltimo caracter È o cÛdigo hexadecimal que 
-identifica o serviÁo de rede (veja <ref id="s-samba-c-workgroup-linux-nmblookup"> 
-para ver a lista de serviÁos e sua respectiva funÁ„o).
+Para a especifica√ß√£o de ID de servi√ßo manual, √© necess√°rio manter os 15
+caracteres no nome da m√°quina (preenchendo os restantes com espa√ßos, 
+caso seja preciso). O √∫ltimo caracter √© o c√≥digo hexadecimal que 
+identifica o servi√ßo de rede (veja <ref id="s-samba-c-workgroup-linux-nmblookup"> 
+para ver a lista de servi√ßos e sua respectiva fun√ß√£o).
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Caso crie este arquivo em um editor de textos do 
-<prgn>Linux</prgn>, n„o se esqueÁa de converter o arquivo para que contenha
+<prgn>Linux</prgn>, n√£o se esque√ßa de converter o arquivo para que contenha
 o CR+LF no final das linhas.
 ]]>
 
 <sect1 id="s-samba-s-nameresolv-wins">WINS
  <p>
-Este È um serviÁo de resoluÁ„o de nomes que funciona de forma semelhante ao
-DNS, sÛ que voltado para o NetBIOS. Quando uma m·quina cliente NetBIOS entra 
+Este √© um servi√ßo de resolu√ß√£o de nomes que funciona de forma semelhante ao
+DNS, s√≥ que voltado para o NetBIOS. Quando uma m√°quina cliente NetBIOS entra 
 na rede, o servidor WINS pega seu nome e IP e inclui em uma tabela para futura 
 consulta pelos clientes da rede.
  <p>
 Esta tabela consultada toda vez que um cliente NetBIOS solicita um nome de 
-m·quina, componentes do grupo de trabalho ou domÌnio na rede. Uma outra 
-aplicaÁ„o importante de um servidor WINS È permitir a resoluÁ„o de nomes em pontos 
-de redes que requerem roteamento, a simplicidade de um protocolo n„o rote·vel 
-como o NetBIOS fica limitada a simplicidade das instalaÁıes de rede. Um servidor 
+m√°quina, componentes do grupo de trabalho ou dom√≠nio na rede. Uma outra 
+aplica√ß√£o importante de um servidor WINS √© permitir a resolu√ß√£o de nomes em pontos 
+de redes que requerem roteamento, a simplicidade de um protocolo n√£o rote√°vel 
+como o NetBIOS fica limitada a simplicidade das instala√ß√µes de rede. Um servidor 
 WINS pode ser instalado em cada ponta da rede e eles trocarem dados entre si e 
 atualizar suas tabelas de nomes/grupos de trabalhos/IPs. 
  <p>
-A resoluÁ„o de nomes de m·quinas ser· feita consultando diretamente a m·quina 
-WINS ao invÈs de broadcasting (que geram um tr·fego alto na rede).
+A resolu√ß√£o de nomes de m√°quinas ser√° feita consultando diretamente a m√°quina 
+WINS ao inv√©s de broadcasting (que geram um tr√°fego alto na rede).
 
 
 <sect2 id="s-samba-s-nameresolv-wins-s">Configurando o servidor WINS
  <p>
 Para ativar o servidor WINS no <prgn>samba</prgn>, inclua as seguinte linha
-na seÁ„o <tt>[global]</tt> do seu arquivo <file>/etc/samba/smb.conf</file>:
+na se√ß√£o <tt>[global]</tt> do seu arquivo <file>/etc/samba/smb.conf</file>:
 <example>
 [global]
 wins support = yes
@@ -148,29 +148,29 @@ dns proxy = no
 max wins ttl = 518400
 
 </example>
-O par‚metro <tt>wins proxy</tt> pode ser necess·rio para alguns clientes antigos que 
-tenham problemas no envio de suas requisiÁıes WINS. O <tt>dns proxy</tt> permite 
-que o servidor WINS faÁa a pesquisa no DNS para localizaÁ„o de nomes de m·quinas
-caso n„o exista no cache. Ambas as opÁıes <tt>wins support</tt>, <tt>wins proxy</tt> 
-e <tt>dns proxy</tt> tem como valor padr„o <tt>n„o</tt>.
+O par√¢metro <tt>wins proxy</tt> pode ser necess√°rio para alguns clientes antigos que 
+tenham problemas no envio de suas requisi√ß√µes WINS. O <tt>dns proxy</tt> permite 
+que o servidor WINS fa√ßa a pesquisa no DNS para localiza√ß√£o de nomes de m√°quinas
+caso n√£o exista no cache. Ambas as op√ß√µes <tt>wins support</tt>, <tt>wins proxy</tt> 
+e <tt>dns proxy</tt> tem como valor padr√£o <tt>n√£o</tt>.
 
-Pronto, seu servidor samba agora suporta WINS. F·cil, pr·tico e r·pido :-)
+Pronto, seu servidor samba agora suporta WINS. F√°cil, pr√°tico e r√°pido :-)
  <p>
 Se estiver configurando uma subrede com masquerade para acesso a um PDC ou
-um servidor WINS, vocÍ ter· que mexer no gateway central para apontar uma 
-rota para o gateway masquerade. O motivo disto È porque o masquerade do 
-<prgn>Linux</prgn> atua somente nos cabeÁalhos, mas o IP da estaÁ„o È 
+um servidor WINS, voc√™ ter√° que mexer no gateway central para apontar uma 
+rota para o gateway masquerade. O motivo disto √© porque o masquerade do 
+<prgn>Linux</prgn> atua somente nos cabe√ßalhos, mas o IP da esta√ß√£o √© 
 enviada e processada pelo PDC para retornar uma resposta. 
-Da mesma forma, este IP È registrado no servidor WINS para uso das estaÁıes 
-de trabalho. Isto sÛ vai ser resolvido quando for escrito um mÛdulo de 
-conntrack para conexıes SAMBA (atÈ o lanÁamento do kernel <tt>2.4.22</tt>,
-isso ainda n„o ocorreu).
+Da mesma forma, este IP √© registrado no servidor WINS para uso das esta√ß√µes 
+de trabalho. Isto s√≥ vai ser resolvido quando for escrito um m√≥dulo de 
+conntrack para conex√µes SAMBA (at√© o lan√ßamento do kernel <tt>2.4.22</tt>,
+isso ainda n√£o ocorreu).
 <![ %OBS [
  <p>
 <strong>OBS1: </strong> NUNCA configure mais de um servidor WINS em uma mesma 
 rede.
  <p>
-<strong>OBS2: </strong> N√O especifique o par‚metro <tt>wins server</tt> caso
+<strong>OBS2: </strong> N√ÉO especifique o par√¢metro <tt>wins server</tt> caso
 esteja usando o suporte a WINS.
 
 ]]>
@@ -178,45 +178,45 @@ esteja usando o suporte a WINS.
 <sect2 id="s-samba-s-nameresolv-wins-c">Configurando o Cliente WINS
  <p>
 Para os clientes da rede (<prgn>Linux, Windows, OS/2, etc. </prgn>) fazer 
-uso das vantagens da resoluÁ„o de nomes usando o WINS, È necess·rio configurar
-para que eles o utilizem para resolver os nomes de m·quinas. Isto È feito da 
+uso das vantagens da resolu√ß√£o de nomes usando o WINS, √© necess√°rio configurar
+para que eles o utilizem para resolver os nomes de m√°quinas. Isto √© feito da 
 seguinte forma em cada um dos sistemas operacionais:
 <taglist compact>
  <tag>Linux</tag>
   <item>
 Adicione a linha <tt>wins server = ip_do_servidor_WINS</tt> 
-na seÁ„o global do arquivo <file>/etc/samba/smb.conf</file>:
+na se√ß√£o global do arquivo <file>/etc/samba/smb.conf</file>:
 <example>
 [global]
 wins server = 192.168.1.1
 
 </example>
-ApÛs isto, reinicie o servidor <prgn>samba</prgn>. Caso esteja executando
+Ap√≥s isto, reinicie o servidor <prgn>samba</prgn>. Caso esteja executando
 o servidor via <tt>inetd</tt>, digite: <tt>killall -HUP nmbd</tt>. Se 
-estiver rodando atravÈs de daemons: <tt>/etc/init.d/samba restart</tt>.
-N„o È necess·rio reiniciar o computador!
+estiver rodando atrav√©s de daemons: <tt>/etc/init.d/samba restart</tt>.
+N√£o √© necess√°rio reiniciar o computador!
 
  <tag>Windows 9x</tag>
   <item>
-Clique com o bot„o direito sobre o Ìcone <em>Ambiente de Rede</em> e 
-selecione propriedades. Na janela de configuraÁ„o de rede clique na aba 
-<em>ConfiguraÁ„o</em>. Na lista que aparece selecione o protocolo TCP/IP 
+Clique com o bot√£o direito sobre o √≠cone <em>Ambiente de Rede</em> e 
+selecione propriedades. Na janela de configura√ß√£o de rede clique na aba 
+<em>Configura√ß√£o</em>. Na lista que aparece selecione o protocolo TCP/IP 
 equivalente a sua placa de rede local e clique em <em>Propriedades</em>.
  <p>
-Na tela de <em>Propriedades TCP/IP</em> clique em <em>ConfiguraÁıes WINS</em> 
-e marque a opÁ„o <em>Ativar resoluÁ„o WINS</em>. Digite o endereÁo do servidor 
+Na tela de <em>Propriedades TCP/IP</em> clique em <em>Configura√ß√µes WINS</em> 
+e marque a op√ß√£o <em>Ativar resolu√ß√£o WINS</em>. Digite o endere√ßo do servidor 
 WINS e clique em <em>Adicionar</em>.
 
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Se utilizar um servidor DHCP em sua rede local e o 
-endereÁo do servidor WINS tambÈm È oferecido atravÈs dele, vocÍ poder· 
-marcar a opÁ„o <em>Usar DHCP para resoluÁ„o WINS</em>. Note que esta 
-opÁ„o somente estar· disponÌvel se escolher a opÁ„o <em>Obter um endereÁo IP 
-automaticamente</em> na tab <em>EndereÁos IP</em>.
+endere√ßo do servidor WINS tamb√©m √© oferecido atrav√©s dele, voc√™ poder√° 
+marcar a op√ß√£o <em>Usar DHCP para resolu√ß√£o WINS</em>. Note que esta 
+op√ß√£o somente estar√° dispon√≠vel se escolher a op√ß√£o <em>Obter um endere√ßo IP 
+automaticamente</em> na tab <em>Endere√ßos IP</em>.
 ]]>
 
-Clique em OK atÈ fechar todas as telas e reinicie quando
+Clique em OK at√© fechar todas as telas e reinicie quando
 o computador perguntar :-)
 </taglist>
 

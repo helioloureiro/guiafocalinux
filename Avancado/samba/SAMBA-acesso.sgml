@@ -1,63 +1,63 @@
 <sect id="s-samba-a">Controle de acesso ao servidor SAMBA
  <p>
-Este capÌtulo documenta o controle de acesso ao servidor samba e restriÁıes.
+Este cap√≠tulo documenta o controle de acesso ao servidor samba e restri√ß√µes.
 
 
-<sect1 id="s-samba-a-compart">NÌvel de acesso de usu·rios conectados ao SAMBA
+<sect1 id="s-samba-a-compart">N√≠vel de acesso de usu√°rios conectados ao SAMBA
  <p>
-Quando acessa um compartilhamento, o usu·rio do samba È mapeado com o 
-UID respectivo de usu·rio do sistema ou o usu·rio guest (especificado 
-pela opÁ„o "guest account") no caso de um acesso p˙blico. Quando isto 
-ocorre, um processo filho do <prgn>smbd</prgn> È executado sobre o UID 
-e GID deste usu·rio. Isto significa que em nenhuma ocasi„o o 
-<prgn>SAMBA</prgn> dar· mais permissıes que as necess·rias para o 
-usu·rio (com excess„o de quando È usado o par‚metro <tt>admin users</tt>, 
+Quando acessa um compartilhamento, o usu√°rio do samba √© mapeado com o 
+UID respectivo de usu√°rio do sistema ou o usu√°rio guest (especificado 
+pela op√ß√£o "guest account") no caso de um acesso p√∫blico. Quando isto 
+ocorre, um processo filho do <prgn>smbd</prgn> √© executado sobre o UID 
+e GID deste usu√°rio. Isto significa que em nenhuma ocasi√£o o 
+<prgn>SAMBA</prgn> dar√° mais permiss√µes que as necess√°rias para o 
+usu√°rio (com excess√£o de quando √© usado o par√¢metro <tt>admin users</tt>, 
 veja <ref id="s-samba-dom-admin">).
 
 
 <sect1 id="s-samba-a-restrip">Restringindo o acesso por IP/rede
  <p>
-Esta restriÁ„o pode ser feita pelos par‚metros <em>allow hosts</em> e 
-<em>deny hosts</em> tanto em serviÁos individuais ou em todo o servidor. 
-Os par‚metros <em>hosts allow</em> e <em>hosts deny</em> s„o equivalentes
+Esta restri√ß√£o pode ser feita pelos par√¢metros <em>allow hosts</em> e 
+<em>deny hosts</em> tanto em servi√ßos individuais ou em todo o servidor. 
+Os par√¢metros <em>hosts allow</em> e <em>hosts deny</em> s√£o equivalentes
 a estes acima.
 
-O <em>allow hosts</em> permite o acesso a m·quina especificadas como 
-argumento. S„o permitidos os seguintes mÈtodos para permitir 
-o acesso a uma m·quina/rede:
+O <em>allow hosts</em> permite o acesso a m√°quina especificadas como 
+argumento. S√£o permitidos os seguintes m√©todos para permitir 
+o acesso a uma m√°quina/rede:
 <list compact>
- <item><tt>192.168.1.1</tt> - IP da m·quina
- <item><tt>servidor</tt> - Nome da m·quina
- <item><tt>192.168.1.0/255.255.255.0</tt> - IP com m·scara de rede
- <item><tt>192.168.1.0/24</tt> - IP com m·scara de rede octal
- <item><tt>192.168.1.</tt> - PorÁ„o de rede sem o host (como no 
+ <item><tt>192.168.1.1</tt> - IP da m√°quina
+ <item><tt>servidor</tt> - Nome da m√°quina
+ <item><tt>192.168.1.0/255.255.255.0</tt> - IP com m√°scara de rede
+ <item><tt>192.168.1.0/24</tt> - IP com m√°scara de rede octal
+ <item><tt>192.168.1.</tt> - Por√ß√£o de rede sem o host (como no 
 <file>hosts.allow</file> e <file>hosts.deny</file>.
- <item><tt>@nome</tt> - Pesquisa por m·quinas no grupo NIS.
+ <item><tt>@nome</tt> - Pesquisa por m√°quinas no grupo NIS.
 </list>
-… permitido usar mais de um endereÁo IP separando-os por vÌrgulas ou 
-espaÁos. A palavra chave <em>EXCEPT</em> pode ser usada para fazer 
-excess„o de um ou mais endereÁos IPs, por exemplo:
+√â permitido usar mais de um endere√ßo IP separando-os por v√≠rgulas ou 
+espa√ßos. A palavra chave <em>EXCEPT</em> pode ser usada para fazer 
+excess√£o de um ou mais endere√ßos IPs, por exemplo:
 <example>
 hosts allow = 192.168.1. EXCEPT 192.168.1.20
 
 </example>
-Que permite o acesso a toda as m·quinas da faixa de rede <tt>192.168.1.0/24</tt> 
+Que permite o acesso a toda as m√°quinas da faixa de rede <tt>192.168.1.0/24</tt> 
 exceto para a <tt>192.168.1.20</tt>. 
  <p>
 O <em>deny hosts</em> possui a mesma sintaxe do <em>allow hosts</em> mas 
-bloqueia o acesso das m·quinas especificadas como argumento. Quando o 
-<em>allow hosts</em> e <em>deny hosts</em> s„o usados juntos, as 
-m·quinas em <em>allow hosts</em> ter„o prioridade (processa primeiro as 
+bloqueia o acesso das m√°quinas especificadas como argumento. Quando o 
+<em>allow hosts</em> e <em>deny hosts</em> s√£o usados juntos, as 
+m√°quinas em <em>allow hosts</em> ter√£o prioridade (processa primeiro as 
 diretivas em <em>allow hosts</em> e depois em <em>deny hosts</em>).
 <![ %OBS [
  <p>
-<strong>OBS:</strong> O endereÁo de loopback (127.0.0.1) nunca È 
+<strong>OBS:</strong> O endere√ßo de loopback (127.0.0.1) nunca √© 
 bloqueado pelas diretivas de acesso. Provavelmente deve ter notado 
-porque o endereÁo de loopback n„o pode ser bloqueado e as 
-conseq¸Íncias disto para o SAMBA. ]]>
+porque o endere√ßo de loopback n√£o pode ser bloqueado e as 
+conseq√º√™ncias disto para o SAMBA. ]]>
  <p>
-Se vocÍ est· executando o SAMBA via <em>inetd</em>, os arquivos
-<file>hosts.allow</file> e <file>hosts.deny</file> s„o verificados
+Se voc√™ est√° executando o SAMBA via <em>inetd</em>, os arquivos
+<file>hosts.allow</file> e <file>hosts.deny</file> s√£o verificados
 antes do controle e acesso <em>allow hosts</em> e <em>deny hosts</em> 
 para controle de acesso ao <prgn>smbd</prgn>. Caso estiver usando o 
 SAMBA via<em>inetd</em> e deseja restringir o acesso usando 
@@ -69,17 +69,17 @@ verificar a sintaxe do arquivo <file>smb.conf</file> sempre que
 desconfiar de problemas (veja <ref id="s-samba-s-testparm">). ]]>
 
 
-<sect2 id="s-samba-a-restrip-test">Testando a restriÁ„o de Acesso por IP/Redes
+<sect2 id="s-samba-a-restrip-test">Testando a restri√ß√£o de Acesso por IP/Redes
  <p>
-Um mÈtodo interessante e ˙til para testar se a nossa configuraÁ„o vai bloquear 
-o acesso a serviÁos È usando o <prgn>testparm</prgn> da seguinte forma:
+Um m√©todo interessante e √∫til para testar se a nossa configura√ß√£o vai bloquear 
+o acesso a servi√ßos √© usando o <prgn>testparm</prgn> da seguinte forma:
 <example>
 testparm /etc/samba/smb.conf IP/host
 
 </example>
-VocÍ precisar· dizer para o <prgn>testparm</prgn> qual È o arquivo de 
-configuraÁ„o que est· usando e o endereÁo IP/nome de host que far· 
-a <tt>simulaÁ„o</tt> de acesso. Este mÈtodo n„o falsifica o endereÁo IP
+Voc√™ precisar√° dizer para o <prgn>testparm</prgn> qual √© o arquivo de 
+configura√ß√£o que est√° usando e o endere√ßo IP/nome de host que far√° 
+a <tt>simula√ß√£o</tt> de acesso. Este m√©todo n√£o falsifica o endere√ßo IP
 para testes, apenas usa os valores em <em>allow hosts</em> e 
 <em>deny hosts</em> para checagem. Por exemplo, para verificar o 
 acesso vindo do IP <file>192.168.1.50</file>:
@@ -101,31 +101,31 @@ Allow connection from /etc/samba/smb.conf (focalinux) to cdrom
 
 <sect1 id="s-samba-a-restrif">Restringindo o acesso por interface de rede
  <p>
-Esta restriÁ„o de acesso permite que faÁamos o SAMBA responder requisiÁıes 
-somente para a interfaces indicadas. O mÈtodo de seguranÁa descrito
-em <ref id="s-samba-a-restrip"> ser„o analisadas logo apÛs esta checagem. 
+Esta restri√ß√£o de acesso permite que fa√ßamos o SAMBA responder requisi√ß√µes 
+somente para a interfaces indicadas. O m√©todo de seguran√ßa descrito
+em <ref id="s-samba-a-restrip"> ser√£o analisadas logo ap√≥s esta checagem. 
  <p>
-Para restringir o serviÁo SAMBA a interfaces, primeiro ser· necess·rio 
-ativar o par‚metro <tt>bind interfaces only</tt> usando <tt>1</tt>, 
-<tt>yes</tt> ou <tt>true</tt> (o padr„o È desativado). Depois, 
-definir que interfaces ser„o servidas pelo samba com o 
-par‚metro <em>interfaces</em>. Os seguintes formatos de interfaces 
-s„o permitidos:
+Para restringir o servi√ßo SAMBA a interfaces, primeiro ser√° necess√°rio 
+ativar o par√¢metro <tt>bind interfaces only</tt> usando <tt>1</tt>, 
+<tt>yes</tt> ou <tt>true</tt> (o padr√£o √© desativado). Depois, 
+definir que interfaces ser√£o servidas pelo samba com o 
+par√¢metro <em>interfaces</em>. Os seguintes formatos de interfaces 
+s√£o permitidos:
 <list compact>
- <item><tt>eth0, sl0, plip0, etc</tt> - Um nome de interface local. … 
+ <item><tt>eth0, sl0, plip0, etc</tt> - Um nome de interface local. √â 
 permitido o uso de <tt>*</tt> para fazer o SAMBA monitorar todas as 
 interfaces que iniciam com aquele nome (por exemplo, <file>eth*</file>).
- <item><tt>192.168.1.1, 192.168.1.2, etc</tt> - Um endereÁo IP de 
+ <item><tt>192.168.1.1, 192.168.1.2, etc</tt> - Um endere√ßo IP de 
 interface local.
  <item><tt>192.168.1.2/24, 192.168.1.2/255.255.255.0</tt> - Um par 
-de endereÁo/m·scara de rede.
+de endere√ßo/m√°scara de rede.
 </list>
-Mais de uma interface pode ser usada separando-as com vÌrgula ou 
-espaÁos. A escolha do uso de nome da interface ou do IP È feita 
-de acordo com a configuraÁ„o da m·quina. Em uma m·quina DHCP 
-por exemplo, È recomendado o uso do nome da interface. 
+Mais de uma interface pode ser usada separando-as com v√≠rgula ou 
+espa√ßos. A escolha do uso de nome da interface ou do IP √© feita 
+de acordo com a configura√ß√£o da m√°quina. Em uma m√°quina DHCP 
+por exemplo, √© recomendado o uso do nome da interface. 
 Quando <em>bind interfaces only</em> estiver ativado, o 
-padr„o È esperar conexıes em todas as interfaces que permitem 
+padr√£o √© esperar conex√µes em todas as interfaces que permitem 
 broadcast exceto a loopback.
 <![ %EXEMPLO [
  <p>
@@ -135,122 +135,122 @@ bind interfaces only = 1
 interfaces = loopback eth0
 
 </example>
-Permite o recebimento de requisiÁıes de acesso ao <prgn>SAMBA</prgn>
-somente da interface <file>loopback</file> (desnecess·rio, pois como 
-notou durante a leitura, sempre È permitida a conex„o) e 
+Permite o recebimento de requisi√ß√µes de acesso ao <prgn>SAMBA</prgn>
+somente da interface <file>loopback</file> (desnecess√°rio, pois como 
+notou durante a leitura, sempre √© permitida a conex√£o) e 
 <file>eth0</file>.
 ]]>
 
-<sect1 id="s-samba-a-restrusu">Restringindo o acesso por usu·rios
+<sect1 id="s-samba-a-restrusu">Restringindo o acesso por usu√°rios
  <p>
-Permite que vocÍ controle quem poder· ou n„o acessar o compartilhamento 
-da m·quina. Este controle È feito pelos par‚metros <em>valid users</em> 
+Permite que voc√™ controle quem poder√° ou n√£o acessar o compartilhamento 
+da m√°quina. Este controle √© feito pelos par√¢metros <em>valid users</em> 
 e <em>invalid users</em>. 
  <p>
-O <em>invalid users</em> lista de usu·rio que <strong>N√O</strong> ter„o 
-acesso ao compartilhamento. Se o nome for iniciado por "+" o par‚metro 
-ser· tratado como um nome de grupo UNIX (<file>/etc/group</file>). O 
+O <em>invalid users</em> lista de usu√°rio que <strong>N√ÉO</strong> ter√£o 
+acesso ao compartilhamento. Se o nome for iniciado por "+" o par√¢metro 
+ser√° tratado como um nome de grupo UNIX (<file>/etc/group</file>). O 
 caracter "&" faz ele pesquisar o nome de grupo no banco de dados NIS. 
 O caracter "@" permite fazer a busca do grupo primeiro no banco de 
-dados NIS e caso ele n„o seja encontrado, no arquivo de grupos do 
+dados NIS e caso ele n√£o seja encontrado, no arquivo de grupos do 
 sistema (<file>/etc/group</file>). 
  <p>
-… possÌvel usar a combinaÁ„o de caracteres "+&" e "&+" para alternar a 
+√â poss√≠vel usar a combina√ß√£o de caracteres "+&" e "&+" para alternar a 
 ordem de busca enter o <file>/etc/group</file> e o <em>NIS</em>.
  <p>
 Exemplos:
 <taglist compact>
  <tag>invalid users = junior, marcio, +badusers</tag>
   <item>
-N„o permite que os usu·rios especificados e os usu·rios do grupo <tt>+badusers</tt> 
+N√£o permite que os usu√°rios especificados e os usu√°rios do grupo <tt>+badusers</tt> 
 tenham acesso ao compartilhamento.
 
   <tag>invalid users = &;semacesso</tag>
    <item>
-Bloqueia o acesso de todos os usu·rios NIS que pertenÁam ao grupo <tt>semacesso</tt>.
+Bloqueia o acesso de todos os usu√°rios NIS que perten√ßam ao grupo <tt>semacesso</tt>.
 
  <tag>invalid users = bruno, henrique, +&commat;users, </tag>
   <item>
-Bloqueia o acesso dos usu·rios bruno, henrique e de todos os usu·rios que 
-pertenÁam ao grupo <tt>users</tt>. A pesquisa de grupo È feita primeiro no 
+Bloqueia o acesso dos usu√°rios bruno, henrique e de todos os usu√°rios que 
+perten√ßam ao grupo <tt>users</tt>. A pesquisa de grupo √© feita primeiro no 
 <file>/etc/group</file> e em seguida no NIS. 
 
  <tag>invalid users = @semacesso</tag>
   <item>
-Bloqueia o acesso dos usu·rios que pertencem ao grupo "semacesso". A pesquisa
-È feita primeiro no NIS e depois no <file>/etc/group</file> (equivalente ao 
+Bloqueia o acesso dos usu√°rios que pertencem ao grupo "semacesso". A pesquisa
+√© feita primeiro no NIS e depois no <file>/etc/group</file> (equivalente ao 
 uso de "&+").
 
 </taglist>
 
 O <em>valid users</em> possui a mesma sintaxe de funcionamento do 
-<tt>invalid users</tt>, mas permite somente o acesso para os usu·rios/grupos 
-listados. Caso a opÁ„o <tt>valid users</tt> n„o seja especificada ou a lista 
-esteja vazia, o acesso È permitido. Se um mesmo nome de usu·rio estiver na 
-lista <tt>valid users</tt> e <tt>invalid users</tt>, o padr„o È ser mais 
+<tt>invalid users</tt>, mas permite somente o acesso para os usu√°rios/grupos 
+listados. Caso a op√ß√£o <tt>valid users</tt> n√£o seja especificada ou a lista 
+esteja vazia, o acesso √© permitido. Se um mesmo nome de usu√°rio estiver na 
+lista <tt>valid users</tt> e <tt>invalid users</tt>, o padr√£o √© ser mais 
 restritivo, negando o acesso.
  <p>
 <example>
  valid users = gleydson, michelle, geo
 </example>
-A seguranÁa deste mÈtodo de acesso depende muito da forma de autenticaÁ„o dos 
-nomes antes de passar o controle para o SAMBA, pois uma autenticaÁ„o 
-fraca pıe em risco a seguranÁa da sua m·quina. 
+A seguran√ßa deste m√©todo de acesso depende muito da forma de autentica√ß√£o dos 
+nomes antes de passar o controle para o SAMBA, pois uma autentica√ß√£o 
+fraca p√µe em risco a seguran√ßa da sua m√°quina. 
 
 
-<sect1 id="s-samba-a-hostsequiv">Evite o uso do par‚metro <em>hosts equiv</em>!
+<sect1 id="s-samba-a-hostsequiv">Evite o uso do par√¢metro <em>hosts equiv</em>!
  <p>
-Este par‚metro permite que m·quinas tenham acesso sem senha a um servidor. Isto 
-pode se tornar um *ENORME* buraco na seguranÁa do seu sistema, pois mesmo 
-usando uma senha inv·lida, a m·quina poder· ter acesso a todos os recursos 
-do compartilhamento e n„o È complicado fazer um ataque usando DNS spoofing. 
+Este par√¢metro permite que m√°quinas tenham acesso sem senha a um servidor. Isto 
+pode se tornar um *ENORME* buraco na seguran√ßa do seu sistema, pois mesmo 
+usando uma senha inv√°lida, a m√°quina poder√° ter acesso a todos os recursos 
+do compartilhamento e n√£o √© complicado fazer um ataque usando DNS spoofing. 
  <p>
-Se realmente deseja fazer isto, tenha em mente os dados que poder„o ser 
-acessados daquela m·quina, se realmente n„o existe nenhuma outra forma 
-de disponibilizar o acesso de forma que mantenha o controle de restriÁıes 
-(usando todos os outros mÈtodos), restrinja o acesso usando MAC Address 
+Se realmente deseja fazer isto, tenha em mente os dados que poder√£o ser 
+acessados daquela m√°quina, se realmente n√£o existe nenhuma outra forma 
+de disponibilizar o acesso de forma que mantenha o controle de restri√ß√µes 
+(usando todos os outros m√©todos), restrinja o acesso usando MAC Address 
 com o <prgn>iptables</prgn> ou o <prgn>arp</prgn> 
 <![ %CAPJUNTOS [ (veja <ref id="d-restr-ipmac">)]]>. 
-O padr„o È n„o usar nenhum arquivo <file>hosts.equiv</file>.
+O padr√£o √© n√£o usar nenhum arquivo <file>hosts.equiv</file>.
 
 
 <sect1 id="s-asmba-a-nullpasswd">Evite o uso de senhas em branco!
  <p>
-O par‚metro <tt>null passwords</tt> È usado na seÁ„o <em>[global]</em> 
-permitindo que contas de usu·rios sem senha tenham acesso permitido 
+O par√¢metro <tt>null passwords</tt> √© usado na se√ß√£o <em>[global]</em> 
+permitindo que contas de usu√°rios sem senha tenham acesso permitido 
 ao servidor. 
-<strong>ISTO … TOTALMENTE INSEGURO</strong> e deve ser sempre 
-evitado. Caso vocÍ tenha feito uma bela restriÁ„o em sua m·quina 
-e deseja que o seu shell script de cÛpia de arquivos funcione 
-usando este mÈtodo, vocÍ est· jogando toda a seguranÁa do seu 
+<strong>ISTO √â TOTALMENTE INSEGURO</strong> e deve ser sempre 
+evitado. Caso voc√™ tenha feito uma bela restri√ß√£o em sua m√°quina 
+e deseja que o seu shell script de c√≥pia de arquivos funcione 
+usando este m√©todo, voc√™ est√° jogando toda a seguran√ßa do seu 
 sistema por ralo abaixo.
  <p>
-N„o existe motivo para usar senhas em branco em um controle de acesso
-por usu·rio, a n„o ser que precise testar algo realmente tempor·rio e
+N√£o existe motivo para usar senhas em branco em um controle de acesso
+por usu√°rio, a n√£o ser que precise testar algo realmente tempor√°rio e
 que depurando algo no SAMBA.
 
 
 <sect1 id="s-samba-a-publico">Criando um compartilhamento para acesso sem senha
  <p>
-Em algumas situaÁıes (mesmo em instalaÁıes seguras) È preciso tornar um 
-compartilhamento acessÌvel publicamente, exemplos disto incluem um diretÛrio 
-que contÈm drivers de impressoras, arquivos comuns, um diretÛrio tempor·rio, etc.
+Em algumas situa√ß√µes (mesmo em instala√ß√µes seguras) √© preciso tornar um 
+compartilhamento acess√≠vel publicamente, exemplos disto incluem um diret√≥rio 
+que cont√©m drivers de impressoras, arquivos comuns, um diret√≥rio tempor√°rio, etc.
  <p>
-Para configurar um acesso p˙blico utilizamos a opÁ„o <tt>public = yes</tt> ou 
-<tt>guest ok = yes</tt> (que È um sinÙnimo para o ˙ltimo comando). O UID 
-utilizado no acesso p˙blico È especificado pelo par‚metro <tt>guest account</tt>, 
-portanto ele dever· ser um usu·rio v·lido do sistema. Caso vocÍ queira 
+Para configurar um acesso p√∫blico utilizamos a op√ß√£o <tt>public = yes</tt> ou 
+<tt>guest ok = yes</tt> (que √© um sin√¥nimo para o √∫ltimo comando). O UID 
+utilizado no acesso p√∫blico √© especificado pelo par√¢metro <tt>guest account</tt>, 
+portanto ele dever√° ser um usu√°rio v√°lido do sistema. Caso voc√™ queira 
 somente definir acesso guest a um compartilhamento, especifique a 
-opÁ„o <tt>guest only</tt> para o serviÁo, desta forma, mesmo que o usu·rio
-tenha acesso, ele ser· mapeado para o usu·rio guest.
+op√ß√£o <tt>guest only</tt> para o servi√ßo, desta forma, mesmo que o usu√°rio
+tenha acesso, ele ser√° mapeado para o usu√°rio guest.
  <p>
-Uma boa medida de seguranÁa È usar o usu·rio <tt>nobody</tt> pois a maioria das 
-distribuiÁıes de <prgn>Linux</prgn> seguras adotam-o como padr„o como usu·rio 
-que n„o È dono de quaisquer arquivos/diretÛrios no sistema, n„o possui login, 
-senha ou sequer um diretÛrio home.
+Uma boa medida de seguran√ßa √© usar o usu√°rio <tt>nobody</tt> pois a maioria das 
+distribui√ß√µes de <prgn>Linux</prgn> seguras adotam-o como padr√£o como usu√°rio 
+que n√£o √© dono de quaisquer arquivos/diret√≥rios no sistema, n√£o possui login, 
+senha ou sequer um diret√≥rio home.
  <p>
 Veja um exemplo disponibilizando o compartilhamento <tt>[download]</tt> para 
-acesso p˙blico com acesso a gravaÁ„o:
+acesso p√∫blico com acesso a grava√ß√£o:
 <example>
 [global] 
 guest account = nobody
@@ -259,39 +259,39 @@ guest account = nobody
 
 [download]
  path = /downloads
- comment = EspaÁo p˙blico para abrigar downloads de Usu·rios
- guest ok = yes (aqui poder· ser tambÈm "public = yes").
+ comment = Espa√ßo p√∫blico para abrigar downloads de Usu√°rios
+ guest ok = yes (aqui poder√° ser tamb√©m "public = yes").
  writable = yes
  follow symlinks = false
  
 </example>
-O par‚metro <tt>guest account</tt> tambÈm poder· ser especificado no 
-compartilhamento, isto È ˙til quando n„o quiser que o usu·rio que 
-acesse o compartilhamento n„o seja o mesmo usado na diretiva [global].
+O par√¢metro <tt>guest account</tt> tamb√©m poder√° ser especificado no 
+compartilhamento, isto √© √∫til quando n√£o quiser que o usu√°rio que 
+acesse o compartilhamento n√£o seja o mesmo usado na diretiva [global].
  <p>
 Caso seu servidor somente disponibiliza compartilhamentos para 
-acesso p˙blico, È mais recomendado utilizar o nÌvel 
-<tt>security = share</tt> pra diminuir a carga m·quina, pois 
-o usu·rio <em>guest</em> ser· o primeiro a ser checado pelas regras 
-de acesso (ao contr·rio do nÌvel <em>user</em>, onde o acesso guest 
-È o ˙ltimo checado).
+acesso p√∫blico, √© mais recomendado utilizar o n√≠vel 
+<tt>security = share</tt> pra diminuir a carga m√°quina, pois 
+o usu√°rio <em>guest</em> ser√° o primeiro a ser checado pelas regras 
+de acesso (ao contr√°rio do n√≠vel <em>user</em>, onde o acesso guest 
+√© o √∫ltimo checado).
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Lembre-se que o compartilhamento funciona de modo 
-recursivo, ou seja, todos os arquivos e subdiretÛrios dentro do diretÛrio 
-que compartilhou ser„o disponibilizados, portanto tenha certeza da 
-import‚ncia dos dados que existem no diretÛrio, verifique se existem links 
-simbÛlicos que apontam para ele, etc. Recomendo dar uma olhada r·pida em 
+recursivo, ou seja, todos os arquivos e subdiret√≥rios dentro do diret√≥rio 
+que compartilhou ser√£o disponibilizados, portanto tenha certeza da 
+import√¢ncia dos dados que existem no diret√≥rio, verifique se existem links 
+simb√≥licos que apontam para ele, etc. Recomendo dar uma olhada r√°pida em 
 <ref id="s-samba-a-public-access">.
 ]]>
 
 <sect1 id="s-samba-a-ro">Criando um compartilhamento com acesso somente leitura
  <p>
-Esta proteÁ„o È ˙til quando n„o desejamos que pessoas alterem o conte˙do de um 
+Esta prote√ß√£o √© √∫til quando n√£o desejamos que pessoas alterem o conte√∫do de um 
 compartilhamento. Isto pode ser feito de duas formas: negando o acesso de 
-gravaÁ„o para todo o compartilhamento ou permitindo leitura somente para 
-algumas pessoas. O par‚metro usado para fazer a restriÁ„o de acesso 
-somente leitura È o <tt>read only = yes</tt> ou seu antÙnimo <tt>writable = no</tt>. 
+grava√ß√£o para todo o compartilhamento ou permitindo leitura somente para 
+algumas pessoas. O par√¢metro usado para fazer a restri√ß√£o de acesso 
+somente leitura √© o <tt>read only = yes</tt> ou seu ant√¥nimo <tt>writable = no</tt>. 
 Abaixo seguem os dois exemplos comentados:
 <example>
 [teste]
@@ -301,13 +301,13 @@ Abaixo seguem os dois exemplos comentados:
  public = yes
 
 </example>
-No exemplo acima, o diretÛrio <file>/tmp</file> (<em>path = /tmp</em>) foi 
-compartilhado com o nome <tt>teste</tt> (<em>[teste]</em>), de forma p˙blica 
-(acesso sem senha - <em>public = yes</em>), e todos podem apenas ler seu conte˙do
+No exemplo acima, o diret√≥rio <file>/tmp</file> (<em>path = /tmp</em>) foi 
+compartilhado com o nome <tt>teste</tt> (<em>[teste]</em>), de forma p√∫blica 
+(acesso sem senha - <em>public = yes</em>), e todos podem apenas ler seu conte√∫do
 <em>read only = yes</em>).
 <example>
 [teste]
- comment = Acesso a gravaÁ„o para todos com excessıes
+ comment = Acesso a grava√ß√£o para todos com excess√µes
  path = /tmp
  read only = no
  read list = @users, gleydson
@@ -315,60 +315,60 @@ compartilhado com o nome <tt>teste</tt> (<em>[teste]</em>), de forma p˙blica
 
 </example>
 Neste, o mesmo compartilhamento <tt>teste</tt> (<em>[teste]</em>) foi definido 
-como acesso leitura/gravaÁ„o para todos (<em>read only = no</em>), mas os usu·rios 
-do grupo <em>@users</em> e o usu·rio <em>gleydson</em> 
-ter„o sempre acesso leitura (<em>read list = @users, gleydson</em>). Adicionalmente 
-foi colocada uma proteÁ„o para que o superusu·rio n„o tenha acesso a ele 
-(<em>invalid users = root</em>). Esta forma de restriÁ„o È explicada melhor em 
+como acesso leitura/grava√ß√£o para todos (<em>read only = no</em>), mas os usu√°rios 
+do grupo <em>@users</em> e o usu√°rio <em>gleydson</em> 
+ter√£o sempre acesso leitura (<em>read list = @users, gleydson</em>). Adicionalmente 
+foi colocada uma prote√ß√£o para que o superusu√°rio n√£o tenha acesso a ele 
+(<em>invalid users = root</em>). Esta forma de restri√ß√£o √© explicada melhor em 
 <ref id="s-samba-a-restr">).
 
 
-<sect1 id="s-samba-a-rw">Criando um compartilhamento com acesso leitura/gravaÁ„o
+<sect1 id="s-samba-a-rw">Criando um compartilhamento com acesso leitura/grava√ß√£o
  <p>
-Esta forma de compartilhamento permite a alteraÁ„o do conte˙do do compartilhamento
-dos usu·rios que possuem as permissıes de acesso apropriadas. Este controle pode 
-ser feito de duas formas: Acesso total de gravaÁ„o para os usu·rios e acesso 
-de gravaÁ„o apenas para determinados usu·rios. Este controle È feito pela 
-opÁ„o <tt>read only = no</tt> e seu antÙnimo equivalente <tt>writable = yes</tt>.
+Esta forma de compartilhamento permite a altera√ß√£o do conte√∫do do compartilhamento
+dos usu√°rios que possuem as permiss√µes de acesso apropriadas. Este controle pode 
+ser feito de duas formas: Acesso total de grava√ß√£o para os usu√°rios e acesso 
+de grava√ß√£o apenas para determinados usu√°rios. Este controle √© feito pela 
+op√ß√£o <tt>read only = no</tt> e seu ant√¥nimo equivalente <tt>writable = yes</tt>.
 Abaixo dois exemplos:
 <example>
 [teste]
- comment = Acesso de gravaÁ„o para todos.
+ comment = Acesso de grava√ß√£o para todos.
  path = /tmp
  writable = yes
  public = yes
 
 </example>
-No exemplo acima, o diretÛrio <file>/tmp</file> (path = /tmp) foi compartilhado 
-com o nome <tt>teste</tt> ([teste]), de forma p˙blica 
+No exemplo acima, o diret√≥rio <file>/tmp</file> (path = /tmp) foi compartilhado 
+com o nome <tt>teste</tt> ([teste]), de forma p√∫blica 
 (acesso sem senha - public = yes) e todos podem ler/gravar dentro dele 
 (writable = yes).
 <example>
 [teste]
- comment = Acesso a leitura para todos com excessıes
+ comment = Acesso a leitura para todos com excess√µes
  path = /tmp
  writable = no
  write list = @users, gleydson
 
 </example>
 Neste, o mesmo compartilhamento <tt>teste</tt> (<em>[teste]</em>) foi definido 
-como acesso de leitura para todos (<em>writable = no</em>), mas os usu·rios do 
-grupo <em>@users</em> e o usu·rio <em>gleydson</em> ser„o os ˙nicos que ter„o 
-tambÈm acesso a gravaÁ„o (<em>write list = @users, gleydson</em>). Esta forma
-de restriÁ„o È explicada melhor em <ref id="s-samba-a-restr">).
+como acesso de leitura para todos (<em>writable = no</em>), mas os usu√°rios do 
+grupo <em>@users</em> e o usu√°rio <em>gleydson</em> ser√£o os √∫nicos que ter√£o 
+tamb√©m acesso a grava√ß√£o (<em>write list = @users, gleydson</em>). Esta forma
+de restri√ß√£o √© explicada melhor em <ref id="s-samba-a-restr">).
 
 
-<sect1 id="s-samba-a-restr">Excess„o de acesso na permiss„o padr„o de compartilhamento
+<sect1 id="s-samba-a-restr">Excess√£o de acesso na permiss√£o padr√£o de compartilhamento
  <p>
-… possÌvel alterar o nÌvel de acesso para determinados usu·rios/grupos em 
+√â poss√≠vel alterar o n√≠vel de acesso para determinados usu√°rios/grupos em 
 um compartilhamento, para entender melhor: Caso tenha criado um compartilhamento
-somente leitura e queira permitir que apenas alguns usu·rios ou grupos tenham
-acesso a gravaÁ„o, isto È possÌvel e ser· explicado nesta seÁ„o. Este 
-comportamento È controlado por duas opÁıes: <tt>read list</tt> e 
+somente leitura e queira permitir que apenas alguns usu√°rios ou grupos tenham
+acesso a grava√ß√£o, isto √© poss√≠vel e ser√° explicado nesta se√ß√£o. Este 
+comportamento √© controlado por duas op√ß√µes: <tt>read list</tt> e 
 <tt>write list</tt>. Veja alguns exemplos:
 <example>
 [temporario] 
- comment = DiretÛrio tempor·rio
+ comment = Diret√≥rio tempor√°rio
  path = /tmp
  writable = yes
  read list = gleydson, root
@@ -376,39 +376,39 @@ comportamento È controlado por duas opÁıes: <tt>read list</tt> e
  available = yes
 
 </example>
-Neste exemplo, disponibilizamos o diretÛrio <file>/tmp</file> (<em>path = /tmp</em>)
+Neste exemplo, disponibilizamos o diret√≥rio <file>/tmp</file> (<em>path = /tmp</em>)
 como compartilhamento de nome <tt>temporario</tt> (<em>[temporario]</em>), 
-seu acesso padr„o È leitura/gravaÁ„o para todos (<em>writable = yes</em>), 
-exceto para os usu·rios <tt>root</tt> e <tt>gleydson</tt> 
-(<em>read list = root, gleydson</em>). Em adiÁ„o, tornamos o compartilhamento
-<em>invisÌvel</em> (veja <ref id="s-samba-a-invisivel">) no "Ambiente de Rede" 
-do Windows (<em>browseable = no</em>) e ele ser· lido e disponibilizado pelo 
+seu acesso padr√£o √© leitura/grava√ß√£o para todos (<em>writable = yes</em>), 
+exceto para os usu√°rios <tt>root</tt> e <tt>gleydson</tt> 
+(<em>read list = root, gleydson</em>). Em adi√ß√£o, tornamos o compartilhamento
+<em>invis√≠vel</em> (veja <ref id="s-samba-a-invisivel">) no "Ambiente de Rede" 
+do Windows (<em>browseable = no</em>) e ele ser√° lido e disponibilizado pelo 
 SAMBA (<em>available = yes</em>).
 <example>
 [temporario] 
- comment = DiretÛrio tempor·rio
+ comment = Diret√≥rio tempor√°rio
  path = /tmp
  writable = no
  write list = gleydson, @operadores
  browseable = yes
 
 </example>
-Neste exemplo, disponibilizamos o diretÛrio <file>/tmp</file> (<em>path = /tmp</em>)
+Neste exemplo, disponibilizamos o diret√≥rio <file>/tmp</file> (<em>path = /tmp</em>)
 como compartilhamento de nome <tt>temporario</tt> (<em>[temporario]</em>), 
-seu acesso padr„o È apenas leitura para todos (<em>writable = no</em>), 
-exceto para o usu·rio <tt>gleydson</tt> e usu·rios do grupo Unix <tt>operadores</tt>, 
-que tem acesso a leitura/gravaÁ„o (<em>write list = gleydson, @operadores</em>). 
-Tornamos o compartilhamento <em>visÌvel</em> no "Ambiente de Rede" do Windows 
-(<em>browseable = yes</em> - que È o padr„o). 
+seu acesso padr√£o √© apenas leitura para todos (<em>writable = no</em>), 
+exceto para o usu√°rio <tt>gleydson</tt> e usu√°rios do grupo Unix <tt>operadores</tt>, 
+que tem acesso a leitura/grava√ß√£o (<em>write list = gleydson, @operadores</em>). 
+Tornamos o compartilhamento <em>vis√≠vel</em> no "Ambiente de Rede" do Windows 
+(<em>browseable = yes</em> - que √© o padr√£o). 
 
 
 <sect1 id="s-samba-a-ipc-admin">Restringindo o IPC$ e ADMIN$
  <p>
-… seguro restringir os serviÁos <file>IPC$</file> e <file>ADMIN$</file> para acesso 
-somente pelas faixas de rede de confianÁa. Isto pode ser feito atravÈs da mesma 
-forma que a restriÁ„o em outros compartilhamentos. Os efeitos desta restriÁ„o 
-ser„o que somente as redes autorizadas possam obter a lista de m·quinas, se autenticar
-no domÌnio e realizar tarefas administrativas gerais:
+√â seguro restringir os servi√ßos <file>IPC$</file> e <file>ADMIN$</file> para acesso 
+somente pelas faixas de rede de confian√ßa. Isto pode ser feito atrav√©s da mesma 
+forma que a restri√ß√£o em outros compartilhamentos. Os efeitos desta restri√ß√£o 
+ser√£o que somente as redes autorizadas possam obter a lista de m√°quinas, se autenticar
+no dom√≠nio e realizar tarefas administrativas gerais:
 <example>
 [IPC$]
 read only = yes
@@ -419,9 +419,9 @@ read only = yes
 allow from 192.168.1.0/24
 
 </example>
-O exemplo acima permite que os serviÁos <tt>IPC$</tt> e <tt>ADMIN$</tt> sejam 
-acessados de qualquer m·quina na faixa de rede <tt>192.168.1.0/24</tt>. Para 
-forÁar a autenticaÁ„o para acesso a estes serviÁos:
+O exemplo acima permite que os servi√ßos <tt>IPC$</tt> e <tt>ADMIN$</tt> sejam 
+acessados de qualquer m√°quina na faixa de rede <tt>192.168.1.0/24</tt>. Para 
+for√ßar a autentica√ß√£o para acesso a estes servi√ßos:
 <example>
 [IPC$]
 invalid users = nobody
@@ -436,63 +436,63 @@ read only = yes
 allow from 192.168.1.0/24
 
 </example>
-Os exemplos acima s„o similares ao de antes, mas o acesso a listagem dos 
-compartilhamentos È restringida (<em>invalid users = nobody</em>), pois 
-o usu·rio <em>nobody</em> (usado para mostrar o compartilhamento) tem 
-o acesso negado. Somente os usu·rios <tt>gleydson</tt> e <tt>michelle</tt> 
-(<em>valid users = gleydson michelle</em>) podem listar seu conte˙do.
+Os exemplos acima s√£o similares ao de antes, mas o acesso a listagem dos 
+compartilhamentos √© restringida (<em>invalid users = nobody</em>), pois 
+o usu√°rio <em>nobody</em> (usado para mostrar o compartilhamento) tem 
+o acesso negado. Somente os usu√°rios <tt>gleydson</tt> e <tt>michelle</tt> 
+(<em>valid users = gleydson michelle</em>) podem listar seu conte√∫do.
 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Mesmo que estejam restritos, os serviÁos 
-<tt>IPC$</tt> e <tt>ADMIN$</tt> sempre poder„o ser acessados 
-de 127.0.0.1, ou terÌamos problemas com o funcionamento do SAMBA.
-Assim n„o È necess·rio colocar 127.0.0.1 na lista de IPs autorizados.
+<strong>OBS:</strong> Mesmo que estejam restritos, os servi√ßos 
+<tt>IPC$</tt> e <tt>ADMIN$</tt> sempre poder√£o ser acessados 
+de 127.0.0.1, ou ter√≠amos problemas com o funcionamento do SAMBA.
+Assim n√£o √© necess√°rio colocar 127.0.0.1 na lista de IPs autorizados.
 ]]> 
 
 
-<sect1 id="s-samba-a-invisivel">Criando um compartilhamento invisÌvel
+<sect1 id="s-samba-a-invisivel">Criando um compartilhamento invis√≠vel
  <p>
-Para n„o exibir um compartilhamento da lista de compartilhamentos das 
-m·quinas, utilize o par‚metro <tt>browseable = no</tt>. Por exemplo:
+Para n√£o exibir um compartilhamento da lista de compartilhamentos das 
+m√°quinas, utilize o par√¢metro <tt>browseable = no</tt>. Por exemplo:
 <example>
 [teste]
  path = /tmp
- comment = DiretÛrio tempor·rio
+ comment = Diret√≥rio tempor√°rio
  read only = yes
  browseable = no
 
 </example>
-Neste exemplo, o diretÛrio <file>/tmp</file> (<em>path = /tmp</em>) foi 
-compartilhado atravÈs de <tt>teste</tt> (<em>[teste]</em>) com acesso 
-somente leitura (<em>read only = yes</em>) e ele n„o ser· mostrado 
+Neste exemplo, o diret√≥rio <file>/tmp</file> (<em>path = /tmp</em>) foi 
+compartilhado atrav√©s de <tt>teste</tt> (<em>[teste]</em>) com acesso 
+somente leitura (<em>read only = yes</em>) e ele n√£o ser√° mostrado 
 na listagem de compartilhamentos do ambiente de rede do Windows
 (<em>browseable = no</em>).
  <p>
-Note que o compartilhamento continua disponÌvel, porÈm ele poder· ser acessado
-da estaÁ„o Windows, especificando a \\maquina\compartilhamento. Para acessar o 
+Note que o compartilhamento continua dispon√≠vel, por√©m ele poder√° ser acessado
+da esta√ß√£o Windows, especificando a \\maquina\compartilhamento. Para acessar o 
 compartilhamento do exemplo acima:
 <example>
 # Clique em Iniciar/Executar e digite:
 \\nome_do_servidor_samba\teste
 
 </example>
-Ao contr·rio das m·quinas <prgn>Windows</prgn> onde È necess·rio 
+Ao contr√°rio das m√°quinas <prgn>Windows</prgn> onde √© necess√°rio 
 adicionar um "$" do nome de compartilhamento para criar um 
 compartilhamento oculto (como <tt>teste$</tt>) o SAMBA cria um compartilhamento
-<strong>realmente</strong> oculto, n„o aparecendo mesmo na listagem do 
+<strong>realmente</strong> oculto, n√£o aparecendo mesmo na listagem do 
 <prgn>smbclient</prgn>.
 
 
-<sect1 id="s-samba-a-comandos">Executando comandos antes e apÛs o acesso ao compartilhamento
+<sect1 id="s-samba-a-comandos">Executando comandos antes e ap√≥s o acesso ao compartilhamento
  <p>
-Este recurso oferece uma infinidade de soluÁıes que podem resolver desde 
-problemas de praticidade atÈ seguranÁa usando as opÁıes 
+Este recurso oferece uma infinidade de solu√ß√µes que podem resolver desde 
+problemas de praticidade at√© seguran√ßa usando as op√ß√µes 
 <tt>preexec</tt> e <tt>postexec</tt>. Por exemplo, imagine que esteja 
 compartilhando 4 unidades de CD-Rom de um servidor na rede, e deseje que 
-estes CDs estejam sempre disponÌveis mesmo que algum operador engraÁadinho 
-tenha ejetado as gavetas de propÛsito, podemos fazer a seguinte 
-configuraÁ„o: 
+estes CDs estejam sempre dispon√≠veis mesmo que algum operador engra√ßadinho 
+tenha ejetado as gavetas de prop√≥sito, podemos fazer a seguinte 
+configura√ß√£o: 
 <example>
 [cdrom]
  path = /cdrom
@@ -503,57 +503,57 @@ configuraÁ„o:
  postexec = /bin/umount /cdrom
 
 </example>
-Na configuraÁ„o acima, o CD-ROM ser· compartilhado como <tt>cdrom</tt> 
+Na configura√ß√£o acima, o CD-ROM ser√° compartilhado como <tt>cdrom</tt> 
 (<em>[cdrom]</em>), somente leitura (<em>red only = yes</em>), quando o 
-usu·rio acessar o compartilhamento ele "fechar·" a gaveta do CD 
-(<em>preexec = /bin/mount /cdrom</em>) e desmontar· o drive de CD assim 
+usu√°rio acessar o compartilhamento ele "fechar√°" a gaveta do CD 
+(<em>preexec = /bin/mount /cdrom</em>) e desmontar√° o drive de CD assim 
 que o compartilhamento for fechado (<em>postexec = /bin/umount /cdrom</em>). 
-Adicionalmente, caso o comando <prgn>mount</prgn> da opÁ„o <tt>preexec</tt> 
-tenha retornado um valor diferente de 0, a conex„o do compartilhamento È fechada 
+Adicionalmente, caso o comando <prgn>mount</prgn> da op√ß√£o <tt>preexec</tt> 
+tenha retornado um valor diferente de 0, a conex√£o do compartilhamento √© fechada 
 (<em>preexec close = yes</em>). 
  <p>
-A UID do processo do <tt>preexec</tt> e <tt>postexec</tt> ser· o mesmo do 
-usu·rio que est· acessando o compartilhamento, por este motivo ele dever· ter 
-permissıes para montar/desmontar o CD-ROM no sistema. Caso precise executar 
-comandos como usu·rio <tt>root</tt>, utilize a variante <tt>root preexec</tt> e 
-<tt>root postexec</tt>. Apenas tenha consciÍncia que os programas sendo 
-executados s„o seguros o bastante para n„o comprometer o seu sistema.
+A UID do processo do <tt>preexec</tt> e <tt>postexec</tt> ser√° o mesmo do 
+usu√°rio que est√° acessando o compartilhamento, por este motivo ele dever√° ter 
+permiss√µes para montar/desmontar o CD-ROM no sistema. Caso precise executar 
+comandos como usu√°rio <tt>root</tt>, utilize a variante <tt>root preexec</tt> e 
+<tt>root postexec</tt>. Apenas tenha consci√™ncia que os programas sendo 
+executados s√£o seguros o bastante para n√£o comprometer o seu sistema.
  <p>
-Usando a mesma tÈcnica, È possÌvel que o sistema lhe envie e-mails alertando
+Usando a mesma t√©cnica, √© poss√≠vel que o sistema lhe envie e-mails alertando
 sobre acesso a compartilhamentos que em conjunto com um debug level 2 e 
-logs configurados independentes por m·quina, vocÍ possa ver o que a m·quina 
+logs configurados independentes por m√°quina, voc√™ possa ver o que a m√°quina 
 tentou acessar (e foi negado) e o que ela conseguiu acesso.
  <p>
-Como bom administrador, vocÍ poder· criar scripts que faÁam uma checagem de 
-seguranÁa no compartilhamento e encerre automaticamente a conex„o caso seja 
-necess·rio, montar um "honney pot" para trojans, etc. 
+Como bom administrador, voc√™ poder√° criar scripts que fa√ßam uma checagem de 
+seguran√ßa no compartilhamento e encerre automaticamente a conex√£o caso seja 
+necess√°rio, montar um "honney pot" para trojans, etc. 
  <p>
-Como deve estar notando, as possibilidades do SAMBA se extendem alÈm do simples 
+Como deve estar notando, as possibilidades do SAMBA se extendem al√©m do simples 
 compartilhamento de arquivos, se integrando com o potencial dos recursos do 
 sistema UNIX.
 
 
-<sect1 id="s-samba-a-public-access">ConsideraÁıes de seguranÁa com o uso do par‚metro "public = yes"
+<sect1 id="s-samba-a-public-access">Considera√ß√µes de seguran√ßa com o uso do par√¢metro "public = yes"
  <p>
-Este par‚metro permite que vocÍ acesso um compartilhamento sem fornecer 
-uma senha, ou seja, que o usu·rio n„o esteja autenticado. N√O utilize
-o par‚metro "public = yes" (ou um de seus sinÙnimos) no compartilhamento
-<tt>[homes]</tt>, pois abrir· brechas para que possa acessar o diretÛrio
-home de qualquer usu·rio e com acesso a gravaÁ„o (que È o padr„o adotado
-pelos administradores para permitir o acesso ao seu diretÛrio home remoto).
+Este par√¢metro permite que voc√™ acesso um compartilhamento sem fornecer 
+uma senha, ou seja, que o usu√°rio n√£o esteja autenticado. N√ÉO utilize
+o par√¢metro "public = yes" (ou um de seus sin√¥nimos) no compartilhamento
+<tt>[homes]</tt>, pois abrir√° brechas para que possa acessar o diret√≥rio
+home de qualquer usu√°rio e com acesso a grava√ß√£o (que √© o padr√£o adotado
+pelos administradores para permitir o acesso ao seu diret√≥rio home remoto).
  <p>
-Recomendo utilizar o par‚metro <tt>public = yes</tt> somente em compartilhamentos
-onde È realmente necess·rio, como o [netlogon] ou outras ·reas de acesso p˙blico
-onde as permissıes do sistema de arquivos local estejam devidamente restritas. 
-Outra medida È n„o utilizar a opÁ„o <tt>follow symlinks</tt>, que poder· lhe 
-causar problemas com usu·rios mal intencionados que tenham acesso shell. 
+Recomendo utilizar o par√¢metro <tt>public = yes</tt> somente em compartilhamentos
+onde √© realmente necess√°rio, como o [netlogon] ou outras √°reas de acesso p√∫blico
+onde as permiss√µes do sistema de arquivos local estejam devidamente restritas. 
+Outra medida √© n√£o utilizar a op√ß√£o <tt>follow symlinks</tt>, que poder√° lhe 
+causar problemas com usu√°rios mal intencionados que tenham acesso shell. 
 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Tenha em mente todas as consideraÁıes de seguranÁa 
-abordadas neste capÌtulo, bem como as permissıes de acesso ao sistema Unix 
-e como elas funcionam. A disponibilidade de arquivos em uma rede È simples, 
-simples tambÈm pode ser o acesso indevido a eles caso n„o saiba o que est· fazendo. 
+<strong>OBS:</strong> Tenha em mente todas as considera√ß√µes de seguran√ßa 
+abordadas neste cap√≠tulo, bem como as permiss√µes de acesso ao sistema Unix 
+e como elas funcionam. A disponibilidade de arquivos em uma rede √© simples, 
+simples tamb√©m pode ser o acesso indevido a eles caso n√£o saiba o que est√° fazendo. 
 ]]>
 
 
@@ -563,95 +563,95 @@ Como regra geral, prefira sempre utilizar senhas criptografadas. Aqui
 alguns motivos:
 <list compact>
  <item>
-A senha È enviada de uma forma que dificulta sua captura por pessoas 
+A senha √© enviada de uma forma que dificulta sua captura por pessoas 
 maliciosas. 
  <item>
-O NT n„o permite que vocÍ navegue no ambiente de rede em um 
-sistema SAMBA com nÌvel de acesso por usu·rio autenticando usando senhas 
+O NT n√£o permite que voc√™ navegue no ambiente de rede em um 
+sistema SAMBA com n√≠vel de acesso por usu√°rio autenticando usando senhas 
 em texto plano. 
  <item>
-Ser· solicitada sempre a senha para reconex„o em cada compartilhamento
-da m·quina.
+Ser√° solicitada sempre a senha para reconex√£o em cada compartilhamento
+da m√°quina.
  <item>
-Todas as versıes de Windows NT 4 a partir SP3 e Windows 95 OSR/2 utilizam 
-senhas criptografadas como padr„o. … possÌvel faze-lo utilizar senhas em 
-texto plano modificando chaves no registro das m·quinas clientes 
+Todas as vers√µes de Windows NT 4 a partir SP3 e Windows 95 OSR/2 utilizam 
+senhas criptografadas como padr√£o. √â poss√≠vel faze-lo utilizar senhas em 
+texto plano modificando chaves no registro das m√°quinas clientes 
 (veja <ref id="s-samba-senhas-plano"> para detalhes). 
 </list>
 
-As vantagens da utilizaÁ„o da autenticaÁ„o usando texto plano:
+As vantagens da utiliza√ß√£o da autentica√ß√£o usando texto plano:
 <list compact>
  <item>
-A senha utilizada ser· a mesma do <file>/etc/passwd</file> (servindo para ftp, 
+A senha utilizada ser√° a mesma do <file>/etc/passwd</file> (servindo para ftp, 
 login, etc)
  <item>
 O servidor PDC pode ser usado para logon desde que os clientes estejam 
 usando senhas em texto plano.
  <item>
-Elas n„o s„o armazenadas no disco da estaÁ„o cliente. 
+Elas n√£o s√£o armazenadas no disco da esta√ß√£o cliente. 
  <item>
-VocÍ n„o ser· perguntado por uma senha durante cada reconex„o de recurso.
+Voc√™ n√£o ser√° perguntado por uma senha durante cada reconex√£o de recurso.
 </list>
 Antes de optar por utilizar um sistema de senhas em texto plano, leve em 
-consideraÁ„o estes pontos. Se vocÍ j· utiliza telnet ou ftp, provavelmente a 
-utilizaÁ„o de autenticaÁ„o usando texto plano no SAMBA n„o trar· problemas 
-mais graves para vocÍ.
+considera√ß√£o estes pontos. Se voc√™ j√° utiliza telnet ou ftp, provavelmente a 
+utiliza√ß√£o de autentica√ß√£o usando texto plano no SAMBA n√£o trar√° problemas 
+mais graves para voc√™.
 <![ %OBS [ 
  <p>
-<strong>OBS</strong>: Caso seu NT ou vers„o derivada n„o navegue no ambiente 
-de rede (sÛ aceitando conexıes especificando diretamente o 
-"\\servidor\compartilhamento") modifique sua configuraÁ„o do SAMBA para 
+<strong>OBS</strong>: Caso seu NT ou vers√£o derivada n√£o navegue no ambiente 
+de rede (s√≥ aceitando conex√µes especificando diretamente o 
+"\\servidor\compartilhamento") modifique sua configura√ß√£o do SAMBA para 
 autenticar usando senhas criptografadas (veja <ref id="s-samba-senhas-crypto">) para detalhes de como fazer isto.
 ]]>
 
 
-<sect1 id="s-samba-a-usernamemap">Mapeamento de nomes de usu·rios
+<sect1 id="s-samba-a-usernamemap">Mapeamento de nomes de usu√°rios
  <p>
-Este recurso faz a mapeamento (traduÁ„o) de nomes de usu·rios usados no 
-momento do acesso para contas de acesso locais, bastante ˙til quando o 
-nome de usu·rio enviado pela m·quina n„o confere com NENHUMA conta local 
-do sistema (um exemplo È quando o login do usu·rio no <prgn>Windows</prgn> 
-È diferente de seu Login no <prgn>Linux</prgn>). Outro vantagem de seu uso 
-È permitir que uma categoria de usu·rios utilizem um mesmo nÌvel de acesso 
+Este recurso faz a mapeamento (tradu√ß√£o) de nomes de usu√°rios usados no 
+momento do acesso para contas de acesso locais, bastante √∫til quando o 
+nome de usu√°rio enviado pela m√°quina n√£o confere com NENHUMA conta local 
+do sistema (um exemplo √© quando o login do usu√°rio no <prgn>Windows</prgn> 
+√© diferente de seu Login no <prgn>Linux</prgn>). Outro vantagem de seu uso 
+√© permitir que uma categoria de usu√°rios utilizem um mesmo n√≠vel de acesso 
 no sistema.
  <p>
-Seu formato È o seguinte: <tt>username map = arquivo</tt>.
+Seu formato √© o seguinte: <tt>username map = arquivo</tt>.
  <p>
-As seguintes regras s„o usadas para construir o arquivo de mapeamento de nomes:
+As seguintes regras s√£o usadas para construir o arquivo de mapeamento de nomes:
 <list compact>
- <item>Um arquivo de m˙ltiplas linhas onde o sinal de "=" separa os dois 
-par‚metros principais. O arquivo È processado linha por linha da forma
-tradicional, a diferenÁa È o que o processamento do arquivo continua mesmo
-que uma condiÁ„o confira. Para que o processamento do resto do arquivo seja
+ <item>Um arquivo de m√∫ltiplas linhas onde o sinal de "=" separa os dois 
+par√¢metros principais. O arquivo √© processado linha por linha da forma
+tradicional, a diferen√ßa √© o que o processamento do arquivo continua mesmo
+que uma condi√ß√£o confira. Para que o processamento do resto do arquivo seja
 interrompido quando um mapeamento confira, coloque o sinal "!" na frente do 
 nome local.
- <item>O par‚metro da esquerda È a conta Unix local que ser· usada para fazer 
-acesso ao compartilhamento. Somente uma conta Unix poder· ser utilizada.
- <item>O par‚metro da direita do sinal de "=" pode conter um ou mais 
-nomes de usu·rios separados por espaÁos que ser„o mapeados para a conta
+ <item>O par√¢metro da esquerda √© a conta Unix local que ser√° usada para fazer 
+acesso ao compartilhamento. Somente uma conta Unix poder√° ser utilizada.
+ <item>O par√¢metro da direita do sinal de "=" pode conter um ou mais 
+nomes de usu√°rios separados por espa√ßos que ser√£o mapeados para a conta
 Unix local. 
  <p>
-O par‚metro "@grupo" permite que usu·rios pertencentes ao grupo Unix local 
-sejam mapeados para a conta de usu·rio do lado esquerdo. Outro caracter 
-especial È o "*" e indica que qualquer usu·rio ser· mapeado.
+O par√¢metro "@grupo" permite que usu√°rios pertencentes ao grupo Unix local 
+sejam mapeados para a conta de usu√°rio do lado esquerdo. Outro caracter 
+especial √© o "*" e indica que qualquer usu√°rio ser√° mapeado.
 </list>
-VocÍ pode utilizar coment·rios na mesma forma que no arquivo de configuraÁ„o
+Voc√™ pode utilizar coment√°rios na mesma forma que no arquivo de configura√ß√£o
 <file>smb.conf</file>.
 Alguns exemplos:
 <example>
-# Mapeia o usu·rio "gleydson mazioli" com o usu·rio local gleydson
+# Mapeia o usu√°rio "gleydson mazioli" com o usu√°rio local gleydson
 gleydson = gleydson mazioli
 
-# Mapeia o usu·rio root e adm para o usu·rio nobody
+# Mapeia o usu√°rio root e adm para o usu√°rio nobody
 nobody = root adm
 
-# Mapeia qualquer nome de usu·rio que pertenÁa ao grupo smb-users para o usu·rio
+# Mapeia qualquer nome de usu√°rio que perten√ßa ao grupo smb-users para o usu√°rio
 # samba. 
 samba = @smb-users
 
-# Utiliza todos os exemplos anteriores, se nenhum usu·rio conferir, ele ser· 
-# mapeado para o usu·rio nobody (como o usu·rio root e adm j· s„o mapeados
-# para "nobody", este exemplo ter· o mesmo efeito).
+# Utiliza todos os exemplos anteriores, se nenhum usu√°rio conferir, ele ser√° 
+# mapeado para o usu√°rio nobody (como o usu√°rio root e adm j√° s√£o mapeados
+# para "nobody", este exemplo ter√° o mesmo efeito).
 !gleydson = gleydson mazioli
 !samba = @smb-users
 nobody = *
@@ -661,101 +661,101 @@ nobody = *
 
 <sect id="s-samba-perf">Melhorando a performance do compartilhamento/servidor
  <p>
-Esta seÁ„o trar· algumas formas de otimizaÁ„o do servidor SAMBA que 
-fazem diferenÁa quando os valores adequados s„o utilizados:
-A primeira È a ativaÁ„o de um cache de gravaÁ„o/leitura de arquivos. Este cache È 
-feito pela opÁ„o <tt>write cache size</tt> e funciona fazendo o cache dos 
-arquivos que ser„o lidos/gravados. Ele È esvaziado assim que o arquivo 
-for fechado ou quando estiver cheio. O valor especificado nesta opÁ„o È em 
-bytes e o padr„o È "0" para n„o causar impacto em sistemas com pouca memÛria
+Esta se√ß√£o trar√° algumas formas de otimiza√ß√£o do servidor SAMBA que 
+fazem diferen√ßa quando os valores adequados s√£o utilizados:
+A primeira √© a ativa√ß√£o de um cache de grava√ß√£o/leitura de arquivos. Este cache √© 
+feito pela op√ß√£o <tt>write cache size</tt> e funciona fazendo o cache dos 
+arquivos que ser√£o lidos/gravados. Ele √© esvaziado assim que o arquivo 
+for fechado ou quando estiver cheio. O valor especificado nesta op√ß√£o √© em 
+bytes e o padr√£o √© "0" para n√£o causar impacto em sistemas com pouca mem√≥ria
 (ou centenas de compartilhamentos). Exemplo:
 <example>
 [publico]
  path = /pub
- comment = DiretÛrio de acesso p˙blico
+ comment = Diret√≥rio de acesso p√∫blico
  read only = yes
  public = yes
  write cache size = 384000
 
 </example>
-Compartilha o diretÛrio <file>/pub</file> (<em>path = /pub</em>) como compartilhamento
-de nome <tt>publico</tt> (<em>[publico]</em>), seu acesso ser· feito como 
-somente leitura (<em>read only = yes</em>) e o tamanho do cache de leitura/gravaÁ„o
+Compartilha o diret√≥rio <file>/pub</file> (<em>path = /pub</em>) como compartilhamento
+de nome <tt>publico</tt> (<em>[publico]</em>), seu acesso ser√° feito como 
+somente leitura (<em>read only = yes</em>) e o tamanho do cache de leitura/grava√ß√£o
 reservado de 384Kb (<em>write cache size = 384000</em>).
  <p>
-Deixar a opÁ„o para seguir links simbÛlicos ativada (<tt>follow symlinks</tt>) 
-garante mais performance de acesso a arquivos no compartilhamento. A desativaÁ„o
-da opÁ„o <tt>wide links</tt> em conjunto com o uso de cache nas chamadas 
-getwd (<tt>getwd cache</tt>) permite aumentar a seguranÁa e tem um impacto 
-perceptÌvel na performance dos dados.
+Deixar a op√ß√£o para seguir links simb√≥licos ativada (<tt>follow symlinks</tt>) 
+garante mais performance de acesso a arquivos no compartilhamento. A desativa√ß√£o
+da op√ß√£o <tt>wide links</tt> em conjunto com o uso de cache nas chamadas 
+getwd (<tt>getwd cache</tt>) permite aumentar a seguran√ßa e tem um impacto 
+percept√≠vel na performance dos dados.
  <p>
-A desativaÁ„o da opÁ„o global <em>nt smb support</em> tambÈm melhora a
-performance de acesso dos compartilhamentos. Esta È uma opÁ„o ˙til para 
-detectar problemas de negociaÁ„o de protocolo e por padr„o, ela È ativada.
+A desativa√ß√£o da op√ß√£o global <em>nt smb support</em> tamb√©m melhora a
+performance de acesso dos compartilhamentos. Esta √© uma op√ß√£o √∫til para 
+detectar problemas de negocia√ß√£o de protocolo e por padr√£o, ela √© ativada.
  <p>
-Caso utiliza um valor de depuraÁ„o de log muito alto (<em>debug level</em>), 
-o sistema ficar· mais lento pois o servidor sincroniza o arquivo apÛs cada 
-operaÁ„o. Em uso excessivo do servidor de arquivos, isso apresenta uma 
-degradaÁ„o perceptÌvel de performance.
+Caso utiliza um valor de depura√ß√£o de log muito alto (<em>debug level</em>), 
+o sistema ficar√° mais lento pois o servidor sincroniza o arquivo ap√≥s cada 
+opera√ß√£o. Em uso excessivo do servidor de arquivos, isso apresenta uma 
+degrada√ß√£o percept√≠vel de performance.
  <p>
-A opÁ„o <tt>prediction</tt> permite que o SAMBA faÁa uma leitura adiante no 
-arquivo abertos como somente-leitura enquanto aguarda por prÛximos comandos. 
-Esta opÁ„o associada com bons valores de <em>write cache size</em> pode fazer 
-alguma diferenÁa. Note que o valor de leitura nunca ultrapassa o valor 
+A op√ß√£o <tt>prediction</tt> permite que o SAMBA fa√ßa uma leitura adiante no 
+arquivo abertos como somente-leitura enquanto aguarda por pr√≥ximos comandos. 
+Esta op√ß√£o associada com bons valores de <em>write cache size</em> pode fazer 
+alguma diferen√ßa. Note que o valor de leitura nunca ultrapassa o valor 
 de "read size".
  <p>
-A opÁ„o <em>read size</em> permite obter um sincronismo fino entre 
-a leitura e gravaÁ„o do disco com o envio/recebimento de dados da rede. 
-O valor È dependente da instalaÁ„o local, levando em consideraÁ„o a 
-velocidade de disco rÌgido, rede, etc. O valor padr„o È 16384.
+A op√ß√£o <em>read size</em> permite obter um sincronismo fino entre 
+a leitura e grava√ß√£o do disco com o envio/recebimento de dados da rede. 
+O valor √© dependente da instala√ß√£o local, levando em considera√ß√£o a 
+velocidade de disco r√≠gido, rede, etc. O valor padr√£o √© 16384.
  <p>
-Em casos onde um NFS montado ou atÈ mesmo leitura em discos locais È 
-compartilhada, o par‚metro <em>strict locking</em> definido para 
-<tt>yes</tt> pode fazer alguma diferenÁa de performance. Note que 
-nem todos os sistemas ganham performance com o uso desta opÁ„o e 
-n„o deve ser usada em aplicativos que n„o requisitam o estado do lock 
+Em casos onde um NFS montado ou at√© mesmo leitura em discos locais √© 
+compartilhada, o par√¢metro <em>strict locking</em> definido para 
+<tt>yes</tt> pode fazer alguma diferen√ßa de performance. Note que 
+nem todos os sistemas ganham performance com o uso desta op√ß√£o e 
+n√£o deve ser usada em aplicativos que n√£o requisitam o estado do lock 
 de arquivo ao servidor.
  <p>
-Caso vocÍ possua aplicativos que fazem o lock corretamente de arquivos, vocÍ 
-poder· usar o <em>share modes = no</em>, isto significa que futuras aberturas
-de arquivo podem ser feitas em em modo leitura/gravaÁ„o. Caso utiliza um 
+Caso voc√™ possua aplicativos que fazem o lock corretamente de arquivos, voc√™ 
+poder√° usar o <em>share modes = no</em>, isto significa que futuras aberturas
+de arquivo podem ser feitas em em modo leitura/grava√ß√£o. Caso utiliza um 
 aplicativo muito bem programado que implementa de forma eficiente de lock, 
-vocÍ poder· desativar esta opÁ„o.
+voc√™ poder√° desativar esta op√ß√£o.
  <p>
 O uso de <em>oplocks yes</em> em compartilhamentos aumenta a performance de 
-acesso a arquivos em atÈ 30%, pois utiliza um cÛdigo de cache no cliente. Tenha 
-certeza do que est· fazendo antes de sair usando <em>oplocks</em> em tudo que È 
-lugar. A desativaÁ„o de <em>kernel oplocks</em> È necess·ria para que isto 
+acesso a arquivos em at√© 30%, pois utiliza um c√≥digo de cache no cliente. Tenha 
+certeza do que est√° fazendo antes de sair usando <em>oplocks</em> em tudo que √© 
+lugar. A desativa√ß√£o de <em>kernel oplocks</em> √© necess√°ria para que isto 
 funcione.
  <p>
-A opÁ„o <em>read raw</em> e <em>write raw</em> devem ter seus valores 
-experimentados para ver se faz diferenÁa na performance da sua rede, pois 
-È diretamente dependente do tipo de cliente que sua rede possui. Alguns 
+A op√ß√£o <em>read raw</em> e <em>write raw</em> devem ter seus valores 
+experimentados para ver se faz diferen√ßa na performance da sua rede, pois 
+√© diretamente dependente do tipo de cliente que sua rede possui. Alguns 
 clientes podem ficar mais lentos em modo de leitura raw.
  <p>
-O tipo de sistema de arquivos adotado na m·quina e suas opÁıes de montagem 
-tem um impacto direto na performance do servidor, principalmente com relaÁ„o 
-a atualizaÁ„o de status dos arquivos no sistema de arquivos (hora de 
+O tipo de sistema de arquivos adotado na m√°quina e suas op√ß√µes de montagem 
+tem um impacto direto na performance do servidor, principalmente com rela√ß√£o 
+a atualiza√ß√£o de status dos arquivos no sistema de arquivos (hora de 
 acesso, data, etc).
  <p>
 O cache de leitura adiante de abertura de arquivos em modo somente leitura
-aumenta a performance com o uso do oplocks nÌvel 2. Para isto, ajuste a 
-opÁ„o <tt>level2 oplocks</tt> para <tt>yes</tt>. A recomendaÁ„o deste 
-tipo de oplock È o mesmo do nÌvel 1.
+aumenta a performance com o uso do oplocks n√≠vel 2. Para isto, ajuste a 
+op√ß√£o <tt>level2 oplocks</tt> para <tt>yes</tt>. A recomenda√ß√£o deste 
+tipo de oplock √© o mesmo do n√≠vel 1.
  <p>
 Como o SAMBA faz o transporte NetBEUI via TCP/IP, ajustes no socket fazem 
-diferenÁa nos dados que trafegam na rede. Como isso È dependente de rede
-vocÍ precisar· usar tÈcnicas de leitura/gravaÁ„o para determinar quais
-s„o as melhores que se encaixam em seu caso. A opÁ„o <em>socket options</em>
-È usada para fazer tais ajustes, por exemplo:
+diferen√ßa nos dados que trafegam na rede. Como isso √© dependente de rede
+voc√™ precisar√° usar t√©cnicas de leitura/grava√ß√£o para determinar quais
+s√£o as melhores que se encaixam em seu caso. A op√ß√£o <em>socket options</em>
+√© usada para fazer tais ajustes, por exemplo:
 <example>
 socket options = SO_SNDBUF=2048 IPTOS_THROUGHPUT=1
 
 </example>
-Em especial, a opÁ„o <tt>TCP_NODELAY</tt> apresenta uma perceptÌvel 
+Em especial, a op√ß√£o <tt>TCP_NODELAY</tt> apresenta uma percept√≠vel 
 melhoria de performance no acesso a arquivos locais.
 <![ %OBS [
  <p>
-<strong>OBS:</strong>: N„o use espaÁos entre o sinal de "=" quando 
-especificar as opÁıes do par‚metro <tt>socket options</tt>.
+<strong>OBS:</strong>: N√£o use espa√ßos entre o sinal de "=" quando 
+especificar as op√ß√µes do par√¢metro <tt>socket options</tt>.
 ]]>

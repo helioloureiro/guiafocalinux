@@ -1,52 +1,52 @@
-<sect id="s-samba-usermap">Mapeamento de usu·rios/grupos em clientes
+<sect id="s-samba-usermap">Mapeamento de usu√°rios/grupos em clientes
  <p>
-O mapeamento de usu·rios do servidor remoto com a m·quina local È usado quando
-vocÍ deseja controlar o acesso aos arquivos/diretÛrios a nÌvel de usu·rio. 
-No <prgn>Windows</prgn> isto permite que cada arquivo/diretÛrio tenha 
-o acesso leitura/gravaÁ„o somente para os usu·rios definidos e autenticados 
-no controlador de domÌnio. No <prgn>Linux</prgn> as permissıes de 
-arquivos e diretÛrios podem ser definidas para o usu·rio do PDC, garantindo
-o mesmo nÌvel de controle de acesso.
+O mapeamento de usu√°rios do servidor remoto com a m√°quina local √© usado quando
+voc√™ deseja controlar o acesso aos arquivos/diret√≥rios a n√≠vel de usu√°rio. 
+No <prgn>Windows</prgn> isto permite que cada arquivo/diret√≥rio tenha 
+o acesso leitura/grava√ß√£o somente para os usu√°rios definidos e autenticados 
+no controlador de dom√≠nio. No <prgn>Linux</prgn> as permiss√µes de 
+arquivos e diret√≥rios podem ser definidas para o usu√°rio do PDC, garantindo
+o mesmo n√≠vel de controle de acesso.
  <p>
-Esta seÁ„o explica como configurar o mapeamento de UID/GID entre o servidor
+Esta se√ß√£o explica como configurar o mapeamento de UID/GID entre o servidor
 PDC SAMBA e seus clientes NetBIOS Windows e Linux.
 
 
-<sect1 id="s-samba-usermap-w">Mapeamento de usu·rios/grupos domÌnio em Windows
+<sect1 id="s-samba-usermap-w">Mapeamento de usu√°rios/grupos dom√≠nio em Windows
  <p>
-Para o <prgn>Windows</prgn> utilizar os usu·rios remotos do servidor para 
-fazer seu controle de acesso por nÌvel de usu·rio, siga os seguintes passos:
+Para o <prgn>Windows</prgn> utilizar os usu√°rios remotos do servidor para 
+fazer seu controle de acesso por n√≠vel de usu√°rio, siga os seguintes passos:
 <taglist compact>
  <tag>Windows 9X</tag>
   <item>
 Entre no <em>Painel de Controle</em>/<em>Propriedades de Rede</em> e 
 clique na tab <em>Controle de Acesso</em>. 
-Marque a opÁ„o <em>Controle de acesso a nÌvel de usu·rio</em> e coloque o 
-nome da m·quina PDC na caixa de di·logo de onde os usu·rios/grupos ser„o obtidos.
-VocÍ tambÈm pode colocar o nome do grupo de trabalho, neste caso a m·quina far· 
-uma busca pelo PDC ou outra m·quina de onde pode obter os nomes de usu·rios/grupos.
+Marque a op√ß√£o <em>Controle de acesso a n√≠vel de usu√°rio</em> e coloque o 
+nome da m√°quina PDC na caixa de di√°logo de onde os usu√°rios/grupos ser√£o obtidos.
+Voc√™ tamb√©m pode colocar o nome do grupo de trabalho, neste caso a m√°quina far√° 
+uma busca pelo PDC ou outra m√°quina de onde pode obter os nomes de usu√°rios/grupos.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Para fazer isto, vocÍ dever· estar autenticado no domÌnio.
+<strong>OBS:</strong> Para fazer isto, voc√™ dever√° estar autenticado no dom√≠nio.
 ]]>
 </taglist>
 
 
-<sect1 id="s-samba-usermap-l">Mapeamento de usu·rios/grupos domÌnio em Linux
+<sect1 id="s-samba-usermap-l">Mapeamento de usu√°rios/grupos dom√≠nio em Linux
  <p>
-A associaÁ„o de UIDs de usu·rios de um domÌnio com usu·rios locais no 
-<prgn>Linux</prgn> È feita pelo programa <prgn>winbind</prgn>. Ele 
+A associa√ß√£o de UIDs de usu√°rios de um dom√≠nio com usu√°rios locais no 
+<prgn>Linux</prgn> √© feita pelo programa <prgn>winbind</prgn>. Ele 
 utiliza o mecanismo <prgn>nsswitch</prgn> para obter outras fontes 
-de dados de usu·rios e os associa nas ferramentas de gerenciamento de 
-contas existentes no sistema. Siga estes passos para fazer sua instalaÁ„o 
-e configuraÁ„o do <prgn>Winbind</prgn> em um servidor <prgn>Linux</prgn>:
+de dados de usu√°rios e os associa nas ferramentas de gerenciamento de 
+contas existentes no sistema. Siga estes passos para fazer sua instala√ß√£o 
+e configura√ß√£o do <prgn>Winbind</prgn> em um servidor <prgn>Linux</prgn>:
 <list compact>
  <item>
 Instale o programa <prgn>winbind</prgn>: <tt>apt-get install winbind</tt>.
 
  <item>
 Modifique o arquivo <file>smb.conf</file> adicionando as seguintes linhas na 
-seÁ„o <tt>[global]</tt>:
+se√ß√£o <tt>[global]</tt>:
 <example>
 winbind separator = +
 winbind cache time = 30
@@ -62,63 +62,63 @@ Onde
 <taglist compact>
  <tag>winbind separator</tag>
   <item>
-Separador usado para separar o nome dos grupos do nome de domÌnio. Este 
-par‚metro somente tem sentido quando usado em conjunto com um PDC 
-Windows ou quando os mÛdulos <file>pam_winbind.so</file> e <file>nss_winbind.so
-</file> est„o sendo utilizados.
+Separador usado para separar o nome dos grupos do nome de dom√≠nio. Este 
+par√¢metro somente tem sentido quando usado em conjunto com um PDC 
+Windows ou quando os m√≥dulos <file>pam_winbind.so</file> e <file>nss_winbind.so
+</file> est√£o sendo utilizados.
 
  <tag>winbind cache time</tag>
   <item>
-Define a quantidade de tempo em segundos que um nome/grupo permanecer· no cache
-local para n„o ser feita uma nova consulta no servidor PDC.
+Define a quantidade de tempo em segundos que um nome/grupo permanecer√° no cache
+local para n√£o ser feita uma nova consulta no servidor PDC.
 
  <tag>winbind uid</tag>
   <item>
-Especifica o intervalo que ser· usado para mapear os nomes de usu·rios
-remotos como UIDs locais. VocÍ precisar· ter certeza que nenhum UID
-nesse intervalo È usado no sistema, como pelo LDAP, NIS ou usu·rios normais.
-Por padr„o, os IDS de usu·rios normais na maioria dos sistemas Linux, 
-comeÁam por 1000. No exemplo ser„o usados os UIDs de 10000 a 15000 para 
-mapeamento e UIDs dos usu·rios do domÌnio para usu·rios locais.
+Especifica o intervalo que ser√° usado para mapear os nomes de usu√°rios
+remotos como UIDs locais. Voc√™ precisar√° ter certeza que nenhum UID
+nesse intervalo √© usado no sistema, como pelo LDAP, NIS ou usu√°rios normais.
+Por padr√£o, os IDS de usu√°rios normais na maioria dos sistemas Linux, 
+come√ßam por 1000. No exemplo ser√£o usados os UIDs de 10000 a 15000 para 
+mapeamento e UIDs dos usu√°rios do dom√≠nio para usu√°rios locais.
 
  <tag>winbind gid</tag>
   <item>
-Especifica o intervalo de GIDs que ser· usado para mapear os nomes de grupos
-remotos do domÌnio como GIDs locais. Como no par‚metro <tt>winbind uid</tt>, 
-vocÍ dever· ter certeza que esta faixa de GIDs n„o est· sendo usada em 
+Especifica o intervalo de GIDs que ser√° usado para mapear os nomes de grupos
+remotos do dom√≠nio como GIDs locais. Como no par√¢metro <tt>winbind uid</tt>, 
+voc√™ dever√° ter certeza que esta faixa de GIDs n√£o est√° sendo usada em 
 seu sistema.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Atualmente <prgn>SAMBA</prgn> n„o possui suporte a 
-grupos globais, apenas para usu·rios globais, desta forma os grupos da 
-m·quina remota n„o ser„o trazidos para o sistema. Uma forma de contornar isto, 
-È utilizando o LDAP ou o NIS no PDC e nos clientes <prgn>Linux</prgn>.
+<strong>OBS:</strong> Atualmente <prgn>SAMBA</prgn> n√£o possui suporte a 
+grupos globais, apenas para usu√°rios globais, desta forma os grupos da 
+m√°quina remota n√£o ser√£o trazidos para o sistema. Uma forma de contornar isto, 
+√© utilizando o LDAP ou o NIS no PDC e nos clientes <prgn>Linux</prgn>.
 ]]>
 
  <tag>winbind enum users</tag>
   <item>
-Permite enumerar usu·rios do winbind para retornarem dados quando solicitados. 
-A n„o ser que possua uma instalaÁ„o parecida em todas as m·quinas (como com
-o uso de LDAP e NIS) responda "yes" para n„o ter problemas.
+Permite enumerar usu√°rios do winbind para retornarem dados quando solicitados. 
+A n√£o ser que possua uma instala√ß√£o parecida em todas as m√°quinas (como com
+o uso de LDAP e NIS) responda "yes" para n√£o ter problemas.
 
  <tag>winbind enum groups</tag>
   <item>
 Permite enumerar grupos do winbind para retornarem dados quando solicitados. 
-A n„o ser que possua uma instalaÁ„o parecida em todas as m·quinas (como com
-o uso de LDAP e NIS) responda "yes" para n„o ter problemas.
+A n√£o ser que possua uma instala√ß√£o parecida em todas as m√°quinas (como com
+o uso de LDAP e NIS) responda "yes" para n√£o ter problemas.
 
  <tag>template homedir</tag>
   <item>
-Quando o sistema cliente for um Windows NT ou baseado, este diretÛrio ser· 
-retornado como diretÛrio de usu·rio para o sistema. O par‚metro %D ser· 
-substituÌdo pelo nome do domÌnio e %U pelo nome de usu·rio durante a conex„o.
+Quando o sistema cliente for um Windows NT ou baseado, este diret√≥rio ser√° 
+retornado como diret√≥rio de usu√°rio para o sistema. O par√¢metro %D ser√° 
+substitu√≠do pelo nome do dom√≠nio e %U pelo nome de usu√°rio durante a conex√£o.
 
  <tag>template shell</tag>
   <item>
-Este ser· o shell enviado para m·quinas NT ou baseadas nele como shell usado 
+Este ser√° o shell enviado para m√°quinas NT ou baseadas nele como shell usado 
 para login. O valor usado foi <file>/bin/false</file> pois desabilita os 
-logons, mas vocÍ poder· usar <file>/bin/sh</file> (ou algum outro shell) para 
-efetuar conexıes do comando <prgn>net</prgn> ou outras ferramentas NetBEUI ao 
+logons, mas voc√™ poder√° usar <file>/bin/sh</file> (ou algum outro shell) para 
+efetuar conex√µes do comando <prgn>net</prgn> ou outras ferramentas NetBEUI ao 
 servidor.
 
 </taglist>
@@ -128,7 +128,7 @@ Reinicie o servidor <prgn>SAMBA</prgn>
 
 <item>
 Edite o arquivo <file>/etc/nsswitch.conf</file> alterando a ordem de pesquisa de 
-nomes de usu·rios e grupos do sistema local para a seguinte:
+nomes de usu√°rios e grupos do sistema local para a seguinte:
 <example>
 passwd:         files winbind
 group:          files winbind
@@ -141,10 +141,10 @@ Agora, inicie o daemon <prgn>winbind</prgn> local com o comando:
 <tt>/etc/init.d/winbind restart</tt>. 
 
  <item>
-Entre no domÌnio com o comando: <tt>smbpasswd -j domÌnio -r nome_do_PDC -U usuario</tt> (veja <ref id="s-samba-c-dominio-linux"> para aprender como entrar no 
-domÌnio em caso de d˙vidas).
+Entre no dom√≠nio com o comando: <tt>smbpasswd -j dom√≠nio -r nome_do_PDC -U usuario</tt> (veja <ref id="s-samba-c-dominio-linux"> para aprender como entrar no 
+dom√≠nio em caso de d√∫vidas).
  <item>
-Agora faÁa o teste para obter a listagem dos grupos e usu·rios do domÌnio do 
+Agora fa√ßa o teste para obter a listagem dos grupos e usu√°rios do dom√≠nio do 
 PDC digitando:
 <example>
 wbinfo -u
@@ -153,20 +153,20 @@ getent passwd
 getent group
 
 </example>
-Caso isto n„o aconteÁa, revise suas configuraÁıes e veja os logs procurando por 
-erros quando o <prgn>winbind</prgn> tenta obter a lista de usu·rios/grupos do 
-domÌnio.
+Caso isto n√£o aconte√ßa, revise suas configura√ß√µes e veja os logs procurando por 
+erros quando o <prgn>winbind</prgn> tenta obter a lista de usu√°rios/grupos do 
+dom√≠nio.
 
 </list>
-Agora vocÍ deve ser capaz de criar diretÛrios/arquivos locais usando os 
-nomes de usu·rios/grupos do domÌnio. Lembre-se de reiniciar sempre o 
-<prgn>winbind</prgn> quando reiniciar o SAMBA por alguma modificaÁ„o for
-feita (ao mesmo que saiba que n„o afeta o <prgn>winbind</prgn>), assim 
-como entrar novamente no domÌnio, caso contr·rio o mapeamento deixar· 
+Agora voc√™ deve ser capaz de criar diret√≥rios/arquivos locais usando os 
+nomes de usu√°rios/grupos do dom√≠nio. Lembre-se de reiniciar sempre o 
+<prgn>winbind</prgn> quando reiniciar o SAMBA por alguma modifica√ß√£o for
+feita (ao mesmo que saiba que n√£o afeta o <prgn>winbind</prgn>), assim 
+como entrar novamente no dom√≠nio, caso contr√°rio o mapeamento deixar√° 
 de funcionar.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Atualmente, o <prgn>winbind</prgn> n„o oferece suporte
-a restriÁıes por data/hora de logon para estaÁıes de trabalho. Isto dever· 
-ser implementado em uma futura vers„o
+<strong>OBS:</strong> Atualmente, o <prgn>winbind</prgn> n√£o oferece suporte
+a restri√ß√µes por data/hora de logon para esta√ß√µes de trabalho. Isto dever√° 
+ser implementado em uma futura vers√£o
 ]]>

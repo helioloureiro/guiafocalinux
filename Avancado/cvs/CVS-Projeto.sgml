@@ -1,24 +1,24 @@
 <sect id="s-cvs-p">Criando projetos para serem usados no CVS
  <p>
-Esta seÁ„o descreve todos os passos necess·rios para colocaÁ„o de 
-um projeto para ser desenvolvido atravÈs do CVS, os comandos do 
-cvs, consideraÁıes a respeito dos comandos e sua utilizaÁ„o atravÈs 
-de exemplos did·ticos. 
+Esta se√ß√£o descreve todos os passos necess√°rios para coloca√ß√£o de 
+um projeto para ser desenvolvido atrav√©s do CVS, os comandos do 
+cvs, considera√ß√µes a respeito dos comandos e sua utiliza√ß√£o atrav√©s 
+de exemplos did√°ticos. 
 
 
-<sect1 id="s-cvs-p-repos">RepositÛrio
+<sect1 id="s-cvs-p-repos">Reposit√≥rio
  <p>
-Um repositÛrio CVS È o local que armazena mÛdulos e tambÈm os 
-arquivos administrativos (que contÈm permissıes, etc) s„o armazenados em 
-um subdiretÛrio chamado <file>CVSROOT</file>.
+Um reposit√≥rio CVS √© o local que armazena m√≥dulos e tamb√©m os 
+arquivos administrativos (que cont√©m permiss√µes, etc) s√£o armazenados em 
+um subdiret√≥rio chamado <file>CVSROOT</file>.
  <p>
-O acesso a um repositÛrio È feito atravÈs de par‚metros especificados na
-vari·vel <var>CVSROOT</var> ou pela opÁ„o <em>-d repositÛrio</em> do 
-cvs. Veja <ref id="s-cvs-d"> para ver exemplos de mÈtodos de acesso. 
+O acesso a um reposit√≥rio √© feito atrav√©s de par√¢metros especificados na
+vari√°vel <var>CVSROOT</var> ou pela op√ß√£o <em>-d reposit√≥rio</em> do 
+cvs. Veja <ref id="s-cvs-d"> para ver exemplos de m√©todos de acesso. 
  <p>
-O RepositÛrio pode conter um ou mais mÛdulos, cada mÛdulo representa um 
-projeto no servidor, criado apÛs o uso do comando <tt>import</tt>. Segue 
-um exemplo da estrutura de um repositÛrio CVS:
+O Reposit√≥rio pode conter um ou mais m√≥dulos, cada m√≥dulo representa um 
+projeto no servidor, criado ap√≥s o uso do comando <tt>import</tt>. Segue 
+um exemplo da estrutura de um reposit√≥rio CVS:
 <example>
 var/lib
      |
@@ -28,57 +28,57 @@ var/lib
          +- projeto2
 
 </example>
-O subdiretÛrio <file>cvs</file> È o repositÛrio (veja o subdiretÛrio 
-<file>CVSROOT</file> dentro dele) e os diretÛrios dentro dele 
-<file>projeto1</file> e <file>projeto2</file> s„o os mÛdulos criados 
-atravÈs do comando <tt>cvs import ...</tt>(veja <ref id="s-cvs-p-import">).
+O subdiret√≥rio <file>cvs</file> √© o reposit√≥rio (veja o subdiret√≥rio 
+<file>CVSROOT</file> dentro dele) e os diret√≥rios dentro dele 
+<file>projeto1</file> e <file>projeto2</file> s√£o os m√≥dulos criados 
+atrav√©s do comando <tt>cvs import ...</tt>(veja <ref id="s-cvs-p-import">).
  <p>
-Para acessar o projeto do CVS, ent„o È definido o repositÛrio que tem permissıes de 
-acesso na vari·vel <tt>CVSROOT</tt> e ent„o È executado um comando (checkout, 
-update, commit, etc) no mÛdulo que desejamos utilizar:
+Para acessar o projeto do CVS, ent√£o √© definido o reposit√≥rio que tem permiss√µes de 
+acesso na vari√°vel <tt>CVSROOT</tt> e ent√£o √© executado um comando (checkout, 
+update, commit, etc) no m√≥dulo que desejamos utilizar:
 <example>
-export CVSROOT=:ext:anonymous@servidor.org.br:/var/lib/cvs (&lt;- RepositÛrio "cvs")
-cvs checkout projeto1 (&lt;- mÛdulo que desejamos pegar do servidor)
+export CVSROOT=:ext:anonymous@servidor.org.br:/var/lib/cvs (&lt;- Reposit√≥rio "cvs")
+cvs checkout projeto1 (&lt;- m√≥dulo que desejamos pegar do servidor)
 
 </example>
-Nas seÁıes seguintes ser„o explicados cada um dos comandos usados para trabalhar com 
+Nas se√ß√µes seguintes ser√£o explicados cada um dos comandos usados para trabalhar com 
 um projeto no <prgn>cvs</prgn>.
 
 
-<sect1 id="s-cvs-p-mkrepos">Criando um repositÛrio
+<sect1 id="s-cvs-p-mkrepos">Criando um reposit√≥rio
  <p>
-Para adicionar um novo repositÛrio no sistema, edite o 
+Para adicionar um novo reposit√≥rio no sistema, edite o 
 arquivo <file>/etc/cvs-pserver.conf</file> e defina o nome 
-de cada repositÛrio na vari·vel <var>CVS_PSERV_REPOS</var> 
+de cada reposit√≥rio na vari√°vel <var>CVS_PSERV_REPOS</var> 
 separados por ":" (exemplo: <tt>CVS_PSERV_REPOS="/var/lib/cvs:/var/lib/cvs2"</tt>).
  <p>
 Feito isso execute o comando <prgn>cvs-makerepos</prgn> para 
-que os diretÛrios especificados no arquivo 
+que os diret√≥rios especificados no arquivo 
 <file>/etc/cvs-pserver.conf</file> sejam criados com as 
-devidas permissıes. 
+devidas permiss√µes. 
  <p>
-Para adicionar manualmente um repositÛrio (/var/lib/cvs), execute os 
+Para adicionar manualmente um reposit√≥rio (/var/lib/cvs), execute os 
 seguintes passos:
 <enumlist compact>
  <item>Execute o comando <tt>cvs -d /var/lib/cvs init</tt> (para criar 
-  o repositÛrio e os arquivos administrativos que ficam armazenados 
+  o reposit√≥rio e os arquivos administrativos que ficam armazenados 
   dentro de <file>CVSROOT</file>.
- <item>Mude as permissıes do diretÛrio para sgid com: <tt>chmod 2775 
+ <item>Mude as permiss√µes do diret√≥rio para sgid com: <tt>chmod 2775 
   /var/lib/cvs</tt>.
  <item>Mude o dono/grupo com o comando: <tt>chown root.src /var/lib/cvs</tt>
- <item>Opcional: caso utilize o mÈtodo de acesso <em>pserver</em> ser· 
-  necess·rio adicionar a opÁ„o <tt>--allow-root=/var/lib/cvs</tt> na 
-  linha que inicia o servidor pserver. Este par‚metro deve ser usada 
- para cada repositÛrio adicionado no servidor.
+ <item>Opcional: caso utilize o m√©todo de acesso <em>pserver</em> ser√° 
+  necess√°rio adicionar a op√ß√£o <tt>--allow-root=/var/lib/cvs</tt> na 
+  linha que inicia o servidor pserver. Este par√¢metro deve ser usada 
+ para cada reposit√≥rio adicionado no servidor.
 </enumlist>
-A partir de agora, seu repositÛrio j· est· pronto para ser utilizado.
+A partir de agora, seu reposit√≥rio j√° est√° pronto para ser utilizado.
 
 
 <sect1 id="s-cvs-p-login">Logando no servidor de CVS via pserver
  <p>
-Quando È usado o mÈtodo de acesso pserver (<ref id="s-cvs-d-metodos-pserver">), 
-È necess·rio fazer para ter acesso ao repositÛrio. Por exemplo, 
-para acessar o repositÛrio <file>/var/lib/cvs</file> no servidor <file>servidor.org.br</file>:
+Quando √© usado o m√©todo de acesso pserver (<ref id="s-cvs-d-metodos-pserver">), 
+√© necess√°rio fazer para ter acesso ao reposit√≥rio. Por exemplo, 
+para acessar o reposit√≥rio <file>/var/lib/cvs</file> no servidor <file>servidor.org.br</file>:
 <example>
 export CVSROOT=:pserver:anonymous@servidor.org.br:/var/lib/cvs
 cvs login
@@ -88,26 +88,26 @@ ou
 cvs -d :pserver:anonymous@servidor.org.br:/var/lib/cvs login
 
 </example>
-Ent„o ser· solicitada a senha para ter acesso ao sistema. Note que 
-toda a seÁ„o de <prgn>cvs</prgn> ocorre por comandos interativos que 
-logo apÛs concluÌdos retornam para o interpretador de comandos. 
-O restante desta seÁ„o descrever· estes comandos e como utiliza-los de 
+Ent√£o ser√° solicitada a senha para ter acesso ao sistema. Note que 
+toda a se√ß√£o de <prgn>cvs</prgn> ocorre por comandos interativos que 
+logo ap√≥s conclu√≠dos retornam para o interpretador de comandos. 
+O restante desta se√ß√£o descrever√° estes comandos e como utiliza-los de 
 maneira eficiente. 
 <![ %OBS [ 
  <p>
-<strong>OBS: </strong> O uso da vari·vel <var>CVSROOT</var> torna 
-a utilizaÁ„o bastante pr·tica, assim n„o precisamos especificar o repositÛrio, 
-mÈtodo de acesso, etc. toda vez que usar um comando do <prgn>cvs</prgn>. 
+<strong>OBS: </strong> O uso da vari√°vel <var>CVSROOT</var> torna 
+a utiliza√ß√£o bastante pr√°tica, assim n√£o precisamos especificar o reposit√≥rio, 
+m√©todo de acesso, etc. toda vez que usar um comando do <prgn>cvs</prgn>. 
 ]]>
 
 
-<sect1 id="s-cvs-p-logout">Encerrando uma seÁ„o de CVS
+<sect1 id="s-cvs-p-logout">Encerrando uma se√ß√£o de CVS
  <p>
-Embora que n„o seja necess·rio, apÛs o uso do cvs È recomend·vel 
-executar o logout do servidor para encerrar sua conex„o com a m·quina 
+Embora que n√£o seja necess√°rio, ap√≥s o uso do cvs √© recomend√°vel 
+executar o logout do servidor para encerrar sua conex√£o com a m√°quina 
 remota. 
 <example>
-# (assumindo que a vari·vel CVSROOT est· definida)
+# (assumindo que a vari√°vel CVSROOT est√° definida)
 cvs logout
 
 ou 
@@ -117,16 +117,16 @@ cvs -d :pserver:anonymous@servidor.org.br:/var/lib/cvs logout
 </example>
 <![ %OBS [ 
  <p>
-<strong>OBS: </strong> Para os paranÛicos È importante encerrar uma seÁ„o
-de CVS, pois ele possui alguns bugs e um spoofing pode tornar possÌvel o 
-uso de uma seÁ„o deixada aberta. 
+<strong>OBS: </strong> Para os paran√≥icos √© importante encerrar uma se√ß√£o
+de CVS, pois ele possui alguns bugs e um spoofing pode tornar poss√≠vel o 
+uso de uma se√ß√£o deixada aberta. 
 ]]>
 
 
 <sect1 id="s-cvs-p-checkout">Baixando arquivos
  <p>
-O comando <tt>checkout</tt> (ou "co") È usado para fazer isto. Para 
-utiliz·-lo seguindo os exemplos anteriores:
+O comando <tt>checkout</tt> (ou "co") √© usado para fazer isto. Para 
+utiliz√°-lo seguindo os exemplos anteriores:
 <example>
 mkdir /tmp/cvs
 cd /tmp/cvs
@@ -134,69 +134,69 @@ cvs checkout modulo
 cvs -d :pserver:anonymous@servidor.org.br:/var/lib/cvs
 
 </example>
-Ser· criado um subdiretÛrio chamado <file>modulo</file> que contÈm todos os 
-arquivos do servidor de CVS remoto. … necess·rio apenas que tenha acesso de 
-leitura ao servidor de CVS para executar este comando. VocÍ pode usar a 
-opÁ„o <tt>-z [num]</tt> para ativar a compactaÁ„o na transferÍncia dos arquivos, 
-isso acelera bastante a transferÍncia em conexıes lentas: 
+Ser√° criado um subdiret√≥rio chamado <file>modulo</file> que cont√©m todos os 
+arquivos do servidor de CVS remoto. √â necess√°rio apenas que tenha acesso de 
+leitura ao servidor de CVS para executar este comando. Voc√™ pode usar a 
+op√ß√£o <tt>-z [num]</tt> para ativar a compacta√ß√£o na transfer√™ncia dos arquivos, 
+isso acelera bastante a transfer√™ncia em conex√µes lentas: 
 <tt>cvs -z 3 checkout modulo</tt>. 
  <p>
-TambÈm È possÌvel especificar apenas subdiretÛrios de um mÛdulo para baixa-lo
-via CVS e a estrutura de diretÛrios criada localmente ser· idÍntica ao do 
+Tamb√©m √© poss√≠vel especificar apenas subdiret√≥rios de um m√≥dulo para baixa-lo
+via CVS e a estrutura de diret√≥rios criada localmente ser√° id√™ntica ao do 
 servidor remoto. 
 
 
 <sect1 id="s-cvs-p-import">Adicionando um novo projeto
  <p>
 Use o comando <tt>cvs import</tt> para adicionar um novo projeto ao CVS. 
-As entradas nos arquivos administrativos ser„o criadas e o projeto 
-estar· disponÌvel para utilizaÁ„o dos usu·rios. A sintaxe b·sica do 
-comando <tt>import</tt> È a seguinte:
+As entradas nos arquivos administrativos ser√£o criadas e o projeto 
+estar√° dispon√≠vel para utiliza√ß√£o dos usu√°rios. A sintaxe b√°sica do 
+comando <tt>import</tt> √© a seguinte:
  <p>
-<tt>cvs import [<em>opÁıes</em>] [<em>dir_modulo</em>] [<em>tag</em>] start</tt>
+<tt>cvs import [<em>op√ß√µes</em>] [<em>dir_modulo</em>] [<em>tag</em>] start</tt>
  <p>
 Para adicionar o projeto <tt>focalinux</tt> que reside em <file>/usr/src/focalinux</file> 
 ao cvs:
 <example>
-# Primeiro exportamos o CVSROOT para dizer onde e qual repositÛrio acessar
+# Primeiro exportamos o CVSROOT para dizer onde e qual reposit√≥rio acessar
 export CVSROOT=:ext:usuario@servidor.com.br:2401/var/lib/cvs
 
 cd /usr/src/focalinux
 cvs import documentos/focalinux tag_modulo start
 
 </example>
-Por padr„o o <prgn>import</prgn> sempre utiliza a m·scara
-<em>*</em> para fazer a importaÁ„o dos arquivos do diretÛrio 
-atual. O projeto <tt>focalinux</tt> ser· acessado 
-atravÈs de $CVSROOT/documentos/focalinux (<tt>cvs checkout
+Por padr√£o o <prgn>import</prgn> sempre utiliza a m√°scara
+<em>*</em> para fazer a importa√ß√£o dos arquivos do diret√≥rio 
+atual. O projeto <tt>focalinux</tt> ser√° acessado 
+atrav√©s de $CVSROOT/documentos/focalinux (<tt>cvs checkout
 documentos/focalinux</tt>), ou seja, <file>/var/lib/cvs/documentos/focalinux</file>
-no servidor CVS ter· a cÛpia do focalinux. <tt>tag_modulo</tt> 
-define o nome que ser· usado como identificador nas operaÁıes com os 
+no servidor CVS ter√° a c√≥pia do focalinux. <tt>tag_modulo</tt> 
+define o nome que ser√° usado como identificador nas opera√ß√µes com os 
 arquivos do CVS (pode ser usado "focalinux" em nosso exemplo). 
-O par‚metro "start" diz para criar o mÛdulo.
+O par√¢metro "start" diz para criar o m√≥dulo.
 
 <![ %OBS [
  <p>
-<strong>OBS: </strong> Por seguranÁa, o diretÛrio que contÈm os 
-arquivos dever· ser sempre um caminho relativo na estrutura de 
-diretÛrios, ou seja, vocÍ precisar· entrar no diretÛrio pai 
+<strong>OBS: </strong> Por seguran√ßa, o diret√≥rio que cont√©m os 
+arquivos dever√° ser sempre um caminho relativo na estrutura de 
+diret√≥rios, ou seja, voc√™ precisar√° entrar no diret√≥rio pai 
 (como <file>/usr/src/projeto</file>) para executar o <tt>cvs import</tt>. 
-N„o È permitido usar <tt>/</tt> ou <tt>..</tt>, isto proÌbe a 
-descida em diretÛrios de nÌvel mais altos e sÈrios incidentes 
-de seguranÁa em servidores CVS mal configurados pelo 
+N√£o √© permitido usar <tt>/</tt> ou <tt>..</tt>, isto pro√≠be a 
+descida em diret√≥rios de n√≠vel mais altos e s√©rios incidentes 
+de seguran√ßa em servidores CVS mal configurados pelo 
 Administrador. ]]>
 
 
-<sect1 id="s-cvs-p-update">Sincronizando a cÛpia remota com a cÛpia local
+<sect1 id="s-cvs-p-update">Sincronizando a c√≥pia remota com a c√≥pia local
  <p>
-Este comando sincroniza a cÛpia remota do CVS (ou arquivo) com a cÛpia local 
-que est· trabalhando em sua m·quina. 
-Quando se trabalha nativamente no CVS em equipe È recomendado a utilizaÁ„o deste 
-comando pois alguÈm pode ter modificado o arquivo antes de vocÍ, ent„o uma 
-incompatibilidade entre sua vers„o e a nova poderia causar problemas.
+Este comando sincroniza a c√≥pia remota do CVS (ou arquivo) com a c√≥pia local 
+que est√° trabalhando em sua m√°quina. 
+Quando se trabalha nativamente no CVS em equipe √© recomendado a utiliza√ß√£o deste 
+comando pois algu√©m pode ter modificado o arquivo antes de voc√™, ent√£o uma 
+incompatibilidade entre sua vers√£o e a nova poderia causar problemas.
  <p>
-Supondo que tenha acabado de modificar o arquivo <file>main.c</file> do mÛdulo
-<file>cvsproj</file>, ent„o antes de fazer o commit (<ref id="s-cvs-p-commit">) 
+Supondo que tenha acabado de modificar o arquivo <file>main.c</file> do m√≥dulo
+<file>cvsproj</file>, ent√£o antes de fazer o commit (<ref id="s-cvs-p-commit">) 
 use o update:
 <example>
 cvs update main.c
@@ -206,18 +206,18 @@ ou
 cvs -d :ext:usuario@servidor.com.br:2401/var/lib/cvs update main.c
 
 </example>
-ApÛs alguns segundos, sua cÛpia local ficar· sincronizada com a cÛpia remota. 
-Caso ele mostre alguma mensagem de saÌda, verifique o arquivo para solucionar 
-qualquer conflito e ent„o envie o arquivo para o servidor remoto 
+Ap√≥s alguns segundos, sua c√≥pia local ficar√° sincronizada com a c√≥pia remota. 
+Caso ele mostre alguma mensagem de sa√≠da, verifique o arquivo para solucionar 
+qualquer conflito e ent√£o envie o arquivo para o servidor remoto 
 (<ref id="s-cvs-p-commit">).
  <p>
-VocÍ pode fazer o update de mais arquivos usando referÍncias globais 
+Voc√™ pode fazer o update de mais arquivos usando refer√™ncias globais 
 (<tt>*</tt>, <tt>?</tt> ou <tt>[]</tt>).
 
 
-<sect1 id="s-cvs-p-commit">Enviando as mudanÁas para o servidor remoto
+<sect1 id="s-cvs-p-commit">Enviando as mudan√ßas para o servidor remoto
  <p>
-O comando "commit" (ou "ci"), envia as mudanÁas feitas nos arquivos locais
+O comando "commit" (ou "ci"), envia as mudan√ßas feitas nos arquivos locais
 para o servidor remoto. Um exemplo de commit no arquivo <file>main.c</file>:
 <example>
 cvs commit main.c
@@ -226,25 +226,25 @@ cvs commit main.?
 
 cvs commit *
 </example>
-O editor padr„o do sistema ser· aberto e pedir· uma descriÁ„o das modificaÁıes para 
-o commit. Esta descriÁ„o ser· usada como referÍncia sobre as atualizaÁıes feitas em 
-cada etapa do desenvolvimento. A mensagem tambÈm pode ser especificada usando a 
-opÁ„o "-m mensagem", principalmente quando o texto explicando as alteraÁıes È 
+O editor padr√£o do sistema ser√° aberto e pedir√° uma descri√ß√£o das modifica√ß√µes para 
+o commit. Esta descri√ß√£o ser√° usada como refer√™ncia sobre as atualiza√ß√µes feitas em 
+cada etapa do desenvolvimento. A mensagem tamb√©m pode ser especificada usando a 
+op√ß√£o "-m mensagem", principalmente quando o texto explicando as altera√ß√µes √© 
 pequeno.
  <p>
-Para mudar o editor de texto padr„o que ser· usado pelo <prgn>cvs</prgn>, 
-altere a vari·vel de ambiente <var>EDITOR</var> ou especifique o editor 
-que deseja usar na linha de comando com a opÁ„o "-e editor":
+Para mudar o editor de texto padr√£o que ser√° usado pelo <prgn>cvs</prgn>, 
+altere a vari√°vel de ambiente <var>EDITOR</var> ou especifique o editor 
+que deseja usar na linha de comando com a op√ß√£o "-e editor":
 <example>
 cvs commit -e vi main.c
 
 </example>
 
 
-<sect1 id="s-cvs-p-add">Adicionando um arquivo ao mÛdulo CVS do servidor
+<sect1 id="s-cvs-p-add">Adicionando um arquivo ao m√≥dulo CVS do servidor
  <p>
-ApÛs criar/copiar o arquivo para seu diretÛrio de trabalho, use o comando 
-<tt>add</tt> para fazer isto. O arquivo ser· enviado ao servidor, bastando 
+Ap√≥s criar/copiar o arquivo para seu diret√≥rio de trabalho, use o comando 
+<tt>add</tt> para fazer isto. O arquivo ser√° enviado ao servidor, bastando 
 apenas executa o <tt>commit</tt> para salvar o arquivo:
 <example>
 cvs add main.h
@@ -253,14 +253,14 @@ cvs commit main.h
 </example>
 
 
-<sect1 id="s-cvs-p-add-dir">Adicionando um diretÛrio ao mÛdulo CVS do servidor
+<sect1 id="s-cvs-p-add-dir">Adicionando um diret√≥rio ao m√≥dulo CVS do servidor
  <p>
-O mÈtodo para adicionar um diretÛrio com arquivos È semelhante ao de adicionar 
-apenas arquivos ao cvs. O ˙nico ponto que deve se seguido È que primeiro 
-deve ser adicionado o diretÛrio (com o "cvs add") salvar no servidor 
+O m√©todo para adicionar um diret√≥rio com arquivos √© semelhante ao de adicionar 
+apenas arquivos ao cvs. O √∫nico ponto que deve se seguido √© que primeiro 
+deve ser adicionado o diret√≥rio (com o "cvs add") salvar no servidor 
 remoto ("cvs commit") e depois adicionar os arquivos existentes dentro
 dele (assim como descrito em <ref id="s-cvs-p-add">). Para adicionar o 
-diretÛrio <file>teste</file> e seus arquivos no servidor <prgn>cvs</prgn>
+diret√≥rio <file>teste</file> e seus arquivos no servidor <prgn>cvs</prgn>
 remoto:
 <example>
 cvs add teste
@@ -270,16 +270,16 @@ cd teste
 cvs commit -m "Adicionados" .
 
 </example>
-Os dois primeiros comandos agendam o diretÛrio <file>teste</file> e fazem o 
-<tt>commit</tt> no diretÛrio remoto. Os dois ˙ltimos, enviam os arquivos 
-existentes dentro deste diretÛrio para o servidor remoto.
+Os dois primeiros comandos agendam o diret√≥rio <file>teste</file> e fazem o 
+<tt>commit</tt> no diret√≥rio remoto. Os dois √∫ltimos, enviam os arquivos 
+existentes dentro deste diret√≥rio para o servidor remoto.
 
 
-<sect1 id="s-cvs-p-remove">Removendo um arquivo do mÛdulo CVS remoto
+<sect1 id="s-cvs-p-remove">Removendo um arquivo do m√≥dulo CVS remoto
  <p>
-O comando para fazer isto È o "remove". Primeiro use o <prgn>rm</prgn> para 
-remover o arquivo/diretÛrio de sua cÛpia local, depois execute o 
-<tt>remove</tt> seguido de commit para confirmar a remoÁ„o do arquivo:
+O comando para fazer isto √© o "remove". Primeiro use o <prgn>rm</prgn> para 
+remover o arquivo/diret√≥rio de sua c√≥pia local, depois execute o 
+<tt>remove</tt> seguido de commit para confirmar a remo√ß√£o do arquivo:
 <example>
 cvs remove main.h
 cvs commit main.h
@@ -287,15 +287,15 @@ cvs commit main.h
 </example>
 
 
-<sect1 id="s-cvs-p-removed">Removendo um diretÛrio do mÛdulo CVS remoto
+<sect1 id="s-cvs-p-removed">Removendo um diret√≥rio do m√≥dulo CVS remoto
  <p>
-Para remover um diretÛrio, primeiro remova todos os arquivos existentes
+Para remover um diret√≥rio, primeiro remova todos os arquivos existentes
 dentro dele com o comando <prgn>rm</prgn> e salve para o servidor 
-(seguindo os mÈtodos descritos em <ref id="s-cvs-p-remove">). O CVS 
-n„o remove diretamente diretÛrios vazios, uma maneira de contornar 
-isto È usar o <tt>update</tt> ou <tt>commit</tt> seguido da opÁ„o 
-<tt>-P</tt> para ignorar diretÛrios vazios. Ent„o a cÛpia remota do diretÛrio
-ser· removida do servidor:
+(seguindo os m√©todos descritos em <ref id="s-cvs-p-remove">). O CVS 
+n√£o remove diretamente diret√≥rios vazios, uma maneira de contornar 
+isto √© usar o <tt>update</tt> ou <tt>commit</tt> seguido da op√ß√£o 
+<tt>-P</tt> para ignorar diret√≥rios vazios. Ent√£o a c√≥pia remota do diret√≥rio
+ser√° removida do servidor:
 <example>
 rm -f teste/*
 cvs remove teste/.
@@ -304,17 +304,17 @@ cd ..
 cvs checkout modulo
 
 </example>
-Depois do checkout, o subdiretÛrio teste ter· sido removido.
+Depois do checkout, o subdiret√≥rio teste ter√° sido removido.
 
 
 
-<sect1 id="s-cvs-p-release">Dizendo que o mÛdulo atual n„o est· mais em uso
+<sect1 id="s-cvs-p-release">Dizendo que o m√≥dulo atual n√£o est√° mais em uso
  <p>
-O comando "release" faz esta funÁ„o. Ele n„o È requerido, mas caso vocÍ tenha 
-feito modificaÁıes que ainda n„o foram salvas no servidor de cvs (<tt>commit</tt>), 
-ele alertar· de arquivos modificados e perguntar· se deseja continuar. Registrando
-tambÈm o abandono das modificaÁıes no histÛrico do <prgn>cvs</prgn>. O comando
-pode ser acompanhado de "-d" para remover o mÛdulo anteriormente baixado com o 
+O comando "release" faz esta fun√ß√£o. Ele n√£o √© requerido, mas caso voc√™ tenha 
+feito modifica√ß√µes que ainda n√£o foram salvas no servidor de cvs (<tt>commit</tt>), 
+ele alertar√° de arquivos modificados e perguntar√° se deseja continuar. Registrando
+tamb√©m o abandono das modifica√ß√µes no hist√≥rico do <prgn>cvs</prgn>. O comando
+pode ser acompanhado de "-d" para remover o m√≥dulo anteriormente baixado com o 
 "commit":
 <example>
 cvs release modulo
@@ -322,64 +322,64 @@ cvs release modulo
 cvs release -d modulo
 
 </example>
-O <tt>release</tt> retorna os seguintes cÛdigos quando verifica que as duas 
-cÛpias (local e remota) n„o est„o sincronizadas:
+O <tt>release</tt> retorna os seguintes c√≥digos quando verifica que as duas 
+c√≥pias (local e remota) n√£o est√£o sincronizadas:
 <taglist compact>
  <tag>U ou P</tag>
   <item>
-Existe uma vers„o nova do arquivo no repositÛrio. Para corrigir isso, execute
+Existe uma vers√£o nova do arquivo no reposit√≥rio. Para corrigir isso, execute
 o comando "update". 
 
  <tag>A</tag>
   <item>
-O arquivo n„o foi adicionado ainda ao repositÛrio remoto. Se apagar o 
-repositÛrio local, este arquivo n„o ser· adicionado. Para corrigir isto, 
+O arquivo n√£o foi adicionado ainda ao reposit√≥rio remoto. Se apagar o 
+reposit√≥rio local, este arquivo n√£o ser√° adicionado. Para corrigir isto, 
 executa o comando "add" do cvs. 
 
  <tag>R</tag>
   <item>
-O arquivo foi removido localmente, mas n„o foi removido do servidor remoto.
-Use os procedimentos em <ref id="s-cvs-p-remove"> para corrigir a situaÁ„o.
+O arquivo foi removido localmente, mas n√£o foi removido do servidor remoto.
+Use os procedimentos em <ref id="s-cvs-p-remove"> para corrigir a situa√ß√£o.
 
 
  <tag>M</tag>
   <item>
-O arquivo est· modificado localmente e n„o foi salvo ainda no servidor. 
+O arquivo est√° modificado localmente e n√£o foi salvo ainda no servidor. 
 Use os procedimentos em <ref id="s-cvs-p-update"> e <ref id="s-cvs-p-commit">
 para salvar o arquivo.
 
  <tag>?</tag>
   <item>
-O arquivo est· em seu diretÛrio de trabalho mas n„o tem referÍncias no 
-repositÛrio remoto e tambÈm n„o est· na lista de arquivos ignorados do 
+O arquivo est√° em seu diret√≥rio de trabalho mas n√£o tem refer√™ncias no 
+reposit√≥rio remoto e tamb√©m n√£o est√° na lista de arquivos ignorados do 
 CVS. 
 
 </taglist>
 
 
-<sect1 id="s-cvs-p-diff">Visualizando diferenÁas entre versıes de um arquivo
+<sect1 id="s-cvs-p-diff">Visualizando diferen√ßas entre vers√µes de um arquivo
  <p>
-Com o comando "diff" È possÌvel visualizar que diferenÁas o arquivo que 
-est· sendo editado possui em relaÁ„o ao arquivo do repositÛrio remoto. 
-Outra funcionalidade ˙til do "diff" È comparar 2 versıes de arquivos do mesmo 
-repositÛrio CVS. Exemplos:
+Com o comando "diff" √© poss√≠vel visualizar que diferen√ßas o arquivo que 
+est√° sendo editado possui em rela√ß√£o ao arquivo do reposit√≥rio remoto. 
+Outra funcionalidade √∫til do "diff" √© comparar 2 vers√µes de arquivos do mesmo 
+reposit√≥rio CVS. Exemplos:
 <taglist compact>
  <tag>cvs diff main.c</tag>
   <item>
- Verifica as diferenÁas entre o arquivo <file>main.c</file> local e remoto.
+ Verifica as diferen√ßas entre o arquivo <file>main.c</file> local e remoto.
 
  <tag>cvs diff -u -r 1.1 -r 1.2 main.c</tag>
   <item>
-Mostra as diferenÁas em formato unificado para mostrar as diferenÁas entre as 
-versıes 1.1 e 1.2 do arquivo <file>main.c</file>.
+Mostra as diferen√ßas em formato unificado para mostrar as diferen√ßas entre as 
+vers√µes 1.1 e 1.2 do arquivo <file>main.c</file>.
 </taglist>
 
 
-<sect1 id="s-cvs-p-status">Visualizando o status de vers„o de arquivos 
+<sect1 id="s-cvs-p-status">Visualizando o status de vers√£o de arquivos 
  <p>
-O comando "status" permite verificar que versıes do arquivo especificado
-est· disponÌvel localmente, remotamente, qual a vers„o inicial do 
-arquivo no repositÛrio, sticky tag. Exemplos:
+O comando "status" permite verificar que vers√µes do arquivo especificado
+est√° dispon√≠vel localmente, remotamente, qual a vers√£o inicial do 
+arquivo no reposit√≥rio, sticky tag. Exemplos:
 <taglist compact>
  <tag>cvs status main.c</tag>
   <item>
@@ -388,17 +388,17 @@ arquivo no repositÛrio, sticky tag. Exemplos:
  <tag>cvs status -v main.c</tag>
   <item>
  Mostra o status do arquivo <file>main.c</file>, 
- adicionalmente mostra tambÈm as tags existentes no arquivo 
- (vers„o inicial, vers„o do repositÛrio).
+ adicionalmente mostra tamb√©m as tags existentes no arquivo 
+ (vers√£o inicial, vers√£o do reposit√≥rio).
 </taglist>
 
 
-<sect1 id="s-cvs-p-utils">Outros utilit·rios para trabalho no repositÛrio
+<sect1 id="s-cvs-p-utils">Outros utilit√°rios para trabalho no reposit√≥rio
  <p>
-AlÈm dos comandos do <prgn>cvs</prgn> descritos aqui, existem comandos 
-no pacote <package>cvsutils</package> que auxiliam desde quem est· 
+Al√©m dos comandos do <prgn>cvs</prgn> descritos aqui, existem comandos 
+no pacote <package>cvsutils</package> que auxiliam desde quem est√° 
 aprendendo a utilizar o CVS (com o comando <prgn>cvsdo</prgn> para 
-simular algumas operaÁıes de adiÁ„o/remoÁ„o de arquivos) atÈ profissionais
+simular algumas opera√ß√µes de adi√ß√£o/remo√ß√£o de arquivos) at√© profissionais
 que usam o programa no dia a dia (<prgn>cvsu</prgn>, <prgn>cvsco</prgn>, 
 <prgn>cvschroot</prgn>). 
 

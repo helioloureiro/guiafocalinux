@@ -1,97 +1,97 @@
 <sect id="s-ssh-cliente">Usando aplicativos clientes
  <p>
-Esta seÁ„o explicar· o uso dos utilit·rios <prgn>ssh</prgn>, <prgn>scp</prgn> e 
+Esta se√ß√£o explicar√° o uso dos utilit√°rios <prgn>ssh</prgn>, <prgn>scp</prgn> e 
 <prgn>sftp</prgn>. 
 
 
 <sect1 id="s-ssh-cliente-ssh">ssh
  <p>
-Esta È a ferramenta usada para seÁıes de console remotos. O arquivo de 
-configuraÁ„o de usu·rios È <file>~/.ssh/config</file> e o arquivo 
+Esta √© a ferramenta usada para se√ß√µes de console remotos. O arquivo de 
+configura√ß√£o de usu√°rios √© <file>~/.ssh/config</file> e o arquivo 
 global <file>/etc/ssh/ssh_config</file>. Para conectar a um servidor ssh remoto: 
 <example>
 ssh usuario@ip/nome_do_servidor_ssh
 
 </example>
-Caso o nome do usu·rio seja omitido, seu login atual do sistema ser· usado.
-O uso da opÁ„o <em>-C</em> È recomendado para ativar o modo de compactaÁ„o dos 
-dados (˙til em conexıes lentas). A opÁ„o <em>-l usu·rio</em> pode ser usada para 
-alterar a identificaÁ„o de usu·rio (quando n„o È usada, o login local È usado como 
-nome de usu·rio remoto). Uma porta alternativa pode ser especificada usando a 
-opÁ„o <em>-p porta</em> (a 22 È usada por padr„o). 
+Caso o nome do usu√°rio seja omitido, seu login atual do sistema ser√° usado.
+O uso da op√ß√£o <em>-C</em> √© recomendado para ativar o modo de compacta√ß√£o dos 
+dados (√∫til em conex√µes lentas). A op√ß√£o <em>-l usu√°rio</em> pode ser usada para 
+alterar a identifica√ß√£o de usu√°rio (quando n√£o √© usada, o login local √© usado como 
+nome de usu√°rio remoto). Uma porta alternativa pode ser especificada usando a 
+op√ß√£o <em>-p porta</em> (a 22 √© usada por padr√£o). 
  <p>
-Na primeira conex„o, a chave p˙blica do servidor remoto ser· gravada em 
+Na primeira conex√£o, a chave p√∫blica do servidor remoto ser√° gravada em 
 <file>~/.ssh/know_hosts</file> ou <file>~/.ssh/know_hosts2</file> (dependendo 
-da vers„o do servidor <prgn>ssh</prgn> remoto, veja 
-<ref id="s-ssh-server-protodiff">), e verificada a cada conex„o como 
-checagem de seguranÁa para se certificar que o servidor n„o foi alvo de 
-qualquer ataque ou modificaÁ„o n„o autorizada das chaves. Por padr„o, o 
-cliente utilizar· o protocolo ssh vers„o 1, a opÁ„o <em>-2</em> permite usar 
-o protocolo vers„o 2. 
+da vers√£o do servidor <prgn>ssh</prgn> remoto, veja 
+<ref id="s-ssh-server-protodiff">), e verificada a cada conex√£o como 
+checagem de seguran√ßa para se certificar que o servidor n√£o foi alvo de 
+qualquer ataque ou modifica√ß√£o n√£o autorizada das chaves. Por padr√£o, o 
+cliente utilizar√° o protocolo ssh vers√£o 1, a op√ß√£o <em>-2</em> permite usar 
+o protocolo vers√£o 2. 
  <p>
-Vari·veis de ambiente personalizadas para o <prgn>ssh</prgn> poder„o ser definidas 
-no arquivo <file>~/.ssh/environment</file>. Comandos que ser„o executados somente 
-na conex„o ssh em <file>~/.ssh/rc</file> e <file>/etc/ssh/sshrc</file> caso 
-contr·rio ser· executado o <prgn>xauth</prgn> por padr„o. 
+Vari√°veis de ambiente personalizadas para o <prgn>ssh</prgn> poder√£o ser definidas 
+no arquivo <file>~/.ssh/environment</file>. Comandos que ser√£o executados somente 
+na conex√£o ssh em <file>~/.ssh/rc</file> e <file>/etc/ssh/sshrc</file> caso 
+contr√°rio ser√° executado o <prgn>xauth</prgn> por padr√£o. 
 <![ %OBS [
  <p>
-<strong>OBS: </strong> Para utilizar autenticaÁ„o Rhosts/Rhosts+RSA (arquivos 
+<strong>OBS: </strong> Para utilizar autentica√ß√£o Rhosts/Rhosts+RSA (arquivos 
 <file>~/.rhosts</file>/<file>~/.shosts</file>) o programa <prgn>ssh</prgn> 
-dever· ter permissıes SUID root e conectar· usando 
+dever√° ter permiss√µes SUID root e conectar√° usando 
 portas baixas (menores que 1024). ]]>
 
 <example>
 Exemplos:
-# Conecta-se ao servidor remoto usando o login do usu·rio atual
+# Conecta-se ao servidor remoto usando o login do usu√°rio atual
 ssh ftp.sshserver.org
 
-# Conecta-se ao servidor remoto usando o login john (via ssh vers„o 2)
+# Conecta-se ao servidor remoto usando o login john (via ssh vers√£o 2)
 ssh -2 ftp.sshserver.org -l john
 
-# Conecta-se ao servidor remoto usando compactaÁ„o e o login john
+# Conecta-se ao servidor remoto usando compacta√ß√£o e o login john
 ssh ftp.sshserver.org -C -l john
 
 # Semelhante ao exemplo acima, usando o formato "login@ip"
 ssh john@ftp.sshserver.org -C
 
-# Conecta-se ao servidor remoto usando compactaÁ„o, o login john, 
-# ativa o redirecionamento do agente de autenticaÁ„o (-A) e redirecionamento 
-# de conexıes X11 (-X). Veja a prÛxima seÁ„o para entender como o 
-# suporte a redirecionamento de conexıes do X funciona. 
+# Conecta-se ao servidor remoto usando compacta√ß√£o, o login john, 
+# ativa o redirecionamento do agente de autentica√ß√£o (-A) e redirecionamento 
+# de conex√µes X11 (-X). Veja a pr√≥xima se√ß√£o para entender como o 
+# suporte a redirecionamento de conex√µes do X funciona. 
 ssh ftp.sshserver.org -C -A -X -l john
 
 </example>
 
 
-<sect2 id="s-ssh-cliente-ssh-Xforward">Redirecionamento de conexıes do X
+<sect2 id="s-ssh-cliente-ssh-Xforward">Redirecionamento de conex√µes do X
  <p>
-O redirecionamento de conexıes do X Window poder· ser habilitado em 
+O redirecionamento de conex√µes do X Window poder√° ser habilitado em 
 <file>~/.ssh/config</file> ou <file>/etc/ssh/ssh_config</file> ou 
-usando as opÁıes <em>-A -X</em> na linha de comando do <prgn>ssh</prgn> 
-(as opÁıes <em>-a</em> e <em>-x</em> desativam as opÁıes acima 
-respectivamente). Uma vari·vel <var>$DISPLAY</var> È criada 
+usando as op√ß√µes <em>-A -X</em> na linha de comando do <prgn>ssh</prgn> 
+(as op√ß√µes <em>-a</em> e <em>-x</em> desativam as op√ß√µes acima 
+respectivamente). Uma vari√°vel <var>$DISPLAY</var> √© criada 
 automaticamente para fazer o redirecionamento ao servidor X local. 
  <p>
-Ao executar um aplicativo remoto, a conex„o È redirecionada a um 
-DISPLAY proxy criado pelo ssh (a partir de <tt>:10</tt>, por padr„o) que 
-faz a conex„o com o display real do X (:0), ou seja, ele pular· os mÈtodos 
-de autenticaÁ„o <prgn>xhost</prgn> e cookies. 
-Por medidas de seguranÁa È recomend·vel habilitar o redirecionamento 
-individualmente somente se vocÍ confia no administrador do sistema remoto. 
+Ao executar um aplicativo remoto, a conex√£o √© redirecionada a um 
+DISPLAY proxy criado pelo ssh (a partir de <tt>:10</tt>, por padr√£o) que 
+faz a conex√£o com o display real do X (:0), ou seja, ele pular√° os m√©todos 
+de autentica√ß√£o <prgn>xhost</prgn> e cookies. 
+Por medidas de seguran√ßa √© recomend√°vel habilitar o redirecionamento 
+individualmente somente se voc√™ confia no administrador do sistema remoto. 
  <p>
 <example>
-# Exemplo de configuraÁ„o do ssh_config
+# Exemplo de configura√ß√£o do ssh_config
 
-# Permite Redirecionamento de conexıes para o prÛprio computador (nomes de 
-# m·quinas podem ser especificadas). 
+# Permite Redirecionamento de conex√µes para o pr√≥prio computador (nomes de 
+# m√°quinas podem ser especificadas). 
 Host 127.0.0.1
     ForwardAgent yes
     ForwardX11 yes
 
-# OpÁıes especÌficas do cliente para conexıes realizadas a 192.168.1.4 usando 
+# Op√ß√µes espec√≠ficas do cliente para conex√µes realizadas a 192.168.1.4 usando 
 # somente o protocolo 2
 Host 192.168.1.4
-   # As 2 linhas abaixo ativam o redirecionamento de conexıes do X
+   # As 2 linhas abaixo ativam o redirecionamento de conex√µes do X
    ForwardAgent yes
    ForwardX11 yes
    PasswordAuthentication yes
@@ -99,10 +99,10 @@ Host 192.168.1.4
    Protocol 2
    Cipher blowfish
 
-# OpÁıes especÌficas do cliente para conexıes realizadas a 192.168.1.5 usando 
+# Op√ß√µes espec√≠ficas do cliente para conex√µes realizadas a 192.168.1.5 usando 
 # somente o protocolo 1
 Host 192.168.1.5
-   # As 2 linhas abaixo desativam o redirecionamento de conexıes do X
+   # As 2 linhas abaixo desativam o redirecionamento de conex√µes do X
    ForwardAgent no
    ForwardX11 no
    PasswordAuthentication yes
@@ -129,61 +129,61 @@ Host 192.168.1.5
 
 <sect2 id="s-ssh-cliente-ssh-win">Cliente ssh para Windows
  <p>
-O <prgn>putty</prgn> È um cliente ssh Win32 que possui suporte 
-aos protocolos vers„o 1 e 2 do ssh, aceita compactaÁ„o alÈm de 
-funcionar tambÈm como cliente <prgn>telnet</prgn>. Seu tamanho È 
-pequeno, apenas um execut·vel e requer 220KB de espaÁo em disco. 
+O <prgn>putty</prgn> √© um cliente ssh Win32 que possui suporte 
+aos protocolos vers√£o 1 e 2 do ssh, aceita compacta√ß√£o al√©m de 
+funcionar tamb√©m como cliente <prgn>telnet</prgn>. Seu tamanho √© 
+pequeno, apenas um execut√°vel e requer 220KB de espa√ßo em disco. 
 Ele pode ser baixado de 
 <url id="&url-putty-www;">. 
  <p>
-Outra alternativa È o <prgn>MindTerm</prgn>, este È baseado em 
-Java e pode inclusive ser executado como um applet em uma p·gina 
-web. Este programa È encontrado em <url id="&url-mindterm-www;">.
+Outra alternativa √© o <prgn>MindTerm</prgn>, este √© baseado em 
+Java e pode inclusive ser executado como um applet em uma p√°gina 
+web. Este programa √© encontrado em <url id="&url-mindterm-www;">.
 
 
 <sect1 id="s-ssh-cliente-scp">scp
  <p>
-Permite a cÛpia de arquivos entre o cliente/servidor ssh. A sintaxe usada por 
-este comando È a seguinte: 
+Permite a c√≥pia de arquivos entre o cliente/servidor ssh. A sintaxe usada por 
+este comando √© a seguinte: 
  <p>
 <tt>scp [<em>origem</em>] [<em>destino</em>]</tt>
  <p>
-Os par‚metros de <em>origem</em> e <em>destino</em> s„o semelhantes ao do 
-comando <prgn>cp</prgn> mas possui um formato especial quando È especificado 
-uma m·quina remota: 
+Os par√¢metros de <em>origem</em> e <em>destino</em> s√£o semelhantes ao do 
+comando <prgn>cp</prgn> mas possui um formato especial quando √© especificado 
+uma m√°quina remota: 
 <list compact>
  <item>
-<tt>Um caminho padr„o</tt> - Quando for especificado um arquivo local. Por 
+<tt>Um caminho padr√£o</tt> - Quando for especificado um arquivo local. Por 
 exemplo: <file>/usr/src/arquivo.tar.gz</file>. 
 
  <item>
-<tt>usuario@host_remoto:/diretÛrio/arquivo</tt> - Quando desejar copiar o 
-arquivo de/para um servidor remoto usando sua conta de usu·rio. 
+<tt>usuario@host_remoto:/diret√≥rio/arquivo</tt> - Quando desejar copiar o 
+arquivo de/para um servidor remoto usando sua conta de usu√°rio. 
 Por exemplo: <tt>gleydson@ftp.debian.org:~/arqs</tt>. 
 
 </list>
-A opÁ„o <em>-C</em> È recomend·vel para aumentar a taxa de transferÍncia de dados
-usando compactaÁ„o. Caso a porta remota do servidor <prgn>sshd</prgn> seja diferente 
-de 22, a opÁ„o <em>-P porta</em> dever· ser especificada (È "P" mai˙scula mesmo, 
-pois a <em>-p</em> È usada para preservar permissıes/data/horas dos arquivos 
+A op√ß√£o <em>-C</em> √© recomend√°vel para aumentar a taxa de transfer√™ncia de dados
+usando compacta√ß√£o. Caso a porta remota do servidor <prgn>sshd</prgn> seja diferente 
+de 22, a op√ß√£o <em>-P porta</em> dever√° ser especificada (√© "P" mai√∫scula mesmo, 
+pois a <em>-p</em> √© usada para preservar permiss√µes/data/horas dos arquivos 
 transferidos). 
 <example>
 Exemplos:
 # Para copiar um arquivo local chamado /pub/teste/script.sh para 
-# meu diretÛrio pessoal em ftp.sshserver.org
+# meu diret√≥rio pessoal em ftp.sshserver.org
 scp -C /pub/teste/script.sh gleydson@ftp.sshserver.org:~/
 
-# Para fazer a operaÁ„o inversa a acima (copiando do servidor remoto para o local) 
-# È sÛ inverter os par‚metros origem/destino: 
+# Para fazer a opera√ß√£o inversa a acima (copiando do servidor remoto para o local) 
+# √© s√≥ inverter os par√¢metros origem/destino: 
 scp -C gleydson@ftp.sshserver.org:~/script.sh /pub/teste
 
 # Para copiar o arquivo local chamado /pub/teste/script.sh para 
-# o diretÛrio /scripts dentro do meu diretÛrio pessoal em ftp.sshserver.org 
+# o diret√≥rio /scripts dentro do meu diret√≥rio pessoal em ftp.sshserver.org 
 # com o nome teste.sh
 scp -C /pub/teste/script.sh gleydson@ftp.sshserver.org:~/scripts/teste.sh
 
-# O exemplo abaixo faz a transferÍncia de arquivos entre 2 computadores remotos: 
-# O arquivo teste.sh È lido do servidor server1.ssh.org e copiado para 
+# O exemplo abaixo faz a transfer√™ncia de arquivos entre 2 computadores remotos: 
+# O arquivo teste.sh √© lido do servidor server1.ssh.org e copiado para 
 # server2.ssh.org (ambos usando o login gleydson)
 scp -C gleydson@server1.ssh.org:~/teste.sh gleydson@server2.ssh.org:~/
 
@@ -199,16 +199,16 @@ windows, e pode ser baixado de
 
 <sect1 id="s-ssh-cliente-sftp">sftp
  <p>
-Permite realizar transferÍncia de arquivos seguras atravÈs do protocolo 
-ssh. A conex„o e transferÍncias s„o realizadas atravÈs da porta 22 (ainda 
-n„o È possÌvel modificar a porta padr„o). A sintaxe 
-para uso deste comando È a seguinte: 
+Permite realizar transfer√™ncia de arquivos seguras atrav√©s do protocolo 
+ssh. A conex√£o e transfer√™ncias s√£o realizadas atrav√©s da porta 22 (ainda 
+n√£o √© poss√≠vel modificar a porta padr√£o). A sintaxe 
+para uso deste comando √© a seguinte: 
  <p>
 <tt>sftp usuario@host_remoto</tt>
  <p>
-CompactaÁ„o pode ser especificada atravÈs da opÁ„o <em>-C</em>. Um 
-arquivo contendo os comandos usados na seÁ„o <prgn>sftp</prgn> poder· se 
-especificado atravÈs da opÁ„o <em>-b arquivo</em> para automatizar tarefas. 
+Compacta√ß√£o pode ser especificada atrav√©s da op√ß√£o <em>-C</em>. Um 
+arquivo contendo os comandos usados na se√ß√£o <prgn>sftp</prgn> poder√° se 
+especificado atrav√©s da op√ß√£o <em>-b arquivo</em> para automatizar tarefas. 
 <![ %OBS [
  <p>
 <strong>OBS1:</strong> Para desativar o servidor <prgn>sftp</prgn>, remova a linha 
@@ -217,11 +217,11 @@ ftp) do arquivo <file>/etc/ssh/sshd_config</file> e reinicie o servidor
 <prgn>sshd</prgn>. 
  <p>
 <strong>OBS2:</strong> O suporte ao programa <prgn>sftp</prgn> somente 
-est· disponÌvel ao protocolo ssh vers„o 2 e superiores.
+est√° dispon√≠vel ao protocolo ssh vers√£o 2 e superiores.
  <p>
-<strong>OBS3:</strong> Algumas opÁıes comuns do cliente <prgn>ftp</prgn> padr„o 
-(como <em>mget</em>) ainda n„o est„o disponÌveis ao <prgn>sftp</prgn>. Veja 
-a p·gina de manual para detalhe sobre as opÁıes disponÌveis. ]]> 
+<strong>OBS3:</strong> Algumas op√ß√µes comuns do cliente <prgn>ftp</prgn> padr√£o 
+(como <em>mget</em>) ainda n√£o est√£o dispon√≠veis ao <prgn>sftp</prgn>. Veja 
+a p√°gina de manual para detalhe sobre as op√ß√µes dispon√≠veis. ]]> 
 
 
 

@@ -1,140 +1,140 @@
 <chapt id="s-apache">Apache
  <p>
-Esta capÌtulo documenta a configuraÁ„o, personalizaÁ„o, introduÁ„o aos 
-mecanismos de autenticaÁ„o e controle de acesso do <prgn>Apache</prgn>, 
-sistema proxy, virtual hosting, e exemplos de configuraÁ„o do 
-servidor <prgn>httpd</prgn>. Ele n„o tem como objetivo ser uma referÍncia 
-completa de configuraÁ„o, mas sim abordar didaticamente o assunto. 
+Esta cap√≠tulo documenta a configura√ß√£o, personaliza√ß√£o, introdu√ß√£o aos 
+mecanismos de autentica√ß√£o e controle de acesso do <prgn>Apache</prgn>, 
+sistema proxy, virtual hosting, e exemplos de configura√ß√£o do 
+servidor <prgn>httpd</prgn>. Ele n√£o tem como objetivo ser uma refer√™ncia 
+completa de configura√ß√£o, mas sim abordar didaticamente o assunto. 
 
 
-<sect id="s-apache-intro">IntroduÁ„o
+<sect id="s-apache-intro">Introdu√ß√£o
  <p>
-O servidor web È um programa respons·vel por disponibilizar p·ginas, fotos, 
-ou qualquer outro tipo de objeto ao navegador do cliente. Ele tambÈm pode 
+O servidor web √© um programa respons√°vel por disponibilizar p√°ginas, fotos, 
+ou qualquer outro tipo de objeto ao navegador do cliente. Ele tamb√©m pode 
 operar recebendo dados do cliente, processando e enviando o resultado 
-para que o cliente possa tomar a aÁ„o desejada (como em aplicaÁıes 
-CGI's, banco de dados web, preenchimento de formul·rios, etc). 
+para que o cliente possa tomar a a√ß√£o desejada (como em aplica√ß√µes 
+CGI's, banco de dados web, preenchimento de formul√°rios, etc). 
  <p>
-O <prgn>Apache</prgn> È um servidor Web extremamente configur·vel, robusto e 
-de alta performance desenvolvido por uma equipe de volunt·rios 
+O <prgn>Apache</prgn> √© um servidor Web extremamente configur√°vel, robusto e 
+de alta performance desenvolvido por uma equipe de volunt√°rios 
 (conhecida como <tt>Apache Group</tt>) buscando criar um servidor web com muitas 
-caracterÌsticas e com cÛdigo fonte disponÌvel gratuitamente via Internet. 
+caracter√≠sticas e com c√≥digo fonte dispon√≠vel gratuitamente via Internet. 
 Segundo a Netcraft (<url id="&url-netcraft-www;">), o 
-<prgn>Apache</prgn> È mais usado que todos os outros servidores web do mundo 
+<prgn>Apache</prgn> √© mais usado que todos os outros servidores web do mundo 
 juntos. 
  <p>
-Este capÌtulo n„o tenta ser um guia completo ao <prgn>Apache</prgn>, mas 
-tentar· mostrar como sua estrutura È organizada, as diretivas principais de 
-configuraÁ„o, diretivas de seguranÁa, virtual hosting, proxy, o uso de 
-utilit·rios de gerenciamento do servidor, como personalizar algumas partes 
-do servidor e programas ˙teis de terceiros para an·lise e diagnÛstico do 
-servidor web. N„o deixe tambÈm de ver <ref id="s-apache-exemplo"> pois 
-contÈm diretivas b·sicas de configuraÁ„o comentadas e explicaÁıes 
+Este cap√≠tulo n√£o tenta ser um guia completo ao <prgn>Apache</prgn>, mas 
+tentar√° mostrar como sua estrutura √© organizada, as diretivas principais de 
+configura√ß√£o, diretivas de seguran√ßa, virtual hosting, proxy, o uso de 
+utilit√°rios de gerenciamento do servidor, como personalizar algumas partes 
+do servidor e programas √∫teis de terceiros para an√°lise e diagn√≥stico do 
+servidor web. N√£o deixe tamb√©m de ver <ref id="s-apache-exemplo"> pois 
+cont√©m diretivas b√°sicas de configura√ß√£o comentadas e explica√ß√µes 
 interessante e faz parte do aprendizado. 
   
 
-<sect1 id="s-apache-versao">Vers„o
+<sect1 id="s-apache-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 1.3.22 do <prgn>apache</prgn>. As explicaÁıes 
-contidas aqui podem funcionar para versıes posteriores, mas È recomend·vel que 
-leia a documentaÁ„o sobre modificaÁıes no programa (changelog) em busca de 
-mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui. 
+√â assumido que esteja usando a vers√£o 1.3.22 do <prgn>apache</prgn>. As explica√ß√µes 
+contidas aqui podem funcionar para vers√µes posteriores, mas √© recomend√°vel que 
+leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) em busca de 
+mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui. 
 
 
-<sect1 id="s-apache-historia">Um resumo da HistÛria do Apache
+<sect1 id="s-apache-historia">Um resumo da Hist√≥ria do Apache
  <p>
 O <prgn>Apache</prgn> tem como base o servidor web <prgn>NCSA 1.3</prgn> 
 (<em>National Center of Supercomputing Applications</em>), que foi 
 desenvolvido por Rob McCool. 
 Quando Rob deixou o NCSA, o desenvolvimento foi interrompido, assim 
-muitos desenvolvedores buscaram personalizar sua prÛpria vers„o do NCSA ou 
-adicionar mais caracterÌsticas para atender as suas necessidades. Neste 
-momento comeÁa a histÛria do <prgn>Apache</prgn> com <em>Brian Behlendorf</em> 
-e <em>Cliff Skolnick</em> abrindo uma lista de discuss„o para interessados 
-no desenvolvimento, conseguindo espaÁo em um servidor doado pela 
+muitos desenvolvedores buscaram personalizar sua pr√≥pria vers√£o do NCSA ou 
+adicionar mais caracter√≠sticas para atender as suas necessidades. Neste 
+momento come√ßa a hist√≥ria do <prgn>Apache</prgn> com <em>Brian Behlendorf</em> 
+e <em>Cliff Skolnick</em> abrindo uma lista de discuss√£o para interessados 
+no desenvolvimento, conseguindo espa√ßo em um servidor doado pela 
 <em>HotWired</em> e trocando patches corrigindo problemas, adicionando 
-recursos e discutindo idÈias com outros desenvolvedores e hackers 
+recursos e discutindo id√©ias com outros desenvolvedores e hackers 
 interessados neste projeto. 
  <p>
-A primeira vers„o oficial do <prgn>Apache</prgn> foi a 0.6.2, lanÁada em 
-Abril de 1995 (neste perÌodo a NCSA retomava o desenvolvimento de seu 
+A primeira vers√£o oficial do <prgn>Apache</prgn> foi a 0.6.2, lan√ßada em 
+Abril de 1995 (neste per√≠odo a NCSA retomava o desenvolvimento de seu 
 servidor web, tendo como desenvolvedores <em>Brandon Long</em> e 
-<em>Beth Frank</em> que tambÈm se tornaram membros especiais do grupo 
-<prgn>Apache</prgn>, compartilhando idÈias sobre seus projetos).
+<em>Beth Frank</em> que tamb√©m se tornaram membros especiais do grupo 
+<prgn>Apache</prgn>, compartilhando id√©ias sobre seus projetos).
  <p>
-Nas versıes 2.x do Apache, a escalabilidade do servidor foi ampliada suportando
-as plataformas <prgn>Win32</prgn> (n„o obtendo o mesmo desempenho que em 
+Nas vers√µes 2.x do Apache, a escalabilidade do servidor foi ampliada suportando
+as plataformas <prgn>Win32</prgn> (n√£o obtendo o mesmo desempenho que em 
 plataformas UNIX mas sendo melhorado gradativamente). 
 
   
-<sect1 id="s-apache-contribuindo">Enviando CorreÁıes/Contribuindo com o projeto
+<sect1 id="s-apache-contribuindo">Enviando Corre√ß√µes/Contribuindo com o projeto
  <p>
-Um formul·rio est· disponÌvel na Web para o envio de correÁıes/sugestıes
+Um formul√°rio est√° dispon√≠vel na Web para o envio de corre√ß√µes/sugest√µes
 em <tt><url id="&url-apache-bug-report;"></tt>. Uma lista de 
-anuncio sobre o <prgn>Apache</prgn> est· disponÌvel em 
-<email>apache-announce@apache.org</email> que divulgam correÁıes, novas 
-versıes e realizaÁ„o de eventos. 
+anuncio sobre o <prgn>Apache</prgn> est√° dispon√≠vel em 
+<email>apache-announce@apache.org</email> que divulgam corre√ß√µes, novas 
+vers√µes e realiza√ß√£o de eventos. 
  <p>
 Mais detalhes sobre o desenvolvimento do Apache podem ser visualizadas na 
 URL <tt><url id="&url-apache-dev;"></tt>.
 
 
-<sect1 id="s-apache-caracteristicas">CaracterÌsticas do Apache
+<sect1 id="s-apache-caracteristicas">Caracter√≠sticas do Apache
  <p>
-Abaixo est„o algumas caracterÌsticas que fazem esse servidor web o preferido entre
+Abaixo est√£o algumas caracter√≠sticas que fazem esse servidor web o preferido entre
 os administradores de sistemas:
 <list compact>
  <item>
 Possui suporte a scripts cgi usando linguagens como <em>Perl, PHP, Shell Script, ASP, etc</em>. 
  <item>
-Suporte a autorizaÁ„o de acesso podendo ser especificadas restriÁıes de 
-acesso separadamente para cada endereÁo/arquivo/diretÛrio acessado no servidor.
+Suporte a autoriza√ß√£o de acesso podendo ser especificadas restri√ß√µes de 
+acesso separadamente para cada endere√ßo/arquivo/diret√≥rio acessado no servidor.
  <item>
-AutenticaÁ„o requerendo um nome de usu·rio e senha v·lidos para acesso a 
-alguma p·gina/sub-diretÛrio/arquivo (suportando criptografia via Crypto e MD5). 
+Autentica√ß√£o requerendo um nome de usu√°rio e senha v√°lidos para acesso a 
+alguma p√°gina/sub-diret√≥rio/arquivo (suportando criptografia via Crypto e MD5). 
  <item>
-NegociaÁ„o de conte˙do, permitindo a exibiÁ„o da p·gina Web no idioma 
+Negocia√ß√£o de conte√∫do, permitindo a exibi√ß√£o da p√°gina Web no idioma 
 requisitado pelo Cliente Navegador. 
  <item>
 Suporte a tipos mime.
  <item>
-PersonalizaÁ„o de logs.
+Personaliza√ß√£o de logs.
  <item>
 Mensagens de erro.
  <item>
-Suporte a virtual hosting (È possÌvel servir 2 ou mais p·ginas com endereÁos/
-portas diferentes atravÈs do mesmo processo ou usar mais de um processo para 
-controlar mais de um endereÁo).
+Suporte a virtual hosting (√© poss√≠vel servir 2 ou mais p√°ginas com endere√ßos/
+portas diferentes atrav√©s do mesmo processo ou usar mais de um processo para 
+controlar mais de um endere√ßo).
  <item>
 Suporte a IP virtual hosting.
  <item>
 Suporte a name virtual hosting.
  <item>
 Suporte a servidor Proxy ftp e http, com limite de acesso, caching (todas 
-flexivelmente configur·veis).
+flexivelmente configur√°veis).
  <item>
-Suporte a proxy e redirecionamentos baseados em URLs para endereÁos Internos.
+Suporte a proxy e redirecionamentos baseados em URLs para endere√ßos Internos.
  <item>
 Suporte a criptografia via SSL,Certificados digitais
  <item>
-MÛdulos DSO (Dynamic Shared Objects) permitem adicionar/remover funcionalidades 
-e recursos sem necessidade de recompilaÁ„o do programa.
+M√≥dulos DSO (Dynamic Shared Objects) permitem adicionar/remover funcionalidades 
+e recursos sem necessidade de recompila√ß√£o do programa.
 </list>
 
 
-<sect1 id="s-apache-ficha">Ficha tÈcnica
+<sect1 id="s-apache-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>apache</package>
  <p>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item>
 <tt>apache</tt> - Servidor Web Principal
  <item>
 <tt>apachectl</tt> - Shell script que faz interface com o <prgn>apache</prgn> 
-de forma mais amig·vel
+de forma mais amig√°vel
  <item>
-<tt>apacheconfig</tt> - Script em Perl para configuraÁ„o interativa b·sica 
+<tt>apacheconfig</tt> - Script em Perl para configura√ß√£o interativa b√°sica 
 do <prgn>Apache</prgn>
  <item>
 <tt>htpasswd</tt> - Cria/Gerencia senhas criptografadas Crypto/MD5
@@ -144,132 +144,132 @@ do <prgn>Apache</prgn>
 <tt>dbmmanage</tt> - Cria/Gerencia senhas em formato DBM (Perl)
  <item>
 <tt>logresolve</tt> - Faz um DNS reverso dos arquivos de log do 
-<prgn>Apache</prgn> para obter o endereÁo de hosts com base nos endereÁos IP's.
+<prgn>Apache</prgn> para obter o endere√ßo de hosts com base nos endere√ßos IP's.
  <item>
 <tt>ab</tt> - Apache Benchmarcking - Ferramenta de medida de desempenho do 
 servidor Web Apache.
 </list>
 
-Por padr„o, os arquivos de configuraÁ„o do <prgn>Apache</prgn> residem no diretÛrio 
+Por padr√£o, os arquivos de configura√ß√£o do <prgn>Apache</prgn> residem no diret√≥rio 
 <file>/etc/apache</file>: 
 <taglist compact>
  <tag>httpd.conf</tag>
  <item>
-Arquivo de configuraÁ„o principal do <prgn>Apache</prgn>, possui diretivas 
-que controlam a operaÁ„o do daemon servidor. Um arquivo de configuraÁ„o
-alternativo pode ser especificado atravÈs da opÁ„o "-f" da linha de 
+Arquivo de configura√ß√£o principal do <prgn>Apache</prgn>, possui diretivas 
+que controlam a opera√ß√£o do daemon servidor. Um arquivo de configura√ß√£o
+alternativo pode ser especificado atrav√©s da op√ß√£o "-f" da linha de 
 comando.
 
  <tag>srm.conf</tag>
  <item>
-ContÈm diretivas que controlam a especificaÁ„o de documentos que o 
-servidor oferece aos clientes. O nome desse arquivo pode ser substituÌdo 
-atravÈs da diretiva ResourceConfig no arquivo principal de configuraÁ„o.
+Cont√©m diretivas que controlam a especifica√ß√£o de documentos que o 
+servidor oferece aos clientes. O nome desse arquivo pode ser substitu√≠do 
+atrav√©s da diretiva ResourceConfig no arquivo principal de configura√ß√£o.
 
  <tag>access.conf</tag>
  <item>
-ContÈm diretivas que controlam o acesso aos documentos. O nome desse 
-arquivo pode ser substituÌdo atravÈs da diretiva <em>AccessConfig</em> 
-no arquivo principal de configuraÁ„o. 
+Cont√©m diretivas que controlam o acesso aos documentos. O nome desse 
+arquivo pode ser substitu√≠do atrav√©s da diretiva <em>AccessConfig</em> 
+no arquivo principal de configura√ß√£o. 
 </taglist>
 
-O servidor Web lÍ os arquivos acima na ordem que est„o especificados 
+O servidor Web l√™ os arquivos acima na ordem que est√£o especificados 
 (<file>httpd.conf</file>, <file>srm.conf</file> e <file>access.conf</file>). 
-As configuraÁıes tambÈm podem ser especificadas diretamente no arquivo 
-<file>httpd.conf</file>. Note que n„o È obrigatÛrio usar os arquivos 
+As configura√ß√µes tamb√©m podem ser especificadas diretamente no arquivo 
+<file>httpd.conf</file>. Note que n√£o √© obrigat√≥rio usar os arquivos 
 <file>srm.conf</file> e <file>access.conf</file>, mas isto proporciona 
-uma melhor organizaÁ„o das diretivas do servidor, principalmente quando 
+uma melhor organiza√ß√£o das diretivas do servidor, principalmente quando 
 se tem um grande conjunto de diretivas. Um exemplo comentado destes 
-trÍs arquivos de configuraÁ„o È encontrado em <ref id="s-apache-exemplo">.
+tr√™s arquivos de configura√ß√£o √© encontrado em <ref id="s-apache-exemplo">.
 
 
 <sect1 id="s-apache-hwreq">Requerimentos
  <p>
-A m·quina mÌnima para se rodar um servidor <prgn>Apache</prgn> para 
-atender a uma rede padr„o 10MB/s È um Pentium 90, 24MB de RAM, um HD 
-com um bom desempenho e espaÁo em disco consider·vel de acordo com o 
+A m√°quina m√≠nima para se rodar um servidor <prgn>Apache</prgn> para 
+atender a uma rede padr√£o 10MB/s √© um Pentium 90, 24MB de RAM, um HD 
+com um bom desempenho e espa√ßo em disco consider√°vel de acordo com o 
 tamanho projetado de seu servidor web (considerando seu crescimento). 
  <p>
-Uma configuraÁ„o mais r·pida para redes 100MB/s teria como 
+Uma configura√ß√£o mais r√°pida para redes 100MB/s teria como 
 processador um Cyrix MX ou Intel Pentium MMX como plataforma 
-mÌnima (Cyrix È o recomendado pelo alto desempenho no 
+m√≠nima (Cyrix √© o recomendado pelo alto desempenho no 
 processamento de strings), barramento de HD SCSI com 
 uma boa placa controladora (Adaptec 19160 ou superior) com 
-64MB de RAM no mÌnimo. 
+64MB de RAM no m√≠nimo. 
 
 
 <sect1 id="s-apache-logs">Arquivos de log criados pelo Apache
  <p>
 O servidor <prgn>httpd</prgn> grava seus arquivos de log geralmente 
-em <file>/var/log/apache</file>, n„o È possÌvel descrever os arquivos 
-de logs usados porque tanto seus nomes como conte˙do podem ser personalizados
+em <file>/var/log/apache</file>, n√£o √© poss√≠vel descrever os arquivos 
+de logs usados porque tanto seus nomes como conte√∫do podem ser personalizados
 no arquivo <file>httpd.conf</file>. Mesmo assim, os arquivos de logs 
-encontrados na instalaÁ„o padr„o do <prgn>Apache</prgn> s„o os seguintes:
+encontrados na instala√ß√£o padr√£o do <prgn>Apache</prgn> s√£o os seguintes:
 <list compact>
  <item>
-<file>access.log</file> - Registra detalhes sobre o acesso as p·ginas do servidor 
+<file>access.log</file> - Registra detalhes sobre o acesso as p√°ginas do servidor 
 <prgn>httpd</prgn>.
  <item>
-<file>error.log</file> - Registra detalhes saber erros de acesso as p·ginas ou 
+<file>error.log</file> - Registra detalhes saber erros de acesso as p√°ginas ou 
 erros internos do servidor. 
  <item>
 <file>agent.log</file> - Registra o nome do navegador do cliente (campo 
-<var>UserAgent</var> do cabeÁalho http). 
+<var>UserAgent</var> do cabe√ßalho http). 
 </list>
-Mais referÍncias podem ser encontradas em <ref id="s-apache-log">. Um 
-bom programa para geraÁ„o de estatÌsticas de acesso com gr·ficos È o 
+Mais refer√™ncias podem ser encontradas em <ref id="s-apache-log">. Um 
+bom programa para gera√ß√£o de estat√≠sticas de acesso com gr√°ficos √© o 
 <ref id="s-apache-log-webalizer">. 
 
 
-<sect1 id="s-apache-install">InstalaÁ„o
+<sect1 id="s-apache-install">Instala√ß√£o
  <p>
 <tt>apt-get install apache apache-doc</tt>
  <p>
-(o pacote <package>apache-doc</package> contÈm a documentaÁ„o de referencia do 
-<prgn>Apache</prgn>, È recomend·vel instala-lo se estiver curioso e deseja 
+(o pacote <package>apache-doc</package> cont√©m a documenta√ß√£o de referencia do 
+<prgn>Apache</prgn>, √© recomend√°vel instala-lo se estiver curioso e deseja 
 entender melhor seu funcionamento ou consultar diretivas). 
 
 
 <sect1 id="s-apache-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
 O <prgn>Apache</prgn> pode ser executado tanto como um servidor 
 <em>Inetd</em> ou como um <em>Daemon</em>. 
-A inicializaÁ„o de programas pelo <em>Inetd</em> È uma boa estratÈgia quando 
-vocÍ precisa de um controle de acesso b·sico (o fornecido pelo <prgn>tcpd</prgn>), 
-e o serviÁo È pouco usado na m·quina. 
+A inicializa√ß√£o de programas pelo <em>Inetd</em> √© uma boa estrat√©gia quando 
+voc√™ precisa de um controle de acesso b√°sico (o fornecido pelo <prgn>tcpd</prgn>), 
+e o servi√ßo √© pouco usado na m√°quina. 
  <p>
-A seguranÁa de um serviÁo iniciado pelo <prgn>inetd</prgn> pode ser 
-substituÌda e melhorada por um firewall bem configurado, garantindo 
-facilidades extras como um relatÛrio de tr·fego para a porta do servidor 
+A seguran√ßa de um servi√ßo iniciado pelo <prgn>inetd</prgn> pode ser 
+substitu√≠da e melhorada por um firewall bem configurado, garantindo 
+facilidades extras como um relat√≥rio de tr√°fego para a porta do servidor 
 web, por exemplo. Mesmo assim se o servidor <prgn>Apache</prgn> estiver 
-rodando como daemon e estiver ocioso, ele ser· movido para swap liberando 
-a memÛria RAM para a execuÁ„o de outros programas. 
+rodando como daemon e estiver ocioso, ele ser√° movido para swap liberando 
+a mem√≥ria RAM para a execu√ß√£o de outros programas. 
  <p>
-Neste capÌtulo ser· assumido seu funcionamento do <prgn>Apache</prgn> 
-como Daemon, que È o mÈtodo de funcionamento recomendado para sites de 
-grande tr·fego onde ele È freq¸entemente requisitado e considerado um 
-serviÁo crÌtico. 
+Neste cap√≠tulo ser√° assumido seu funcionamento do <prgn>Apache</prgn> 
+como Daemon, que √© o m√©todo de funcionamento recomendado para sites de 
+grande tr√°fego onde ele √© freq√ºentemente requisitado e considerado um 
+servi√ßo cr√≠tico. 
  <p>
-O mÈtodo padr„o para iniciar programas como daemons na <prgn>Debian</prgn> 
-È atravÈs dos diretÛrios <file>/etc/rc?.d</file>. Cada diretÛrio deste contÈm 
-os programas que ser„o executados/interrompidos no nÌvel de execuÁ„o "?" 
+O m√©todo padr√£o para iniciar programas como daemons na <prgn>Debian</prgn> 
+√© atrav√©s dos diret√≥rios <file>/etc/rc?.d</file>. Cada diret√≥rio deste cont√©m 
+os programas que ser√£o executados/interrompidos no n√≠vel de execu√ß√£o "?" 
 (<file>rc1.d/</file>, <file>rc2.d/</file> ...). 
 
-O conte˙do destes diretÛrios s„o links para os scripts originais em 
-<file>/etc/init.d/programa</file>, o nosso programa alvo È 
+O conte√∫do destes diret√≥rios s√£o links para os scripts originais em 
+<file>/etc/init.d/programa</file>, o nosso programa alvo √© 
 <file>/etc/init.d/apache</file>. 
-O <file>/etc/init.d/apache</file> aceita os seguintes par‚metros: 
+O <file>/etc/init.d/apache</file> aceita os seguintes par√¢metros: 
 <list compact>
  <item><tt>start</tt> - Inicia o <prgn>Apache</prgn>
  <item><tt>stop</tt> - Finaliza o <prgn>Apache</prgn>
  <item><tt>restart</tt> - Reinicia o <prgn>Apache</prgn>, efetuando uma pausa 
-de 5 segundos entre a interrupÁ„o do seu funcionamento e reinicio.
- <item><tt>reload</tt> - Recarrega os arquivos de configuraÁ„o do <tt>Apache</tt>, 
-as alteraÁıes entram em funcionamento imediatamente.
- <item><tt>reload-modules</tt> - Recarrega os mÛdulos. Basicamente È feito um 
+de 5 segundos entre a interrup√ß√£o do seu funcionamento e reinicio.
+ <item><tt>reload</tt> - Recarrega os arquivos de configura√ß√£o do <tt>Apache</tt>, 
+as altera√ß√µes entram em funcionamento imediatamente.
+ <item><tt>reload-modules</tt> - Recarrega os m√≥dulos. Basicamente √© feito um 
 restart no servidor.
- <item><tt>force-reload</tt> - Faz a mesma funÁ„o que o reload         
+ <item><tt>force-reload</tt> - Faz a mesma fun√ß√£o que o reload         
 </list>
 
 Para reiniciar o <prgn>Apache</prgn> usando o <file>/etc/init.d/apache</file>, 
@@ -281,149 +281,149 @@ ou
  <p>
 <tt>cd /etc/init.d;./apache restart</tt>
  <p>
-Na realidade, o que o <file>/etc/init.d/apache</file> faz È interagir 
+Na realidade, o que o <file>/etc/init.d/apache</file> faz √© interagir 
 diretamente com o shell script <prgn>apachectl</prgn>.
  <p>
-O <prgn>apachectl</prgn> recebe os par‚metros enviados pelo usu·rio e 
-converte para sinais que ser„o enviados para o bin·rio <prgn>apache</prgn>. Da 
-mesma forma ele verifica os cÛdigos de saÌda do <prgn>apache</prgn> e os 
-transforma em mensagens de erro legÌveis para o usu·rio comum.
+O <prgn>apachectl</prgn> recebe os par√¢metros enviados pelo usu√°rio e 
+converte para sinais que ser√£o enviados para o bin√°rio <prgn>apache</prgn>. Da 
+mesma forma ele verifica os c√≥digos de sa√≠da do <prgn>apache</prgn> e os 
+transforma em mensagens de erro leg√≠veis para o usu√°rio comum.
  
 
-Os seguintes comandos s„o aceitos pelo <prgn>apachectl</prgn>: 
+Os seguintes comandos s√£o aceitos pelo <prgn>apachectl</prgn>: 
 <list compact>
  <item><tt>httpd-server/start</tt> - Inicia o <prgn>Apache</prgn>
  <item><tt>stop</tt> - Finaliza o <prgn>Apache</prgn> (enviando um sinal TERM)
  <item><tt>restart</tt> - Reinicia o <prgn>Apache</prgn> (enviando um sinal HUP)
- <item><tt>graceful</tt> - Recarrega os arquivos de configuraÁ„o do 
+ <item><tt>graceful</tt> - Recarrega os arquivos de configura√ß√£o do 
  <prgn>Apache</prgn> (enviando um sinal USR1)
  <item><tt>fullstatus</tt> - Mostra o status completo do servidor 
-<prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o mÛdulo <em>mod_status</em> 
+<prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o m√≥dulo <em>mod_status</em> 
 carregado).
  <item><tt>status</tt> - Mostra o status do processo do servidor 
- <prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o mÛdulo <em>mod_status</em> 
+ <prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o m√≥dulo <em>mod_status</em> 
  carregado).
  <item><tt>configtest</tt> - Verifica se a sintaxe dos arquivos de 
-configuraÁ„o est· OK (executa um <tt>apache -t</tt>).
+configura√ß√£o est√° OK (executa um <tt>apache -t</tt>).
 </list>
 
 
-<sect1 id="s-apache-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-apache-opcoescmd">Op√ß√µes de linha de comando
  <p>
 <list compact>
  <item>
-<tt>-D nome</tt> - define um nome que ser· usado na diretiva &lt;IfDefine nome&gt;.
+<tt>-D nome</tt> - define um nome que ser√° usado na diretiva &lt;IfDefine nome&gt;.
  <item>
-<tt>-d diretÛrio</tt> - especifica o diretÛrio <em>ServerRoot</em> (substitui o 
-do arquivo de configuraÁ„o).
+<tt>-d diret√≥rio</tt> - especifica o diret√≥rio <em>ServerRoot</em> (substitui o 
+do arquivo de configura√ß√£o).
  <item>
 <tt>-f arquivo</tt> - especifica um arquivo <em>ServerConfigFile</em> alternativo.
  <item>
-<tt>-C "diretiva"</tt> - processa a diretiva antes de ler os arquivo de configuraÁ„o.
+<tt>-C "diretiva"</tt> - processa a diretiva antes de ler os arquivo de configura√ß√£o.
  <item>
 <tt>-c "diretiva"</tt> - processa a diretiva depois de ler os arquivos de 
-configuraÁ„o.
+configura√ß√£o.
  <item>
-<tt>-v</tt> - mostra a vers„o do programa.
+<tt>-v</tt> - mostra a vers√£o do programa.
 <item>
-<tt>-V</tt> - mostra opÁıes usadas na compilaÁ„o do <prgn>Apache</prgn>.
+<tt>-V</tt> - mostra op√ß√µes usadas na compila√ß√£o do <prgn>Apache</prgn>.
  <item>
 <tt>-h</tt> - Mostra o help on-line do programa
  <item>
-<tt>-l</tt> - lista mÛdulos compilados junto com o Apache (embutidos)
+<tt>-l</tt> - lista m√≥dulos compilados junto com o Apache (embutidos)
  <item>
-<tt>-L</tt> - lista diretivas de configuraÁıes disponÌveis
+<tt>-L</tt> - lista diretivas de configura√ß√µes dispon√≠veis
  <item>
-<tt>-S</tt> - Mostra configuraÁıes de Virtual Hosting
+<tt>-S</tt> - Mostra configura√ß√µes de Virtual Hosting
  <item>
-<tt>-t</tt> - executa a checagem de sintaxe nos arquivos de configuraÁ„o 
+<tt>-t</tt> - executa a checagem de sintaxe nos arquivos de configura√ß√£o 
 do Apache (incluindo a checagem da diretiva <em>DocRoot</em>). 
  <item>
-<tt>-T</tt> - executa a checagem de sintaxe nos arquivos de configuraÁ„o 
+<tt>-T</tt> - executa a checagem de sintaxe nos arquivos de configura√ß√£o 
 do <prgn>Apache</prgn> (menos da diretiva <em>DocRoot</em>).
 </list>
 
 
-<sect id="s-apache-port">Configurando a porta padr„o do Apache
+<sect id="s-apache-port">Configurando a porta padr√£o do Apache
  <p>
-Use a diretiva <em>Port</em> para configurar a porta padr„o que o 
-<prgn>Apache</prgn> receber· requisiÁıes por padr„o. A diretiva 
-<em>Listen</em> tambÈm È usada para ajustar o endereÁo/portas 
-alternativas (usadas tambÈm em <tt>Virtual Hosts</tt>) e substituir· 
-as definiÁıes de <em>Port</em>(veja <ref id="s-apache-listen"> para 
+Use a diretiva <em>Port</em> para configurar a porta padr√£o que o 
+<prgn>Apache</prgn> receber√° requisi√ß√µes por padr√£o. A diretiva 
+<em>Listen</em> tamb√©m √© usada para ajustar o endere√ßo/portas 
+alternativas (usadas tamb√©m em <tt>Virtual Hosts</tt>) e substituir√° 
+as defini√ß√µes de <em>Port</em>(veja <ref id="s-apache-listen"> para 
 detalhes).
 <![ %OBS [
  <p>
 <strong>OBS:</strong>: Somente uma diretiva <em>Port</em> e um argumento
-poder„o ser especificados. Para mais controle sobre as portas do sistema
+poder√£o ser especificados. Para mais controle sobre as portas do sistema
 use a diretiva <em>Listen</em>. ]]>
 
 
-<sect id="s-apache-adicpagina">Adicionando uma p·gina no Apache
+<sect id="s-apache-adicpagina">Adicionando uma p√°gina no Apache
  <p>
-Existem dois tipos de p·ginas que podem ser 
-adicionadas ao <prgn>Apache</prgn>: a p·gina raÌz e 
-sub-p·ginas. 
+Existem dois tipos de p√°ginas que podem ser 
+adicionadas ao <prgn>Apache</prgn>: a p√°gina ra√≠z e 
+sub-p√°ginas. 
 <taglist>
- <tag><em>P·gina RaÌz</em></tag>
+ <tag><em>P√°gina Ra√≠z</em></tag>
  <item>
-A p·gina raÌz È especificada atravÈs da diretiva <em>DocumentRoot</em> e ser· 
-mostrada quando se entrar no domÌnio principal, como 
-<file>&url-manual-www;</file>. Na configuraÁ„o padr„o do 
-<prgn>Apache</prgn>, <em>DocumentRoot</em> aponta para o diretÛrio 
-<file>/var/www</file>. Este diretÛrio ser· assumido como 
-<strong>raÌz</strong> caso os diretÛrios n„o sejam iniciados por 
+A p√°gina ra√≠z √© especificada atrav√©s da diretiva <em>DocumentRoot</em> e ser√° 
+mostrada quando se entrar no dom√≠nio principal, como 
+<file>&url-manual-www;</file>. Na configura√ß√£o padr√£o do 
+<prgn>Apache</prgn>, <em>DocumentRoot</em> aponta para o diret√≥rio 
+<file>/var/www</file>. Este diret√≥rio ser√° assumido como 
+<strong>ra√≠z</strong> caso os diret√≥rios n√£o sejam iniciados por 
 uma <file>/</file>:
 <list compact>
  <item><file>home/focalinux</file> - Aponta para <file>/var/www/home/focalinux</file>
  <item><file>/home/focalinux</file> - Aponta para <file>/home/focalinux</file>
 </list>
-Este diretÛrio deve conter um arquivo de 
-Ìndice v·lido (especificado pela diretiva <em>DocumentIndex</em> no 
-<file>srm.conf</file>) e permissıes de acesso v·lidas no arquivo
-<file>access.conf</file> para autorizar o acesso as p·ginas 
+Este diret√≥rio deve conter um arquivo de 
+√≠ndice v√°lido (especificado pela diretiva <em>DocumentIndex</em> no 
+<file>srm.conf</file>) e permiss√µes de acesso v√°lidas no arquivo
+<file>access.conf</file> para autorizar o acesso as p√°ginas 
 em <file>/var/www</file> (veja <ref id="s-apache-acesso-restr"> 
 para detalhes). 
 
  
- <tag>Sub-p·ginas</tag>
+ <tag>Sub-p√°ginas</tag>
  <item>
-Sub p·ginas s„o armazenadas abaixo do diretÛrio da <em>P·gina raÌz</em>, 
+Sub p√°ginas s√£o armazenadas abaixo do diret√≥rio da <em>P√°gina ra√≠z</em>, 
 como <file>&url-manual-www;/download</file>. Elas podem ser 
-um subdiretÛrio da p·gina principal em <file>/var/www</file> ou 
-serem criadas atravÈs da diretiva <em>Alias</em> no arquivo
-<file>srm.conf</file>. Caso seja um sub-diretÛrio, as permissıes 
-de acesso de <file>/var/www</file> ser„o herdadas para este 
-subdiretÛrio, mas tambÈm poder„o ser modificadas com a especificaÁ„o
+um subdiret√≥rio da p√°gina principal em <file>/var/www</file> ou 
+serem criadas atrav√©s da diretiva <em>Alias</em> no arquivo
+<file>srm.conf</file>. Caso seja um sub-diret√≥rio, as permiss√µes 
+de acesso de <file>/var/www</file> ser√£o herdadas para este 
+subdiret√≥rio, mas tamb√©m poder√£o ser modificadas com a especifica√ß√£o
 de uma nova diretiva de acesso. 
  <p>
-AtravÈs da diretiva <em>Alias</em> a p·gina pode estar localizada em 
-outro diretÛrio do disco (atÈ mesmo outro sistema de arquivos) e as 
-permissıes de acesso dever„o ser definidas para aquela p·gina. Para 
-criar um endereÁo <file>&url-manual-www;/iniciante</file> que 
-aponta para o diretÛrio <file>/home/focalinux/download/iniciante</file>
+Atrav√©s da diretiva <em>Alias</em> a p√°gina pode estar localizada em 
+outro diret√≥rio do disco (at√© mesmo outro sistema de arquivos) e as 
+permiss√µes de acesso dever√£o ser definidas para aquela p√°gina. Para 
+criar um endere√ßo <file>&url-manual-www;/iniciante</file> que 
+aponta para o diret√≥rio <file>/home/focalinux/download/iniciante</file>
 no disco local, basta usar a seguinte diretiva no <file>srm.conf</file>: 
 <example>
 Alias /iniciante /home/focalinux/download/iniciante
 </example>
-Pode ser necess·rio permitir o acesso a nova p·gina caso o servidor 
-tenha uma configuraÁ„o restritiva por padr„o (veja 
+Pode ser necess√°rio permitir o acesso a nova p√°gina caso o servidor 
+tenha uma configura√ß√£o restritiva por padr√£o (veja 
 <ref id="s-apache-acesso-restr"> para detalhes). 
-ApÛs isto, faÁa o servidor <prgn>httpd</prgn> re-ler os arquivos de configuraÁ„o 
-ou reinicia-lo. ApÛs isto, a p·gina <file>/home/focalinux/download/iniciante
-</file> estar· acessÌvel via <file>&url-manual-www;/iniciante</file>.
+Ap√≥s isto, fa√ßa o servidor <prgn>httpd</prgn> re-ler os arquivos de configura√ß√£o 
+ou reinicia-lo. Ap√≥s isto, a p√°gina <file>/home/focalinux/download/iniciante
+</file> estar√° acess√≠vel via <file>&url-manual-www;/iniciante</file>.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Caso inclua uma <file>/</file> no diretÛrio que ser· 
-acessÌvel via URL, o endereÁo somente estar· disponÌvel caso vocÍ entre com 
+<strong>OBS:</strong> Caso inclua uma <file>/</file> no diret√≥rio que ser√° 
+acess√≠vel via URL, o endere√ßo somente estar√° dispon√≠vel caso voc√™ entre com 
 <file>/</file> no final da URL:
 <example>
 Alias /doc/ /usr/doc/
 </example>
-O diretÛrio <file>/doc</file> somente poder· ser acessado usando
+O diret√≥rio <file>/doc</file> somente poder√° ser acessado usando
 <file>&url-manual-www;/doc/</file>, o uso de 
-<file>&url-manual-www;/doc</file> retornar· uma mensagem de 
-URL n„o encontrada. ]]>
+<file>&url-manual-www;/doc</file> retornar√° uma mensagem de 
+URL n√£o encontrada. ]]>
 </taglist>
 
 

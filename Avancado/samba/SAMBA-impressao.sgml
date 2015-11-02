@@ -1,12 +1,12 @@
-<sect id="s-samba-i">Compartilhamento de impress„o no servidor SAMBA
+<sect id="s-samba-i">Compartilhamento de impress√£o no servidor SAMBA
  <p>
-Este capÌtulo documenta como configurar o seu servidor samba para permitir o 
-acesso a compartilhamento de arquivos e impress„o no sistema.
+Este cap√≠tulo documenta como configurar o seu servidor samba para permitir o 
+acesso a compartilhamento de arquivos e impress√£o no sistema.
 
 
-<sect1 id="s-samba-i-win-linux">Configurando o Linux como um servidor de impress„o Windows 
+<sect1 id="s-samba-i-win-linux">Configurando o Linux como um servidor de impress√£o Windows 
  <p>
-Ser· necess·rio ter o pacote <package>samba</package> instalado e adicionar 
+Ser√° necess√°rio ter o pacote <package>samba</package> instalado e adicionar 
 as seguintes linhas no seu arquivo <file>/etc/samba/smb.conf</file>: 
 <example>
 [hp-printer]
@@ -18,13 +18,13 @@ as seguintes linhas no seu arquivo <file>/etc/samba/smb.conf</file>:
  create mode = 0700
 
 </example>
-O compartilhamento acima tornar· disponÌvel a impressora local "lp" as m·quinas 
+O compartilhamento acima tornar√° dispon√≠vel a impressora local "lp" as m√°quinas 
 Windows com o nome "HP DeskJet 690C". Uma impressora alternativa pode ser 
-especificada modificando a opÁ„o <em>-P</em> da linha de comando do <prgn>lpr</prgn>. 
-Note que somente os usu·rios "winuser" e "winuser2" poder„o usar esta impressora. 
-Os arquivos de spool (para gerenciar a fila de impress„o) ser„o gravador em 
+especificada modificando a op√ß√£o <em>-P</em> da linha de comando do <prgn>lpr</prgn>. 
+Note que somente os usu√°rios "winuser" e "winuser2" poder√£o usar esta impressora. 
+Os arquivos de spool (para gerenciar a fila de impress√£o) ser√£o gravador em 
 <file>/tmp</file> (<tt>path = /tmp</tt>) e o compartilhamento <tt>[hp-printer]</tt>
-ser· mostrado como uma impressora (<tt>printable = yes</tt>).
+ser√° mostrado como uma impressora (<tt>printable = yes</tt>).
  <p>
-Agora ser· necess·rio instalar o driver desta impressora no Windows (HP 690C) e 
-escolher impressora instalada via rede e seguir os demais passos de configuraÁ„o. 
+Agora ser√° necess√°rio instalar o driver desta impressora no Windows (HP 690C) e 
+escolher impressora instalada via rede e seguir os demais passos de configura√ß√£o. 

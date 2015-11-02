@@ -1,7 +1,7 @@
-<sect id="s-apache-httpcodes">Códigos HTTP
+<sect id="s-apache-httpcodes">CÃ³digos HTTP
  <p>
-Esta seção pode ser uma interessante referência para a programação e 
-configuração da diretiva <em>ErrorDocument</em>, etc. 
+Esta seÃ§Ã£o pode ser uma interessante referÃªncia para a programaÃ§Ã£o e 
+configuraÃ§Ã£o da diretiva <em>ErrorDocument</em>, etc. 
 <taglist compact>
  <tag>2xx - Sucesso</tag>
  <item>
@@ -9,55 +9,55 @@ configuração da diretiva <em>ErrorDocument</em>, etc.
   <item><tt>200</tt> OK
   <item><tt>201</tt> Criado
   <item><tt>202</tt> Aceito
-  <item><tt>203</tt> Informação não-autoritativa *
-  <item><tt>204</tt> Nenhum conteúdo
-  <item><tt>205</tt> Conteúdo resetado *
-  <item><tt>206</tt> Conteúdo parcial *
+  <item><tt>203</tt> InformaÃ§Ã£o nÃ£o-autoritativa *
+  <item><tt>204</tt> Nenhum conteÃºdo
+  <item><tt>205</tt> ConteÃºdo resetado *
+  <item><tt>206</tt> ConteÃºdo parcial *
  </list>
 
  <tag>3xx - Redirecionamento</tag>
  <item>
  <list compact>
-  <item><tt>300</tt> Múltiplas escolhas
+  <item><tt>300</tt> MÃºltiplas escolhas
   <item><tt>301</tt> Movido Permanentemente
   <item><tt>302</tt> Movido Temporariamente
   <item><tt>303</tt> Veja outra *
-  <item><tt>304</tt> Não modificada
+  <item><tt>304</tt> NÃ£o modificada
   <item><tt>305</tt> Use o Proxy (redirecionamento proxy) *
  </list>
  
  <tag>4xx - Erros no Cliente</tag>
  <item>
  <list compact>
-  <item><tt>400</tt> Requisição incorreta
-  <item><tt>401</tt> Não autorizado
+  <item><tt>400</tt> RequisiÃ§Ã£o incorreta
+  <item><tt>401</tt> NÃ£o autorizado
   <item><tt>402</tt> Pagamento Requerido *
   <item><tt>403</tt> Bloqueado
-  <item><tt>404</tt> Não encontrada
-  <item><tt>405</tt> Método não permitido *
-  <item><tt>406</tt> Não aceitável *
-  <item><tt>407</tt> Autenticação via proxy requerida *
-  <item><tt>408</tt> Tempo limite da requisição expirado *
+  <item><tt>404</tt> NÃ£o encontrada
+  <item><tt>405</tt> MÃ©todo nÃ£o permitido *
+  <item><tt>406</tt> NÃ£o aceitÃ¡vel *
+  <item><tt>407</tt> AutenticaÃ§Ã£o via proxy requerida *
+  <item><tt>408</tt> Tempo limite da requisiÃ§Ã£o expirado *
   <item><tt>409</tt> Conflito *
   <item><tt>410</tt> Gone *
   <item><tt>411</tt> Tamanho requerido *
-  <item><tt>412</tt> Falha na pré-condição *
-  <item><tt>413</tt> A requisição parece ser grande *
-  <item><tt>414</tt> A URL requisitada é muito longa *
-  <item><tt>415</tt> Tipo de mídia não suportado
+  <item><tt>412</tt> Falha na prÃ©-condiÃ§Ã£o *
+  <item><tt>413</tt> A requisiÃ§Ã£o parece ser grande *
+  <item><tt>414</tt> A URL requisitada Ã© muito longa *
+  <item><tt>415</tt> Tipo de mÃ­dia nÃ£o suportado
  </list>
 
  <tag>5xx - Erros no Servidor</tag>
  <item>
  <list compact>
   <item><tt>500</tt> Erro Interno no Servidor
-  <item><tt>501</tt> Não implementado
+  <item><tt>501</tt> NÃ£o implementado
   <item><tt>502</tt> Gateway incorreto
-  <item><tt>503</tt> Serviço não disponível
+  <item><tt>503</tt> ServiÃ§o nÃ£o disponÃ­vel
   <item><tt>504</tt> Tempo limite no gateway *
-  <item><tt>505</tt> Versão HTTP não suportada *
+  <item><tt>505</tt> VersÃ£o HTTP nÃ£o suportada *
  </list>
 </taglist>
-Os códigos de erros marcados com um "*" pertencem ao padrão HTTP 1.1
+Os cÃ³digos de erros marcados com um "*" pertencem ao padrÃ£o HTTP 1.1
 
 

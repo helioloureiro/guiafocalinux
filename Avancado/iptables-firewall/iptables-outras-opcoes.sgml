@@ -1,35 +1,35 @@
-<sect id="fw-iptables-outras">Outras opÁıes do iptables
+<sect id="fw-iptables-outras">Outras op√ß√µes do iptables
 
 
-<sect1 id="fw-iptables-outras-endOD">Especificando um endereÁo de origem/destino
+<sect1 id="fw-iptables-outras-endOD">Especificando um endere√ßo de origem/destino
  <p>
-As opÁıes <tt>-s</tt> (ou --src/--source)e <tt>-d</tt> (ou --dst/--destination) 
-servem para especificar endereÁos de <em>origem</em> e <em>destino</em> 
-respectivamente. … permitido usar um endereÁo IP completo (como 192.168.1.1), um 
-hostname (debian), um endereÁo fqdn (www.debian.org) ou um par 
-<em>rede/m·scara</em> (como 200.200.200.0/255.255.255.0 ou 200.200.200.0/24). 
+As op√ß√µes <tt>-s</tt> (ou --src/--source)e <tt>-d</tt> (ou --dst/--destination) 
+servem para especificar endere√ßos de <em>origem</em> e <em>destino</em> 
+respectivamente. √â permitido usar um endere√ßo IP completo (como 192.168.1.1), um 
+hostname (debian), um endere√ßo fqdn (www.debian.org) ou um par 
+<em>rede/m√°scara</em> (como 200.200.200.0/255.255.255.0 ou 200.200.200.0/24). 
  <p>
-Caso um endereÁo/m·scara n„o sejam especificados, È assumido <em>0/0</em> como 
-padr„o (todos as m·quinas de todas as redes). A interpretaÁ„o dos endereÁos 
-de origem/destino dependem do chain que est· sendo especificado (como 
+Caso um endere√ßo/m√°scara n√£o sejam especificados, √© assumido <em>0/0</em> como 
+padr√£o (todos as m√°quinas de todas as redes). A interpreta√ß√£o dos endere√ßos 
+de origem/destino dependem do chain que est√° sendo especificado (como 
 INPUT e OUTPUT por exemplo). 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Caso seja especificado um endereÁo fqdn e este resolver 
-mais de um endereÁo IP, ser„o criadas v·rias regras, cada uma se aplicando a 
-este endereÁo IP especÌfico. … recomend·vel sempre que possÌvel a especificaÁ„o 
-de endereÁos IP's nas regras, pois alÈm de serem muito r·pidos (pois n„o precisar 
-de resoluÁ„o DNS) s„o mais seguros para evitar que nosso firewall seja enganado 
+<strong>OBS:</strong> Caso seja especificado um endere√ßo fqdn e este resolver 
+mais de um endere√ßo IP, ser√£o criadas v√°rias regras, cada uma se aplicando a 
+este endere√ßo IP espec√≠fico. √â recomend√°vel sempre que poss√≠vel a especifica√ß√£o 
+de endere√ßos IP's nas regras, pois al√©m de serem muito r√°pidos (pois n√£o precisar 
+de resolu√ß√£o DNS) s√£o mais seguros para evitar que nosso firewall seja enganado 
 por um ataque de IP spoofing. ]]>
 <example>
-# Bloqueia o tr·fego vindo da rede 200.200.200.*:
+# Bloqueia o tr√°fego vindo da rede 200.200.200.*:
  iptables -A INPUT -s 200.200.200.0/24 -j DROP
 
-# Bloqueia conexıes com o destino 10.1.2.3:
+# Bloqueia conex√µes com o destino 10.1.2.3:
 iptables -A OUTPUT -d 10.1.2.3 -j DROP
 
-# Bloqueia o tr·fego da m·quina www.dominio.teste.org a rede 210.21.1.3
-# nossa m·quina possui o endereÁo 210.21.1.3
+# Bloqueia o tr√°fego da m√°quina www.dominio.teste.org a rede 210.21.1.3
+# nossa m√°quina possui o endere√ßo 210.21.1.3
 iptables -A INPUT -s www.dominio.teste.org -d 210.21.1.3 -j DROP
 
 </example>
@@ -37,42 +37,42 @@ iptables -A INPUT -s www.dominio.teste.org -d 210.21.1.3 -j DROP
 
 <sect1 id="fw-iptables-outras-iface">Especificando a interface de origem/destino
  <p>
-As opÁıes <em>-i</em> (ou --in-interface) e <em>-o</em> (ou --out-interface) 
+As op√ß√µes <em>-i</em> (ou --in-interface) e <em>-o</em> (ou --out-interface) 
 especificam as interfaces de origem/destino de pacotes. Nem todos as chains 
 aceitam as interfaces de origem/destino simultaneamente, a interface de entrada 
-(-i) nunca poder· ser especificada em um chain OUTPUT e a interface de saÌda 
-(-o) nunca poder· ser especificada em um chain INPUT. Abaixo uma r·pida referÍncia:
+(-i) nunca poder√° ser especificada em um chain OUTPUT e a interface de sa√≠da 
+(-o) nunca poder√° ser especificada em um chain INPUT. Abaixo uma r√°pida refer√™ncia:
 <example>
 
           +---------------------+--------------------------------+
   TABELA  |      CHAIN          |            INTERFACE           |
           |                     +----------------+---------------+
-          |                     |  ENTRADA (-i)  |    SAÕDA (-o) |
+          |                     |  ENTRADA (-i)  |    SA√çDA (-o) |
 +---------+---------------------+----------------+---------------+
-|         |  INPUT              |      SIM       |      N√O      |
-| filter  |  OUTPUT             |      N√O       |      SIM      |
+|         |  INPUT              |      SIM       |      N√ÉO      |
+| filter  |  OUTPUT             |      N√ÉO       |      SIM      |
 |         |  FORWARD            |      SIM       |      SIM      |
 +---------+---------------------+----------------+---------------+
-|         | PREROUTING          |      SIM       |      N√O      |
-| nat     | OUTPUT              |      N√O       |      SIM      |
-|         | POSTROUTING         |      N√O       |      SIM      |
+|         | PREROUTING          |      SIM       |      N√ÉO      |
+| nat     | OUTPUT              |      N√ÉO       |      SIM      |
+|         | POSTROUTING         |      N√ÉO       |      SIM      |
 +---------+---------------------+----------------+---------------+
-|         | PREROUTING          |      SIM       |      N√O      |
+|         | PREROUTING          |      SIM       |      N√ÉO      |
 | mangle  |                     |                |               |
-|         | OUTPUT              |      N√O       |      SIM      |
+|         | OUTPUT              |      N√ÉO       |      SIM      |
 +---------+---------------------+----------------+---------------+
 
 </example>
-O caminho do pacote na interface ser· determinado pelo tipo da 
-interface e pela posiÁ„o dos chains nas etapas de 
+O caminho do pacote na interface ser√° determinado pelo tipo da 
+interface e pela posi√ß√£o dos chains nas etapas de 
 seu roteamento. O chain OUTPUT da tabela 
-filter somente poder· conter a interface de saÌda (veja a tabela acima). 
-O chain FORWARD da tabela filter È o ˙nico que aceita a especificaÁ„o de 
-ambas as interfaces, este È um Ûtimo chain para controlar o tr·fego que 
+filter somente poder√° conter a interface de sa√≠da (veja a tabela acima). 
+O chain FORWARD da tabela filter √© o √∫nico que aceita a especifica√ß√£o de 
+ambas as interfaces, este √© um √≥timo chain para controlar o tr√°fego que 
 passa entre interfaces do firewall.
  <p>
-Por exemplo para bloquear o acesso do tr·fego de qualquer m·quina com 
-o endereÁo 200.123.123.10 vinda da interface ppp0 (uma placa de fax-modem): 
+Por exemplo para bloquear o acesso do tr√°fego de qualquer m√°quina com 
+o endere√ßo 200.123.123.10 vinda da interface ppp0 (uma placa de fax-modem): 
 <example>
 iptables -A INPUT -s 200.123.123.10 -i ppp0 -j DROP
 
@@ -82,17 +82,17 @@ A mesma regra pode ser especificada como
 iptables -A INPUT -s 200.123.123.10 -i ppp+ -j DROP
 
 </example>
-O sinal de "+" funciona como um coringa, assim a regra ter· efeito em 
+O sinal de "+" funciona como um coringa, assim a regra ter√° efeito em 
 qualquer interface de ppp0 a ppp9. As interfaces ativas no momento podem 
-ser listadas com o comando <prgn>ifconfig</prgn>, mas È permitido especificar 
-uma regra que faz referÍncia a uma interface que ainda n„o existe, isto È 
-interessante para conexıes intermitentes como o PPP. Para bloquear qualquer 
-tr·fego local para a Internet:
+ser listadas com o comando <prgn>ifconfig</prgn>, mas √© permitido especificar 
+uma regra que faz refer√™ncia a uma interface que ainda n√£o existe, isto √© 
+interessante para conex√µes intermitentes como o PPP. Para bloquear qualquer 
+tr√°fego local para a Internet:
 <example>
 iptables -A OUTPUT -o ppp+ -j DROP
 
 </example>
-Para bloquear a passagem de tr·fego da interface ppp0 para a interface eth1 
+Para bloquear a passagem de tr√°fego da interface ppp0 para a interface eth1 
 (de uma de nossas redes internas):
 <example>
 iptables -A FORWARD -i ppp0 -o eth1 -j DROP
@@ -102,7 +102,7 @@ iptables -A FORWARD -i ppp0 -o eth1 -j DROP
 
 <sect1 id="fw-iptables-outras-proto">Especificando um protocolo
  <p>
-A opÁ„o <tt>-p</tt> (ou --protocol) È usada para especificar protocolos no 
+A op√ß√£o <tt>-p</tt> (ou --protocol) √© usada para especificar protocolos no 
 <prgn>iptables</prgn>. 
 Podem ser especificados os protocolos <em>tcp</em>, <em>udp</em> e <em>icmp</em>. 
 Por exemplo, para rejeitar todos os pacotes UDP vindos de 200.200.200.200: 
@@ -112,14 +112,14 @@ Por exemplo, para rejeitar todos os pacotes UDP vindos de 200.200.200.200:
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Tanto faz especificar os nomes de protocolos em mai˙sculas
-ou min˙sculas.  ]]>
+<strong>OBS1:</strong> Tanto faz especificar os nomes de protocolos em mai√∫sculas
+ou min√∫sculas.  ]]>
 
 
 <sect2 id="fw-iptables-outras-proto-p">Especificando portas de origem/destino
  <p>
-As portas de origem/destino devem ser especificadas apÛs o protocolo e podem 
-ser precedidas por uma das seguintes opÁıes: 
+As portas de origem/destino devem ser especificadas ap√≥s o protocolo e podem 
+ser precedidas por uma das seguintes op√ß√µes: 
 <list compact>
  <item>
 <tt>--source-port ou --sport</tt> - Especifica uma porta ou faixa de portas de 
@@ -128,40 +128,40 @@ origem.
 <tt>--destination-port ou --dport</tt> - Especifica uma porta ou faixa de portas 
 de destino.
 </list>
-Uma faixa de portas pode ser especificada atravÈs de 
+Uma faixa de portas pode ser especificada atrav√©s de 
 <tt>PortaOrigem:PortaDestino</tt>:
 <example>
 # Bloqueia qualquer pacote indo para 200.200.200.200 na faixa de 
 # portas 0 a 1023
 iptables -A OUTPUT -d 200.200.200.200 -p tcp --dport :1023 -j DROP
 </example>
-Caso a <em>PortaOrigem</em> de uma faixa de portas n„o seja especificada, 0 È 
-assumida como padr„o, caso a <em>Porta Destino</em> n„o seja especificada, 
-65535 È assumida como padr„o. Caso precise especificar diversas regras que 
+Caso a <em>PortaOrigem</em> de uma faixa de portas n√£o seja especificada, 0 √© 
+assumida como padr√£o, caso a <em>Porta Destino</em> n√£o seja especificada, 
+65535 √© assumida como padr√£o. Caso precise especificar diversas regras que 
 envolvam o tratamento de portas diferentes, recomendo da uma olhada em 
-<ref id="fw-iptables-mod-multiport">, antes de criar um grande n˙mero de 
+<ref id="fw-iptables-mod-multiport">, antes de criar um grande n√∫mero de 
 regras. 
  
 
 <sect2 id="fw-iptables-outras-proto-micmp">Especificando mensagens do protocolo ICMP
  <p>
-O protocolo ICMP n„o possui portas, mas È possÌvel fazer um controle maior sobre o 
-tr·fego ICMP que entra/sai da rede atravÈs da especificaÁ„o dos tipos de 
+O protocolo ICMP n√£o possui portas, mas √© poss√≠vel fazer um controle maior sobre o 
+tr√°fego ICMP que entra/sai da rede atrav√©s da especifica√ß√£o dos tipos de 
 mensagens ICMP. Os tipos de mensagens devem ser especificados com a 
-opÁ„o "--icmp-type <em>CÛdigoICMP</em>" logo apÛs a especificaÁ„o do protocolo
+op√ß√£o "--icmp-type <em>C√≥digoICMP</em>" logo ap√≥s a especifica√ß√£o do protocolo
 icmp:
 <example>
 iptables -A INPUT -s 200.123.123.10 -p icmp --icmp-type time-exceeded -i ppp+ -j DROP
 
 </example>
-A regra acima rejeitar· mensagens ICMP do tipo "time-exceeded" 
-(tempo de requisiÁ„o excedido) que venham do endereÁo 200.123.123.10 atravÈs da 
+A regra acima rejeitar√° mensagens ICMP do tipo "time-exceeded" 
+(tempo de requisi√ß√£o excedido) que venham do endere√ßo 200.123.123.10 atrav√©s da 
 interface <em>ppp+</em>. 
  <p>
-Alguns tipos de mensagens ICMP s„o classificados por categoria (como o prÛprio 
+Alguns tipos de mensagens ICMP s√£o classificados por categoria (como o pr√≥prio 
 "time-exceeded"), caso a categoria "time-exceeded" seja 
 especificada, todas as mensagens daquela categoria (como "ttl-zero-during-transit", 
-"ttl-zero-during-reassembly") conferir„o na regra especificada.Os tipos de 
+"ttl-zero-during-reassembly") conferir√£o na regra especificada.Os tipos de 
 mensagens ICMP podem ser obtidos com o comando <tt>iptables -p icmp -h</tt>: 
 <example>
 echo-reply (pong)
@@ -203,53 +203,53 @@ address-mask-reply
 </example>
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> N„o bloqueie mensagens do tipo "host-unreachable" e 
-"source-quench", pois ter· sÈrios problemas no controle de suas conexıes. A 
-primeira diz que o destino est· inalcanÁavel e a segunda que o host est· 
+<strong>OBS1:</strong> N√£o bloqueie mensagens do tipo "host-unreachable" e 
+"source-quench", pois ter√° s√©rios problemas no controle de suas conex√µes. A 
+primeira diz que o destino est√° inalcan√ßavel e a segunda que o host est√° 
 sobrecarregado, assim os pacotes devem ser enviados mais lentamente. ]]>
 
 
 
 <sect2 id="fw-iptables-outras-proto-syn">Especificando pacotes syn
  <p>
-Pacotes syn s„o usados para iniciarem uma conex„o, o uso da opÁ„o --syn 
-serve para especificar estes tipos de pacotes. Desta maneira È possÌvel 
-bloquear somente os pacotes que iniciam uma conex„o, sem afetar os pacotes 
-restantes. Para que uma conex„o ocorra È necess·rio que a m·quina obtenha a resposta
-a pacotes syn enviados, caso ele seja bloqueado a resposta nunca ser· retornada e
-a conex„o n„o ser· estabelecida. 
+Pacotes syn s√£o usados para iniciarem uma conex√£o, o uso da op√ß√£o --syn 
+serve para especificar estes tipos de pacotes. Desta maneira √© poss√≠vel 
+bloquear somente os pacotes que iniciam uma conex√£o, sem afetar os pacotes 
+restantes. Para que uma conex√£o ocorra √© necess√°rio que a m√°quina obtenha a resposta
+a pacotes syn enviados, caso ele seja bloqueado a resposta nunca ser√° retornada e
+a conex√£o n√£o ser√° estabelecida. 
 <example>
 iptables -A INPUT -p tcp --syn --dport 23 -i ppp+ -j DROP
 
 </example>
-A regra acima bloqueia (-j DROP) qualquer tentativa de conex„o (--syn) vindas 
-da interface ppp+ ao telnet (--dport 23) da m·quina local, conexıes j· efetuadas 
-„o s„o afetadas por esta regra. A opÁ„o --syn somente pode ser especificada para 
+A regra acima bloqueia (-j DROP) qualquer tentativa de conex√£o (--syn) vindas 
+da interface ppp+ ao telnet (--dport 23) da m√°quina local, conex√µes j√° efetuadas 
+√£o s√£o afetadas por esta regra. A op√ß√£o --syn somente pode ser especificada para 
 o protocolo tcp. 
 <![ %OBS [
  <p>
-<strong>ATEN«√O:</strong> - A situaÁ„o de passagem de pacotes durante deve ser levada 
-em conta durante a inicializaÁ„o do firewall, bloqueando a passagem de pacotes
-durante o processo de configuraÁ„o, criando regras que bloqueiam a passagem de 
-pacotes (exceto para a interface loopback) atÈ que a configuraÁ„o 
-do firewall esteja completa, pode ser uma soluÁ„o eficiente. 
+<strong>ATEN√á√ÉO:</strong> - A situa√ß√£o de passagem de pacotes durante deve ser levada 
+em conta durante a inicializa√ß√£o do firewall, bloqueando a passagem de pacotes
+durante o processo de configura√ß√£o, criando regras que bloqueiam a passagem de 
+pacotes (exceto para a interface loopback) at√© que a configura√ß√£o 
+do firewall esteja completa, pode ser uma solu√ß√£o eficiente. 
  <p>
-Outra alternativa segura È configurar as regras de firewall antes das interfaces 
-de rede se tornarem ativas (usando a opÁ„o "pre-up comando_firewall" no arquivo 
-de configuraÁ„o <file>/etc/network/interfaces</file> em sistemas 
+Outra alternativa segura √© configurar as regras de firewall antes das interfaces 
+de rede se tornarem ativas (usando a op√ß√£o "pre-up comando_firewall" no arquivo 
+de configura√ß√£o <file>/etc/network/interfaces</file> em sistemas 
 <prgn>Debian</prgn>. ]]>
 
 
 <sect1 id="fw-iptables-outras-fragmentos">Especificando fragmentos
  <p>
-A opÁ„o "-f" (ou --fragment) permite especificar regras que confiram com 
-fragmentos. Fragmentos s„o simplesmente um pacote maior dividido em pedaÁos 
+A op√ß√£o "-f" (ou --fragment) permite especificar regras que confiram com 
+fragmentos. Fragmentos s√£o simplesmente um pacote maior dividido em peda√ßos 
 para poder ser transmitido via rede TCP/IP para remontagem do pacote pela 
-m·quina de destino. 
+m√°quina de destino. 
  <p>
-Somente o primeiro fragmento possui detalhes de cabeÁalho para ser 
+Somente o primeiro fragmento possui detalhes de cabe√ßalho para ser 
 processado, os segundos e seguintes somente possuem alguns 
-cabeÁalhos necess·rios para dar continuidade ao processo de remontagem 
+cabe√ßalhos necess√°rios para dar continuidade ao processo de remontagem 
 do pacote no destino. 
  <p>
 Uma regra como
@@ -257,39 +257,39 @@ Uma regra como
 iptables -A INPUT -s 200.200.200.1 -f -j DROP
 
 </example>
-derrubar· os fragmentos de 200.200.200.1 derrubar· o segundo pacote e 
-pacotes seguintes enviados por 200.200.200.1 atÈ nÛs. 
+derrubar√° os fragmentos de 200.200.200.1 derrubar√° o segundo pacote e 
+pacotes seguintes enviados por 200.200.200.1 at√© n√≥s. 
 <![ %OBS [ 
  <p>
-<strong>OBS1:</strong> Note que se o cabeÁalho do pacote n„o tiver detalhes 
+<strong>OBS1:</strong> Note que se o cabe√ßalho do pacote n√£o tiver detalhes 
 suficientes para checagem de regras no <prgn>iptables</prgn>, a regra 
-simplesmente n„o ira conferir. 
+simplesmente n√£o ira conferir. 
  <p>
-<strong>OBS2:</strong> N„o È preciso especificar a opÁ„o "-f" para conexıes
-NAT, pois os pacotes s„o remontados antes de entrarem no cÛdigo de filtragem.
+<strong>OBS2:</strong> N√£o √© preciso especificar a op√ß√£o "-f" para conex√µes
+NAT, pois os pacotes s√£o remontados antes de entrarem no c√≥digo de filtragem.
  <p>
-<strong>OBS3:</strong> A opÁ„o "-f" tambÈm pode ser usada para evitar o flood 
-por fragmentos (bomba de fragmentos) que, dependendo da intensidade, podem atÈ 
-travar a m·quina. ]]>
+<strong>OBS3:</strong> A op√ß√£o "-f" tamb√©m pode ser usada para evitar o flood 
+por fragmentos (bomba de fragmentos) que, dependendo da intensidade, podem at√© 
+travar a m√°quina. ]]>
 
 
-<sect1 id="fw-iptables-outras-excessoes">Especificando uma exceÁ„o
+<sect1 id="fw-iptables-outras-excessoes">Especificando uma exce√ß√£o
  <p>
-Muitos par‚metros (como o endereÁo de origem/destino, protocolo, porta, 
+Muitos par√¢metros (como o endere√ßo de origem/destino, protocolo, porta, 
 mensagens ICMP, fragmentos, etc) podem ser precedidos pelo sinal "!" que significa 
-exceÁ„o. Por exemplo: 
+exce√ß√£o. Por exemplo: 
 <example>
 iptables -t filter -A INPUT ! -s 200.200.200.10 -j DROP
 
 </example>
-Diz para rejeitar todos os pacotes EXCETO os que vem do endereÁo 
+Diz para rejeitar todos os pacotes EXCETO os que vem do endere√ßo 
 <file>200.200.200.10</file>. 
 
 <example>
 iptables -A INPUT -p tcp ! --syn -s 200.200.200.10 ! -i eth0 -j DROP
 
 </example> 
-Diz para bloquear todos os pacotes EXCETO os que iniciam conexıes (! --syn), 
+Diz para bloquear todos os pacotes EXCETO os que iniciam conex√µes (! --syn), 
 EXCETO para pacotes vindos pela interface eth0 (! -i eth0).
 
 <example>
@@ -301,46 +301,46 @@ Bloqueia todos os pacotes vindos de 200.200.200.10, EXCETO os do protocolo tcp.
 
 <sect1 id="fw-iptables-outras-alvo">Especificando um alvo
  <p>
-O alvo (-j) È o destino que um pacote ter· quando conferir com as condiÁıes de uma 
+O alvo (-j) √© o destino que um pacote ter√° quando conferir com as condi√ß√µes de uma 
 regra, um alvo pode dizer para bloquear a passagem do pacote (-j DROP), aceitar
 a passagem do pacote (-j ACCEPT), registrar o pacote no sistema de log (-j LOG), 
 rejeitar o pacote (-j REJECT), redirecionar um pacote -j REDIRECT, retornar 
 ao chain anterior sem completar o processamento no chain atual (-j RETURN), 
 passar para processamento de programas externos (-j QUEUE), fazer 
 source nat (-j SNAT), destination nat (-j DNAT), etc. Podem existir mais alvos, 
-pois o <prgn>iptables</prgn> È modulariz·vel, e mÛdulos que acrescentam mais funÁıes
-podem ser carregados em adiÁ„o aos j· existentes no kernel.
+pois o <prgn>iptables</prgn> √© modulariz√°vel, e m√≥dulos que acrescentam mais fun√ß√µes
+podem ser carregados em adi√ß√£o aos j√° existentes no kernel.
  <p>
 Nos exemplos anteriores vimos o uso de diversos alvos como o DROP e o ACCEPT. 
-Apenas farei uma breve referÍncia sobre os alvos mais usados em operaÁıes 
-comuns dos chains. Os alvos REDIRECT, SNAT e DNAT ser„o explicados em 
-uma seÁ„o seguinte:
+Apenas farei uma breve refer√™ncia sobre os alvos mais usados em opera√ß√µes 
+comuns dos chains. Os alvos REDIRECT, SNAT e DNAT ser√£o explicados em 
+uma se√ß√£o seguinte:
 <taglist compact>
  <tag>ACCEPT</tag>
   <item> 
-O pacote È ACEITO e o processamento das regras daquele chains È concluÌdo. Pode 
+O pacote √© ACEITO e o processamento das regras daquele chains √© conclu√≠do. Pode 
 ser usado como alvo em todos os chains de todas as tabelas do 
-<prgn>iptables</prgn> e tambÈm pode ser especificado na polÌtica padr„o das 
+<prgn>iptables</prgn> e tamb√©m pode ser especificado na pol√≠tica padr√£o das 
 regras do firewall (veja <ref id="fw-iptables-chains-P">). 
 
  <tag>DROP</tag>
   <item>
-Rejeita o pacote e o processamento das regras daquele chain È concluÌdo. Pode ser 
+Rejeita o pacote e o processamento das regras daquele chain √© conclu√≠do. Pode ser 
 usado como alvo em todos os chains de todas as tabelas do <prgn>iptables</prgn> e 
-tambÈm pode ser especificado na polÌtica padr„o das regras do firewall 
+tamb√©m pode ser especificado na pol√≠tica padr√£o das regras do firewall 
 (veja <ref id="fw-iptables-chains-P">).
 
  <tag>REJECT</tag>
   <item>
-Este È um mÛdulo opcional que faz a mesma funÁ„o do alvo <em>DROP</em> com a 
-diferenÁa de que uma mensagem ICMP do tipo "icmp-port-unreachable" (TCP/UDP) ou 
-"host-unreachable" (ICMP) È retornada para a m·quina de origem. Pode ser usado 
-como alvo somente nos chains da tabela (n„o como polÌtica padr„o).
+Este √© um m√≥dulo opcional que faz a mesma fun√ß√£o do alvo <em>DROP</em> com a 
+diferen√ßa de que uma mensagem ICMP do tipo "icmp-port-unreachable" (TCP/UDP) ou 
+"host-unreachable" (ICMP) √© retornada para a m√°quina de origem. Pode ser usado 
+como alvo somente nos chains da tabela (n√£o como pol√≠tica padr√£o).
 
  <tag>LOG</tag>
   <item>
-Este mÛdulo envia uma mensagem ao <prgn>syslog</prgn> caso a regra confira, o 
-processamento continua normalmente para a prÛxima regra (o pacote n„o È nem 
+Este m√≥dulo envia uma mensagem ao <prgn>syslog</prgn> caso a regra confira, o 
+processamento continua normalmente para a pr√≥xima regra (o pacote n√£o √© nem 
 considerado ACEITO ou REJEITADO). 
 
  <tag>RETURN</tag>
@@ -350,34 +350,34 @@ atual.
   
  <tag>QUEUE</tag>
   <item>
-Passa o processamento para um programa a nÌvel de usu·rio. 
+Passa o processamento para um programa a n√≠vel de usu√°rio. 
  
 </taglist>
 
 
 <sect2 id="fw-iptables-outras-alvo-REJECT">Alvo REJECT
  <p>
-Para ser usado, o mÛdulo <file>ipt_REJECT</file> deve ser compilado no kernel 
-ou como mÛdulo. Este alvo rejeita o pacote (como o <em>DROP</em>) e envia uma 
-mensagem ICMP do tipo "icmp-port-unreachable" como padr„o para a m·quina de 
+Para ser usado, o m√≥dulo <file>ipt_REJECT</file> deve ser compilado no kernel 
+ou como m√≥dulo. Este alvo rejeita o pacote (como o <em>DROP</em>) e envia uma 
+mensagem ICMP do tipo "icmp-port-unreachable" como padr√£o para a m√°quina de 
 origem.
  <p>
-… um alvo interessante para bloqueio de portas TCP, pois em alguns casos da a 
-impress„o que a m·quina n„o dispıe de um sistema de firewall (o alvo DROP 
+√â um alvo interessante para bloqueio de portas TCP, pois em alguns casos da a 
+impress√£o que a m√°quina n√£o disp√µe de um sistema de firewall (o alvo DROP 
 causa uma parada de muito tempo em alguns portscanners e tentativas de 
-conex„o de serviÁos, revelando imediatamente o uso de um sistema de firewall
-pela m·quina). O alvo REJECT vem dos tempos do ipchains e somente pode ser usado 
-na tabela <em>filter</em>. Quando um pacote confere, ele È rejeitado com a 
-mensagem ICMP do tipo "port unreachable", È possÌvel especificar outro tipo
-de mensagem ICMP com a opÁ„o <em>--reject-with tipo_icmp</em>.
+conex√£o de servi√ßos, revelando imediatamente o uso de um sistema de firewall
+pela m√°quina). O alvo REJECT vem dos tempos do ipchains e somente pode ser usado 
+na tabela <em>filter</em>. Quando um pacote confere, ele √© rejeitado com a 
+mensagem ICMP do tipo "port unreachable", √© poss√≠vel especificar outro tipo
+de mensagem ICMP com a op√ß√£o <em>--reject-with tipo_icmp</em>.
 <![ %OBS [
  <p>
 <strong>OBS:</strong> REJECT pode ser usado somente como alvo na tabela filter 
-e n„o È possÌvel especifica-lo como polÌtica padr„o do chain filter (como 
-acontecia no <prgn>ipchains</prgn>. Uma forma alternativa È inserir como 
-˙ltima regra uma que pegue todos os pacotes restantes daquele chain e 
+e n√£o √© poss√≠vel especifica-lo como pol√≠tica padr√£o do chain filter (como 
+acontecia no <prgn>ipchains</prgn>. Uma forma alternativa √© inserir como 
+√∫ltima regra uma que pegue todos os pacotes restantes daquele chain e 
 tenha como alvo REJECT (como <tt>iptables -A INPUT -j REJECT</tt>), desta forma 
-ele nunca atingir· a polÌtica padr„o do chain. ]]>
+ele nunca atingir√° a pol√≠tica padr√£o do chain. ]]>
 <example>
 # Rejeita pacotes vindos de 200.200.200.1 pela interface ppp0: 
 iptables -A INPUT -s 200.200.200.1 -i ppp+ -j REJECT
@@ -387,11 +387,11 @@ iptables -A INPUT -s 200.200.200.1 -i ppp+ -j REJECT
 
 <sect2 id="fw-iptables-outras-alvo-LOG">Especificando LOG como alvo
  <p>
-Este alvo È usado para registrar a passagem de pacotes no <prgn>syslog</prgn> 
-do sistema. … um alvo muito interessante para ser usado para regras que bloqueiam 
-determinados tr·fegos no sistema (para que o administrador tome conhecimento sobre 
-tais tentativas), para regras de fim de chain (quando vocÍ tem um grande conjunto 
-de regras em um firewall restritivo e n„o sabe onde suas regras est„o sendo 
+Este alvo √© usado para registrar a passagem de pacotes no <prgn>syslog</prgn> 
+do sistema. √â um alvo muito interessante para ser usado para regras que bloqueiam 
+determinados tr√°fegos no sistema (para que o administrador tome conhecimento sobre 
+tais tentativas), para regras de fim de chain (quando voc√™ tem um grande conjunto 
+de regras em um firewall restritivo e n√£o sabe onde suas regras est√£o sendo 
 bloqueadas), para satisfazer sua curiosidade, etc. 
  <p>
 <example>
@@ -402,14 +402,14 @@ iptables -A INPUT -s 200.200.200.1 -i ppp+ -j REJECT
 
 </example>
 Note que no exemplo anterior a regra que registra o pacote (-j LOG) deve aparecer 
-antes da regra que REJEITA (-j REJECT), caso contr·rio a regra de LOG nunca 
-funcionar·. A regra que REJEITA poderia tambÈm ser trocada por uma regra que 
-ACEITA, caso queira registrar um pacote que deve ser aceito (se a polÌtica
-padr„o do seu firewall for restritiva (-P DROP).
-A ˙nica coisa que muda nas regras de log È o alvo da regra, isto facilita a 
-implementaÁ„o de grandes conjuntos de regras de firewall.
+antes da regra que REJEITA (-j REJECT), caso contr√°rio a regra de LOG nunca 
+funcionar√°. A regra que REJEITA poderia tamb√©m ser trocada por uma regra que 
+ACEITA, caso queira registrar um pacote que deve ser aceito (se a pol√≠tica
+padr√£o do seu firewall for restritiva (-P DROP).
+A √∫nica coisa que muda nas regras de log √© o alvo da regra, isto facilita a 
+implementa√ß√£o de grandes conjuntos de regras de firewall.
  <p>
-A regra acima mostrar· a seguinte saÌda no <prgn>syslog</prgn> do sistema: 
+A regra acima mostrar√° a seguinte sa√≠da no <prgn>syslog</prgn> do sistema: 
 <example>
 Aug 25 10:08:01 debian kernel: IN=ppp0 OUT= MAC=10:20:30:40:50:60:70:80:90:00:00:00:08:00 SRC=200.200.200.1 DST=200.210.10.10 LEN=61 TOS=0x00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=1031 DPT=53 LEN=41
 
@@ -418,14 +418,14 @@ Os campos possuem o seguinte significado:
 <taglist compact>
  <tag>Aug 25 10:08:01</tag>
   <item>
- MÍs, dia e hora do registro do pacote.
+ M√™s, dia e hora do registro do pacote.
  <tag>debian</tag>
   <item>
  Nome do computador que registrou o pacote.
  <tag>kernel:</tag>
   <item>
  Daemon que registrou a mensagem, no caso o <prgn>iptables</prgn> faz parte 
- do prÛprio kernel.
+ do pr√≥prio kernel.
 
  <tag>IN=ppp0</tag>
   <item>
@@ -433,23 +433,23 @@ Os campos possuem o seguinte significado:
 
  <tag>OUT=</tag>
   <item>
- Especifica a interface de saÌda (para onde o pacote foi).
+ Especifica a interface de sa√≠da (para onde o pacote foi).
  
  <tag>MAC=10:20:30:40:50:60:70:80:90:00:00:00:08:00</tag>
   <item>
- EndereÁo mac da interface de rede (pode ser obtido com <tt>arp interface</tt>).
+ Endere√ßo mac da interface de rede (pode ser obtido com <tt>arp interface</tt>).
 
  <tag>SRC=200.200.200.1</tag>
   <item>
- EndereÁo de origem do pacote.
+ Endere√ßo de origem do pacote.
 
  <tag>DST=200.210.10.10</tag>
   <item>
- EndereÁo de destino do pacote.
+ Endere√ßo de destino do pacote.
 
  <tag>SEQ=234234343</tag>
   <item>
-N˙mero de seq¸Íncia da recepÁ„o. … ativado com a opÁ„o <em>--log-tcp-sequence</em>.
+N√∫mero de seq√º√™ncia da recep√ß√£o. √â ativado com a op√ß√£o <em>--log-tcp-sequence</em>.
 
  <tag>LEN=61</tag>
   <item>
@@ -457,13 +457,13 @@ N˙mero de seq¸Íncia da recepÁ„o. … ativado com a opÁ„o <em>--log-tcp-sequence</e
  
  <tag>TOS=0x00</tag>
   <item>
- Prioridade do cabeÁalho TOS (Tipo). Veja a seÁ„o
+ Prioridade do cabe√ßalho TOS (Tipo). Veja a se√ß√£o
  <ref id="fw-iptables-mangle-TOS"> para mais detalhes. 
 
  <tag>PREC=0x00</tag>
   <item>
-Prioridade do cabeÁalho TOS (PrecedÍncia). 
-Veja a seÁ„o <ref id="fw-iptables-mangle-TOS"> para mais detalhes. 
+Prioridade do cabe√ßalho TOS (Preced√™ncia). 
+Veja a se√ß√£o <ref id="fw-iptables-mangle-TOS"> para mais detalhes. 
  
  <tag>TTL=64</tag>
   <item>
@@ -471,17 +471,17 @@ Veja a seÁ„o <ref id="fw-iptables-mangle-TOS"> para mais detalhes.
  
  <tag>ID=0</tag>
   <item>
-IdentificaÁ„o ˙nica destes datagrama. Esta identificaÁ„o tambÈm È usada
+Identifica√ß√£o √∫nica destes datagrama. Esta identifica√ß√£o tamb√©m √© usada
 pelos fragmentos seguintes deste pacote. 
 
  <tag>DF</tag>
   <item>
-OpÁ„o "Don't fragment" (n„o fragmentar) do pacote. Usada quando o pacote È 
-pequeno o bastante para n„o precisar ser fragmentado.
+Op√ß√£o "Don't fragment" (n√£o fragmentar) do pacote. Usada quando o pacote √© 
+pequeno o bastante para n√£o precisar ser fragmentado.
 
  <tag>MF</tag>
   <item>
-OpÁ„o "More Fragments" (mais fragmentos) est„o para ser recebidos.
+Op√ß√£o "More Fragments" (mais fragmentos) est√£o para ser recebidos.
 
  <tag>FRAG=100</tag>
   <item>
@@ -494,63 +494,63 @@ pacote tem o tamanho de 800 bytes (100*8).
  
  <tag>SPT=1031</tag>
   <item>
- Porta de origem da requisiÁ„o. 
+ Porta de origem da requisi√ß√£o. 
 
  <tag>DPT=53</tag>
   <item>
- Porta de destino da requisiÁ„o.
+ Porta de destino da requisi√ß√£o.
 
  <tag>LEN=41</tag>
   <item>
  Tamanho do pacote.
 </taglist>
-O log acima mostra uma consulta DNS (porta destino 53) para nossa m·quina (INPUT) 
+O log acima mostra uma consulta DNS (porta destino 53) para nossa m√°quina (INPUT) 
 de 200.200.200.1 para 200.210.10.10.
  <p>
-O problema È que em um grande n˙mero de regras ser· difÌcil saber qual regra 
-conferiu (pois terÌamos que analisar o endereÁo/porta origem/destino) e o 
-destino do pacote (se ele foi ACEITO ou BLOQUEADO) pois vocÍ pode ter regras
-para ambas as situaÁıes. Por este motivo existem algumas opÁıes ˙teis que 
+O problema √© que em um grande n√∫mero de regras ser√° dif√≠cil saber qual regra 
+conferiu (pois ter√≠amos que analisar o endere√ßo/porta origem/destino) e o 
+destino do pacote (se ele foi ACEITO ou BLOQUEADO) pois voc√™ pode ter regras
+para ambas as situa√ß√µes. Por este motivo existem algumas op√ß√µes √∫teis que 
 podemos usar com o alvo LOG: 
 <taglist compact>
- <tag>--log-prefix "descriÁ„o"</tag>
+ <tag>--log-prefix "descri√ß√£o"</tag>
   <item>
- Permite especificar uma descriÁ„o para a regra do firewall de atÈ 29 caracteres. 
- Caso tiver espaÁos, devem ser usadas "aspas".
+ Permite especificar uma descri√ß√£o para a regra do firewall de at√© 29 caracteres. 
+ Caso tiver espa√ßos, devem ser usadas "aspas".
  
- <tag>--log-level nÌvel</tag>
+ <tag>--log-level n√≠vel</tag>
   <item>
- Especifica o nÌvel da mensagem no <prgn>syslog</prgn>. 
- <![ %INTERMEDIARIO [ Veja os nÌveis na seÁ„o <ref id="log-syslogd-exemplo"> 
+ Especifica o n√≠vel da mensagem no <prgn>syslog</prgn>. 
+ <![ %INTERMEDIARIO [ Veja os n√≠veis na se√ß√£o <ref id="log-syslogd-exemplo"> 
  do guia. ]]>
  
  <tag>--log-tcp-options</tag>
   <item>
- Registra campos do cabeÁalho TCP nos logs do sistema.
+ Registra campos do cabe√ßalho TCP nos logs do sistema.
  
  <tag>--log-ip-options</tag>
   <item>
- Registra campos do cabeÁalho IP nos logs do sistema
+ Registra campos do cabe√ßalho IP nos logs do sistema
  
  <tag>--log-tcp-sequence</tag>
   <item>
- Registra os n˙meros de seq¸encia TCP. Evite ao m·ximo o uso desta opÁ„o, pois
- a seq¸encia de n˙meros TCP pode ser a chave para um seq¸estro de seÁ„o ou 
- IP spoofing em seu sistema caso algum usu·rio tenha acesso a estes logs. 
- Caso utilize tcp/ip em servidores p˙blicos, o uso desta opÁ„o ajudar· a 
+ Registra os n√∫meros de seq√ºencia TCP. Evite ao m√°ximo o uso desta op√ß√£o, pois
+ a seq√ºencia de n√∫meros TCP pode ser a chave para um seq√ºestro de se√ß√£o ou 
+ IP spoofing em seu sistema caso algum usu√°rio tenha acesso a estes logs. 
+ Caso utilize tcp/ip em servidores p√∫blicos, o uso desta op√ß√£o ajudar√° a 
  entender bem os ataques DoS causados por syn-flood e porque ativar os 
  SynCookies (veja <ref id="fw-iptables-mod-limit-synflood">).
  
 </taglist>
 <![ %OBS [ 
  <p>
-<strong>OBS1:</strong>Lembre-se que estas opÁıes s„o referentes ao alvo LOG 
-e devem ser usadas apÛs este, caso contr·rio vocÍ ter· um pouco de trabalho 
+<strong>OBS1:</strong>Lembre-se que estas op√ß√µes s√£o referentes ao alvo LOG 
+e devem ser usadas ap√≥s este, caso contr√°rio voc√™ ter√° um pouco de trabalho 
 para analisar e consertar erros em suas regras do firewall. 
  <p>
-<strong>OBS2:</strong>Caso esteja usando o firewall em um servidor p˙blico, 
+<strong>OBS2:</strong>Caso esteja usando o firewall em um servidor p√∫blico, 
 recomendo associar um limite a regra de log, pois um ataque poderia causar
-um DoS enchendo sua partiÁ„o. Leia mais sobre isso em 
+um DoS enchendo sua parti√ß√£o. Leia mais sobre isso em 
 <ref id="fw-iptables-mod-limit">.
 ]]>
 <example>
@@ -561,42 +561,42 @@ iptables -A INPUT -s 200.200.200.1 -i ppp+ -j LOG --log-prefix "FIREWALL: Derrub
 iptables -A INPUT -s 200.200.200.1 -i ppp+ -j REJECT
 
 </example>
-Retornar· a seguinte mensagem no syslog:
+Retornar√° a seguinte mensagem no syslog:
 <example>
 Aug 25 10:08:01 debian kernel: FIREWALL: Derrubado IN=ppp0 OUT= MAC=10:20:30:40:50:60:70:80:90:00:00:00:08:00 SRC=200.200.200.1 DST=200.210.10.10 LEN=61 TOS=0x00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=1031 DPT=53 LEN=41
 
 </example>
-Agora vocÍ sabe o que aconteceu com o pacote (Rejeitado). A padronizaÁ„o de 
-mensagens de firewall È tambÈm importante para a criaÁ„o de scripts de 
-an·lise que poder„o fazer a an·lise dos logs do seu firewall (para criaÁ„o 
-de estatÌsticas que podem servir como base para a criaÁ„o de novas regras 
-de firewall ou eliminaÁ„o de outras). 
+Agora voc√™ sabe o que aconteceu com o pacote (Rejeitado). A padroniza√ß√£o de 
+mensagens de firewall √© tamb√©m importante para a cria√ß√£o de scripts de 
+an√°lise que poder√£o fazer a an√°lise dos logs do seu firewall (para cria√ß√£o 
+de estat√≠sticas que podem servir como base para a cria√ß√£o de novas regras 
+de firewall ou elimina√ß√£o de outras). 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Se vocÍ sente falta da funÁ„o "-l" do <prgn>ipchains</prgn> 
-que combina o alvo e log na mesma regra vocÍ pode criar um alvo como o seguinte: 
+<strong>OBS:</strong> Se voc√™ sente falta da fun√ß√£o "-l" do <prgn>ipchains</prgn> 
+que combina o alvo e log na mesma regra voc√™ pode criar um alvo como o seguinte: 
 <example>
 iptables -N log-drop
 iptables -A log-drop -j LOG
 iptables -A log-drop -j DROP
 
 </example>
-E usar "log-drop" como alvo em suas regras. Mesmo assim esta soluÁ„o È "limitada" 
-em relaÁ„o a "-l" do <prgn>ipchains</prgn> porque o <prgn>iptables</prgn> n„o 
+E usar "log-drop" como alvo em suas regras. Mesmo assim esta solu√ß√£o √© "limitada" 
+em rela√ß√£o a "-l" do <prgn>ipchains</prgn> porque o <prgn>iptables</prgn> n√£o 
 inclui detalhes de qual chain bloqueou o pacote/qual pacote foi bloqueado, assim 
-È necess·rio a especificaÁ„o da opÁ„o <em>--log-prefix</em> para as mensagens se 
-tornarem mais compreensÌveis. Esta limitaÁ„o pode ser contornada utilizando
-um firewall feito em linguagem shell script, desta forma vocÍ ter· um controle
-maior sobre o seu programa usando funÁıes e integraÁ„o com outros utilit·rios. ]]>
+√© necess√°rio a especifica√ß√£o da op√ß√£o <em>--log-prefix</em> para as mensagens se 
+tornarem mais compreens√≠veis. Esta limita√ß√£o pode ser contornada utilizando
+um firewall feito em linguagem shell script, desta forma voc√™ ter√° um controle
+maior sobre o seu programa usando fun√ß√µes e integra√ß√£o com outros utilit√°rios. ]]>
 
 
 <sect2 id="fw-iptables-outras-alvo-RETURN">Especificando RETURN como alvo
  <p>
 O alvo RETURN diz ao <prgn>iptables</prgn> interromper o processamento no chain 
-atual e retornar o processamento ao chain anterior. Ele È ˙til quando criamos 
+atual e retornar o processamento ao chain anterior. Ele √© √∫til quando criamos 
 um chain que faz um determinado tratamento de pacotes, por exemplo 
-bloquear conexıes vindas da internet para portas baixas, exceto para 
-um endereÁo IP especÌfico. Como segue:
+bloquear conex√µes vindas da internet para portas baixas, exceto para 
+um endere√ßo IP espec√≠fico. Como segue:
 <example>
 1-) iptables -t filter -A INPUT -i ppp0 -j internet
 2-) iptables -t filter -j ACCEPT
@@ -608,48 +608,48 @@ um endereÁo IP especÌfico. Como segue:
 8-) iptables -t filter -A internet -p tcp --dport 80 -j DROP
 
 </example>
-Quando um pacote com o endereÁo <file>www.debian.org</file> tentando 
-acessar a porta www (80) de nossa m·quina atravÈs da internet (via interface ppp0), 
-o chain n˙mero 1 confere, ent„o o processamento continua no chain n˙mero 4, 
-o chain n˙mero 4 confere ent„o o processamento volta para a regra n˙mero 2, que 
+Quando um pacote com o endere√ßo <file>www.debian.org</file> tentando 
+acessar a porta www (80) de nossa m√°quina atrav√©s da internet (via interface ppp0), 
+o chain n√∫mero 1 confere, ent√£o o processamento continua no chain n√∫mero 4, 
+o chain n√∫mero 4 confere ent√£o o processamento volta para a regra n√∫mero 2, que 
 diz para aceitar o pacote. 
  <p>
-Agora se um pacote vem com o endereÁo <file>www.dominio.com.br</file> tentando 
-acessar a porta www *80) de nossa m·quina atravÈs da internet (via interface ppp0),
-o chain n˙mero 1 confere, ent„o o processamento continua no chain n˙mero 4, 
-que n„o confere. O mesmo acontece com os chains 5, 6 e 7. O chain n˙mero 8 
-confere, ent„o o acesso È bloqueado. 
+Agora se um pacote vem com o endere√ßo <file>www.dominio.com.br</file> tentando 
+acessar a porta www *80) de nossa m√°quina atrav√©s da internet (via interface ppp0),
+o chain n√∫mero 1 confere, ent√£o o processamento continua no chain n√∫mero 4, 
+que n√£o confere. O mesmo acontece com os chains 5, 6 e 7. O chain n√∫mero 8 
+confere, ent√£o o acesso √© bloqueado. 
  <p>
-Como pode notou, o alvo RETURN facilita bastante a construÁ„o 
-das regras do seu firewall, caso existam m·quinas/redes que sejam exceÁıes
-as suas regras. Se ela n„o existisse, seria necess·rio especificar diversas 
-opÁıes -s, -d, etc para poder garantir o acesso livre a determinadas m·quinas. 
+Como pode notou, o alvo RETURN facilita bastante a constru√ß√£o 
+das regras do seu firewall, caso existam m√°quinas/redes que sejam exce√ß√µes
+as suas regras. Se ela n√£o existisse, seria necess√°rio especificar diversas 
+op√ß√µes -s, -d, etc para poder garantir o acesso livre a determinadas m√°quinas. 
 
 
 <sect1 id="fw-iptables-outras-save-restore">Salvando e Restaurando regras
  <p>
-As regras que vocÍ est· trabalhosamente criando e testando manualmente enquanto
-manipula o <prgn>iptables</prgn> podem ser salvas de 2 formas; uma delas È 
+As regras que voc√™ est√° trabalhosamente criando e testando manualmente enquanto
+manipula o <prgn>iptables</prgn> podem ser salvas de 2 formas; uma delas √© 
 escrevendo um shell script que tenha todos os comandos, um por linha. Isto 
-È recomendado quando tem um firewall grande e que exige uma boa padronizaÁ„o 
-de regras, bem como sua leitura, coment·rios. O script shell tambÈm permite
-o uso de funÁıes presente no interpretador de comando, portanto se vocÍ È 
-uma pessoa que gosta de interagir com as funÁıes do shell e deixar as coisas
-mais flexÌveis, prefira esta opÁ„o.
+√© recomendado quando tem um firewall grande e que exige uma boa padroniza√ß√£o 
+de regras, bem como sua leitura, coment√°rios. O script shell tamb√©m permite
+o uso de fun√ß√µes presente no interpretador de comando, portanto se voc√™ √© 
+uma pessoa que gosta de interagir com as fun√ß√µes do shell e deixar as coisas
+mais flex√≠veis, prefira esta op√ß√£o.
  <p>
-A outra forma È usando as ferramentas <prgn>iptables-save</prgn> e 
-<prgn>iptables-restore</prgn> baseada na idÈia do <prgn>ipchains-save</prgn> 
+A outra forma √© usando as ferramentas <prgn>iptables-save</prgn> e 
+<prgn>iptables-restore</prgn> baseada na id√©ia do <prgn>ipchains-save</prgn> 
 e <prgn>ipchains-restore</prgn>. O <prgn>iptables-save</prgn> deve ser 
 usado sempre que modificar regras no firewall iptables da seguinte forma:
 <example>
 iptables-save &gt;/dir/iptables-regras
 
 </example>
-Uma das vantagens do uso do <prgn>iptables-save</prgn> È ele tambÈm salvar 
+Uma das vantagens do uso do <prgn>iptables-save</prgn> √© ele tamb√©m salvar 
 os contadores de chains, ou seja, a quantidade de pacotes que conferiram com 
-a regra. Isto tambÈm pode ser feito com algumas regras adicionais em seu shell 
-script, caso tenha interesse nesses contadores para estatÌsticas ou outros
-tipos de relatÛrios.
+a regra. Isto tamb√©m pode ser feito com algumas regras adicionais em seu shell 
+script, caso tenha interesse nesses contadores para estat√≠sticas ou outros
+tipos de relat√≥rios.
  <p>
 Para restaurar as regras salvas, utilize o comando:
 <example>

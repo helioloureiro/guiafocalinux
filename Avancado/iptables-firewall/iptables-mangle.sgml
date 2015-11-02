@@ -1,127 +1,127 @@
 <sect id="fw-iptables-mangle">A tabela mangle
  <p>
-A tabela <em>mangle</em> serve para especificar aÁıes especiais para o tratamento 
-do tr·fego que atravessa os chains. Nesta tabela existem cincos chains: 
+A tabela <em>mangle</em> serve para especificar a√ß√µes especiais para o tratamento 
+do tr√°fego que atravessa os chains. Nesta tabela existem cincos chains: 
 <em>PREROUTING</em>, <em>POSTROUTING</em>, <em>INPUT</em>, <em>OUTPUT</em> e
 <em>FORWARD</em> (veja <ref id="fw-iptables-tabelas"> para 
 maiores detalhes). 
  <p>
-Em geral, cada um deste chain È processado antes do chain correspondente 
-na tabela <em>filter</em> e <em>nat</em> para definir opÁıes especiais para
-o tr·fego (por exemplo, o chain <em>PREROUTING</em> da tabela <em>mangle</em>
-È processado antes do <em>PREROUTING</em> da tabela <em>nat</em>). O 
+Em geral, cada um deste chain √© processado antes do chain correspondente 
+na tabela <em>filter</em> e <em>nat</em> para definir op√ß√µes especiais para
+o tr√°fego (por exemplo, o chain <em>PREROUTING</em> da tabela <em>mangle</em>
+√© processado antes do <em>PREROUTING</em> da tabela <em>nat</em>). O 
 chain <em>OUTPUT</em> da tablea <em>mangle</em> corresponde ao <em>OUTPUT</em> 
 da tabela <em>nat</em>.
-OpÁıes como o <em>Tipo de ServiÁo (TOS)</em> È especificado nesta tabela para 
-classificar e aumentar consideravelmente a velocidade de tr·fego considerados 
-em tempo real. Mesmo apÛs o tr·fego ser estabelecido, os chains da tabela
-mangle continuam ativos para garantir que as opÁıes especiais relacionadas
-com a conex„o continuem fazendo efeito (veja os exemplos de 
+Op√ß√µes como o <em>Tipo de Servi√ßo (TOS)</em> √© especificado nesta tabela para 
+classificar e aumentar consideravelmente a velocidade de tr√°fego considerados 
+em tempo real. Mesmo ap√≥s o tr√°fego ser estabelecido, os chains da tabela
+mangle continuam ativos para garantir que as op√ß√µes especiais relacionadas
+com a conex√£o continuem fazendo efeito (veja os exemplos de 
 <ref id="fw-iptables-path">).
 
 
-<sect1 id="fw-iptables-mangle-TOS">Especificando o tipo de serviÁo
+<sect1 id="fw-iptables-mangle-TOS">Especificando o tipo de servi√ßo
  <p>
-O tipo de serviÁo È um campo existente no cabeÁalho de pacotes do protocolo
-ipv4 que tem a funÁ„o especificar qual È a prioridade daquele pacote. A 
-prioridade È definida usando o algoritmo FIFO do prÛprio kernel, sendo 
-uma das alternativas de controle/priorizaÁ„o de tr·fego das mais simples e 
-r·pidas.
+O tipo de servi√ßo √© um campo existente no cabe√ßalho de pacotes do protocolo
+ipv4 que tem a fun√ß√£o especificar qual √© a prioridade daquele pacote. A 
+prioridade √© definida usando o algoritmo FIFO do pr√≥prio kernel, sendo 
+uma das alternativas de controle/prioriza√ß√£o de tr√°fego das mais simples e 
+r√°pidas.
  <p>
-Uma das vantagens da utilizaÁ„o do tipo de serviÁo È dar prioridade ao 
-tr·fego de pacotes interativos (como os do ICQ, IRC, servidores de chat), etc.
+Uma das vantagens da utiliza√ß√£o do tipo de servi√ßo √© dar prioridade ao 
+tr√°fego de pacotes interativos (como os do ICQ, IRC, servidores de chat), etc.
 Com o TOS especificado, mesmo que esteja fazendo um download consumindo 
-toda a banda de sua interface de rede, o tr·fego com prioridade 
-interativa ser· enviado antes, aumentando a eficiÍncia do uso de 
-serviÁos em sua m·quina. 
+toda a banda de sua interface de rede, o tr√°fego com prioridade 
+interativa ser√° enviado antes, aumentando a efici√™ncia do uso de 
+servi√ßos em sua m√°quina. 
  <p>
-Em testes realizados em minha conex„o de 56K, o uso de regras TOS aumentou
-bastante o desempenho em tr·fego interativo (em torno de 300%), durante o uso 
+Em testes realizados em minha conex√£o de 56K, o uso de regras TOS aumentou
+bastante o desempenho em tr√°fego interativo (em torno de 300%), durante o uso 
 total da banda da interface ppp em grande consumo de banda. 
  <p>
-Usamos o alvo TOS (-j TOS) para especificar a modificaÁ„o do tipo de serviÁo
+Usamos o alvo TOS (-j TOS) para especificar a modifica√ß√£o do tipo de servi√ßo
 nos pacotes que atravessam as regras do firewall, acompanhada do argumento
 <em>--set-tos TOS</em> que define a nova prioridade dos pacotes. Os 
-valores aceitos s„o os seguintes:
+valores aceitos s√£o os seguintes:
 <taglist compact>
- <tag>Espera MÌnima</tag>
+ <tag>Espera M√≠nima</tag>
   <item>
-… especificado atravÈs de <em>Minimize-Delay</em>, <em>16</em> ou <em>0x10</em>
+√â especificado atrav√©s de <em>Minimize-Delay</em>, <em>16</em> ou <em>0x10</em>
 
- <tag>M·ximo Processamento</tag>
+ <tag>M√°ximo Processamento</tag>
   <item>
-… especificado atravÈs de <em>Maximize-Throughput</em>, <em>8,</em> ou <em>0x08</em>.
+√â especificado atrav√©s de <em>Maximize-Throughput</em>, <em>8,</em> ou <em>0x08</em>.
 
- <tag>M·xima ConfianÁa</tag>
+ <tag>M√°xima Confian√ßa</tag>
   <item>
-… especificado atravÈs de <em>Maximize-Reliability</em>, <em>4</em> ou <em>0x04</em>.
+√â especificado atrav√©s de <em>Maximize-Reliability</em>, <em>4</em> ou <em>0x04</em>.
 
- <tag>Custo mÌnimo</tag>
+ <tag>Custo m√≠nimo</tag>
   <item>
-Especificado atravÈs de <em>Minimize-Cost</em>, <em>2</em> ou <em>0x02</em>.
+Especificado atrav√©s de <em>Minimize-Cost</em>, <em>2</em> ou <em>0x02</em>.
 
  <tag>Prioridade Normal</tag>
   <item>
-Especificado atravÈs de <em>Normal-Service</em>, <em>0</em> ou <em>0x00</em>. 
+Especificado atrav√©s de <em>Normal-Service</em>, <em>0</em> ou <em>0x00</em>. 
 
 </taglist>
-Os pacotes vem por padr„o com o valor TOS ajustado como <em>prioridade normal</em> 
-(bits tos ajustados para 0x00). O tipo <em>MÌnima Espera</em> È o de maior prioridade,
-recomendado para tr·fego interativo.
+Os pacotes vem por padr√£o com o valor TOS ajustado como <em>prioridade normal</em> 
+(bits tos ajustados para 0x00). O tipo <em>M√≠nima Espera</em> √© o de maior prioridade,
+recomendado para tr√°fego interativo.
 
 
 
-<sect2 id="fw-iptables-mangle-TOS-out">Especificando o TOS para tr·fego de saÌda
+<sect2 id="fw-iptables-mangle-TOS-out">Especificando o TOS para tr√°fego de sa√≠da
  <p>
-Este È o mais usado, pois prioriza o tr·fego que sai da m·quina (com destino 
-a Internet, por exemplo). Sua operaÁ„o È realizada atravÈs do chain 
+Este √© o mais usado, pois prioriza o tr√°fego que sai da m√°quina (com destino 
+a Internet, por exemplo). Sua opera√ß√£o √© realizada atrav√©s do chain 
 <em>OUTPUT</em> ou <em>POSTROUTING</em>.
  <p>
-Para priorizar todo o tr·fego de IRC de nossa rede interna indo para a interface 
+Para priorizar todo o tr√°fego de IRC de nossa rede interna indo para a interface 
 ppp0:
 <example>
 iptables -t mangle -A OUTPUT -o ppp0 -p tcp --dport 6666-6668 -j TOS --set-tos 16
 
 </example>
-O bit TOS È ajustado para <em>Espera mÌnima</em> e ser· enviado antes dos pacotes
+O bit TOS √© ajustado para <em>Espera m√≠nima</em> e ser√° enviado antes dos pacotes
 com prioridade normal para fora.
-Para priorizar a transmiss„o de dados ftp saindo da rede:
+Para priorizar a transmiss√£o de dados ftp saindo da rede:
 <example>
 iptables -t mangle -A OUTPUT -o ppp0 -p tcp --dport 20 -j TOS --set-tos 8
 
 </example>
-Para priorizar o tr·fego de ICQ da rede:
+Para priorizar o tr√°fego de ICQ da rede:
 <example>
 iptables -t mangle -A OUTPUT -o ppp0 -p tcp --dport 5190 -j TOS --set-tos 16
 
 </example>
-Existem muitas outras otimizaÁıes que podem ser feitas, sÛ depende dos requerimentos
-e an·lise de cada serviÁo da rede pelo administrador.
+Existem muitas outras otimiza√ß√µes que podem ser feitas, s√≥ depende dos requerimentos
+e an√°lise de cada servi√ßo da rede pelo administrador.
 <![ %OBS [
  <p>
 <strong>OBS:</strong> - Os pacotes que atravessam o alvo TOS somente tem os bits
-tipo do serviÁo modificados, eles n„o ser„o de qualquer forma rejeitados. ]]>
+tipo do servi√ßo modificados, eles n√£o ser√£o de qualquer forma rejeitados. ]]>
 
 
-<sect2 id="fw-iptables-mangle-TOS-in">Especificando o TOS para o tr·fego de entrada
+<sect2 id="fw-iptables-mangle-TOS-in">Especificando o TOS para o tr√°fego de entrada
  <p>
-Este prioriza o tr·fego que entra da m·quina. Sua operaÁ„o È realizada no chain 
-<em>INPUT</em> ou <em>PREROUTING</em>. N„o faz muito sentido o uso deste chain 
-dentro de uma rede pequena/mÈdia, pois o tr·fego que recebermos ser· priorizado 
-pelo chain de saÌda de outras m·quinas da internet/outras redes antes de chegar 
-a nossa (desde que elas tambÈm estejam usando TOS). 
+Este prioriza o tr√°fego que entra da m√°quina. Sua opera√ß√£o √© realizada no chain 
+<em>INPUT</em> ou <em>PREROUTING</em>. N√£o faz muito sentido o uso deste chain 
+dentro de uma rede pequena/m√©dia, pois o tr√°fego que recebermos ser√° priorizado 
+pelo chain de sa√≠da de outras m√°quinas da internet/outras redes antes de chegar 
+a nossa (desde que elas tamb√©m estejam usando TOS). 
  <p>
-Para priorizar o processamento do tr·fego interativo vindo de servidores IRC para 
+Para priorizar o processamento do tr√°fego interativo vindo de servidores IRC para 
 nossa rede:
 <example>
 iptables -t mangle -A PREROUTING -i eth0 -p tcp --sport 6666-6668 -j TOS --set-tos 0x10
 
 </example>
-Modifica o tipo de serviÁo para <em>mÌnima espera</em> de todo o tr·fego enviado por 
+Modifica o tipo de servi√ßo para <em>m√≠nima espera</em> de todo o tr√°fego enviado por 
 servidores de IRC vindo da interface eth0.
 
 <![ %OBS [
  <p>
 <strong>OBS:</strong> - Os pacotes que atravessam o alvo TOS somente tem os bits
-tipo do serviÁo modificados, eles n„o ser„o de qualquer forma rejeitados. ]]>
+tipo do servi√ßo modificados, eles n√£o ser√£o de qualquer forma rejeitados. ]]>
 

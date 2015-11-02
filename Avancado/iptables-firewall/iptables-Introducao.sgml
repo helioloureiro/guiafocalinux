@@ -1,127 +1,127 @@
 <chapt id="fw-iptables">Firewall iptables
  <p>
-Este capÌtulo documenta o funcionamento do firewall <prgn>iptables</prgn> 
-que acompanha a sÈrie do kernel 2.4, opÁıes usadas, e aponta alguns 
-pontos fundamentais para iniciar a configuraÁ„o e construÁ„o de bons 
+Este cap√≠tulo documenta o funcionamento do firewall <prgn>iptables</prgn> 
+que acompanha a s√©rie do kernel 2.4, op√ß√µes usadas, e aponta alguns 
+pontos fundamentais para iniciar a configura√ß√£o e constru√ß√£o de bons 
 sistemas de firewall. 
 
 
-<sect id="fw-iptables-intro">IntroduÁ„o
+<sect id="fw-iptables-intro">Introdu√ß√£o
  <p>
-O <em>Firewall</em> È um programa que como objetivo proteger a m·quina 
-contra acessos indesejados, tr·fego indesejado, proteger serviÁos que estejam 
-rodando na m·quina e bloquear a passagem de coisas que vocÍ n„o deseja 
-receber (como conexıes vindas da Internet para sua segura rede local, evitando 
+O <em>Firewall</em> √© um programa que como objetivo proteger a m√°quina 
+contra acessos indesejados, tr√°fego indesejado, proteger servi√ßos que estejam 
+rodando na m√°quina e bloquear a passagem de coisas que voc√™ n√£o deseja 
+receber (como conex√µes vindas da Internet para sua segura rede local, evitando 
 acesso aos dados corporativos de uma empresa ou a seus dados pessoais). No 
 kernel do Linux 2.4, foi introduzido o firewall <prgn>iptables</prgn> 
-(tambÈm chamado de netfilter) que substitui o <prgn>ipchains</prgn> dos kernels 
-da sÈrie 2.2. Este novo firewall tem como vantagem ser muito est·vel (assim como
-o <prgn>ipchains</prgn> e <prgn>ipfwadm</prgn>), confi·vel, permitir muita 
-flexibilidade na programaÁ„o de regras pelo administrador do sistema, mais 
-opÁıes disponÌveis ao administrador para controle de tr·fego, controle 
-independente do tr·fego da rede local/entre redes/interfaces devido 
-a nova organizaÁ„o das etapas de roteamento de pacotes. 
+(tamb√©m chamado de netfilter) que substitui o <prgn>ipchains</prgn> dos kernels 
+da s√©rie 2.2. Este novo firewall tem como vantagem ser muito est√°vel (assim como
+o <prgn>ipchains</prgn> e <prgn>ipfwadm</prgn>), confi√°vel, permitir muita 
+flexibilidade na programa√ß√£o de regras pelo administrador do sistema, mais 
+op√ß√µes dispon√≠veis ao administrador para controle de tr√°fego, controle 
+independente do tr√°fego da rede local/entre redes/interfaces devido 
+a nova organiza√ß√£o das etapas de roteamento de pacotes. 
  <p>
-O <prgn>iptables</prgn> È um firewall em nÌvel de pacotes e funciona baseado 
-no endereÁo/porta de origem/destino do pacote, prioridade, etc. Ele funciona 
-atravÈs da comparaÁ„o de regras para saber se um pacote tem ou n„o 
-permiss„o para passar. Em firewalls mais restritivos, o pacote È bloqueado e 
+O <prgn>iptables</prgn> √© um firewall em n√≠vel de pacotes e funciona baseado 
+no endere√ßo/porta de origem/destino do pacote, prioridade, etc. Ele funciona 
+atrav√©s da compara√ß√£o de regras para saber se um pacote tem ou n√£o 
+permiss√£o para passar. Em firewalls mais restritivos, o pacote √© bloqueado e 
 registrado para que o administrador do sistema tenha conhecimento sobre o que 
-est· acontecendo em seu sistema. 
+est√° acontecendo em seu sistema. 
  <p> 
-Ele tambÈm pode ser usado para modificar e monitorar o tr·fego da rede, fazer NAT 
+Ele tamb√©m pode ser usado para modificar e monitorar o tr√°fego da rede, fazer NAT 
 (masquerading, source nat, destination nat), redirecionamento de pacotes, 
-marcaÁ„o de pacotes, modificar a prioridade de pacotes que 
-chegam/saem do seu sistema, contagem de bytes, dividir tr·fego entre m·quinas, 
-criar proteÁıes anti-spoofing, contra syn flood, DoS, etc. O tr·fego vindo de 
-m·quinas desconhecidas da rede pode tambÈm ser bloqueado/registrado atravÈs do 
+marca√ß√£o de pacotes, modificar a prioridade de pacotes que 
+chegam/saem do seu sistema, contagem de bytes, dividir tr√°fego entre m√°quinas, 
+criar prote√ß√µes anti-spoofing, contra syn flood, DoS, etc. O tr√°fego vindo de 
+m√°quinas desconhecidas da rede pode tamb√©m ser bloqueado/registrado atrav√©s do 
 uso de simples regras. As possibilidades oferecidas pelos recursos de filtragem 
 <prgn>iptables</prgn> como todas as ferramentas UNIX maduras 
-dependem de sua imaginaÁ„o, pois ele garante uma 
-grande flexibilidade na manipulaÁ„o das regras de acesso ao sistema, 
+dependem de sua imagina√ß√£o, pois ele garante uma 
+grande flexibilidade na manipula√ß√£o das regras de acesso ao sistema, 
 precisando apenas conhecer quais interfaces o sistema possui, o que deseja 
-bloquear, o que tem acesso garantido, quais serviÁos devem estar acessÌveis 
-para cada rede, e iniciar a construÁ„o de seu firewall.
+bloquear, o que tem acesso garantido, quais servi√ßos devem estar acess√≠veis 
+para cada rede, e iniciar a constru√ß√£o de seu firewall.
  <p>
-O <prgn>iptables</prgn> ainda tem a vantagem de ser modulariz·vel, funÁıes podem 
+O <prgn>iptables</prgn> ainda tem a vantagem de ser modulariz√°vel, fun√ß√µes podem 
 ser adicionadas ao firewall ampliando as possibilidades oferecidas. Usei por 2 
-anos o <prgn>ipchains</prgn> e afirmo que este È um firewall que tem possibilidades 
-de gerenciar tanto a seguranÁa em m·quinas isoladas como roteamento em 
-grandes organizaÁıes, onde a passagem de tr·fego entre redes deve ser 
+anos o <prgn>ipchains</prgn> e afirmo que este √© um firewall que tem possibilidades 
+de gerenciar tanto a seguran√ßa em m√°quinas isoladas como roteamento em 
+grandes organiza√ß√µes, onde a passagem de tr√°fego entre redes deve ser 
 minuciosamente controlada. 
  <p>
-Um firewall n„o funciona de forma autom·tica (instalando e esperar que ele 
-faÁa as coisas por vocÍ), È necess·rio pelo menos conhecimentos b·sicos de 
-rede tcp/ip, roteamento e portas para criar as regras que far„o a seguranÁa de 
-seu sistema. A seguranÁa do sistema depende do controle das regras que ser„o 
-criadas por vocÍ, as falhas humanas s„o garantia de mais de 95% de sucesso
-nas invasıes. 
+Um firewall n√£o funciona de forma autom√°tica (instalando e esperar que ele 
+fa√ßa as coisas por voc√™), √© necess√°rio pelo menos conhecimentos b√°sicos de 
+rede tcp/ip, roteamento e portas para criar as regras que far√£o a seguran√ßa de 
+seu sistema. A seguran√ßa do sistema depende do controle das regras que ser√£o 
+criadas por voc√™, as falhas humanas s√£o garantia de mais de 95% de sucesso
+nas invas√µes. 
  <p>
-Enfim o <prgn>iptables</prgn> È um firewall que agradar· tanto a pessoas 
-que desejam uma seguranÁa b·sica em seu sistema, quando administradores de 
-grandes redes que querem ter um controle minucioso sobre o tr·fego que 
+Enfim o <prgn>iptables</prgn> √© um firewall que agradar√° tanto a pessoas 
+que desejam uma seguran√ßa b√°sica em seu sistema, quando administradores de 
+grandes redes que querem ter um controle minucioso sobre o tr√°fego que 
 passam entre suas interfaces de rede (controlando tudo o que pode passar de 
-uma rede a outra), controlar o uso de tr·fego, monitoraÁ„o, etc. 
+uma rede a outra), controlar o uso de tr√°fego, monitora√ß√£o, etc. 
 
 
-<sect1 id="fw-iptables-versao">Vers„o
+<sect1 id="fw-iptables-versao">Vers√£o
  <p>
-… assumido que esteja usando a vers„o 1.2.3 do <prgn>iptables</prgn> e baseadas 
-nas opÁıes do kernel 2.4.16 (sem o uso de mÛdulos experimentais). As explicaÁıes 
-contidas aqui podem funcionar para versıes posteriores, mas È recomend·vel que 
-leia a documentaÁ„o sobre modificaÁıes no programa (changelog) em busca de 
-mudanÁas que alterem o sentido das explicaÁıes fornecidas aqui. 
+√â assumido que esteja usando a vers√£o 1.2.3 do <prgn>iptables</prgn> e baseadas 
+nas op√ß√µes do kernel 2.4.16 (sem o uso de m√≥dulos experimentais). As explica√ß√µes 
+contidas aqui podem funcionar para vers√µes posteriores, mas √© recomend√°vel que 
+leia a documenta√ß√£o sobre modifica√ß√µes no programa (changelog) em busca de 
+mudan√ßas que alterem o sentido das explica√ß√µes fornecidas aqui. 
 
 
-<sect1 id="fw-iptables-historia">Um resumo da histÛria do iptables
+<sect1 id="fw-iptables-historia">Um resumo da hist√≥ria do iptables
  <p>
-O <prgn>iptables</prgn> È um cÛdigo de firewall das versıes 
+O <prgn>iptables</prgn> √© um c√≥digo de firewall das vers√µes 
 2.4 do kernel, que substituiu o <prgn>ipchains</prgn> (presente
-nas sÈries 2.2 do kernel). Ele foi incluÌdo no kernel da sÈrie 2.4 
+nas s√©ries 2.2 do kernel). Ele foi inclu√≠do no kernel da s√©rie 2.4 
 em meados de Junho/Julho de 1999. 
  <p>
-A histÛria do desenvolvimento (desde o porte do <prgn>ipfw</prgn> do 
-<prgn>BSD</prgn> para o <prgn>Linux</prgn> atÈ o <prgn>iptables</prgn> 
-(que È a quarta geraÁ„o de firewalls do kernel) est· disponÌvel no documento, 
+A hist√≥ria do desenvolvimento (desde o porte do <prgn>ipfw</prgn> do 
+<prgn>BSD</prgn> para o <prgn>Linux</prgn> at√© o <prgn>iptables</prgn> 
+(que √© a quarta gera√ß√£o de firewalls do kernel) est√° dispon√≠vel no documento, 
 <tt>Netfilter-howto</tt>. 
 
 
-<sect1 id="fw-iptables-caracteristicas">CaracterÌsticas do firewall iptables
+<sect1 id="fw-iptables-caracteristicas">Caracter√≠sticas do firewall iptables
  <p>
 <list compact>
- <item>EspecificaÁ„o de portas/endereÁo de origem/destino
+ <item>Especifica√ß√£o de portas/endere√ßo de origem/destino
  <item>Suporte a protocolos TCP/UDP/ICMP (incluindo tipos de mensagens icmp)
  <item>Suporte a interfaces de origem/destino de pacotes
- <item>Manipula serviÁos de proxy na rede
- <item>Tratamento de tr·fego dividido em chains (para melhor controle do tr·fego 
- que entra/sai da m·quina e tr·fego redirecionado.
- <item>Permite um n˙mero ilimitado de regras por chain
- <item>Muito r·pido, est·vel e seguro
+ <item>Manipula servi√ßos de proxy na rede
+ <item>Tratamento de tr√°fego dividido em chains (para melhor controle do tr√°fego 
+ que entra/sai da m√°quina e tr√°fego redirecionado.
+ <item>Permite um n√∫mero ilimitado de regras por chain
+ <item>Muito r√°pido, est√°vel e seguro
  <item>Possui mecanismos internos para rejeitar automaticamente pacotes duvidosos 
  ou mal formados. 
- <item>Suporte a mÛdulos externos para expans„o das funcionalidades padrıes
- oferecidas pelo cÛdigo de firewall
- <item>Suporte completo a roteamento de pacotes, tratadas em uma ·rea diferente
- de tr·fegos padrıes.
- <item>Suporte a especificaÁ„o de tipo de serviÁo para priorizar o tr·fego de 
+ <item>Suporte a m√≥dulos externos para expans√£o das funcionalidades padr√µes
+ oferecidas pelo c√≥digo de firewall
+ <item>Suporte completo a roteamento de pacotes, tratadas em uma √°rea diferente
+ de tr√°fegos padr√µes.
+ <item>Suporte a especifica√ß√£o de tipo de servi√ßo para priorizar o tr√°fego de 
  determinados tipos de pacotes.
- <item>Permite especificar exceÁıes para as regras ou parte das regras
- <item>Suporte a detecÁ„o de fragmentos
+ <item>Permite especificar exce√ß√µes para as regras ou parte das regras
+ <item>Suporte a detec√ß√£o de fragmentos
  <item>Permite enviar alertas personalizados ao <prgn>syslog</prgn> sobre o 
- tr·fego aceito/bloqueado.
+ tr√°fego aceito/bloqueado.
  <item>Redirecionamento de portas
  <item>Masquerading
- <item>Suporte a SNAT (modificaÁ„o do endereÁo de origem das m·quinas para um 
- ˙nico IP ou faixa de IP's). 
- <item>Suporte a DNAT (modificaÁ„o do endereÁo de destino das m·quinas para um
-˙nico IP ou fixa de IP's)
+ <item>Suporte a SNAT (modifica√ß√£o do endere√ßo de origem das m√°quinas para um 
+ √∫nico IP ou faixa de IP's). 
+ <item>Suporte a DNAT (modifica√ß√£o do endere√ßo de destino das m√°quinas para um
+√∫nico IP ou fixa de IP's)
  <item>Contagem de pacotes que atravessaram uma interface/regra
- <item>LimitaÁ„o de passagem de pacotes/conferÍncia de regra (muito ˙til para 
-criar proteÁıes contra, syn flood, ping flood, DoS, etc).
+ <item>Limita√ß√£o de passagem de pacotes/confer√™ncia de regra (muito √∫til para 
+criar prote√ß√µes contra, syn flood, ping flood, DoS, etc).
 
 </list> 
  
-<sect1 id="fw-iptables-ficha">Ficha tÈcnica
+<sect1 id="fw-iptables-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>iptables</package>
  <p>
@@ -134,67 +134,67 @@ Pacote: <package>iptables</package>
 
  <item>
 <tt>iptables-save</tt> - Salva as regras atuais em um arquivo especificado 
-como argumento. Este utilit·rio pode ser dispensado por um shell script
-contendo as regras executado na inicializaÁ„o da m·quina.
+como argumento. Este utilit√°rio pode ser dispensado por um shell script
+contendo as regras executado na inicializa√ß√£o da m√°quina.
 
  <item>
-<tt>iptables-restore</tt> - Restaura regras salvas pelo utilit·rio 
+<tt>iptables-restore</tt> - Restaura regras salvas pelo utilit√°rio 
 <prgn>iptables-save</prgn>.
 </list>
 
 <sect1 id="fw-iptables-hwreq">Requerimentos
  <p>
-… necess·rio que o seu kernel tenha sido compilado com suporte ao 
+√â necess√°rio que o seu kernel tenha sido compilado com suporte ao 
 <prgn>iptables</prgn> (veja <ref id="fw-iptables-supkernel">. O 
-requerimento mÌnimo de memÛria necess·ria para a execuÁ„o do 
-<prgn>iptables</prgn> È o mesmo do kernel 2.4 (4MB). Dependendo 
-do tr·fego que ser· manipulado pela(s) interface(s) do firewall
-ele poder· ser executado com folga em uma m·quina 386 SX com 4MB 
+requerimento m√≠nimo de mem√≥ria necess√°ria para a execu√ß√£o do 
+<prgn>iptables</prgn> √© o mesmo do kernel 2.4 (4MB). Dependendo 
+do tr√°fego que ser√° manipulado pela(s) interface(s) do firewall
+ele poder√° ser executado com folga em uma m√°quina 386 SX com 4MB 
 de RAM.
  <p>
-Como as configuraÁıes residem no kernel n„o È necess·rio espaÁo 
-extra em disco rÌgido para a execuÁ„o deste utilit·rio. 
+Como as configura√ß√µes residem no kernel n√£o √© necess√°rio espa√ßo 
+extra em disco r√≠gido para a execu√ß√£o deste utilit√°rio. 
 
 
 <sect1 id="fw-iptables-logs">Arquivos de logs criados pelo iptables
  <p>
-Todo tr·fego que for registrado pelo <prgn>iptables</prgn> È registrado 
-por padr„o no arquivo <file>/var/log/kern.log</file>. 
+Todo tr√°fego que for registrado pelo <prgn>iptables</prgn> √© registrado 
+por padr√£o no arquivo <file>/var/log/kern.log</file>. 
 
 
-<sect1 id="fw-iptables-install">InstalaÁ„o
+<sect1 id="fw-iptables-install">Instala√ß√£o
  <p>
 <tt>apt-get install iptables</tt>
  <p>
-O pacote <package>iptables</package> contÈm o utilit·rio <prgn>iptables</prgn>
-(e <prgn>ip6tables</prgn> para redes ipv6) necess·rios para inserir suas 
-regras no kernel. Se vocÍ n„o sabe o que È ipv6, n„o precisar· se preocupar com 
-o utilit·rio <prgn>ip6tables</prgn> por enquanto. 
+O pacote <package>iptables</package> cont√©m o utilit√°rio <prgn>iptables</prgn>
+(e <prgn>ip6tables</prgn> para redes ipv6) necess√°rios para inserir suas 
+regras no kernel. Se voc√™ n√£o sabe o que √© ipv6, n√£o precisar√° se preocupar com 
+o utilit√°rio <prgn>ip6tables</prgn> por enquanto. 
 
 
-<sect1 id="fw-iptables-contribuindo">Enviando CorreÁıes/Contribuindo com o projeto
+<sect1 id="fw-iptables-contribuindo">Enviando Corre√ß√µes/Contribuindo com o projeto
  <p>
-A p·gina principal do projeto È <tt><url id="&url-netfilter-www;"></tt>. 
-Sugestıes podem ser enviadas para a lista de desenvolvimento oficial do 
+A p√°gina principal do projeto √© <tt><url id="&url-netfilter-www;"></tt>. 
+Sugest√µes podem ser enviadas para a lista de desenvolvimento oficial do 
 <prgn>iptables</prgn>: <tt><url id="&url-netfilter-dev;"></tt>.
 
 
 <sect1 id="fw-iptables-oldfw">O que aconteceu com o <prgn>ipchains</prgn> e 
 <prgn>ipfwadm</prgn>?
  <p>
-O <prgn>iptables</prgn> faz parte da nova geraÁ„o de firewalls que acompanha 
+O <prgn>iptables</prgn> faz parte da nova gera√ß√£o de firewalls que acompanha 
 o kernel 2.4, mas o suporte ao <prgn>ipchains</prgn> e <prgn>ipfwadm</prgn> 
-ainda ser· mantido atravÈs de mÛdulos de compatibilidade do kernel atÈ 2004. 
-Seria uma grande falta de consideraÁ„o retirar o suporte a estes firewalls 
+ainda ser√° mantido atrav√©s de m√≥dulos de compatibilidade do kernel at√© 2004. 
+Seria uma grande falta de considera√ß√£o retirar o suporte a estes firewalls 
 do kernel como forma de obrigar a "aprenderem" o <prgn>iptables</prgn> (mesmo 
-o suporte sendo removido apÛs este perÌodo, acredito que criar„o patches 
-"externos" para futuros kernels que n„o trar„o mais este suporte). Se precisa 
+o suporte sendo removido ap√≥s este per√≠odo, acredito que criar√£o patches 
+"externos" para futuros kernels que n√£o trar√£o mais este suporte). Se precisa 
 do suporte a estes firewalls antes de passar em definitivo para o 
 <prgn>iptables</prgn> leia <ref id="fw-iptables-supkernel">. 
  <p>
-Se vocÍ È um administrador que gosta de explorar todos os recursos de um 
-firewall, usa todos os recursos que ele oferece ou mantÈm 
-uma complexa rede corporativa, tenho certeza que gostar· do <prgn>iptables</prgn>. 
+Se voc√™ √© um administrador que gosta de explorar todos os recursos de um 
+firewall, usa todos os recursos que ele oferece ou mant√©m 
+uma complexa rede corporativa, tenho certeza que gostar√° do <prgn>iptables</prgn>. 
 
 
 <sect1 id="fw-iptables-tiposfw">Tipos de firewalls 
@@ -202,152 +202,152 @@ uma complexa rede corporativa, tenho certeza que gostar· do <prgn>iptables</prgn
 Existem basicamente dois tipos de firewalls: 
 <list compact>
  <item>
-<tt>nÌvel de aplicaÁ„o</tt> - Este tipo de firewall analisam o conte˙do do 
-pacote para tomar suas decisıes de filtragem. Firewalls deste tipo s„o mais 
-intrusivos (pois analisam o conte˙do de tudo que passa por ele) e permitem um 
-controle relacionado com o conte˙do do tr·fego. Alguns firewalls 
-em nÌvel de aplicaÁ„o combinam recursos b·sicos existentes em firewalls 
-em nÌvel de pacotes combinando as funcionalidade de 
-controle de tr·fego/controle de acesso em uma sÛ ferramenta. 
-Servidores proxy, como o <prgn>squid</prgn>, s„o um exemplo deste tipo de 
+<tt>n√≠vel de aplica√ß√£o</tt> - Este tipo de firewall analisam o conte√∫do do 
+pacote para tomar suas decis√µes de filtragem. Firewalls deste tipo s√£o mais 
+intrusivos (pois analisam o conte√∫do de tudo que passa por ele) e permitem um 
+controle relacionado com o conte√∫do do tr√°fego. Alguns firewalls 
+em n√≠vel de aplica√ß√£o combinam recursos b√°sicos existentes em firewalls 
+em n√≠vel de pacotes combinando as funcionalidade de 
+controle de tr√°fego/controle de acesso em uma s√≥ ferramenta. 
+Servidores proxy, como o <prgn>squid</prgn>, s√£o um exemplo deste tipo de 
 firewall. 
 
  <item>
-<tt>nÌvel de pacotes</tt> - Este tipo de firewall toma as decisıes baseadas
-nos par‚metros do pacote, como porta/endereÁo de origem/destino, estado 
-da conex„o, e outros par‚metros do pacote. O firewall ent„o pode 
+<tt>n√≠vel de pacotes</tt> - Este tipo de firewall toma as decis√µes baseadas
+nos par√¢metros do pacote, como porta/endere√ßo de origem/destino, estado 
+da conex√£o, e outros par√¢metros do pacote. O firewall ent√£o pode 
 negar o pacote (DROP) ou deixar o pacote passar (ACCEPT). O 
-<prgn>iptables</prgn> È um excelente firewall que se encaixa nesta categoria. 
+<prgn>iptables</prgn> √© um excelente firewall que se encaixa nesta categoria. 
  <p>
-Firewall em nÌvel de pacotes È o assunto explicado nesta seÁ„o do guia mas 
-ser· apresentada uma explicaÁ„o breve sobre o funcionamento de an·lise de 
+Firewall em n√≠vel de pacotes √© o assunto explicado nesta se√ß√£o do guia mas 
+ser√° apresentada uma explica√ß√£o breve sobre o funcionamento de an√°lise de 
 strings do <prgn>iptables</prgn>.
 </list>
 Os dois tipos de firewalls podem ser usados em conjunto para fornecer uma 
-camada dupla de seguranÁa no acesso as suas m·quinas/m·quinas clientes. 
+camada dupla de seguran√ßa no acesso as suas m√°quinas/m√°quinas clientes. 
 
 
 <sect1 id="fw-iptables-proteger-oque">O que proteger?
  <p>
-Antes de iniciar a construÁ„o do firewall È bom pensar nos seguintes pontos: 
+Antes de iniciar a constru√ß√£o do firewall √© bom pensar nos seguintes pontos: 
 <list compact>
  <item>
-Quais serviÁos precisa proteger. ServiÁos que devem ter acesso garantido 
-a usu·rios externos e quais ser„o bloqueados a todas/determinadas m·quinas. 
-… recomend·vel bloquear o acesso a todas portas menores que 1024 por 
-executarem serviÁos que rodam com privilÈgio de usu·rio <tt>root</tt>, e 
-autorizar somente o acesso as portas que realmente deseja (configuraÁ„o 
+Quais servi√ßos precisa proteger. Servi√ßos que devem ter acesso garantido 
+a usu√°rios externos e quais ser√£o bloqueados a todas/determinadas m√°quinas. 
+√â recomend√°vel bloquear o acesso a todas portas menores que 1024 por 
+executarem servi√ßos que rodam com privil√©gio de usu√°rio <tt>root</tt>, e 
+autorizar somente o acesso as portas que realmente deseja (configura√ß√£o 
 restritiva nesta faixa de portas).
  <item>
-Que tipo de conexıes eu posso deixar passar e quais bloquear. ServiÁos 
-com autenticaÁ„o em texto plano e potencialmente inseguros como rlogin, 
-telnet, ftp, NFS, DNS, LDAP, SMTP RCP, X-Window s„o serviÁos que devem 
-ser ter acesso garantido somente para m·quinas/redes que vocÍ confia. 
-Estes serviÁos podem n„o ser sÛ usados para tentativa de acesso ao 
-seu sistema, mas tambÈm como forma de atacar outras pessoas aproveitando-se 
-de problemas de configuraÁ„o. 
+Que tipo de conex√µes eu posso deixar passar e quais bloquear. Servi√ßos 
+com autentica√ß√£o em texto plano e potencialmente inseguros como rlogin, 
+telnet, ftp, NFS, DNS, LDAP, SMTP RCP, X-Window s√£o servi√ßos que devem 
+ser ter acesso garantido somente para m√°quinas/redes que voc√™ confia. 
+Estes servi√ßos podem n√£o ser s√≥ usados para tentativa de acesso ao 
+seu sistema, mas tamb√©m como forma de atacar outras pessoas aproveitando-se 
+de problemas de configura√ß√£o. 
  <p>
-A configuraÁ„o do firewall ajuda a prevenir isso, mesmo se um serviÁo 
-estiver mal configurado e tentando enviar seus pacotes para fora, ser· impedido. 
-Da mesma forma se uma m·quina Windows de sua rede for infectada por um 
-trojan n„o haver· p‚nico: o firewall poder· estar configurado para 
-bloquear qualquer tentativa de conex„o vinda da internet (cracker) para as 
-m·quinas de sua rede. 
+A configura√ß√£o do firewall ajuda a prevenir isso, mesmo se um servi√ßo 
+estiver mal configurado e tentando enviar seus pacotes para fora, ser√° impedido. 
+Da mesma forma se uma m√°quina Windows de sua rede for infectada por um 
+trojan n√£o haver√° p√¢nico: o firewall poder√° estar configurado para 
+bloquear qualquer tentativa de conex√£o vinda da internet (cracker) para as 
+m√°quinas de sua rede. 
  <p>
-Para cÛpia de arquivos via rede insegura (como atravÈs da Internet), È 
-recomendado o uso de serviÁos que utilizam criptografia para login 
-e transferÍncia de arquivos <![ %CAPJUNTOS [ (veja <ref id="s-ssh">)]]> 
-ou a configuraÁ„o de uma VPN. 
+Para c√≥pia de arquivos via rede insegura (como atrav√©s da Internet), √© 
+recomendado o uso de servi√ßos que utilizam criptografia para login 
+e transfer√™ncia de arquivos <![ %CAPJUNTOS [ (veja <ref id="s-ssh">)]]> 
+ou a configura√ß√£o de uma VPN. 
  <item>
-Que m·quinas ter„o acesso livre e quais ser„o restritas.
+Que m√°quinas ter√£o acesso livre e quais ser√£o restritas.
  <item>
-Que serviÁos dever„o ter prioridade no processamento.
+Que servi√ßos dever√£o ter prioridade no processamento.
  <item>
-Que m·quinas/redes NUNCA dever„o ter acesso a certas/todas m·quinas.  
+Que m√°quinas/redes NUNCA dever√£o ter acesso a certas/todas m√°quinas.  
  <item>
-O volume de tr·fego que o servidor manipular·. AtravÈs disso vocÍ pode 
-ter que balancear o tr·fego entre outras m·quinas, configurar proteÁıes
+O volume de tr√°fego que o servidor manipular√°. Atrav√©s disso voc√™ pode 
+ter que balancear o tr√°fego entre outras m√°quinas, configurar prote√ß√µes
 contra DoS, syn flood, etc. 
  <item>
-O que tem permiss„o de passar de uma rede para outra (em m·quinas que 
+O que tem permiss√£o de passar de uma rede para outra (em m√°quinas que 
 atuam como roteadores/gateways de uma rede interna).
  <item>
 Etc.
 </list>
-A an·lise destes pontos pode determinar a complexidade do firewall, custos 
-de implementaÁ„o, prazo de desenvolvimento e tempo de maturidade do cÛdigo
-para implementaÁ„o. Existem muitos outros pontos que podem entrar na quest„o 
+A an√°lise destes pontos pode determinar a complexidade do firewall, custos 
+de implementa√ß√£o, prazo de desenvolvimento e tempo de maturidade do c√≥digo
+para implementa√ß√£o. Existem muitos outros pontos que podem entrar na quest√£o 
 de desenvolvimento de um sistema de firewall, eles dependem do tipo de firewall 
-que est· desenvolvendo e das polÌticas de seguranÁa de sua rede.
+que est√° desenvolvendo e das pol√≠ticas de seguran√ßa de sua rede.
 
 
 
-<sect1 id="fw-iptables-regras-oque">O que s„o regras?
+<sect1 id="fw-iptables-regras-oque">O que s√£o regras?
  <p>
-As regras s„o como comandos passados ao <prgn>iptables</prgn> para que ele 
-realize uma determinada aÁ„o (como bloquear ou deixar passar um pacote) de 
-acordo com o endereÁo/porta de origem/destino, interface de origem/destino, 
-etc. As regras s„o armazenadas dentro dos chains e processadas na ordem que 
-s„o inseridas. 
+As regras s√£o como comandos passados ao <prgn>iptables</prgn> para que ele 
+realize uma determinada a√ß√£o (como bloquear ou deixar passar um pacote) de 
+acordo com o endere√ßo/porta de origem/destino, interface de origem/destino, 
+etc. As regras s√£o armazenadas dentro dos chains e processadas na ordem que 
+s√£o inseridas. 
  <p>
-As regras s„o armazenadas no kernel, o que significa que quando o computador
-for reiniciado tudo o que fez ser· perdido. Por este motivo elas dever„o
-ser gravadas em um arquivo para serem carregadas a cada inicializaÁ„o. 
+As regras s√£o armazenadas no kernel, o que significa que quando o computador
+for reiniciado tudo o que fez ser√° perdido. Por este motivo elas dever√£o
+ser gravadas em um arquivo para serem carregadas a cada inicializa√ß√£o. 
  <p>
 Um exemplo de regra: <tt>iptables -A INPUT -s 123.123.123.1 -j DROP</tt>.
 
 
 
-<sect1 id="fw-iptables-chains-oque">O que s„o chains?
+<sect1 id="fw-iptables-chains-oque">O que s√£o chains?
  <p>
-Os <em>Chains</em> s„o locais onde as regras do firewall definidas pelo 
-usu·rio s„o armazenadas para operaÁ„o do firewall. Existem dois 
+Os <em>Chains</em> s√£o locais onde as regras do firewall definidas pelo 
+usu√°rio s√£o armazenadas para opera√ß√£o do firewall. Existem dois 
 tipos de chains: os embutidos (como os chains <em>INPUT</em>, <em>OUTPUT</em> e
-<em>FORWARD</em>) e os criados pelo usu·rio. Os nomes dos chains embutidos
-devem ser especificados sempre em mai˙sculas (note que os nomes dos chains
-s„o case-sensitive, ou seja, o chain <tt>input</tt> È completamente 
+<em>FORWARD</em>) e os criados pelo usu√°rio. Os nomes dos chains embutidos
+devem ser especificados sempre em mai√∫sculas (note que os nomes dos chains
+s√£o case-sensitive, ou seja, o chain <tt>input</tt> √© completamente 
 diferente de <tt>INPUT</tt>).
 
 
-<sect1 id="fw-iptables-tabelas">O que s„o tabelas?
+<sect1 id="fw-iptables-tabelas">O que s√£o tabelas?
  <p>
-Tabelas s„o os locais usados para armazenar os chains e conjunto de 
-regras com uma determinada caracterÌstica em comum. As tabelas podem ser 
-referenciadas com a opÁ„o <em>-t tabela</em> e existem 3 tabelas disponÌveis no 
+Tabelas s√£o os locais usados para armazenar os chains e conjunto de 
+regras com uma determinada caracter√≠stica em comum. As tabelas podem ser 
+referenciadas com a op√ß√£o <em>-t tabela</em> e existem 3 tabelas dispon√≠veis no 
 <prgn>iptables</prgn>:
 <list>
- <item><tt>filter</tt> - Esta È a tabela padr„o, contÈm 3 chains padrıes:
+ <item><tt>filter</tt> - Esta √© a tabela padr√£o, cont√©m 3 chains padr√µes:
  <list compact>
-  <item><tt>INPUT</tt> - Consultado para dados que chegam a m·quina
-  <item><tt>OUTPUT</tt> - Consultado para dados que saem da m·quina
-  <item><tt>FORWARD</tt> - Consultado para dados que s„o redirecionados 
-  para outra interface de rede ou outra m·quina.
+  <item><tt>INPUT</tt> - Consultado para dados que chegam a m√°quina
+  <item><tt>OUTPUT</tt> - Consultado para dados que saem da m√°quina
+  <item><tt>FORWARD</tt> - Consultado para dados que s√£o redirecionados 
+  para outra interface de rede ou outra m√°quina.
  </list>
- Os chains <em>INPUT</em> e <em>OUTPUT</em> somente s„o atravessados por 
- conexıes indo/se originando de localhost. 
+ Os chains <em>INPUT</em> e <em>OUTPUT</em> somente s√£o atravessados por 
+ conex√µes indo/se originando de localhost. 
  <![ %OBS [
   <p>
- <strong>OBS</strong>: Para conexıes locais, somente os chains <em>INPUT</em> e 
- <em>OUTPUT</em> s„o consultados na tabela filter. ]]>
+ <strong>OBS</strong>: Para conex√µes locais, somente os chains <em>INPUT</em> e 
+ <em>OUTPUT</em> s√£o consultados na tabela filter. ]]>
 
- <item><tt>nat</tt> - Usada para dados que gera outra conex„o (masquerading, 
-source nat, destination nat, port forwarding, proxy transparente s„o alguns
-exemplos). Possui 3 chains padrıes:
+ <item><tt>nat</tt> - Usada para dados que gera outra conex√£o (masquerading, 
+source nat, destination nat, port forwarding, proxy transparente s√£o alguns
+exemplos). Possui 3 chains padr√µes:
  <list compact>
   <item><tt>PREROUTING</tt> - Consultado quando os pacotes precisam ser modificados
-logo que chegam. … o chain ideal para realizaÁ„o de DNAT e redirecionamento de 
+logo que chegam. √â o chain ideal para realiza√ß√£o de DNAT e redirecionamento de 
 portas (<ref id="fw-iptables-nat-dnat">).
   <item><tt>OUTPUT</tt> - Consultado quando os pacotes gerados localmente 
-precisam ser modificados antes de serem roteados. Este chain somente È 
-consultado para conexıes que se originam de IPs de interfaces locais. 
+precisam ser modificados antes de serem roteados. Este chain somente √© 
+consultado para conex√µes que se originam de IPs de interfaces locais. 
   <item><tt>POSTROUTING</tt> - Consultado quando os pacotes precisam ser modificados 
-apÛs o tratamento de roteamento. … o chain ideal para realizaÁ„o de SNAT e 
+ap√≥s o tratamento de roteamento. √â o chain ideal para realiza√ß√£o de SNAT e 
 IP Masquerading (<ref id="fw-iptables-nat-snat">).
  </list>
 
- <item><tt>mangle</tt> - Utilizada para alteraÁıes especiais de pacotes (como 
-modificar o tipo de serviÁo (TOS) ou outros detalhes que ser„o explicados 
-no decorrer do capÌtulo. Possui 2 chains padrıes:
+ <item><tt>mangle</tt> - Utilizada para altera√ß√µes especiais de pacotes (como 
+modificar o tipo de servi√ßo (TOS) ou outros detalhes que ser√£o explicados 
+no decorrer do cap√≠tulo. Possui 2 chains padr√µes:
  <list compact>
    <item><tt>INPUT</tt> - Consultado quando os pacotes precisam ser modificados
  antes de serem enviados para o chain <em>INPUT</em> da tabela <em>filter</em>.
@@ -368,9 +368,9 @@ antes de ser enviados para o chain <em>PREROUTING</em> da tabela <em>nat</em>.
 <sect1 id="fw-iptables-supkernel">Habilitando o suporte ao iptables no kernel
  <p>
 Para usar toda a funcionalidade do firewall <prgn>iptables</prgn>, permitindo
-fazer o controle do que tem ou n„o permiss„o de acessar sua m·quina, fazer 
-Masquerading/NAT em sua rede, etc., vocÍ precisar· dos seguintes componentes 
-compilados em seu kernel (os mÛdulos experimentais fora ignorados 
+fazer o controle do que tem ou n√£o permiss√£o de acessar sua m√°quina, fazer 
+Masquerading/NAT em sua rede, etc., voc√™ precisar√° dos seguintes componentes 
+compilados em seu kernel (os m√≥dulos experimentais fora ignorados 
 intencionalmente): 
 <example>
 *
@@ -380,7 +380,7 @@ intencionalmente):
 Network packet filtering (replaces ipchains) [Y/m/n/?]
  Network packet filtering debugging [Y/m/n/?]
 
-e na SubseÁ„o:
+e na Subse√ß√£o:
 
 *
 *   IP: Netfilter Configuration
@@ -410,43 +410,43 @@ IP tables support (required for filtering/masq/NAT) (CONFIG_IP_NF_IPTABLES) [Y/m
   TCPMSS target support (CONFIG_IP_NF_TARGET_TCPMSS) [M/n/y/?] 
 
 </example> 
-Esta configuraÁ„o permite que vocÍ n„o tenha problemas para iniciar o uso 
-e configuraÁ„o do seu firewall iptables, ela ativa os mÛdulos necess·rios 
-para utilizaÁ„o de todos os recursos do firewall <prgn>iptables</prgn>. Quando
-conhecer a funÁ„o de cada um dos par‚metros acima (durante o decorrer do texto), 
-vocÍ poder· eliminar muitas das opÁıes desnecess·rias para seu estilo de 
+Esta configura√ß√£o permite que voc√™ n√£o tenha problemas para iniciar o uso 
+e configura√ß√£o do seu firewall iptables, ela ativa os m√≥dulos necess√°rios 
+para utiliza√ß√£o de todos os recursos do firewall <prgn>iptables</prgn>. Quando
+conhecer a fun√ß√£o de cada um dos par√¢metros acima (durante o decorrer do texto), 
+voc√™ poder√° eliminar muitas das op√ß√µes desnecess√°rias para seu estilo de 
 firewall ou continuar fazendo uso de todas ;-)
 <![ %OBS [ 
  <p>
-<strong>OBS1:</strong> A configuraÁ„o acima leva em consideraÁ„o que vocÍ N√O 
-executar· os cÛdigos antigos de firewall <prgn>ipfwadm</prgn> e 
+<strong>OBS1:</strong> A configura√ß√£o acima leva em considera√ß√£o que voc√™ N√ÉO 
+executar√° os c√≥digos antigos de firewall <prgn>ipfwadm</prgn> e 
 <prgn>ipchains</prgn>. Caso deseje utilizar o <prgn>ipchains</prgn> ou o 
-<prgn>ipfwadm</prgn>, ser· preciso responder com "M" a quest„o 
+<prgn>ipfwadm</prgn>, ser√° preciso responder com "M" a quest√£o 
 "IP tables support (required for filtering/masq/NAT) (CONFIG_IP_NF_IPTABLES)". 
-Ser· necess·rio carregar manualmente o mÛdulo correspondente ao firewall
+Ser√° necess√°rio carregar manualmente o m√≥dulo correspondente ao firewall
 que deseja utilizar (<tt>modprobe <file>iptables_filter.o</file></tt> no caso 
 do <prgn>iptables</prgn>). 
  <p>
-N„o execute mais de um tipo de firewall ao mesmo tempo!!!
+N√£o execute mais de um tipo de firewall ao mesmo tempo!!!
  <p>
-<strong>OBS2:</strong> … recomend·vel ativar o daemon <prgn>kmod</prgn> para 
-carga autom·tica de mÛdulos, caso contr·rio ser· necess·rio compilar todas 
-as partes necess·rias embutidas no kernel, carregar os mÛdulos necess·rios 
-manualmente ou pelo <prgn>iptables</prgn> (atravÈs da opÁ„o 
-<em>--modprobe=mÛdulo</em>). ]]>
+<strong>OBS2:</strong> √â recomend√°vel ativar o daemon <prgn>kmod</prgn> para 
+carga autom√°tica de m√≥dulos, caso contr√°rio ser√° necess√°rio compilar todas 
+as partes necess√°rias embutidas no kernel, carregar os m√≥dulos necess√°rios 
+manualmente ou pelo <prgn>iptables</prgn> (atrav√©s da op√ß√£o 
+<em>--modprobe=m√≥dulo</em>). ]]>
     
 
 <sect1 id="fw-iptables-proxy">Ligando sua rede interna a Internet
  <p>
-Se a sua intenÁ„o (como da maioria dos usu·rios) È conectar sua rede interna 
-a Internet de forma r·pida e simples, leia 
+Se a sua inten√ß√£o (como da maioria dos usu√°rios) √© conectar sua rede interna 
+a Internet de forma r√°pida e simples, leia 
 <ref id="fw-iptables-nat-fastmasquerade"> ou <ref id="fw-iptables-nat-snat">. Um 
-exemplo pr·tico de configuraÁ„o de Masquerading deste tipo È encontrado em 
+exemplo pr√°tico de configura√ß√£o de Masquerading deste tipo √© encontrado em 
 <ref id="fw-iptables-exemplo-snat">. 
  <p>
-ApÛs configurar o masquerading, vocÍ sÛ precisar· especificar o endereÁo IP da 
-m·quina masquerading (servidor) como <em>Gateway</em> da rede. No 
-<prgn>Windows 9x/NT/2000</prgn> isto È feito no Painel de 
+Ap√≥s configurar o masquerading, voc√™ s√≥ precisar√° especificar o endere√ßo IP da 
+m√°quina masquerading (servidor) como <em>Gateway</em> da rede. No 
+<prgn>Windows 9x/NT/2000</prgn> isto √© feito no Painel de 
 Controle/Rede/Propriedades de Tcp/IP. No <prgn>Linux</prgn> 
 pode ser feito com <tt>route add default gw IP_do_Servidor</tt>. 
 

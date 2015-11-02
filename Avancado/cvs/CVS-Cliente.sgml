@@ -1,150 +1,150 @@
 <sect id="s-cvs-c">Clientes de CVS
  <p>
-Esta seÁ„o traz alguns programas cliente em modo texto/gr·fico e 
-visualizadores de repositÛrios via web. Eles facilitam o trabalho 
-de controle de revis„o por parte de iniciantes e flexibilidade para 
-pessoas mais experientes, alÈm de ter uma interface de navegaÁ„o 
-disponÌvel para todos os interessados em fazer pesquisas no 
-repositÛrio.
+Esta se√ß√£o traz alguns programas cliente em modo texto/gr√°fico e 
+visualizadores de reposit√≥rios via web. Eles facilitam o trabalho 
+de controle de revis√£o por parte de iniciantes e flexibilidade para 
+pessoas mais experientes, al√©m de ter uma interface de navega√ß√£o 
+dispon√≠vel para todos os interessados em fazer pesquisas no 
+reposit√≥rio.
 
 
 <sect1 id="s-cvs-c-cvs">cvs
  <p>
-Este È o cliente <prgn>Unix</prgn> padr„o, bastante poderoso e que opera em 
-modo texto. As explicaÁıes neste capÌtulo do guia assumem este cliente de 
-<prgn>cvs</prgn>, ent„o as explicaÁıes sobre sua utilizaÁ„o se encontra em 
-<ref id="s-cvs-p"> e os par‚metros de linha de comando em <ref id="s-cvs-opcoescmd">
+Este √© o cliente <prgn>Unix</prgn> padr√£o, bastante poderoso e que opera em 
+modo texto. As explica√ß√µes neste cap√≠tulo do guia assumem este cliente de 
+<prgn>cvs</prgn>, ent√£o as explica√ß√µes sobre sua utiliza√ß√£o se encontra em 
+<ref id="s-cvs-p"> e os par√¢metros de linha de comando em <ref id="s-cvs-opcoescmd">
  <p>
-… <strong>altamente</strong> recomend·vel a leitura caso deseje utilizar um 
-cliente de <prgn>cvs</prgn> gr·fico, pois os conceitos s„o os mesmos. 
+√â <strong>altamente</strong> recomend√°vel a leitura caso deseje utilizar um 
+cliente de <prgn>cvs</prgn> gr√°fico, pois os conceitos s√£o os mesmos. 
 
 
 <sect1 id="s-cvs-c-gcvs">gcvs - Linux
  <p>
-Este È um cliente CVS em GTK+Python para <prgn>Linux</prgn> que interage externamente 
-com o cliente <prgn>cvs</prgn> externo, todas as opÁıes do cvs est„o disponÌveis 
-atravÈs de checkboxes nas telas de comando, incluindo suporte a compactaÁ„o, 
-visualizador gr·fico da ·rvore de releases, histÛrico, diffs, etc. 
+Este √© um cliente CVS em GTK+Python para <prgn>Linux</prgn> que interage externamente 
+com o cliente <prgn>cvs</prgn> externo, todas as op√ß√µes do cvs est√£o dispon√≠veis 
+atrav√©s de checkboxes nas telas de comando, incluindo suporte a compacta√ß√£o, 
+visualizador gr√°fico da √°rvore de releases, hist√≥rico, diffs, etc. 
  <p>
-Sua instalaÁ„o È bastante f·cil, instale o programa com 
-<tt>apt-get install gcvs</tt> e execute o programa atravÈs do menu do sistema ou 
+Sua instala√ß√£o √© bastante f√°cil, instale o programa com 
+<tt>apt-get install gcvs</tt> e execute o programa atrav√©s do menu do sistema ou 
 do terminal. Utilize os seguintes procedimentos para configurar e 
 utilizar o programa: 
 <enumlist compact>
  <item>
-Defina o repositÛrio <var>CVSROOT</var> atravÈs do menu 
-<em>Admin</em>/<em>Preferences</em>. Selecione o mÈtodo de 
-acesso, entre com o login, servidor e repositÛrio.
+Defina o reposit√≥rio <var>CVSROOT</var> atrav√©s do menu 
+<em>Admin</em>/<em>Preferences</em>. Selecione o m√©todo de 
+acesso, entre com o login, servidor e reposit√≥rio.
  <example>
 Exemplo: :pserver:anonymous@servidor:/var/lib/cvs
  </example>
 O formato deve ser <em>EXATAMENTE</em> como o usado na 
-vari·vel CVSROOT no shell, incluindo os ":". Caso tenha 
+vari√°vel CVSROOT no shell, incluindo os ":". Caso tenha 
 erros de login, verifique o valor de <var>CVSROOT</var>
 cuidadosamente antes de contactar o administrador de sistemas!
 
  <item>
-Agora faÁa o login no sistema em: <em>Admin</em>, <em>Login</em>. Note 
-que o status de todas as operaÁıes do <prgn>cvs</prgn> s„o mostradas
+Agora fa√ßa o login no sistema em: <em>Admin</em>, <em>Login</em>. Note 
+que o status de todas as opera√ß√µes do <prgn>cvs</prgn> s√£o mostradas
 na janela de status que fica na parte inferior da tela.
 
  <item>
-Crie um diretÛrio que ser· usado para armazenar os fontes
+Crie um diret√≥rio que ser√° usado para armazenar os fontes
 baixados do CVS, por exemplo: <tt>mkdir ~/projetos</tt>
 
  <item>
 Acesse o menu <em>Create</em>, <em>Checkout Module</em> para 
-baixar o projeto do CVS para sua m·quina local. Ele ir· te pedir o 
-nome de diretÛrio para onde o cÛdigo fonte do servidor CVS ser· baixado. 
-Digite <file>~/projetos</file> ou outro diretÛrio que foi criado no passo 
+baixar o projeto do CVS para sua m√°quina local. Ele ir√° te pedir o 
+nome de diret√≥rio para onde o c√≥digo fonte do servidor CVS ser√° baixado. 
+Digite <file>~/projetos</file> ou outro diret√≥rio que foi criado no passo 
 anterior.
 
 <![ %OBS [ 
  <p>
-<strong>OBS: </strong> N„o utilize o nome <file>"cvs"</file> para 
-o diretÛrio local, pois o <prgn>gcvs</prgn> oculta automaticamente
+<strong>OBS: </strong> N√£o utilize o nome <file>"cvs"</file> para 
+o diret√≥rio local, pois o <prgn>gcvs</prgn> oculta automaticamente
 pois os arquivos administrativos de controle ficam neste local. ]]>
 
 
  <item>
-Altere o diretÛrio padr„o do <prgn>gcvs</prgn> para o diretÛrio 
-onde baixou o projeto (<file>~/projetos</file>)clicando no bot„o 
+Altere o diret√≥rio padr√£o do <prgn>gcvs</prgn> para o diret√≥rio 
+onde baixou o projeto (<file>~/projetos</file>)clicando no bot√£o 
 "set" no topo da coluna esquerda do <prgn>gcvs</prgn>.
 
  <item>
 Para enviar um arquivo modificado de volta ao servidor, selecione os arquivos, 
 clique em <em>Modify</em>, <em>Commit Selection</em>, entre com a mensagem 
-descrevendo as alteraÁıes e clique em "OK".
+descrevendo as altera√ß√µes e clique em "OK".
  <p>
-Note que os arquivos modificados ser„o identificados por um Ìcone vermelho 
-e seu status ser· "Mod. File" (arquivo modificado).
+Note que os arquivos modificados ser√£o identificados por um √≠cone vermelho 
+e seu status ser√° "Mod. File" (arquivo modificado).
 
  <item>
 Se desejar adicionar um novo projeto no CVS, entre em <em>Create</em>, 
-<em>Import Module</em>, entre no diretÛrio que deseja adicionar como 
-um projeto no servidor de CVS. ApÛs isto ser· feita uma checagem
-e mostrada uma tela de possÌveis problemas que podem ocorrer 
-durante a importaÁ„o do novo projeto. 
+<em>Import Module</em>, entre no diret√≥rio que deseja adicionar como 
+um projeto no servidor de CVS. Ap√≥s isto ser√° feita uma checagem
+e mostrada uma tela de poss√≠veis problemas que podem ocorrer 
+durante a importa√ß√£o do novo projeto. 
  <p>
-Na prÛxima tela, digite o nome do mÛdulo e caminho no servidor 
+Na pr√≥xima tela, digite o nome do m√≥dulo e caminho no servidor 
 remoto no primeiro campo, no segundo campo a mensagem de log 
 para adicionar o projeto ao servidor. Em "Vendor tag" 
-especifique o nome do projeto e sua vers„o logo abaixo. Clique 
-em "OK" e aguarde a transferÍncia dos arquivos para o servidor. 
+especifique o nome do projeto e sua vers√£o logo abaixo. Clique 
+em "OK" e aguarde a transfer√™ncia dos arquivos para o servidor. 
  <p>
-Para maiores detalhes sobre a criaÁ„o de novos projetos no 
+Para maiores detalhes sobre a cria√ß√£o de novos projetos no 
 servidor de CVS, veja <ref id="s-cvs-p-import">.
 <![ %OBS [
  <p>
-<strong>OBS: </strong> VocÍ dever· ter permiss„o de gravaÁ„o para 
+<strong>OBS: </strong> Voc√™ dever√° ter permiss√£o de grava√ß√£o para 
 criar um novo projeto no servidor CVS. ]]>
 
  <item>
-A partir de agora vocÍ poder· explorar as funÁıes do programa e fazer 
-uso das funÁıes habituais do CVS. Todas as funÁıes de operaÁ„o e 
-opÁıes extras do CVS est„o disponÌveis na interface gr·fica, basta se 
-acostumar com sua utilizaÁ„o.
+A partir de agora voc√™ poder√° explorar as fun√ß√µes do programa e fazer 
+uso das fun√ß√µes habituais do CVS. Todas as fun√ß√µes de opera√ß√£o e 
+op√ß√µes extras do CVS est√£o dispon√≠veis na interface gr√°fica, basta se 
+acostumar com sua utiliza√ß√£o.
 
 </enumlist>
-ApÛs isto, explore bastante as opÁıes do programa. Todas as funcionalidades 
-do CVS est„o organizadas entre os menus do programa. Caso n„o entenda bem 
-as funÁıes do programa, leia atentamente <ref id="s-cvs-p"> e tambÈm n„o 
+Ap√≥s isto, explore bastante as op√ß√µes do programa. Todas as funcionalidades 
+do CVS est√£o organizadas entre os menus do programa. Caso n√£o entenda bem 
+as fun√ß√µes do programa, leia atentamente <ref id="s-cvs-p"> e tamb√©m n√£o 
 deixe de consultar detalhes na info page do cvs. 
 
 <sect1 id="s-cvs-c-wincvs">WinCVS - Windows
  <p>
-Este È um cliente CVS em Python para <prgn>Windows</prgn> equivalente ao 
+Este √© um cliente CVS em Python para <prgn>Windows</prgn> equivalente ao 
 <prgn>gcvs</prgn> para <prgn>Linux</prgn>. Suas funcionalidades e 
-recomendaÁıes s„o idÍnticas aos do <prgn>gcvs</prgn>. Este cliente pode 
+recomenda√ß√µes s√£o id√™nticas aos do <prgn>gcvs</prgn>. Este cliente pode 
 ser baixado de: <url id="&url-wincvs-down;"> 
 e o Python para Windows de <url id="&url-python-win-down;">.
  <p>
-Para sua utilizaÁ„o, as explicaÁıes em <ref id="s-cvs-c-gcvs"> s„o totalmente
-v·lidas. 
+Para sua utiliza√ß√£o, as explica√ß√µes em <ref id="s-cvs-c-gcvs"> s√£o totalmente
+v√°lidas. 
 
 
 <sect1 id="s-cvs-c-maccvs">MacCVS - Macintosh (PPC)
  <p>
-IdÍntico ao <prgn>gcvs</prgn>, pode ser baixado de
+Id√™ntico ao <prgn>gcvs</prgn>, pode ser baixado de
 <url id="&url-maccvs-down;">.
 
 
 <sect1 id="s-cvs-c-viewcvs">viewcvs
  <p>
-Este È um visualizador de repositÛrios CVS via web, ele precisa apenas de um 
+Este √© um visualizador de reposit√≥rios CVS via web, ele precisa apenas de um 
 servidor web instalado com suporte a CGI. Para instalar, execute o comando 
 <tt>apt-get install <package>viewcvs</package></tt> e siga os passos para 
 configurar programa. Para adequar melhor o <prgn>viewcvs</prgn> ao seu sistema, 
 edite o arquivo <file>/etc/viewcvs/viewcvs.conf</file>. 
  <p>
-O <prgn>viewcvs</prgn> possui uma interface que se parece com a navegaÁ„o de 
-um diretÛrio de ftp, recursos como a extraÁ„o de diffs coloridos entre versıes 
-de um arquivo selecionado, visualizaÁ„o de commits (com data, log do commit, 
-usu·rio, etc.), classificaÁ„o da listagem exibida. 
+O <prgn>viewcvs</prgn> possui uma interface que se parece com a navega√ß√£o de 
+um diret√≥rio de ftp, recursos como a extra√ß√£o de diffs coloridos entre vers√µes 
+de um arquivo selecionado, visualiza√ß√£o de commits (com data, log do commit, 
+usu√°rio, etc.), classifica√ß√£o da listagem exibida. 
 
 <![ %OBS [
  <p>
-<strong>OBS: </strong>Leve em consideraÁ„o as implicaÁıes de seguranÁa impostas 
+<strong>OBS: </strong>Leve em considera√ß√£o as implica√ß√µes de seguran√ßa impostas 
 por aplicativos cgi sendo executados em seu sistema. <![ %CAPJUNTOS [ 
 Veja <ref id="s-apache"> para entender melhor o assunto. ]]> ]]>
 

@@ -1,119 +1,119 @@
 <chapt id="s-cvs">CVS
  <p>
-Este capÌtulo explica os requerimentos, instalaÁ„o, configuraÁ„o, seguranÁa e 
-diversos modelos de configuraÁ„o de acesso para trabalho em grupo utilizados 
+Este cap√≠tulo explica os requerimentos, instala√ß√£o, configura√ß√£o, seguran√ßa e 
+diversos modelos de configura√ß√£o de acesso para trabalho em grupo utilizados 
 pelo <prgn>CVS</prgn>.
  <p>
-N„o tome-o como uma referÍncia completa ao uso e configuraÁ„o do cvs, a 
-pesquisa de sua info page È muito importante. 
+N√£o tome-o como uma refer√™ncia completa ao uso e configura√ß√£o do cvs, a 
+pesquisa de sua info page √© muito importante. 
 
 
-<sect id="s-cvs-intro">IntroduÁ„o ao CVS
+<sect id="s-cvs-intro">Introdu√ß√£o ao CVS
  <p>
 O CVS (<em>Concurrent Version Software</em>) permite que se organizem grupos 
 de trabalho para desenvolvimento de projetos colaborativos. Um projeto pode 
-ser desde um programa em C, documentaÁ„o em equipe, etc. O uso do CVS È 
-recomendado para qualquer desenvolvimento de projeto que tenha v·rios 
+ser desde um programa em C, documenta√ß√£o em equipe, etc. O uso do CVS √© 
+recomendado para qualquer desenvolvimento de projeto que tenha v√°rios 
 envolvidos trabalhando ao mesmo tempo. 
  <p>
-Para cada mudanÁa feita no programa, È pedido uma descriÁ„o dos trabalhos 
-realizados e o sistema registra todas as modificaÁıes realizadas ao longo
-do desenvolvimento, permitindo voltar a uma vers„o anterior ou ver as 
-mudanÁas entre elas facilmente. 
+Para cada mudan√ßa feita no programa, √© pedido uma descri√ß√£o dos trabalhos 
+realizados e o sistema registra todas as modifica√ß√µes realizadas ao longo
+do desenvolvimento, permitindo voltar a uma vers√£o anterior ou ver as 
+mudan√ßas entre elas facilmente. 
  <p>
-Imagine uma situaÁ„o onde vocÍ est· desenvolvendo um programa de computador e 
-apÛs a ˙ltima modificaÁ„o ele para de funcionar. Com o CVS È possÌvel ver o 
-que foi modificado e voltar atÈ a vers„o que estava funcionando para consertar 
-o problema. No desenvolvimento de documentaÁ„o e traduÁ„o o CVS tambÈm 
+Imagine uma situa√ß√£o onde voc√™ est√° desenvolvendo um programa de computador e 
+ap√≥s a √∫ltima modifica√ß√£o ele para de funcionar. Com o CVS √© poss√≠vel ver o 
+que foi modificado e voltar at√© a vers√£o que estava funcionando para consertar 
+o problema. No desenvolvimento de documenta√ß√£o e tradu√ß√£o o CVS tamb√©m 
 desempenha um papel importante, pois com ele o tradutor pode ver o que foi 
-modificado entre a vers„o do documento original que ele usou para traduÁ„o e 
-uma vers„o recente, traduzindo apenas as diferenÁas. 
+modificado entre a vers√£o do documento original que ele usou para tradu√ß√£o e 
+uma vers√£o recente, traduzindo apenas as diferen√ßas. 
  <p>
-Uma seÁ„o de <prgn>cvs</prgn> È feita de modo interativo atravÈs do comando
+Uma se√ß√£o de <prgn>cvs</prgn> √© feita de modo interativo atrav√©s do comando
 <prgn>cvs</prgn>. Por exemplo:
 <list compact>
  <item><tt>logar no sistema</tt> - cvs login
  <item><tt>baixar um projeto</tt> - cvs checkout projeto
 </list>
-Cada comando do <prgn>cvs</prgn> ser· explicado em detalhes no decorrer deste 
-capÌtulo.
+Cada comando do <prgn>cvs</prgn> ser√° explicado em detalhes no decorrer deste 
+cap√≠tulo.
 
-<sect1 id="s-cvs-versao">Vers„o
+<sect1 id="s-cvs-versao">Vers√£o
  <p>
-A vers„o do <prgn>CVS</prgn> documentada no guia È a <em>1.11.1</em>. As 
-explicaÁıes aqui certamente ser„o compatÌveis com versıes posteriores 
+A vers√£o do <prgn>CVS</prgn> documentada no guia √© a <em>1.11.1</em>. As 
+explica√ß√µes aqui certamente ser√£o compat√≠veis com vers√µes posteriores 
 deste programa. 
 
 
-<sect1 id="s-cvs-historia">HistÛria
+<sect1 id="s-cvs-historia">Hist√≥ria
  <p>
-O <prgn>CVS</prgn> È uma substituiÁ„o do sistema RCS (Revision Control System) 
-ele possui mais recursos e foi criado sendo compatÌvel com o RCS.
+O <prgn>CVS</prgn> √© uma substitui√ß√£o do sistema RCS (Revision Control System) 
+ele possui mais recursos e foi criado sendo compat√≠vel com o RCS.
  <p>
-A histÛria do CVS (extraÌda de sua info page) È que ele foi iniciado
+A hist√≥ria do CVS (extra√≠da de sua info page) √© que ele foi iniciado
 a partir de um conjunto de scripts shell escritos por 
-<em>Dick Grune</em> que foram postados ao grupo de notÌcias 
-<tt>comp.sources.unix</tt> no volume 6 de Dezembro de 1986. Na vers„o
-atual n„o est„o mais presentes shell scripts porque muitos dos 
-conflitos de resoluÁ„o de algorÌtmos vem deles.
+<em>Dick Grune</em> que foram postados ao grupo de not√≠cias 
+<tt>comp.sources.unix</tt> no volume 6 de Dezembro de 1986. Na vers√£o
+atual n√£o est√£o mais presentes shell scripts porque muitos dos 
+conflitos de resolu√ß√£o de algor√≠tmos vem deles.
  <p>
 Em Abril de 1989, <em>Brian Berliner</em> fez o design e programou 
-o CVS. Mais tarde, Jeff Polk ajudou Brian com o design do mÛdulo 
+o CVS. Mais tarde, Jeff Polk ajudou Brian com o design do m√≥dulo 
 CVS.
 
 
 
 <sect1 id="s-cvs-contribuindo">Contribuindo com o CVS
  <p>
-AtravÈs da lista de discuss„o <tt>info-cvs</tt>. Para se inscrever envie uma
+Atrav√©s da lista de discuss√£o <tt>info-cvs</tt>. Para se inscrever envie uma
 mensagem com o subject "subscribe" para <tt>info-cvs-request@gnu.org</tt>. 
-Outra alternativa È atravÈs do grupo de noticias (newsgroup) da Usenet 
+Outra alternativa √© atrav√©s do grupo de noticias (newsgroup) da Usenet 
 <tt>comp.software.config-mgm</tt>.
 
 
-<sect1 id="s-cvs-caracteristicas">CaracterÌsticas
+<sect1 id="s-cvs-caracteristicas">Caracter√≠sticas
  <p>
-Abaixo uma lista de caracterÌsticas que tornam o CVS ˙til no gerenciamento
+Abaixo uma lista de caracter√≠sticas que tornam o CVS √∫til no gerenciamento
 de trabalhos em grupo:
 <list>
  <item>Gerenciamento de projeto em equipe
- <item>Log de todas as alteraÁıes realizadas
+ <item>Log de todas as altera√ß√µes realizadas
  <item>Lock de arquivos, permitindo que somente uma determinada pessoa modifique
 o arquivo durante o desenvolvimento do projeto.
- <item>HistÛrico de todas as mudanÁas feitas, isto permite voltar a uma vers„o
-  anterior em caso de problemas, e ver o que houve de errado com o cÛdigo.
- <item>Os projetos podem ser hospedados em repositÛrios.
- <item>Podem ser criados diversas equipes de trabalho para cada repositÛrios, e 
- definidos quem ter· ou n„o acesso ao repositÛrio individualmente. O 
+ <item>Hist√≥rico de todas as mudan√ßas feitas, isto permite voltar a uma vers√£o
+  anterior em caso de problemas, e ver o que houve de errado com o c√≥digo.
+ <item>Os projetos podem ser hospedados em reposit√≥rios.
+ <item>Podem ser criados diversas equipes de trabalho para cada reposit√≥rios, e 
+ definidos quem ter√° ou n√£o acesso ao reposit√≥rio individualmente. O 
 desenvolvedor <tt>gleydson</tt>, por exemplo, podem ter acesso ao projeto
-<tt>x_beta</tt> e n„o ter acesso a projeto <tt>secret_y</tt>.
- <item>Permissıes de acesso individuais de leitura/gravaÁ„o.
- <item>… possÌvel criar um usu·rio com acesso anÙnimo sem dar uma conta no sistema.
+<tt>x_beta</tt> e n√£o ter acesso a projeto <tt>secret_y</tt>.
+ <item>Permiss√µes de acesso individuais de leitura/grava√ß√£o.
+ <item>√â poss√≠vel criar um usu√°rio com acesso an√¥nimo sem dar uma conta no sistema.
  <item>Pode tanto utilizar o banco de dados de contas/senhas do sistema como 
- um banco de dados de autenticaÁ„o do prÛprio CVS.
- <item>Permite utilizar diversos "mÈtodos" de acesso ao servidor: <em>local</em>, 
- <em>pserver</em>, <em>ext</em>, etc. Cada um destes mÈtodos ser· descrito 
+ um banco de dados de autentica√ß√£o do pr√≥prio CVS.
+ <item>Permite utilizar diversos "m√©todos" de acesso ao servidor: <em>local</em>, 
+ <em>pserver</em>, <em>ext</em>, etc. Cada um destes m√©todos ser√° descrito 
   a seguir.
- <item>Permite o acesso via ssh para usu·rios que j· possuam conta na m·quina 
- servidora. Este mÈtodo garante seguranÁa no envio da senha criptografada 
+ <item>Permite o acesso via ssh para usu√°rios que j√° possuam conta na m√°quina 
+ servidora. Este m√©todo garante seguran√ßa no envio da senha criptografada 
  <![ %CAPJUNTOS [ (veja <ref id="d-cripto-sniffer"> para detalhes)]]>.
- <item>Permite visualizar facilmente o que foi modificado entre duas versıes de um 
+ <item>Permite visualizar facilmente o que foi modificado entre duas vers√µes de um 
  arquivo.
 </list>
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: O CVS possui algumas limitaÁıes e falhas, uma delas que mais 
-me faz falta È um suporte a protocolo pserver via ssh que resolveria o problema de 
-tr·fego em texto plano e gerenciamento de grupos com permissıes diferenciadas.
+<strong>OBS</strong>: O CVS possui algumas limita√ß√µes e falhas, uma delas que mais 
+me faz falta √© um suporte a protocolo pserver via ssh que resolveria o problema de 
+tr√°fego em texto plano e gerenciamento de grupos com permiss√µes diferenciadas.
 ]]>
 
 
-<sect1 id="s-cvs-ficha">Ficha tÈcnica
+<sect1 id="s-cvs-ficha">Ficha t√©cnica
  <p>
 Pacote: <package>cvs</package>
  <p>
-Utilit·rios:
+Utilit√°rios:
 <list compact>
  <item>
 <tt>cvs</tt> - Servidor/ferramenta cliente.
@@ -121,134 +121,134 @@ Utilit·rios:
 <tt>cvsbug</tt> - Envia um bug sobre o CVS para a equipe de suporte.
  <item>
 <tt>rcs2log</tt> - Converte arquivos de log do formato usado pelo <prgn>RCS</prgn>
-para o <prgn>CVS</prgn>. Utilizado na migraÁ„o desta ferramenta para o <prgn>CVS</prgn>.
+para o <prgn>CVS</prgn>. Utilizado na migra√ß√£o desta ferramenta para o <prgn>CVS</prgn>.
  <item>
 <tt>cvsconfig</tt> - Usado pela <prgn>Debian</prgn> para ativar/desativar o 
-servidor <tt>pserver</tt>. Pode tambÈm ser usado o <tt>dpkg-reconfigure cvs</tt>
-para desativar o servidor <tt>pserver</tt> e suas caracterÌsticas.
+servidor <tt>pserver</tt>. Pode tamb√©m ser usado o <tt>dpkg-reconfigure cvs</tt>
+para desativar o servidor <tt>pserver</tt> e suas caracter√≠sticas.
  <item>
-<tt>cvs-makerepos</tt> - Script da <prgn>Debian</prgn> que lÍ a lista de 
-repositÛrios de <file>/etc/cvs-pserver.conf</file>, cria os repositÛrios
-no local apropriado, corrige as permissıes do diretÛrio e adiciona os 
-repositÛrios no servidor <tt>pserver</tt>.
+<tt>cvs-makerepos</tt> - Script da <prgn>Debian</prgn> que l√™ a lista de 
+reposit√≥rios de <file>/etc/cvs-pserver.conf</file>, cria os reposit√≥rios
+no local apropriado, corrige as permiss√µes do diret√≥rio e adiciona os 
+reposit√≥rios no servidor <tt>pserver</tt>.
  <item>
-<tt>cvs-pserver</tt> - Script da <prgn>Debian</prgn> respons·vel por 
-fazer uma inicializaÁ„o mais inteligente do servidor de CVS via 
-<tt>pserver</tt>, leitura e processamento de repositÛrios, etc. Normalmente 
-ele È chamado a partir do arquivo <file>/etc/inetd.conf</file>.
+<tt>cvs-pserver</tt> - Script da <prgn>Debian</prgn> respons√°vel por 
+fazer uma inicializa√ß√£o mais inteligente do servidor de CVS via 
+<tt>pserver</tt>, leitura e processamento de reposit√≥rios, etc. Normalmente 
+ele √© chamado a partir do arquivo <file>/etc/inetd.conf</file>.
 </list>
 
 
 
 <sect1 id="s-cvs-hwreq">Requerimentos de Hardware
  <p>
-Para executar o <prgn>CVS</prgn> È requerido pelo menos 3 vezes mais memÛria
-que o tamanho do maior arquivo usado pelo projeto (para realizaÁ„o de 
-diffs entre as atualizaÁıes) e uma boa quantidade de espaÁo em disco. 
+Para executar o <prgn>CVS</prgn> √© requerido pelo menos 3 vezes mais mem√≥ria
+que o tamanho do maior arquivo usado pelo projeto (para realiza√ß√£o de 
+diffs entre as atualiza√ß√µes) e uma boa quantidade de espa√ßo em disco. 
  <p>
-Na realidade os requerimentos sobre o CVS dependem muito da aplicaÁ„o que ser· 
-desenvolvida. … recomend·vel que a m·quina tenha memÛria suficiente para evitar
+Na realidade os requerimentos sobre o CVS dependem muito da aplica√ß√£o que ser√° 
+desenvolvida. √â recomend√°vel que a m√°quina tenha mem√≥ria suficiente para evitar
 o uso de swap, que degrada bastante a performance do sistema.
 
 
 
 <sect1 id="s-cvs-logs">Arquivos de log criados pelo CVS
  <p>
-Problemas na inicializaÁ„o do <prgn>CVS</prgn> s„o registrados no 
-arquivo <file>/var/log/daemon.log</file>. Os logs de modificaÁıes 
-feitas nos arquivos de um projeto no CVS s„o armazenadas no formato
-<file>arquivo.extens„o,v</file> (È adicionado o ",v" ao final do arquivo
-para indicar que È um arquivo de controle de modificaÁıes do CVS).
+Problemas na inicializa√ß√£o do <prgn>CVS</prgn> s√£o registrados no 
+arquivo <file>/var/log/daemon.log</file>. Os logs de modifica√ß√µes 
+feitas nos arquivos de um projeto no CVS s√£o armazenadas no formato
+<file>arquivo.extens√£o,v</file> (√© adicionado o ",v" ao final do arquivo
+para indicar que √© um arquivo de controle de modifica√ß√µes do CVS).
 
 
-<sect1 id="s-cvs-install">InstalaÁ„o
+<sect1 id="s-cvs-install">Instala√ß√£o
  <p>
 O <prgn>CVS</prgn> pode ser baixado de <url id="&url-cvs-down;">. 
  <p>
 Para pacotes <prgn>Debian</prgn> basta apenas executar o comando:
 <tt>apt-get install cvs</tt>
-e seguir as telas de configuraÁ„o para ter o pacote <prgn>CVS</prgn> 
+e seguir as telas de configura√ß√£o para ter o pacote <prgn>CVS</prgn> 
 instalado e (opcionalmente) com o servidor sendo executado. 
-VocÍ poder· a qualquer momento reconfigurar o <prgn>CVS</prgn> executando:
+Voc√™ poder√° a qualquer momento reconfigurar o <prgn>CVS</prgn> executando:
 <tt>dpkg-reconfigure cvs</tt>.
  <p>
-Uma boa documentaÁ„o de referÍncia È encontrada no pacote 
+Uma boa documenta√ß√£o de refer√™ncia √© encontrada no pacote 
 <package>cvs-doc</package>. 
 
 
 <sect1 id="s-cvs-rodando">Iniciando o servidor/reiniciando/recarregando a 
-configuraÁ„o
+configura√ß√£o
  <p>
-A ˙nica configuraÁ„o requerida È quando o <prgn>CVS</prgn> È executado via 
-<tt>pserver</tt>. Para isto, È necess·ria a seguinte linha no arquivo
+A √∫nica configura√ß√£o requerida √© quando o <prgn>CVS</prgn> √© executado via 
+<tt>pserver</tt>. Para isto, √© necess√°ria a seguinte linha no arquivo
 <file>/etc/inetd.conf</file>
 <example>
 cvspserver      stream  tcp     nowait.200      root    /usr/sbin/tcpd /usr/sbin/cvs-pserver
 
 </example>
-Note que o par‚metro "200" indica quantas vezes o processo <prgn>CVS</prgn> poder· 
-ser executado por minuto no sistema. Caso esse n˙mero seja excedido, o serviÁo 
-ser· desabilitado e ser· necess·rio reiniciar o servidor <prgn>inetd</prgn> com 
+Note que o par√¢metro "200" indica quantas vezes o processo <prgn>CVS</prgn> poder√° 
+ser executado por minuto no sistema. Caso esse n√∫mero seja excedido, o servi√ßo 
+ser√° desabilitado e ser√° necess√°rio reiniciar o servidor <prgn>inetd</prgn> com 
 o comando <tt>killall -HUP inetd</tt> para reativar o servidor CVS pserver 
-<![ %CAPJUNTOS [ (veja <ref id="rede-servicos-inetd-c"> capÌtulo do 
+<![ %CAPJUNTOS [ (veja <ref id="rede-servicos-inetd-c"> cap√≠tulo do 
 <prgn>inetd</prgn> para detalhes)]]>. Ajuste este valor de forma adequada ao seu servidor!
  <p>
 Veja o script <file>cvs-pserver</file> sendo executado no final da linha. Ele 
-foi desenvolvido para lidar de forma mais inteligente com a configuraÁ„o do 
+foi desenvolvido para lidar de forma mais inteligente com a configura√ß√£o do 
 servidor CVS pserver.
 
 
-<sect1 id="s-cvs-opcoescmd">OpÁıes de linha de comando
+<sect1 id="s-cvs-opcoescmd">Op√ß√µes de linha de comando
  <p>
-As seguintes opÁıes s„o aceitas pelo CVS.
+As seguintes op√ß√µes s√£o aceitas pelo CVS.
 <taglist compact>
  <tag>-z [num]</tag>
   <item>
-Utiliza o gzip para fazer a transferÍncia compactada dos arquivos. O valor 
-especificado pode ser de 0 a 9, quanto maior o n˙mero maior o nÌvel 
-de compactaÁ„o e uso da CPU. 
+Utiliza o gzip para fazer a transfer√™ncia compactada dos arquivos. O valor 
+especificado pode ser de 0 a 9, quanto maior o n√∫mero maior o n√≠vel 
+de compacta√ß√£o e uso da CPU. 
  <p>
 Exemplo: <tt>cvs -z 3 checkout teste</tt>
 
  <tag>-q</tag>
   <item>
-Oculta mensagens sobre recurs„o de diretÛrio durante os comandos do 
+Oculta mensagens sobre recurs√£o de diret√≥rio durante os comandos do 
 CVS.
 
- <tag>-d [repositÛrio]</tag>
+ <tag>-d [reposit√≥rio]</tag>
   <item>
-Permite especificar o repositÛrio atravÈs da linha de comando. 
+Permite especificar o reposit√≥rio atrav√©s da linha de comando. 
 
  <tag>-e [editor]</tag>
   <item>
-Define qual È o editor de textos usado para registrar o texto de commits. 
+Define qual √© o editor de textos usado para registrar o texto de commits. 
 
  <tag>-n</tag>
   <item>
-Executa o cvs em modo "simulaÁ„o" n„o modificando qualquer arquivo 
-do repositÛrio.
+Executa o cvs em modo "simula√ß√£o" n√£o modificando qualquer arquivo 
+do reposit√≥rio.
 
  <tag>-t</tag>
   <item>
-Mostra mensagens mostrando o processo de execuÁ„o de comandos do CVS. … 
-bastante ˙til para aprendizado do cvs usado junto com a opÁ„o <em>-n</em>.
+Mostra mensagens mostrando o processo de execu√ß√£o de comandos do CVS. √â 
+bastante √∫til para aprendizado do cvs usado junto com a op√ß√£o <em>-n</em>.
 
  <tag>-r</tag>
   <item>
-Torna os novos arquivos criados somente para leitura. … a mesma coisa que 
-especificar a vari·vel <var>CVSREAD</var>.
+Torna os novos arquivos criados somente para leitura. √â a mesma coisa que 
+especificar a vari√°vel <var>CVSREAD</var>.
 
  <tag>-w</tag> 
   <item>
-Torna os novos arquivos criados leitura/gravaÁ„o que È o padr„o.
+Torna os novos arquivos criados leitura/grava√ß√£o que √© o padr√£o.
 
  <tag>-x</tag>
   <item>
-Utiliza criptografia para a transferÍncia dos arquivos quando È 
+Utiliza criptografia para a transfer√™ncia dos arquivos quando √© 
 utilizado em conjunto com o <prgn>Kerberos</prgn>.
 
 </taglist>
-VocÍ pode obter detalhes sobre opÁıes sobre um comando em especial do CVS 
+Voc√™ pode obter detalhes sobre op√ß√µes sobre um comando em especial do CVS 
 (<em>commit</em>, <em>checkout</em>, etc) digitando: <tt>cvs comando --help</tt>. 
 Veja <ref id="s-cvs-p"> para exemplos sobre cada uma delas. 
 

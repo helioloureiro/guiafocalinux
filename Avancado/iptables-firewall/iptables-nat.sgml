@@ -1,128 +1,128 @@
 <sect id="fw-iptables-nat">A tabela nat (Network Address Translation) - fazendo nat
  <p>
-A tabela <em>nat</em> serve para controlar a traduÁ„o dos endereÁos que 
-atravessam o cÛdigo de roteamento da m·quina <prgn>Linux</prgn>. Existem 
+A tabela <em>nat</em> serve para controlar a tradu√ß√£o dos endere√ßos que 
+atravessam o c√≥digo de roteamento da m√°quina <prgn>Linux</prgn>. Existem 
 3 chains na tabela <em>nat</em>: <em>PREROUTING</em>, <em>OUTPUT</em> e 
 <em>POSTROUTING</em> (veja <ref id="fw-iptables-tabelas"> para maiores detalhes).
  <p>
-A traduÁ„o de endereÁos tem in˙meras utilidades, uma delas È o Masquerading, 
-onde m·quinas de uma rede interna podem acessar a Internet atravÈs de uma 
-m·quina <prgn>Linux</prgn>, redirecionamento de porta, proxy 
-transparente, etc. Esta seÁ„o abordar· os tipos de NAT, exemplos de 
-como criar rapidamente uma conex„o IP masquerading e entender como a 
-traduÁ„o de endereÁos funciona no <prgn>iptables</prgn>.
+A tradu√ß√£o de endere√ßos tem in√∫meras utilidades, uma delas √© o Masquerading, 
+onde m√°quinas de uma rede interna podem acessar a Internet atrav√©s de uma 
+m√°quina <prgn>Linux</prgn>, redirecionamento de porta, proxy 
+transparente, etc. Esta se√ß√£o abordar√° os tipos de NAT, exemplos de 
+como criar rapidamente uma conex√£o IP masquerading e entender como a 
+tradu√ß√£o de endere√ßos funciona no <prgn>iptables</prgn>.
  <p>
-Se sua intenÁ„o È ligar sua rede a Internet existem duas opÁıes: 
+Se sua inten√ß√£o √© ligar sua rede a Internet existem duas op√ß√µes: 
 <list compact>
  <item>
-VocÍ possui uma conex„o que lhe oferece um endereÁo IP din‚mico (a cada 
-conex„o È dado um endereÁo IP - como uma conex„o PPP) ent„o o IP masquerading È o 
+Voc√™ possui uma conex√£o que lhe oferece um endere√ßo IP din√¢mico (a cada 
+conex√£o √© dado um endere√ßo IP - como uma conex√£o PPP) ent√£o o IP masquerading √© o 
 que precisa (veja <ref id="fw-iptables-nat-fastmasquerade"> ou 
 <ref id="fw-iptables-nat-snat-masquerade">).
  <item>
-VocÍ tem uma conex„o que lhe oferece um endereÁo IP permanente (ADSL, por exemplo) 
-ent„o o SNAT È o que precisa (veja <ref id="fw-iptables-nat-snat">).
+Voc√™ tem uma conex√£o que lhe oferece um endere√ßo IP permanente (ADSL, por exemplo) 
+ent√£o o SNAT √© o que precisa (veja <ref id="fw-iptables-nat-snat">).
 </list>
 
 
 <sect1 id="fw-iptables-nat-N">Criando um novo chain na tabela NAT
  <p>
-O procedimento para criaÁ„o de um novo chain nesta tabela È o mesmo
-descrito em <ref id="fw-iptables-chains-N"> ser· necess·rio somente
-especificar a tabela nat (-t nat) para que o novo chain n„o seja 
-criado na tabela padr„o (-t filter).
+O procedimento para cria√ß√£o de um novo chain nesta tabela √© o mesmo
+descrito em <ref id="fw-iptables-chains-N"> ser√° necess√°rio somente
+especificar a tabela nat (-t nat) para que o novo chain n√£o seja 
+criado na tabela padr√£o (-t filter).
 <example>
 iptables -t nat -N intra-inter
 
 </example>
-Que criar· o chain chamado <em>intra-inter</em> na tabela <em>nat</em>. Para 
-inserir regras neste chain ser· necess·rio especificar a opÁ„o "-t nat".
+Que criar√° o chain chamado <em>intra-inter</em> na tabela <em>nat</em>. Para 
+inserir regras neste chain ser√° necess√°rio especificar a op√ß√£o "-t nat".
 
 
 <sect1 id="fw-iptables-nat-fastmasquerade">Fazendo IP masquerading (para os apressados)
  <p>
-VocÍ precisar· de um kernel com suporte ao <prgn>iptables</prgn> (veja 
-<ref id="fw-iptables-supkernel"> e <prgn>ip_forward</prgn> e ent„o digitar 
+Voc√™ precisar√° de um kernel com suporte ao <prgn>iptables</prgn> (veja 
+<ref id="fw-iptables-supkernel"> e <prgn>ip_forward</prgn> e ent√£o digitar 
 os dois comandos abaixo para habilitar o masquerading para todas as 
-m·quinas da rede 192.168.1.*: 
+m√°quinas da rede 192.168.1.*: 
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE
 echo "1" >/proc/sys/net/ipv4/ip_forward
 
 </example>
-A configuraÁ„o do servidor <prgn>Linux</prgn> est· completa, agora os 
-clientes da rede precisar„o ser configurados para usar o endereÁo IP 
-do servidor <prgn>Linux</prgn> como gateway. … recomend·vel instalar 
-um servidor proxy e DNS na m·quina <prgn>Linux</prgn> para acelerar o 
-desempenho das requisiÁıes/resoluÁ„o de nomes das m·quinas em rede. A 
-utilizaÁ„o de bits TOS tambÈm pode trazer um grande aumento 
-de velocidade para os diferentes serviÁos da rede (veja <ref id="fw-iptables-mangle-TOS">).
+A configura√ß√£o do servidor <prgn>Linux</prgn> est√° completa, agora os 
+clientes da rede precisar√£o ser configurados para usar o endere√ßo IP 
+do servidor <prgn>Linux</prgn> como gateway. √â recomend√°vel instalar 
+um servidor proxy e DNS na m√°quina <prgn>Linux</prgn> para acelerar o 
+desempenho das requisi√ß√µes/resolu√ß√£o de nomes das m√°quinas em rede. A 
+utiliza√ß√£o de bits TOS tamb√©m pode trazer um grande aumento 
+de velocidade para os diferentes servi√ßos da rede (veja <ref id="fw-iptables-mangle-TOS">).
 
 
 <sect1 id="fw-iptables-nat-snat">Fazendo SNAT
  <p>
-SNAT (source nat - nat no endereÁo de origem) consiste em modificar o endereÁo
-de origem das m·quinas clientes antes dos pacotes serem enviados. A m·quina 
-roteadora È inteligente o bastante para lembrar dos pacotes modificados e 
-reescrever os endereÁos assim que obter a resposta da m·quina de destino, 
-direcionando os pacotes ao destino correto. Toda operaÁ„o de SNAT È feita 
+SNAT (source nat - nat no endere√ßo de origem) consiste em modificar o endere√ßo
+de origem das m√°quinas clientes antes dos pacotes serem enviados. A m√°quina 
+roteadora √© inteligente o bastante para lembrar dos pacotes modificados e 
+reescrever os endere√ßos assim que obter a resposta da m√°quina de destino, 
+direcionando os pacotes ao destino correto. Toda opera√ß√£o de SNAT √© feita 
 no chain <em>POSTROUTING</em>. 
  <p>
-… permitido especificar endereÁos de origem/destino, protocolos, portas 
-de origem/destino, interface de entrada/saÌda (dependendo do chain), 
-alvos, etc. … desnecess·rio especificar fragmentos na tabela nat, pois
-eles ser„o remontados antes de entrar no cÛdigo de roteamento. 
+√â permitido especificar endere√ßos de origem/destino, protocolos, portas 
+de origem/destino, interface de entrada/sa√≠da (dependendo do chain), 
+alvos, etc. √â desnecess√°rio especificar fragmentos na tabela nat, pois
+eles ser√£o remontados antes de entrar no c√≥digo de roteamento. 
  <p>
-O SNAT È a soluÁ„o quando vocÍ tem acesso a internet atravÈs de um ˙nico 
-IP e deseja fazer que sua rede tenha acesso a Internet atravÈs da m·quina
-<prgn>Linux</prgn>. Nenhuma m·quina da Internet poder· ter acesso direto 
-as m·quinas de sua rede interna via SNAT.
+O SNAT √© a solu√ß√£o quando voc√™ tem acesso a internet atrav√©s de um √∫nico 
+IP e deseja fazer que sua rede tenha acesso a Internet atrav√©s da m√°quina
+<prgn>Linux</prgn>. Nenhuma m√°quina da Internet poder√° ter acesso direto 
+as m√°quinas de sua rede interna via SNAT.
 <![ %OBS [ 
  <p>
-<strong>OBS:</strong> A observaÁ„o acima n„o leva em conta o controle de 
-acesso externo configurado na m·quina que estiver configurando o 
-<prgn>iptables</prgn>, uma configuraÁ„o mau realizada pode expor sua m·quina
-a acessos externos indesejados e comprometer sua rede interna caso alguÈm 
+<strong>OBS:</strong> A observa√ß√£o acima n√£o leva em conta o controle de 
+acesso externo configurado na m√°quina que estiver configurando o 
+<prgn>iptables</prgn>, uma configura√ß√£o mau realizada pode expor sua m√°quina
+a acessos externos indesejados e comprometer sua rede interna caso algu√©m 
 consiga acesso direto ao servidor. ]]>
  <p>
-… necess·rio especificar SNAT como alvo (-j SNAT) quando desejar que as m·quinas 
-de sua rede interna tenha acesso a Internet atravÈs do IP fixo da m·quina <prgn>Linux</prgn> (para conexıes intermitentes como PPP, veja 
+√â necess√°rio especificar SNAT como alvo (-j SNAT) quando desejar que as m√°quinas 
+de sua rede interna tenha acesso a Internet atrav√©s do IP fixo da m√°quina <prgn>Linux</prgn> (para conex√µes intermitentes como PPP, veja 
 <ref id="fw-iptables-nat-snat-masquerade">). 
-O par‚metro <tt>--to IP:portas</tt> deve ser usado apÛs o alvo SNAT. Ele serve 
-para especificar um endereÁo IP, faixa de endereÁos e opcionalmente uma 
-porta ou faixa de portas que ser· substituÌda. 
+O par√¢metro <tt>--to IP:portas</tt> deve ser usado ap√≥s o alvo SNAT. Ele serve 
+para especificar um endere√ßo IP, faixa de endere√ßos e opcionalmente uma 
+porta ou faixa de portas que ser√° substitu√≠da. 
 
-Toda a operaÁ„o de SNAT È realizada atravÈs do chain POSTROUTING:
+Toda a opera√ß√£o de SNAT √© realizada atrav√©s do chain POSTROUTING:
 <example>
-# Modifica o endereÁo IP dos pacotes vindos da m·quina 192.168.1.2 da rede interna 
-# que tem como destino a interface eth1 para 200.200.217.40 (que È o nosso endereÁo 
+# Modifica o endere√ßo IP dos pacotes vindos da m√°quina 192.168.1.2 da rede interna 
+# que tem como destino a interface eth1 para 200.200.217.40 (que √© o nosso endere√ßo 
 # IP da interface ligada a Internet). 
 iptables -t nat -A POSTROUTING -s 192.168.1.2 -o eth1 -j SNAT --to 200.200.217.40
 
 </example>
-Os pacotes indo para a Internet (nossa conex„o È feita via eth1, nossa interface 
-externa) vindo do endereÁo 192.168.1.2, s„o substituÌdos por 200.241.200.40 e 
-enviados para fora. Quando a resposta a requisiÁ„o È retornada, a m·quina com 
-<prgn>iptables</prgn> recebe os pacotes e faz a operaÁ„o inversa, modificando o 
-endereÁo 200.241.200.40 novamente para 192.168.1.2 e enviando a resposta a 
-m·quina de nossa rede interna. ApÛs definir suas regras de NAT, execute o 
+Os pacotes indo para a Internet (nossa conex√£o √© feita via eth1, nossa interface 
+externa) vindo do endere√ßo 192.168.1.2, s√£o substitu√≠dos por 200.241.200.40 e 
+enviados para fora. Quando a resposta a requisi√ß√£o √© retornada, a m√°quina com 
+<prgn>iptables</prgn> recebe os pacotes e faz a opera√ß√£o inversa, modificando o 
+endere√ßo 200.241.200.40 novamente para 192.168.1.2 e enviando a resposta a 
+m√°quina de nossa rede interna. Ap√≥s definir suas regras de NAT, execute o 
 comando <tt>echo "1" >/proc/sys/net/ipv4/ip_forward</tt> para habilitar o 
 suporte a redirecionamento de pacotes no kernel. 
  <p>
-TambÈm È possÌvel especificar faixas de endereÁos e portas que ser„o 
-substituÌdas: 
+Tamb√©m √© poss√≠vel especificar faixas de endere√ßos e portas que ser√£o 
+substitu√≠das: 
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j SNAT --to 200.200.217.40-200.200.217.50
 
 </example>
-Modifica o endereÁo IP de origem de todas as m·quinas da rede 192.168.1.0/24 que 
+Modifica o endere√ßo IP de origem de todas as m√°quinas da rede 192.168.1.0/24 que 
 tem o destino a interface eth0 para 200.241.200.40 a 200.241.200.50. O 
-endereÁo IP selecionado È escolhido de acordo com o ˙ltimo IP 
+endere√ßo IP selecionado √© escolhido de acordo com o √∫ltimo IP 
 alocado. 
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j SNAT --to 200.200.217.40-200.200.217.50:1-1023
 </example>
-IdÍntico ao anterior, mas faz somente substituiÁıes na faixa de portas 
+Id√™ntico ao anterior, mas faz somente substitui√ß√µes na faixa de portas 
 de origem de 1 a 1023.
 
 <example>
@@ -134,127 +134,127 @@ Faz o mapeamento para a faixa de portas 200.200.217.40 a 200.200.217.50 e de
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Se por algum motivo n„o for possÌvel mapear uma 
-conex„o NAT, ela ser· derrubada. 
+<strong>OBS1:</strong> Se por algum motivo n√£o for poss√≠vel mapear uma 
+conex√£o NAT, ela ser√° derrubada. 
  <p>
-<strong>OBS2:</strong> Tenha certeza que as respostas podem chegar atÈ 
-a m·quina que fez o NAT. Se estiver fazendo SNAT em um endereÁo livre em 
+<strong>OBS2:</strong> Tenha certeza que as respostas podem chegar at√© 
+a m√°quina que fez o NAT. Se estiver fazendo SNAT em um endere√ßo livre em 
 sua rede (como 200.200.217.73). 
  <p>
-<strong>OBS3:</strong> Como notou acima, o SNAT È usado quando temos uma 
-conex„o externa com um ou mais IP's fixos. O Masquerading È uma forma 
-especial de SNAT usada para funcionar em conexıes que recebem endereÁos 
-IP aleatÛrios (PPP). 
+<strong>OBS3:</strong> Como notou acima, o SNAT √© usado quando temos uma 
+conex√£o externa com um ou mais IP's fixos. O Masquerading √© uma forma 
+especial de SNAT usada para funcionar em conex√µes que recebem endere√ßos 
+IP aleat√≥rios (PPP). 
  <p>
-<strong>OBS4:</strong> N„o se esqueÁa de habilitar o redirecionamento de 
-pacotes apÛs fazer suas regra de NAT com o comando: 
-<tt>echo "1" >/proc/sys/net/ipv4/ip_forward</tt>, caso contr·rio o redirecionamento
-de pacotes n„o funcionar·. ]]>
+<strong>OBS4:</strong> N√£o se esque√ßa de habilitar o redirecionamento de 
+pacotes ap√≥s fazer suas regra de NAT com o comando: 
+<tt>echo "1" >/proc/sys/net/ipv4/ip_forward</tt>, caso contr√°rio o redirecionamento
+de pacotes n√£o funcionar√°. ]]>
 
 
 
 <sect2 id="fw-iptables-nat-snat-masquerade">Fazendo IP Masquerading  
  <p>
-O IP Masquerading È um tipo especial de SNAT usado para conectar a sua rede 
-interna a internet quando vocÍ recebe um IP din‚mico de seu provedor (como em 
-conexıes ppp). Todas as operaÁıes de IP Masquerading s„o realizadas no chain 
-<em>POSTROUTING</em>. Se vocÍ tem um IP fixo, deve ler 
+O IP Masquerading √© um tipo especial de SNAT usado para conectar a sua rede 
+interna a internet quando voc√™ recebe um IP din√¢mico de seu provedor (como em 
+conex√µes ppp). Todas as opera√ß√µes de IP Masquerading s√£o realizadas no chain 
+<em>POSTROUTING</em>. Se voc√™ tem um IP fixo, deve ler 
 <ref id="fw-iptables-nat-snat">.
  <p>
-Para fazer IP Masquerading de uma m·quina com o IP 192.168.1.2 para ter acesso 
+Para fazer IP Masquerading de uma m√°quina com o IP 192.168.1.2 para ter acesso 
 a Internet, use o comando: 
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.2/32 -o ppp0 -j MASQUERADE
 
 </example>
-A diferenÁa È que o alvo È <em>-j MASQUERADE</em>. O comando acima faz
-IP Masquerading de todo o tr·fego de 192.168.1.2 indo para a interface 
-ppp0: O endereÁo IP dos pacotes vindos de  192.168.1.2 s„o substituÌdos pelo 
-IP oferecido pelo seu provedor de acesso no momento da conex„o, quando a 
-resposta È retornada a operaÁ„o inversa È realizada para garantir que a 
-resposta chegue ao destino. Nenhuma m·quina da internet poder· ter acesso
-direto a sua m·quina conectava via Masquerading. 
+A diferen√ßa √© que o alvo √© <em>-j MASQUERADE</em>. O comando acima faz
+IP Masquerading de todo o tr√°fego de 192.168.1.2 indo para a interface 
+ppp0: O endere√ßo IP dos pacotes vindos de  192.168.1.2 s√£o substitu√≠dos pelo 
+IP oferecido pelo seu provedor de acesso no momento da conex√£o, quando a 
+resposta √© retornada a opera√ß√£o inversa √© realizada para garantir que a 
+resposta chegue ao destino. Nenhuma m√°quina da internet poder√° ter acesso
+direto a sua m√°quina conectava via Masquerading. 
  <p>
-Para fazer o IP Masquerading de todas as m·quinas da rede 192.168.1.*:
+Para fazer o IP Masquerading de todas as m√°quinas da rede 192.168.1.*:
 <example>
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ppp0 -j MASQUERADE
 
 </example>
-ApÛs definir a regra para fazer Masquerading (SNAT), execute o 
+Ap√≥s definir a regra para fazer Masquerading (SNAT), execute o 
 comando <tt>echo "1" >/proc/sys/net/ipv4/ip_forward</tt> para habilitar o 
 suporte a redirecionamento de pacotes no kernel. 
 
 
 <sect1 id="fw-iptables-nat-dnat">Fazendo DNAT
  <p>
-DNAT (Destination nat - nat no endereÁo de destino) consiste em modificar o endereÁo
-de destino das m·quinas clientes. O destination nat È muito usado para fazer 
+DNAT (Destination nat - nat no endere√ßo de destino) consiste em modificar o endere√ßo
+de destino das m√°quinas clientes. O destination nat √© muito usado para fazer 
 redirecionamento de pacotes, proxyes transparentes e balanceamento de carga.
  <p>
-Toda operaÁ„o de DNAT È feita no chain <em>PREROUTING</em>. As demais opÁıes e 
-observaÁıes do SNAT s„o tambÈm v·lidas para DNAT (com exceÁ„o que somente È 
+Toda opera√ß√£o de DNAT √© feita no chain <em>PREROUTING</em>. As demais op√ß√µes e 
+observa√ß√µes do SNAT s√£o tamb√©m v√°lidas para DNAT (com exce√ß√£o que somente √© 
 permitido especificar a interface de origem no chain PREROUTING). 
 
 <example>
-# Modifica o endereÁo IP destino dos pacotes de 200.200.217.40 vindo da interface eth0
+# Modifica o endere√ßo IP destino dos pacotes de 200.200.217.40 vindo da interface eth0
 # para 192.168.1.2. 
 iptables -t nat -A PREROUTING -s 200.200.217.40 -i eth0 -j DNAT --to 192.168.1.2
 
 </example>
-TambÈm È possÌvel especificar faixas de endereÁos e portas que ser„o 
-substituÌdas no DNAT: 
+Tamb√©m √© poss√≠vel especificar faixas de endere√ßos e portas que ser√£o 
+substitu√≠das no DNAT: 
 <example>
 iptables -t nat -A PREROUTING -i eth0 -s 192.168.1.0/24 -j DNAT --to 200.200.217.40-200.200.217.50
 
 </example>
-Modifica o endereÁo IP de destino do tr·fego vindos da interface 192.168.1.0/24 
-para um IP de 200.241.200.40 a 200.241.200.50. Este È um excelente mÈtodo para 
-fazer o balanceamento de carga entre servidores. O endereÁo IP selecionado È 
-escolhido de acordo com o ˙ltimo IP alocado. 
+Modifica o endere√ßo IP de destino do tr√°fego vindos da interface 192.168.1.0/24 
+para um IP de 200.241.200.40 a 200.241.200.50. Este √© um excelente m√©todo para 
+fazer o balanceamento de carga entre servidores. O endere√ßo IP selecionado √© 
+escolhido de acordo com o √∫ltimo IP alocado. 
 
 <example>
 iptables -t nat -A PREROUTING -i eth0 -s 192.168.1.0/24 -j DNAT --to 200.200.217.40-200.200.217.50:1024:5000
 </example>
-IdÍntico ao anterior, mas faz somente substituiÁıes na faixa de portas 
-de destino de 1024 a 5000. A operaÁ„o acima È a mesma realizada pelo 
-<prgn>ipmasqadm</prgn> dos kernels da sÈrie 2.2. 
+Id√™ntico ao anterior, mas faz somente substitui√ß√µes na faixa de portas 
+de destino de 1024 a 5000. A opera√ß√£o acima √© a mesma realizada pelo 
+<prgn>ipmasqadm</prgn> dos kernels da s√©rie 2.2. 
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Se por algum motivo n„o for possÌvel mapear uma 
-conex„o NAT, ela ser· derrubada. 
+<strong>OBS1:</strong> Se por algum motivo n√£o for poss√≠vel mapear uma 
+conex√£o NAT, ela ser√° derrubada. 
  <p>
-<strong>OBS2:</strong> N„o se esqueÁa de conferir se o <file>ip_forward</file>
-est· ajustado para <tt>1</tt>: <tt>echo "1" &gt;/proc/sys/net/ipv4/ip_forward</tt>.
+<strong>OBS2:</strong> N√£o se esque√ßa de conferir se o <file>ip_forward</file>
+est√° ajustado para <tt>1</tt>: <tt>echo "1" &gt;/proc/sys/net/ipv4/ip_forward</tt>.
 ]]>
 
 
 <sect2 id="fw-iptables-nat-dnat-redir">Redirecionamento de portas
  <p>
-O redirecionamento de portas permite a vocÍ repassar conexıes com destino 
-a uma porta para outra porta na mesma m·quina. O alvo <em>REDIRECT</em> È 
-usado para fazer esta operaÁ„o, junto com o argumento <em>--to-port</em> 
-especificando a porta que ser· redirecionada. Este È o mÈtodo DNAT 
-especÌfico para se para fazer proxy transparente (para redirecionamento de 
-endereÁos/portas, veja <ref id="fw-iptables-nat-dnat">). Todas 
-as operaÁıes de redirecionamento de portas È realizada no chain <em>PREROUTING</em>
+O redirecionamento de portas permite a voc√™ repassar conex√µes com destino 
+a uma porta para outra porta na mesma m√°quina. O alvo <em>REDIRECT</em> √© 
+usado para fazer esta opera√ß√£o, junto com o argumento <em>--to-port</em> 
+especificando a porta que ser√° redirecionada. Este √© o m√©todo DNAT 
+espec√≠fico para se para fazer proxy transparente (para redirecionamento de 
+endere√ßos/portas, veja <ref id="fw-iptables-nat-dnat">). Todas 
+as opera√ß√µes de redirecionamento de portas √© realizada no chain <em>PREROUTING</em>
 e <em>OUTPUT</em> da tabela <em>nat</em>.
 <example>
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 81
 
 </example>
-Redireciona as conexıes indo para a porta 80 para a porta 81 (rodando 
+Redireciona as conex√µes indo para a porta 80 para a porta 81 (rodando 
 <prgn>squid</prgn>) no firewall. 
 <![ %OBS [
  <p>
-<strong>ATEN«√O:</strong> O <prgn>squid</prgn> possui suporte a proxy transparente, 
-e poder· atender as requisiÁıes acima da regra acima. ]]>
+<strong>ATEN√á√ÉO:</strong> O <prgn>squid</prgn> possui suporte a proxy transparente, 
+e poder√° atender as requisi√ß√µes acima da regra acima. ]]>
 
 
-<sect1 id="fw-iptables-nat-monitorando">Monitorando conexıes feitas na tabela 
+<sect1 id="fw-iptables-nat-monitorando">Monitorando conex√µes feitas na tabela 
 nat
  <p>
-Use o comando <tt>cat /proc/net/ip_conntrack</tt> para listar todas as conexıes 
-atuais tratadas pelo mÛdulo nat. 
+Use o comando <tt>cat /proc/net/ip_conntrack</tt> para listar todas as conex√µes 
+atuais tratadas pelo m√≥dulo nat. 
 
 
