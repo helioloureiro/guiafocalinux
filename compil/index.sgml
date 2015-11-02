@@ -1,12 +1,12 @@
 <!doctype debiandoc public "-//DebianDoc//DTD DebianDoc//EN" [
 
-<!-- DefiniÁıes de entities din‚micas usadas no Foca Linux -->
+<!-- Defini√ß√µes de entities din√¢micas usadas no Foca Linux -->
 <!entity % dinamic    SYSTEM "../dinamicas.ent"> %dinamic;
 <!entity % definicoes SYSTEM "../padroes.ent"  > %definicoes;
 <!entity % urldata    SYSTEM "../urls.ent"     > %urldata;
 
 <!-- Arquivos separados contendo o texto do Documento -->
-<!--                Vers„o Iniciante                       -->
+<!--                Vers√£o Iniciante                       -->
 <!entity introducao         SYSTEM "../Iniciante/introducao.sgml"         >
 <!entity basico             SYSTEM "../Iniciante/basico.sgml"             >
 <!entity discos             SYSTEM "../Iniciante/discos.sgml"             >
@@ -25,7 +25,7 @@
 <!entity permissoes         SYSTEM "../Iniciante/permissoes.sgml"         >
 <!entity apendice           SYSTEM "../Iniciante/apendice.sgml"           >
 
-<!--                  Vers„o Intermedi·rio                     -->
+<!--                  Vers√£o Intermedi√°rio                     -->
 <!entity aplicativos        SYSTEM "../Intermediario/aplicativos.sgml"    >
 <!entity bootloaders        SYSTEM "../Intermediario/bootloaders.sgml"    >
 <!entity compactadores      SYSTEM "../Intermediario/compactadores.sgml"  >
@@ -43,7 +43,7 @@
 <!entity rede               SYSTEM "../Intermediario/rede.sgml"           >
 
 
-<!--                  Vers„o AvanÁado                         -->
+<!--                  Vers√£o Avan√ßado                         -->
 <!entity % cfgrede      SYSTEM "../Avancado/conf-rede/CFGRede-INDEX.sgml"> %cfgrede;
 <!entity % apache       SYSTEM "../Avancado/apache/Apache-INDEX.sgml"> %apache;
 <!entity % iptables     SYSTEM "../Avancado/iptables-firewall/iptables-INDEX.sgml"> %iptables;
@@ -63,12 +63,12 @@ Guia Foca GNU/Linux
 Estilo de tags adotadas neste documento:
 - Nome de Programa, nome de comando - <prgn>
 - Nome de pacote                    - <package>
-- SaÌda de comando, entrada no 
-  teclado, par‚metros e comandos    - <tt>
-- Nome de arquivo, diretÛrio        - <file>
+- Sa√≠da de comando, entrada no 
+  teclado, par√¢metros e comandos    - <tt>
+- Nome de arquivo, diret√≥rio        - <file>
 - Parte em destaque no texto        - <em>
-- Aviso de observaÁ„o, atenÁ„o, etc - <strong>
-- Nome de vari·vel                  - <var>
+- Aviso de observa√ß√£o, aten√ß√£o, etc - <strong>
+- Nome de vari√°vel                  - <var>
   
 Copyleft 1999-2004, Gleydson Mazioli da Silva <gleydson@cipsga.org.br>
 -->
@@ -83,15 +83,15 @@ Copyleft 1999-2004, Gleydson Mazioli da Silva <gleydson@cipsga.org.br>
     <name>Gleydson Mazioli da Silva</name>
     <email>gleydson@guiafoca.org</email>
    </author>
-   <version>Vers„o &VERSAO; - &DATADOC;</version>
+   <version>Vers√£o &VERSAO; - &DATADOC;</version>
 
   <abstract>
-Este documento tem por objetivo ser uma referÍncia ao aprendizado do 
-usu·rio e um guia de consulta, operaÁ„o e configuraÁ„o de sistemas Linux 
-(e outros tipos de *ix). A ˙ltima vers„o deste guia pode ser encontrada 
-na <url id="&url-manual-www;" name="P·gina Oficial do Foca GNU/Linux">. 
-Novas versıes s„o lanÁadas com uma freq¸Íncia mensal e vocÍ pode receber 
-avisos de novos lanÁamentos deste guia preenchendo um formul·rio na p·gina 
+Este documento tem por objetivo ser uma refer√™ncia ao aprendizado do 
+usu√°rio e um guia de consulta, opera√ß√£o e configura√ß√£o de sistemas Linux 
+(e outros tipos de *ix). A √∫ltima vers√£o deste guia pode ser encontrada 
+na <url id="&url-manual-www;" name="P√°gina Oficial do Foca GNU/Linux">. 
+Novas vers√µes s√£o lan√ßadas com uma freq√º√™ncia mensal e voc√™ pode receber 
+avisos de novos lan√ßamentos deste guia preenchendo um formul√°rio na p√°gina 
 Web. 
   </abstract>
   
@@ -108,8 +108,8 @@ Free Documentation License".
    </copyright>
   </titlepag>
 
-<!-- A ordem dos capÌtulos abaixo pode ser modificada, desta forma, a ordem 
-     que eles aparecem no guia tambÈm ser· modificada --> 
+<!-- A ordem dos cap√≠tulos abaixo pode ser modificada, desta forma, a ordem 
+     que eles aparecem no guia tamb√©m ser√° modificada --> 
 <toc sect2>
   &introducao;
   &basico;
