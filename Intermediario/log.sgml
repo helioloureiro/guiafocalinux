@@ -1,56 +1,56 @@
 <chapt id="log">Arquivos e daemons de Log
  <p>
-A atividade dos programas s„o registradas em arquivos localizados 
-em <![ %DEBIAN [ <file>/var/log</file> ]]>. Estes arquivos de registros s„o 
-chamados de <em>logs</em> e contÈm a data, hora e a mensagem emitida pelo 
-programa (violaÁıes do sistema, mensagens de erro, alerta e outros eventos) 
-entre outros campos. Enfim, muitos detalhes ˙teis ao administrador tanto 
+A atividade dos programas s√£o registradas em arquivos localizados 
+em <![ %DEBIAN [ <file>/var/log</file> ]]>. Estes arquivos de registros s√£o 
+chamados de <em>logs</em> e cont√©m a data, hora e a mensagem emitida pelo 
+programa (viola√ß√µes do sistema, mensagens de erro, alerta e outros eventos) 
+entre outros campos. Enfim, muitos detalhes √∫teis ao administrador tanto 
 para acompanhar o funcionamento do seu sistema, comportamento dos programas 
-ou ajudar na soluÁ„o e prevenÁ„o de problemas. 
+ou ajudar na solu√ß√£o e preven√ß√£o de problemas. 
  <p>
 Alguns programas como o <prgn>Apache</prgn>, <prgn>exim</prgn>, 
 <prgn>ircd</prgn> e <prgn>squid</prgn> criam diversos arquivos 
-de log e por este motivo estes s„o organizados em 
-sub-diretÛrios (a mesma tÈcnica È usada nos arquivos 
-de configuraÁ„o em <file>/etc</file>, conforme a padr„o 
+de log e por este motivo estes s√£o organizados em 
+sub-diret√≥rios (a mesma t√©cnica √© usada nos arquivos 
+de configura√ß√£o em <file>/etc</file>, conforme a padr√£o 
 FHS atual). 
 
 
 <sect>Formato do arquivo de log
  <p>
-Um arquivo de log È normalmente composto pelos seguintes campos:
+Um arquivo de log √© normalmente composto pelos seguintes campos:
 <example>
-Data|Hora|M·quina|daemon|mensagem
+Data|Hora|M√°quina|daemon|mensagem
 
 </example>
-O campo <em>m·quina</em> È o nome do computador que registrou a mensagem 
-(a m·quina pode atuar como um servidor de logs registrando mensagens 
+O campo <em>m√°quina</em> √© o nome do computador que registrou a mensagem 
+(a m√°quina pode atuar como um servidor de logs registrando mensagens 
 de diversos computadores em sua rede). O campo <em>daemon</em> indica 
 qual programa gravou a <em>mensagem</em>. 
  <p>
-O uso dos utilit·rios do console pode ajudar muito na pesquisa e monitoraÁ„o 
+O uso dos utilit√°rios do console pode ajudar muito na pesquisa e monitora√ß√£o 
 dos logs, por exemplo, para obter todas as mensagens do daemon 
-<prgn>kernel</prgn> da estaÁ„o de trabalho <tt>wrk1</tt>, eliminando 
+<prgn>kernel</prgn> da esta√ß√£o de trabalho <tt>wrk1</tt>, eliminando 
 os campos "wrk1" e "kernel": 
 <example>
 cat /var/log/*|grep 'wrk1'|grep 'kernel'|awk '{print $1 $2 $3 $6 $7 $8 $9 $10 $11 $12}'
 </example>
-Os par‚metros "$1", "$2" do comando <prgn>awk</prgn> indica que campos ser„o 
-listados, (omitimos $4 e $5 que s„o respectivamente "wrk1" e "kernel"). 
-<![ %AVANCADO [ Um bom utilit·rio para monitoraÁ„o de logs est· documentado em 
+Os par√¢metros "$1", "$2" do comando <prgn>awk</prgn> indica que campos ser√£o 
+listados, (omitimos $4 e $5 que s√£o respectivamente "wrk1" e "kernel"). 
+<![ %AVANCADO [ Um bom utilit√°rio para monitora√ß√£o de logs est√° documentado em 
 <ref id="log-uteis-logcheck">. ]]>
 
 
 <sect>Daemons de log do sistema
  <p>
 Os daemons de log do sistema registram as mensagens de 
-saÌda do kernel (<prgn>klogd</prgn>) e sistema (<prgn>syslogd</prgn>) nos 
+sa√≠da do kernel (<prgn>klogd</prgn>) e sistema (<prgn>syslogd</prgn>) nos 
 arquivos em <![ %DEBIAN[ <file>/var/log</file> ]]>. 
  <p>
-A classificaÁ„o de qual arquivo em <![ %DEBIAN [ <file>/var/log</file> ]]> 
-receber· qual tipo de mensagem È controlado pelo arquivo de configuraÁ„o 
-<![ %DEBIAN [ <file>/etc/syslog.conf</file> ]]> atravÈs de 
-<em>facilidades</em> e <em>nÌveis</em> (veja <ref id="log-syslogd-exemplo"> 
+A classifica√ß√£o de qual arquivo em <![ %DEBIAN [ <file>/var/log</file> ]]> 
+receber√° qual tipo de mensagem √© controlado pelo arquivo de configura√ß√£o 
+<![ %DEBIAN [ <file>/etc/syslog.conf</file> ]]> atrav√©s de 
+<em>facilidades</em> e <em>n√≠veis</em> (veja <ref id="log-syslogd-exemplo"> 
 para detalhes).
 
 
@@ -58,14 +58,14 @@ para detalhes).
  <p>
 Este daemon controla o registro de logs do sistema.
  <p>
-<tt>syslogd [<em>opÁıes</em>]</tt>
+<tt>syslogd [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-f</tag>
  <item>
- Especifica um arquivo de configuraÁ„o alternativo ao <file>/etc/syslog.conf</file>.
+ Especifica um arquivo de configura√ß√£o alternativo ao <file>/etc/syslog.conf</file>.
 
  <tag>-h</tag>
  <item>
@@ -74,86 +74,86 @@ Este daemon controla o registro de logs do sistema.
 
  <tag>-l [computadores]</tag>
  <item>
- Especifica um ou mais computadores (separados por ":") que dever„o ser 
- registrados somente com o nome de m·quina ao invÈs do FQDN (nome completo, 
- incluindo domÌnio). 
+ Especifica um ou mais computadores (separados por ":") que dever√£o ser 
+ registrados somente com o nome de m√°quina ao inv√©s do FQDN (nome completo, 
+ incluindo dom√≠nio). 
  
  <tag>-m [minutos]</tag>
  <item>
-Intervalo em <em>minutos</em> que o syslog mostrar· a mensagem <tt>--MARK--</tt>. 
-O valor padr„o padr„o È 20 minutos, 0 desativa. 
+Intervalo em <em>minutos</em> que o syslog mostrar√° a mensagem <tt>--MARK--</tt>. 
+O valor padr√£o padr√£o √© 20 minutos, 0 desativa. 
 
  <tag>-n</tag>
  <item>
-Evita que o processo caia automaticamente em background. Necess·rio principalmente
+Evita que o processo caia automaticamente em background. Necess√°rio principalmente
 se o <prgn>syslogd</prgn> for controlado pelo <prgn>init</prgn>.
 
  <tag>-p [soquete]</tag>
  <item>
-Especifica um soquete UNIX alternativo ao invÈs de usar o padr„o 
+Especifica um soquete UNIX alternativo ao inv√©s de usar o padr√£o 
 <file>/dev/log</file>.
 
  <tag>-r</tag>
  <item>
-Permite o recebimento de mensagens atravÈs da rede atravÈs da porta UDP 514. 
-Esta opÁ„o È ˙til para criar um servidor de logs centralizado na rede.  
-Por padr„o, o servidor <prgn>syslog</prgn> rejeitar· conexıes externas. 
+Permite o recebimento de mensagens atrav√©s da rede atrav√©s da porta UDP 514. 
+Esta op√ß√£o √© √∫til para criar um servidor de logs centralizado na rede.  
+Por padr√£o, o servidor <prgn>syslog</prgn> rejeitar√° conex√µes externas. 
 
- <tag>-s [domÌnios]</tag>
+ <tag>-s [dom√≠nios]</tag>
  <item>
-Especifica a lista de domÌnios (separados por ":") que dever„o ser retirados 
+Especifica a lista de dom√≠nios (separados por ":") que dever√£o ser retirados 
 antes de enviados ao log.
 
 <![ %AVANCADO [
  <tag>-a [soquetes]</tag>
  <item>
-Especifica soquetes adicionais que ser„o monitorados. Esta opÁ„o ser· necess·ria 
-se estiver usando um ambiente <prgn>chroot</prgn>. … possÌvel usar atÈ 19 soquetes 
+Especifica soquetes adicionais que ser√£o monitorados. Esta op√ß√£o ser√° necess√°ria 
+se estiver usando um ambiente <prgn>chroot</prgn>. √â poss√≠vel usar at√© 19 soquetes 
 adicionais 
 
  <tag>-d</tag>
  <item>
-Ativa o modo de depuraÁ„o do <prgn>syslog</prgn>. O syslog permanecer· operando 
-em primeiro plano e mostrar· as mensagens no terminal atual. ]]> 
+Ativa o modo de depura√ß√£o do <prgn>syslog</prgn>. O syslog permanecer√° operando 
+em primeiro plano e mostrar√° as mensagens no terminal atual. ]]> 
 
 </taglist> ]]>
-Na distribuiÁ„o 
-<![ %DEBIAN[ <prgn>Debian</prgn>, o daemon <prgn>syslogd</prgn> È iniciado 
-atravÈs do script <file>/etc/init.d/sysklogd</file>. ]]>
+Na distribui√ß√£o 
+<![ %DEBIAN[ <prgn>Debian</prgn>, o daemon <prgn>syslogd</prgn> √© iniciado 
+atrav√©s do script <file>/etc/init.d/sysklogd</file>. ]]>
 
 
-<sect2 id="log-syslogd-exemplo">Arquivo de configuraÁ„o <file>syslog.conf</file>
+<sect2 id="log-syslogd-exemplo">Arquivo de configura√ß√£o <file>syslog.conf</file>
  <p>
-O arquivo de configuraÁ„o <![ %DEBIAN [ <file>/etc/syslog.conf</file> ]]> possui 
+O arquivo de configura√ß√£o <![ %DEBIAN [ <file>/etc/syslog.conf</file> ]]> possui 
 o seguinte formato: 
 <example>
-facilidade.nÌvel                    destino
+facilidade.n√≠vel                    destino
 </example>
-A <em>facilidade</em> e <em>nÌvel</em> s„o separadas por um "."
-e contÈm par‚metros que definem o que ser· registrado nos arquivos 
+A <em>facilidade</em> e <em>n√≠vel</em> s√£o separadas por um "."
+e cont√©m par√¢metros que definem o que ser√° registrado nos arquivos 
 de log do sistema: 
 <list compact>
  <item>
-<tt>facilidade</tt> - … usada para especificar que tipo de programa est· 
-enviando a mensagem. Os seguintes nÌveis s„o permitidos (em ordem alfabÈtica):
+<tt>facilidade</tt> - √â usada para especificar que tipo de programa est√° 
+enviando a mensagem. Os seguintes n√≠veis s√£o permitidos (em ordem alfab√©tica):
 
  <list compact>
-  <item><tt>auth</tt> - Mensagens de seguranÁa/autorizaÁ„o (È recomend·vel usar 
-authpriv ao invÈs deste).
-  <item><tt>authpriv</tt> - Mensagens de seguranÁa/autorizaÁ„o (privativas).
+  <item><tt>auth</tt> - Mensagens de seguran√ßa/autoriza√ß√£o (√© recomend√°vel usar 
+authpriv ao inv√©s deste).
+  <item><tt>authpriv</tt> - Mensagens de seguran√ßa/autoriza√ß√£o (privativas).
   <item><tt>cron</tt> - Daemons de agendamento (<prgn>cron</prgn> e 
   <prgn>at</prgn>).
-  <item><tt>daemon</tt> - Outros daemons do sistema que n„o possuem facilidades 
-especÌficas.
+  <item><tt>daemon</tt> - Outros daemons do sistema que n√£o possuem facilidades 
+espec√≠ficas.
   <item><tt>ftp</tt> - Daemon de ftp do sistema.
   <item><tt>kern</tt> - Mensagens do kernel.
-  <item><tt>lpr</tt> - Subsistema de impress„o.
+  <item><tt>lpr</tt> - Subsistema de impress√£o.
   <item><tt>local0 a local7</tt> - Reservados para uso local.
   <item><tt>mail</tt> - Subsistema de e-mail.
-  <item><tt>news</tt> - Subsistema de notÌcias da USENET.
-  <item><tt>security</tt> - SinÙnimo para a facilidade <tt>auth</tt> (evite usa-la).
+  <item><tt>news</tt> - Subsistema de not√≠cias da USENET.
+  <item><tt>security</tt> - Sin√¥nimo para a facilidade <tt>auth</tt> (evite usa-la).
   <item><tt>syslog</tt> - Mensagens internas geradas pelo <prgn>syslogd</prgn>.
-  <item><tt>user</tt> - Mensagens genÈricas de nÌvel do usu·rio.
+  <item><tt>user</tt> - Mensagens gen√©ricas de n√≠vel do usu√°rio.
   <item><tt>uucp</tt> - Subsistema de UUCP.
   <item><tt>*</tt> - Confere com todas as facilidades.
  </list> 
@@ -161,68 +161,68 @@ Mais de uma facilidade pode ser especificada na mesma linha do
 <file>syslog.conf</file> separando-as com ",".
 
  <item>
-<tt>nÌvel</tt> - Especifica a import‚ncia da mensagem. Os seguintes nÌveis s„o
-permitidos (em ordem de import‚ncia invertida; da mais para a menos importante):
+<tt>n√≠vel</tt> - Especifica a import√¢ncia da mensagem. Os seguintes n√≠veis s√£o
+permitidos (em ordem de import√¢ncia invertida; da mais para a menos importante):
  <list compact>
-  <item><tt>emerg</tt> - O sistema est· inutiliz·vel.
-  <item><tt>alert</tt> - Uma aÁ„o deve ser tomada imediatamente para resolver 
+  <item><tt>emerg</tt> - O sistema est√° inutiliz√°vel.
+  <item><tt>alert</tt> - Uma a√ß√£o deve ser tomada imediatamente para resolver 
 o problema.
-  <item><tt>crit</tt> - CondiÁıes crÌticas.
-  <item><tt>err</tt> - CondiÁıes de erro.
-  <item><tt>warning</tt> - CondiÁıes de alerta.
-  <item><tt>notice</tt> - CondiÁ„o normal, mas significante.
+  <item><tt>crit</tt> - Condi√ß√µes cr√≠ticas.
+  <item><tt>err</tt> - Condi√ß√µes de erro.
+  <item><tt>warning</tt> - Condi√ß√µes de alerta.
+  <item><tt>notice</tt> - Condi√ß√£o normal, mas significante.
   <item><tt>info</tt> - Mensagens informativas.
-  <item><tt>debug</tt> - Mensagens de depuraÁ„o.
-  <item><tt>*</tt> - Confere com todos os nÌveis.
+  <item><tt>debug</tt> - Mensagens de depura√ß√£o.
+  <item><tt>*</tt> - Confere com todos os n√≠veis.
   <item><tt>none</tt> - Nenhuma prioridade.
  </list>
-AlÈm destes nÌveis os seguintes sinÙnimos est„o disponÌveis: 
+Al√©m destes n√≠veis os seguintes sin√¥nimos est√£o dispon√≠veis: 
 <list compact>
- <item><tt>error</tt> - SinÙnimo para o nÌvel err.
- <item><tt>panic</tt> - SinÙnimo para o nÌvel emerg.
- <item><tt>warn</tt> - SinÙnimo para o nÌvel warning.
+ <item><tt>error</tt> - Sin√¥nimo para o n√≠vel err.
+ <item><tt>panic</tt> - Sin√¥nimo para o n√≠vel emerg.
+ <item><tt>warn</tt> - Sin√¥nimo para o n√≠vel warning.
 </list>
 
  <item>
 <tt>destino</tt> - O destino das mensagens pode ser um arquivo, um pipe 
 (se iniciado por um "|"), um computador remoto (se iniciado 
-por uma "@"), determinados usu·rios do sistema (especificando 
-os logins separados por vÌrgula) ou para todos os usu·rios logados 
+por uma "@"), determinados usu√°rios do sistema (especificando 
+os logins separados por v√≠rgula) ou para todos os usu√°rios logados 
 via <prgn>wall</prgn> (usando "*").
 </list>
-Todas as mensagens com o nÌvel especificado e superiores a esta especificadas
-no <prgn>syslog.conf</prgn> ser„o registradas, de acordo com as opÁıes 
-usadas. Conjuntos de <em>facilidades</em> e <em>nÌveis</em> podem ser 
+Todas as mensagens com o n√≠vel especificado e superiores a esta especificadas
+no <prgn>syslog.conf</prgn> ser√£o registradas, de acordo com as op√ß√µes 
+usadas. Conjuntos de <em>facilidades</em> e <em>n√≠veis</em> podem ser 
 agrupadas separando-as por ";". 
 <![ %OBS [
  <p>
-OBS1: Sempre use TABS ao invÈs de espaÁos para separar os par‚metros do 
+OBS1: Sempre use TABS ao inv√©s de espa√ßos para separar os par√¢metros do 
 <file>syslog.conf</file>.
  <p>
 OBS2: Algumas facilidades como <tt>security</tt>, emitem um beep de 
 alerta no sistema e enviam uma mensagem para o console, como forma de alerta 
-ao administrador e usu·rios logados no sistema.  ]]>
+ao administrador e usu√°rios logados no sistema.  ]]>
  <p>
-Existem ainda 4 caracteres que garantes funÁıes especiais: "*", "=", 
+Existem ainda 4 caracteres que garantes fun√ß√µes especiais: "*", "=", 
 "!" e "-":
 <list compact>
  <item>"*" - Todas as mensagens da <em>facilidade</em> especificada 
-ser„o redirecionadas.
- <item>"=" - Somente o <em>nÌvel</em> especificado ser· registrado.
- <item>"!" - Todos os <em>nÌveis</em> especificados e maiores N√O ser„o 
+ser√£o redirecionadas.
+ <item>"=" - Somente o <em>n√≠vel</em> especificado ser√° registrado.
+ <item>"!" - Todos os <em>n√≠veis</em> especificados e maiores N√ÉO ser√£o 
 registrados. 
- <item>"-" - Pode ser usado para desativar o sync imediato do arquivo apÛs
-sua gravaÁ„o.
+ <item>"-" - Pode ser usado para desativar o sync imediato do arquivo ap√≥s
+sua grava√ß√£o.
 </list>
 Os caracteres especiais "=" e "!" podem ser combinados em uma mesma 
 regra. 
 <![ %EXEMPLO [
  <p>
 Exemplo: Veja abaixo um exemplo de um arquivo <file>/etc/syslog.conf</file> 
-padr„o de sistemas <prgn>Debian</prgn>
+padr√£o de sistemas <prgn>Debian</prgn>
 <example>
 #
-# Primeiro alguns arquivos de log padrıes. Registrados por facilidade
+# Primeiro alguns arquivos de log padr√µes. Registrados por facilidade
 #
 
 auth,authpriv.*                 /var/log/auth.log
@@ -237,7 +237,7 @@ uucp.*                          -/var/log/uucp.log
 
 #
 # Registro de logs do sistema de mensagens. Divididos para facilitar
-# a criaÁ„o de scripts para manipular estes arquivos.
+# a cria√ß√£o de scripts para manipular estes arquivos.
 #
 mail.info                       -/var/log/mail.info
 mail.warn                       -/var/log/mail.warn
@@ -251,10 +251,10 @@ news.notice                     -/var/log/news/news.notice
 
 #
 # Alguns arquivos de registro "pega-tudo".
-# S„o usadas "," para especificar mais de uma prioridade (por 
+# S√£o usadas "," para especificar mais de uma prioridade (por 
 # exemplo, "auth,authpriv.none") e ";" para especificar mais de uma 
-# facilidade.nÌvel que ser· gravada naquele arquivo.
-# Isto permite deixar as regras consideravelmente menores e mais legÌveis
+# facilidade.n√≠vel que ser√° gravada naquele arquivo.
+# Isto permite deixar as regras consideravelmente menores e mais leg√≠veis
 #
 *.=debug;\
         auth,authpriv.none;\
@@ -265,27 +265,27 @@ news.notice                     -/var/log/news/news.notice
         mail,news.none          -/var/log/messages
 
 #
-# EmergÍncias s„o enviadas para qualquer um que estiver logado no sistema. Isto
-# È feito atravÈs da especificaÁ„o do "*" como destino das mensagens e s„o
-# enviadas atravÈs do comando wall.
+# Emerg√™ncias s√£o enviadas para qualquer um que estiver logado no sistema. Isto
+# √© feito atrav√©s da especifica√ß√£o do "*" como destino das mensagens e s√£o
+# enviadas atrav√©s do comando wall.
 #
 *.emerg                         *
 
 #
 # Eu gosto de ter mensagens mostradas no console, mas somente em consoles que 
-# n„o utilizo.
+# n√£o utilizo.
 #
 #daemon,mail.*;\
 #       news.=crit;news.=err;news.=notice;\
 #       *.=debug;*.=info;\
 #       *.=notice;*.=warn       /dev/tty8
 
-# O pipe /dev/xconsole È usado pelo utilit·rio "xconsole". Para usa-lo,
-# vocÍ deve executar o "xconsole" com a opÁ„o "-file":
+# O pipe /dev/xconsole √© usado pelo utilit√°rio "xconsole". Para usa-lo,
+# voc√™ deve executar o "xconsole" com a op√ß√£o "-file":
 # 
 #    $ xconsole -file /dev/xconsole [...]
 #
-# NOTA: ajuste as regras abaixo, ou ficar· maluco se tiver um um site 
+# NOTA: ajuste as regras abaixo, ou ficar√° maluco se tiver um um site 
 # muito movimentado...
 #
 daemon.*;mail.*;\
@@ -295,7 +295,7 @@ daemon.*;mail.*;\
 
 # A linha baixo envia mensagens importantes para o console em que 
 # estamos trabalhando logados (principalmente para quem gosta de ter 
-# controle total sobre o que est· acontecendo com seu sistema).
+# controle total sobre o que est√° acontecendo com seu sistema).
 *.err;kern.debug;auth.notice;mail.crit	/dev/console
 
 </example> ]]>
@@ -305,117 +305,117 @@ daemon.*;mail.*;\
  <p>
 Este daemon controla o registro de mensagens do kernel. 
 <![ %DESCRICAOD [ Ele monitora as mensagens do kernel e as envia para o 
-daemon de monitoramento <prgn>syslogd</prgn>, por padr„o. ]]>
+daemon de monitoramento <prgn>syslogd</prgn>, por padr√£o. ]]>
  <p>
-<tt>klogd [<em>opÁıes</em>]</tt>
+<tt>klogd [<em>op√ß√µes</em>]</tt>
  <p>
 <![ %OPCOES [
 <taglist compact>
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-d</tag>
  <item>
- Ativa o modo de depuraÁ„o do daemon
+ Ativa o modo de depura√ß√£o do daemon
 
  <tag>-f [arquivo]</tag>
  <item>
-Envia as mensagens do kernel para o arquivo especificado ao invÈs de enviar 
+Envia as mensagens do kernel para o arquivo especificado ao inv√©s de enviar 
 ao daemon do <prgn>syslog</prgn>
 
  <tag>-i</tag>
  <item>
-Envia um sinal para o daemon recarregar os sÌmbolos de mÛdulos do kernel.
+Envia um sinal para o daemon recarregar os s√≠mbolos de m√≥dulos do kernel.
 
  <tag>-I</tag>
  <item>
-Envia um sinal para o daemon recarregar os sÌmbolos est·ticos e de mÛdulos 
+Envia um sinal para o daemon recarregar os s√≠mbolos est√°ticos e de m√≥dulos 
 do kernel.
 
  <tag>-n</tag>
  <item>
-Evita a operaÁ„o em segundo plano. ⁄til se iniciado pelo <prgn>init</prgn>
+Evita a opera√ß√£o em segundo plano. √ötil se iniciado pelo <prgn>init</prgn>
 
  <tag>-k [arquivo]</tag>
  <item>
-Especifica o arquivo que contÈm os sÌmbolos do kernel. Exemplos deste arquivo 
-est„o localizados em <![ %DEBIAN [ <file>/boot/System.map-xx.xx.xx</file>. ]]>
+Especifica o arquivo que cont√©m os s√≠mbolos do kernel. Exemplos deste arquivo 
+est√£o localizados em <![ %DEBIAN [ <file>/boot/System.map-xx.xx.xx</file>. ]]>
 
 <![ %AVANCADO [
  <tag>-o</tag>
  <item>
 Faz com que o daemon leia e registre todas as mensagens encontradas nos buffers 
-do kernel, apÛs isto o daemon È encerrado.
+do kernel, ap√≥s isto o daemon √© encerrado.
  
  <tag>-p</tag>
  <item>
-Ativa o modo paranÛia. Isto far· o <prgn>klogd</prgn> somente carregar detalhes 
-sobre os mÛdulos quando os caracteres <tt>Oops</tt> forem detectados nas 
-mensagens do kernel. … recomend·vel ter sempre a ˙ltima vers„o do klogd e evitar 
-a utilizaÁ„o desta opÁ„o em ambientes crÌticos. 
+Ativa o modo paran√≥ia. Isto far√° o <prgn>klogd</prgn> somente carregar detalhes 
+sobre os m√≥dulos quando os caracteres <tt>Oops</tt> forem detectados nas 
+mensagens do kernel. √â recomend√°vel ter sempre a √∫ltima vers√£o do klogd e evitar 
+a utiliza√ß√£o desta op√ß√£o em ambientes cr√≠ticos. 
 
  <tag>-s</tag>
  <item>
-ForÁa a utilizaÁ„o da interface de chamadas do sistema para comunicaÁ„o com o 
+For√ßa a utiliza√ß√£o da interface de chamadas do sistema para comunica√ß√£o com o 
 kernel. 
 
  <tag>-x</tag>
  <item>
-Esconde traduÁ„o EIP, assim ele n„o lÍ o arquivo <![ %DEBIAN [ 
+Esconde tradu√ß√£o EIP, assim ele n√£o l√™ o arquivo <![ %DEBIAN [ 
 <file>/boot/System.map-xx-xx-xx</file>. ]]> 
 ]]>
 
 </taglist> ]]>
-A especificaÁ„o de um arquivo com a opÁ„o <tt>-k</tt> È necess·ria se desejar
-que sejam mostradas a tabela de sÌmbolos ao invÈs de endereÁos numÈricos 
+A especifica√ß√£o de um arquivo com a op√ß√£o <tt>-k</tt> √© necess√°ria se desejar
+que sejam mostradas a tabela de s√≠mbolos ao inv√©s de endere√ßos num√©ricos 
 do kernel. 
 
 
 <sect id="log-logger">logger
  <p>
 Este comando permite enviar uma mensagem nos log do sistema. 
-<![ %DESCRICAOD [ A mensagem È enviada aos logs via daemon 
-<prgn>syslogd</prgn> ou via soquete do sistema, È possÌvel 
-especificar a prioridade, nÌvel, um nome identificando o 
-processo, etc. Seu uso È muito ˙til em shell scripts ou em 
+<![ %DESCRICAOD [ A mensagem √© enviada aos logs via daemon 
+<prgn>syslogd</prgn> ou via soquete do sistema, √© poss√≠vel 
+especificar a prioridade, n√≠vel, um nome identificando o 
+processo, etc. Seu uso √© muito √∫til em shell scripts ou em 
 outros eventos do sistema. ]]>
  <p>
-<tt>logger [<em>opÁıes</em>] [<em>mensagem</em>]</tt>
+<tt>logger [<em>op√ß√µes</em>] [<em>mensagem</em>]</tt>
  <p>
 <![ %OPCOES [ 
 Onde:
 <taglist compact>
  <tag><em>mensagem</em></tag>
  <item>
- Mensagem que ser· enviada ao daemon <em>syslog</em>
+ Mensagem que ser√° enviada ao daemon <em>syslog</em>
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-i</tag>
  <item>
  Registra o PID do processo
 
  <tag>-s</tag>
  <item>
- Envia a mensagem ambos para a saÌda padr„o (STDOUT) e syslog.
+ Envia a mensagem ambos para a sa√≠da padr√£o (STDOUT) e syslog.
 
  <tag>-f [arquivo]</tag>
  <item>
- Envia o conte˙do do arquivo especificado como <em>mensagem</em> ao syslog. 
+ Envia o conte√∫do do arquivo especificado como <em>mensagem</em> ao syslog. 
 
  <tag>-t [nome]</tag>
  <item>
- Especifica o nome do processo respons·vel pelo log que ser· exibido antes 
+ Especifica o nome do processo respons√°vel pelo log que ser√° exibido antes 
  do PID na mensagem do syslog.
 
  <tag>-p [prioridade]</tag>
  <item>
 Especifica a prioridade da mensagem do syslog, especificada como 
-<tt>facilidade.nÌvel</tt>. Veja os tipos de prioridade/nÌveis em 
-<ref id="log-syslogd-exemplo">. O valor padr„o <em>prioridade.nÌvel</em> 
-È <em>user.notice</em>
+<tt>facilidade.n√≠vel</tt>. Veja os tipos de prioridade/n√≠veis em 
+<ref id="log-syslogd-exemplo">. O valor padr√£o <em>prioridade.n√≠vel</em> 
+√© <em>user.notice</em>
 
 <![ %AVANCADO [
  <tag>-u [soquete]</tag>
  <item>
-Envia a mensagem para o [soquete] especificado ao invÈs do syslog ]]>
+Envia a mensagem para o [soquete] especificado ao inv√©s do syslog ]]>
 
 </taglist> ]]>
 Mais detalhes sobre o funcionamento sobre o daemon de log do sistema 
@@ -427,29 +427,29 @@ Exemplos: <tt>logger -i -t focalinux Teste teste teste</tt>,
 
 
     <![ %AVANCADO [
-<sect id="log-uteis">Programas ˙teis para monitoraÁ„o e gerenciamento de arquivos 
+<sect id="log-uteis">Programas √∫teis para monitora√ß√£o e gerenciamento de arquivos 
 de logs
  
 <sect1 id="log-uteis-logcheck">logcheck
  <p>
-… um programa usado para enviar um e-mail periodicamente ao administrador do 
-sistema (atravÈs do <prgn>cron</prgn> ou outro daemon com a mesma funÁ„o) 
-alertando sobre os eventos que ocorreram desde a ˙ltima execuÁ„o do programa. As 
-mensagens do <prgn>logcheck</prgn> s„o tratadas por arquivos em 
+√â um programa usado para enviar um e-mail periodicamente ao administrador do 
+sistema (atrav√©s do <prgn>cron</prgn> ou outro daemon com a mesma fun√ß√£o) 
+alertando sobre os eventos que ocorreram desde a √∫ltima execu√ß√£o do programa. As 
+mensagens do <prgn>logcheck</prgn> s√£o tratadas por arquivos em 
 <file>/etc/logcheck</file> e organizadas em categorias antes de ser enviada por 
-e-mail, isto garante muita praticidade na interpretaÁ„o dos eventos ocorridos no 
+e-mail, isto garante muita praticidade na interpreta√ß√£o dos eventos ocorridos no 
 sistema. 
  <p>
-As categorias s„o organizadas da mais importantes para a menos importante, e 
-v„o desde "Hacking em andamento" (providÍncias devem ser tomadas imediatamente 
-para resolver a situaÁ„o) atÈ "eventos anormais do sistema" (mensagens de 
-inicializaÁ„o, mensagens dos daemons do sistema, etc.). 
+As categorias s√£o organizadas da mais importantes para a menos importante, e 
+v√£o desde "Hacking em andamento" (provid√™ncias devem ser tomadas imediatamente 
+para resolver a situa√ß√£o) at√© "eventos anormais do sistema" (mensagens de 
+inicializa√ß√£o, mensagens dos daemons do sistema, etc.). 
  <p>
-O tipo de mensagem que ser· incluÌda/ignorada nos logs enviados podem 
-ser personalizadas pelo administrador do sistema atravÈs dos arquivos/diretÛrios 
-dentro de <file>/etc/logcheck</file>. Nomes de arquivos/diretÛrios contendo 
-a palavra "ignore" s„o usados para armazenar expressıes regulares que N√O 
-ser„o enviadas pelo <prgn>logcheck</prgn>. … permitido o uso de expressıes 
+O tipo de mensagem que ser√° inclu√≠da/ignorada nos logs enviados podem 
+ser personalizadas pelo administrador do sistema atrav√©s dos arquivos/diret√≥rios 
+dentro de <file>/etc/logcheck</file>. Nomes de arquivos/diret√≥rios contendo 
+a palavra "ignore" s√£o usados para armazenar express√µes regulares que N√ÉO 
+ser√£o enviadas pelo <prgn>logcheck</prgn>. √â permitido o uso de express√µes 
 regulares <prgn>perl/sed</prgn> para especificar as mensagens nos 
 arquivos de log. 
 
@@ -457,35 +457,35 @@ arquivos de log.
 <sect1 id="log-uteis-logrotate">logrotate
  <p>
 Usado para fazer backups dos logs atuais do sistema 
-(programado via <prgn>cron</prgn>, ou outro daemon com a mesma funÁ„o) e 
-criando novos arquivos de logs que ser„o usados pelo sistema. Opcionalmente 
-os arquivos de logs antigos ser„o compactados para diminuir a utilizaÁ„o de 
-espaÁo em disco ou enviados por e-mail ao administrador. A rotaÁ„o dos arquivos de 
-logs proporciona maior agilidade quando precisamos encontrar algum detalhe ˙til 
-(que seria mais difÌcil de se achar em um arquivo de log de 10MB ou maior). 
+(programado via <prgn>cron</prgn>, ou outro daemon com a mesma fun√ß√£o) e 
+criando novos arquivos de logs que ser√£o usados pelo sistema. Opcionalmente 
+os arquivos de logs antigos ser√£o compactados para diminuir a utiliza√ß√£o de 
+espa√ßo em disco ou enviados por e-mail ao administrador. A rota√ß√£o dos arquivos de 
+logs proporciona maior agilidade quando precisamos encontrar algum detalhe √∫til 
+(que seria mais dif√≠cil de se achar em um arquivo de log de 10MB ou maior). 
  <p>
-A rotaÁ„o de logs È feita de acordo com o tamanho do arquivo de logs especificado, 
-mas a opÁ„o <em>-f</em> pode ser usada para "forÁar" a rotaÁ„o de logs. A opÁ„o 
-<em>-d</em> fornece mais detalhes sobre o que o <prgn>logrotate</prgn> est· 
+A rota√ß√£o de logs √© feita de acordo com o tamanho do arquivo de logs especificado, 
+mas a op√ß√£o <em>-f</em> pode ser usada para "for√ßar" a rota√ß√£o de logs. A op√ß√£o 
+<em>-d</em> fornece mais detalhes sobre o que o <prgn>logrotate</prgn> est√° 
 fazendo. 
-Seu arquivo principal de configuraÁ„o È o <file>/etc/logrotate.conf</file>. 
-Um modelo deste tipo de arquivo È o seguinte: 
+Seu arquivo principal de configura√ß√£o √© o <file>/etc/logrotate.conf</file>. 
+Um modelo deste tipo de arquivo √© o seguinte: 
 <example>
-#### Estas opÁıes afetam globalmente o funcionamento do logrotate
+#### Estas op√ß√µes afetam globalmente o funcionamento do logrotate
 # roda os arquivos de log semanalmente
 weekly
 
-# mantÈm as ˙ltimas 4 cÛpias de logs anteriores
+# mant√©m as √∫ltimas 4 c√≥pias de logs anteriores
 rotate 4
 
-# Erros de n„o existÍncia dos logs s„o enviados para o usu·rio root
+# Erros de n√£o exist√™ncia dos logs s√£o enviados para o usu√°rio root
 mail root
 
-# Cria novos arquivos de log (vazios) apÛs rodar os antigos
+# Cria novos arquivos de log (vazios) ap√≥s rodar os antigos
 create
 
-# Descomente isso se desejar seus arquivos de logs compactados. O par‚metro
-# delaycompress È usado para que o primeiro log rodado seja mantido 
+# Descomente isso se desejar seus arquivos de logs compactados. O par√¢metro
+# delaycompress √© usado para que o primeiro log rodado seja mantido 
 # descompactado
 compress
 delaycompress
@@ -494,17 +494,17 @@ delaycompress
 # forem rodados. 
 nosharedscripts
 
-# Definimos um diretÛrio que poder· conter definiÁıes individuais para 
-# diversos serviÁos no sistema, eles podem ir neste arquivo mas 
-# diversas configuraÁıes individuais podem deixar a interpretaÁ„o
+# Definimos um diret√≥rio que poder√° conter defini√ß√µes individuais para 
+# diversos servi√ßos no sistema, eles podem ir neste arquivo mas 
+# diversas configura√ß√µes individuais podem deixar a interpreta√ß√£o
 # deste arquivo confusa.
 include /etc/logrotate.d
 
 
-# Define opÁıes especÌficas para a rotaÁ„o mensal de /var/log/wtmp, o novo arquivo 
-# de log somente ser· rodados caso tenha mais de 5MB (size 5M), ser· criado 
-# com a permiss„o 0664 e pertencer· ao usu·rio root grupo utmp
-# (create 0664 root utmp) e ser· mantida somente uma cÛpia do log anterior.
+# Define op√ß√µes espec√≠ficas para a rota√ß√£o mensal de /var/log/wtmp, o novo arquivo 
+# de log somente ser√° rodados caso tenha mais de 5MB (size 5M), ser√° criado 
+# com a permiss√£o 0664 e pertencer√° ao usu√°rio root grupo utmp
+# (create 0664 root utmp) e ser√° mantida somente uma c√≥pia do log anterior.
 # (rotate 1)
 /var/log/wtmp {
     monthly
@@ -513,11 +513,11 @@ include /etc/logrotate.d
     rotate 1
 }
 
-# Define opÁıes especÌficas para a rotaÁ„o mensal de /var/log/btmp, se o arquivo 
-# n„o existir n„o ser· necess·rio gerar alertas (missinkok) que ser„o enviados 
-# ao administrador. O novo arquivo criado dever· ter a permiss„o 0664 com o 
-# dono root e grupo utmp (create 0664 root utmp) e ser· 
-# mantida somente uma cÛpia do log anterior.
+# Define op√ß√µes espec√≠ficas para a rota√ß√£o mensal de /var/log/btmp, se o arquivo 
+# n√£o existir n√£o ser√° necess√°rio gerar alertas (missinkok) que ser√£o enviados 
+# ao administrador. O novo arquivo criado dever√° ter a permiss√£o 0664 com o 
+# dono root e grupo utmp (create 0664 root utmp) e ser√° 
+# mantida somente uma c√≥pia do log anterior.
 /var/log/btmp {
     missingok
     monthly
@@ -525,9 +525,9 @@ include /etc/logrotate.d
     rotate 1
 }
 
-# Define opÁıes especÌficas para a rotaÁ„o mensal de /var/log/lastlog, o novo 
-# arquivo ser· criado com a permiss„o 0664 com o dono root e grupo 
-# utmp e ser· mantida somente uma cÛpia do arquivo de log anterior 
+# Define op√ß√µes espec√≠ficas para a rota√ß√£o mensal de /var/log/lastlog, o novo 
+# arquivo ser√° criado com a permiss√£o 0664 com o dono root e grupo 
+# utmp e ser√° mantida somente uma c√≥pia do arquivo de log anterior 
 # (rotate 1).
 /var/log/lastlog {
     missingok
@@ -536,15 +536,15 @@ include /etc/logrotate.d
     rotate 1
 }
 
-# Define opÁıes especÌficas para a rotaÁ„o di·ria de /var/log/messages, o 
-# arquivo ser· rodado se atingir o tamanho de 1Mb, ent„o o
-# novo arquivo ser· criado com as mesmas permissıes do arquivo anterior. 
-# O comando killall -1 syslogd ser· executado apÛs a rotaÁ„o 
+# Define op√ß√µes espec√≠ficas para a rota√ß√£o di√°ria de /var/log/messages, o 
+# arquivo ser√° rodado se atingir o tamanho de 1Mb, ent√£o o
+# novo arquivo ser√° criado com as mesmas permiss√µes do arquivo anterior. 
+# O comando killall -1 syslogd ser√° executado ap√≥s a rota√ß√£o 
 # para que o daemon syslogd funcione corretamente mas somente uma vez
-# durante a rotaÁ„o de v·rios arquivos de logs (sharedscripts). 
-# Ser„o mantidas as 10 ˙ltimas cÛpias do arquivo /var/log/messages 
-# compactadas (o par‚metro compress foi especificado na seÁ„o global deste
-# arquivo de configuraÁ„o).
+# durante a rota√ß√£o de v√°rios arquivos de logs (sharedscripts). 
+# Ser√£o mantidas as 10 √∫ltimas c√≥pias do arquivo /var/log/messages 
+# compactadas (o par√¢metro compress foi especificado na se√ß√£o global deste
+# arquivo de configura√ß√£o).
 /var/log/messages {
     daily
     size 1M
@@ -555,10 +555,10 @@ include /etc/logrotate.d
     rotate 10
 }
 
-# Define opÁıes especÌficas para a rotaÁ„o mensal dos arquivos em /var/log/mirror/*, 
-# a falta desses arquivos n„o precisa ser notificada ao administrador (missingok), 
-# mesmo assim o par‚metro "nomail" evitar· isto de qualquer forma. Os logs 
-# rodados n„o ser„o compactados (nocompress) e ser„o mantidas as ˙ltimas 7 cÛpias
+# Define op√ß√µes espec√≠ficas para a rota√ß√£o mensal dos arquivos em /var/log/mirror/*, 
+# a falta desses arquivos n√£o precisa ser notificada ao administrador (missingok), 
+# mesmo assim o par√¢metro "nomail" evitar√° isto de qualquer forma. Os logs 
+# rodados n√£o ser√£o compactados (nocompress) e ser√£o mantidas as √∫ltimas 7 c√≥pias
 # dos logs.
 /var/log/mirror/* {
    montly
@@ -568,53 +568,53 @@ include /etc/logrotate.d
    rotate 7
 }
 	    
-# logs especÌficos do sistema podem ser configurados aqui. As opÁıes padrıes e 
-# definidas na seÁ„o global deste arquivo ser„o usadas para processar os 
+# logs espec√≠ficos do sistema podem ser configurados aqui. As op√ß√µes padr√µes e 
+# definidas na se√ß√£o global deste arquivo ser√£o usadas para processar os 
 # arquivos de logs restantes. 
 
 </example>
-Qualquer definiÁ„o de par‚metro especificado no arquivo de configuraÁ„o, 
-substituir· as definiÁıes anteriores. Quando o n˙mero m·ximo de logs 
-mantidos pela opÁ„o <em>rotate [num]</em> È atingida, os logs eliminados 
-ser„o enviados para o usu·rio especificado na opÁ„o <em>mail [email]</em>. 
-A utilizaÁ„o da diretiva <em>nomail</em> evita isso. 
+Qualquer defini√ß√£o de par√¢metro especificado no arquivo de configura√ß√£o, 
+substituir√° as defini√ß√µes anteriores. Quando o n√∫mero m√°ximo de logs 
+mantidos pela op√ß√£o <em>rotate [num]</em> √© atingida, os logs eliminados 
+ser√£o enviados para o usu√°rio especificado na op√ß√£o <em>mail [email]</em>. 
+A utiliza√ß√£o da diretiva <em>nomail</em> evita isso. 
  <p>
 Quando for utilizar coringas para se referir a determinados arquivos 
-dentro de um diretÛrio, n„o utilize a sintaxe "log-xxx-*" porque isto 
-forÁaria a recompactaÁ„o de arquivos ".gz" j· feitas, gerando arquivos
-do tipo <file>.gz.gz...</file> e derrubando o processamento da sua m·quina
-gerada por um loop de compactaÁ„o e enchendo as entradas de diretÛrio. 
+dentro de um diret√≥rio, n√£o utilize a sintaxe "log-xxx-*" porque isto 
+for√ßaria a recompacta√ß√£o de arquivos ".gz" j√° feitas, gerando arquivos
+do tipo <file>.gz.gz...</file> e derrubando o processamento da sua m√°quina
+gerada por um loop de compacta√ß√£o e enchendo as entradas de diret√≥rio. 
 Prefira usar a sintaxe <file>log-xxx-*.log</file> (ou outra, modificando 
-a configuraÁ„o do programa que gera os logs).
+a configura√ß√£o do programa que gera os logs).
 <![ %OBS [
  <p>
-<strong>OBS:</strong> … importante enviar um sinal HUP ao programa que grava 
-para aquele arquivo de log para que n„o ocorram problemas apÛs a rotaÁ„o, 
-isto È feito usando o par‚metro <em>postrotate</em>. ]]>
+<strong>OBS:</strong> √â importante enviar um sinal HUP ao programa que grava 
+para aquele arquivo de log para que n√£o ocorram problemas ap√≥s a rota√ß√£o, 
+isto √© feito usando o par√¢metro <em>postrotate</em>. ]]>
 
 
 <sect id="log-server">Configurando um servidor de logs
  <p>
-As mensagens das m·quinas de sua rede podem ser centralizadas em uma ˙nica 
-m·quina, isto facilita o gerenciamento, an·lise e soluÁ„o de problemas que 
-ocorrem nas m·quinas da rede. Mais importante ainda È que qualquer invas„o 
-a estaÁ„o de trabalho n„o ser· registrada localmente (podendo ser 
-apagada posteriormente pelo invasor, isso È comum). 
+As mensagens das m√°quinas de sua rede podem ser centralizadas em uma √∫nica 
+m√°quina, isto facilita o gerenciamento, an√°lise e solu√ß√£o de problemas que 
+ocorrem nas m√°quinas da rede. Mais importante ainda √© que qualquer invas√£o 
+a esta√ß√£o de trabalho n√£o ser√° registrada localmente (podendo ser 
+apagada posteriormente pelo invasor, isso √© comum). 
 <taglist compact>
  <tag>Configurando o servidor de logs</tag> 
  <item>
-Adicione a opÁ„o <em>-r</em> ao iniciar o daemon <prgn>syslogd</prgn> para 
-aceitar logs enviados das m·quinas clientes. Na distribuiÁ„o <prgn>Debian</prgn> 
-modifique o arquivo <file>/etc/init.d/sysklogd</file> colocando a opÁ„o 
-<em>-r</em> na vari·vel <var>SYSLOGD</var> e reinicie o serviÁo usando 
+Adicione a op√ß√£o <em>-r</em> ao iniciar o daemon <prgn>syslogd</prgn> para 
+aceitar logs enviados das m√°quinas clientes. Na distribui√ß√£o <prgn>Debian</prgn> 
+modifique o arquivo <file>/etc/init.d/sysklogd</file> colocando a op√ß√£o 
+<em>-r</em> na vari√°vel <var>SYSLOGD</var> e reinicie o servi√ßo usando 
 <tt>./sysklogd restart</tt>. 
  <p>
-Adicionalmente poder„o ser usadas as opÁıes <em>-l m·quina</em> (È um "L" 
-min˙sculo n„o uma letra "I") para registrar o nome FQDN da m·quina e <em>-h</em> 
-para redirecionar conexıes a outros servidores de logs 
+Adicionalmente poder√£o ser usadas as op√ß√µes <em>-l m√°quina</em> (√© um "L" 
+min√∫sculo n√£o uma letra "I") para registrar o nome FQDN da m√°quina e <em>-h</em> 
+para redirecionar conex√µes a outros servidores de logs 
 (veja <ref id="log-syslogd">). 
 
- <tag>Configurando m·quinas cliente</tag>
+ <tag>Configurando m√°quinas cliente</tag>
  <item>
 Modifique o arquivo <file>/etc/syslogd.conf</file> 
 (veja <ref id="log-syslogd-exemplo"> colocando o nome do computador seguido 
@@ -633,32 +633,32 @@ user.*						@servlog
 uucp.*                          -/var/log/uucp.log
 
 </example>
-E reinicie o daemon <prgn>syslogd</prgn> da m·quina cliente para re-ler o 
-arquivo de configuraÁ„o: <tt>killall -HUP syslogd</tt> ou 
+E reinicie o daemon <prgn>syslogd</prgn> da m√°quina cliente para re-ler o 
+arquivo de configura√ß√£o: <tt>killall -HUP syslogd</tt> ou 
 <tt>/etc/init.d/sysklogd restart</tt>. 
 
 </taglist>
 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Mantenha o relÛgio do servidor de logs sempre 
+<strong>OBS1:</strong> Mantenha o rel√≥gio do servidor de logs sempre 
 atualizado (use o <prgn>chrony</prgn> ou outro daemon de sincronismo NTP 
 para automatizar esta tarefa). 
  <p>
-<strong>OBS2:</strong> … interessante compilar um daemon <prgn>syslogd</prgn> 
-personalizado modificando o nome e localizaÁ„o do arquivo 
-<file>/etc/syslog.conf</file> para enganar possÌveis invasores. Isto pode 
+<strong>OBS2:</strong> √â interessante compilar um daemon <prgn>syslogd</prgn> 
+personalizado modificando o nome e localiza√ß√£o do arquivo 
+<file>/etc/syslog.conf</file> para enganar poss√≠veis invasores. Isto pode 
 ser modificado no arquivo <file>syslogd.c</file> na linha:
 <example>
 #define _PATH_LOGCONF   "/etc/syslog.conf"
 
 </example>
-Use a imaginaÁ„o para escolher um nome de arquivo e localizaÁ„o que dificulte 
-a localizaÁ„o deste arquivo. 
+Use a imagina√ß√£o para escolher um nome de arquivo e localiza√ß√£o que dificulte 
+a localiza√ß√£o deste arquivo. 
  <p>
-<strong>OBS3:</strong> Em uma grande rede, È recomend·vel configurar um 
+<strong>OBS3:</strong> Em uma grande rede, √© recomend√°vel configurar um 
 computador dedicado como servidor de log (desativando qualquer outro 
-serviÁo) e configurar o <prgn>iptables</prgn> para aceitar somente o tr·fego 
+servi√ßo) e configurar o <prgn>iptables</prgn> para aceitar somente o tr√°fego 
 indo para a porta UDP 514 (syslogd):
 <example>
 iptables -P INPUT DROP
@@ -666,10 +666,10 @@ iptables -A INPUT -p udp --dport 514 -j ACCEPT
 
 </example>
 <![ %CONSTRUCAO [
-Esta È uma configuraÁ„o simples, para fazer algo mais completo 
-veja <ref id="fw-iptables">.  Adicionalmente configure o serviÁo 
-<prgn>ssh</prgn> para ter acesso a m·quina de log quando n„o tiver 
-acesso fÌsico facilitado a m·quina (veja <ref id="s-ssh">). ]]> ]]>
+Esta √© uma configura√ß√£o simples, para fazer algo mais completo 
+veja <ref id="fw-iptables">.  Adicionalmente configure o servi√ßo 
+<prgn>ssh</prgn> para ter acesso a m√°quina de log quando n√£o tiver 
+acesso f√≠sico facilitado a m√°quina (veja <ref id="s-ssh">). ]]> ]]>
 
   ]]>
   

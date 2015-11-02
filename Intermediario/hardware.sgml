@@ -1,74 +1,74 @@
 <chapt id="hardw">Hardware
  <p>
-Hardware È tudo que diz respeito a parte fÌsica do computador. Nesta 
-seÁ„o ser„o abordados assuntos relacionados com a configuraÁ„o de 
+Hardware √© tudo que diz respeito a parte f√≠sica do computador. Nesta 
+se√ß√£o ser√£o abordados assuntos relacionados com a configura√ß√£o de 
 hardwares, escolha de bons hardwares, dispositivos for Windows, etc. 
 
 
-<sect id="hardw-placas">Placa de expans„o
+<sect id="hardw-placas">Placa de expans√£o
  <p>
-… um circuito eletrÙnico encaixado na placa m„e que tem por objetivo 
+√â um circuito eletr√¥nico encaixado na placa m√£e que tem por objetivo 
 adicionar novas funcionalidades ao computador. Esta placa pode ser uma: 
 <list>
  <item>
-<tt>placa de som</tt> - para fazer o computador emitir sons, m˙sicas, 
+<tt>placa de som</tt> - para fazer o computador emitir sons, m√∫sicas, 
 ligar um joystick, etc. 
  <item>
-<tt>Placa de vÌdeo 3D</tt> - Para obter imagens mais r·pidas para jogos
-e ambientes de desktop 3 dimensıes
+<tt>Placa de v√≠deo 3D</tt> - Para obter imagens mais r√°pidas para jogos
+e ambientes de desktop 3 dimens√µes
  <item>
-<tt>Placa de captura</tt> - Para assistir televis„o/r·dio e gravar 
-a programaÁ„o de TV em seu micro.
+<tt>Placa de captura</tt> - Para assistir televis√£o/r√°dio e gravar 
+a programa√ß√£o de TV em seu micro.
  <item>
 <tt>fax-modem</tt> - para enviar/receber fax, conectar-se a internet, 
 acesso remoto, bina, etc. 
  <item>
-<tt>rede</tt> - para permitir a comunicaÁ„o com outros computadores 
+<tt>rede</tt> - para permitir a comunica√ß√£o com outros computadores 
 em uma rede interna
  <item>
-<tt>controladora de perifÈricos</tt> - Para ligar discos rÌgidos, 
+<tt>controladora de perif√©ricos</tt> - Para ligar discos r√≠gidos, 
 unidades de disquete, impressora, mouse, joystick, etc. 
  <item>
-<tt>SCSI</tt> - Para ligar unidades de disco rÌgidos e perifÈricos de 
+<tt>SCSI</tt> - Para ligar unidades de disco r√≠gidos e perif√©ricos de 
 alto desempenho. 
  <item>
 <tt>Controladora de Scanner</tt> - Para ligar um Scanner externo ao 
 micro computador.
 </list>
-O encaixe da placa m„e que recebe as placas de expans„o s„o chamados de 
+O encaixe da placa m√£e que recebe as placas de expans√£o s√£o chamados de 
 <em>Slots</em>.
 
 
 <sect id="hardw-nomesdisp">Nomes de dispositivos
  <p>
-Seria terrÌvel se ao configurar CADA programa que utilize o mouse 
-ou o modem precis·ssemos nos se referir a ele pela IRQ, I/O, etc... 
-para evitar isso s„o usados os <em>nomes de dispositivos</em>. 
+Seria terr√≠vel se ao configurar CADA programa que utilize o mouse 
+ou o modem precis√°ssemos nos se referir a ele pela IRQ, I/O, etc... 
+para evitar isso s√£o usados os <em>nomes de dispositivos</em>. 
  <p>
-Os <em>nomes de dispositivos</em> no sistema <prgn>GNU/Linux</prgn> s„o 
-acessados atravÈs do diretÛrio <file>/dev</file>. ApÛs configurar 
-corretamente o modem, com sua porta I/O 0x2F8 e IRQ 3, ele È 
+Os <em>nomes de dispositivos</em> no sistema <prgn>GNU/Linux</prgn> s√£o 
+acessados atrav√©s do diret√≥rio <file>/dev</file>. Ap√≥s configurar 
+corretamente o modem, com sua porta I/O 0x2F8 e IRQ 3, ele √© 
 identificado automaticamente por <file>/dev/ttyS1</file> (equivalente 
 a <file>COM2</file> no <prgn>DOS</prgn>). Daqui para frente basta se 
 referir a <file>/dev/ttyS1</file> para fazer alguma coisa com o modem. 
  <p>
-VocÍ tambÈm pode fazer um link de <file>/dev/ttyS1</file> para um 
+Voc√™ tamb√©m pode fazer um link de <file>/dev/ttyS1</file> para um 
 arquivo chamado <file>/dev/modem</file> usando: 
-<tt>ln -s /dev/ttyS1 /dev/modem</tt>, faÁa a configuraÁ„o dos 
-seus programas usando <file>/dev/modem</file> ao invÈs de 
+<tt>ln -s /dev/ttyS1 /dev/modem</tt>, fa√ßa a configura√ß√£o dos 
+seus programas usando <file>/dev/modem</file> ao inv√©s de 
 <file>/dev/ttyS1</file> e se precisar reconfigurar o seu modem e 
-a porta serial mudar para <file>/dev/ttyS3</file>, ser· 
-necess·rio somente apagar o link <file>/dev/modem</file> antigo e 
+a porta serial mudar para <file>/dev/ttyS3</file>, ser√° 
+necess√°rio somente apagar o link <file>/dev/modem</file> antigo e 
 criar um novo apontando para a porta serial <file>/dev/ttyS3</file>. 
  <p>
-N„o ser· necess·rio reconfigurar os programas que usam o modem pois 
-eles est„o usando <file>/dev/modem</file> que est· apontando para a 
-localizaÁ„o correta. Isto È muito ˙til para um bom gerenciamento do 
+N√£o ser√° necess√°rio reconfigurar os programas que usam o modem pois 
+eles est√£o usando <file>/dev/modem</file> que est√° apontando para a 
+localiza√ß√£o correta. Isto √© muito √∫til para um bom gerenciamento do 
 sistema. 
  <p>
 Abaixo uma tabela com o nome do dispositivo no <prgn>GNU/Linux</prgn>, 
 portas I/O, IRQ, DMA e nome do dispositivo no <prgn>DOS</prgn> 
-(os nomes de dispositivos est„o localizados no diretÛrio 
+(os nomes de dispositivos est√£o localizados no diret√≥rio 
 <file>/dev</file>): 
 <example>
 Dispos.   Dispos.
@@ -84,177 +84,177 @@ lp1        LPT2       5      3(ECP)  0x278
 /dev/hda2  D: *      14       -      0x1F0,0x3F6
 /dev/hdb1  D: *      15       -      0x170,0x376
 </example>
-* A designaÁ„o de letras de unidade do <prgn>DOS</prgn> n„o segue o 
-padr„o do <prgn>GNU/Linux</prgn> e depende da existÍncia de outras unidades 
-fÌsicas/lÛgicas no computador. 
+* A designa√ß√£o de letras de unidade do <prgn>DOS</prgn> n√£o segue o 
+padr√£o do <prgn>GNU/Linux</prgn> e depende da exist√™ncia de outras unidades 
+f√≠sicas/l√≥gicas no computador. 
 
 
-<sect id="hardw-cfg">ConfiguraÁ„o de Hardware
+<sect id="hardw-cfg">Configura√ß√£o de Hardware
  <p>
-A configuraÁ„o consiste em ajustar as opÁıes de funcionamento dos 
-dispositivos (perifÈricos) para comunicaÁ„o com a placa m„e bem 
-como a configuraÁ„o do software correspondente para fazer acesso
+A configura√ß√£o consiste em ajustar as op√ß√µes de funcionamento dos 
+dispositivos (perif√©ricos) para comunica√ß√£o com a placa m√£e bem 
+como a configura√ß√£o do software correspondente para fazer acesso
 ao hardware. Um sistema bem configurado consiste em cada dispositivo 
-funcionando com suas portas I/O, IRQ, DMA bem definidas, n„o existindo 
-conflitos com outros dispositivos. Isto tambÈm permitir· a adiÁ„o de novos 
+funcionando com suas portas I/O, IRQ, DMA bem definidas, n√£o existindo 
+conflitos com outros dispositivos. Isto tamb√©m permitir√° a adi√ß√£o de novos 
 dispositivos ao sistema sem problemas. 
  <p>
-Dispositivos PCI, PCI Express, AMR, CNR possuem configuraÁ„o 
-autom·tica de recursos de hardware, podendo apenas ser ligados na 
-m·quina para serem reconhecidos pela placa m„e. ApÛs isso dever· ser 
-feita a configuraÁ„o do mÛdulo do kernel para que o hardware funcione corretamente.
+Dispositivos PCI, PCI Express, AMR, CNR possuem configura√ß√£o 
+autom√°tica de recursos de hardware, podendo apenas ser ligados na 
+m√°quina para serem reconhecidos pela placa m√£e. Ap√≥s isso dever√° ser 
+feita a configura√ß√£o do m√≥dulo do kernel para que o hardware funcione corretamente.
  <p>
-Os par‚metros dos mÛdulos do kernel usados para configurar dispositivos de 
-hardware s„o a <em>IRQ</em>, <em>DMA</em> e <em>I/O</em>. Para dispositivos
-plug and play, como hardwares PCI, basta carregar o mÛdulo para ter o hardware
+Os par√¢metros dos m√≥dulos do kernel usados para configurar dispositivos de 
+hardware s√£o a <em>IRQ</em>, <em>DMA</em> e <em>I/O</em>. Para dispositivos
+plug and play, como hardwares PCI, basta carregar o m√≥dulo para ter o hardware
 funcionando.
 
 
-<sect1 id="hardw-cfg-irq">IRQ - RequisiÁ„o de InterrupÁ„o
+<sect1 id="hardw-cfg-irq">IRQ - Requisi√ß√£o de Interrup√ß√£o
  <p>
-Existem dois tipos b·sicos de interrupÁıes: as usadas por dispositivos 
-(para a comunicaÁ„o com a placa m„e) e programas (para obter a 
-atenÁ„o do processador). As <em>interrupÁıes de software</em> s„o 
+Existem dois tipos b√°sicos de interrup√ß√µes: as usadas por dispositivos 
+(para a comunica√ß√£o com a placa m√£e) e programas (para obter a 
+aten√ß√£o do processador). As <em>interrup√ß√µes de software</em> s√£o 
 mais usadas por programas, incluindo o sistema operacional e 
-<em>interrupÁıes de hardware</em> mais usado por perifÈricos. 
-Daqui para frente ser· explicado somente detalhes sobre 
-interrupÁıes de hardware. 
+<em>interrup√ß√µes de hardware</em> mais usado por perif√©ricos. 
+Daqui para frente ser√° explicado somente detalhes sobre 
+interrup√ß√µes de hardware. 
  <p>
 Os antigos computadores 8086/8088 (XT) usavam somente <tt>8</tt> 
-interrupÁıes de hardware operando a 8 bits. Com o surgimento do 
-AT foram incluÌdas 8 novas interrupÁıes, operando a 16 bits. 
-Os computadores 286 e superiores tem <tt>16</tt> interrupÁıes de 
+interrup√ß√µes de hardware operando a 8 bits. Com o surgimento do 
+AT foram inclu√≠das 8 novas interrup√ß√µes, operando a 16 bits. 
+Os computadores 286 e superiores tem <tt>16</tt> interrup√ß√µes de 
 hardware numeradas de 0 a 15. No kernel 2.4 e superiores do Linux, 
-a funÁ„o APIC (<em>Advanced Programmable Interruption Controller</em>) 
-permite gerenciar de forma avanÁada mais de 15 interrupÁıes 
-no sistema operacional. Estas interrupÁıes oferecem ao dispositivo 
+a fun√ß√£o APIC (<em>Advanced Programmable Interruption Controller</em>) 
+permite gerenciar de forma avan√ßada mais de 15 interrup√ß√µes 
+no sistema operacional. Estas interrup√ß√µes oferecem ao dispositivo 
 associado a capacidade de interromper o que o processador estiver 
-fazendo, pedindo atenÁ„o imediata. 
+fazendo, pedindo aten√ß√£o imediata. 
  <p>
-As interrupÁıes do sistema podem ser visualizadas no kernel com o 
+As interrup√ß√µes do sistema podem ser visualizadas no kernel com o 
 comando <tt>cat /proc/interrupts</tt>. Abaixo um resumo do uso mais 
-comum das 16 interrupÁıes de hardware: 
+comum das 16 interrup√ß√µes de hardware: 
 <example>
 0     Timer do Sistema  - Fixa
 
 01    Teclado - Fixa
 
-02    Controlador de InterrupÁ„o Program·vel - Fixa. 
-      Esta interrupÁ„o È usada como ponte para a IRQ 9 e vem dos 
+02    Controlador de Interrup√ß√£o Program√°vel - Fixa. 
+      Esta interrup√ß√£o √© usada como ponte para a IRQ 9 e vem dos 
       antigos processadores 8086/8088 que somente tinham 8 IRQs. 
-      Assim, pera tornar processadores 8088 e 80286 comunic·veis, 
-      a IRQ 2 È usada como um redirecionador quando se utiliza uma
-      interrupÁ„o acima da 8. 
+      Assim, pera tornar processadores 8088 e 80286 comunic√°veis, 
+      a IRQ 2 √© usada como um redirecionador quando se utiliza uma
+      interrup√ß√£o acima da 8. 
 
 03    Normalmente usado por /dev/ttyS1 mas seu uso depende dos 
       dispositivos instalados em seu sistema (como fax-modem,  
       placas de rede 8 bits, etc). 
 
 04    Normalmente usado por /dev/ttyS0 e quase sempre usada pelo mouse 
-      serial a n„o ser que um mouse PS2 esteja instalado no sistema. 
+      serial a n√£o ser que um mouse PS2 esteja instalado no sistema. 
 
-05    Normalmente a segunda porta paralela. Muitos micros n„o tem a segunda 
-      porta paralela, assim È comum encontrar placas de som e outros 
+05    Normalmente a segunda porta paralela. Muitos micros n√£o tem a segunda 
+      porta paralela, assim √© comum encontrar placas de som e outros 
       dispositivos usando esta IRQ. 
 
-06    Controlador de Disquete - Esta interrupÁ„o pode ser compartilhada 
+06    Controlador de Disquete - Esta interrup√ß√£o pode ser compartilhada 
       com placas aceleradoras de disquete usadas em tapes (unidades de fita). 
 
 07    Primeira porta de impressora. Pessoas tiveram sucesso compartilhando 
       esta porta de impressora com a segunda porta de impressora. 
-      Muitas impressoras n„o usam IRQs. 
+      Muitas impressoras n√£o usam IRQs. 
 
-08    RelÛgio em tempo real do CMOS - N„o pode ser usado por nenhum 
+08    Rel√≥gio em tempo real do CMOS - N√£o pode ser usado por nenhum 
       outro dispositivo.
 
-09    Esta È uma ponte para IRQ2 e deve ser a ˙ltima IRQ a ser 
+09    Esta √© uma ponte para IRQ2 e deve ser a √∫ltima IRQ a ser 
       utilizada. No entanto pode ser usada por dispositivos. 
 
-10   InterrupÁ„o normalmente livre para dispositivos. O controlador
-     USB utiliza essa interrupÁ„o quando presente, mas n„o È regra.
+10   Interrup√ß√£o normalmente livre para dispositivos. O controlador
+     USB utiliza essa interrup√ß√£o quando presente, mas n√£o √© regra.
 
-11   InterrupÁ„o livre para dispositivos
+11   Interrup√ß√£o livre para dispositivos
 
-12   InterrupÁ„o normalmente livre para dispositivos. O mouse PS/2, 
-     quando presente, utiliza esta interrupÁ„o. 
+12   Interrup√ß√£o normalmente livre para dispositivos. O mouse PS/2, 
+     quando presente, utiliza esta interrup√ß√£o. 
 
-13   Processador de dados numÈricos - N„o pode ser usada ou compartilhada 
+13   Processador de dados num√©ricos - N√£o pode ser usada ou compartilhada 
 
-14  Esta interrupÁ„o È usada pela primeira controladora de discos 
-    rÌgidos e n„o pode ser compartilhada. 
+14  Esta interrup√ß√£o √© usada pela primeira controladora de discos 
+    r√≠gidos e n√£o pode ser compartilhada. 
 
-15  Esta È a interrupÁ„o usada pela segunda controladora de discos 
-    e n„o pode ser compartilhada. Pode ser usada caso a segunda 
+15  Esta √© a interrup√ß√£o usada pela segunda controladora de discos 
+    e n√£o pode ser compartilhada. Pode ser usada caso a segunda 
     controladora esteja desativada. 
 </example>
 
-Dispositivos ISA, VESA, EISA, SCSI n„o permitem o compartilhamento de 
-uma mesma IRQ, talvez isto ainda seja possÌvel caso n„o haja outras 
-opÁıes disponÌveis e/ou os dois dispositivos n„o acessem a IRQ ao 
-mesmo tempo, mas isto È uma soluÁ„o prec·ria. 
+Dispositivos ISA, VESA, EISA, SCSI n√£o permitem o compartilhamento de 
+uma mesma IRQ, talvez isto ainda seja poss√≠vel caso n√£o haja outras 
+op√ß√µes dispon√≠veis e/ou os dois dispositivos n√£o acessem a IRQ ao 
+mesmo tempo, mas isto √© uma solu√ß√£o prec√°ria. 
  <p>
 Conflitos de IRQ ocorriam nesse tipo de hardware acima ocasionando a 
 parada ou mal funcionamento de um dispositivo e/ou de todo o sistema. 
-Para resolver um conflito de IRQs, deve-se conhecer quais IRQs est„o sendo 
+Para resolver um conflito de IRQs, deve-se conhecer quais IRQs est√£o sendo 
 usadas por quais dispositivos (usando <tt>cat /proc/interrupts</tt>) e configurar 
-as interrupÁıes de forma que uma n„o entre em conflito com outra. Isto normalmente 
-È feito atravÈs dos jumpers de placas ou atravÈs de software (no caso de 
+as interrup√ß√µes de forma que uma n√£o entre em conflito com outra. Isto normalmente 
+√© feito atrav√©s dos jumpers de placas ou atrav√©s de software (no caso de 
 dispositivos jumperless ou plug-and-play). 
  <p>
-Dispositivos PCI, PCI Express s„o projetados para permitir o compartilhamento
-de interrupÁıes. Se for necess·rio usar uma interrupÁ„o normal, o chipset 
-(ou BIOS) mapear· a interrupÁ„o para uma interrupÁ„o normal do sistema 
-(normalmente usando alguma interrupÁ„o entre a IRQ 9 e IRQ 12) ou usando
+Dispositivos PCI, PCI Express s√£o projetados para permitir o compartilhamento
+de interrup√ß√µes. Se for necess√°rio usar uma interrup√ß√£o normal, o chipset 
+(ou BIOS) mapear√° a interrup√ß√£o para uma interrup√ß√£o normal do sistema 
+(normalmente usando alguma interrup√ß√£o entre a IRQ 9 e IRQ 12) ou usando
 APIC (se estiver configurado).
 
 
-<sect2>Prioridade das InterrupÁıes
+<sect2>Prioridade das Interrup√ß√µes
  <p>
-Cada IRQ no sistema tem um n˙mero que identifica a prioridade que ser· 
+Cada IRQ no sistema tem um n√∫mero que identifica a prioridade que ser√° 
 atendida pelo processador. Nos antigos sistemas XT as prioridades eram 
-identificadas em seq¸Íncia de acordo com as interrupÁıes existentes: 
+identificadas em seq√º√™ncia de acordo com as interrup√ß√µes existentes: 
 <example>
 IRQ 0 1 2 3 4 5 6 7 8 
 PRI 1 2 3 4 5 6 7 8 9
 </example>
-Com o surgimento do barramento AT (16 bits), as interrupÁıes passaram a 
+Com o surgimento do barramento AT (16 bits), as interrup√ß√µes passaram a 
 ser identificadas da seguinte forma: 
 <example>
 IRQ 0  1  2  (9  10  11  12  13  14  15)  3  4  5  6  7  8 
 PRI 1  2  3   4   5   6   7   8   9  10  11 12 13 14 15 16
 </example>
-Note que a prioridade segue em seq¸Íncia atravÈs da <tt>ponte</tt> 
+Note que a prioridade segue em seq√º√™ncia atrav√©s da <tt>ponte</tt> 
 da IRQ 2 para IRQ 9. Os dispositivos com prioridade mais baixa 
-s„o atendidos primeiro, mas È uma diferenÁa de desempenho 
-praticamente imperceptÌvel de ser notada nos sistemas atuais. 
+s√£o atendidos primeiro, mas √© uma diferen√ßa de desempenho 
+praticamente impercept√≠vel de ser notada nos sistemas atuais. 
 
 
-<sect1 id="hardw-cfg-dma">DMA - Acesso Direto a MemÛria
+<sect1 id="hardw-cfg-dma">DMA - Acesso Direto a Mem√≥ria
  <p>
-A <em>DMA</em> È usada para permitir a transferÍncia de dados entre 
-dispositivos I/O e a memÛria sem precisar do processador para fazÍ-lo. 
-Ele livra esta carga do processador e resulta em uma r·pida transferÍncia 
+A <em>DMA</em> √© usada para permitir a transfer√™ncia de dados entre 
+dispositivos I/O e a mem√≥ria sem precisar do processador para faz√™-lo. 
+Ele livra esta carga do processador e resulta em uma r√°pida transfer√™ncia 
 de dados. 
  <p>
-O PC padr„o tem dois controladores de DMA. O primeiro controla os 
+O PC padr√£o tem dois controladores de DMA. O primeiro controla os 
 canais <tt>0, 1, 2, 3</tt> e o segundo os canais <tt>4, 5, 6, 7,</tt> 
-assim temos <tt>8</tt> canais. No entanto, o canal <tt>4</tt> È perdido 
-porque È usado pelo <em>controlador de acesso direto a memÛria</em>. Os 
-canais 0-3 s„o chamados de canais baixos porque podem somente mover um 
-byte (<em>8 bits</em>) por transferÍncia enquanto canais altos movem 2 
-bytes (<em>16 bits</em>) por transferÍncia. 
+assim temos <tt>8</tt> canais. No entanto, o canal <tt>4</tt> √© perdido 
+porque √© usado pelo <em>controlador de acesso direto a mem√≥ria</em>. Os 
+canais 0-3 s√£o chamados de canais baixos porque podem somente mover um 
+byte (<em>8 bits</em>) por transfer√™ncia enquanto canais altos movem 2 
+bytes (<em>16 bits</em>) por transfer√™ncia. 
  <p>
-Os dados movidos usando a DMA <strong>n„o</strong> s„o movidos atravÈs 
-do controlador de DMA. Isto oferece uma limitaÁ„o porque a DMA somente 
-podem mover dados entre os dispositivos (portas I/O) e a memÛria. N„o 
-È possÌvel mover dados entre as portas ou entre a memÛria. 
+Os dados movidos usando a DMA <strong>n√£o</strong> s√£o movidos atrav√©s 
+do controlador de DMA. Isto oferece uma limita√ß√£o porque a DMA somente 
+podem mover dados entre os dispositivos (portas I/O) e a mem√≥ria. N√£o 
+√© poss√≠vel mover dados entre as portas ou entre a mem√≥ria. 
  <p>
 Existem dois controladores de DMA nos computadores AT e superiores. Ao 
-contr·rio do que acontece com os dois controladores de IRQ, o primeiro 
-controlador È ligado ao segundo e n„o o segundo ao primeiro. Os canais 
+contr√°rio do que acontece com os dois controladores de IRQ, o primeiro 
+controlador √© ligado ao segundo e n√£o o segundo ao primeiro. Os canais 
 de DMA altos (5 ao 7) somente podem ser acessados por dispositivos de 
 16 bits (aqueles que utilizam a segunda parte do slot AT). Como resultado 
-temos 8 canais de DMA, de 0 a 7, sendo que a DMA 4 È usada como ligaÁ„o 
+temos 8 canais de DMA, de 0 a 7, sendo que a DMA 4 √© usada como liga√ß√£o 
 entre eles. 
  <p>
 Os canais de DMA em uso no sistema podem ser visualizados com 
@@ -262,7 +262,7 @@ Os canais de DMA em uso no sistema podem ser visualizados com
 canais de DMA. 
 <example>
 DMA    Barram.    Uso
-0        -        Usada pelo circuito de refresh da memÛria DRAM
+0        -        Usada pelo circuito de refresh da mem√≥ria DRAM
 1     8/16 bits   Normalmente usado por placas de som (canal 8 bits), 
                   porta paralela ECP, adaptadoras SCSI, placas de rede ou 
                   controladora de scanner. 
@@ -282,165 +282,165 @@ DMA    Barram.    Uso
 
 </example> 
 Somente dispositivos ISA e derivados dele, como o EISA e VESA, usam 
-os canais de DMA padr„o. Os atuais dispositivos de alta taxa de 
-transferÍncia (normalmente PCI) possuem seu prÛprio controlador de 
-DMA embutido, muito mais r·pido do que a DMA padr„o. Este controlador 
-de DMA È chamado de <em>Bus Mastering</em> e muito usado nos discos 
-rÌgidos atuais e pode atingir taxas de 33,3MB/s (no modo 2) e 66MB/s 
+os canais de DMA padr√£o. Os atuais dispositivos de alta taxa de 
+transfer√™ncia (normalmente PCI) possuem seu pr√≥prio controlador de 
+DMA embutido, muito mais r√°pido do que a DMA padr√£o. Este controlador 
+de DMA √© chamado de <em>Bus Mastering</em> e muito usado nos discos 
+r√≠gidos atuais e pode atingir taxas de 33,3MB/s (no modo 2) e 66MB/s 
 (no modo 4 - requer um cabo IDE com aterramento para evitar 
-interferÍncias de ruÌdos externos). 
+interfer√™ncias de ru√≠dos externos). 
 
 
 <sect2>Conflitos de DMA
  <p>
-Um canal de DMA n„o pode ser compartilhado entre dispositivos. Ainda È 
-possÌvel configurar dois dispositivos para usarem um mesmo canal de 
-DMA, desde que ele n„o seja usado ao mesmo tempo. Isto acontece com 
+Um canal de DMA n√£o pode ser compartilhado entre dispositivos. Ainda √© 
+poss√≠vel configurar dois dispositivos para usarem um mesmo canal de 
+DMA, desde que ele n√£o seja usado ao mesmo tempo. Isto acontece com 
 Scanners paralelos que compartilham a mesma porta paralela com a 
-impressora. Se vocÍ for uma pessoa que explora os recursos 
+impressora. Se voc√™ for uma pessoa que explora os recursos 
 de multitarefa de seu Linux e seu desempenho, evite estes tipos de 
-dispositivos, prefira aqueles que utilizam seus prÛprios recursos. 
+dispositivos, prefira aqueles que utilizam seus pr√≥prios recursos. 
  <p>
 Quando ocorre um conflito de DMA, os dados podem ser misturados e ocorrerem 
-coisas estranhas atÈ o travamento total do sistema. Este tipo de 
-conflito È difÌcil de se diagnosticar, a n„o ser que o tÈcnico seja 
+coisas estranhas at√© o travamento total do sistema. Este tipo de 
+conflito √© dif√≠cil de se diagnosticar, a n√£o ser que o t√©cnico seja 
 experiente o bastante e tenha desconfiado do que o problema se trata... 
 
 
-<sect1 id="hardw-cfg-io">I/O - Porta de Entrada/SaÌda
+<sect1 id="hardw-cfg-io">I/O - Porta de Entrada/Sa√≠da
  <p>
-Cada dispositivo possui um endereÁo de porta. O endereÁo È uma 
-localizaÁ„o da memÛria usada pelo computador para enviar dados ao 
+Cada dispositivo possui um endere√ßo de porta. O endere√ßo √© uma 
+localiza√ß√£o da mem√≥ria usada pelo computador para enviar dados ao 
 dispositivo e onde o dispositivo envia dados ao computador. 
-Ao contr·rios da IRQ e DMA, o dispositivo pode usar mais de uma 
-porta de Entrada/SaÌda ou uma faixa de endereÁos. Por exemplo, 
-uma placa de som padr„o usa as portas 0x220, 0x330 e 0x388, 
+Ao contr√°rios da IRQ e DMA, o dispositivo pode usar mais de uma 
+porta de Entrada/Sa√≠da ou uma faixa de endere√ßos. Por exemplo, 
+uma placa de som padr√£o usa as portas 0x220, 0x330 e 0x388, 
 respectivamente <tt>audio digital</tt>, <tt>midi</tt> e <tt>opl3</tt>. 
  <p>
 As placas de rede normalmente transferem grandes quantidades de dados, 
-assim ocupam uma faixa de endereÁos. Uma NE2000, por exemplo, ocupa 
-a faixa de endereÁos 0x260 a 0x27F (0x260-0x27F). O tamanho da 
-faixa de endereÁos varia de acordo com o tipo de dispositivo. 
+assim ocupam uma faixa de endere√ßos. Uma NE2000, por exemplo, ocupa 
+a faixa de endere√ßos 0x260 a 0x27F (0x260-0x27F). O tamanho da 
+faixa de endere√ßos varia de acordo com o tipo de dispositivo. 
  <p>
-Os endereÁos de <em>I/O</em> em uso no sistema podem ser visualizados 
+Os endere√ßos de <em>I/O</em> em uso no sistema podem ser visualizados 
 com o comando <tt>cat /proc/ioports</tt>. 
  <p>
-EndereÁos das portas de entrada/saÌda n„o podem ser compartilhados
+Endere√ßos das portas de entrada/sa√≠da n√£o podem ser compartilhados
  
 
-<sect id="hardw-metodoscfg">Hardwares configur·veis por jumpers, 
+<sect id="hardw-metodoscfg">Hardwares configur√°veis por jumpers, 
 dip-switches, jumperless e Plug-and-Play. 
 
 
 <sect1 id="hardw-metodoscfg-jumpers">Jumpers
  <p>
-Hardwares configur·veis por <em>jumpers</em> (pinos met·licos 
-protegidos por uma capa pl·stica) tem sua configuraÁ„o alterada 
-atravÈs da colocaÁ„o, retirada ou mudanÁa de posiÁ„o fÌsica do
-pino. Este tipo de hardware, antigamente presente em placas ISA e VESA, n„o È 
-mais usado atualmente devido a configuraÁ„o Plug and Play de 
+Hardwares configur√°veis por <em>jumpers</em> (pinos met√°licos 
+protegidos por uma capa pl√°stica) tem sua configura√ß√£o alterada 
+atrav√©s da coloca√ß√£o, retirada ou mudan√ßa de posi√ß√£o f√≠sica do
+pino. Este tipo de hardware, antigamente presente em placas ISA e VESA, n√£o √© 
+mais usado atualmente devido a configura√ß√£o Plug and Play de 
 dispositivos PCI, PCI express, etc.
  <p>
-As disposiÁ„o dos jumpers s„o normalmente definidas em 
-<em>fechado/aberto</em> e <em>multi-posiÁ„o</em>. Na disposiÁ„o 
-<em>fechado/aberto</em>, o jumper pode ou n„o ser colocado, definindo 
-a configuraÁ„o do dispositivo:
+As disposi√ß√£o dos jumpers s√£o normalmente definidas em 
+<em>fechado/aberto</em> e <em>multi-posi√ß√£o</em>. Na disposi√ß√£o 
+<em>fechado/aberto</em>, o jumper pode ou n√£o ser colocado, definindo 
+a configura√ß√£o do dispositivo:
 <example>
 ::|::
 </example>
-Esta disposiÁ„o È facilmente encontrada na seleÁ„o de IRQ e 
+Esta disposi√ß√£o √© facilmente encontrada na sele√ß√£o de IRQ e 
 I/O em placas de fax-modem.
  <p>
-Na disposiÁ„o <em>multi-posiÁ„o</em>, os pinos de encaixe s„o numerados 
-de 1 a 3 (ou 1 a 4, 1 a 5, etc) e os pinos podem ou n„o ser colocados 
-na placa e a posiÁ„o que s„o colocados tambÈm influencia os valores 
-escolhidos para o funcionamento do dispositivo (a posiÁ„o 1-2 
-especificam um valor enquanto 2-3 especificam outro). A associaÁ„o 
-entre a posiÁ„o dos jumpers e a configuraÁ„o desejada È feita 
+Na disposi√ß√£o <em>multi-posi√ß√£o</em>, os pinos de encaixe s√£o numerados 
+de 1 a 3 (ou 1 a 4, 1 a 5, etc) e os pinos podem ou n√£o ser colocados 
+na placa e a posi√ß√£o que s√£o colocados tamb√©m influencia os valores 
+escolhidos para o funcionamento do dispositivo (a posi√ß√£o 1-2 
+especificam um valor enquanto 2-3 especificam outro). A associa√ß√£o 
+entre a posi√ß√£o dos jumpers e a configura√ß√£o desejada √© feita 
 consultando o mapa desenhado no circuito impresso da placa ou o 
-manual de instruÁıes da placa. 
+manual de instru√ß√µes da placa. 
  <p>
-A configuraÁ„o de jumper atravÈs de multi-posiÁ„o È normalmente 
-usada em placas m„e para definir a <em>freq¸Íncia de operaÁ„o do 
-barramento</em>, a <em>freq¸Íncia de multiplicaÁ„o</em> ou o <em>tipo 
+A configura√ß√£o de jumper atrav√©s de multi-posi√ß√£o √© normalmente 
+usada em placas m√£e para definir a <em>freq√º√™ncia de opera√ß√£o do 
+barramento</em>, a <em>freq√º√™ncia de multiplica√ß√£o</em> ou o <em>tipo 
 do processador</em>.
  <p>
-Se n„o possuir o mapa de configuraÁ„o de sua placa e/ou o manual 
-de instruÁıes, ser· necess·rio fazer um mapeamento manual da placa, 
-mas para isto vocÍ precisar· conhecer detalhadamente a configuraÁ„o 
-de portas I/O, DMA, IRQ usadas na m·quina que ser· usada e anotar as 
-diferenÁas obtidas atravÈs da modificaÁ„o da pinagem do dispositivo. 
-Isto n„o È f·cil, mas tÈcnicos de inform·tica experientes conhecer„o 
+Se n√£o possuir o mapa de configura√ß√£o de sua placa e/ou o manual 
+de instru√ß√µes, ser√° necess√°rio fazer um mapeamento manual da placa, 
+mas para isto voc√™ precisar√° conhecer detalhadamente a configura√ß√£o 
+de portas I/O, DMA, IRQ usadas na m√°quina que ser√° usada e anotar as 
+diferen√ßas obtidas atrav√©s da modifica√ß√£o da pinagem do dispositivo. 
+Isto n√£o √© f√°cil, mas t√©cnicos de inform√°tica experientes conhecer√£o 
 as <tt>armadilhas</tt> encontradas pelo mapeamento manual de placas e 
-far„o o esquema de configuraÁ„o completo do dispositivo, obtendo 
-um excelente manual de instruÁıes. Nesta hora a experiÍncia conta mais 
-que o uso de programas de diagnÛstico. 
+far√£o o esquema de configura√ß√£o completo do dispositivo, obtendo 
+um excelente manual de instru√ß√µes. Nesta hora a experi√™ncia conta mais 
+que o uso de programas de diagn√≥stico. 
  <p>
-Outra caracterÌstica de hardwares configurados atravÈs de jumpers 
-È que raramente apresentam problemas de funcionamento, a n„o ser 
-que seus par‚metros como IRQ, DMA, ou I/O estejam em conflitos com 
-outro dispositivo, mas isso n„o È culpa do fabricante e nem mesmo 
+Outra caracter√≠stica de hardwares configurados atrav√©s de jumpers 
+√© que raramente apresentam problemas de funcionamento, a n√£o ser 
+que seus par√¢metros como IRQ, DMA, ou I/O estejam em conflitos com 
+outro dispositivo, mas isso n√£o √© culpa do fabricante e nem mesmo 
 do dispositivo...
 
 
 <sect1 id="hardw-metodoscfg-dipswitche">Dip-Switches
  <p>
-… a mesma coisa que os hardwares configur·veis por jumpers exceto 
-que s„o usados <em>dip-switches</em> no lugar de jumpers. O 
-<em>dip-switches</em> È um conjunto de chaves numeradas que podem 
-ser colocadas para cima ou para baixo (como um disjuntor ou v·rios 
+√â a mesma coisa que os hardwares configur√°veis por jumpers exceto 
+que s√£o usados <em>dip-switches</em> no lugar de jumpers. O 
+<em>dip-switches</em> √© um conjunto de chaves numeradas que podem 
+ser colocadas para cima ou para baixo (como um disjuntor ou v√°rios 
 interruptores <em>LIGA/DESLIGA</em> colocados um ao lado do outro) 
-para se modificar a configuraÁ„o do dispositivo. 
+para se modificar a configura√ß√£o do dispositivo. 
 
 
 <sect1 id="hardw-metodoscfg-jumperless">Jumperless (sem jumper)
  <p>
-Os hardwares <em>jumperless</em> n„o possuem jumpers e s„o configurados 
-atravÈs de um programa que acompanha a prÛpria placa. Neste programa È 
-escolhida a IRQ, DMA, I/O e a configuraÁ„o È salva na prÛpria placa 
-ou restaurada apÛs cada inicializaÁ„o por um programa carregado na 
-memÛria. Devido a configuraÁ„o via software, se obtÈm uma configuraÁ„o 
-fixa com muito mais facilidade do que via jumpers (por n„o haver a 
+Os hardwares <em>jumperless</em> n√£o possuem jumpers e s√£o configurados 
+atrav√©s de um programa que acompanha a pr√≥pria placa. Neste programa √© 
+escolhida a IRQ, DMA, I/O e a configura√ß√£o √© salva na pr√≥pria placa 
+ou restaurada ap√≥s cada inicializa√ß√£o por um programa carregado na 
+mem√≥ria. Devido a configura√ß√£o via software, se obt√©m uma configura√ß√£o 
+fixa com muito mais facilidade do que via jumpers (por n√£o haver a 
 necessidade de se retirar a placa). 
  <p>
-A maioria das placas jumperless podem funcionar tambÈm como Plug-and-Play. 
+A maioria das placas jumperless podem funcionar tamb√©m como Plug-and-Play. 
 Existem muitas placas de rede, fax-modem, scanner jumperless no mercado. 
 
 
 <sect1 id="hardw-metodoscfg-plug-and-play">Plug-and-Play
  <p>
-O <em>Plug-and-Play</em> È um protocolo que lÍ os valores de operaÁ„o 
-disponÌveis para a placa e permitem que o usu·rio possa especificar 
-facilmente qual ser· sua IRQ, DMA, I/O. Hardwares PCI possuem configuraÁ„o
-Plug-and-Play nativa, registrando suas interrupÁıes, portas e dma na 
+O <em>Plug-and-Play</em> √© um protocolo que l√™ os valores de opera√ß√£o 
+dispon√≠veis para a placa e permitem que o usu√°rio possa especificar 
+facilmente qual ser√° sua IRQ, DMA, I/O. Hardwares PCI possuem configura√ß√£o
+Plug-and-Play nativa, registrando suas interrup√ß√µes, portas e dma na 
 tabela de hardwares PCI do sistema. 
  <p>
-A diferenÁa em relaÁ„o ao modo jumperless È que toda a configuraÁ„o
-do hardware (IRQ, DMA e I/O) È feita pelo kernel do <prgn>Linux</prgn>,
-onde ele passa a configuraÁ„o detectada durante a inicializaÁ„o do 
-sistema para os mÛdulos carregados, garantindo o perfeito funcionamento
-do dispositivos e evitando conflitos. Na Època de hardwares ISA e VESA, o
-programa <prgn>isapnp</prgn> era a preferencia para a configuraÁ„o de 
+A diferen√ßa em rela√ß√£o ao modo jumperless √© que toda a configura√ß√£o
+do hardware (IRQ, DMA e I/O) √© feita pelo kernel do <prgn>Linux</prgn>,
+onde ele passa a configura√ß√£o detectada durante a inicializa√ß√£o do 
+sistema para os m√≥dulos carregados, garantindo o perfeito funcionamento
+do dispositivos e evitando conflitos. Na √©poca de hardwares ISA e VESA, o
+programa <prgn>isapnp</prgn> era a preferencia para a configura√ß√£o de 
 placas ISA Plug and Play.
  <p>
-Veja a prÛxima seÁ„o para entender como funciona o arquivo de 
-configuraÁ„o <file>isapnp.conf</file> e assim poder ativar seu 
+Veja a pr√≥xima se√ß√£o para entender como funciona o arquivo de 
+configura√ß√£o <file>isapnp.conf</file> e assim poder ativar seu 
 dispositivo Plug-and-Play. 
 
 
 <sect id="hardw-findhw">Listando as placas e outros hardwares em um computador
  <p>
-Administradores e tÈcnicos ao configurar uma m·quina precisar„o
-saber quais os hardwares ela possui, perifÈricos e atÈ mesmo a 
-revis„o de dispositivos e clock para configurar as coisas e 
-ver a necessidade de atualizaÁıes de dispositivos atuais.
+Administradores e t√©cnicos ao configurar uma m√°quina precisar√£o
+saber quais os hardwares ela possui, perif√©ricos e at√© mesmo a 
+revis√£o de dispositivos e clock para configurar as coisas e 
+ver a necessidade de atualiza√ß√µes de dispositivos atuais.
  <p>
 Dispositivos PCI/AMR/CNR podem ser listados executando o comando
 <tt>cat /proc/pci</tt>. Outra forma de listar tais dispositivos
-È usando o <prgn>lspci</prgn>, se vocÍ precisa de mais detalhes
-como o mapeamento de memÛria, use <tt>lspci -vv</tt>.
+√© usando o <prgn>lspci</prgn>, se voc√™ precisa de mais detalhes
+como o mapeamento de mem√≥ria, use <tt>lspci -vv</tt>.
  <p>
-O mapeamento de memÛria de dispositivos podem ser mostrados 
+O mapeamento de mem√≥ria de dispositivos podem ser mostrados 
 com o comando <tt>cat /proc/ioports</tt>, ou usando o 
 comando <prgn>lsdev</prgn>. 
  <p>
@@ -448,30 +448,30 @@ O barramento USB e dispositivos conectados a ele podem ser
 listados com o comando <prgn>lsusb</prgn> ou com 
 <tt>cat /proc/bus/usb/devices</tt>.
  <p>
-Hardwares disponÌveis na m·quina, como placa m„e, clock 
-multiplicador, discos, placas diversas, versıes e n˙meros seriais 
-de dispositivos podem ser mostrados atravÈs do comando
+Hardwares dispon√≠veis na m√°quina, como placa m√£e, clock 
+multiplicador, discos, placas diversas, vers√µes e n√∫meros seriais 
+de dispositivos podem ser mostrados atrav√©s do comando
 <prgn>lshw</prgn>. Use <tt>lshw -html</tt> para produzir a 
-listagem em formato HTML, bem interessante para relatÛrios :-)
+listagem em formato HTML, bem interessante para relat√≥rios :-)
 
 
 <sect id="hardw-conflitos">Conflitos de hardware
  <p>
 Ocorre quando um ou mais dispositivos usam a mesma <em>IRQ</em>, 
 <em>I/O</em> ou <em>DMA</em>. 
-Um sistema com configuraÁıes de hardware em conflito tem seu 
-funcionamento inst·vel, travamentos constantes, mal funcionamento 
-de um ou mais dispositivos e atÈ mesmo, em casos mais graves, a perda 
+Um sistema com configura√ß√µes de hardware em conflito tem seu 
+funcionamento inst√°vel, travamentos constantes, mal funcionamento 
+de um ou mais dispositivos e at√© mesmo, em casos mais graves, a perda 
 de dados. Conflitos geralmente ocorriam em placas ISA, VESA onde era
-necess·rio conhecer e usar uma tabela de valores padrıes para a
-configuraÁ„o de perifÈricos (como a mostrada no inicio desse 
-capÌtulo).
+necess√°rio conhecer e usar uma tabela de valores padr√µes para a
+configura√ß√£o de perif√©ricos (como a mostrada no inicio desse 
+cap√≠tulo).
  <p>
-Para resolver conflitos de hardware È necess·rio conhecer a 
-configuraÁ„o de cada dispositivo em seu sistema. Os comandos 
+Para resolver conflitos de hardware √© necess√°rio conhecer a 
+configura√ß√£o de cada dispositivo em seu sistema. Os comandos 
 <tt>cat /proc/interrupts</tt>, <tt>cat /proc/dma</tt> e 
-<tt>cat /proc/ioports</tt> podem ser ˙teis para se verificar as 
-configuraÁıes usadas. 
+<tt>cat /proc/ioports</tt> podem ser √∫teis para se verificar as 
+configura√ß√µes usadas. 
 
 
 <sect id="hard-barramento">Barramento
@@ -481,45 +481,45 @@ barramento usado no sistema, que pode ser um(s) do(s) seguinte(s):
 <taglist compact>
  <tag>ISA 8 Bits</tag>
  <item> 
-<tt>Industry Standard Architecture</tt> - … o padr„o mais antigo, 
+<tt>Industry Standard Architecture</tt> - √â o padr√£o mais antigo, 
 encontrado em computadores PC/XT. 
 
  <tag>ISA 16 Bits</tag>
  <item>
-EvoluÁ„o do padr„o ISA 8 Bits, possui um conector maior e permite a 
-conex„o de placas de 8 bits. Sua taxa de transferÍncia chega a 
+Evolu√ß√£o do padr√£o ISA 8 Bits, possui um conector maior e permite a 
+conex√£o de placas de 8 bits. Sua taxa de transfer√™ncia chega a 
 2MB/s. 
 
  <tag>VESA</tag>
  <item> 
-<tt>Video Electronics Standard Association</tt> - … uma interface 
-feita inicialmente para placas de vÌdeo r·pidas. O barramento VESA 
-È basicamente um ISA com um encaixe extra no final. Sua taxa de 
-transferÍncia pode chegar a 132MB/s. 
+<tt>Video Electronics Standard Association</tt> - √â uma interface 
+feita inicialmente para placas de v√≠deo r√°pidas. O barramento VESA 
+√© basicamente um ISA com um encaixe extra no final. Sua taxa de 
+transfer√™ncia pode chegar a 132MB/s. 
 
  <tag>EISA</tag>
  <item>
-<tt>Enhanced Industry Standard Architecture</tt> - … um barramento 
+<tt>Enhanced Industry Standard Architecture</tt> - √â um barramento 
 mais encontrado em servidores. Tem a capacidade de bus mastering, 
-que possibilita a comunicaÁ„o das placas sem a interferÍncia da CPU. 
+que possibilita a comunica√ß√£o das placas sem a interfer√™ncia da CPU. 
 
  <tag>MCA</tag>
  <item>
-<tt>Micro Channel Architecture</tt> - Barramento 32 bits propriet·rio 
-da IBM. VocÍ n„o pode usar placas ISA nele, possui a caracterÌstica 
+<tt>Micro Channel Architecture</tt> - Barramento 32 bits propriet√°rio 
+da IBM. Voc√™ n√£o pode usar placas ISA nele, possui a caracter√≠stica 
 de bus mastering, mas pode procurar por dispositivos conectados a ele, 
-procurando configuraÁ„o autom·tica. 
+procurando configura√ß√£o autom√°tica. 
  <p>
-Este barramento estava presente no PS/1 e PS/2, hoje n„o È mais usado. 
+Este barramento estava presente no PS/1 e PS/2, hoje n√£o √© mais usado. 
 
  <tag>PCI</tag>
  <item>
-<tt>Peripheral Component Interconnect</tt> - … outro barramento r·pido 
+<tt>Peripheral Component Interconnect</tt> - √â outro barramento r√°pido 
 produzido pela Intel com a mesma velocidade que o VESA. O barramento 
-possui um chipset de controle que faz a comunicaÁ„o entre os slots PCI 
-e o processador. O barramento se configura automaticamente (atravÈs do 
-Plug-and-Play). O PCI È o barramento mais usado por Pentiums e est· se 
-tornando uma padr„o no PC. 
+possui um chipset de controle que faz a comunica√ß√£o entre os slots PCI 
+e o processador. O barramento se configura automaticamente (atrav√©s do 
+Plug-and-Play). O PCI √© o barramento mais usado por Pentiums e est√° se 
+tornando uma padr√£o no PC. 
 
  <tag>PCI Express</tag>
  <item>
@@ -529,63 +529,63 @@ PCI, funcionando nativamente no clock de 64 bits.
 
  <tag>AGP</tag>
  <item>
-<tt>Accelerated Graphics Port</tt> - … um novo barramento criado 
-exclusivamente para a ligaÁ„o de placas de video. … um slot 
+<tt>Accelerated Graphics Port</tt> - √â um novo barramento criado 
+exclusivamente para a liga√ß√£o de placas de video. √â um slot 
 marrom (em sua maioria) que fica mais separado do ponto de 
-fixaÁ„o das placas no chassis (comparado ao PCI). Estas placas
-permitem obter um desempenho elevado de vÌdeo se comparado as 
-placas onboards com memÛria compartilhada e mesmo PCI externas. O 
-consumo de potÍncia em placas AGP x4 podem chegar atÈ a 100W, 
-portanto È importante dimensionar bem o sistema e ter certeza 
-que a fonte de alimentaÁ„o pode trabalhar com folga. 
+fixa√ß√£o das placas no chassis (comparado ao PCI). Estas placas
+permitem obter um desempenho elevado de v√≠deo se comparado as 
+placas onboards com mem√≥ria compartilhada e mesmo PCI externas. O 
+consumo de pot√™ncia em placas AGP x4 podem chegar at√© a 100W, 
+portanto √© importante dimensionar bem o sistema e ter certeza 
+que a fonte de alimenta√ß√£o pode trabalhar com folga. 
 
  <tag>PCMCIA</tag>
  <item>
-<tt>Personal Computer Memory Card International Association</tt> - … 
-um slot especial usado para conexıes de placas externas (normalmente 
-revestivas de pl·stico) e chamadas de <em>cartıes PCMCIA</em>. 
-Estes cartıes podem adicionar mais memÛria ao sistema, 
-conter um fax-modem, placa de rede, disco rÌgido, etc. 
+<tt>Personal Computer Memory Card International Association</tt> - √â 
+um slot especial usado para conex√µes de placas externas (normalmente 
+revestivas de pl√°stico) e chamadas de <em>cart√µes PCMCIA</em>. 
+Estes cart√µes podem adicionar mais mem√≥ria ao sistema, 
+conter um fax-modem, placa de rede, disco r√≠gido, etc. 
  <p>
-Os cartıes PCMCIA s„o divididos em 3 tipos: 
+Os cart√µes PCMCIA s√£o divididos em 3 tipos: 
 <taglist compact>
  <tag><tt>Tipo 1</tt></tag>
  <item>
-Tem a espessura de 3.3 milÌmetros, e podem conter mais memÛria RAM ou 
-memÛria Flash. 
+Tem a espessura de 3.3 mil√≠metros, e podem conter mais mem√≥ria RAM ou 
+mem√≥ria Flash. 
  
  <tag><tt>Tipo 2</tt></tag>
  <item>
-Tem a espessura de 5 milÌmetros e capacidade de operaÁıes I/O. … um 
+Tem a espessura de 5 mil√≠metros e capacidade de opera√ß√µes I/O. √â um 
 tipo usado para placas de fax-modem, rede, som. Computadores que 
-aceitam cartıes PCMCIA do tipo 2, mantÈm a compatibilidade com o 
+aceitam cart√µes PCMCIA do tipo 2, mant√©m a compatibilidade com o 
 tipo 1. 
 
  <tag><tt>Tipo 3</tt></tag>
  <item>
-Tem a espessura de 10.5 milÌmetros e normalmente usado para discos 
-rÌgidos PCMCIA. Slots PCMCIA do tipo 3 mantÈm a compatibilidade com o 
+Tem a espessura de 10.5 mil√≠metros e normalmente usado para discos 
+r√≠gidos PCMCIA. Slots PCMCIA do tipo 3 mant√©m a compatibilidade com o 
 tipo 2 e 1. 
 </taglist>
 
  <tag>AMR</tag>
  <item>
 <tt>Audio Modem Raise</tt> - Pequeno barramento criado pela Intel 
-para a conex„o de placas de som e modem. Placas de som e modem AMR usam 
-o HSP (host signal processor) e s„o como as Placas on-board e todo o 
-processamento È feito pela CPU do computador (veja detalhes em 
+para a conex√£o de placas de som e modem. Placas de som e modem AMR usam 
+o HSP (host signal processor) e s√£o como as Placas on-board e todo o 
+processamento √© feito pela CPU do computador (veja detalhes em 
 <ref id="hard-onoffboard"> e <ref id="hard-forwindows">. 
  <p>
-Sua vantagem È o preÁo: um modem ou placa de som AMR custa em 
+Sua vantagem √© o pre√ßo: um modem ou placa de som AMR custa em 
 torno de R$ 25,00. 
 
  <tag>CNR</tag>
  <item>
 <tt>Communication and Networking Rise</tt> - Pequeno barramento criado 
-pela Intel para a conex„o de placas de som, modens e placas de rede. Este 
-È um pequenino slot marrom que È localizado no ponto de fixaÁ„o das placas 
-no chassis do gabinete. Elas s„o como as Placas on-board e todo o 
-processamento È feito pela CPU do computador (veja detalhes em 
+pela Intel para a conex√£o de placas de som, modens e placas de rede. Este 
+√© um pequenino slot marrom que √© localizado no ponto de fixa√ß√£o das placas 
+no chassis do gabinete. Elas s√£o como as Placas on-board e todo o 
+processamento √© feito pela CPU do computador (veja detalhes em 
 <ref id="hard-onoffboard"> e <ref id="hard-forwindows">. 
 
 </taglist>
@@ -593,164 +593,164 @@ processamento È feito pela CPU do computador (veja detalhes em
 
 <sect id="hard-onoffboard">Placas on-board / off-board
  <p>
-Placas <em>on-board</em> s„o embutidas na placa m„e (<em>motherboard</em>). 
-Placas <em>off-board</em> s„o placas externas encaixadas nos slots de 
-expans„o da placa m„e. 
+Placas <em>on-board</em> s√£o embutidas na placa m√£e (<em>motherboard</em>). 
+Placas <em>off-board</em> s√£o placas externas encaixadas nos slots de 
+expans√£o da placa m√£e. 
  <p>
 No inicio da era do PC/XT todos as placas eram 
-embutidas na placa m„e (na Època eram somente a placa de vÌdeo e 
-controladora). Com o surgimento do padr„o AT, diversas empresas de 
-inform·tica desenvolveram dispositivos concorrentes e assim o usu·rio tinha 
-a liberdade de escolha de qual dispositivo colocar em sua placa m„e 
+embutidas na placa m√£e (na √©poca eram somente a placa de v√≠deo e 
+controladora). Com o surgimento do padr√£o AT, diversas empresas de 
+inform√°tica desenvolveram dispositivos concorrentes e assim o usu√°rio tinha 
+a liberdade de escolha de qual dispositivo colocar em sua placa m√£e 
 (ou o mais barato ou o de melhor qualidade e desempenho), isto permitiu a 
-adiÁ„o de perifÈricos de qualidade sem romper com seu orÁamento pessoal 
-(comprando uma placa de som, depois uma de fax-modem, placa de vÌdeo 
+adi√ß√£o de perif√©ricos de qualidade sem romper com seu or√ßamento pessoal 
+(comprando uma placa de som, depois uma de fax-modem, placa de v√≠deo 
 melhor, etc). 
  <p>
 Atualmente parece que voltamos ao ponto de partida e tudo vem 
-embutido na placa m„e (<em>on-board</em>) e o usu·rio n„o tem 
-como escolher qual dispositivo usar em seu computador. … muito difÌcil 
-(praticamente impossÌvel) encontrar uma placa m„e que satisfaÁa 
-completamente as necessidades do usu·rio ou recomendaÁıes de um 
-bom tÈcnico de inform·tica (a n„o ser que seja um tÈcnico 
+embutido na placa m√£e (<em>on-board</em>) e o usu√°rio n√£o tem 
+como escolher qual dispositivo usar em seu computador. √â muito dif√≠cil 
+(praticamente imposs√≠vel) encontrar uma placa m√£e que satisfa√ßa 
+completamente as necessidades do usu√°rio ou recomenda√ß√µes de um 
+bom t√©cnico de inform√°tica (a n√£o ser que seja um t√©cnico 
 experiente e encontre alguma alternativa). 
  <p>
-Certamente o ˙nico dispositivo que funciona melhor se 
-embutido na placa m„e È a <em>placa controladora de perifÈricos</em>. Esta 
-placa È usada para se conectar unidades de disquete, discos 
-rÌgidos, CD-ROM, portas seriais, paralelas, joystick ao computador. Os 
+Certamente o √∫nico dispositivo que funciona melhor se 
+embutido na placa m√£e √© a <em>placa controladora de perif√©ricos</em>. Esta 
+placa √© usada para se conectar unidades de disquete, discos 
+r√≠gidos, CD-ROM, portas seriais, paralelas, joystick ao computador. Os 
 HDs conectados em uma controladora embutida conseguem ter um 
 desempenho muito maior do que em placas conectadas externamente, 
 sem causar nenhum tipo de problema. 
  <p>
-Hardwares embutidos na placa m„e (como fax-modem, vÌdeo, som) s„o em 
-mÈdia 30% mais baratos que os vendidos separadamente mas quase sempre 
-s„o usados dispositivos de baixo desempenho e qualidade para reduzir o 
-preÁo da placa m„e e quase sempre usados hardwares <tt>For Windows</tt>. 
+Hardwares embutidos na placa m√£e (como fax-modem, v√≠deo, som) s√£o em 
+m√©dia 30% mais baratos que os vendidos separadamente mas quase sempre 
+s√£o usados dispositivos de baixo desempenho e qualidade para reduzir o 
+pre√ßo da placa m√£e e quase sempre usados hardwares <tt>For Windows</tt>. 
  <p>
-Hoje em dia por causa do preÁo da placa m„e, È comum 
-encontrar pessoas que verificam somente o preÁo e sequer procuram 
-saber ou conhecem a qualidade das placas embutidas na placa m„e. Pior 
-ainda È encontrar vendedores despreparados que sequer sabem explicar 
-o porque que uma placa de som Sound Blaster 128 È mais cara que uma 
-de modelo genÈrico...
+Hoje em dia por causa do pre√ßo da placa m√£e, √© comum 
+encontrar pessoas que verificam somente o pre√ßo e sequer procuram 
+saber ou conhecem a qualidade das placas embutidas na placa m√£e. Pior 
+ainda √© encontrar vendedores despreparados que sequer sabem explicar 
+o porque que uma placa de som Sound Blaster 128 √© mais cara que uma 
+de modelo gen√©rico...
  <p>
 Geralmente dispositivos on-board trazem problemas caso tal dispositivo
-queime e geralmente È colocado um hardware de baixa qualidade para 
-baratear o custo de placas m„e, que na maioria das vezes tambÈm
+queime e geralmente √© colocado um hardware de baixa qualidade para 
+baratear o custo de placas m√£e, que na maioria das vezes tamb√©m
 oferece grande dificuldade para ser configurada no <prgn>Linux</prgn>.
  <p>
-Outro perifÈrico que traz problemas e carga para o processador È o 
+Outro perif√©rico que traz problemas e carga para o processador √© o 
 fax-modem for Windows, HSP, AMR, micromodem, etc. utilizando o processador
-do sistema para realizar seu trabalho e algumas vezes n„o trazem nem mesmo
-o chip UART. Isso resulta em perda de qualidade na conex„o e maior consumo
-telefÙnico.
+do sistema para realizar seu trabalho e algumas vezes n√£o trazem nem mesmo
+o chip UART. Isso resulta em perda de qualidade na conex√£o e maior consumo
+telef√¥nico.
  <p>
-Se vocÍ estiver em uma situaÁ„o destas, certamente os computadores de 
-menor potÍncia e com hardwares inteligentes (que possuem seus prÛprios 
-chips de controle e processamento) n„o ter„o o desempenho comprometido. 
-O preÁo pode ser maior mas vocÍ estar· pagando por um dispositivo de melhor 
-qualidade e que certamente trar· benefÌcios a vocÍ e ao seu sistema. 
+Se voc√™ estiver em uma situa√ß√£o destas, certamente os computadores de 
+menor pot√™ncia e com hardwares inteligentes (que possuem seus pr√≥prios 
+chips de controle e processamento) n√£o ter√£o o desempenho comprometido. 
+O pre√ßo pode ser maior mas voc√™ estar√° pagando por um dispositivo de melhor 
+qualidade e que certamente trar√° benef√≠cios a voc√™ e ao seu sistema. 
  <p>
-Consulte um tÈcnico em inform·tica experiente para te indicar uma 
-placa m„e de bom preÁo e de qualidade. … muito comum encontrar 
-falta de profissionalismo em pessoas que n„o sabem distinguir as 
-caracterÌsticas, funÁıes e vantagens entre uma placa de boa qualidade 
-e um hardware for Windows a n„o ser o preÁo mais barato. 
+Consulte um t√©cnico em inform√°tica experiente para te indicar uma 
+placa m√£e de bom pre√ßo e de qualidade. √â muito comum encontrar 
+falta de profissionalismo em pessoas que n√£o sabem distinguir as 
+caracter√≠sticas, fun√ß√µes e vantagens entre uma placa de boa qualidade 
+e um hardware for Windows a n√£o ser o pre√ßo mais barato. 
 
 
-<sect id="hard-forwindows">Hardwares especÌficos ou "For Windows"
+<sect id="hard-forwindows">Hardwares espec√≠ficos ou "For Windows"
  <p>
-Esta seÁ„o foi retirada do manual de instalaÁ„o da Debian GNU/Linux. 
-Uma tendÍncia que perturba È a proliferaÁ„o de Modens e impressoras 
-especÌficos para Windows. Em muitos casos estes s„o especialmente 
+Esta se√ß√£o foi retirada do manual de instala√ß√£o da Debian GNU/Linux. 
+Uma tend√™ncia que perturba √© a prolifera√ß√£o de Modens e impressoras 
+espec√≠ficos para Windows. Em muitos casos estes s√£o especialmente 
 fabricados para operar com o Sistema Operacional Microsoft Windows e 
 costumam ter a legenda <tt>WinModem</tt>, <tt>for Windows</tt>, ou <tt>Feito 
 especialmente para computadores baseados no Windows</tt>. 
  <p>
-Geralmente estes dispositivos s„o feitos retirando os processadores 
-embutidos daquele hardware e o trabalho deles s„o feitos por drivers 
-do Windows que s„o executados pelo processador principal do computador. 
-Esta estratÈgia torna o hardware menos caro, mas o que È poupado 
-n„o È passado para o usu·rio e este hardware pode atÈ mesmo ser mais 
-caro quanto dispositivos equivalentes que possuem inteligÍncia embutida. 
+Geralmente estes dispositivos s√£o feitos retirando os processadores 
+embutidos daquele hardware e o trabalho deles s√£o feitos por drivers 
+do Windows que s√£o executados pelo processador principal do computador. 
+Esta estrat√©gia torna o hardware menos caro, mas o que √© poupado 
+n√£o √© passado para o usu√°rio e este hardware pode at√© mesmo ser mais 
+caro quanto dispositivos equivalentes que possuem intelig√™ncia embutida. 
  <p>
-VocÍ deve evitar o hardware baseado no Windows por duas razıes: 
+Voc√™ deve evitar o hardware baseado no Windows por duas raz√µes: 
 <enumlist>
  <item>
-O primeiro È que aqueles fabricantes n„o tornam os recursos 
-disponÌveis para criar um driver para Linux. Geralmente, o hardware e 
-a interface de software para o dispositivo È propriet·ria, e a 
-documentaÁ„o n„o È disponÌvel sem o acordo de n„o revelaÁ„o, se ele 
-estiver disponÌvel. Isto impede seu uso como software livre, desde  
-que os escritores de software gr·tis descubram o cÛdigo fonte destes  
+O primeiro √© que aqueles fabricantes n√£o tornam os recursos 
+dispon√≠veis para criar um driver para Linux. Geralmente, o hardware e 
+a interface de software para o dispositivo √© propriet√°ria, e a 
+documenta√ß√£o n√£o √© dispon√≠vel sem o acordo de n√£o revela√ß√£o, se ele 
+estiver dispon√≠vel. Isto impede seu uso como software livre, desde  
+que os escritores de software gr√°tis descubram o c√≥digo fonte destes  
 programas. 
 
  <item>
-A segunda raz„o È que quando estes dispositivos tem os processadores 
+A segunda raz√£o √© que quando estes dispositivos tem os processadores 
 embutidos removidos, o sistema operacional deve fazer o trabalho dos 
-processadores embutidos, freq¸entemente em prioridade de tempo real, e  
-assim a CPU n„o esta disponÌvel para executar programas enquanto ela 
+processadores embutidos, freq√ºentemente em prioridade de tempo real, e  
+assim a CPU n√£o esta dispon√≠vel para executar programas enquanto ela 
 esta controlando estes dispositivos. 
  <p>
-Assim o usu·rio tÌpico do Windows n„o obtÈm um multi-processamento t„o 
-intensivo como um usu·rio do Linux, o fabricante espera que aquele 
-usu·rio do Windows simplesmente n„o note a carga de trabalho que este 
-hardware pıe naquela CPU. No entanto, qualquer sistema operacional de 
-multi-processamento, atÈ mesmo Windows 9X, XP e Vista, s„o prejudicados 
-quando fabricantes de perifÈricos retiram o processador embutido de 
+Assim o usu√°rio t√≠pico do Windows n√£o obt√©m um multi-processamento t√£o 
+intensivo como um usu√°rio do Linux, o fabricante espera que aquele 
+usu√°rio do Windows simplesmente n√£o note a carga de trabalho que este 
+hardware p√µe naquela CPU. No entanto, qualquer sistema operacional de 
+multi-processamento, at√© mesmo Windows 9X, XP e Vista, s√£o prejudicados 
+quando fabricantes de perif√©ricos retiram o processador embutido de 
 suas placas e colocam o processamento do hardware na CPU. 
 </enumlist>
-VocÍ pode ajudar a reverter esta situaÁ„o encorajando estes 
-fabricantes a lanÁarem a documentaÁ„o e outros recursos necess·rios 
-para nÛs desenvolvermos drivers para estes hardwares, mas a melhor 
-estratÈgia È simplesmente evitar estes tipos de hardwares atÈ que 
-ele esteja listado no HOWTO de hardwares compatÌveis com Linux. 
+Voc√™ pode ajudar a reverter esta situa√ß√£o encorajando estes 
+fabricantes a lan√ßarem a documenta√ß√£o e outros recursos necess√°rios 
+para n√≥s desenvolvermos drivers para estes hardwares, mas a melhor 
+estrat√©gia √© simplesmente evitar estes tipos de hardwares at√© que 
+ele esteja listado no HOWTO de hardwares compat√≠veis com Linux. 
 <![ %OBS [
  <p>
-Note que hoje j· existem muitos drivers para WinModems e outros 
+Note que hoje j√° existem muitos drivers para WinModems e outros 
 hardwares for Windows para o Linux. Veja a lista de hardwares 
-compatÌveis no HARDWARE-HOWTO ou procure o driver no site do 
-fabricante de seu dispositivo. Mesmo assim a dica È evitar 
+compat√≠veis no HARDWARE-HOWTO ou procure o driver no site do 
+fabricante de seu dispositivo. Mesmo assim a dica √© evitar 
 hardwares for Windows e comprar hardwares inteligentes onde 
-cada um faz sua funÁ„o sem carregar a CPU. ]]> 
+cada um faz sua fun√ß√£o sem carregar a CPU. ]]> 
 
 
-<sect>Dispositivos especÌficos para GNU/Linux
+<sect>Dispositivos espec√≠ficos para GNU/Linux
  <p>
-Esta seÁ„o foi retirada do manual de instalaÁ„o da Debian GNU/Linux. 
+Esta se√ß√£o foi retirada do manual de instala√ß√£o da Debian GNU/Linux. 
 Existem diversos vendedores, agora, que vendem sistemas com a 
-<prgn>Debian</prgn> ou outra distribuiÁ„o do GNU/Linux prÈ-instaladas. 
-VocÍ pode pagar mais para ter este privilÈgio, mas compra um nÌvel de 
-paz de mente, desde ent„o vocÍ pode ter certeza que seu hardware È bem 
-compatÌvel com GNU/Linux. Praticamente todas as placas que possuem 
-processadores prÛprios funcionam sem nenhum problema no Linux (algumas 
+<prgn>Debian</prgn> ou outra distribui√ß√£o do GNU/Linux pr√©-instaladas. 
+Voc√™ pode pagar mais para ter este privil√©gio, mas compra um n√≠vel de 
+paz de mente, desde ent√£o voc√™ pode ter certeza que seu hardware √© bem 
+compat√≠vel com GNU/Linux. Praticamente todas as placas que possuem 
+processadores pr√≥prios funcionam sem nenhum problema no Linux (algumas 
 placas da <tt>Turtle Beach</tt> e <tt>mwave</tt> tem suporte de som 
 limitado). 
  <p>
-Se vocÍ tiver que comprar uma m·quina com Windows instalado, leia 
-cuidadosamente a licenÁa que acompanha o Windows; vocÍ pode rejeitar 
-a licenÁa e obter um desconto de seu vendedor. 
+Se voc√™ tiver que comprar uma m√°quina com Windows instalado, leia 
+cuidadosamente a licen√ßa que acompanha o Windows; voc√™ pode rejeitar 
+a licen√ßa e obter um desconto de seu vendedor. 
  <p>
-Se n„o estiver comprando um computador com <prgn>GNU/Linux</prgn> 
-instalado, ou atÈ mesmo um computador usado, È importante verificar 
-se os hardwares existentes s„o suportados pelo kernel do 
-<prgn>GNU/Linux</prgn>. Verifique se seu hardware È listado no 
-<em>Hardware Compatibility HOWTO</em>, na documentaÁ„o do cÛdigo 
-fonte do kernel no diretÛrio <file>Documentation/sound</file> ou 
-consulte um tÈcnico de <prgn>GNU/Linux</prgn> experiente. 
+Se n√£o estiver comprando um computador com <prgn>GNU/Linux</prgn> 
+instalado, ou at√© mesmo um computador usado, √© importante verificar 
+se os hardwares existentes s√£o suportados pelo kernel do 
+<prgn>GNU/Linux</prgn>. Verifique se seu hardware √© listado no 
+<em>Hardware Compatibility HOWTO</em>, na documenta√ß√£o do c√≥digo 
+fonte do kernel no diret√≥rio <file>Documentation/sound</file> ou 
+consulte um t√©cnico de <prgn>GNU/Linux</prgn> experiente. 
  <p>
-Deixe seu vendedor (se conhecer) saber que o que est· comprando È 
-para um sistema <prgn>GNU/Linux</prgn>. Desta forma isto servir· de 
-experiÍncia para que ele poder· recomendar o mesmo dispositivo a 
+Deixe seu vendedor (se conhecer) saber que o que est√° comprando √© 
+para um sistema <prgn>GNU/Linux</prgn>. Desta forma isto servir√° de 
+experi√™ncia para que ele poder√° recomendar o mesmo dispositivo a 
 outras pessoas que procuram bons dispositivos para sistemas 
-<prgn>GNU/Linux</prgn>. ApÛie vendedores de hardwares amigos 
+<prgn>GNU/Linux</prgn>. Ap√≥ie vendedores de hardwares amigos 
 do <prgn>GNU/Linux</prgn>. 
 
 
-<sect id="hardw-cfgdisp">ConfiguraÁıes de Dispositivos
+<sect id="hardw-cfgdisp">Configura√ß√µes de Dispositivos
  <p>
-As seÁıes abaixo explicam como fazer configuraÁıes em dispositivos diversos no
+As se√ß√µes abaixo explicam como fazer configura√ß√µes em dispositivos diversos no
 sistema <prgn>Linux</prgn> como placas de rede, som, gravador de CD entre outras. 
 
 
@@ -760,46 +760,46 @@ Para configurar sua placa de rede no <prgn>Linux</prgn> siga os passos
 a seguir: 
 <enumlist compact>
  <item>
-Identifique se sua placa de rede È ISA ou PCI. Caso seja ISA, pode 
-ser preciso alterar a configuraÁ„o de jumpers ou plug-and-play, evitando 
-conflitos de hardware ou o n„o funcionamento da placa (veja como 
+Identifique se sua placa de rede √© ISA ou PCI. Caso seja ISA, pode 
+ser preciso alterar a configura√ß√£o de jumpers ou plug-and-play, evitando 
+conflitos de hardware ou o n√£o funcionamento da placa (veja como 
 configura-la em <ref id="hardw-metodoscfg">.
 
  <item>
-Identifique a marca/modelo de sua placa. O programa <prgn>lshw</prgn> È 
-˙til para isto. Caso sua placa seja PCI ou CNR, execute o comando
+Identifique a marca/modelo de sua placa. O programa <prgn>lshw</prgn> √© 
+√∫til para isto. Caso sua placa seja PCI ou CNR, execute o comando
 <prgn>lspci</prgn> e veja a linha "Ethernet".
  <p>
-Em ˙ltimo caso, abra a m·quina e procure a marca na prÛpria placa. Quase 
-todos os fabricantes colocam a marca da placa no prÛprio circuito impresso
-ou no CI principal da placa (normalmente È o maior).
+Em √∫ltimo caso, abra a m√°quina e procure a marca na pr√≥pria placa. Quase 
+todos os fabricantes colocam a marca da placa no pr√≥prio circuito impresso
+ou no CI principal da placa (normalmente √© o maior).
 
  <item>
-Depois de identificar a placa, ser· preciso carregar o mÛdulo 
+Depois de identificar a placa, ser√° preciso carregar o m√≥dulo 
 correspondente para ser usada no <prgn>Linux</prgn>. Em algumas
-instalaÁıes padrıes o suporte j· pode estar embutido no kernel, 
-neste caso, vocÍ poder· pular este passo.
+instala√ß√µes padr√µes o suporte j√° pode estar embutido no kernel, 
+neste caso, voc√™ poder√° pular este passo.
  <p>
-Para carregar um mÛdulo, digite o comando <tt>modprobe modulo</tt>
-<![ %INTERMEDIARIO [ (Veja <ref id="kern-modprobe">) ]]>. Em placas ISA, geralmente È 
+Para carregar um m√≥dulo, digite o comando <tt>modprobe modulo</tt>
+<![ %INTERMEDIARIO [ (Veja <ref id="kern-modprobe">) ]]>. Em placas ISA, geralmente √© 
 preciso passar a IRQ e porta de I/O como argumentos para alocar os 
-recursos corretamente. O <prgn>modprobe</prgn> tentar· auto-detectar 
-a configuraÁ„o em placas ISA, mas ela poder· falhar por algum motivo. 
+recursos corretamente. O <prgn>modprobe</prgn> tentar√° auto-detectar 
+a configura√ß√£o em placas ISA, mas ela poder√° falhar por algum motivo. 
 Por exemplo, para uma NE 2000: <tt>modprobe ne io=0x300 irq=10</tt>.
  <p>
-Para evitar a digitaÁ„o destes par‚metros toda vez que a m·quina
-for iniciada È recomend·vel coloca-lo no arquivo 
+Para evitar a digita√ß√£o destes par√¢metros toda vez que a m√°quina
+for iniciada √© recomend√°vel coloca-lo no arquivo 
 <file>/etc/modules.conf</file> da seguinte forma:
 <example>
 options ne io=0x300 irq=10
 
 </example>
-A partir de agora, vocÍ pode carregar o mÛdulo de sua placa 
-NE 2000 apenas com o comando <tt>modprobe ne</tt>. O par‚metro
-<tt>io=0x300 irq=10</tt> ser· automaticamente adicionado.
+A partir de agora, voc√™ pode carregar o m√≥dulo de sua placa 
+NE 2000 apenas com o comando <tt>modprobe ne</tt>. O par√¢metro
+<tt>io=0x300 irq=10</tt> ser√° automaticamente adicionado.
 <![ %DEBIAN [ 
 Em sistemas <prgn>Debian</prgn>, o local correto para colocar
-as opÁıes de um mÛdulo È em arquivos separados localizados 
+as op√ß√µes de um m√≥dulo √© em arquivos separados localizados 
 dentro de <file>/etc/modutils</file>. Crie um arquivo chamado
 <file>/etc/modutils/ne</file> e coloque a linha:
 <example>
@@ -808,12 +808,12 @@ options ne io=0x300 irq=10
 </example>
 Depois disso, execute o comando <tt>update-modules</tt> para o 
 sistema gerar um novo arquivo <file>/etc/modules.conf</file> com
-todos os mÛdulos de <file>/etc/modutils</file> e substituir o anterior.
+todos os m√≥dulos de <file>/etc/modutils</file> e substituir o anterior.
 ]]>
 
  <item>
-ApÛs carregar o mÛdulo de sua placa de rede, resta apenas
-configurar seus par‚metros de rede para coloca-la em rede.
+Ap√≥s carregar o m√≥dulo de sua placa de rede, resta apenas
+configurar seus par√¢metros de rede para coloca-la em rede.
 Veja <ref id="rede-interfaces-c">.
 
 </enumlist>
@@ -821,92 +821,92 @@ Veja <ref id="rede-interfaces-c">.
 
 <sect1 id="hardw-cfgdisp-som">Configurando uma placa de SOM no Linux
  <p>
-A configuraÁ„o de dispositivos de audio no Linux È simples, bastando
-carregar o mÛdulo da placa e ajustar o mixer. Atualmente existem 2 padrıes 
+A configura√ß√£o de dispositivos de audio no Linux √© simples, bastando
+carregar o m√≥dulo da placa e ajustar o mixer. Atualmente existem 2 padr√µes 
 de som no sistema Linux: OSS (Open Sound System) e ALSA (Advanced Linux 
 Sound Architecture).
  <p>
-O OSS foi o primeiro padr„o adotado em sistemas <prgn>Linux</prgn>, que 
-tinha como grande limitaÁ„o a dificuldade em usar diversas placas e a impossibilidade
-dos programas utilizaram ao mesmo tempo a placa de som. O ALSA È mais novo, suporta 
-full duplex e outros recursos adicionais, alÈm de manter a compatibilidade com OSS. 
-O ALSA È um padr„o mais moderno e garante mais performance para a CPU da m·quina, 
-principalmente para a exibiÁ„o de vÌdeos, etc.
+O OSS foi o primeiro padr√£o adotado em sistemas <prgn>Linux</prgn>, que 
+tinha como grande limita√ß√£o a dificuldade em usar diversas placas e a impossibilidade
+dos programas utilizaram ao mesmo tempo a placa de som. O ALSA √© mais novo, suporta 
+full duplex e outros recursos adicionais, al√©m de manter a compatibilidade com OSS. 
+O ALSA √© um padr√£o mais moderno e garante mais performance para a CPU da m√°quina, 
+principalmente para a exibi√ß√£o de v√≠deos, etc.
 
 
-<sect2 id="hardw-cfgdisp-som-oss">Configurando uma placa de som usando o padr„o OSS
+<sect2 id="hardw-cfgdisp-som-oss">Configurando uma placa de som usando o padr√£o OSS
  <p>
-OSS È o presente por padr„o desde que o suporte a som foi 
-incluÌdo no kernel. Para configurar uma placa de som para usar este 
-sistema de som, primeiro compile seu kernel com o suporte ao mÛdulo
-de sua placa de som. Caso seja uma placa ISA, vocÍ provavelmente ter· 
-que habilitar a seÁ„o "Open Sound System" para ver as opÁıes disponÌveis
-(entre elas, a Sound Blaster e compatÌveis). Uma olhada na ajuda de 
-cada mÛdulo deve ajuda-lo a identificar quais placas cada opÁ„o do 
+OSS √© o presente por padr√£o desde que o suporte a som foi 
+inclu√≠do no kernel. Para configurar uma placa de som para usar este 
+sistema de som, primeiro compile seu kernel com o suporte ao m√≥dulo
+de sua placa de som. Caso seja uma placa ISA, voc√™ provavelmente ter√° 
+que habilitar a se√ß√£o "Open Sound System" para ver as op√ß√µes dispon√≠veis
+(entre elas, a Sound Blaster e compat√≠veis). Uma olhada na ajuda de 
+cada m√≥dulo deve ajuda-lo a identificar quais placas cada op√ß√£o do 
 kernel suporta.
  <p>
-Caso seu kernel seja o padr„o de uma distribuiÁ„o <prgn>Linux</prgn>, 
-provavelmente ter· o suporte a todas as placas de som possÌveis. Siga
+Caso seu kernel seja o padr√£o de uma distribui√ß√£o <prgn>Linux</prgn>, 
+provavelmente ter√° o suporte a todas as placas de som poss√≠veis. Siga
 o passo a passo abaixo para configurar sua placa de som no sistema:
 <enumlist compact>
 
  <item>
-Primeiro descubra se sua placa de som È ISA. Caso seja, verifique 
-se os seus recursos est„o alocados corretamente (veja <ref id="hardw-conflitos">). 
+Primeiro descubra se sua placa de som √© ISA. Caso seja, verifique 
+se os seus recursos est√£o alocados corretamente (veja <ref id="hardw-conflitos">). 
 Caso seja PCI, AMR, execute o comando <prgn>lspci</prgn>, procure 
-pela linha "Multimedia" e veja o nome da placa. VocÍ tambÈm poder·
+pela linha "Multimedia" e veja o nome da placa. Voc√™ tamb√©m poder√°
 executar o comando <prgn>lshw</prgn> para descobrir qual placa
-vocÍ possui (veja <ref id="hardw-findhw">) para detalhes.
+voc√™ possui (veja <ref id="hardw-findhw">) para detalhes.
 
  <item>
-Carregue o mÛdulo da placa de som com o comando <tt>modprobe mÛdulo</tt>
+Carregue o m√≥dulo da placa de som com o comando <tt>modprobe m√≥dulo</tt>
 <![ %INTERMEDIARIO [ (veja <ref id="kern-modprobe">)]]>. 
-Na <prgn>Debian</prgn>, vocÍ pode executar o comando <prgn>modconf</prgn>
-para navegar visualmente entre os mÛdulos disponÌveis e carregar os 
-mÛdulos necess·rios. 
+Na <prgn>Debian</prgn>, voc√™ pode executar o comando <prgn>modconf</prgn>
+para navegar visualmente entre os m√≥dulos dispon√≠veis e carregar os 
+m√≥dulos necess√°rios. 
  <p>
 Algumas placas (principalmente ISA) requerem que seja especificado o recurso 
-de hardware sejam passados para seu mÛdulo, ou simplesmente vocÍ quer 
+de hardware sejam passados para seu m√≥dulo, ou simplesmente voc√™ quer 
 especificar isto para manter o uso de hardware sobre seu controle. Alguns 
-dos par‚metros mais usados em placas Sound Blaster s„o os seguintes: 
+dos par√¢metros mais usados em placas Sound Blaster s√£o os seguintes: 
 <example>
 modprobe sb io=0x220 irq=5 dma=1 dma16=5 mpu_io=0x330
 
 </example>
-Para evitar ter que passar estes par‚metros todas as vezes para o mÛdulo,
-vocÍ poder· coloca-los no arquivo <file>/etc/modules.conf</file> da 
+Para evitar ter que passar estes par√¢metros todas as vezes para o m√≥dulo,
+voc√™ poder√° coloca-los no arquivo <file>/etc/modules.conf</file> da 
 seguinte forma:
 <example>
 options sb io=0x220 irq=5 dma=1 dma16=5 mpu_io=0x330
 
 </example>
-Assim, quando der o comando <prgn>modprobe sb</prgn> ele ser· carregado
-com as opÁıes acima. <![ %DEBIAN [ Na distribuiÁ„o <prgn>Debian</prgn>, vocÍ 
-dever· criar um arquivo chamado <file>/etc/modutils/sb</file> contendo a 
+Assim, quando der o comando <prgn>modprobe sb</prgn> ele ser√° carregado
+com as op√ß√µes acima. <![ %DEBIAN [ Na distribui√ß√£o <prgn>Debian</prgn>, voc√™ 
+dever√° criar um arquivo chamado <file>/etc/modutils/sb</file> contendo a 
 linha acima, depois execute o <prgn>update-modules</prgn> para 
 "juntar" todos os arquivos do <file>/etc/modutils</file> e criar o 
 <file>/etc/modules.conf</file>. ]]>
 
  <item>
-ApÛs carregar o mÛdulo correto de sua placa de som, seu sistema de 
-som dever· estar funcionando. Se vocÍ utiliza uma distribuiÁ„o 
+Ap√≥s carregar o m√≥dulo correto de sua placa de som, seu sistema de 
+som dever√° estar funcionando. Se voc√™ utiliza uma distribui√ß√£o 
 <prgn>Linux</prgn>, os dispositivos de som como 
 <file>/dev/audio</file>, <file>/dev/dsp</file>, <file>/dev/mixer</file>
-estar„o criados e ent„o poder· passar para o prÛximo passo. Caso
-n„o existam, entre no diretÛrio <file>/dev</file> e execute o 
+estar√£o criados e ent√£o poder√° passar para o pr√≥ximo passo. Caso
+n√£o existam, entre no diret√≥rio <file>/dev</file> e execute o 
 comando <tt>MAKEDEV audio</tt>. 
 
  <item>
-O prÛximo passo consiste em instalar um programa para controle de volume, 
-tonalidade e outros recursos de sua placa de som. O recomendado È o 
+O pr√≥ximo passo consiste em instalar um programa para controle de volume, 
+tonalidade e outros recursos de sua placa de som. O recomendado √© o 
 <prgn>aumix</prgn> por ser simples, pequeno e funcional, e permitindo 
-restaurar os valores dos nÌveis de volumes na inicializaÁ„o (isso 
+restaurar os valores dos n√≠veis de volumes na inicializa√ß√£o (isso 
 evita que tenha que ajustar o volume toda vez que iniciar o sistema).
  <p>
-Caso o <prgn>aumix</prgn> apareÁa na tela, sua placa de som j· est· 
+Caso o <prgn>aumix</prgn> apare√ßa na tela, sua placa de som j√° est√° 
 funcionando! 
-<![ %DEBIAN [ Caso acesse o sistema como usu·rio, n„o se esqueÁa 
-de adicionar seu usu·rio ao grupo audio para ter permiss„o de usar
+<![ %DEBIAN [ Caso acesse o sistema como usu√°rio, n√£o se esque√ßa 
+de adicionar seu usu√°rio ao grupo audio para ter permiss√£o de usar
 os dispositivos de som: <tt>adduser usuario audio</tt> ]]>. 
 </enumlist>
 
@@ -914,53 +914,53 @@ os dispositivos de som: <tt>adduser usuario audio</tt> ]]>.
 <sect1 id="hardw-cfgdisp-cdwritter">Configurando um gravador de CD/DVD no Linux
  <p>
 Caso seu gravador seja IDE, veja <ref id="hardw-cfgdisp-cdwritter-ide"> caso 
-seja um autÍntico gravador com barramento SCSI, v· atÈ <ref id="hardw-cfgdisp-cdwritter-scsi">.
+seja um aut√™ntico gravador com barramento SCSI, v√° at√© <ref id="hardw-cfgdisp-cdwritter-scsi">.
 
 
 <sect2 id="hardw-cfgdisp-cdwritter-ide">Configurando o suporte a um gravador IDE
  <p>
-Caso tenha um gravador IDE e use um kernel 2.6 ou superior, n„o È 
-necess·rio fazer qualquer configuraÁ„o, pois seu gravador j· est· 
-pronto para ser usado, sendo acessado atravÈs de seu dispositivo 
+Caso tenha um gravador IDE e use um kernel 2.6 ou superior, n√£o √© 
+necess√°rio fazer qualquer configura√ß√£o, pois seu gravador j√° est√° 
+pronto para ser usado, sendo acessado atrav√©s de seu dispositivo 
 tradicional (<file>/dev/hdc</file>, <file>/dev/hdd</file>, etc). De qualquer forma, 
-vocÍ poder· realizar a configuraÁ„o da unidade IDE com emulaÁ„o SCSI, assim como 
-utilizava no kernel 2.4 e inferiores seguindo as instruÁıes abaixo.
+voc√™ poder√° realizar a configura√ß√£o da unidade IDE com emula√ß√£o SCSI, assim como 
+utilizava no kernel 2.4 e inferiores seguindo as instru√ß√µes abaixo.
  <p>
 Para configurar seu gravador de CD/DVD IDE para ser usado no <prgn>Linux</prgn> usando o 
-mÈtodo para o kernel 2.4 e inferiores, siga os seguintes passos:
+m√©todo para o kernel 2.4 e inferiores, siga os seguintes passos:
 <enumlist compact>
  <item>
-Tenha certeza que compilou o suporte as seguintes caracterÌsticas no 
+Tenha certeza que compilou o suporte as seguintes caracter√≠sticas no 
 kernel:
 <example>
-Em "ATA/IDE/MFM/RLL support" marque as opÁıes:
+Em "ATA/IDE/MFM/RLL support" marque as op√ß√µes:
 * Include IDE/ATAPI CDROM support
 * SCSI emulation support
 
-Depois em "SCSI support" marque as opÁıes:
+Depois em "SCSI support" marque as op√ß√µes:
 * SCSI support
 M SCSI CD-ROM Support
 M SCSI Generic Support
 
 </example>
-As opÁıes marcadas como "*" ser„o embutidas no kernel e as "M" como mÛdulos.
-Note que ambas as opÁıes "IDE/ATAPI CDROM" e "SCSI Emulation" foram 
+As op√ß√µes marcadas como "*" ser√£o embutidas no kernel e as "M" como m√≥dulos.
+Note que ambas as op√ß√µes "IDE/ATAPI CDROM" e "SCSI Emulation" foram 
 marcadas como embutidas. Isto faz com que o driver ATAPI tenha prioridade
 em cima do SCSI, mas vou explicar mais adiante como dizer para o 
-kernel para carregar o suporte a SCSI para determinada unidade. Isto È 
-˙til quando temos mais de 1 unidade de CD IDE no sistema e queremos configurar 
-somente o gravador para SCSI, pois alguns aplicativos antigos n„o se 
+kernel para carregar o suporte a SCSI para determinada unidade. Isto √© 
+√∫til quando temos mais de 1 unidade de CD IDE no sistema e queremos configurar 
+somente o gravador para SCSI, pois alguns aplicativos antigos n√£o se 
 comunicam direito tanto com gravadores SCSI como emulados.
  <p>
-VocÍ tambÈm pode marcar somente a opÁ„o "SCSI Emulation" para que 
+Voc√™ tamb√©m pode marcar somente a op√ß√£o "SCSI Emulation" para que 
 sua(s) unidade(s) seja(m) automaticamente emulada(s) como SCSI. 
-Caso tenha usado esta tÈcnica, v· atÈ a seÁ„o 
+Caso tenha usado esta t√©cnica, v√° at√© a se√ß√£o 
 <ref id="hardw-cfgdisp-cdwritter-teste">.
 
  <item>
-O prÛximo passo È identificar o dispositivo de CD/DVD. Isto È 
-feito atravÈs do comando <tt>dmesg</tt>. Supondo que sua unidade de 
-CD È "hdc" (primeiro disco na segunda controladora IDE) e que 
+O pr√≥ximo passo √© identificar o dispositivo de CD/DVD. Isto √© 
+feito atrav√©s do comando <tt>dmesg</tt>. Supondo que sua unidade de 
+CD √© "hdc" (primeiro disco na segunda controladora IDE) e que 
 compilou ambos o suporte a "IDE ATAPI" e "SCSI emulation" no kernel, 
 adicione o argumento "hdc=ide-scsi" no <file>/etc/lilo.conf</file> ou 
 no <prgn>grub</prgn>:
@@ -971,40 +971,40 @@ append="hdc=ide-scsi"
 
 </example>
 </enumlist>
-Isto diz para o kernel que a unidade "hdc" usar· emulaÁ„o "ide-scsi". 
-Caso tenha outras unidades de CD no sistema, estas ainda utilizaÁ„o
-ATAPI como protocolo de comunicaÁ„o padr„o. Execute o <prgn>lilo</prgn> 
-para gerar novamente o setor de inicializaÁ„o com as modificaÁıes e 
+Isto diz para o kernel que a unidade "hdc" usar√° emula√ß√£o "ide-scsi". 
+Caso tenha outras unidades de CD no sistema, estas ainda utiliza√ß√£o
+ATAPI como protocolo de comunica√ß√£o padr√£o. Execute o <prgn>lilo</prgn> 
+para gerar novamente o setor de inicializa√ß√£o com as modifica√ß√µes e 
 reinicie o computador. 
 <![ %OBS [
  <p>
-<strong>OBS: </strong> Cuidado ao colocar um disco rÌgido IDE como 
-<file>hdc</file>! A linha <tt>hdc=ide-scsi</tt> dever· ser retirada, 
-caso contr·rio, seu disco rÌgido n„o ser· detectado.
+<strong>OBS: </strong> Cuidado ao colocar um disco r√≠gido IDE como 
+<file>hdc</file>! A linha <tt>hdc=ide-scsi</tt> dever√° ser retirada, 
+caso contr√°rio, seu disco r√≠gido n√£o ser√° detectado.
 ]]>
  <p>
-Agora, siga atÈ <ref id="hardw-cfgdisp-cdwritter-teste">.
+Agora, siga at√© <ref id="hardw-cfgdisp-cdwritter-teste">.
 
 
 <sect2 id="hardw-cfgdisp-cdwritter-scsi">Configurando o suporte a um gravador SCSI
  <p>
-Caso tenha um autentico gravador SCSI, n„o ser· preciso fazer 
-qualquer configuraÁ„o de emulaÁ„o, a unidade estar· pronta 
+Caso tenha um autentico gravador SCSI, n√£o ser√° preciso fazer 
+qualquer configura√ß√£o de emula√ß√£o, a unidade estar√° pronta 
 para ser usada, desde que seu suporte esteja no kernel. As seguintes 
-opÁıes do kernel s„o necess·rias para funcionamento de gravadores 
+op√ß√µes do kernel s√£o necess√°rias para funcionamento de gravadores 
 SCSI:
 <example>
-Depois em "SCSI support" marque as opÁıes:
+Depois em "SCSI support" marque as op√ß√µes:
 * SCSI support
 M SCSI CD-ROM Support
 M SCSI Generic Support
 
 </example>
-AlÈm disso, deve ser adicionado o suporte EMBUTIDO no kernel a sua 
-controladora SCSI. Se o seu disco rÌgido tambÈm È SCSI, e seu CD
-est· ligado na mesma controladora SCSI, ela j· est· funcionando e 
-vocÍ poder· seguir para o passo <ref id="hardw-cfgdisp-cdwritter-teste">. 
-Caso contr·rio carregue o suporte da sua placa adaptadora SCSI antes de 
+Al√©m disso, deve ser adicionado o suporte EMBUTIDO no kernel a sua 
+controladora SCSI. Se o seu disco r√≠gido tamb√©m √© SCSI, e seu CD
+est√° ligado na mesma controladora SCSI, ela j√° est√° funcionando e 
+voc√™ poder√° seguir para o passo <ref id="hardw-cfgdisp-cdwritter-teste">. 
+Caso contr√°rio carregue o suporte da sua placa adaptadora SCSI antes de 
 seguir para este passo.
 
 
@@ -1012,9 +1012,9 @@ seguir para este passo.
  <p>
 Para testar se o seu gravador, instale o pacote <package>wodim</package>
 e execute o comando: <tt>wodim -scanbus</tt> para verificar se sua 
-unidade de CD-ROM È detectada.
+unidade de CD-ROM √© detectada.
  <p>
-VocÍ dever· ver uma linha como:
+Voc√™ dever√° ver uma linha como:
 <example>
 scsibus0:
     0,0,0     0) 'CREATIVE' 'CD-RW RWXXXX   ' '1.00' Removable CD-ROM
@@ -1023,211 +1023,211 @@ scsibus0:
 
 </example>
 O que significa que sua unidade foi reconhecida perfeitamente pelo 
-sistema e j· pode ser usada para gravaÁ„o. <![ %INTERMEDIARIO [ V· atÈ a seÁ„o
+sistema e j√° pode ser usada para grava√ß√£o. <![ %INTERMEDIARIO [ V√° at√© a se√ß√£o
 <ref id="tasks-cdwriting"> para aprender como gravar CDs no <prgn>Linux</prgn>.]]>
-Note que gravadores IDE nativos, n„o s„o listados com esse comando.
+Note que gravadores IDE nativos, n√£o s√£o listados com esse comando.
 
 
 <sect1 id="hardw-cfgdisp-apm">Configurando o gerenciamento de energia usando o APM
  <p>
-O APM (<em>Advanced Power Management</em> - <em>Gerenciamento AvanÁado 
-de Energia</em>) permite que sistemas gerenciem caracterÌsticas relacionadas
-com o uso e consumo de energia do computador. Ele opera a nÌvel de BIOS
-e tenta reduzir o consumo de energia de v·rias formas quando o sistema
-n„o estiver em uso (como reduzindo o clock da CPU, desligar o HD, desligar 
+O APM (<em>Advanced Power Management</em> - <em>Gerenciamento Avan√ßado 
+de Energia</em>) permite que sistemas gerenciem caracter√≠sticas relacionadas
+com o uso e consumo de energia do computador. Ele opera a n√≠vel de BIOS
+e tenta reduzir o consumo de energia de v√°rias formas quando o sistema
+n√£o estiver em uso (como reduzindo o clock da CPU, desligar o HD, desligar 
 o monitor, etc.). 
  <p>
-O uso de advanced power management tambÈm permite que computadores com 
-fonte de alimentaÁ„o ATX sejam desligados automaticamente quando 
-vocÍ executa o comando <prgn>halt</prgn>. Caso sua m·quina tenha suporte
-a <em>ACPI</em>, este dever· ser usado como preferÍncia ao invÈs do 
+O uso de advanced power management tamb√©m permite que computadores com 
+fonte de alimenta√ß√£o ATX sejam desligados automaticamente quando 
+voc√™ executa o comando <prgn>halt</prgn>. Caso sua m√°quina tenha suporte
+a <em>ACPI</em>, este dever√° ser usado como prefer√™ncia ao inv√©s do 
 APM por ter recursos mais sofisticados  (veja <ref id="hardw-cfgdisp-acpi">).
  <p>
 Para ativar o suporte a APM no <prgn>Linux</prgn>, compile seu kernel
-com o suporte embutido a APM e tambÈm a "Advanced Power Management" 
-(sen„o sua m·quina n„o desligar· sozinha no halt). Caso deseje 
-compilar como mÛdulo, basta depois carregar o mÛdulo <file>apm</file>
+com o suporte embutido a APM e tamb√©m a "Advanced Power Management" 
+(sen√£o sua m√°quina n√£o desligar√° sozinha no halt). Caso deseje 
+compilar como m√≥dulo, basta depois carregar o m√≥dulo <file>apm</file>
 adicionando no arquivo <file>/etc/modules</file>. Depois disso 
-instale o daemon <prgn>apmd</prgn> para gerenciar as caracterÌsticas
+instale o daemon <prgn>apmd</prgn> para gerenciar as caracter√≠sticas
 deste recurso no sistema.
  <p>
-VocÍ pode desativar o uso de APM de 3 formas: removendo seu suporte do
+Voc√™ pode desativar o uso de APM de 3 formas: removendo seu suporte do
 kernel, passando o argumento <tt>apm=off</tt> (quando compilado 
-estaticamente no kernel) ou removendo o nome do mÛdulo do arquivo
-<file>/etc/modules</file> (quando compilado como mÛdulo). Depois disso
+estaticamente no kernel) ou removendo o nome do m√≥dulo do arquivo
+<file>/etc/modules</file> (quando compilado como m√≥dulo). Depois disso
 remova o daemon <prgn>apmd</prgn>.
 
 
 <sect1 id="hardw-cfgdisp-acpi">Configurando o gerenciamento de energia usando ACPI
  <p>
 O ACPI (<em>Advanced Configuration and Power Interface</em> - <em>
-Interface de ConfiguraÁ„o e Gerenciamento de Energia AvanÁado</em>) È 
-uma camada de gerenciamento de energia que opera a nÌvel de sistema 
+Interface de Configura√ß√£o e Gerenciamento de Energia Avan√ßado</em>) √© 
+uma camada de gerenciamento de energia que opera a n√≠vel de sistema 
 operacional. Apresenta os mesmos recursos que o APM, e outros como 
-o desligamento da m·quina por teclas especiais de teclado, controle 
+o desligamento da m√°quina por teclas especiais de teclado, controle 
 de brilho e contraste de notebooks, suspend para RAM, suspend para 
-disco, reduÁ„o de velocidade de CPU manualmente, monitoramento de 
-perifÈricos, temperatura, hardwares, etc.
+disco, redu√ß√£o de velocidade de CPU manualmente, monitoramento de 
+perif√©ricos, temperatura, hardwares, etc.
  <p>
-Desta forma, o ACPI varia de sistema para sistema em questıes relacionadas
-com suporte a recursos especiais, estes dados s„o armazenados em 
+Desta forma, o ACPI varia de sistema para sistema em quest√µes relacionadas
+com suporte a recursos especiais, estes dados s√£o armazenados em 
 tabelas chamadas DSDT. O <prgn>Linux</prgn> inclui suporte a 
-recursos ACPI genÈricos entre placas m„e, recursos especÌficos devem
-ser extraÌdos diretamente da BIOS e disassemblados manualmente 
-para a construÁ„o de um kernel com suporte especÌfico a tabela DSDT 
-do hardware (n„o falarei das formas de se fazer disso aqui, somente do 
-suporte genÈrico).
+recursos ACPI gen√©ricos entre placas m√£e, recursos espec√≠ficos devem
+ser extra√≠dos diretamente da BIOS e disassemblados manualmente 
+para a constru√ß√£o de um kernel com suporte espec√≠fico a tabela DSDT 
+do hardware (n√£o falarei das formas de se fazer disso aqui, somente do 
+suporte gen√©rico).
  <p>
-Quanto mais nova a vers„o do kernel, maiores as chances do seu hardware 
+Quanto mais nova a vers√£o do kernel, maiores as chances do seu hardware 
 ser suportado plenamente pelo ACPI, principalmente no caso de notebooks. 
-Para compilar estaticamente, marque com <tt>Y</tt> a opÁ„o ACPI, depois
-marque os mÛdulos que vocÍ quer que ele monitore: <tt>button</tt> 
-(bot„o power), <tt>fan</tt> (ventoinhas), etc. Se compilou como mÛdulo, 
-adicione o nome do mÛdulo <tt>acpi</tt> no arquivo <file>/etc/modules</file>.
-N„o h· problema em compilar tambÈm o suporte a APM, pois n„o causar· problemas
-com um kernel com ACPI tambÈm compilado.
+Para compilar estaticamente, marque com <tt>Y</tt> a op√ß√£o ACPI, depois
+marque os m√≥dulos que voc√™ quer que ele monitore: <tt>button</tt> 
+(bot√£o power), <tt>fan</tt> (ventoinhas), etc. Se compilou como m√≥dulo, 
+adicione o nome do m√≥dulo <tt>acpi</tt> no arquivo <file>/etc/modules</file>.
+N√£o h√° problema em compilar tamb√©m o suporte a APM, pois n√£o causar√° problemas
+com um kernel com ACPI tamb√©m compilado.
  <p>
-Caso n„o saiba quais mÛdulos ACPI seu sistema aceita, marque o suporte 
-a todos e carregue-os. ApÛs isto, entre no diretÛrio <file>/proc/acpi</file>
-e de um <tt>ls</tt> entrando nos diretÛrios e vendo se existem arquivos
-dentro deles. Remova o mÛdulo correspondente daqueles que n„o tiver 
-conte˙do. 
+Caso n√£o saiba quais m√≥dulos ACPI seu sistema aceita, marque o suporte 
+a todos e carregue-os. Ap√≥s isto, entre no diret√≥rio <file>/proc/acpi</file>
+e de um <tt>ls</tt> entrando nos diret√≥rios e vendo se existem arquivos
+dentro deles. Remova o m√≥dulo correspondente daqueles que n√£o tiver 
+conte√∫do. 
  <p>
-ApÛs isto, instale o daemon <prgn>acpid</prgn> e configure-o para monitorar
-algumas caracterÌsticas do seu sistema. Por padr„o o <prgn>acpid</prgn> 
-monitora o bot„o POWER, assim se vocÍ pressionar o power, seu sistema 
-entrar· automaticamente em run-level 0, fechando todos os processos e 
-desligando sua m·quina.
+Ap√≥s isto, instale o daemon <prgn>acpid</prgn> e configure-o para monitorar
+algumas caracter√≠sticas do seu sistema. Por padr√£o o <prgn>acpid</prgn> 
+monitora o bot√£o POWER, assim se voc√™ pressionar o power, seu sistema 
+entrar√° automaticamente em run-level 0, fechando todos os processos e 
+desligando sua m√°quina.
  <p>
 O suporte a ACPI pode ser desativado de 3 formas: Removendo seu suporte do
 kernel, passando o argumento <tt>acpi=off</tt> ao kernel (caso esteja
-compilado estaticamente) ou removendo o mÛdulo de <file>/etc/modules</file>
-(caso tenha compilado como mÛdulo. ApÛs isto, remova o daemon 
+compilado estaticamente) ou removendo o m√≥dulo de <file>/etc/modules</file>
+(caso tenha compilado como m√≥dulo. Ap√≥s isto, remova o daemon 
 <prgn>acpid</prgn> do seu sistema.
 
 
 <sect1 id="hardw-cfgdisp-wol">Ativando WakeUP on Lan
  <p>
-Algumas placas m„e ATX possuem suporte a este interessante recurso, que 
-permite sua m·quina ser ligada atravÈs de uma rede. Isto È feito enviando-se 
-uma seq¸Íncia especial de pacotes diretamente para o MAC (endereÁo fÌsico) da 
+Algumas placas m√£e ATX possuem suporte a este interessante recurso, que 
+permite sua m√°quina ser ligada atrav√©s de uma rede. Isto √© feito enviando-se 
+uma seq√º√™ncia especial de pacotes diretamente para o MAC (endere√ßo f√≠sico) da 
 placa de rede usando um programa especial.
  <p>
-Para usar este recurso, seu sistema dever· ter as seguintes caracterÌsticas:
+Para usar este recurso, seu sistema dever√° ter as seguintes caracter√≠sticas:
 <list compact>
  <item>
-Placa m„e ATX
+Placa m√£e ATX
  <item>
-Fonte de alimentaÁ„o ATX compatÌvel com o padr„o 2.0, com fornecimento de 
-pelo menos 720ma de corrente na saÌda +3v.
+Fonte de alimenta√ß√£o ATX compat√≠vel com o padr√£o 2.0, com fornecimento de 
+pelo menos 720ma de corrente na sa√≠da +3v.
  <item>
-Placa de rede com suporte a WakeUP-on-Lan (WOL), vocÍ poder· confirmar isto 
-vendo um conector branco de 3 terminais instalado na placa que È o local 
-onde o cabo wake-up È conectado. 
+Placa de rede com suporte a WakeUP-on-Lan (WOL), voc√™ poder√° confirmar isto 
+vendo um conector branco de 3 terminais instalado na placa que √© o local 
+onde o cabo wake-up √© conectado. 
  <item>
-Suporte na BIOS tambÈm dever· ter a opÁ„o para WakeUP-on-Lan.
+Suporte na BIOS tamb√©m dever√° ter a op√ß√£o para WakeUP-on-Lan.
 </list>
-Com todos esses Ìtens existentes, instale em uma m·quina da rede o 
+Com todos esses √≠tens existentes, instale em uma m√°quina da rede o 
 pacote <package>etherwake</package>. Depois disso, pegue o MAC 
-address a placa de rede da m·quina que tem o wakeup on lan e na m·quina
+address a placa de rede da m√°quina que tem o wakeup on lan e na m√°quina
 da rede onde instalou o pacote execute o seguinte comando:
 <example>
 ether-wake AA:BB:CC:DD:EE:FF
 
 </example>
-Onde <tt>AA:BB:CC:DD:EE:FF</tt> È o endereÁo MAC da placa de rede. A 
-m·quina dever· ligar e realizar o procedimento padr„o de POST normalmente.
+Onde <tt>AA:BB:CC:DD:EE:FF</tt> √© o endere√ßo MAC da placa de rede. A 
+m√°quina dever√° ligar e realizar o procedimento padr√£o de POST normalmente.
  <p>
-Algumas das situaÁıes onde o WOL n„o funciona È quando sua rede È 
+Algumas das situa√ß√µes onde o WOL n√£o funciona √© quando sua rede √© 
 controlada por Switches (devido a natureza de funcionamento deste 
-equipamentos) ou caso esteja atr·s de um roteador que n„o faz proxy arp.
+equipamentos) ou caso esteja atr√°s de um roteador que n√£o faz proxy arp.
 
 
     <![ %AVANCADO [
 
 <sect id="hard-aterram">Aterramento
  <p>
-O aterramento correto da instalaÁ„o elÈtrica È <em>essencial</em> para garantir a 
-proteÁ„o de seu microcomputador (e outros aparelhos que requerem isto). 
-Muitos usu·rios simplesmente removem o pino central da tomada de seu computador, 
-ou ligam o terra junto ao neutro da rede elÈtrica, isto È errado e pode trazer 
-sÈrias conseq¸Íncias. O computador possui componentes sensÌveis que geram descargas 
-est·ticas durante seu funcionamento (fonte, discos, placas, etc), estas descargas e 
-ruÌdos s„o absorvidas pelo sistema de aterramento (que È ligado no gabinete do 
-computador e outros componentes internos). Sem aterramento o seu gabinete passar· 
-a dar choques elÈtricos (teste com uma chave de testes, ela acender· indicando 
-a circulaÁ„o de corrente elÈtrica) e a corrente acumulada poder· queimar 
-componentes internos sensÌveis (placa m„e, HD, memÛrias, placas expansoras).
+O aterramento correto da instala√ß√£o el√©trica √© <em>essencial</em> para garantir a 
+prote√ß√£o de seu microcomputador (e outros aparelhos que requerem isto). 
+Muitos usu√°rios simplesmente removem o pino central da tomada de seu computador, 
+ou ligam o terra junto ao neutro da rede el√©trica, isto √© errado e pode trazer 
+s√©rias conseq√º√™ncias. O computador possui componentes sens√≠veis que geram descargas 
+est√°ticas durante seu funcionamento (fonte, discos, placas, etc), estas descargas e 
+ru√≠dos s√£o absorvidas pelo sistema de aterramento (que √© ligado no gabinete do 
+computador e outros componentes internos). Sem aterramento o seu gabinete passar√° 
+a dar choques el√©tricos (teste com uma chave de testes, ela acender√° indicando 
+a circula√ß√£o de corrente el√©trica) e a corrente acumulada poder√° queimar 
+componentes internos sens√≠veis (placa m√£e, HD, mem√≥rias, placas expansoras).
  <p>
-A ligaÁ„o do terra ao neutro da rede È menos perigosa em condiÁıes normais, mas 
-se um raio cair na rede elÈtrica as conseq¸Íncias poder„o ser piores. Mesmo 
-a rede de iluminaÁ„o p˙blica tendo aterramento em cada poste isto pode n„o 
+A liga√ß√£o do terra ao neutro da rede √© menos perigosa em condi√ß√µes normais, mas 
+se um raio cair na rede el√©trica as conseq√º√™ncias poder√£o ser piores. Mesmo 
+a rede de ilumina√ß√£o p√∫blica tendo aterramento em cada poste isto pode n√£o 
 ser o suficiente para reduzir a carga de um raio que caia nas proximidades. 
  <p>
 O sistema de aterramento residencial para PC deve ser feito com uma estaca 
-de cobre com no mÌnimo 2 metros de altura. O cobre È um Ûtimo condutor de 
+de cobre com no m√≠nimo 2 metros de altura. O cobre √© um √≥timo condutor de 
 eletricidade, perdendo somente para a prata (veja <ref id="hard-aterram-condut">). 
 Cave um buraco no solo com a ajuda de uma cavadeira (hehe, nunca ouviu falar 
 nisso? :-), se estiver com dificuldades para cavar por causa de solo ressecado, 
 molhe a terra para facilitar as coisas. Com a estaca enterrada, prenda um cabo 
-elÈtrico em sua extremidade. 
+el√©trico em sua extremidade. 
  <p>
 O ideal para testar este sistema de aterramento seria ter um equipamento 
-chamado <tt>terrÙmetro</tt> (medidor de aterramento), mas utilizaremos 
-2 alternativas mais acessÌveis: 
+chamado <tt>terr√¥metro</tt> (medidor de aterramento), mas utilizaremos 
+2 alternativas mais acess√≠veis: 
 <list compact>
- <item>Ligue uma l‚mpada incandescente de 100W em um bocal com uma 
- ponta ligada na extremidade positiva da rede elÈtrica (fase) e a outra ponta 
- no fio da barra de cobre. O aterramento est· bem feito quando a l‚mpada 
- acender quase em sua potÍncia total. Ligue o fio do aterramento no 
+ <item>Ligue uma l√¢mpada incandescente de 100W em um bocal com uma 
+ ponta ligada na extremidade positiva da rede el√©trica (fase) e a outra ponta 
+ no fio da barra de cobre. O aterramento est√° bem feito quando a l√¢mpada 
+ acender quase em sua pot√™ncia total. Ligue o fio do aterramento no 
  pino central da tomada de seu computador. 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Cuidado para n„o tomar um baita choque durante esta operaÁ„o 
+<strong>OBS:</strong> Cuidado para n√£o tomar um baita choque durante esta opera√ß√£o 
 em alguns casos pode ser fatal. Utilize sandalhas ou sapatos de borracha (materiais 
-isolantes) isto evitar· tomar o choque caso aconteÁa. ]]>
+isolantes) isto evitar√° tomar o choque caso aconte√ßa. ]]>
  
  <item>Ligue a outra extremidade do fio que vem da barra de cobre no 
- pino central da tomada de seu computador e ligue-o. Consiga um multÌmetro 
- (analÛgico ou digital) e coloque para medir em escala DC 10V. Coloque a ponta 
- negativa (preta) no <em>neutro</em> da rede elÈtrica e encoste a ponta positiva 
- (vermelha) no gabinete de seu computador. O aterramento estar· aprovado caso o 
- valor medido seja de no m·ximo 2.5 volts. 
+ pino central da tomada de seu computador e ligue-o. Consiga um mult√≠metro 
+ (anal√≥gico ou digital) e coloque para medir em escala DC 10V. Coloque a ponta 
+ negativa (preta) no <em>neutro</em> da rede el√©trica e encoste a ponta positiva 
+ (vermelha) no gabinete de seu computador. O aterramento estar√° aprovado caso o 
+ valor medido seja de no m√°ximo 2.5 volts. 
  
 </list>
 Caso algo ocorra errado, cheque novamente os passos acima. Se desconfiar das 
-condiÁıes do solo, use uma barra maior ou ligue 2 barras de cobre juntas. 
+condi√ß√µes do solo, use uma barra maior ou ligue 2 barras de cobre juntas. 
 
 
 <sect1 id="hard-aterram-condut">Condutores de eletricidade
  <p>
-A tabela abaixo est· classificada em ordem do material que possui melhor 
-conduÁ„o de eletricidade (elÈtrons com circulaÁ„os livres) baseada no 
+A tabela abaixo est√° classificada em ordem do material que possui melhor 
+condu√ß√£o de eletricidade (el√©trons com circula√ß√£os livres) baseada no 
 fator mm2/m. (da mais condutora para a menos condutora). 
 <enumlist compact>
  <item>Prata - 0,0164
  <item>Cobre - 0,0172
  <item>Ouro - 0,0230
- <item>AlumÌnio - 0,0283
+ <item>Alum√≠nio - 0,0283
  <item>Zinco - 0,0600
  <item>Platina - 0,0950
  <item>Ferro - 0,1200
  <item>Chumbo - 0,2100
- <item>merc˙rio - 0,9680
+ <item>merc√∫rio - 0,9680
 </enumlist>
 
 
 <sect id="hard-tomadas">Tomadas
  <p>
-As tomadas elÈtricas de 127V ou 220V AC 60Hz de trÍs pinos, pelas normas 
-tÈcnicas da ABNT, no. ABNT 6147 devem ficar distantes no m·ximo a 1,5 
-metro dos equipamentos e com terceiro pino ligado ‡ terra. … interessante 
-que a tens„o das tomadas esteja identificada nas mesmas, em caso de mais de 
+As tomadas el√©tricas de 127V ou 220V AC 60Hz de tr√™s pinos, pelas normas 
+t√©cnicas da ABNT, no. ABNT 6147 devem ficar distantes no m√°ximo a 1,5 
+metro dos equipamentos e com terceiro pino ligado √† terra. √â interessante 
+que a tens√£o das tomadas esteja identificada nas mesmas, em caso de mais de 
 uma voltagem fornecida no local, evitando a queima de equipamentos. 
  <p>
-Segue abaixo um exemplo de tomada fÍmea e a recomendaÁ„o para sua montagem. 
-Note que a entrada para o pino terra È voltado para cima, pois o caimento dos 
-fios da maioria dos equipamentos fabricados estar„o desta forma voltados para 
+Segue abaixo um exemplo de tomada f√™mea e a recomenda√ß√£o para sua montagem. 
+Note que a entrada para o pino terra √© voltado para cima, pois o caimento dos 
+fios da maioria dos equipamentos fabricados estar√£o desta forma voltados para 
 baixo.
 
 <example>
@@ -1241,37 +1241,37 @@ baixo.
            |     _     |                     |     _     |
            +-----------+                     +-----------+
 </example>								  
-Como comentando anteriormente, n„o utilize como ponto de terra os 
+Como comentando anteriormente, n√£o utilize como ponto de terra os 
 sistemas de aterramento das companhias de eletricidade, telefonia, ar 
-condicionado e sistema de p·ra-raios.
+condicionado e sistema de p√°ra-raios.
 
 
-<sect id="hard-descestat">Descargas est·ticas
+<sect id="hard-descestat">Descargas est√°ticas
  <p>
-… a energia que se acumula durante o choque das molÈculas de ar seco ou 
-atrito com outros objetos. Pode acontecer de em dias secos vocÍ tomar 
-um "choque" ao abrir seu carro ou tocar em algum objeto met·lico, 
-isto È uma descarga est·tica. Na realidade vocÍ n„o tomou um choque, 
-ao tocar em um objeto met·lico esta energia È descarregada violentamente. 
+√â a energia que se acumula durante o choque das mol√©culas de ar seco ou 
+atrito com outros objetos. Pode acontecer de em dias secos voc√™ tomar 
+um "choque" ao abrir seu carro ou tocar em algum objeto met√°lico, 
+isto √© uma descarga est√°tica. Na realidade voc√™ n√£o tomou um choque, 
+ao tocar em um objeto met√°lico esta energia √© descarregada violentamente. 
 Esta energia pode chegar na ordem de 5 mil volts quando acumulada 
-(assustador n„o?). 
+(assustador n√£o?). 
  <p>
-… por este motivo que caminhıes que transportam combustÌvel <tt>arrastam</tt> 
-uma corrente no ch„o, esta corrente funciona como um aterramento 
-(veja <ref id="hard-aterram">) eliminando descargas est·ticas que possam gerar 
-faÌscas e causar um desastre. Pulseiras, cordıes, objetos met·licos podem ser 
-usados para eliminar descargas est·ticas de pessoas. O contato freq¸ente com o 
-solo È um mÈtodo muito ˙til. Existem casos em que um colar salvou a vida 
-de pessoas atingidas por raio, justamente pelas explicaÁıes acima. O 
+√â por este motivo que caminh√µes que transportam combust√≠vel <tt>arrastam</tt> 
+uma corrente no ch√£o, esta corrente funciona como um aterramento 
+(veja <ref id="hard-aterram">) eliminando descargas est√°ticas que possam gerar 
+fa√≠scas e causar um desastre. Pulseiras, cord√µes, objetos met√°licos podem ser 
+usados para eliminar descargas est√°ticas de pessoas. O contato freq√ºente com o 
+solo √© um m√©todo muito √∫til. Existem casos em que um colar salvou a vida 
+de pessoas atingidas por raio, justamente pelas explica√ß√µes acima. O 
 colar derrete com a drenagem da eletricidade do raio mas a pessoa tem mais 
 chances de sair viva. 
  <p>
-Em indivÌduos realmente sensÌveis, uma chapinha de metal pode ser colocada no 
+Em indiv√≠duos realmente sens√≠veis, uma chapinha de metal pode ser colocada no 
 sapato fazendo contato com o calcanhar drenando constantemente estas descargas, 
-isto È eficaz e bem melhor que sair arrastando correntes por ai :-)
+isto √© eficaz e bem melhor que sair arrastando correntes por ai :-)
  <p>
-Se vocÍ trabalha com hardwares ou È apenas mais um fuÁador de PCs, agora vocÍ 
-entender· porque È recomend·vel sempre tocar em partes met·licas do computador 
+Se voc√™ trabalha com hardwares ou √© apenas mais um fu√ßador de PCs, agora voc√™ 
+entender√° porque √© recomend√°vel sempre tocar em partes met√°licas do computador 
 antes de mexer em qualquer placa e porque aquele seu amigo disse que a placa 
 dele queimou depois que resolveu limpar seus contatos. 
 
@@ -1280,18 +1280,18 @@ dele queimou depois que resolveu limpar seus contatos.
 
 <sect1 id="hard-perf-part">Particionamento
  <p>
-Para um melhor desempenho, os dados que s„o solicitados constantemente dever„o 
-ser armazenados em uma partiÁ„o no inicio do disco rÌgido. Esta ·rea È a mais 
-r·pida e checa a ser 60% mais r·pida que o final do HD (em alguns modelos). 
-Em especial, a partiÁ„o de boot, swap e bin·rios do sistema poder„o ser 
-armazenados nesta partiÁ„o para aumentar a velocidade da carga de programas 
-e n„o prejudicar a performance do sistema quando o uso da partiÁ„o de 
-troca (swap) for necess·ria. 
+Para um melhor desempenho, os dados que s√£o solicitados constantemente dever√£o 
+ser armazenados em uma parti√ß√£o no inicio do disco r√≠gido. Esta √°rea √© a mais 
+r√°pida e checa a ser 60% mais r√°pida que o final do HD (em alguns modelos). 
+Em especial, a parti√ß√£o de boot, swap e bin√°rios do sistema poder√£o ser 
+armazenados nesta parti√ß√£o para aumentar a velocidade da carga de programas 
+e n√£o prejudicar a performance do sistema quando o uso da parti√ß√£o de 
+troca (swap) for necess√°ria. 
  <p>
-Em discos rÌgidos grandes (6GB ou maiores) È recomend·vel criar no mÌnimo 
-uma partiÁ„o pequena para <file>/boot</file>, outra para <file>/</file>, 
-outra para <tt>swap</tt> e outra para <file>/usr</file>. Ficando distribuÌdas 
-da seguinte maneira no disco rÌgido:
+Em discos r√≠gidos grandes (6GB ou maiores) √© recomend√°vel criar no m√≠nimo 
+uma parti√ß√£o pequena para <file>/boot</file>, outra para <file>/</file>, 
+outra para <tt>swap</tt> e outra para <file>/usr</file>. Ficando distribu√≠das 
+da seguinte maneira no disco r√≠gido:
 <example>
 BBRRRRRRRRRRRRRRRRRRRRR
 RRRRRRRRRRRRRRRRRRRRRRR
@@ -1304,46 +1304,46 @@ UUUUUUUUUUUUUUUUUUUUUUU
 UUUUUUUUUUUUUUUUUUUUUUU
 
 B - /boot
-R - RaÌz /
+R - Ra√≠z /
 S - Swap
 U - /usr
 
 </example>
-Mas a swap n„o ficaria ainda mais r·pida sendo a primeira partiÁ„o no disco? 
-Sim e n„o: Realmente fica r·pida (na teoria conforme explicado acima), mas levando 
-em consideraÁ„o que o deslocamento das cabeÁas de leitura/gravaÁ„o do disco 
-rÌgido leva certo tempo, È mais vantajoso mantÍ-la entre as 2 partiÁıes mais 
+Mas a swap n√£o ficaria ainda mais r√°pida sendo a primeira parti√ß√£o no disco? 
+Sim e n√£o: Realmente fica r√°pida (na teoria conforme explicado acima), mas levando 
+em considera√ß√£o que o deslocamento das cabe√ßas de leitura/grava√ß√£o do disco 
+r√≠gido leva certo tempo, √© mais vantajoso mant√™-la entre as 2 parti√ß√µes mais 
 acessadas, isto diminui o tempo de acesso caso um programa esteja fazendo 
 uso constante de <file>/</file> ou <file>/usr</file> e precisar trocar dados 
-na partiÁ„o <tt>swap</tt>. 
+na parti√ß√£o <tt>swap</tt>. 
  <p>
-AlÈm do mais, a partiÁ„o <file>/</file> geralmente È pequena (no m·ximo 800M) 
-deixando a swap em uma ·rea muito prÛxima do inicio do disco rÌgido. Com 
-base nisto, vocÍ poder· ter uma melhor vis„o tÈcnica para a construÁ„o 
-de suas partiÁıes dependendo da funÁ„o do sistema. 
+Al√©m do mais, a parti√ß√£o <file>/</file> geralmente √© pequena (no m√°ximo 800M) 
+deixando a swap em uma √°rea muito pr√≥xima do inicio do disco r√≠gido. Com 
+base nisto, voc√™ poder√° ter uma melhor vis√£o t√©cnica para a constru√ß√£o 
+de suas parti√ß√µes dependendo da fun√ß√£o do sistema. 
 
 
 <sect1 id="hard-perf-spindles">Spindles
  <p>
-Em sistemas que utilizam um disco rÌgido dedicado para fazer <tt>swap</tt>, 
-a ligaÁ„o deste em uma placa controladora independente aumentar· bastante 
+Em sistemas que utilizam um disco r√≠gido dedicado para fazer <tt>swap</tt>, 
+a liga√ß√£o deste em uma placa controladora independente aumentar√° bastante 
 a performance do sistema, pois enquanto o disco principal ligado em sua 
-controladora estiver fazendo uma operaÁ„o de leitura, o outro poder· 
-estar fazendo sua operaÁ„o de swap simultaneamente. O mesmo n„o acontece 
-quando dois discos rÌgidos IDE est„o ligados no mesmo cabo (isto n„o 
+controladora estiver fazendo uma opera√ß√£o de leitura, o outro poder√° 
+estar fazendo sua opera√ß√£o de swap simultaneamente. O mesmo n√£o acontece 
+quando dois discos r√≠gidos IDE est√£o ligados no mesmo cabo (isto n√£o 
 acontece no SCSI). 
 
 
 <sect1 id="hard-perf-hdparm">Fazendo ajustes finos de performance do disco
  <p>
-O <prgn>hdparm</prgn> È um programa que permite modificar caracterÌsticas 
-diversas da unidade de disco rÌgido e de CD como modo de transferÍncia de 
-dados, leitura adiante, dma, cache, leitura simult‚nea de setores, hibernaÁ„o, 
+O <prgn>hdparm</prgn> √© um programa que permite modificar caracter√≠sticas 
+diversas da unidade de disco r√≠gido e de CD como modo de transfer√™ncia de 
+dados, leitura adiante, dma, cache, leitura simult√¢nea de setores, hiberna√ß√£o, 
 etc.
  <p>
-Por padr„o as transferÍncias de dados entre a controladora do HD (a plaquinha 
-que fica embaixo dele) e a controladora de perifÈricos È feita em 16 bits. 
-Para exibir a configuraÁ„o atual do disco rÌgido <file>/dev/hda</file> 
+Por padr√£o as transfer√™ncias de dados entre a controladora do HD (a plaquinha 
+que fica embaixo dele) e a controladora de perif√©ricos √© feita em 16 bits. 
+Para exibir a configura√ß√£o atual do disco r√≠gido <file>/dev/hda</file> 
 (por exemplo), digite o seguinte comando: <tt>hdparm /dev/hda</tt>
 <example>
 /dev/hdb:
@@ -1358,14 +1358,14 @@ Para exibir a configuraÁ„o atual do disco rÌgido <file>/dev/hda</file>
 
 </example>
 Imediatamente podemos modificar os seguintes campos para melhorar sensivelmente o 
-desempenho do disco rÌgido:
+desempenho do disco r√≠gido:
 <taglist compact>
  <tag>multcount</tag> 
   <item>
-Pode ser modificada com <em>-m[num]</em> e especifica o n˙mero m·ximo de setores 
-que ser„o acessados de uma sÛ vez na operaÁ„o de leitura da unidade. O valor 
-m·ximo recomendado È igual a capacidade m·xima suportada pelo seu disco 
-rÌgido, que pode ser obtida com o comando: <tt>hdparm -i /dev/hda</tt>
+Pode ser modificada com <em>-m[num]</em> e especifica o n√∫mero m√°ximo de setores 
+que ser√£o acessados de uma s√≥ vez na opera√ß√£o de leitura da unidade. O valor 
+m√°ximo recomendado √© igual a capacidade m√°xima suportada pelo seu disco 
+r√≠gido, que pode ser obtida com o comando: <tt>hdparm -i /dev/hda</tt>
 <example>
  Model=TS6324A2, FwRev=.340    , SerialNo=A99B99JA
  Config={ HardSect NotMFM HdSw>15uSec Fixed DTR>10Mbs RotSpdTol>.5% }
@@ -1377,44 +1377,44 @@ rÌgido, que pode ser obtida com o comando: <tt>hdparm -i /dev/hda</tt>
  DMA modes: mdma0 mdma1 mdma2 udma0 udma1 *udma2 udma3 udma4 udma5
  
 </example>
-O campo <em>MaxMultSect=16</em> indica o valor de 16 como m·ximo suportado 
-em uma ˙nica operaÁ„o pela unidade. Valores maiores poder„o ser especificados
-mas n„o trar„o ganho de performance. Para discos rÌgidos <em>Western 
-Digital</em> È recomend·vel deixar este valor como <tt>0</tt>, porque eles 
+O campo <em>MaxMultSect=16</em> indica o valor de 16 como m√°ximo suportado 
+em uma √∫nica opera√ß√£o pela unidade. Valores maiores poder√£o ser especificados
+mas n√£o trar√£o ganho de performance. Para discos r√≠gidos <em>Western 
+Digital</em> √© recomend√°vel deixar este valor como <tt>0</tt>, porque eles 
 possuem um mecanismo embutido para leitura de setores. Para experimentar 
-valores fora dos padrıes, coloque seu sistema de arquivos como somente 
-leitura para n„o perder dados caso algo saia errado. 
+valores fora dos padr√µes, coloque seu sistema de arquivos como somente 
+leitura para n√£o perder dados caso algo saia errado. 
  <p>
 Note que o comando <tt>hdparm -i</tt> mostra alguns detalhes interessantes sobre 
-a configuraÁ„o do disco rÌgido e modos de operaÁ„o suportados. 
+a configura√ß√£o do disco r√≠gido e modos de opera√ß√£o suportados. 
 
  <tag>I/O support</tag>
   <item>
-Modificado com <em>-c[num]</em>. O n˙mero especificado pode ser <tt>0</tt> 
-para transferÍncia de dados em 16 bits, <tt>1</tt> para 32 bits e <tt>3</tt> 
-para 32 bits com uma seq¸encia especial de sincronismo (alguns chips requerem 
-esta ao invÈs da <tt>1</tt>). 
+Modificado com <em>-c[num]</em>. O n√∫mero especificado pode ser <tt>0</tt> 
+para transfer√™ncia de dados em 16 bits, <tt>1</tt> para 32 bits e <tt>3</tt> 
+para 32 bits com uma seq√ºencia especial de sincronismo (alguns chips requerem 
+esta ao inv√©s da <tt>1</tt>). 
 
  <tag>using_dma</tag>
   <item>
-Modificado com <em>-d[num]</em>. Habilita ou n„o o uso de DMA para a transferÍncia 
-de dados do HD, ativando o controle de algumas operaÁıes pelo chipset livrando a 
+Modificado com <em>-d[num]</em>. Habilita ou n√£o o uso de DMA para a transfer√™ncia 
+de dados do HD, ativando o controle de algumas opera√ß√µes pelo chipset livrando a 
 CPU para processamento. <tt>0</tt> desativa DMA e <tt>1</tt> ativa. Note que 
-nem todos os chipsets aceitam esta operaÁ„o. Esta usada em conjunto com a 
-opÁ„o <tt>-X</tt> oferece um excelente ganho de performance pelo uso correto
+nem todos os chipsets aceitam esta opera√ß√£o. Esta usada em conjunto com a 
+op√ß√£o <tt>-X</tt> oferece um excelente ganho de performance pelo uso correto
 de sua controladora.
  <p>
-A ativaÁ„o de dma tambÈm pode ser feita automaticamente na recompilaÁ„o do 
-kernel ou especificando o par‚metro <em>ideX=dma</em> (<tt>X</tt> È o n˙mero 
+A ativa√ß√£o de dma tamb√©m pode ser feita automaticamente na recompila√ß√£o do 
+kernel ou especificando o par√¢metro <em>ideX=dma</em> (<tt>X</tt> √© o n√∫mero 
 da controladora IDE) na linha de comando de <tt>boot:</tt> ou no arquivo 
 <file>/etc/lilo.conf</file>. 
 
  <tag>xfermode</tag>
   <item>
-Modificado pela opÁ„o <em>-X[num]</em>. Permite selecionar o melhor modo 
-de transferÍncia de dados do seu disco rÌgido, È nesta parte onde vocÍ 
-seleciona o modo UltraDMA para transferÍncia de dados, caso seu HD/CD-ROM
-suporte. Os seguintes valores s„o v·lidos:
+Modificado pela op√ß√£o <em>-X[num]</em>. Permite selecionar o melhor modo 
+de transfer√™ncia de dados do seu disco r√≠gido, √© nesta parte onde voc√™ 
+seleciona o modo UltraDMA para transfer√™ncia de dados, caso seu HD/CD-ROM
+suporte. Os seguintes valores s√£o v√°lidos:
 <example>
 32 - PIO Mode 0
 33 - PIO Mode 1
@@ -1431,87 +1431,87 @@ suporte. Os seguintes valores s„o v·lidos:
 
 </example>
 Para descobrir os modos PIO e UltraDMA do seu HD, utilize o comando
-<tt>hdparm -I /dev/hd?</tt>. N√O UTILIZE UM MODO PIO/ULTRA DMA N√O
+<tt>hdparm -I /dev/hd?</tt>. N√ÉO UTILIZE UM MODO PIO/ULTRA DMA N√ÉO
 SUPORTADO PELA SUA CONTROLADORA. CASO SUA PLACA CONTROLADORA DO HD 
-SUPORTE UM MODO ALTO PIO/ULTRADMA MAS SUA CONTROLADORA IDE N√O SUPORTA,
-VOC  DEVER¡ UTILIZAR O VALOR MAIS ADEQUADO PARA AMBAS. FA«A TESTES SEMPRE 
+SUPORTE UM MODO ALTO PIO/ULTRADMA MAS SUA CONTROLADORA IDE N√ÉO SUPORTA,
+VOC√ä DEVER√Å UTILIZAR O VALOR MAIS ADEQUADO PARA AMBAS. FA√áA TESTES SEMPRE 
 QUE ALTERAR O MODO DE FUNCIONAMENTO E ESTEJA ATENTO A MENSAGENS DE 
-ERROS PARA QUE N√O TENHA PERDA DE DADOS!!!	
+ERROS PARA QUE N√ÉO TENHA PERDA DE DADOS!!!	
 
  <tag>unmaskirq</tag>
   <item>
-Modificado com <em>-u[num]</em>. Habilita ou n„o o controlador de disco mascarar 
-as interrupÁıes de processador durante o processamento das interrupÁıes de 
-disco. <tt>0</tt> desativa esta funÁ„o e <tt>1</tt> ativa. Use esta opÁ„o 
-com cuidado e sob seu prÛprio risco: algumas placas controladores de HD e 
-controladoras de perifÈricos n„o trabalham bem com a taxa de transferÍncia 
+Modificado com <em>-u[num]</em>. Habilita ou n√£o o controlador de disco mascarar 
+as interrup√ß√µes de processador durante o processamento das interrup√ß√µes de 
+disco. <tt>0</tt> desativa esta fun√ß√£o e <tt>1</tt> ativa. Use esta op√ß√£o 
+com cuidado e sob seu pr√≥prio risco: algumas placas controladores de HD e 
+controladoras de perif√©ricos n√£o trabalham bem com a taxa de transfer√™ncia 
 aumentada, podem ocorrer perda de dados. Coloque o sistema de arquivos 
-como somente leitura antes de testar esta caracterÌstica. 
+como somente leitura antes de testar esta caracter√≠stica. 
 
  <tag>readonly</tag>
   <item>
 Modificado com <em>-r[num]</em>. Coloca o disco em modo somente leitura. 
-A montagem da partiÁ„o com a opÁ„o <em>ro</em> no <file>/etc/fstab</file> 
-È preferida. 
+A montagem da parti√ß√£o com a op√ß√£o <em>ro</em> no <file>/etc/fstab</file> 
+√© preferida. 
 
  <tag>readahead</tag>
   <item>
-Modificado com <em>-a[num]</em>. Configura o n˙mero de blocos que ser„o lidos 
-antecipadamente no sistema de arquivos (por padr„o È usado 8 blocos -  4 Kb). 
-Este n˙mero poder· ser modificado para se adequar a utilizaÁ„o do computador. 
+Modificado com <em>-a[num]</em>. Configura o n√∫mero de blocos que ser√£o lidos 
+antecipadamente no sistema de arquivos (por padr√£o √© usado 8 blocos -  4 Kb). 
+Este n√∫mero poder√° ser modificado para se adequar a utiliza√ß√£o do computador. 
 Em sistemas com muita procura de arquivos pequenos (servidores web), um 
-valor pequeno (como o padr„o) È recomend·vel. Se a m·quina È um servidor de 
-arquivos dedicado, um valor maior trar· maiores benefÌcios.  
+valor pequeno (como o padr√£o) √© recomend√°vel. Se a m√°quina √© um servidor de 
+arquivos dedicado, um valor maior trar√° maiores benef√≠cios.  
   
 </taglist>
-Veja mais detalhes sobre o comando <prgn>hdparm</prgn> em sua p·gina de manual. 
-Depois de selecionado o melhor valor de performance, vocÍ dever· salvar 
-em um arquivo que ser· lido na inicializaÁ„o para ativaÁ„o destes valores. 
+Veja mais detalhes sobre o comando <prgn>hdparm</prgn> em sua p√°gina de manual. 
+Depois de selecionado o melhor valor de performance, voc√™ dever√° salvar 
+em um arquivo que ser√° lido na inicializa√ß√£o para ativa√ß√£o destes valores. 
 Para fazer teste de performance de leitura bruta utilize o comando 
 <tt>hdparm -t /dev/hd?</tt>, para fazer testes com o uso de cache, use
 o comando <tt>hdparm -T /dev/hd?</tt>.
 
 <![ %OBS [ 
  <p>
-<strong>OBS:</strong> Se o <prgn>Linux</prgn> resetar o disco rÌgido, a 
-maioria das configuraÁıes retornar„o ao seu valor padr„o. Isto ocorre 
-devido a opÁıes mau utilizadas no <prgn>hdparm</prgn>, n„o suportadas 
-pelo disco rÌgido ou por problemas no HD/controladora. ]]>
+<strong>OBS:</strong> Se o <prgn>Linux</prgn> resetar o disco r√≠gido, a 
+maioria das configura√ß√µes retornar√£o ao seu valor padr√£o. Isto ocorre 
+devido a op√ß√µes mau utilizadas no <prgn>hdparm</prgn>, n√£o suportadas 
+pelo disco r√≠gido ou por problemas no HD/controladora. ]]>
 <example>
 Exemplos:
 
-# Ajusta o n˙mero de setores simult‚neos para 16 e o modo de transferÍncia para 
-# 32 bits no disco rÌgido /dev/hda
+# Ajusta o n√∫mero de setores simult√¢neos para 16 e o modo de transfer√™ncia para 
+# 32 bits no disco r√≠gido /dev/hda
 hdparm -c1 -m16 /dev/hda
 
-# Programa a leitura adiante do HD para 64 blocos (32Kb), o modo de transferÍncia 
-# para 32 bits, usar DMA, e 16 setores simult‚neos.
+# Programa a leitura adiante do HD para 64 blocos (32Kb), o modo de transfer√™ncia 
+# para 32 bits, usar DMA, e 16 setores simult√¢neos.
 hdparm -c1 -d1 -m16 -a64 /dev/hda
 
-#Mostra os valores de configuraÁ„o atuais do disco rÌgido
+#Mostra os valores de configura√ß√£o atuais do disco r√≠gido
 hdparm /dev/hda
 
 </example>
 
 
-<sect1 id="hard-perf-atime">Data de acesso a arquivos/diretÛrios
+<sect1 id="hard-perf-atime">Data de acesso a arquivos/diret√≥rios
  <p>
-Toda vez que acessamos um arquivo ou diretÛrio da m·quina <prgn>Linux</prgn> a 
-data/hora È atualizada. Em m·quinas normais isto È OK mas em servidores onde o 
-acesso a arquivos È constante (como no diretÛrio <file>/var/spool</file> em 
-servidores de e-mail ou <file>/usr/</file> em servidores diskless) È recomend·vel 
-desativar esta caracterÌstica. Isto reduzir· a quantidade de buscas das cabeÁas do 
-disco rÌgido para a atualizaÁ„o deste atributo e conseq¸entemente aumentar· a 
-performance na gravaÁ„o de arquivos (o disco rÌgido usa o sistema mec‚nico para 
-ler/gravar dados, muito mais lento que a memÛria RAM eletrÙnica). 
+Toda vez que acessamos um arquivo ou diret√≥rio da m√°quina <prgn>Linux</prgn> a 
+data/hora √© atualizada. Em m√°quinas normais isto √© OK mas em servidores onde o 
+acesso a arquivos √© constante (como no diret√≥rio <file>/var/spool</file> em 
+servidores de e-mail ou <file>/usr/</file> em servidores diskless) √© recomend√°vel 
+desativar esta caracter√≠stica. Isto reduzir√° a quantidade de buscas das cabe√ßas do 
+disco r√≠gido para a atualiza√ß√£o deste atributo e conseq√ºentemente aumentar√° a 
+performance na grava√ß√£o de arquivos (o disco r√≠gido usa o sistema mec√¢nico para 
+ler/gravar dados, muito mais lento que a mem√≥ria RAM eletr√¥nica). 
 <example>
 chattr -R +A /var/spool
 
 </example>
-O atributo <tt>+A</tt> desativa a gravaÁ„o da "data de acesso" dos arquivos 
-e sub-diretÛrios dentro de <file>/var/spool</file>. Para desativar a 
-atualizaÁ„o da "data de acesso" para toda a partiÁ„o, vocÍ pode incluir a 
-opÁ„o de montagem <tt>noatime</tt> no seu <file>/etc/fstab</file>:
+O atributo <tt>+A</tt> desativa a grava√ß√£o da "data de acesso" dos arquivos 
+e sub-diret√≥rios dentro de <file>/var/spool</file>. Para desativar a 
+atualiza√ß√£o da "data de acesso" para toda a parti√ß√£o, voc√™ pode incluir a 
+op√ß√£o de montagem <tt>noatime</tt> no seu <file>/etc/fstab</file>:
 <example>
 /dev/hda1     /var/spool    ext2   defaults,noatime   0   1
 
@@ -1519,101 +1519,101 @@ opÁ„o de montagem <tt>noatime</tt> no seu <file>/etc/fstab</file>:
 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> O <prgn>Linux</prgn> utiliza trÍs atributos de data 
+<strong>OBS:</strong> O <prgn>Linux</prgn> utiliza tr√™s atributos de data 
 para controle de arquivos: 
 <list compact>
- <item><tt>atime</tt> - Data/Hora de acesso: È atualizado toda vez que o 
- arquivo È lido ou executado. 
- <item><tt>mtime</tt> - Data/Hora da modificaÁ„o, atualizado sempre que 
- alguma modificaÁ„o ocorre no arquivo ou no conte˙do do diretÛrio. Esta È 
+ <item><tt>atime</tt> - Data/Hora de acesso: √© atualizado toda vez que o 
+ arquivo √© lido ou executado. 
+ <item><tt>mtime</tt> - Data/Hora da modifica√ß√£o, atualizado sempre que 
+ alguma modifica√ß√£o ocorre no arquivo ou no conte√∫do do diret√≥rio. Esta √© 
  mais interessante que a <tt>ctime</tt> principalmente quando temos 
  hardlinks. 
- <item><tt>ctime</tt> - Data/Hora da ˙ltima modificaÁ„o do inodo do arquivo. 
+ <item><tt>ctime</tt> - Data/Hora da √∫ltima modifica√ß√£o do inodo do arquivo. 
 </list> 
-Em partiÁıes onde a gravaÁ„o È freq¸ente (como na prÛpria 
-<file>/var/spool</file>) a desativaÁ„o do atributo <tt>atime</tt> 
-alÈm de melhorar o desempenho do disco, n„o far· muita falta. ]]>
+Em parti√ß√µes onde a grava√ß√£o √© freq√ºente (como na pr√≥pria 
+<file>/var/spool</file>) a desativa√ß√£o do atributo <tt>atime</tt> 
+al√©m de melhorar o desempenho do disco, n√£o far√° muita falta. ]]>
 
 
-<sect id="hard-perf-SATA">PerifÈricos SATA
+<sect id="hard-perf-SATA">Perif√©ricos SATA
  <p> 
-Hardwares SATA (Serial ATA) representam a prÛxima geraÁ„o em tecnologia usada
-para a transferÍncia de dados em alta velocidade a baixo custo. Hoje est· se tornando
-o padr„o de ind˙stria a utilizaÁ„o de dispositivos SATA em micros em substituiÁ„o
-a dispositivos IDE. Dispositivos IDE tradicionais s„o chamados de PATA (parallel
+Hardwares SATA (Serial ATA) representam a pr√≥xima gera√ß√£o em tecnologia usada
+para a transfer√™ncia de dados em alta velocidade a baixo custo. Hoje est√° se tornando
+o padr√£o de ind√∫stria a utiliza√ß√£o de dispositivos SATA em micros em substitui√ß√£o
+a dispositivos IDE. Dispositivos IDE tradicionais s√£o chamados de PATA (parallel
 ATA, ou ATA paralelo).
  <p>
-Estes dispositivos s„o classificados em 2 tipos:
+Estes dispositivos s√£o classificados em 2 tipos:
 <list compact>
  <item>
 <tt>SATA I</tt> - Esta se tornando alternativa a discos IDE (PATA). Possui taxa de 
-transferÍncia de atÈ 150Mb/s
+transfer√™ncia de at√© 150Mb/s
 
  <item>
 <tt>SATA II</tt> - Esta se tornando alternativa a discos IDE (PATA). Possui taxa 
-de transferÍncia de atÈ 300Mb/s
+de transfer√™ncia de at√© 300Mb/s
 
 </list>
 Um cabo SATA tende a ter o mesmo comprimento de um cabo IDE, raramente excedendo
 50 centimetros. 
 
 
-<sect id="hard-perf-SCSI">PerifÈricos SCSI
+<sect id="hard-perf-SCSI">Perif√©ricos SCSI
  <p>
 Hardwares SCSI (Small Computer System Interfaces) representam a 
-tecnologia ideal para a transferÍncia de dados em alta velocidade e ligaÁ„o de v·rios 
-perifÈricos. A taxa de transferÍncia especificada para dispositivos SCSI È sempre a 
-padr„o se comparada a dispositivos IDE (quando uma taxa de 66Mb/s quase nunca È atingida). 
+tecnologia ideal para a transfer√™ncia de dados em alta velocidade e liga√ß√£o de v√°rios 
+perif√©ricos. A taxa de transfer√™ncia especificada para dispositivos SCSI √© sempre a 
+padr√£o se comparada a dispositivos IDE (quando uma taxa de 66Mb/s quase nunca √© atingida). 
  <p>
-Estes dispositivos s„o classificados em 3 categorias:
+Estes dispositivos s√£o classificados em 3 categorias:
 <list compact>
  <item>
-<tt>SCSI I</tt> - Usa um cabo de 25 condutores para a ligaÁ„o de perifÈricos. 
+<tt>SCSI I</tt> - Usa um cabo de 25 condutores para a liga√ß√£o de perif√©ricos. 
 Normalmente usado em scanners, impressoras e outros dispositivos. A taxa de 
-transferÍncia n„o È muito alta se comparado aos outros tipos SCSI. 
+transfer√™ncia n√£o √© muito alta se comparado aos outros tipos SCSI. 
 
  <item>
-<tt>SCSI II</tt> - TambÈm chamado de <em>Fast SCSI</em>. Usa um cabo de 50 
-condutores para a ligaÁ„o de perifÈricos. Permite que sejam ligados atÈ 7 
-perifÈricos em uma mesma controladora (veja <ref id="hard-perf-SCSI-IDcfg">). 
-… o mais comum encontrado hoje em dia, mas vem perdendo espaÁo aos poucos 
+<tt>SCSI II</tt> - Tamb√©m chamado de <em>Fast SCSI</em>. Usa um cabo de 50 
+condutores para a liga√ß√£o de perif√©ricos. Permite que sejam ligados at√© 7 
+perif√©ricos em uma mesma controladora (veja <ref id="hard-perf-SCSI-IDcfg">). 
+√â o mais comum encontrado hoje em dia, mas vem perdendo espa√ßo aos poucos 
 para a tecnologia <tt>SCSI III</tt>. 
 
  <item>
-<tt>SCSI III</tt> - TambÈm chamado de <em>Fast SCSI SE</em> ou <em>LVD</em>. Usa 
-um cabo de 68 condutores para ligaÁ„o de perifÈricos 
+<tt>SCSI III</tt> - Tamb√©m chamado de <em>Fast SCSI SE</em> ou <em>LVD</em>. Usa 
+um cabo de 68 condutores para liga√ß√£o de perif√©ricos 
 (veja <ref id="hard-perf-SCSI-IDcfg">). Permite que sejam ligados 
-atÈ 16 perifÈricos em uma mesma controladora. 
+at√© 16 perif√©ricos em uma mesma controladora. 
 
  <item>
 <tt>SATA I</tt> - Esta se tornando alternativa a discos IDE (PATA). Possui taxa de 
-transferÍncia de atÈ 150Mb/s
+transfer√™ncia de at√© 150Mb/s
 
  <item>
 <tt>SATA II</tt> - Esta se tornando alternativa a discos IDE (PATA). Possui taxa 
-de transferÍncia de atÈ 300Mb/s
+de transfer√™ncia de at√© 300Mb/s
 
 </list>
-Um cabo SCSI pode ter o comprimento de atÈ 5 metros de extens„o. 
-Os perifÈricos SCSI s„o identificados atravÈs de n˙meros chamados de identificador 
-SCSI ou SCSI ID. Estes n˙meros v„o de 0 a 6 para o padr„o <em>SCSI 2</em> e de 0 a 15 
-para o padr„o <em>SCSI 3</em>. 
+Um cabo SCSI pode ter o comprimento de at√© 5 metros de extens√£o. 
+Os perif√©ricos SCSI s√£o identificados atrav√©s de n√∫meros chamados de identificador 
+SCSI ou SCSI ID. Estes n√∫meros v√£o de 0 a 6 para o padr√£o <em>SCSI 2</em> e de 0 a 15 
+para o padr√£o <em>SCSI 3</em>. 
  <p>
-Placas SCSI como a <em>Adaptec UV 19160</em> permitem a ligaÁ„o de perifÈricos 
-SCSI 2 e SCSI 3 na mesma placa com a taxa de transmiss„o de 160 MB/s 
-por perifÈrico, alÈm de possuir um "setup" prÛprio para configurar as opÁıes 
-dos dispositivos da placa e a operaÁ„o da prÛpria. A tecnologia SCSI È algo 
-realmente r·pido para a transferÍncia de dados e cara tambÈm, seu uso È 
-muito recomendado em servidores crÌticos. Os prÛprios dispositivos SCSI como 
-discos rÌgidos, gravadores de CD, cd-rom, etc. s„o construÌdos 
-de tal forma que tem a durabilidade maior que perifÈricos comuns, garantindo 
-a m·xima confianÁa para operaÁ„o/armazenamento de dados em longos 
-perÌodos de operaÁ„o. 
+Placas SCSI como a <em>Adaptec UV 19160</em> permitem a liga√ß√£o de perif√©ricos 
+SCSI 2 e SCSI 3 na mesma placa com a taxa de transmiss√£o de 160 MB/s 
+por perif√©rico, al√©m de possuir um "setup" pr√≥prio para configurar as op√ß√µes 
+dos dispositivos da placa e a opera√ß√£o da pr√≥pria. A tecnologia SCSI √© algo 
+realmente r√°pido para a transfer√™ncia de dados e cara tamb√©m, seu uso √© 
+muito recomendado em servidores cr√≠ticos. Os pr√≥prios dispositivos SCSI como 
+discos r√≠gidos, gravadores de CD, cd-rom, etc. s√£o constru√≠dos 
+de tal forma que tem a durabilidade maior que perif√©ricos comuns, garantindo 
+a m√°xima confian√ßa para opera√ß√£o/armazenamento de dados em longos 
+per√≠odos de opera√ß√£o. 
 
 
-<sect1 id="hard-perf-SCSI-IDcfg">Configurando uma SCSI ID e terminaÁ„o
+<sect1 id="hard-perf-SCSI-IDcfg">Configurando uma SCSI ID e termina√ß√£o
  <p>
-Uma SCSI ID È configurada independentemente por dispositivo e consiste em 
+Uma SCSI ID √© configurada independentemente por dispositivo e consiste em 
 3 jumpers (ou dip switches) que possuem os valores <tt>1</tt>, <tt>2</tt> e 
 <tt>4</tt>. Veja o exemplo abaixo de uma unidade de CD SCSI 2: 
 <example>
@@ -1632,16 +1632,16 @@ Uma SCSI ID È configurada independentemente por dispositivo e consiste em
 +---------------------------------------------
 
 </example>
-Se vocÍ deixar os 3 jumpers da SCSI ID abertos, o dispositivo usar· a 
-SCSI ID 0. Colocando o jumper na posiÁ„o 1, a unidade ter· a SCSI ID 1. 
-Se vocÍ colocar um jumper na posiÁ„o 1 e outro na 4, a unidade ser· 
-identificada pela SCSI ID 5 (quando mais de um jumper È ligado, os n˙meros 
-ser„o somados). 
+Se voc√™ deixar os 3 jumpers da SCSI ID abertos, o dispositivo usar√° a 
+SCSI ID 0. Colocando o jumper na posi√ß√£o 1, a unidade ter√° a SCSI ID 1. 
+Se voc√™ colocar um jumper na posi√ß√£o 1 e outro na 4, a unidade ser√° 
+identificada pela SCSI ID 5 (quando mais de um jumper √© ligado, os n√∫meros 
+ser√£o somados). 
  <p>
-A terminaÁ„o SCSI funciona de forma semelhante a de uma rede BNC, o ˙ltimo 
-perifÈrico do cabo SCSI deve ter o jumper de terminaÁ„o colocado para 
-indicar que È o ˙ltimo perifÈrico do cabo e evitar deflex„o de dados. Algumas 
-placas SCSI modernas ajustam automaticamente a terminaÁ„o de perifÈricos sem 
+A termina√ß√£o SCSI funciona de forma semelhante a de uma rede BNC, o √∫ltimo 
+perif√©rico do cabo SCSI deve ter o jumper de termina√ß√£o colocado para 
+indicar que √© o √∫ltimo perif√©rico do cabo e evitar deflex√£o de dados. Algumas 
+placas SCSI modernas ajustam automaticamente a termina√ß√£o de perif√©ricos sem 
 necessidade de ajustar manualmente. 
 
     ]]>

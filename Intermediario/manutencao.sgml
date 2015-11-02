@@ -1,16 +1,16 @@
-<chapt id="manut">ManutenÁ„o do Sistema
+<chapt id="manut">Manuten√ß√£o do Sistema
  <p>
-Este capÌtulo descreve como fazer a manutenÁ„o de seu 
-sistema de arquivos e os programas de manutenÁ„o autom·tica 
-que s„o executados periodicamente pelo sistema. 
+Este cap√≠tulo descreve como fazer a manuten√ß√£o de seu 
+sistema de arquivos e os programas de manuten√ß√£o autom√°tica 
+que s√£o executados periodicamente pelo sistema. 
 
 
 <sect id="manut-checagem">Checagem dos sistemas de arquivos
  <p> 
 A checagem do sistema de arquivos permite verificar se toda a 
-estrutura para armazenamento de arquivos, diretÛrios, permissıes, 
-conectividade e superfÌcie do disco est„o funcionando corretamente. 
-Caso algum problema exista, ele poder· ser corrigido com o uso da 
+estrutura para armazenamento de arquivos, diret√≥rios, permiss√µes, 
+conectividade e superf√≠cie do disco est√£o funcionando corretamente. 
+Caso algum problema exista, ele poder√° ser corrigido com o uso da 
 ferramenta de checagem apropriada. As ferramentas de checagem de 
 sistemas de arquivos costumam ter seu nome iniciado por <tt>fsck</tt> 
 e terminados com o nome do sistema de arquivos que verifica, separados 
@@ -18,38 +18,38 @@ por um ponto:
 <list>
  <item>
 <tt>fsck.ext2</tt> - Verifica o sistema de arquivos <tt>EXT2</tt> ou 
-<tt>EXT3</tt>. Pode tambÈm ser encontrado com o nome <prgn>e2fsck</prgn>. 
+<tt>EXT3</tt>. Pode tamb√©m ser encontrado com o nome <prgn>e2fsck</prgn>. 
  <item>
 <tt>fsck.ext3</tt> - Um alias para <prgn>fsck.ext3</prgn>.
  <item>
 <tt>fsck.minix</tt> - Verifica o sistema de arquivos <tt>Minix</tt>. 
  <item>
 <tt>fsck.msdos</tt> - Verifica o sistema de arquivos <tt>Msdos</tt>. Pode 
-tambÈm ser encontrado com o nome <prgn>dosfsck</prgn>. 
+tamb√©m ser encontrado com o nome <prgn>dosfsck</prgn>. 
 </list>
-Para verificar um sistema de arquivos È necess·rio que ele esteja desmontado 
-caso contr·rio poder· ocorrer danos em sua estrutura. Para verificar o 
-sistema de arquivos raÌz (que n„o pode ser desmontado enquanto o sistema 
-estiver sendo executado) vocÍ precisar· inicializar atravÈs de um disquete 
+Para verificar um sistema de arquivos √© necess√°rio que ele esteja desmontado 
+caso contr√°rio poder√° ocorrer danos em sua estrutura. Para verificar o 
+sistema de arquivos ra√≠z (que n√£o pode ser desmontado enquanto o sistema 
+estiver sendo executado) voc√™ precisar√° inicializar atrav√©s de um disquete 
 e executar o <prgn>fsck.ext2</prgn>. 
 
 
 <sect1 id="manut-checagem-ext2">fsck.ext2
  <p>
-Este utilit·rio permite verificar erros em sistemas de arquivos 
+Este utilit√°rio permite verificar erros em sistemas de arquivos 
 <tt>EXT2</tt> e <tt>EXT3</tt> (<em>Linux Native</em>). 
  <p>
-<tt>fsck.ext2 [<em>opÁıes</em>] [<em>dispositivo</em>]</tt>
+<tt>fsck.ext2 [<em>op√ß√µes</em>] [<em>dispositivo</em>]</tt>
  <p>
 <![ %OPCOES [ 
  Onde:
 <taglist compact>
  <tag>dispositivo</tag>
  <item>
-… o local que contÈm o sistema de arquivos <tt>EXT2/EXT3</tt> que ser· verificado 
-(partiÁıes, disquetes, arquivos). 
+√â o local que cont√©m o sistema de arquivos <tt>EXT2/EXT3</tt> que ser√° verificado 
+(parti√ß√µes, disquetes, arquivos). 
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>-c</tag>
  <item>
 Faz o <prgn>fsck.ext2</prgn> verificar se existem agrupamentos danificados 
@@ -61,9 +61,9 @@ Debug - Mostra detalhes de processamento do <prgn>fsck.ext2</prgn>.
 
  <tag>-f</tag>
  <item>
-ForÁa a checagem mesmo se o sistema de arquivos aparenta estar em bom 
-estado. Por padr„o, um sistema de arquivos que aparentar estar em bom 
-estado n„o s„o verificados. 
+For√ßa a checagem mesmo se o sistema de arquivos aparenta estar em bom 
+estado. Por padr√£o, um sistema de arquivos que aparentar estar em bom 
+estado n√£o s√£o verificados. 
 
  <tag>-F</tag>
  <item>
@@ -72,52 +72,52 @@ Grava os dados do cache no disco antes de iniciar.
  <tag>-l [arquivo]</tag>
  <item>
 Inclui os blocos listados no [arquivo] como blocos defeituosos no sistema 
-de arquivos. O formato deste arquivo È o mesmo gerado pelo programa 
+de arquivos. O formato deste arquivo √© o mesmo gerado pelo programa 
 <prgn>badblocks</prgn>. 
 
  <tag>-L [arquivo]</tag>
  <item>
-Faz o mesmo que a opÁ„o <tt>-l</tt>, sÛ que a lista de blocos defeituosos 
-do dispositivo È completamente limpa e depois a lista do [arquivo] È 
+Faz o mesmo que a op√ß√£o <tt>-l</tt>, s√≥ que a lista de blocos defeituosos 
+do dispositivo √© completamente limpa e depois a lista do [arquivo] √© 
 adicionada. 
 
  <tag>-n</tag>
  <item>
-Faz uma verificaÁ„o de <tt>somente leitura</tt> no sistema de arquivos. Com 
-esta opÁ„o È possÌvel verificar o sistema de arquivos montado. Ser· 
-assumido <tt>n„o</tt> para todas as perguntas e nenhuma modificaÁ„o 
-ser· feita no sistema de arquivos. 
+Faz uma verifica√ß√£o de <tt>somente leitura</tt> no sistema de arquivos. Com 
+esta op√ß√£o √© poss√≠vel verificar o sistema de arquivos montado. Ser√° 
+assumido <tt>n√£o</tt> para todas as perguntas e nenhuma modifica√ß√£o 
+ser√° feita no sistema de arquivos. 
  <p>
-Caso a opÁ„o <tt>-c</tt> seja usada junto com <tt>-n</tt>, <tt>-l</tt> ou 
-<tt>-L</tt>, o sistema de arquivos ser· verificado e permitir· somente a 
-atualizaÁ„o dos setores danificados n„o alterando qualquer outra ·rea. 
+Caso a op√ß√£o <tt>-c</tt> seja usada junto com <tt>-n</tt>, <tt>-l</tt> ou 
+<tt>-L</tt>, o sistema de arquivos ser√° verificado e permitir√° somente a 
+atualiza√ß√£o dos setores danificados n√£o alterando qualquer outra √°rea. 
 
  <tag>-p</tag>
  <item>
-Corrige automaticamente o sistema de arquivos sem perguntar. … recomend·vel 
+Corrige automaticamente o sistema de arquivos sem perguntar. √â recomend√°vel 
 fazer isto manualmente para entender o que aconteceu, em caso de problemas 
 com o sistema de arquivos. 
 
  <tag>-v</tag>
  <item>
-Ativa o modo verbose (mais mensagens s„o mostradas durante a execuÁ„o do 
+Ativa o modo verbose (mais mensagens s√£o mostradas durante a execu√ß√£o do 
 programa). 
 
  <tag>-y</tag>
  <item>
-Assume <tt>sim</tt> para todas as questıes. 
+Assume <tt>sim</tt> para todas as quest√µes. 
 
 </taglist> 
 ]]> 
-Caso sejam encontrados arquivos problem·ticos e estes n„o possam ser 
-recuperados, o <prgn>fsck.ext2</prgn> perguntar· se deseja salva-los 
-no diretÛrio <file>lost+found</file>. Este diretÛrio È encontrado em 
-todas as partiÁıes <em>ext2</em>. N„o h· risco de usar o <prgn>fsck.ext3</prgn> 
-em uma partiÁ„o <tt>EXT2</tt>.
+Caso sejam encontrados arquivos problem√°ticos e estes n√£o possam ser 
+recuperados, o <prgn>fsck.ext2</prgn> perguntar√° se deseja salva-los 
+no diret√≥rio <file>lost+found</file>. Este diret√≥rio √© encontrado em 
+todas as parti√ß√µes <em>ext2</em>. N√£o h√° risco de usar o <prgn>fsck.ext3</prgn> 
+em uma parti√ß√£o <tt>EXT2</tt>.
  <p>
-ApÛs sua execuÁ„o È mostrado detalhes sobre o sistema de arquivos 
+Ap√≥s sua execu√ß√£o √© mostrado detalhes sobre o sistema de arquivos 
 verificado como quantidade de blocos livres/ocupados e 
-taxa de fragmentaÁ„o. 
+taxa de fragmenta√ß√£o. 
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>fsck.ext2 /dev/hda2</tt>, <tt>fsck.ext2 -f /dev/hda2</tt>, 
@@ -129,16 +129,16 @@ Exemplos: <tt>fsck.ext2 /dev/hda2</tt>, <tt>fsck.ext2 -f /dev/hda2</tt>,
 Verifica um sistema de arquivos <prgn>reiserfs</prgn> em sistema 
 de arquivos.
  <p>
-<tt>reiserfsck [<em>opÁıes</em>] [<em>dispositivo</em>]</tt>
+<tt>reiserfsck [<em>op√ß√µes</em>] [<em>dispositivo</em>]</tt>
  <p>
 <![ %OPCOES [
 <taglist compact>
  <tag><em>dispositivo</em></tag>
   <item>
-Dispositivo que contÈm o sistema de arquivos <prgn>reiserfs</prgn> que 
-ser· verificado.
+Dispositivo que cont√©m o sistema de arquivos <prgn>reiserfs</prgn> que 
+ser√° verificado.
 
- <tag><em>opÁıes</em></tag>
+ <tag><em>op√ß√µes</em></tag>
  <tag>-a</tag>
   <item>
 Mostra detalhes sobre o sistema de arquivos e sai
@@ -149,16 +149,16 @@ Especifica um arquivo de Journal alternativo usado pelo sistema de arquivos.
 
  <tag>-q quiet</tag>
   <item>
-N„o exibe mensagens sobre o status da checagem do sistema de arquivos.
+N√£o exibe mensagens sobre o status da checagem do sistema de arquivos.
 
  <tag>-S</tag>
   <item>
-ConstrÛi a ·rvore de todos os blocos do dispositivo.
+Constr√≥i a √°rvore de todos os blocos do dispositivo.
 
 </taglist>
 ]]>
-O <prgn>reiserfsck</prgn> possui outros modos de operaÁ„o alÈm de 
-checagem (o padr„o), para detalhes veja a p·gina de manual do 
+O <prgn>reiserfsck</prgn> possui outros modos de opera√ß√£o al√©m de 
+checagem (o padr√£o), para detalhes veja a p√°gina de manual do 
 programa.
 <![ %EXEMPLO [
  <p>
@@ -171,17 +171,17 @@ Exemplos: <tt>reiserfsck /dev/hda1</tt>, <tt>reiserfsck -S /tmp/arq-reiserfs</tt
  <p>
 Verifica o sistema de arquivos <em>minix</em> em um dispositivo. 
  <p>
-<tt>fsck.minix [<em>opÁıes</em>] [<em>dispositivo</em>]</tt>
+<tt>fsck.minix [<em>op√ß√µes</em>] [<em>dispositivo</em>]</tt>
 <![ %OPCOES [
  <p>
 Onde:
 <taglist compact>
  <tag>dispositivo</tag>
  <item>
-PartiÁ„o, disquete ou arquivo que contÈm o sistema de arquivos <tt>Minix</tt> 
-que ser· verificado
+Parti√ß√£o, disquete ou arquivo que cont√©m o sistema de arquivos <tt>Minix</tt> 
+que ser√° verificado
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>-f</tag>
  <item>
 Verifica o sistema de arquivos mesmo se ele estiver perfeito. 
@@ -192,12 +192,12 @@ Permite reparo manual do sistema de arquivos
 
  <tag>-a</tag>
  <item>
-Permite um reparo autom·tico do sistema de arquivos. … recomendado fazer o 
+Permite um reparo autom√°tico do sistema de arquivos. √â recomendado fazer o 
 reparo manual. 
 
  <tag>-v</tag>
  <item>
-Verbose - Mostra detalhes durante a execuÁ„o do programa
+Verbose - Mostra detalhes durante a execu√ß√£o do programa
 
  <tag>-s</tag>
  <item>
@@ -213,21 +213,21 @@ Exemplo: <tt>fsck.minix -f /dev/hda8</tt>, <tt>fsck.minix -vf /dev/hda8</tt> ]]>
  <p>
 Procura blocos defeituosos em um dispositivo. Note que este 
 <strong>apenas</strong> pesquisa por blocos defeituosos, 
-sem alterar a configuraÁ„o do disco. Para marcar os blocos
-defeituosos para n„o serem mais usados, utilize a 
-opÁ„o <tt>-l</tt> do <prgn>fsck</prgn> (veja <ref id="manut-checagem-ext2">). 
+sem alterar a configura√ß√£o do disco. Para marcar os blocos
+defeituosos para n√£o serem mais usados, utilize a 
+op√ß√£o <tt>-l</tt> do <prgn>fsck</prgn> (veja <ref id="manut-checagem-ext2">). 
  <p>
-<tt>badblocks [<em>opÁıes</em>] [<em>dispositivo</em>]</tt>
+<tt>badblocks [<em>op√ß√µes</em>] [<em>dispositivo</em>]</tt>
  <p>
 <![ %OPCOES [
  Onde:
 <taglist compact>
  <tag>dispositivo</tag>
  <item>
-PartiÁ„o, disquete ou arquivo que contÈm o sistema de arquivos que ser· 
+Parti√ß√£o, disquete ou arquivo que cont√©m o sistema de arquivos que ser√° 
 verificado.
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>-b [tamanho]</tag>
  <item>
 Especifica o [tamanho] do bloco do dispositivo em bytes 
@@ -235,26 +235,26 @@ Especifica o [tamanho] do bloco do dispositivo em bytes
  <tag>-o [arquivo]</tag>
  <item>
 Gera uma lista dos blocos defeituosos do disco no [arquivo]. Este lista 
-pode ser usada com o programa <prgn>fsck.ext2</prgn> junto com a opÁ„o 
+pode ser usada com o programa <prgn>fsck.ext2</prgn> junto com a op√ß√£o 
 <tt>-l</tt>. 
  
  <tag>-s</tag>
  <item>
-Mostra o n˙mero de blocos checados durante a execuÁ„o do 
+Mostra o n√∫mero de blocos checados durante a execu√ß√£o do 
 <prgn>badblocks</prgn>. 
 
  <tag>-v</tag>
  <item>
-Modo verbose - S„o mostrados mais detalhes. 
+Modo verbose - S√£o mostrados mais detalhes. 
 
  <tag>-w</tag>
  <item>
-Usa o modo leitura/gravaÁ„o. Usando esta opÁ„o o <prgn>badblocks</prgn> 
-procura por blocos defeituosos gravando alguns padrıes (0xaa, 0x55, 
-0xff, 0x00) em cada bloco do dispositivo e comparando seu conte˙do. 
+Usa o modo leitura/grava√ß√£o. Usando esta op√ß√£o o <prgn>badblocks</prgn> 
+procura por blocos defeituosos gravando alguns padr√µes (0xaa, 0x55, 
+0xff, 0x00) em cada bloco do dispositivo e comparando seu conte√∫do. 
  <p>
-Nunca use a opÁ„o <tt>-w</tt> em um dispositivo que contÈm arquivos 
-pois eles ser„o apagados! 
+Nunca use a op√ß√£o <tt>-w</tt> em um dispositivo que cont√©m arquivos 
+pois eles ser√£o apagados! 
 </taglist> 
 ]]>
 <![ %EXEMPLO [
@@ -266,23 +266,23 @@ Exemplo: <tt>badblocks -s /dev/hda6</tt>, <tt>badblocks -s -o bad /dev/hda6
 <sect id="manut-defrag">defrag
  <p>
 Permite desfragmentar uma unidade de disco. 
-<![ %DESCRICAOD [ A fragmentaÁ„o È o armazenamento 
-de arquivos em ·reas n„o seq¸enciais (uma parte È armazenada no 
-comeÁo a outra no final, etc), isto diminui o desempenho da unidade de disco 
-porque a leitura dever· ser interrompida e feita a movimentaÁ„o da 
-cabeÁa para outra regi„o do disco onde o arquivo continua, por este 
+<![ %DESCRICAOD [ A fragmenta√ß√£o √© o armazenamento 
+de arquivos em √°reas n√£o seq√ºenciais (uma parte √© armazenada no 
+come√ßo a outra no final, etc), isto diminui o desempenho da unidade de disco 
+porque a leitura dever√° ser interrompida e feita a movimenta√ß√£o da 
+cabe√ßa para outra regi√£o do disco onde o arquivo continua, por este 
 motivo discos fragmentados tendem a fazer um grande barulho na leitura 
 e o desempenho menor. 
  <p>
-A desfragmentaÁ„o normalmente È desnecess·ria no <prgn>GNU/Linux</prgn> porque o 
+A desfragmenta√ß√£o normalmente √© desnecess√°ria no <prgn>GNU/Linux</prgn> porque o 
 sistema de arquivos <em>ext2</em> procura automaticamente o melhor local para 
-armazenar o arquivo. Mesmo assim, È recomend·vel desfragmentar um sistema 
-de arquivos assim que sua taxa de fragmentaÁ„o subir acima de 10%. A taxa de 
-fragmentaÁ„o pode ser vista atravÈs do <prgn>fsck.ext2</prgn>. ApÛs o 
-<prgn>fsck.ext2</prgn> ser executado È mostrada a taxa de fragmentaÁ„o 
+armazenar o arquivo. Mesmo assim, √© recomend√°vel desfragmentar um sistema 
+de arquivos assim que sua taxa de fragmenta√ß√£o subir acima de 10%. A taxa de 
+fragmenta√ß√£o pode ser vista atrav√©s do <prgn>fsck.ext2</prgn>. Ap√≥s o 
+<prgn>fsck.ext2</prgn> ser executado √© mostrada a taxa de fragmenta√ß√£o 
 seguida de <tt>non-contiguos</tt>. ]]> 
  <p>
-A ferramenta de desfragmentaÁ„o usada no <prgn>GNU/Linux</prgn> È o 
+A ferramenta de desfragmenta√ß√£o usada no <prgn>GNU/Linux</prgn> √© o 
 <prgn>defrag</prgn> que vem com os seguintes programas: 
 <list compact>
  <item>
@@ -295,74 +295,74 @@ A ferramenta de desfragmentaÁ„o usada no <prgn>GNU/Linux</prgn> È o
 <tt>xdefrag</tt> - Desfragmenta sistemas de arquivos <em>Xia</em>.
 </list>
 O sistema de arquivos deve estar desmontado ao fazer a 
-desfragmentaÁ„o. 
+desfragmenta√ß√£o. 
 Se quiser desfragmentar o sistema de 
-arquivos raÌz (<file>/</file>), vocÍ precisar· inicializar 
-atravÈs de um disquete e executar um dos programas de 
-desfragmentaÁ„o apropriado ao seu sistema de arquivos. 
-A checagem individual de fragmentaÁ„o em arquivos pode ser 
+arquivos ra√≠z (<file>/</file>), voc√™ precisar√° inicializar 
+atrav√©s de um disquete e executar um dos programas de 
+desfragmenta√ß√£o apropriado ao seu sistema de arquivos. 
+A checagem individual de fragmenta√ß√£o em arquivos pode ser 
 feita com o programa <prgn>frag</prgn>. 
 <![ %OBS [
  <p>
-ATEN«√O: Retire cÛpias de seguranÁa de sua unidade antes de fazer 
-a desfragmentaÁ„o. Se por qualquer motivo o programa de desfragmentaÁ„o 
-n„o puder ser completado, vocÍ poder· perder dados! ]]> 
+ATEN√á√ÉO: Retire c√≥pias de seguran√ßa de sua unidade antes de fazer 
+a desfragmenta√ß√£o. Se por qualquer motivo o programa de desfragmenta√ß√£o 
+n√£o puder ser completado, voc√™ poder√° perder dados! ]]> 
  <p>
-<tt>e2defrag [<em>opÁıes</em>] [<em>dispositivo</em>]</tt>
+<tt>e2defrag [<em>op√ß√µes</em>] [<em>dispositivo</em>]</tt>
 <![ %OPCOES [ 
  <p>
 Onde:
 <taglist compact>
  <tag>dispositivo</tag>
  <item>
-PartiÁ„o, arquivo, disquete que contÈm o sistema de arquivos que ser· 
+Parti√ß√£o, arquivo, disquete que cont√©m o sistema de arquivos que ser√° 
 desfragmentado. 
 
  <tag>-d</tag>
  <item>
-Debug - ser„o mostrados detalhes do funcionamento 
+Debug - ser√£o mostrados detalhes do funcionamento 
 
  <tag>-n</tag>
  <item>
-N„o mostra o mapa do disco na desfragmentaÁ„o. … ˙til quando vocÍ inicializa 
+N√£o mostra o mapa do disco na desfragmenta√ß√£o. √â √∫til quando voc√™ inicializa 
 por disquetes e recebe a mensagem "Failed do open term Linux" ao tentar 
 executar o <prgn>e2defrag</prgn>. 
 
  <tag>-r</tag>
  <item>
-Modo somente leitura. O defrag simular· sua execuÁ„o no sistema de arquivos 
-mas n„o far· nenhuma gravaÁ„o. Esta opÁ„o permite que o defrag seja usado 
+Modo somente leitura. O defrag simular√° sua execu√ß√£o no sistema de arquivos 
+mas n√£o far√° nenhuma grava√ß√£o. Esta op√ß√£o permite que o defrag seja usado 
 com sistema de arquivos montado. 
 
  <tag>-s</tag>
  <item>
-Cria um sum·rio da fragmentaÁ„o do sistema de arquivos e performance do 
+Cria um sum√°rio da fragmenta√ß√£o do sistema de arquivos e performance do 
 desfragmentador. 
 
  <tag>-v</tag>
  <item>
-Mostra detalhes durante a desfragmentaÁ„o do sistema de arquivos. Caso mais 
-de uma opÁ„o -v seja usada, o nÌvel de detalhes ser· maior.
+Mostra detalhes durante a desfragmenta√ß√£o do sistema de arquivos. Caso mais 
+de uma op√ß√£o -v seja usada, o n√≠vel de detalhes ser√° maior.
 
  <tag>-i [arquivo]</tag>
  <item>
-Permite definir uma lista de prioridades em que um arquivo ser· gravado no 
-disco, com isto È possÌvel determinar se um arquivo ser· gravado no 
-comeÁo ou final da unidade de disco. Esta lista È lida do [arquivo] e deve 
+Permite definir uma lista de prioridades em que um arquivo ser√° gravado no 
+disco, com isto √© poss√≠vel determinar se um arquivo ser√° gravado no 
+come√ßo ou final da unidade de disco. Esta lista √© lida do [arquivo] e deve 
 conter uma lista de prioridades de -100 a 100 para cada inodo do sistema 
-de arquivos. Arquivos com prioridade alta ser„o gravados no comeÁo do disco. 
+de arquivos. Arquivos com prioridade alta ser√£o gravados no come√ßo do disco. 
  <p>
-Todos os inodos ter„o prioridade igual a zero caso a opÁ„o <tt>-i</tt> n„o 
-seja usada ou o inodo n„o seja especificado no [arquivo]. O [arquivo] 
-dever· conter uma sÈrie de linhas com um n˙mero (inodo) ou um n˙mero 
+Todos os inodos ter√£o prioridade igual a zero caso a op√ß√£o <tt>-i</tt> n√£o 
+seja usada ou o inodo n√£o seja especificado no [arquivo]. O [arquivo] 
+dever√° conter uma s√©rie de linhas com um n√∫mero (inodo) ou um n√∫mero 
 prefixado por um sinal de igual seguido da prioridade. 
 
  <tag>-p [numero]</tag>
  <item>
-Define o [numero] de buffers que ser„o usados pela ferramenta de 
-desfragmentaÁ„o na realocaÁ„o de dados, quanto mais buffers mais 
-eficiente ser· o processo de realocaÁ„o. O n˙mero depende de quantidade 
-memÛria RAM e Swap vocÍ possui. Por padr„o 512 buffers s„o 
+Define o [numero] de buffers que ser√£o usados pela ferramenta de 
+desfragmenta√ß√£o na realoca√ß√£o de dados, quanto mais buffers mais 
+eficiente ser√° o processo de realoca√ß√£o. O n√∫mero depende de quantidade 
+mem√≥ria RAM e Swap voc√™ possui. Por padr√£o 512 buffers s√£o 
 usados correspondendo a 512Kb de buffer (em um sistema de arquivos 
 de blocos com 1Kb). 
 
@@ -375,58 +375,58 @@ Exemplo: <tt>e2defrag -n -v /dev/hdb4</tt>, <tt>e2defrag -r /dev/hda1</tt> ]]>
 
 <sect id="manut-hdbadblocks">Verificando e marcando setores danificados em um HD
  <p>
-Um dos sintomas de um disco rÌgido que contÈm setores danificados (bad blocks) 
-È a mudanÁa repentina do sistema de arquivos para o modo somente leitura, 
+Um dos sintomas de um disco r√≠gido que cont√©m setores danificados (bad blocks) 
+√© a mudan√ßa repentina do sistema de arquivos para o modo somente leitura, 
 o aparecimento de diversas mensagens no syslog indicando falha de leitura 
 do hd, uma pausa se segundos no sistema junto com o led de atividade de 
-disco ligado. Se isto acontece com vocÍ, uma forma de solucionar este 
-inconveniente È executar o teste na superfÌcie fÌsica do disco para procurar 
-e marcar os blocos problem·ticos como defeituosos.
+disco ligado. Se isto acontece com voc√™, uma forma de solucionar este 
+inconveniente √© executar o teste na superf√≠cie f√≠sica do disco para procurar 
+e marcar os blocos problem√°ticos como defeituosos.
  <p>
-Em alguns casos, os blocos defeituosos ocorrem isoladamente no disco rÌgido, 
-n„o aumentando mais sua quantidade, entretanto, se o n˙mero de blocos danificados 
-em seu disco est· crescendo em um curto espaÁo de tempo, comece a pensar 
-na troca do disco rÌgido por um outro. Existem empresas que recuperam 
-HDs mas pelo valor cobrado por se tratar de um serviÁo delicado, sÛ compensa 
-caso vocÍ n„o tenha o backup e <strong>realmente</strong> precisa dos dados 
+Em alguns casos, os blocos defeituosos ocorrem isoladamente no disco r√≠gido, 
+n√£o aumentando mais sua quantidade, entretanto, se o n√∫mero de blocos danificados 
+em seu disco est√° crescendo em um curto espa√ßo de tempo, comece a pensar 
+na troca do disco r√≠gido por um outro. Existem empresas que recuperam 
+HDs mas pelo valor cobrado por se tratar de um servi√ßo delicado, s√≥ compensa 
+caso voc√™ n√£o tenha o backup e <strong>realmente</strong> precisa dos dados 
 do disco. 
  <p>
 Para fazer uma checagem de HD no sistema de arquivos <file>ext2</file> ou 
 <file>ext3</file>, proceda da seguinte forma:
 <list compact>
  <item>
-Se possÌvel, faÁa um backup de todos os dados ou dos dados essenciais da 
-partiÁ„o ser· checada.
+Se poss√≠vel, fa√ßa um backup de todos os dados ou dos dados essenciais da 
+parti√ß√£o ser√° checada.
  <item>
-Inicie o sistema por um disquete de boot ou CD de recuperaÁ„o. Este passo È
-˙til pois em alguns casos, pode ocorrer a perda de interrupÁ„o do disco 
-rÌgido e seu sistema ficar paralisado. SÛ o mÈtodo de checar o HD usando 
-um disquete de boot lhe far· agendar uma parada no sistema e notificar os 
-usu·rios, evitando sÈrios problemas do que fazendo isto com um sistema em 
-produÁ„o.
+Inicie o sistema por um disquete de boot ou CD de recupera√ß√£o. Este passo √©
+√∫til pois em alguns casos, pode ocorrer a perda de interrup√ß√£o do disco 
+r√≠gido e seu sistema ficar paralisado. S√≥ o m√©todo de checar o HD usando 
+um disquete de boot lhe far√° agendar uma parada no sistema e notificar os 
+usu√°rios, evitando s√©rios problemas do que fazendo isto com um sistema em 
+produ√ß√£o.
  <item>
-Execute o <prgn>badblocks</prgn> usando a opÁ„o <tt>-o</tt> para gravar os 
-possÌveis blocos defeituosos encontrados para um arquivo: <tt>badblocks -v -o blocos-defeituosos.lista /dev/hd??</tt>. 
+Execute o <prgn>badblocks</prgn> usando a op√ß√£o <tt>-o</tt> para gravar os 
+poss√≠veis blocos defeituosos encontrados para um arquivo: <tt>badblocks -v -o blocos-defeituosos.lista /dev/hd??</tt>. 
  <p>
 Substitua o dispositivo <file>/dev/hd??</file> pelo dispositivo que deseja 
-verificar. A checagem do <prgn>badblocks</prgn> dever· ser feita para cada 
-partiÁ„o existente no disco rÌgido. O tempo de checagem depender· da velocidade
-do disco rÌgido, velocidade do barramento, cabo de dados utilizado, velocidade
-de processamento e È claro, do estado do disco rÌgido (quantos setores 
+verificar. A checagem do <prgn>badblocks</prgn> dever√° ser feita para cada 
+parti√ß√£o existente no disco r√≠gido. O tempo de checagem depender√° da velocidade
+do disco r√≠gido, velocidade do barramento, cabo de dados utilizado, velocidade
+de processamento e √© claro, do estado do disco r√≠gido (quantos setores 
 defeituosos ele tem).
  <item>
-ApÛs concluir o <prgn>badblocks</prgn>, veja se foram encontrados blocos 
-defeituosos. Caso tenha encontrado, siga para o prÛximo passo.
+Ap√≥s concluir o <prgn>badblocks</prgn>, veja se foram encontrados blocos 
+defeituosos. Caso tenha encontrado, siga para o pr√≥ximo passo.
  <item>
 Para marcar os blocos encontrados pelo <prgn>badblocks</prgn> como defeituosos, 
 execute o comando: <tt>fsck.ext3 -l blocos-defeituosos.lista -f /dev/hd??</tt>.
  <p>
 Substitua o dispositivo, pelo dispositivo que verificou com o <prgn>badblocks</prgn>.
-O arquivo <file>blocos-defeituosos.list</file> contÈm a lista de blocos gerada pelo 
-<prgn>badblocks</prgn> que ser„o marcados como defeituosos.
+O arquivo <file>blocos-defeituosos.list</file> cont√©m a lista de blocos gerada pelo 
+<prgn>badblocks</prgn> que ser√£o marcados como defeituosos.
 
 </list>
-Para mais detalhes sobre as opÁıes de checagem usada pelos programas, veja 
+Para mais detalhes sobre as op√ß√µes de checagem usada pelos programas, veja 
 <ref id="manut-badblocks"> e <ref id="manut-checagem-ext2">.
 
 
@@ -434,21 +434,21 @@ Para mais detalhes sobre as opÁıes de checagem usada pelos programas, veja
  <p>
 Tudo que acontece em sistemas <prgn>GNU/Linux</prgn> pode ser registrado em 
 arquivos de log em <file>/var/log</file>, como vimos anteriormente. Eles 
-s„o muito ˙teis por diversos motivos, para o diagnÛstico de problemas, 
-falhas de dispositivos, checagem da seguranÁa, alerta de eventuais 
-tentativas de invas„o, etc. 
+s√£o muito √∫teis por diversos motivos, para o diagn√≥stico de problemas, 
+falhas de dispositivos, checagem da seguran√ßa, alerta de eventuais 
+tentativas de invas√£o, etc. 
  <p>
-O problema È quando eles comeÁam a ocupar muito espaÁo em seu disco. 
-Verifique quantos Megabytes seus arquivos de LOG est„o ocupando atravÈs 
+O problema √© quando eles come√ßam a ocupar muito espa√ßo em seu disco. 
+Verifique quantos Megabytes seus arquivos de LOG est√£o ocupando atrav√©s 
 do comando <tt>cd /var/log;du -hc</tt>. Antes de fazer uma limpeza nos 
-arquivos de LOG, È necess·rio verificar se eles s„o desnecess·rios e sÛ 
-assim zerar os que forem dispens·veis. 
+arquivos de LOG, √© necess√°rio verificar se eles s√£o desnecess√°rios e s√≥ 
+assim zerar os que forem dispens√°veis. 
  <p>
-N„o È recomend·vel apagar um arquivo de log pois ele pode ser criado com 
-permissıes de acesso indevidas (algumas distribuiÁıes fazem isso). 
-VocÍ pode usar o comando: <tt>echo -n &gt;arquivo</tt> ou o seguinte 
-shell script para zerar todos os arquivos de LOG de uma sÛ vez (as 
-linhas iniciante com <tt>#</tt> s„o coment·rios): 
+N√£o √© recomend√°vel apagar um arquivo de log pois ele pode ser criado com 
+permiss√µes de acesso indevidas (algumas distribui√ß√µes fazem isso). 
+Voc√™ pode usar o comando: <tt>echo -n &gt;arquivo</tt> ou o seguinte 
+shell script para zerar todos os arquivos de LOG de uma s√≥ vez (as 
+linhas iniciante com <tt>#</tt> s√£o coment√°rios): 
 <example>
 #! /bin/sh
 cd /var/log
@@ -456,163 +456,163 @@ for l in `ls -p|grep '/'`; do
  echo -n >$l &>/dev/null
  echo Zerando arquivo $l...
 done
-echo Limpeza dos arquivos de log concluÌda!
+echo Limpeza dos arquivos de log conclu√≠da!
 </example>
-Copie o conte˙do acima em um arquivo com a extens„o <file>.sh</file>, 
-dÍ permiss„o de execuÁ„o com o <prgn>chmod</prgn> e o execute como 
-usu·rio <tt>root</tt>. … necess·rio executar este script para zerar 
-arquivos de log em subdiretÛrios de <file>/var/log</file>, caso sejam 
+Copie o conte√∫do acima em um arquivo com a extens√£o <file>.sh</file>, 
+d√™ permiss√£o de execu√ß√£o com o <prgn>chmod</prgn> e o execute como 
+usu√°rio <tt>root</tt>. √â necess√°rio executar este script para zerar 
+arquivos de log em subdiret√≥rios de <file>/var/log</file>, caso sejam 
 usados em seu sistema. 
  <p>
-Algumas distribuiÁıes, como a <prgn>Debian</prgn> GNU/Linux, fazem o 
-arquivamento autom·tico de arquivos de LOGs em arquivos <file>.gz</file> 
-atravÈs de scripts disparados automaticamente pelo <prgn>cron</prgn>. 
+Algumas distribui√ß√µes, como a <prgn>Debian</prgn> GNU/Linux, fazem o 
+arquivamento autom√°tico de arquivos de LOGs em arquivos <file>.gz</file> 
+atrav√©s de scripts disparados automaticamente pelo <prgn>cron</prgn>. 
 <![ %OBS [ 
-ATEN«√O: LEMBRE-SE QUE O SCRIPT ACIMA APAGAR¡ TODOS OS ARQUIVOS DE LOGs DO 
-SEU SISTEMA SEM POSSIBILIDADE DE RECUPERA«√O. TENHA ABSOLUTA CERTEZA DO 
-QUE N√O PRECISAR¡ DELES QUANDO EXECUTAR O SCRIPT ACIMA! ]]> 
+ATEN√á√ÉO: LEMBRE-SE QUE O SCRIPT ACIMA APAGAR√Å TODOS OS ARQUIVOS DE LOGs DO 
+SEU SISTEMA SEM POSSIBILIDADE DE RECUPERA√á√ÉO. TENHA ABSOLUTA CERTEZA DO 
+QUE N√ÉO PRECISAR√Å DELES QUANDO EXECUTAR O SCRIPT ACIMA! ]]> 
 
 
-<sect id="manut-recpart">Recuperando partiÁıes apagadas
+<sect id="manut-recpart">Recuperando parti√ß√µes apagadas
  <p>
-Caso tenha apagado uma partiÁ„o acidentalmente ou todas as 
-partiÁıes do seu disco, uma forma simples de recuperar todos os 
-seus dados È simplesmente recriar todas as partiÁıes com o tamanho
+Caso tenha apagado uma parti√ß√£o acidentalmente ou todas as 
+parti√ß√µes do seu disco, uma forma simples de recuperar todos os 
+seus dados √© simplesmente recriar todas as parti√ß√µes com o tamanho
 <strong>EXATAMENTE</strong> igual ao existente anteriormente. Isto deve 
-ser feito dando a partida com um disquete ou CD de inicializaÁ„o. ApÛs
-recriar todas as partiÁıes e seus tipos (83, 82 8e, etc), execute
+ser feito dando a partida com um disquete ou CD de inicializa√ß√£o. Ap√≥s
+recriar todas as parti√ß√µes e seus tipos (83, 82 8e, etc), execute
 novamente o lilo para recriar o setor de boot do HD e garantir que 
-a m·quina dar· o boot.
+a m√°quina dar√° o boot.
  <p>
-A recuperaÁ„o desta forma È possÌvel porque quando se cria ou apaga
-uma partiÁ„o, vocÍ est· simplesmente delimitando espaÁo onde cada 
-sistema de arquivos gravar· seus dados, sem fazer nenhuma alteraÁ„o
-dentro dele. Assim, È tambÈm ˙til manter uma cÛpia dos tamanhos usados
-durante o processo de criaÁ„o das partiÁıes para ser usado como 
-recuperaÁ„o em uma possÌvel emergÍncia.
+A recupera√ß√£o desta forma √© poss√≠vel porque quando se cria ou apaga
+uma parti√ß√£o, voc√™ est√° simplesmente delimitando espa√ßo onde cada 
+sistema de arquivos gravar√° seus dados, sem fazer nenhuma altera√ß√£o
+dentro dele. Assim, √© tamb√©m √∫til manter uma c√≥pia dos tamanhos usados
+durante o processo de cria√ß√£o das parti√ß√µes para ser usado como 
+recupera√ß√£o em uma poss√≠vel emerg√™ncia.
 
 
 <sect id="manut-senhaperdida">Recuperando a senha de root perdida
  <p>
-Uma situaÁ„o que vocÍ deve ter se deparado (ou algum dia ainda vai se deparar) È 
-precisar alterar a senha de root e n„o sabe ou n„o lembra a senha atual. Esta 
-situaÁ„o tambÈm pode ser encontrada quando ocorre uma falha de disco, 
-falha elÈtrica, reparos em uma m·quina que n„o detÈm sua manutenÁ„o, etc. A 
-melhor notÌcia È que a alteraÁ„o da senha de root È possÌvel e n„o apresenta 
-problema qualquer para o sistema. Existem v·rias formas para se fazer isto, a forma 
-que descreverei abaixo assume que vocÍ tem acesso a um outro dispositivo de partida 
-que n„o seja o HD do Linux (<em>CD-ROM</em>, <em>disquetes</em>, 
-<em>outro disco rÌgido</em>, etc). Assim, mesmo que encontre uma senha de BIOS 
-em uma m·quina, poder· colocar o disco rÌgido em outra m·quina e executar estes 
+Uma situa√ß√£o que voc√™ deve ter se deparado (ou algum dia ainda vai se deparar) √© 
+precisar alterar a senha de root e n√£o sabe ou n√£o lembra a senha atual. Esta 
+situa√ß√£o tamb√©m pode ser encontrada quando ocorre uma falha de disco, 
+falha el√©trica, reparos em uma m√°quina que n√£o det√©m sua manuten√ß√£o, etc. A 
+melhor not√≠cia √© que a altera√ß√£o da senha de root √© poss√≠vel e n√£o apresenta 
+problema qualquer para o sistema. Existem v√°rias formas para se fazer isto, a forma 
+que descreverei abaixo assume que voc√™ tem acesso a um outro dispositivo de partida 
+que n√£o seja o HD do Linux (<em>CD-ROM</em>, <em>disquetes</em>, 
+<em>outro disco r√≠gido</em>, etc). Assim, mesmo que encontre uma senha de BIOS 
+em uma m√°quina, poder√° colocar o disco r√≠gido em outra m√°quina e executar estes 
 procedimentos. 
 <![ %OBS [
  <p>
-<strong>OBS: </strong> Estes procedimentos tens fins did·ticos e administrativos, 
-n„o sendo escritos com a intenÁ„o de fornecer mal uso desta tÈcnica. Entender a 
-exposiÁ„o de riscos tambÈm ajuda a desenvolver novas tÈcnicas de defesa para sistemas
-crÌticos, e estas s„o totalmente possÌveis e as mais usadas documentadas neste guia.
+<strong>OBS: </strong> Estes procedimentos tens fins did√°ticos e administrativos, 
+n√£o sendo escritos com a inten√ß√£o de fornecer mal uso desta t√©cnica. Entender a 
+exposi√ß√£o de riscos tamb√©m ajuda a desenvolver novas t√©cnicas de defesa para sistemas
+cr√≠ticos, e estas s√£o totalmente poss√≠veis e as mais usadas documentadas neste guia.
 ]]>
 
 <list compact>
  <item>
-Como primeiro passo consiga um CD de partida ou disquete de uma distribuiÁ„o
+Como primeiro passo consiga um CD de partida ou disquete de uma distribui√ß√£o
 <prgn>Linux</prgn>. Normalmente os mesmos CDs que usou para instalar sua 
-distribuiÁ„o tambÈm s„o desenvolvidos para permitir a manutenÁ„o do sistema, 
-contendo ferramentas diversas e um terminal virtual disponÌvel para trabalhos
-manuais (tanto de instalaÁ„o como manutenÁ„o). 
+distribui√ß√£o tamb√©m s√£o desenvolvidos para permitir a manuten√ß√£o do sistema, 
+contendo ferramentas diversas e um terminal virtual dispon√≠vel para trabalhos
+manuais (tanto de instala√ß√£o como manuten√ß√£o). 
 
  <item>
-V· atÈ a BIOS da m·quina e altere a ordem de inicializaÁ„o para que seu sistema
-inicialize a partir do disquete ou CD-ROM (dependendo do mÈtodo escolhido no 
+V√° at√© a BIOS da m√°quina e altere a ordem de inicializa√ß√£o para que seu sistema
+inicialize a partir do disquete ou CD-ROM (dependendo do m√©todo escolhido no 
 passo anterior).
 
  <item>
 Inicialize a partir do Disquete/CD-ROM.
 
  <item>
-Na maioria dos casos vocÍ provavelmente estar· utilizando o CD-ROM que usou para
-instalar sua distribuiÁ„o. Imediatamente quando o programa de instalaÁ„o for 
+Na maioria dos casos voc√™ provavelmente estar√° utilizando o CD-ROM que usou para
+instalar sua distribui√ß√£o. Imediatamente quando o programa de instala√ß√£o for 
 iniciado, pressione <em>ALT</em>+<em>F2</em> para alternar para o segundo 
-terminal virtual do sistema. O segundo terminal esta sempre disponÌvel nas 
-distribuiÁıes distribuiÁıes <prgn>Debian</prgn>, <prgn>Red Hat</prgn>, 
+terminal virtual do sistema. O segundo terminal esta sempre dispon√≠vel nas 
+distribui√ß√µes distribui√ß√µes <prgn>Debian</prgn>, <prgn>Red Hat</prgn>, 
 <prgn>Mandriva</prgn>, <prgn>Fedora</prgn>, etc.
 
  <item>
-O prÛximo passo ser· montar sua partiÁ„o raÌz para ser possÌvel alterar sua 
-senha de root. Para isto, crie um diretÛrio onde a partiÁ„o ser· montada 
+O pr√≥ximo passo ser√° montar sua parti√ß√£o ra√≠z para ser poss√≠vel alterar sua 
+senha de root. Para isto, crie um diret√≥rio onde a parti√ß√£o ser√° montada 
 (por exemplo, <file>/target</file>) e execute o comando mount:
-<tt>mount /dev/hda1 /target</tt> (assumindo que <file>/dev/hda1</file> È 
-a partiÁ„o que contÈm seu sistema de arquivos raÌz (<file>/</file>).
+<tt>mount /dev/hda1 /target</tt> (assumindo que <file>/dev/hda1</file> √© 
+a parti√ß√£o que cont√©m seu sistema de arquivos ra√≠z (<file>/</file>).
 
  <item>
-Entre no diretÛrio <file>/target</file> (<tt>cd /target</tt>) e torne-o seu 
-diretÛrio raÌz atual com o comando: <tt>chroot .</tt>.
+Entre no diret√≥rio <file>/target</file> (<tt>cd /target</tt>) e torne-o seu 
+diret√≥rio ra√≠z atual com o comando: <tt>chroot .</tt>.
 
  <item>
-digite <tt>passwd</tt> e entre com a nova senha de superusu·rio.
+digite <tt>passwd</tt> e entre com a nova senha de superusu√°rio.
 
  <item>
 saia do <prgn>chroot</prgn> digitando <tt>exit</tt>
 
  <item>
-Digite <tt>sync</tt> para salvar todas as alteraÁıes pendentes para o disco e 
+Digite <tt>sync</tt> para salvar todas as altera√ß√µes pendentes para o disco e 
 reinicie o sistema (pressionando-se as teclas <tt>CTRL+ALT+DEL</tt>, <tt>init 6</tt>, 
 <tt>reboot</tt>).
 
  <item>
 Retire o CD da unidade de discos e altere sua BIOS para dar a partida a partir do 
-disco rÌgido.
+disco r√≠gido.
 
  <item>
 Teste e verifique se a senha de root foi alterada.
 </list>
-Normalmente as distribuiÁıes seguem o padr„o FHS, mantendo bin·rios de 
-administraÁ„o necess·rios para recuperaÁ„o do sistema em caso de panes dentro 
-da partiÁ„o <file>/</file>, se este n„o for o caso de sua distribuiÁ„o (hoje em 
-dia È raro), vocÍ ter· que montar sistemas de arquivos adicionais (como o 
-<file>/usr</file>, <file>/var</file>) ou ent„o o comando <prgn>passwd</prgn> 
-n„o ser· encontrado ou ter· problemas durante sua execuÁ„o.
+Normalmente as distribui√ß√µes seguem o padr√£o FHS, mantendo bin√°rios de 
+administra√ß√£o necess√°rios para recupera√ß√£o do sistema em caso de panes dentro 
+da parti√ß√£o <file>/</file>, se este n√£o for o caso de sua distribui√ß√£o (hoje em 
+dia √© raro), voc√™ ter√° que montar sistemas de arquivos adicionais (como o 
+<file>/usr</file>, <file>/var</file>) ou ent√£o o comando <prgn>passwd</prgn> 
+n√£o ser√° encontrado ou ter√° problemas durante sua execu√ß√£o.
 
 
-<sect id="manut-tarefas">Tarefas autom·ticas de manutenÁ„o do sistema
+<sect id="manut-tarefas">Tarefas autom√°ticas de manuten√ß√£o do sistema
  <p>
-Os arquivos respons·veis pela manutenÁ„o autom·tica do sistema se 
-encontram em arquivos individuais localizados nos diretÛrios 
+Os arquivos respons√°veis pela manuten√ß√£o autom√°tica do sistema se 
+encontram em arquivos individuais localizados nos diret√≥rios 
 <file>/etc/cron.daily</file>, <file>/etc/cron.weekly</file> e 
 <file>/etc/cron.montly</file>. A quantidade de arquivos depende 
 da quantidade de pacotes instalado em seu sistema, porque alguns 
-programam tarefas nestes diretÛrios e n„o È possÌvel descrever todas, 
-para detalhes sobre o que cada arquivo faz veja o cabeÁalho e o cÛdigo 
+programam tarefas nestes diret√≥rios e n√£o √© poss√≠vel descrever todas, 
+para detalhes sobre o que cada arquivo faz veja o cabe√ßalho e o c√≥digo 
 de cada arquivo.  
  <p>
-Estes arquivos s„o executados pelo <prgn>cron</prgn> atravÈs do arquivo 
-<file>/etc/crontab</file>. VocÍ pode programar quantas tarefas 
+Estes arquivos s√£o executados pelo <prgn>cron</prgn> atrav√©s do arquivo 
+<file>/etc/crontab</file>. Voc√™ pode programar quantas tarefas 
 desejar, para detalhes veja <ref id="manut-cron"> e <ref id="manut-at">. 
-Alguns programas mantÈm arquivos do <prgn>cron</prgn> individuais em 
+Alguns programas mant√©m arquivos do <prgn>cron</prgn> individuais em 
 <![ %DEBIAN [ <file>/var/spool/cron/crontabs</file> ]]> 
 que executam comandos periodicamente. 
  
 
 <sect id="manut-cron">cron
  <p>
-O <prgn>cron</prgn> È um daemon que permite o agendamento da execuÁ„o de 
-um comando/programa para um determinado dia/mÍs/ano/hora. 
+O <prgn>cron</prgn> √© um daemon que permite o agendamento da execu√ß√£o de 
+um comando/programa para um determinado dia/m√™s/ano/hora. 
 <![ %DESCRICAOD [
-… muito usado em tarefas de arquivamento de logs, checagem da integridade 
-do sistema e execuÁ„o de programas/comandos em hor·rios determinados. ]]>
+√â muito usado em tarefas de arquivamento de logs, checagem da integridade 
+do sistema e execu√ß√£o de programas/comandos em hor√°rios determinados. ]]>
  <p> 
-As tarefas s„o definidas no arquivo <file>/etc/crontab</file> 
-e por arquivos individuais de usu·rios em 
-<![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usu·rio]</file> ]]> (criados 
-atravÈs do programa <prgn>crontab</prgn>). Adicionalmente a distribuiÁ„o 
-<prgn>Debian</prgn> utiliza os arquivos no diretÛrio <file>/etc/cron.d</file> 
-como uma extens„o para o <file>/etc/crontab</file>. 
+As tarefas s√£o definidas no arquivo <file>/etc/crontab</file> 
+e por arquivos individuais de usu√°rios em 
+<![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usu√°rio]</file> ]]> (criados 
+atrav√©s do programa <prgn>crontab</prgn>). Adicionalmente a distribui√ß√£o 
+<prgn>Debian</prgn> utiliza os arquivos no diret√≥rio <file>/etc/cron.d</file> 
+como uma extens√£o para o <file>/etc/crontab</file>. 
  <p>
 Para agendar uma nova tarefa, basta editar o arquivo <file>/etc/crontab</file> 
 com qualquer editor de texto (como o <prgn>ae</prgn> e o <prgn>vi</prgn>) e 
-definir o mÍs/dia/hora que a tarefa ser· executada. N„o È necess·rio 
+definir o m√™s/dia/hora que a tarefa ser√° executada. N√£o √© necess√°rio 
 reiniciar o daemon do <prgn>cron</prgn> porque ele verifica seus 
-arquivos a cada minuto. Veja a seÁ„o <ref id="manut-cron-formato"> para 
+arquivos a cada minuto. Veja a se√ß√£o <ref id="manut-cron-formato"> para 
 entender o formato de arquivo <prgn>cron</prgn> usado no agendamento de 
 tarefas. 
 
@@ -623,15 +623,15 @@ O arquivo <file>/etc/crontab</file> tem o seguinte formato:
 <example>
 52  18    1   *   *    root     run-parts --report /etc/cron.montly
 |   |     |   |   |      |      |
-|   |     |   |   |      |      \_Comando que ser· executado
+|   |     |   |   |      |      \_Comando que ser√° executado
 |   |     |   |   |      |      
-|   |     |   |   |      \_ UID que executar· o comando
+|   |     |   |   |      \_ UID que executar√° o comando
 |   |     |   |   |            
 |   |     |   |   \_ Dia da semana (0-7)
 |   |     |   |
-|   |     |   \_ MÍs (1-12)
+|   |     |   \_ M√™s (1-12)
 |   |     |
-|   |     \_ Dia do MÍs (1-31)
+|   |     \_ Dia do M√™s (1-31)
 |   |
 |   \_ Hora
 |
@@ -647,61 +647,61 @@ Valor entre 0 e 59
  <item>
 Valor entre 0 e 23
 
- <tag>Dia do MÍs</tag>
+ <tag>Dia do M√™s</tag>
  <item>
 Valor entre 0 e 31
 
- <tag>MÍs</tag>
+ <tag>M√™s</tag>
  <item>
 Valor entre 1 e 12 (identificando os meses de Janeiro a Dezembro) 
 
  <tag>Dia da Semana</tag>
  <item>
-Valor entre 0 e 7 (identificando os dias de Domingo a S·bado). Note que 
+Valor entre 0 e 7 (identificando os dias de Domingo a S√°bado). Note que 
 tanto 0 e 7 equivalem a Domingo. 
 
- <tag>usu·rio</tag>
+ <tag>usu√°rio</tag>
  <item>
-O usu·rio especificado ser· usado para executar o comando (o usu·rio 
-dever· existir). 
+O usu√°rio especificado ser√° usado para executar o comando (o usu√°rio 
+dever√° existir). 
 
  <tag>comando</tag>
  <item>
-Comando que ser· executado. Podem ser usados par‚metros normais usados na 
+Comando que ser√° executado. Podem ser usados par√¢metros normais usados na 
 linha de comando. 
 </taglist>
-Os campos do arquivo s„o separados por um ou mais espaÁos ou tabulaÁıes. 
+Os campos do arquivo s√£o separados por um ou mais espa√ßos ou tabula√ß√µes. 
 Um asterisco <tt>*</tt> pode ser usado nos campos de data e hora para 
-especificar todo o intervalo disponÌvel. O hÌfen <tt>-</tt> serve para 
-especificar perÌodos de execuÁ„o (incluindo a o n˙mero inicial/final). 
-A vÌrgula serve para especificar lista de n˙meros. Passos podem ser 
-especificados atravÈs de uma <tt>/</tt>. Veja os exemplos no final 
-desta seÁ„o. 
+especificar todo o intervalo dispon√≠vel. O h√≠fen <tt>-</tt> serve para 
+especificar per√≠odos de execu√ß√£o (incluindo a o n√∫mero inicial/final). 
+A v√≠rgula serve para especificar lista de n√∫meros. Passos podem ser 
+especificados atrav√©s de uma <tt>/</tt>. Veja os exemplos no final 
+desta se√ß√£o. 
  <p>
 O arquivo gerado em 
-<![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usu·rio]</file> ]]> pelo 
+<![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usu√°rio]</file> ]]> pelo 
 <prgn>crontab</prgn> tem o mesmo formato do <file>/etc/crontab</file> 
-exceto por n„o possuir o campo <tt>usu·rio (UID)</tt>, pois o nome 
-do arquivo j· identifica o usu·rio no sistema. 
+exceto por n√£o possuir o campo <tt>usu√°rio (UID)</tt>, pois o nome 
+do arquivo j√° identifica o usu√°rio no sistema. 
  <p>
-Para editar um arquivo de usu·rio em 
-<![ %DEBIAN [ <file>/var/spool/cron/crontabs</file> ]]> ao invÈs de 
+Para editar um arquivo de usu√°rio em 
+<![ %DEBIAN [ <file>/var/spool/cron/crontabs</file> ]]> ao inv√©s de 
 editar o <file>/etc/crontab</file> use <tt>crontab -e</tt>, 
-para listar as tarefas daquele usu·rio <tt>crontab -l</tt> e 
-para apagar o arquivo de tarefas do usu·rio <tt>crontab -r</tt> 
-(adicionalmente vocÍ pode remover somente uma tarefa atravÈs 
+para listar as tarefas daquele usu√°rio <tt>crontab -l</tt> e 
+para apagar o arquivo de tarefas do usu√°rio <tt>crontab -r</tt> 
+(adicionalmente voc√™ pode remover somente uma tarefa atrav√©s 
 do <tt>crontab -e</tt> e apagando a linha correspondente). 
 <![ %OBS [
  <p>
-OBS: N„o esqueÁa de incluir uma linha em branco no final do arquivo, caso 
-contr·rio o ˙ltimo comando n„o ser· executado. ]]>
+OBS: N√£o esque√ßa de incluir uma linha em branco no final do arquivo, caso 
+contr√°rio o √∫ltimo comando n√£o ser√° executado. ]]>
  <p>
-O <prgn>cron</prgn> define o valor de algumas vari·veis automaticamente 
-durante sua execuÁ„o; a vari·vel <file>SHELL</file> È definida como 
+O <prgn>cron</prgn> define o valor de algumas vari√°veis automaticamente 
+durante sua execu√ß√£o; a vari√°vel <file>SHELL</file> √© definida como 
 <tt>/bin/sh</tt>, <file>PATH</file> como <tt>/usr/bin:/bin</tt>, 
-<file>LOGNAME</file>, <file>MAILTO</file> e <file>HOME</file> s„o 
-definidas atravÈs do arquivo <file>/etc/passwd</file>. Os valores 
-padrıes destas vari·veis podem ser substituÌdos especificando um 
+<file>LOGNAME</file>, <file>MAILTO</file> e <file>HOME</file> s√£o 
+definidas atrav√©s do arquivo <file>/etc/passwd</file>. Os valores 
+padr√µes destas vari√°veis podem ser substitu√≠dos especificando um 
 novo valor nos arquivos do <prgn>cron</prgn>. 
 <![ %EXEMPLO [
  <p>
@@ -721,29 +721,29 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 15 0  25 12 * root echo "Feliz Natal"|mail john
 # Envia um e-mail as 0:15 todo o dia 25/12 para john desejando um feliz natal. 
 30 5  * * 1-6   root  poff
-# Executa o comando poff automaticamente as 5:30 de segunda-feira a s·bado. 
+# Executa o comando poff automaticamente as 5:30 de segunda-feira a s√°bado. 
 </example> ]]>
 
 
 <sect id="manut-at">at
  <p>
 O <prgn>at</prgn> agenda tarefas de forma semelhante ao <prgn>cron</prgn> com uma 
-interface que permite a utilizaÁ„o de linguagem natural nos agendamentos. Sua 
-principal aplicaÁ„o È no uso de tarefas que sejam disparadas somente uma vez. 
-Uma caracterÌstica deste programa È a execuÁ„o de aplicativos que tenham passado
-de seu hor·rio de execuÁ„o, muito ˙til se o computador È desligado com freq¸Íncia 
-ou quando ocorre uma interrupÁ„o no fornecimento de energia. 
+interface que permite a utiliza√ß√£o de linguagem natural nos agendamentos. Sua 
+principal aplica√ß√£o √© no uso de tarefas que sejam disparadas somente uma vez. 
+Uma caracter√≠stica deste programa √© a execu√ß√£o de aplicativos que tenham passado
+de seu hor√°rio de execu√ß√£o, muito √∫til se o computador √© desligado com freq√º√™ncia 
+ou quando ocorre uma interrup√ß√£o no fornecimento de energia. 
  <p>
 Para utilizar o <prgn>at</prgn>, instale-o com o comando: 
-<tt>apt-get install at</tt>. O prÛximo passo È criar os arquivos
+<tt>apt-get install at</tt>. O pr√≥ximo passo √© criar os arquivos
 <file>/etc/at.allow</file> e <file>at.deny</file>. Estes arquivos 
-s„o organizados no formato de um usu·rio por linha. Durante o 
-agendamento, È verificado primeiro o arquivo <file>at.allow</file> 
+s√£o organizados no formato de um usu√°rio por linha. Durante o 
+agendamento, √© verificado primeiro o arquivo <file>at.allow</file> 
 (lista de quem pode executar comandos) e depois o <file>at.deny</file> 
-(lista de quem N√O pode executar comandos). Caso eles n„o existam, 
-o agendamento de comandos È permitido a todos os usu·rios.
+(lista de quem N√ÉO pode executar comandos). Caso eles n√£o existam, 
+o agendamento de comandos √© permitido a todos os usu√°rios.
  <p>
-Abaixo seguem exemplos do agendamento atravÈs do comando <prgn>at</prgn>:
+Abaixo seguem exemplos do agendamento atrav√©s do comando <prgn>at</prgn>:
 <taglist compact>
  <tag>echo ls | at 10am today</tag>
   <item>
@@ -763,7 +763,7 @@ Executa as 22:05 da noite de hoje
 
 <tag>echo ls | at 14:50 tomorrow</tag>
  <item>
-Executa o comando amanh„ as 14:50 da tarde
+Executa o comando amanh√£ as 14:50 da tarde
 
 <tag>echo ls | at midnight</tag>
  <item>
@@ -771,7 +771,7 @@ Executa o comando a meia noite de hoje
 
 <tag>echo ls | at midnight tomorrow</tag>
  <item>
-Executa o comando a meia noite de amanh„
+Executa o comando a meia noite de amanh√£
 
 <tag>echo ls | at noon</tag>
  <item>
@@ -779,23 +779,23 @@ Executa o comando de tarde (meio dia).
 
 <tag>at -f comandos.txt teatime</tag>
  <item>
-Executa os comandos especificados no arquivo "comandos.txt" no hor·rio do cafÈ da
+Executa os comandos especificados no arquivo "comandos.txt" no hor√°rio do caf√© da
 tarde (as 16:00 horas).
 
 <tag>at -f comandos.txt +3 minutes</tag>
  <item>
 Executa os comandos especificados no arquivo "comandos.txt" daqui a 3 minutos. 
-TambÈm pode ser especificado "hours" ou "days". 
+Tamb√©m pode ser especificado "hours" ou "days". 
 
 <tag>at -f comandos.txt tomorrow +3 hours</tag>
  <item>
 Executa os comandos especificados no arquivo "comandos.txt" daqui a 3 horas no 
-dia de amanh„. (se agora s„o 10:00, ela ser· executada amanh„ as 13:00 da tarde).
+dia de amanh√£. (se agora s√£o 10:00, ela ser√° executada amanh√£ as 13:00 da tarde).
 </taglist>
-Todas as tarefas agendadas s„o armazenadas em arquivos dentro do diretÛrio
+Todas as tarefas agendadas s√£o armazenadas em arquivos dentro do diret√≥rio
 <file>/var/spool/cron/atjobs</file>. A sintaxe de comandos para gerenciar as 
-tarefas È semelhante aos utilit·rios do <prgn>lpd</prgn>:
+tarefas √© semelhante aos utilit√°rios do <prgn>lpd</prgn>:
 Para ver as tarefas, digite <tt>atq</tt>. Para remover uma tarefa, use o comando
-<tt>atrm</tt> seguido do n˙mero da tarefa obtida pelo <tt>atq</tt>.
+<tt>atrm</tt> seguido do n√∫mero da tarefa obtida pelo <tt>atq</tt>.
 
 

@@ -1,66 +1,66 @@
 <chapt id="dpkg">Sistema de gerenciamento de pacotes
  <p>
-Este capÌtulo ensina a operaÁ„o b·sica do programa de manipulaÁ„o de pacotes 
-<prgn>Debian</prgn>, a instalaÁ„o, remoÁ„o, consulta e 
+Este cap√≠tulo ensina a opera√ß√£o b√°sica do programa de manipula√ß√£o de pacotes 
+<prgn>Debian</prgn>, a instala√ß√£o, remo√ß√£o, consulta e 
 checagem de arquivos <file>.deb</file>. 
 
 
 <sect id="dpkg-introducao">dpkg
  <p>
-O <prgn>dpkg</prgn> (Debian Package) È o programa respons·vel pelo gerenciamento 
-de pacotes em sistemas <prgn>Debian</prgn>. Sua operaÁ„o È feita em modo 
-texto e funciona atravÈs de comandos, assim caso deseje uma 
-ferramenta mais amig·vel para a seleÁ„o e instalaÁ„o de pacotes, prefira o 
-<prgn>dselect</prgn> (que È um front-end para o <prgn>dpkg</prgn>) ou o 
+O <prgn>dpkg</prgn> (Debian Package) √© o programa respons√°vel pelo gerenciamento 
+de pacotes em sistemas <prgn>Debian</prgn>. Sua opera√ß√£o √© feita em modo 
+texto e funciona atrav√©s de comandos, assim caso deseje uma 
+ferramenta mais amig√°vel para a sele√ß√£o e instala√ß√£o de pacotes, prefira o 
+<prgn>dselect</prgn> (que √© um front-end para o <prgn>dpkg</prgn>) ou o 
 <prgn>apt</prgn> (veja <ref id="dpkg-apt">). 
  <p>
-<prgn>dpkg</prgn> È muito usado por usu·rios avanÁados da <prgn>Debian</prgn> 
-e desenvolvedores para fins de instalaÁ„o, manutenÁ„o e construÁ„o de pacotes. 
+<prgn>dpkg</prgn> √© muito usado por usu√°rios avan√ßados da <prgn>Debian</prgn> 
+e desenvolvedores para fins de instala√ß√£o, manuten√ß√£o e constru√ß√£o de pacotes. 
 
 
 <sect1 id="dpkg-pacotes">Pacotes
  <p>
-Pacotes <prgn>Debian</prgn> s„o programas colocados dentro de um arquivo 
-identificados pela extens„o <file>.deb</file> incluindo arquivos 
-necess·rios para a instalaÁ„o do programa, um sistemas de listagem/checagem  
-de dependÍncias, scripts de automatizaÁ„o para remoÁ„o parcial/total do  
+Pacotes <prgn>Debian</prgn> s√£o programas colocados dentro de um arquivo 
+identificados pela extens√£o <file>.deb</file> incluindo arquivos 
+necess√°rios para a instala√ß√£o do programa, um sistemas de listagem/checagem  
+de depend√™ncias, scripts de automatiza√ß√£o para remo√ß√£o parcial/total do  
 pacote, listagem de arquivos, etc. 
  <p>
-Um nome de pacote tem a forma <package>nome-vers„o_revis„o.deb</package>
+Um nome de pacote tem a forma <package>nome-vers√£o_revis√£o.deb</package>
 
 
 <sect1 id="dpkg-instalar">Instalar pacotes
  <p>
 Use o comando:
 <tt>dpkg -i [<package>NomedoPacote</package>]</tt> (ou <em>--install</em>)
-para instalar um pacote em seu sistema. Talvez ele peÁa que seja instalado 
+para instalar um pacote em seu sistema. Talvez ele pe√ßa que seja instalado 
 algum pacote que depende para seu funcionamento. Para detalhes sobre 
-dependÍncias veja <ref id="dpkg-dependencias">. … preciso especificar o nome 
-completo do pacote (com a vers„o e revis„o). 
+depend√™ncias veja <ref id="dpkg-dependencias">. √â preciso especificar o nome 
+completo do pacote (com a vers√£o e revis√£o). 
 
 
-<sect1 id="dpkg-dependencias">DependÍncias
+<sect1 id="dpkg-dependencias">Depend√™ncias
  <p>
-DependÍncias s„o pacotes requeridos para a instalaÁ„o de outro pacote. Na 
-<prgn>Debian</prgn> cada pacote contÈm um programa com uma certa funÁ„o. 
-Por exemplo, se vocÍ tentar instalar o pacote de ediÁ„o de textos 
-<package>supertext</package> que usa o programa <prgn>sed</prgn>, vocÍ 
-precisar· verificar se o pacote <package>sed</package> est· instalado em 
+Depend√™ncias s√£o pacotes requeridos para a instala√ß√£o de outro pacote. Na 
+<prgn>Debian</prgn> cada pacote cont√©m um programa com uma certa fun√ß√£o. 
+Por exemplo, se voc√™ tentar instalar o pacote de edi√ß√£o de textos 
+<package>supertext</package> que usa o programa <prgn>sed</prgn>, voc√™ 
+precisar√° verificar se o pacote <package>sed</package> est√° instalado em 
 seu sistema antes de tentar instalar o <package>supertext</package>, caso 
-contr·rio, o pacote <package>supertext</package> pedir· o  
-<prgn>sed</prgn> e n„o funcionar· corretamente. Note que o pacote  
-<package>supertext</package> È apenas um exemplo e n„o existe (pelo  
-menos atÈ agora :-). O programa <prgn>dselect</prgn> faz 
-o trabalho de checagem de dependÍncias automaticamente durante a instalaÁ„o 
+contr√°rio, o pacote <package>supertext</package> pedir√° o  
+<prgn>sed</prgn> e n√£o funcionar√° corretamente. Note que o pacote  
+<package>supertext</package> √© apenas um exemplo e n√£o existe (pelo  
+menos at√© agora :-). O programa <prgn>dselect</prgn> faz 
+o trabalho de checagem de depend√™ncias automaticamente durante a instala√ß√£o 
 dos pacotes. 
  <p>
-A colocaÁ„o de cada programa em seu prÛprio pacote parece ser uma dificuldade 
-a mais para a instalaÁ„o manual de um certo programa. Mas para os  
-desenvolvedores que mantÈm os mais de <strong>&DEBNUMPACKAGES;</strong> pacotes 
-existentes na distribuiÁ„o <prgn>Debian</prgn>, È um ponto fundamental, 
-porque n„o  È preciso esperar uma nova vers„o do <package>supertext</package> 
-ser lanÁada para instalar a vers„o mais nova do pacote <package>sed</package>. 
-Por este motivo tambÈm È uma vantagem para o usu·rio. 
+A coloca√ß√£o de cada programa em seu pr√≥prio pacote parece ser uma dificuldade 
+a mais para a instala√ß√£o manual de um certo programa. Mas para os  
+desenvolvedores que mant√©m os mais de <strong>&DEBNUMPACKAGES;</strong> pacotes 
+existentes na distribui√ß√£o <prgn>Debian</prgn>, √© um ponto fundamental, 
+porque n√£o  √© preciso esperar uma nova vers√£o do <package>supertext</package> 
+ser lan√ßada para instalar a vers√£o mais nova do pacote <package>sed</package>. 
+Por este motivo tamb√©m √© uma vantagem para o usu√°rio. 
  
 
 <sect1 id="dpkg-l">Listar pacotes existentes no sistema
@@ -68,11 +68,11 @@ Por este motivo tambÈm È uma vantagem para o usu·rio.
 Use o comando:
 <tt>dpkg -l [pacote]</tt> (<em>--list</em>) para isto.
  <p>
-Na listagem de pacotes tambÈm ser· mostrado o "status" de cada um na coluna 
-da esquerda, acompanhado do nome do pacote, vers„o e descriÁ„o b·sica. Caso 
-o nome do [pacote] seja omitido, todos os pacotes ser„o listados. 
+Na listagem de pacotes tamb√©m ser√° mostrado o "status" de cada um na coluna 
+da esquerda, acompanhado do nome do pacote, vers√£o e descri√ß√£o b√°sica. Caso 
+o nome do [pacote] seja omitido, todos os pacotes ser√£o listados. 
  <p>
-… recomendado usar "dpkg -l|less" para ter um melhor controle da listagem 
+√â recomendado usar "dpkg -l|less" para ter um melhor controle da listagem 
 (pode ser longa dependendo da quantidade de programas instalados). 
 
 
@@ -80,12 +80,12 @@ o nome do [pacote] seja omitido, todos os pacotes ser„o listados.
  <p>
 Use o comando: 
 <tt>dpkg -r <package>NomedoPacote</package></tt> (<em>--remove</em>) para 
-remover um pacote do sistema completamente. Somente È necess·rio digitar o 
-nome e vers„o do pacote que deseja remover, n„o sendo necess·rio a 
-revis„o do pacote. 
+remover um pacote do sistema completamente. Somente √© necess√°rio digitar o 
+nome e vers√£o do pacote que deseja remover, n√£o sendo necess√°rio a 
+revis√£o do pacote. 
  <p>
-O comando <tt>dpkg -r</tt> n„o remove os arquivos de configuraÁ„o criados 
-pelo programa. Para uma remoÁ„o completa do programa veja 
+O comando <tt>dpkg -r</tt> n√£o remove os arquivos de configura√ß√£o criados 
+pelo programa. Para uma remo√ß√£o completa do programa veja 
 <ref id="dpkg-purge">.
 
 
@@ -93,37 +93,37 @@ pelo programa. Para uma remoÁ„o completa do programa veja
  <p>
 Use o comando:
 <tt>dpkg -P [<package>NomedoPacote</package>|-a]</tt> (<em>--purge</em>) para 
-remover um pacote e todos os diretÛrios e arquivos de configuraÁ„o criados. N„o 
-È necess·rio especificar a revis„o do pacote. O comando <tt>dpkg--purge</tt> 
-pode ser usado apÛs uma remoÁ„o normal do pacote (usando <tt>dpkg -r</tt>). 
+remover um pacote e todos os diret√≥rios e arquivos de configura√ß√£o criados. N√£o 
+√© necess√°rio especificar a revis√£o do pacote. O comando <tt>dpkg--purge</tt> 
+pode ser usado ap√≥s uma remo√ß√£o normal do pacote (usando <tt>dpkg -r</tt>). 
  <p>
-Caso vocÍ usar diretamente o comando <tt>dpkg --purge</tt>, <prgn>dpkg</prgn> 
-primeiro remover· o pacote normalmente (como explicado em 
-<ref id="dpkg-r">) e apÛs removido apagar· todos os arquivos de 
-configuraÁ„o.
+Caso voc√™ usar diretamente o comando <tt>dpkg --purge</tt>, <prgn>dpkg</prgn> 
+primeiro remover√° o pacote normalmente (como explicado em 
+<ref id="dpkg-r">) e ap√≥s removido apagar√° todos os arquivos de 
+configura√ß√£o.
  <p>
-Caso especifique a opÁ„o <em>-a</em> (ou sua equivalente <em>--pending</em>)
-no lugar do nome do pacote, todos os pacotes marcados para remoÁ„o ser„o
+Caso especifique a op√ß√£o <em>-a</em> (ou sua equivalente <em>--pending</em>)
+no lugar do nome do pacote, todos os pacotes marcados para remo√ß√£o ser√£o
 removidos completamente do sistema.
 <![ %OBS [
  <p>
-Note que o <tt>dpkg --purge</tt> somente remove arquivos de configuraÁ„o 
-conhecidos pelo pacote. Em especial, os arquivos de configuraÁ„o 
-criados para cada usu·rio do sistema devem ser removidos manualmente. Seria 
-pedir demais que o <prgn>dpkg</prgn> tambÈm conhecesse os usu·rios de nosso 
+Note que o <tt>dpkg --purge</tt> somente remove arquivos de configura√ß√£o 
+conhecidos pelo pacote. Em especial, os arquivos de configura√ß√£o 
+criados para cada usu√°rio do sistema devem ser removidos manualmente. Seria 
+pedir demais que o <prgn>dpkg</prgn> tamb√©m conhecesse os usu√°rios de nosso 
 sistema ;-). ]]>
 
 
-<sect1 id="dpkg-I">Mostrar descriÁ„o do pacote
+<sect1 id="dpkg-I">Mostrar descri√ß√£o do pacote
  <p>
 Use o comando:
 <tt>dpkg -I <package>NomedoPacote</package></tt> (<em>--info</em>)
-para mostrar a descriÁ„o do pacote. Entre a descriÁ„o s„o mostradas as 
-dependÍncias do pacote, pacotes sugeridos, recomendados, descriÁ„o do que 
-o pacote faz, tamanho e n˙mero de arquivos que contÈm. 
+para mostrar a descri√ß√£o do pacote. Entre a descri√ß√£o s√£o mostradas as 
+depend√™ncias do pacote, pacotes sugeridos, recomendados, descri√ß√£o do que 
+o pacote faz, tamanho e n√∫mero de arquivos que cont√©m. 
 
 
-<sect1 id="dpkg-S">Procura de pacotes atravÈs do nome de um arquivo
+<sect1 id="dpkg-S">Procura de pacotes atrav√©s do nome de um arquivo
  <p>
 Use o comando: 
 <tt>dpkg -S <file>arquivo</file></tt> (<em>--search</em>)
@@ -135,21 +135,21 @@ para saber de qual <package>pacote</package> existente no sistema o
  <p>
 Use o comando:
 <tt>dpkg -s <package>pacote</package></tt> (<em>--status</em>)
-para verificar o status de um pacote em seu sistema, se esta ou n„o 
-instalado, configurado, tamanho, dependÍncias, maintainer, etc.
+para verificar o status de um pacote em seu sistema, se esta ou n√£o 
+instalado, configurado, tamanho, depend√™ncias, maintainer, etc.
  <p>
-Se o pacote estiver instalado no sistema, o resultado ser· parecido com 
+Se o pacote estiver instalado no sistema, o resultado ser√° parecido com 
 o do comando <tt>dpkg -c [pacote]</tt> (<em>--contents</em>). 
 
 
-<sect1 id="dpkg-C">Procurando pacotes com problemas de instalaÁ„o
+<sect1 id="dpkg-C">Procurando pacotes com problemas de instala√ß√£o
  <p>
 A checagem de pacotes com este tipo de problema pode ser feita 
-atravÈs do comando:
+atrav√©s do comando:
  <p>
 <tt>dpkg -C</tt> (<em>--audit</em>)
  <p>
-Ser· listado todos os pacotes com algum tipo de problema, verifique os 
+Ser√° listado todos os pacotes com algum tipo de problema, verifique os 
 detalhes do pacote com <tt>"dpkg -s"</tt> para decidir como corrigir 
 o problema. 
 
@@ -160,11 +160,11 @@ Use o comando:
  <p>
 <tt>dpkg --get-selections</tt>
  <p>
-para obter uma lista de seleÁ„o dos pacotes em seu sistema. A listagem È 
-mostrada na saÌda padr„o, que pode ser facilmente redirecionada para um 
+para obter uma lista de sele√ß√£o dos pacotes em seu sistema. A listagem √© 
+mostrada na sa√≠da padr√£o, que pode ser facilmente redirecionada para um 
 arquivo usando <tt>dpkg --get-selections >dpkg.lista</tt>. 
  <p>
-A listagem obtida com este comando È muito ˙til para repetir os pacotes 
+A listagem obtida com este comando √© muito √∫til para repetir os pacotes 
 usados no sistema usando o <tt>dpkg --set-selections</tt>. 
 
 
@@ -175,164 +175,164 @@ Use o comando:
  <p>
 <tt>dpkg --set-selections &lt;arquivo</tt>
  <p>
-para obter a lista de pacotes que ser„o instalados no sistema. O 
-uso do <tt>dpkg --get-selections</tt> e <tt>dpkg --set-selections</tt> È 
-muito ˙til durante uma necessidade de reinstalaÁ„o do sistema 
-<prgn>GNU/Linux</prgn> ou repetir a instalaÁ„o em v·rias m·quinas sem 
+para obter a lista de pacotes que ser√£o instalados no sistema. O 
+uso do <tt>dpkg --get-selections</tt> e <tt>dpkg --set-selections</tt> √© 
+muito √∫til durante uma necessidade de reinstala√ß√£o do sistema 
+<prgn>GNU/Linux</prgn> ou repetir a instala√ß√£o em v√°rias m√°quinas sem 
 precisar selecionar algumas dezenas entre os milhares de pacotes no 
 <prgn>dselect</prgn>. 
  <p>
-ApÛs obter a lista com <tt>dpkg --get-selections</tt>, use 
-<tt>dpkg --set-selections &lt;arquivo</tt> e ent„o entre no 
-<prgn>dselect</prgn> e escolha a opÁ„o <tt>INSTALL</tt>, todos 
-os pacotes obtidos via <tt>dpkg --set-selections</tt> ser„o 
+Ap√≥s obter a lista com <tt>dpkg --get-selections</tt>, use 
+<tt>dpkg --set-selections &lt;arquivo</tt> e ent√£o entre no 
+<prgn>dselect</prgn> e escolha a op√ß√£o <tt>INSTALL</tt>, todos 
+os pacotes obtidos via <tt>dpkg --set-selections</tt> ser√£o 
 automaticamente instalados. 
 
 
 <sect1 id="dpkg-configure">Configurando pacotes desconfigurados
  <p>
-Pacotes est„o desconfigurados quando, por algum motivo, a instalaÁ„o do 
-mesmo n„o foi concluÌda com sucesso. Pode ter faltado alguma dependÍncia, 
+Pacotes est√£o desconfigurados quando, por algum motivo, a instala√ß√£o do 
+mesmo n√£o foi conclu√≠da com sucesso. Pode ter faltado alguma depend√™ncia, 
 acontecido algum erro de leitura do arquivo de pacote, etc. Quando um erro 
-deste tipo acontece, os arquivos necess·rios pelo pacote podem ter sido 
-instalados, mas os scripts de configuraÁ„o pÛs-instalaÁ„o n„o s„o executados. 
+deste tipo acontece, os arquivos necess√°rios pelo pacote podem ter sido 
+instalados, mas os scripts de configura√ß√£o p√≥s-instala√ß√£o n√£o s√£o executados. 
  <p>
 Use o comando:
  <p>
 <tt>dpkg --configure [<em>NomedoPacote</em>]</tt>
  <p>
-Para configurar um pacote. O <em>NomedoPacote</em> n„o precisa conter a  
-revis„o do pacote e extens„o.
+Para configurar um pacote. O <em>NomedoPacote</em> n√£o precisa conter a  
+revis√£o do pacote e extens√£o.
 
 
 <sect1 id="dpkg-c">Listando arquivos de um pacote
  <p>
 Use o comando:
 <tt>dpkg -c <file>arquivo</file></tt> (<em>--contents</em>) para obter 
-a listagem dos arquivos contidos no pacote. … necess·rio digitar o nome 
-completo do pacote. O comando <tt>dpkg -c</tt> È ˙til para listarmos 
-arquivos de pacotes que n„o est„o instalados no sistema. 
+a listagem dos arquivos contidos no pacote. √â necess√°rio digitar o nome 
+completo do pacote. O comando <tt>dpkg -c</tt> √© √∫til para listarmos 
+arquivos de pacotes que n√£o est√£o instalados no sistema. 
  <p>
-Para obter a listagem de arquivos de pacotes j· instalados no sistema, use  
+Para obter a listagem de arquivos de pacotes j√° instalados no sistema, use  
 o comando:
-<tt>dpkg -L <file>arquivo</file></tt>. … necess·rio digitar somente o nome 
-do pacote (sem a revis„o e extens„o). 
+<tt>dpkg -L <file>arquivo</file></tt>. √â necess√°rio digitar somente o nome 
+do pacote (sem a revis√£o e extens√£o). 
 
 
 <sect id="dpkg-apt">apt
  <p>
-O <prgn>apt</prgn> È sistema de gerenciamento de pacotes de programas que 
-possui resoluÁ„o autom·tica de dependÍncias entre pacotes, mÈtodo f·cil de 
-instalaÁ„o de pacotes, facilidade de operaÁ„o, permite atualizar 
-facilmente sua distribuiÁ„o, etc. Ele funciona atravÈs de linha de comando 
-sendo bastante f·cil de usar. Mesmo assim, existem interfaces gr·ficas para o 
-<prgn>apt</prgn> como o <prgn>synaptic</prgn> (modo gr·fico) e o 
-<prgn>aptitude</prgn> (modo texto) que permitem poderosas manipulaÁıes de 
+O <prgn>apt</prgn> √© sistema de gerenciamento de pacotes de programas que 
+possui resolu√ß√£o autom√°tica de depend√™ncias entre pacotes, m√©todo f√°cil de 
+instala√ß√£o de pacotes, facilidade de opera√ß√£o, permite atualizar 
+facilmente sua distribui√ß√£o, etc. Ele funciona atrav√©s de linha de comando 
+sendo bastante f√°cil de usar. Mesmo assim, existem interfaces gr√°ficas para o 
+<prgn>apt</prgn> como o <prgn>synaptic</prgn> (modo gr√°fico) e o 
+<prgn>aptitude</prgn> (modo texto) que permitem poderosas manipula√ß√µes de 
 pacotes sugeridos, etc. 
 <![ %DESCRICAOD [ 
  <p>
 O <prgn>apt</prgn> pode utilizar tanto com arquivos locais como remotos na 
-instalaÁ„o ou atualizaÁ„o, desta maneira È possÌvel atualizar toda a sua 
-distribuiÁ„o <prgn>Debian</prgn> via <prgn>ftp</prgn> ou <prgn>http</prgn> 
+instala√ß√£o ou atualiza√ß√£o, desta maneira √© poss√≠vel atualizar toda a sua 
+distribui√ß√£o <prgn>Debian</prgn> via <prgn>ftp</prgn> ou <prgn>http</prgn> 
 com apenas 2 simples comandos! 
  <p>
-… recomend·vel o uso do mÈtodo <prgn>apt</prgn> no programa 
-<prgn>dselect</prgn> pois ele permite a ordem correta de instalaÁ„o 
-de pacotes e checagem e resoluÁ„o de dependÍncias, etc. Devido a 
-sua facilidade de operaÁ„o, o <prgn>apt</prgn> È o mÈtodo preferido 
-para os usu·rios manipularem pacotes da <prgn>Debian</prgn>.  
+√â recomend√°vel o uso do m√©todo <prgn>apt</prgn> no programa 
+<prgn>dselect</prgn> pois ele permite a ordem correta de instala√ß√£o 
+de pacotes e checagem e resolu√ß√£o de depend√™ncias, etc. Devido a 
+sua facilidade de opera√ß√£o, o <prgn>apt</prgn> √© o m√©todo preferido 
+para os usu√°rios manipularem pacotes da <prgn>Debian</prgn>.  
  <p>
-O <prgn>apt</prgn> È exclusivo da distribuiÁ„o <prgn>Debian</prgn> e 
-distribuiÁıes baseadas nela e tem por objetivo tornar a manipulaÁ„o de 
-pacotes poderosa por qualquer pessoa e tem dezenas de opÁıes que podem 
-ser usadas em sua execuÁ„o ou configuradas no 
+O <prgn>apt</prgn> √© exclusivo da distribui√ß√£o <prgn>Debian</prgn> e 
+distribui√ß√µes baseadas nela e tem por objetivo tornar a manipula√ß√£o de 
+pacotes poderosa por qualquer pessoa e tem dezenas de op√ß√µes que podem 
+ser usadas em sua execu√ß√£o ou configuradas no 
 arquivo <file>/etc/apt/apt.conf</file>. Explicarei aqui como fazer 
-as aÁıes b·sicas com o <prgn>apt</prgn>, portanto se desejar maiores 
-detalhes sobre suas opÁıes, veja a p·gina de manual <file>apt-get</file>. ]]> 
+as a√ß√µes b√°sicas com o <prgn>apt</prgn>, portanto se desejar maiores 
+detalhes sobre suas op√ß√µes, veja a p√°gina de manual <file>apt-get</file>. ]]> 
 
 
 <sect1>O arquivo <file>/etc/apt/sources.list</file>
  <p>
-Este arquivo contÈm os locais onde o <prgn>apt</prgn> encontrar· os pacotes, 
-a distribuiÁ„o que ser· verificada (stable, testing, unstable, Woody, Sarge) e 
-a seÁ„o que ser· copiada (main, non-free, contrib, non-US). 
+Este arquivo cont√©m os locais onde o <prgn>apt</prgn> encontrar√° os pacotes, 
+a distribui√ß√£o que ser√° verificada (stable, testing, unstable, Woody, Sarge) e 
+a se√ß√£o que ser√° copiada (main, non-free, contrib, non-US). 
 <![ %DESCRICAOD [ 
  <p>
-<em>Woody</em>(Debian 3.0) e <em>Sarge</em>(Debian 3.1) s„o os nomes das 
-versıes enquanto <em>stable</em> e <em>unstable</em> s„o links para as 
-versıes <em>est·vel</em> e <em>testing</em> respectivamente. Se desejar 
-usar sempre uma distribuiÁ„o est·vel (como a 
+<em>Woody</em>(Debian 3.0) e <em>Sarge</em>(Debian 3.1) s√£o os nomes das 
+vers√µes enquanto <em>stable</em> e <em>unstable</em> s√£o links para as 
+vers√µes <em>est√°vel</em> e <em>testing</em> respectivamente. Se desejar 
+usar sempre uma distribui√ß√£o est√°vel (como a 
 <em>Woody</em>), modifique o arquivo <file>sources.list</file> e coloque 
-<em>Woody</em> como distribuiÁ„o. Caso vocÍ desejar estar sempre atualizado 
-mas È uma pessoa cuidadosa e deseja ter sempre a ˙ltima distribuiÁ„o est·vel da 
-<prgn>Debian</prgn>, coloque <em>stable</em> como vers„o. Assim que a nova 
-vers„o for lanÁada, os links que apontam de <em>stable</em> para 
-<em>Woody</em> ser„o alterados apontando para <em>Sarge</em> e vocÍ ter· seu 
+<em>Woody</em> como distribui√ß√£o. Caso voc√™ desejar estar sempre atualizado 
+mas √© uma pessoa cuidadosa e deseja ter sempre a √∫ltima distribui√ß√£o est√°vel da 
+<prgn>Debian</prgn>, coloque <em>stable</em> como vers√£o. Assim que a nova 
+vers√£o for lan√ßada, os links que apontam de <em>stable</em> para 
+<em>Woody</em> ser√£o alterados apontando para <em>Sarge</em> e voc√™ ter√° seu 
 sistema atualizado. ]]>
  <p>
 Abaixo um exemplo simples de arquivo <file>/etc/apt/sources.list</file> com 
-explicaÁ„o das seÁıes: 
+explica√ß√£o das se√ß√µes: 
 <example>
 deb http://www.debian.org/debian stable main contrib non-free
 deb http://nonus.debian.org/debian-non-US stable non-US    
 </example>
-VocÍ pode interpretar cada parte da seguinte maneira:
+Voc√™ pode interpretar cada parte da seguinte maneira:
 <list compact>
  <item>
 <tt>deb</tt> - Identifica um pacote da Debian. A palavra <tt>deb-src</tt> 
-identifica o cÛdigo fonte. 
+identifica o c√≥digo fonte. 
  <item>
-<tt>http://www.debian.org/debian</tt> - MÈtodo de acesso aos arquivos 
-da <prgn>Debian</prgn>, site e diretÛrio principal. O caminho pode 
+<tt>http://www.debian.org/debian</tt> - M√©todo de acesso aos arquivos 
+da <prgn>Debian</prgn>, site e diret√≥rio principal. O caminho pode 
 ser <tt>http://</tt>, <tt>ftp://</tt>, <tt>file:/</tt>. 
  <item>
-<tt>stable</tt> - Local onde ser„o procurados arquivos para atualizaÁ„o. 
-VocÍ pode tanto usar o nome de sua distribuiÁ„o (<em>Woody</em>, <em>
-Sarge</em>) ou sua classificaÁ„o (<em>stable</em>, 
-<em>testing</em> ou <em>unstable</em>. Note que <em>unstable</em> È 
-recomendada somente para desenvolvedores, m·quinas de testes e 
-se vocÍ tem conhecimentos para corrigir problemas. Nunca utilize 
-<em>unstable</em> em ambientes de produÁ„o ou servidores crÌticos, 
+<tt>stable</tt> - Local onde ser√£o procurados arquivos para atualiza√ß√£o. 
+Voc√™ pode tanto usar o nome de sua distribui√ß√£o (<em>Woody</em>, <em>
+Sarge</em>) ou sua classifica√ß√£o (<em>stable</em>, 
+<em>testing</em> ou <em>unstable</em>. Note que <em>unstable</em> √© 
+recomendada somente para desenvolvedores, m√°quinas de testes e 
+se voc√™ tem conhecimentos para corrigir problemas. Nunca utilize 
+<em>unstable</em> em ambientes de produ√ß√£o ou servidores cr√≠ticos, 
 use a <em>stable</em>. 
  <item>
-<tt>main contrib non-us</tt> - SeÁıes que ser„o verificadas no site remoto. 
+<tt>main contrib non-us</tt> - Se√ß√µes que ser√£o verificadas no site remoto. 
 </list>
-Note que tudo especificado apÛs o nome da distribuiÁ„o ser· interpretado 
-como sendo as seÁıes dos arquivos (main, non-free, contrib, non-US). As 
-linhas s„o processadas na ordem que est„o no arquivo, ent„o È recomend·vel 
-colocar as linhas que fazem referÍncia a pacotes locais primeiro e 
-mirrors mais perto de vocÍ para ter um melhor aproveitamento 
+Note que tudo especificado ap√≥s o nome da distribui√ß√£o ser√° interpretado 
+como sendo as se√ß√µes dos arquivos (main, non-free, contrib, non-US). As 
+linhas s√£o processadas na ordem que est√£o no arquivo, ent√£o √© recomend√°vel 
+colocar as linhas que fazem refer√™ncia a pacotes locais primeiro e 
+mirrors mais perto de voc√™ para ter um melhor aproveitamento 
 de banda.  O caminho percorrido pelo <prgn>apt</prgn> para chegar 
 aos arquivos 
-ser· o seguinte: 
+ser√° o seguinte: 
 <example>
 http://www.debian.org/debian/dists/stable/main/binary-i386
 http://www.debian.org/debian/dists/stable/non-free/binary-i386
 http://www.debian.org/debian/dists/stable/contrib/binary-i386
 </example>
-VocÍ notou que o diretÛrio <file>dists</file> foi adicionado entre 
+Voc√™ notou que o diret√≥rio <file>dists</file> foi adicionado entre 
 <file>http://www.debian.org/debian</file> e <file>stable</file>, 
-enquanto as seÁıes <em>main</em>, <em>non-free</em> e <em>contrib</em> 
-s„o processadas separadamente e finalizando com o caminho 
+enquanto as se√ß√µes <em>main</em>, <em>non-free</em> e <em>contrib</em> 
+s√£o processadas separadamente e finalizando com o caminho 
 <file>binary-[arquitetura]</file>, onde <em>[arquitetura]</em> pode 
 ser <em>i386, alpha, sparc, powerpc, arm</em>, etc. dependendo do 
-seu sistema. Entendendo isto, vocÍ poder· manipular o arquivo 
+seu sistema. Entendendo isto, voc√™ poder√° manipular o arquivo 
 <file>sources.list</file> facilmente. 
 <![ %OBS [
  <p>
  <strong>OBS: </strong> Caso tenha mais de uma linha em seu 
  arquivo <file>sources.list</file> de onde um pacote pode ser 
- instalado, ele ser· baixado da primeira encontrada no 
- arquivo. À recomend·vel colocar primeiro repositÛrios locais 
- ou mais perto de vocÍ, como recomendado nesta seÁ„o.  ]]>
+ instalado, ele ser√° baixado da primeira encontrada no 
+ arquivo. √ã recomend√°vel colocar primeiro reposit√≥rios locais 
+ ou mais perto de voc√™, como recomendado nesta se√ß√£o.  ]]>
 
 
-<sect2>EndereÁos de servidores e mirrors nacionais da <prgn>Debian</prgn>
+<sect2>Endere√ßos de servidores e mirrors nacionais da <prgn>Debian</prgn>
  <p>
-Segue abaixo uma relaÁ„o de servidores que podem ser colocados em 
+Segue abaixo uma rela√ß√£o de servidores que podem ser colocados em 
 seu arquivo <file>sources.list</file>:
 <example>
-EndereÁo                               DiretÛrio Principal
+Endere√ßo                               Diret√≥rio Principal
 --------                               --------- ---------
 ftp://ftp.debian.org.br                /debian
 ftp://ftp.br.debian.org                /debian
@@ -345,9 +345,9 @@ ftp://download.unesp.br                /linux/debian
 
 <sect2>Um modelo de arquivo <file>sources.list</file>
  <p>
-VocÍ pode copiar o modelo do <file>sources.list</file> abaixo para ser usado 
-em sua distribuiÁ„o <tt>Stable</tt> ou personaliza-lo modificando a 
-distribuiÁ„o utilizada e servidores:
+Voc√™ pode copiar o modelo do <file>sources.list</file> abaixo para ser usado 
+em sua distribui√ß√£o <tt>Stable</tt> ou personaliza-lo modificando a 
+distribui√ß√£o utilizada e servidores:
 <example>
 # Arquivos principais da stable
 deb ftp://ftp.debian.org.br/debian stable main non-free contrib
@@ -355,16 +355,16 @@ deb ftp://ftp.debian.org.br/debian stable main non-free contrib
 # Non-US da Stable
 deb ftp://ftp.debian.org.br/debian-non-US stable/non-US main non-free contrib
 
-# AtualizaÁıes propostas para Stable main e non-US
+# Atualiza√ß√µes propostas para Stable main e non-US
 deb ftp://ftp.debian.org.br/debian dists/proposed-updates/
 deb ftp://ftp.debian.org.br/debian-non-US dists/proposed-updates/
 
-# AtualizaÁıes de seguranÁa da Stable
+# Atualiza√ß√µes de seguran√ßa da Stable
 deb ftp://nonus.debian.org/debian-security stable/updates main
 
-# Ximian È um conjunto de pacotes atualizados freq¸entemente e compatÌveis 
-# com a distribuiÁ„o Debian. Entre estes programas est„o o Gimp 1.2 e outros
-# mais atuais e compatÌveis com a Debian. Para usa-los inclua a seguinte linha no 
+# Ximian √© um conjunto de pacotes atualizados freq√ºentemente e compat√≠veis 
+# com a distribui√ß√£o Debian. Entre estes programas est√£o o Gimp 1.2 e outros
+# mais atuais e compat√≠veis com a Debian. Para usa-los inclua a seguinte linha no 
 # seu sources.list
 # deb ftp://spidermonkey.ximian.com/pub/red-carpet/binary/debian-22-i386/ ./
 
@@ -376,71 +376,71 @@ deb ftp://nonus.debian.org/debian-security stable/updates main
 
 <sect1>O arquivo <file>/etc/apt/apt.conf</file>
  <p>
-VocÍ pode especificar opÁıes neste arquivo que modificar„o o 
-comportamento do programa <prgn>apt</prgn> durante a manipulaÁ„o 
-de pacotes (ao invÈs de especificar na linha de comando). 
+Voc√™ pode especificar op√ß√µes neste arquivo que modificar√£o o 
+comportamento do programa <prgn>apt</prgn> durante a manipula√ß√£o 
+de pacotes (ao inv√©s de especificar na linha de comando). 
 <![ %DESCRICAOD [ Se estiver 
-satisfeito com o funcionamento do programa <prgn>apt</prgn>, n„o È 
-necess·rio modifica-lo. Para detalhes sobre o formato do arquivo, 
-veja a p·gina de manual do <file>apt.conf</file>. Na p·gina de 
-manual do <file>apt-get</file> s„o feitas referÍncias a par‚metros 
-que podem ser especificados neste arquivo ao invÈs da linha de comando. ]]> 
+satisfeito com o funcionamento do programa <prgn>apt</prgn>, n√£o √© 
+necess√°rio modifica-lo. Para detalhes sobre o formato do arquivo, 
+veja a p√°gina de manual do <file>apt.conf</file>. Na p√°gina de 
+manual do <file>apt-get</file> s√£o feitas refer√™ncias a par√¢metros 
+que podem ser especificados neste arquivo ao inv√©s da linha de comando. ]]> 
 
 
-<sect1>Copiando a lista de pacotes disponÌveis
+<sect1>Copiando a lista de pacotes dispon√≠veis
  <p>
 O <prgn>apt</prgn> utiliza uma lista de pacotes para verificar se os 
-pacotes existentes no sistema precisam ou n„o ser atualizados. A lista 
-mais nova de pacotes È copiada atravÈs do comando <tt>apt-get update</tt>. 
+pacotes existentes no sistema precisam ou n√£o ser atualizados. A lista 
+mais nova de pacotes √© copiada atrav√©s do comando <tt>apt-get update</tt>. 
 <![ %DESCRICAOD [ 
  <p>
-Este comando pode ser usado com alguma freq¸Íncia se estiver usando a 
-distribuiÁ„o stable e sempre se estiver usando a unstable (os pacotes 
-s„o modificados com muita freq¸Íncia). Sempre utilize o 
-<tt>apt-get update</tt> antes de atualizar toda a distribuiÁ„o. ]]>
+Este comando pode ser usado com alguma freq√º√™ncia se estiver usando a 
+distribui√ß√£o stable e sempre se estiver usando a unstable (os pacotes 
+s√£o modificados com muita freq√º√™ncia). Sempre utilize o 
+<tt>apt-get update</tt> antes de atualizar toda a distribui√ß√£o. ]]>
 
 
-<sect1>Utilizando CDs oficiais/n„o-oficiais/terceiros com o apt
+<sect1>Utilizando CDs oficiais/n√£o-oficiais/terceiros com o apt
  <p>
 Para usar CDs da <prgn>Debian</prgn> ou de programas de terceiros, use o 
 seguinte comando com cada um dos CDs que possui: 
 <example>
 apt-cdrom add
 </example>
-Este comando adicionar· automaticamente uma linha para cada CD no 
-arquivo <file>/etc/apt/sources.list</file> e atualizar· a lista de 
-pacotes em <file>/var/state/apt/lists</file>. Por padr„o, 
-a unidade acessada atravÈs de <file>/cdrom</file> È usada. 
-Use a opÁ„o <tt>-d /dev/scd?</tt> para especificar um outra unidade de CDs 
+Este comando adicionar√° automaticamente uma linha para cada CD no 
+arquivo <file>/etc/apt/sources.list</file> e atualizar√° a lista de 
+pacotes em <file>/var/state/apt/lists</file>. Por padr√£o, 
+a unidade acessada atrav√©s de <file>/cdrom</file> √© usada. 
+Use a op√ß√£o <tt>-d /dev/scd?</tt> para especificar um outra unidade de CDs 
 <![ %INIC-INTER [ 
-(veja <ref id="disc-id"> para detalhes sobre essa identificaÁ„o). ]]>
+(veja <ref id="disc-id"> para detalhes sobre essa identifica√ß√£o). ]]>
  <p>
-Durante a instalaÁ„o de um novo programa, o <prgn>apt</prgn> pede que o 
+Durante a instala√ß√£o de um novo programa, o <prgn>apt</prgn> pede que o 
 CD correspondente seja inserido na unidade e pressionado &lt;Enter&gt; 
 para continuar.
-O mÈtodo acesso do <prgn>apt</prgn> atravÈs de CDs È inteligente o bastante 
-para instalar todos os pacotes necess·rios daquele CD, instalar os 
-pacotes do prÛximo CD e iniciar a configuraÁ„o apÛs instalar todos os pacotes
-necess·rios. 
+O m√©todo acesso do <prgn>apt</prgn> atrav√©s de CDs √© inteligente o bastante 
+para instalar todos os pacotes necess√°rios daquele CD, instalar os 
+pacotes do pr√≥ximo CD e iniciar a configura√ß√£o ap√≥s instalar todos os pacotes
+necess√°rios. 
 <![ %OBS [
  <p>
-<tt>ObservaÁ„o:</tt> - CDs de terceiros ou contendo programas adicionais 
-tambÈm podem ser usados com o comando "apt-cdrom add". ]]>
+<tt>Observa√ß√£o:</tt> - CDs de terceiros ou contendo programas adicionais 
+tamb√©m podem ser usados com o comando "apt-cdrom add". ]]>
 
 
 <sect1>Instalando novos pacotes
  <p>
 Use o comando <tt>apt-get install [pacotes]</tt> para instalar novos pacotes 
-em sua distribuiÁ„o. Podem ser instalados mais de um pacotes ao mesmo 
-tempo separando os nomes por espaÁos. Somente È preciso especificar o 
-nome do pacote (sem a vers„o e revis„o). 
+em sua distribui√ß√£o. Podem ser instalados mais de um pacotes ao mesmo 
+tempo separando os nomes por espa√ßos. Somente √© preciso especificar o 
+nome do pacote (sem a vers√£o e revis√£o). 
  <p>
-Se preciso, o <prgn>apt</prgn> instalar· automaticamente as dependÍncias 
-necess·rias para o funcionamento correto do pacote. Quando pacotes alÈm do 
-solicitado pelo usu·rio s„o requeridos para a instalaÁ„o, o <prgn>apt</prgn>
-mostrar· o espaÁo total que ser· usado no disco e perguntar· ao usu·rio se 
+Se preciso, o <prgn>apt</prgn> instalar√° automaticamente as depend√™ncias 
+necess√°rias para o funcionamento correto do pacote. Quando pacotes al√©m do 
+solicitado pelo usu√°rio s√£o requeridos para a instala√ß√£o, o <prgn>apt</prgn>
+mostrar√° o espa√ßo total que ser√° usado no disco e perguntar√° ao usu√°rio se 
 ele deseja continuar.
-ApÛs a instalaÁ„o, o pacote ser· automaticamente configurado pelo <prgn>dpkg</prgn> 
+Ap√≥s a instala√ß√£o, o pacote ser√° automaticamente configurado pelo <prgn>dpkg</prgn> 
 para ser executado corretamente em seu sistema. 
 
 
@@ -448,130 +448,130 @@ para ser executado corretamente em seu sistema.
  <p>
 Use o comando <tt>apt-get remove [pacotes]</tt> para remover completamente 
 um pacote do sistema. Podem ser removidos mais de um pacote ao mesmo tempo 
-separando os nomes dos pacotes com espaÁos. O <tt>apt-get remove</tt> 
-remove completamente o pacote mas mantÈm os arquivos de configuraÁ„o, 
-exceto se for adicionada a opÁ„o <tt>--purge</tt>. 
+separando os nomes dos pacotes com espa√ßos. O <tt>apt-get remove</tt> 
+remove completamente o pacote mas mant√©m os arquivos de configura√ß√£o, 
+exceto se for adicionada a op√ß√£o <tt>--purge</tt>. 
  <p>
-… preciso especificar somente o nome do pacote (sem a vers„o e revis„o). 
+√â preciso especificar somente o nome do pacote (sem a vers√£o e revis√£o). 
 
 
-<sect1>Atualizando sua distribuiÁ„o
+<sect1>Atualizando sua distribui√ß√£o
  <p>
-O <prgn>apt</prgn> tem uma grande caracterÌstica: Atualizar toda a 
-sua distribuiÁ„o de uma forma inteligente e segura. O <prgn>apt</prgn> 
-lÍ a listagem de pacotes disponÌveis no servidor remoto, verifica 
-quais est„o instalados e suas versıes, caso a vers„o do pacote seja 
-mais nova que a j· instalada em seu sistema, o pacote ser· imediatamente 
+O <prgn>apt</prgn> tem uma grande caracter√≠stica: Atualizar toda a 
+sua distribui√ß√£o de uma forma inteligente e segura. O <prgn>apt</prgn> 
+l√™ a listagem de pacotes dispon√≠veis no servidor remoto, verifica 
+quais est√£o instalados e suas vers√µes, caso a vers√£o do pacote seja 
+mais nova que a j√° instalada em seu sistema, o pacote ser√° imediatamente 
 atualizado. 
  <p>
-A cÛpia dos arquivos pelo <prgn>apt</prgn> pode ser feita 
-via <tt>FTP</tt>, <tt>HTTP</tt> ou atravÈs de uma cÛpia local dos 
-arquivos no disco rÌgido (um <em>mirror</em> local). Em nenhuma 
-circunst‚ncia os pacotes existentes em seu sistema ser„o removidos 
-ou sua configuraÁ„o apagada durante um <tt>upgrade</tt> na distribuiÁ„o. 
+A c√≥pia dos arquivos pelo <prgn>apt</prgn> pode ser feita 
+via <tt>FTP</tt>, <tt>HTTP</tt> ou atrav√©s de uma c√≥pia local dos 
+arquivos no disco r√≠gido (um <em>mirror</em> local). Em nenhuma 
+circunst√¢ncia os pacotes existentes em seu sistema ser√£o removidos 
+ou sua configura√ß√£o apagada durante um <tt>upgrade</tt> na distribui√ß√£o. 
  <p>
-Os arquivos de configuraÁ„o em <file>/etc</file> que foram modificados  
-s„o identificados e podem ser mantidos ou substituÌdos por versıes 
-existentes nos pacotes que est„o sendo instalado, esta escolha È feita 
-por vocÍ. Se estiver atualizando a Debian Potato (2.2) para Woody (3.0)
-(ou vers„o superior), execute os seguintes comandos antes de iniciar 
-a atualizaÁ„o: 
+Os arquivos de configura√ß√£o em <file>/etc</file> que foram modificados  
+s√£o identificados e podem ser mantidos ou substitu√≠dos por vers√µes 
+existentes nos pacotes que est√£o sendo instalado, esta escolha √© feita 
+por voc√™. Se estiver atualizando a Debian Potato (2.2) para Woody (3.0)
+(ou vers√£o superior), execute os seguintes comandos antes de iniciar 
+a atualiza√ß√£o: 
 <example>
 export LANG=C
 export LC_ALL=C
 export LC_MESSAGES=C
 
 </example>
-para retornar as vari·veis de localizaÁ„o ao valor padr„o (inglÍs). Isto 
-È necess·rio por causa de modificaÁıes no sistema de locales, e o 
+para retornar as vari√°veis de localiza√ß√£o ao valor padr√£o (ingl√™s). Isto 
+√© necess√°rio por causa de modifica√ß√µes no sistema de locales, e o 
 excesso de mensagens de erro do perl causaram alguns problemas em 
 meus testes. 
  <p>
-ApÛs isto, a atualizaÁ„o da distribuiÁ„o <prgn>Debian</prgn> pode ser feita 
-atravÈs de dois simples comandos: 
+Ap√≥s isto, a atualiza√ß√£o da distribui√ß√£o <prgn>Debian</prgn> pode ser feita 
+atrav√©s de dois simples comandos: 
 <example>
-apt-get update          #Para atualizar a lista de pacotes (obrigatÛrio)
-apt-get -f dist-upgrade #Para atualizar a distribuiÁ„o 
+apt-get update          #Para atualizar a lista de pacotes (obrigat√≥rio)
+apt-get -f dist-upgrade #Para atualizar a distribui√ß√£o 
 </example>
-A opÁ„o <tt>-f</tt> faz com que o <prgn>apt</prgn> verifique e corrija 
-automaticamente problemas de dependÍncias entre pacotes. Recomendo 
+A op√ß√£o <tt>-f</tt> faz com que o <prgn>apt</prgn> verifique e corrija 
+automaticamente problemas de depend√™ncias entre pacotes. Recomendo 
 executa o comando <tt>apt-get -f --dry-run dist-upgrade|less</tt> 
-para ver o que vai acontecer sem atualizar a distribuiÁ„o, se tudo 
-ocorrer bem, retire o <tt>--dry-run</tt> e v· em frente. 
+para ver o que vai acontecer sem atualizar a distribui√ß√£o, se tudo 
+ocorrer bem, retire o <tt>--dry-run</tt> e v√° em frente. 
  <p>
-A distribuiÁ„o usada na atualizaÁ„o pode ser:
+A distribui√ß√£o usada na atualiza√ß√£o pode ser:
 <list compact>
  <item>
-<tt>Para a mesma vers„o que utiliza</tt> - Para quem deseja manter os 
-pacotes sempre atualizados entre revisıes, copiar pacotes que contÈm 
-correÁıes para falhas de seguranÁa (veja a p·gina web em 
-<url id="&url-debian-www;"> para acompanhar o boletim de seguranÁa). 
+<tt>Para a mesma vers√£o que utiliza</tt> - Para quem deseja manter os 
+pacotes sempre atualizados entre revis√µes, copiar pacotes que cont√©m 
+corre√ß√µes para falhas de seguran√ßa (veja a p√°gina web em 
+<url id="&url-debian-www;"> para acompanhar o boletim de seguran√ßa). 
  <item>
-<tt>Para uma distribuiÁ„o stable</tt> - Mesmo que o acima, mas quando uma 
-nova distribuiÁ„o for lanÁada, o link simbÛlico de stable ser· apontado 
-para prÛxima distribuiÁ„o, atualizando instantaneamente seu sistema. 
+<tt>Para uma distribui√ß√£o stable</tt> - Mesmo que o acima, mas quando uma 
+nova distribui√ß√£o for lan√ßada, o link simb√≥lico de stable ser√° apontado 
+para pr√≥xima distribui√ß√£o, atualizando instantaneamente seu sistema. 
  <item>
-<tt>Para a distribuiÁ„o testing</tt> - Atualiza para a futura distribuiÁ„o 
-<prgn>Debian</prgn> que ser· lanÁada, È como a <em>unstable</em>, mas 
-seus pacotes passam por um perÌodo de testes de 2 semanas na <em>unstable</em> 
+<tt>Para a distribui√ß√£o testing</tt> - Atualiza para a futura distribui√ß√£o 
+<prgn>Debian</prgn> que ser√° lan√ßada, √© como a <em>unstable</em>, mas 
+seus pacotes passam por um per√≠odo de testes de 2 semanas na <em>unstable</em> 
 antes de serem copiados para esta. 
  <item>
-<tt>unstable</tt> - Vers„o em desenvolvimento, recomendada somente 
-para desenvolvedores ou usu·rios que conhecem a fundo o sistema 
-<prgn>GNU/Linux</prgn> e saibam resolver eventuais problemas que apareÁam. 
+<tt>unstable</tt> - Vers√£o em desenvolvimento, recomendada somente 
+para desenvolvedores ou usu√°rios que conhecem a fundo o sistema 
+<prgn>GNU/Linux</prgn> e saibam resolver eventuais problemas que apare√ßam. 
  <p>
-A unstable È uma distribuiÁ„o em constante desenvolvimento e podem haver 
-pacotes problem·ticos ou com falhas de seguranÁa. ApÛs o perÌodo de 
-desenvolvimento, a distribuiÁ„o unstable se tornar· frozen.
+A unstable √© uma distribui√ß√£o em constante desenvolvimento e podem haver 
+pacotes problem√°ticos ou com falhas de seguran√ßa. Ap√≥s o per√≠odo de 
+desenvolvimento, a distribui√ß√£o unstable se tornar√° frozen.
  <item>
-<tt>frozen</tt> - Vers„o congelada, nenhum pacote novo È aceito e somente 
-s„o feitas correÁıes de falhas. ApÛs todas as falhas estarem corrigidas, 
-a distribuiÁ„o <tt>frozen</tt> se tornar· <tt>stable</tt> 
+<tt>frozen</tt> - Vers√£o congelada, nenhum pacote novo √© aceito e somente 
+s√£o feitas corre√ß√µes de falhas. Ap√≥s todas as falhas estarem corrigidas, 
+a distribui√ß√£o <tt>frozen</tt> se tornar√° <tt>stable</tt> 
 </list>
-A distribuiÁ„o que ser· usada na atualizaÁ„o pode ser especificada no 
-arquivo <file>/etc/apt/sources.list</file> (veja a seÁ„o correspondente 
-acima). Caso o mÈtodo de atualizaÁ„o usado seja via HTTP ou FTP, ser· 
-necess·rio usar o comando <tt>apt-get clean</tt> para remover os pacotes 
-copiados para seu sistema (para detalhes veja a seÁ„o seguinte). 
+A distribui√ß√£o que ser√° usada na atualiza√ß√£o pode ser especificada no 
+arquivo <file>/etc/apt/sources.list</file> (veja a se√ß√£o correspondente 
+acima). Caso o m√©todo de atualiza√ß√£o usado seja via HTTP ou FTP, ser√° 
+necess√°rio usar o comando <tt>apt-get clean</tt> para remover os pacotes 
+copiados para seu sistema (para detalhes veja a se√ß√£o seguinte). 
 
 
 <sect1>Removendo pacotes baixados pelo <prgn>apt</prgn>
  <p>
 Use o comando <tt>apt-get clean</tt> para apagar qualquer arquivo baixado 
-durante uma atualizaÁ„o ou instalaÁ„o de arquivos com o <prgn>apt</prgn>. 
+durante uma atualiza√ß√£o ou instala√ß√£o de arquivos com o <prgn>apt</prgn>. 
 Os arquivos baixados residem em <file>/var/cache/apt/archives</file> 
 (download completo) e <file>/var/cache/apt/archives/partial</file> 
 (arquivos sendo baixados - parciais). 
 <![ %DESCRICAOD [ 
  <p>
-Este local de armazenamento È especialmente usado com o mÈtodo 
+Este local de armazenamento √© especialmente usado com o m√©todo 
 http e ftp para armazenamento de arquivos durante o download para 
-instalaÁ„o (todos os arquivos s„o primeiro copiados para serem 
+instala√ß√£o (todos os arquivos s√£o primeiro copiados para serem 
 instalados e configurados). 
  <p>
-O <tt>apt-get clean</tt> È automaticamente executado caso seja usado 
-o mÈtodo de acesso <prgn>apt</prgn> do <prgn>dselect</prgn>. ]]>
+O <tt>apt-get clean</tt> √© automaticamente executado caso seja usado 
+o m√©todo de acesso <prgn>apt</prgn> do <prgn>dselect</prgn>. ]]>
 
 
-<sect1>Procurando por pacotes atravÈs da descriÁ„o
+<sect1>Procurando por pacotes atrav√©s da descri√ß√£o
  <p>
-O utilit·rio <prgn>apt-cache</prgn> pode ser usado para esta funÁ„o. 
-Ele tambÈm possui outras utilidades interessante para a procura 
-e manipulaÁ„o da lista de pacotes.
+O utilit√°rio <prgn>apt-cache</prgn> pode ser usado para esta fun√ß√£o. 
+Ele tamb√©m possui outras utilidades interessante para a procura 
+e manipula√ß√£o da lista de pacotes.
  <p>
-Por exemplo, o comando <tt>apt-cache search clock</tt> mostrar· todos
-os pacotes que possuem a palavra <var>clock</var> na descriÁ„o do 
+Por exemplo, o comando <tt>apt-cache search clock</tt> mostrar√° todos
+os pacotes que possuem a palavra <var>clock</var> na descri√ß√£o do 
 pacote.
 
 
-<sect1>Procurando um pacote que contÈm determinado arquivo
+<sect1>Procurando um pacote que cont√©m determinado arquivo
  <p>
 Suponha que algum programa esteja lhe pedindo o arquivo <tt>perlcc</tt> e 
-vocÍ n„o tem a mÌnima idÈia de que pacote instalar no seu sistema. O 
-utilit·rio <tt>auto-apt</tt> pode resolver esta situaÁ„o. Primeiro instale 
+voc√™ n√£o tem a m√≠nima id√©ia de que pacote instalar no seu sistema. O 
+utilit√°rio <tt>auto-apt</tt> pode resolver esta situa√ß√£o. Primeiro instale 
 o pacote <package>auto-apt</package> e execute o comando 
 <tt>auto-apt update</tt> para que ele copie o arquivo 
-<file>Contents-i386.gz</file> que ser· usado na busca desses dados. 
+<file>Contents-i386.gz</file> que ser√° usado na busca desses dados. 
  <p>
 Agora, basta executar o comando:
 <example>
@@ -584,10 +584,10 @@ para que ele retorne o resultado:
 usr/bin/perlcc   interpreters/perl
 
 </example>
-O pacote que contÈm este arquivo È o <package>perl</package> e se encontra 
-na seÁ„o <file>interpreters</file> dos arquivos da <prgn>Debian</prgn>. Para 
+O pacote que cont√©m este arquivo √© o <package>perl</package> e se encontra 
+na se√ß√£o <file>interpreters</file> dos arquivos da <prgn>Debian</prgn>. Para 
 uma pesquisa que mostra mais resultados (como <tt>auto-apt search a2ps</tt>), 
-È interessante usar o grep para filtrar a saÌda:
+√© interessante usar o grep para filtrar a sa√≠da:
 <example>
 auto-apt search a2ps|grep bin/
 
@@ -604,24 +604,24 @@ usr/bin/card    text/a2ps
 usr/bin/texi2dvi4a2ps   text/a2ps
 
 </example>
-Ser„o mostrados somente os bin·rios, diretÛrios de documentaÁ„o, manpages, etc. 
-n„o ser„o mostradas.
+Ser√£o mostrados somente os bin√°rios, diret√≥rios de documenta√ß√£o, manpages, etc. 
+n√£o ser√£o mostradas.
 
 
-<sect1>Modos eficazes de compilaÁ„o do cÛdigo fonte para a Debian
+<sect1>Modos eficazes de compila√ß√£o do c√≥digo fonte para a Debian
  <p>
-O <prgn>Debian</prgn> como qualquer distribuiÁ„o de Linux, possui o 
-diretÛrio <file>/usr/local</file> que segundo a FHS È o local apropriado
-para colocaÁ„o de programas que n„o fazem parte da distribuiÁ„o, que seria
+O <prgn>Debian</prgn> como qualquer distribui√ß√£o de Linux, possui o 
+diret√≥rio <file>/usr/local</file> que segundo a FHS √© o local apropriado
+para coloca√ß√£o de programas que n√£o fazem parte da distribui√ß√£o, que seria
 no caso o de fontes compilados manualmente. Um dos grandes trabalhos de 
-quem pega o cÛdigo fonte para compilaÁ„o È a instalaÁ„o de bibliotecas de 
-desenvolvimento para a compilaÁ„o ocorrer com sucesso.
+quem pega o c√≥digo fonte para compila√ß√£o √© a instala√ß√£o de bibliotecas de 
+desenvolvimento para a compila√ß√£o ocorrer com sucesso.
  <p>
-O <prgn>auto-apt</prgn> facilita magicamente o processo de compilaÁ„o 
+O <prgn>auto-apt</prgn> facilita magicamente o processo de compila√ß√£o 
 da seguinte forma: durante o passo <tt>./configure</tt> no momento que 
-È pedida uma bibliotecas, dependÍncia, etc. o <prgn>auto-apt</prgn> 
-para o processo, busca por pacotes no repositÛrio da <prgn>Debian</prgn>,
-pergunta qual pacote ser· instalado (caso tenha mais de uma opÁ„o), 
+√© pedida uma bibliotecas, depend√™ncia, etc. o <prgn>auto-apt</prgn> 
+para o processo, busca por pacotes no reposit√≥rio da <prgn>Debian</prgn>,
+pergunta qual pacote ser√° instalado (caso tenha mais de uma op√ß√£o), 
 instala e retorna o <tt>./configure</tt> do ponto onde havia parado.
  <p>
 Para fazer isso, execute o comando:
@@ -629,19 +629,19 @@ Para fazer isso, execute o comando:
 auto-apt run ./configure
 
 </example>
-E ele se encarregar· do resto :-)
+E ele se encarregar√° do resto :-)
 
 
 <sect1>Verificando pacotes corrompidos
  <p>
 Use o comando <tt>apt-get check</tt> para verificar arquivos corrompidos. 
-A correÁ„o È feita automaticamente. A lista de pacotes tambÈm È atualizada 
+A corre√ß√£o √© feita automaticamente. A lista de pacotes tamb√©m √© atualizada 
 quando utiliza este comando. 
 
 
-<sect1>Corrigindo problemas de dependÍncias e outros erros 
+<sect1>Corrigindo problemas de depend√™ncias e outros erros 
  <p>
 Use o comando <tt>apt-get -f install</tt> (sem o nome do pacote) para 
-que o <prgn>apt-get</prgn> verifique e corrija problemas com dependÍncias 
+que o <prgn>apt-get</prgn> verifique e corrija problemas com depend√™ncias 
 de pacotes e outros problemas conhecidos. 
 

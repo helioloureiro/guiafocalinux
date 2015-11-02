@@ -1,123 +1,123 @@
 <chapt id="cpctd">Compactadores
  <p>
-Esta seÁ„o explica o que s„o e como usar programas compactadores 
-no <prgn>GNU/Linux</prgn>, as caracterÌsticas de cada um, como 
+Esta se√ß√£o explica o que s√£o e como usar programas compactadores 
+no <prgn>GNU/Linux</prgn>, as caracter√≠sticas de cada um, como 
 identificar um arquivo compactado e como descompactar um 
 arquivo compactado usando o programa correspondente. 
  <p>
-A utilizaÁ„o de arquivos compactados È mÈtodo ˙til principalmente 
-para reduzir o consumo de espaÁo em disco ou permitir grandes 
+A utiliza√ß√£o de arquivos compactados √© m√©todo √∫til principalmente 
+para reduzir o consumo de espa√ßo em disco ou permitir grandes 
 quantidades de texto serem transferidas para outro computador 
-atravÈs de disquetes. 
+atrav√©s de disquetes. 
 
 
 <sect id="cpctd-oque">O que fazem os compactadores/descompactadores?
  <p>
-Compactadores s„o programas que diminuem o tamanho de um arquivo 
-(ou arquivos) atravÈs da substituiÁ„o de caracteres repetidos. 
-Para entender melhor como eles funcionam, veja o prÛximo exemplo:
+Compactadores s√£o programas que diminuem o tamanho de um arquivo 
+(ou arquivos) atrav√©s da substitui√ß√£o de caracteres repetidos. 
+Para entender melhor como eles funcionam, veja o pr√≥ximo exemplo:
 <example>
 compactadores compactam e deixam arquivos compactados.
 
--- apÛs a compactaÁ„o da frase --
+-- ap√≥s a compacta√ß√£o da frase --
 
 %dores %m e deixam arquivos %dos
 </example>
 O que aconteceu realmente foi que a palavra <tt>compacta</tt> se 
-encontrava 3 vezes na frase acima, e foi substituÌda por um 
+encontrava 3 vezes na frase acima, e foi substitu√≠da por um 
 sinal de <tt>%</tt>. 
-Para descompactar o processo seria o contr·rio: Ele substituiria 
-% por <tt>compacta</tt> e nÛs temos a frase novamente restaurada. 
+Para descompactar o processo seria o contr√°rio: Ele substituiria 
+% por <tt>compacta</tt> e n√≥s temos a frase novamente restaurada. 
  <p>
-VocÍ deve ter notado que o tamanho da frase <tt>compactada</tt> caiu 
-quase pela metade. A quantidade de compactaÁ„o de um arquivo È chamada 
-de <em>taxa de compactaÁ„o</em>. Assim se o tamanho do arquivo for 
-diminuÌdo a metade apÛs a compactaÁ„o, dizemos que conseguiu uma 
-<em>taxa de compactaÁ„o</em> de 2:1 (lÍ-se dois para um), se o arquivo 
-diminuiu 4 vezes, dizemos que conseguiu uma compactaÁ„o de 4:1 (quatro para 
+Voc√™ deve ter notado que o tamanho da frase <tt>compactada</tt> caiu 
+quase pela metade. A quantidade de compacta√ß√£o de um arquivo √© chamada 
+de <em>taxa de compacta√ß√£o</em>. Assim se o tamanho do arquivo for 
+diminu√≠do a metade ap√≥s a compacta√ß√£o, dizemos que conseguiu uma 
+<em>taxa de compacta√ß√£o</em> de 2:1 (l√™-se dois para um), se o arquivo 
+diminuiu 4 vezes, dizemos que conseguiu uma compacta√ß√£o de 4:1 (quatro para 
 um) e assim por diante. 
  <p>
-Para controle dos caracteres que s„o usados nas substituiÁıes, os 
-programas de compactaÁ„o mantÈm cabeÁalhos com todas as substituiÁıes 
-usadas durante a compactaÁ„o. O tamanho do cabeÁalho pode ser fixo ou 
-definido pelo usu·rio, depende do programa usado na compactaÁ„o. 
+Para controle dos caracteres que s√£o usados nas substitui√ß√µes, os 
+programas de compacta√ß√£o mant√©m cabe√ßalhos com todas as substitui√ß√µes 
+usadas durante a compacta√ß√£o. O tamanho do cabe√ßalho pode ser fixo ou 
+definido pelo usu√°rio, depende do programa usado na compacta√ß√£o. 
  <p>
-Este È um exemplo bem simples para entender o que acontece durante 
-a compactaÁ„o, os programas de compactaÁ„o executam instruÁıes 
-muito avanÁadas e cÛdigos complexos para atingir um alta taxa de 
-compactaÁ„o. 
+Este √© um exemplo bem simples para entender o que acontece durante 
+a compacta√ß√£o, os programas de compacta√ß√£o executam instru√ß√µes 
+muito avan√ßadas e c√≥digos complexos para atingir um alta taxa de 
+compacta√ß√£o. 
 <![ %OBS [
  <p>
-ObservaÁıes:
+Observa√ß√µes:
 <list compact>
  <item>
-N„o È possÌvel trabalhar diretamente com arquivos compactados! … necess·rio 
+N√£o √© poss√≠vel trabalhar diretamente com arquivos compactados! √â necess√°rio 
 descompactar o arquivo para usa-lo. Note que alguns programas atualmente 
 suportam a abertura de arquivos compactados, mas na realidade eles apenas 
 simplificam a tarefa descompactando o arquivo, abrindo e o recompactando 
-assim que o trabalho estiver concluÌdo. 
+assim que o trabalho estiver conclu√≠do. 
  <item>
-Arquivos de texto tem uma taxa de compactaÁ„o muito melhor que 
-arquivos bin·rios, porque possuem mais caracteres repetidos. … normal 
-atingir taxas de compactaÁ„o de 10 para 1 ou mais quando se compacta 
-um arquivo texto. Arquivos bin·rios, como programas, possuem uma 
-taxa de compactaÁ„o mÈdia de 2:1. 
+Arquivos de texto tem uma taxa de compacta√ß√£o muito melhor que 
+arquivos bin√°rios, porque possuem mais caracteres repetidos. √â normal 
+atingir taxas de compacta√ß√£o de 10 para 1 ou mais quando se compacta 
+um arquivo texto. Arquivos bin√°rios, como programas, possuem uma 
+taxa de compacta√ß√£o m√©dia de 2:1. 
  <item>
-Note que tambÈm existem programas compactadores especialmente 
-desenvolvidos para compactaÁ„o de m˙sicas, arquivos bin·rios, 
+Note que tamb√©m existem programas compactadores especialmente 
+desenvolvidos para compacta√ß√£o de m√∫sicas, arquivos bin√°rios, 
 imagens, textos.
 </list>
 ]]>
 
-<sect1 id="cpctd-tipos">Tipos de compactaÁ„o
+<sect1 id="cpctd-tipos">Tipos de compacta√ß√£o
 <p>
-Existem basicamente dois tipos de compactaÁ„o, a compactaÁ„o <em>sem perdas</em>
-e a compactaÁ„o <em>com perdas</em>.
+Existem basicamente dois tipos de compacta√ß√£o, a compacta√ß√£o <em>sem perdas</em>
+e a compacta√ß√£o <em>com perdas</em>.
 <p>
 Os exemplos a seguir tentam explicar de forma simples os conceitos envolvidos.
 <p>
-A compactaÁ„o sem perdas, como o prÛprio nome diz n„o causa nenhuma perda nas
-informaÁıes contidas no arquivo. Quando vocÍ compacta e descompacta um arquivo, o
-conte˙do È o mesmo do original.
+A compacta√ß√£o sem perdas, como o pr√≥prio nome diz n√£o causa nenhuma perda nas
+informa√ß√µes contidas no arquivo. Quando voc√™ compacta e descompacta um arquivo, o
+conte√∫do √© o mesmo do original.
 <p>
-A compactaÁ„o com perdas È um tipo especÌfico de compactaÁ„o desenvolvido para
-atingir altas taxas, porÈm com perdas parciais dos dados. … aplicada a tipos de
-arquivos especiais, como m˙sicas e imagens ou arquivos que envolvam a percepÁ„o
+A compacta√ß√£o com perdas √© um tipo espec√≠fico de compacta√ß√£o desenvolvido para
+atingir altas taxas, por√©m com perdas parciais dos dados. √â aplicada a tipos de
+arquivos especiais, como m√∫sicas e imagens ou arquivos que envolvam a percep√ß√£o
 humana.
 <p>
-Sabe-se que o ouvido humano n„o È t„o sensÌvel a determinados sons e freq¸Íncias,
-ent„o a compactaÁ„o de um arquivo de m˙sica poderia deixar de gravar os sons que
-seriam pouco percebidos, resultando em um arquivo menor. Uma compactaÁ„o do tipo
-<em>ogg</em> ou <em>mp3</em> utiliza-se destes recursos. O arquivo resultante È
-muito menor que o original, porÈm alguns dados sonoros s„o perdidos. VocÍ sÛ notaria
-se estivesse reproduzindo a m˙sica em um equipamento de alta qualidade e se tivesse
-um ouvido bem aguÁado. Para efeitos pr·ticos, vocÍ est· ouvindo a mesma m˙sica e
-economizando muito espaÁo em disco.
-<p> Outro exemplo de compactaÁ„o com perdas s„o as imagens <em>jpg</em>. Imagine que
-vocÍ tem uma imagem com 60000 tons de cor diferentes, mas alguns tons s„o muito
-prÛximos de outros, ent„o o compactador resume para 20000 tons de cor e a imagem
-ter· 1/3 do tamanho original e o nosso olho conseguir· entender a imagem sem
-problemas e quase n„o perceber· a diferenÁa. Exemplos de extensıes utilizadas em
-imagens compactadas s„o <em>jpg</em>, <em>png</em>, <em>gif</em>.
+Sabe-se que o ouvido humano n√£o √© t√£o sens√≠vel a determinados sons e freq√º√™ncias,
+ent√£o a compacta√ß√£o de um arquivo de m√∫sica poderia deixar de gravar os sons que
+seriam pouco percebidos, resultando em um arquivo menor. Uma compacta√ß√£o do tipo
+<em>ogg</em> ou <em>mp3</em> utiliza-se destes recursos. O arquivo resultante √©
+muito menor que o original, por√©m alguns dados sonoros s√£o perdidos. Voc√™ s√≥ notaria
+se estivesse reproduzindo a m√∫sica em um equipamento de alta qualidade e se tivesse
+um ouvido bem agu√ßado. Para efeitos pr√°ticos, voc√™ est√° ouvindo a mesma m√∫sica e
+economizando muito espa√ßo em disco.
+<p> Outro exemplo de compacta√ß√£o com perdas s√£o as imagens <em>jpg</em>. Imagine que
+voc√™ tem uma imagem com 60000 tons de cor diferentes, mas alguns tons s√£o muito
+pr√≥ximos de outros, ent√£o o compactador resume para 20000 tons de cor e a imagem
+ter√° 1/3 do tamanho original e o nosso olho conseguir√° entender a imagem sem
+problemas e quase n√£o perceber√° a diferen√ßa. Exemplos de extens√µes utilizadas em
+imagens compactadas s√£o <em>jpg</em>, <em>png</em>, <em>gif</em>.
 <p>
-Apesar das vantagens da grande taxa de compactaÁ„o conseguida nos processos com
-perdas, nem sempre podemos utiliz·-lo. Quando compactamos um texto ou um programa,
-n„o podemos ter perdas, sen„o o nosso texto sofre alteraÁıes ou o programa n„o
+Apesar das vantagens da grande taxa de compacta√ß√£o conseguida nos processos com
+perdas, nem sempre podemos utiliz√°-lo. Quando compactamos um texto ou um programa,
+n√£o podemos ter perdas, sen√£o o nosso texto sofre altera√ß√µes ou o programa n√£o
 executa. Nem mesmo podemos tem perdas quando compactamos imagens ou musicas que
-ser„o utilizadas em processos posteriores de masterizaÁ„o, mixagem ou impress„o em
+ser√£o utilizadas em processos posteriores de masteriza√ß√£o, mixagem ou impress√£o em
 alta qualidade.
 
-<sect id="cpctd-extensoes">Extensıes de arquivos compactados
+<sect id="cpctd-extensoes">Extens√µes de arquivos compactados
  <p>
-As extensıes identificam o tipo de um arquivo e assim o programa 
-o programa necess·rio para trabalhar com aquele tipo de arquivo. Existem 
-dezenas de extensıes que identificam arquivos compactados. 
-<![ %DESCRICAOD [ Quando um arquivo (ou arquivos) È compactado, uma 
-extens„o correspondente ao programa usado È adicionada ao nome do arquivo 
-(caso o arquivo seja compactado pelo <prgn>gzip</prgn> receber· a extens„o 
-<file>.gz</file>, por exemplo). Ao descompactar acontece o contr·rio: 
-a extens„o È retirada do arquivo. ]]>
-Abaixo segue uma listagem de extensıes mais usadas e os programas 
+As extens√µes identificam o tipo de um arquivo e assim o programa 
+o programa necess√°rio para trabalhar com aquele tipo de arquivo. Existem 
+dezenas de extens√µes que identificam arquivos compactados. 
+<![ %DESCRICAOD [ Quando um arquivo (ou arquivos) √© compactado, uma 
+extens√£o correspondente ao programa usado √© adicionada ao nome do arquivo 
+(caso o arquivo seja compactado pelo <prgn>gzip</prgn> receber√° a extens√£o 
+<file>.gz</file>, por exemplo). Ao descompactar acontece o contr√°rio: 
+a extens√£o √© retirada do arquivo. ]]>
+Abaixo segue uma listagem de extens√µes mais usadas e os programas 
 correspondentes: 
 <list>
  <item>
@@ -142,72 +142,72 @@ Use o programa <prgn>rar</prgn> para descompacta-lo.
 
  <item>
 <file>.tar.gz</file> - Arquivo compactado pelo programa <prgn>gzip</prgn> 
-no utilit·rio de arquivamento <prgn>tar</prgn>. Para descompacta-lo, 
-vocÍ pode usar o <prgn>gzip</prgn> e depois o <prgn>tar</prgn> ou 
-somente o programa <prgn>tar</prgn> usando a opÁ„o <tt>-z</tt>. Para 
+no utilit√°rio de arquivamento <prgn>tar</prgn>. Para descompacta-lo, 
+voc√™ pode usar o <prgn>gzip</prgn> e depois o <prgn>tar</prgn> ou 
+somente o programa <prgn>tar</prgn> usando a op√ß√£o <tt>-z</tt>. Para 
 detalhes veja <ref id="cpctd-gzip"> e <ref id="cpctd-tar">. 
 
  <item>
-<file>.tgz</file> - AbreviaÁ„o de <file>.tar.gz</file>.
+<file>.tgz</file> - Abrevia√ß√£o de <file>.tar.gz</file>.
 
  <item>
 <file>.tar.bz2</file> - Arquivo compactado pelo programa 
-<prgn>bzip2</prgn> no utilit·rio de arquivamento <prgn>tar</prgn>. Para 
-descompacta-lo, vocÍ pode usar o <prgn>bzip2</prgn> e depois o 
-<prgn>tar</prgn> ou somente o programa <prgn>tar</prgn> usando a opÁ„o 
+<prgn>bzip2</prgn> no utilit√°rio de arquivamento <prgn>tar</prgn>. Para 
+descompacta-lo, voc√™ pode usar o <prgn>bzip2</prgn> e depois o 
+<prgn>tar</prgn> ou somente o programa <prgn>tar</prgn> usando a op√ß√£o 
 <tt>-j</tt>. Para detalhes veja <ref id="cpctd-bzip2"> e <ref id="cpctd-tar">. 
 
  <item>
 <file>.tar.Z</file> - Arquivo compactado pelo programa 
-<prgn>compress</prgn> no utilit·rio de arquivamento <prgn>tar</prgn>. 
-Para descompacta-lo, vocÍ pode usar o <prgn>uncompress</prgn> e 
+<prgn>compress</prgn> no utilit√°rio de arquivamento <prgn>tar</prgn>. 
+Para descompacta-lo, voc√™ pode usar o <prgn>uncompress</prgn> e 
 depois o <prgn>tar</prgn> ou somente o programa <prgn>tar</prgn> 
-usando a opÁ„o <tt>-Z</tt>. Para detalhes veja <ref id="cpctd-tar">. 
+usando a op√ß√£o <tt>-Z</tt>. Para detalhes veja <ref id="cpctd-tar">. 
 
 </list>
 
 
 <sect id="cpctd-gzip">gzip
  <p>
-… praticamente o compactador padr„o do <prgn>GNU/Linux</prgn>, possui uma 
-Ûtima taxa de compactaÁ„o e velocidade. 
-<![ %DESCRICAOD [ A extens„o dos arquivos compactados pelo 
-<prgn>gzip</prgn> È a <file>.gz</file>, na vers„o para 
-<prgn>DOS</prgn>, <prgn>Windows NT</prgn> È usada a extens„o 
+√â praticamente o compactador padr√£o do <prgn>GNU/Linux</prgn>, possui uma 
+√≥tima taxa de compacta√ß√£o e velocidade. 
+<![ %DESCRICAOD [ A extens√£o dos arquivos compactados pelo 
+<prgn>gzip</prgn> √© a <file>.gz</file>, na vers√£o para 
+<prgn>DOS</prgn>, <prgn>Windows NT</prgn> √© usada a extens√£o 
 <file>.z</file>. ]]>
  <p>
-<tt>gzip [<em>opÁıes</em>] [<em>arquivos</em>]</tt>
+<tt>gzip [<em>op√ß√µes</em>] [<em>arquivos</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag>arquivos</tag> 
  <item>
-Especifica quais arquivos ser„o compactados pelo <prgn>gzip</prgn>. Caso 
-seja usado um <tt>-</tt>, ser· assumido a entrada padr„o. Curingas podem 
-ser usados para especificar v·rios arquivos de uma sÛ vez 
+Especifica quais arquivos ser√£o compactados pelo <prgn>gzip</prgn>. Caso 
+seja usado um <tt>-</tt>, ser√° assumido a entrada padr√£o. Curingas podem 
+ser usados para especificar v√°rios arquivos de uma s√≥ vez 
 (veja <ref id="basico-curingas">). 
 
- <tag>OpÁıes</tag>
+ <tag>Op√ß√µes</tag>
  <tag>-d, --decompress [arquivo]</tag>  
  <item>
 Descompacta um arquivo. 
 
  <tag>-f</tag> 
  <item>
-ForÁa a compactaÁ„o, compactando atÈ mesmo links. 
+For√ßa a compacta√ß√£o, compactando at√© mesmo links. 
 
  <tag>-l [arquivo]</tag>
  <item>
-Lista o conte˙do de um arquivo compactado pelo <prgn>gzip</prgn>.
+Lista o conte√∫do de um arquivo compactado pelo <prgn>gzip</prgn>.
 
  <tag>-r</tag>
  <item>
-Compacta diretÛrios e sub-diretÛrios.
+Compacta diret√≥rios e sub-diret√≥rios.
 
  <tag>-c [arquivo]</tag>
  <item>
-Descompacta o arquivo para a saÌda padr„o.
+Descompacta o arquivo para a sa√≠da padr√£o.
 
  <tag>-t [arquivo]</tag>
  <item>
@@ -215,25 +215,25 @@ Testa o arquivo compactado pelo <prgn>gzip</prgn>.
 
  <tag>-[num], --fast, --best</tag>
  <item>
-Ajustam a taxa de compactaÁ„o/velocidade da compactaÁ„o. Quanto melhor a 
-taxa  menor È a velocidade de compactaÁ„o e vice versa. A opÁ„o 
-<tt>--fast</tt> permite uma compactaÁ„o r·pida e tamanho do arquivo 
-maior. A opÁ„o <tt>--best</tt> permite uma melhor compactaÁ„o e uma 
+Ajustam a taxa de compacta√ß√£o/velocidade da compacta√ß√£o. Quanto melhor a 
+taxa  menor √© a velocidade de compacta√ß√£o e vice versa. A op√ß√£o 
+<tt>--fast</tt> permite uma compacta√ß√£o r√°pida e tamanho do arquivo 
+maior. A op√ß√£o <tt>--best</tt> permite uma melhor compacta√ß√£o e uma 
 velocidade menor. 
  <p>
-O uso da opÁ„o <tt>-[n˙mero]</tt> permite especificar uma compactaÁ„o 
-individualmente usando n˙meros entre 1 (menor compactaÁ„o) e 9 (melhor 
-compactaÁ„o). … ˙til para buscar um bom equilibro entre taxa de 
-compactaÁ„o/velocidade (especialmente em computadores muito lentos). 
+O uso da op√ß√£o <tt>-[n√∫mero]</tt> permite especificar uma compacta√ß√£o 
+individualmente usando n√∫meros entre 1 (menor compacta√ß√£o) e 9 (melhor 
+compacta√ß√£o). √â √∫til para buscar um bom equilibro entre taxa de 
+compacta√ß√£o/velocidade (especialmente em computadores muito lentos). 
 
 </taglist>
 ]]>
-Quando um arquivo È compactado pelo <prgn>gzip</prgn>, È automaticamente 
-acrescentada a extens„o <file>.gz</file> ao seu nome.
+Quando um arquivo √© compactado pelo <prgn>gzip</prgn>, √© automaticamente 
+acrescentada a extens√£o <file>.gz</file> ao seu nome.
  <p>
-O <prgn>gzip</prgn> tambÈm reconhece arquivos compactados pelos 
+O <prgn>gzip</prgn> tamb√©m reconhece arquivos compactados pelos 
 programas <prgn>zip</prgn>, <prgn>compress</prgn>, <prgn>compress -H</prgn> 
-e <prgn>pack</prgn>. As permissıes de acesso dos arquivos s„o tambÈm 
+e <prgn>pack</prgn>. As permiss√µes de acesso dos arquivos s√£o tamb√©m 
 armazenadas no arquivo compactado. 
 <![ %EXEMPLO [
  <p>
@@ -241,7 +241,7 @@ Exemplos:
 <list compact>
  <item>
 <tt>gzip -9 texto.txt</tt> - Compacta o arquivo <file>texto.txt</file> usando 
-a compactaÁ„o m·xima (compare o tamanho do arquivo compactado usando o 
+a compacta√ß√£o m√°xima (compare o tamanho do arquivo compactado usando o 
 comando <tt>ls -la</tt>). 
  <item>
 <tt>gzip -d texto.txt.gz</tt> - Descompacta o arquivo <file>texto.txt</file> 
@@ -259,15 +259,15 @@ para a tela
 
 <sect id="cpctd-zip">zip
  <p>
-Utilit·rio de compactaÁ„o compatÌvel com <prgn>pkzip</prgn> 
-(do <prgn>DOS</prgn>) e trabalha com arquivos de extens„o 
+Utilit√°rio de compacta√ß√£o compat√≠vel com <prgn>pkzip</prgn> 
+(do <prgn>DOS</prgn>) e trabalha com arquivos de extens√£o 
 <file>.zip</file>. 
 <![ %DESCRICAOD [ 
-Possui uma Ûtima taxa de compactaÁ„o e velocidade no processamento 
+Possui uma √≥tima taxa de compacta√ß√£o e velocidade no processamento 
 dos arquivos compactados (comparando-se ao <prgn>gzip</prgn>). 
 ]]>
  <p>
-<tt>zip [<em>opÁıes</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
+<tt>zip [<em>op√ß√µes</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
 </tt>
  <p>
 <![ %OPCOES [
@@ -275,31 +275,31 @@ Onde:
 <taglist compact>
  <tag>arquivo-destino</tag>
  <item>
-Nome do arquivo compactado que ser· gerado.
+Nome do arquivo compactado que ser√° gerado.
 
  <tag>arquivos-origem</tag>
  <item>
-Arquivos/DiretÛrios que ser„o compactados. Podem ser usados curingas para 
-especificar mais de um arquivo de uma sÛ vez (veja 
+Arquivos/Diret√≥rios que ser√£o compactados. Podem ser usados curingas para 
+especificar mais de um arquivo de uma s√≥ vez (veja 
 <ref id="basico-curingas">). 
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
 
  <tag>-r</tag>
  <item>
-Compacta arquivos e sub-diretÛrios. 
+Compacta arquivos e sub-diret√≥rios. 
 
  <tag>-e</tag>
  <item>
-Permite encriptar o conte˙do de um arquivo <file>.zip</file> atravÈs 
-de senha. A senha ser· pedida no momento da compactaÁ„o. 
+Permite encriptar o conte√∫do de um arquivo <file>.zip</file> atrav√©s 
+de senha. A senha ser√° pedida no momento da compacta√ß√£o. 
 
  <tag>-f</tag>
  <item>
 Somente substitui um arquivo compactado existente dentro do arquivo 
-<file>.zip</file> somente se a vers„o È mais nova que a atual. N„o 
+<file>.zip</file> somente se a vers√£o √© mais nova que a atual. N√£o 
 acrescenta arquivos ao arquivo compactado. Deve ser executado no 
-mesmo diretÛrio onde o programa <prgn>zip</prgn> foi executado 
+mesmo diret√≥rio onde o programa <prgn>zip</prgn> foi executado 
 anteriormente. 
 
  <tag>-F</tag>
@@ -308,9 +308,9 @@ Repara um arquivo <file>.zip</file> danificado.
  
  <tag>-[NUM]</tag>
  <item>
-Ajusta a qualidade/velocidade da compactaÁ„o. Pode ser especificado um n˙mero 
-de 1 a 9. O 1 permite mÌnima compactaÁ„o e m·xima velocidade, 9 permite 
-uma melhor compactaÁ„o e menor velocidade.
+Ajusta a qualidade/velocidade da compacta√ß√£o. Pode ser especificado um n√∫mero 
+de 1 a 9. O 1 permite m√≠nima compacta√ß√£o e m√°xima velocidade, 9 permite 
+uma melhor compacta√ß√£o e menor velocidade.
 
  <tag>-i [arquivos]</tag>
  <item>
@@ -318,21 +318,21 @@ Compacta somente os [arquivos] especificados.
 
  <tag>-j</tag>
  <item>
-Se especificado, n„o armazena caminhos de diretÛrios. 
+Se especificado, n√£o armazena caminhos de diret√≥rios. 
 
  <tag>-m</tag>
  <item>
-Apaga os arquivos originais apÛs a compactaÁ„o.
+Apaga os arquivos originais ap√≥s a compacta√ß√£o.
 
  <tag>-T [arquivo]</tag>
  <item>
 Procura por erros em um arquivo <file>.zip</file>. Caso sejam detectados 
-problemas, utilize a opÁ„o <tt>-F</tt> para corrigi-los. 
+problemas, utilize a op√ß√£o <tt>-F</tt> para corrigi-los. 
 
  <tag>-y</tag>
  <item>
-Armazena links simbÛlicos no arquivo <file>.zip</file>. Por padr„o, os 
-links simbÛlicos s„o ignorados durante a compactaÁ„o. 
+Armazena links simb√≥licos no arquivo <file>.zip</file>. Por padr√£o, os 
+links simb√≥licos s√£o ignorados durante a compacta√ß√£o. 
 
  <tag>-k [arquivo]</tag>
  <item>
@@ -343,27 +343,27 @@ do <prgn>DOS</prgn>.
  <item>
 Converte saltos de linha <prgn>UNIX</prgn> (LF) para o 
 formato CR+LF (usados pelo <prgn>DOS</prgn>). Use esta 
-opÁ„o com arquivos Texto.
+op√ß√£o com arquivos Texto.
 
  <tag>-ll</tag>
  <item>
 Converte saltos de linha <prgn>DOS</prgn> (CR+LF) para o 
-formato <prgn>UNIX</prgn> (LF). Use esta opÁ„o com 
+formato <prgn>UNIX</prgn> (LF). Use esta op√ß√£o com 
 arquivos texto. 
 
- <tag>-n [extens„o]</tag>
+ <tag>-n [extens√£o]</tag>
  <item>
-N„o compacta arquivos identificados por [extens„o]. Ele È armazenado 
-sem compactaÁ„o no arquivo <file>.zip</file>, muito ˙til para uso com 
-arquivos j· compactados. 
+N√£o compacta arquivos identificados por [extens√£o]. Ele √© armazenado 
+sem compacta√ß√£o no arquivo <file>.zip</file>, muito √∫til para uso com 
+arquivos j√° compactados. 
  <p>
-Caso sejam especificados diversas extensıes de arquivos, elas devem ser 
+Caso sejam especificados diversas extens√µes de arquivos, elas devem ser 
 separadas por <tt>:</tt> - Por exemplo, <tt>zip -n .zip:.tgz arquivo.zip 
 *.txt</tt>. 
 
  <tag>-q</tag>
  <item>
-N„o mostra mensagens durante a compactaÁ„o do arquivo. 
+N√£o mostra mensagens durante a compacta√ß√£o do arquivo. 
 
  <tag>-u</tag>
  <item>
@@ -371,36 +371,36 @@ Atualiza/adiciona arquivos ao arquivo <file>.zip</file>
 
  <tag>-X</tag>
  <item>
-N„o armazena detalhes de permissıes, UID, GID e datas dos arquivos.
+N√£o armazena detalhes de permiss√µes, UID, GID e datas dos arquivos.
 
  <tag>-z</tag>
  <item>
-Permite incluir um coment·rio no arquivo <file>.zip</file>. 
+Permite incluir um coment√°rio no arquivo <file>.zip</file>. 
 
 </taglist>
 ]]>
-Caso o nome de arquivo de destino n„o termine com <file>.zip</file>, esta 
-extens„o ser· automaticamente adicionada. Para a descompactaÁ„o de 
-arquivos <file>.zip</file> no <prgn>GNU/Linux</prgn>, È necess·rio o uso do 
-utilit·rio <prgn>unzip</prgn>. 
+Caso o nome de arquivo de destino n√£o termine com <file>.zip</file>, esta 
+extens√£o ser√° automaticamente adicionada. Para a descompacta√ß√£o de 
+arquivos <file>.zip</file> no <prgn>GNU/Linux</prgn>, √© necess√°rio o uso do 
+utilit√°rio <prgn>unzip</prgn>. 
 <![ %EXEMPLO [
 Exemplos: 
  <p>
 <list compact>
  <item>
-<tt>zip textos.zip *.txt</tt> - Compacta todos os arquivos com a extens„o 
+<tt>zip textos.zip *.txt</tt> - Compacta todos os arquivos com a extens√£o 
 <file>.txt</file> para o arquivo <file>textos.zip</file> (compare o tamanho 
 do arquivo compactado digitando <tt>ls -la</tt>). 
  <item>
 <tt>zip -r textos.zip /usr/*.txt</tt> - Compacta todos os arquivos com a 
-extens„o <file>.txt</file> do diretÛrio <file>/usr</file> e sub-diretÛrios 
+extens√£o <file>.txt</file> do diret√≥rio <file>/usr</file> e sub-diret√≥rios 
 para o arquivo <file>textos.zip</file>. 
  <item>
-<tt>zip -9 textos.zip *</tt> - Compacta todos os arquivos do diretÛrio 
-atual usando a compactaÁ„o m·xima para o arquivo <file>textos.zip</file>. 
+<tt>zip -9 textos.zip *</tt> - Compacta todos os arquivos do diret√≥rio 
+atual usando a compacta√ß√£o m√°xima para o arquivo <file>textos.zip</file>. 
  <item>
 <tt>zip -T textos.zip</tt> - Verifica se o arquivo <file>textos.zip</file> 
-contÈm erros. 
+cont√©m erros. 
 </list>
 ]]>
 
@@ -409,11 +409,11 @@ contÈm erros.
  <p>
 Descompacta arquivos <file>.zip</file> criados com o programa 
 <prgn>zip</prgn>. 
-<![ %DESCRICAOD [ Este programa tambÈm È compatÌvel com arquivos 
+<![ %DESCRICAOD [ Este programa tamb√©m √© compat√≠vel com arquivos 
 compactados pelo <prgn>pkzip</prgn> do <prgn>DOS</prgn>. ]]>
  <p>
-<tt>unzip [<em>opÁıes</em>] [<em>arquivo.zip</em>] 
-[<em>arquivos-extrair</em>] [<em>-d diretÛrio</em>]
+<tt>unzip [<em>op√ß√µes</em>] [<em>arquivo.zip</em>] 
+[<em>arquivos-extrair</em>] [<em>-d diret√≥rio</em>]
 </tt>
  <p>
 <![ %OPCOES [
@@ -426,24 +426,24 @@ especificar mais de um arquivo para ser descompactado.
 
  <tag>arquivos-extrair</tag>
  <item>
-Nome dos arquivos (separados por espaÁo) que ser„o descompactados do arquivo 
-<file>.zip</file>. Caso n„o seja especificado, È assumido <tt>*</tt> (todos 
-os arquivos ser„o descompactados). 
+Nome dos arquivos (separados por espa√ßo) que ser√£o descompactados do arquivo 
+<file>.zip</file>. Caso n√£o seja especificado, √© assumido <tt>*</tt> (todos 
+os arquivos ser√£o descompactados). 
  <p>
-Se for usado <tt>-x arquivos</tt>, os arquivos especificados n„o ser„o 
-descompactados. O uso de curingas È permitido.  
+Se for usado <tt>-x arquivos</tt>, os arquivos especificados n√£o ser√£o 
+descompactados. O uso de curingas √© permitido.  
 
- <tag>-d diretÛrio</tag>
+ <tag>-d diret√≥rio</tag>
  <item>
-DiretÛrio onde os arquivos ser„o descompactados. Caso n„o for especificado, 
-os arquivos ser„o descompactados no diretÛrio atual. 
+Diret√≥rio onde os arquivos ser√£o descompactados. Caso n√£o for especificado, 
+os arquivos ser√£o descompactados no diret√≥rio atual. 
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>-c</tag>
  <item>
-Descompacta os arquivos para stdout (saÌda padr„o) ao invÈs de criar 
-arquivos. Os nomes dos arquivos tambÈm s„o mostrados 
-(veja a opÁ„o <tt>-p</tt>). 
+Descompacta os arquivos para stdout (sa√≠da padr√£o) ao inv√©s de criar 
+arquivos. Os nomes dos arquivos tamb√©m s√£o mostrados 
+(veja a op√ß√£o <tt>-p</tt>). 
 
  <tag>-f</tag>
  <item>
@@ -457,32 +457,32 @@ Lista os arquivos existentes dentro do arquivo <file>.zip</file>.
  <tag>-M</tag>
  <item>
 Efetua uma pausa a cada tela de dados durante o processamento (a mesma 
-funÁ„o do comando <prgn>more</prgn>). 
+fun√ß√£o do comando <prgn>more</prgn>). 
 
  <tag>-n</tag>
  <item>
-Nunca substitui arquivos j· existentes. Se um arquivo existe ele È pulado. 
+Nunca substitui arquivos j√° existentes. Se um arquivo existe ele √© pulado. 
 
  <tag>-o</tag>
  <item>
-Substitui arquivos existentes sem perguntar. Tem a funÁ„o contr·ria a opÁ„o 
+Substitui arquivos existentes sem perguntar. Tem a fun√ß√£o contr√°ria a op√ß√£o 
 <tt>-n</tt>. 
  
  <tag>-P [SENHA]</tag>
  <item>
 Permite descompactar arquivos <file>.zip</file> usando a [SENHA]. CUIDADO!
- qualquer usu·rio conectado em seu sistema pode ver a senha digitada na 
+ qualquer usu√°rio conectado em seu sistema pode ver a senha digitada na 
 linha de comando digitada. 
 
  <tag>-p</tag>
  <item>
-Descompacta os arquivos para stdout (saÌda padr„o) ao invÈs de criar 
-arquivos. Os nomes dos arquivos n„o s„o mostrados 
-(veja a opÁ„o <tt>-c</tt>). 
+Descompacta os arquivos para stdout (sa√≠da padr√£o) ao inv√©s de criar 
+arquivos. Os nomes dos arquivos n√£o s√£o mostrados 
+(veja a op√ß√£o <tt>-c</tt>). 
 
  <tag>-q</tag>
  <item>
-N„o mostra mensagens. 
+N√£o mostra mensagens. 
 
  <tag>-t</tag>
  <item>
@@ -490,8 +490,8 @@ Verifica o arquivo <file>.zip</file> em busca de erros.
 
  <tag>-u</tag>
  <item>
-IdÍntico a opÁ„o <tt>-f</tt> sÛ que tambÈm cria arquivos que n„o existem 
-no diretÛrio. 
+Id√™ntico a op√ß√£o <tt>-f</tt> s√≥ que tamb√©m cria arquivos que n√£o existem 
+no diret√≥rio. 
 
  <tag>-v</tag> 
  <item>
@@ -499,26 +499,26 @@ Mostra mais detalhes sobre o processamento do <prgn>unzip</prgn>.
 
  <tag>-z</tag>
  <item>
-Mostra somente o coment·rio existente no arquivo.
+Mostra somente o coment√°rio existente no arquivo.
 </taglist>
 ]]>
-Por padr„o o <prgn>unzip</prgn> tambÈm descompacta sub-diretÛrios 
+Por padr√£o o <prgn>unzip</prgn> tamb√©m descompacta sub-diret√≥rios 
 caso o arquivo <file>.zip</file> tenha sido gerado com <prgn>zip -r</prgn>. 
 <![ %EXEMPLO [
  <p>
 Exemplos:
 <list compact>
  <item>
-<tt>unzip texto.zip</tt> - Descompacta o conte˙do do arquivo 
-<file>texto.zip</file> no diretÛrio atual.
+<tt>unzip texto.zip</tt> - Descompacta o conte√∫do do arquivo 
+<file>texto.zip</file> no diret√≥rio atual.
  <item>
 <tt>unzip texto.zip carta.txt</tt> - Descompacta somente o arquivo 
 <file>carta.txt</file> do arquivo <file>texto.zip</file>. 
  <item>
-<tt>unzip texto.zip -d /tmp/texto</tt> - Descompacta o conte˙do do 
-arquivo <file>texto.zip</file> para o diretÛrio <file>/tmp/texto</file>. 
+<tt>unzip texto.zip -d /tmp/texto</tt> - Descompacta o conte√∫do do 
+arquivo <file>texto.zip</file> para o diret√≥rio <file>/tmp/texto</file>. 
  <item>
-<tt>unzip -l texto.zip</tt> - Lista o conte˙do do arquivo 
+<tt>unzip -l texto.zip</tt> - Lista o conte√∫do do arquivo 
 <file>texto.zip</file>.
  <item>
 <tt>unzip -t texto.zip</tt> - Verifica o arquivo <file>texto.zip</file>. 
@@ -528,21 +528,21 @@ arquivo <file>texto.zip</file> para o diretÛrio <file>/tmp/texto</file>.
 
 <sect id="cpctd-tar">tar
  <p>
-Na verdade o <prgn>tar</prgn> n„o È um compactador e sim um "arquivador"
-(ele junta v·rios arquivos em um sÛ), mas pode ser usado em conjunto com 
+Na verdade o <prgn>tar</prgn> n√£o √© um compactador e sim um "arquivador"
+(ele junta v√°rios arquivos em um s√≥), mas pode ser usado em conjunto com 
 um compactar (como o <prgn>gzip</prgn> ou <prgn>zip</prgn>) para 
-armazena-los compactados. O <prgn>tar</prgn> tambÈm È muito usado para 
-cÛpias de arquivos especiais ou dispositivos do sistema. 
+armazena-los compactados. O <prgn>tar</prgn> tamb√©m √© muito usado para 
+c√≥pias de arquivos especiais ou dispositivos do sistema. 
 <![ %DESCRICAOD [ 
-… comum encontrar arquivos com a extens„o <file>.tar</file>, 
+√â comum encontrar arquivos com a extens√£o <file>.tar</file>, 
 <file>.tar.gz</file>, <file>.tgz</file>, <file>.tar.bz2</file>, 
-<file>.tar.Z</file>, <file>.tgZ</file>, o primeiro È um arquivo normal 
-gerado pelo <prgn>tar</prgn> e todos os outros s„o arquivos gerados atravÈs 
-<prgn>tar</prgn> junto com um programa de compactaÁ„o 
+<file>.tar.Z</file>, <file>.tgZ</file>, o primeiro √© um arquivo normal 
+gerado pelo <prgn>tar</prgn> e todos os outros s√£o arquivos gerados atrav√©s 
+<prgn>tar</prgn> junto com um programa de compacta√ß√£o 
 (<prgn>gzip</prgn> (<file>.gz</file>), <prgn>bzip2</prgn> (<file>.bz2</file>) 
 e <prgn>compress</prgn> (<file>.Z</file>). ]]> 
  <p>
-<tt>tar [<em>opÁıes</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
+<tt>tar [<em>op√ß√µes</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
 </tt> 
  <p>
 <![ %OPCOES [
@@ -550,23 +550,23 @@ Onde:
 <taglist compact>
  <tag>arquivo-destino</tag>
  <item>
-… o nome do arquivo de destino. Normalmente especificado com a extens„o 
+√â o nome do arquivo de destino. Normalmente especificado com a extens√£o 
 <file>.tar</file> caso seja usado somente o arquivamento ou 
-<file>.tar.gz</file>/<file>.tgz</file> caso seja usada a compactaÁ„o 
-(usando a opÁ„o <tt>-z</tt>). 
+<file>.tar.gz</file>/<file>.tgz</file> caso seja usada a compacta√ß√£o 
+(usando a op√ß√£o <tt>-z</tt>). 
 
  <tag>arquivos-origem</tag>
  <item>
-Especifica quais arquivos/diretÛrios ser„o compactados.
+Especifica quais arquivos/diret√≥rios ser√£o compactados.
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>-c, --create</tag>
  <item>
 Cria um novo arquivo <file>.tar</file>
 
  <tag>-t, --list</tag>
  <item>
-Lista o conte˙do de um arquivo <file>.tar</file>
+Lista o conte√∫do de um arquivo <file>.tar</file>
 
  <tag>-u, --update</tag>
  <item>
@@ -574,7 +574,7 @@ Atualiza arquivos compactados no arquivo <file>.tar</file>
 
  <tag>-f, --file [HOST:]F</tag>
  <item>
-Usa o arquivo especificado para gravaÁ„o ou o dispositivo <file>/dev/rmt0
+Usa o arquivo especificado para grava√ß√£o ou o dispositivo <file>/dev/rmt0
 </file>.
 
  <tag>-j, --bzip2</tag>
@@ -584,40 +584,40 @@ Usa o programa <prgn>bzip2</prgn> para processar os arquivos do
 
  <tag>-l, --one-file-system</tag>
  <item>
-N„o processa arquivos em um sistema de arquivos diferentes de onde o 
+N√£o processa arquivos em um sistema de arquivos diferentes de onde o 
 <prgn>tar</prgn> foi executado.
 
  <tag>-M, --multi-volume</tag>
  <item>
-Cria/lista/descompacta arquivos em m˙ltiplos volumes. O uso de arquivos 
-em m˙ltiplos volumes permite que uma grande cÛpia de arquivos que n„o 
+Cria/lista/descompacta arquivos em m√∫ltiplos volumes. O uso de arquivos 
+em m√∫ltiplos volumes permite que uma grande c√≥pia de arquivos que n√£o 
 cabe em um disquete, por exemplo, seja feita em mais de um disquete. 
 
  <tag>-o</tag>
  <item>
-Grava o arquivo no formato VT7 ao invÈs do ANSI. 
+Grava o arquivo no formato VT7 ao inv√©s do ANSI. 
 
  <tag>-O, --to-stdout</tag>
  <item>
-Descompacta arquivos para a saÌda padr„o ao invÈs de gravar em um 
+Descompacta arquivos para a sa√≠da padr√£o ao inv√©s de gravar em um 
 arquivo. 
 
  <tag>--remove-files</tag>
  <item>
-Apaga os arquivos de origem apÛs serem processados pelo <prgn>tar</prgn>. 
+Apaga os arquivos de origem ap√≥s serem processados pelo <prgn>tar</prgn>. 
 
  <tag>-R, --record-number</tag>
  <item>
-Mostra o n˙mero de registros dentro de um arquivo <file>tar</file> em cada 
+Mostra o n√∫mero de registros dentro de um arquivo <file>tar</file> em cada 
 mensagem. 
 
  <tag>--totals</tag>
  <item>
-Mostra o total de bytes gravados com a opÁ„o <tt>--create</tt>.
+Mostra o total de bytes gravados com a op√ß√£o <tt>--create</tt>.
 
  <tag>-v</tag>
  <item>
-Mostra os nomes dos arquivos enquanto s„o processados.
+Mostra os nomes dos arquivos enquanto s√£o processados.
 
  <tag>-V [NOME]</tag>
  <item>
@@ -625,7 +625,7 @@ Inclui um [NOME] no arquivo <prgn>tar</prgn>.
 
  <tag>-W, --verify</tag>
  <item>
-Tenta verificar o arquivo gerado pelo <prgn>tar</prgn> apÛs grava-lo. 
+Tenta verificar o arquivo gerado pelo <prgn>tar</prgn> ap√≥s grava-lo. 
 
  <tag>x</tag>
  <item>
@@ -646,7 +646,7 @@ Usa o programa <prgn>gzip</prgn> durante o processamento dos arquivos.
  <tag>--use-compress-program [PROGRAMA]</tag>
  <item>
 Usa o [PROGRAMA] durante o processamento dos arquivos. Ele deve aceitar a 
-opÁ„o <tt>-d</tt>.
+op√ß√£o <tt>-d</tt>.
 
  <tag>-[0-7][lmh]</tag>
  <item>
@@ -654,25 +654,25 @@ Especifica a unidade e sua densidade.
 
 </taglist> 
 ]]>
-A extens„o precisa ser especificada no arquivo de destino 
-para a identificaÁ„o correta:
+A extens√£o precisa ser especificada no arquivo de destino 
+para a identifica√ß√£o correta:
 <list compact>
  <item>
-Arquivos gerados pelo <prgn>tar</prgn> precisam ter a extens„o 
+Arquivos gerados pelo <prgn>tar</prgn> precisam ter a extens√£o 
 <file>.tar</file>
  <item>
-Caso seja usada a opÁ„o <tt>-j</tt> para compactaÁ„o, a extens„o dever· ser 
+Caso seja usada a op√ß√£o <tt>-j</tt> para compacta√ß√£o, a extens√£o dever√° ser 
 <file>.tar.bz2</file>
  <item>
-Caso seja usada a opÁ„o <tt>-z</tt> para compactaÁ„o, a extens„o dever· ser 
+Caso seja usada a op√ß√£o <tt>-z</tt> para compacta√ß√£o, a extens√£o dever√° ser 
 <file>.tar.gz</file> ou <file>.tgz</file>
  <item>
-Caso seja usada a opÁ„o <tt>-Z</tt> para a compactaÁ„o, a extens„o dever· ser 
+Caso seja usada a op√ß√£o <tt>-Z</tt> para a compacta√ß√£o, a extens√£o dever√° ser 
 <file>.tar.Z</file> ou <file>.tgZ</file>
 </list>
-… importante saber qual qual o tipo de compactador usado durante a geraÁ„o 
-do arquivo <file>.tar</file> pois ser· necess·rio 
-especificar a opÁ„o apropriada para descompacta-lo (para detalhes veja 
+√â importante saber qual qual o tipo de compactador usado durante a gera√ß√£o 
+do arquivo <file>.tar</file> pois ser√° necess√°rio 
+especificar a op√ß√£o apropriada para descompacta-lo (para detalhes veja 
 <ref id="cpctd-extensoes">). 
 <![ %EXEMPLO [
  <p>
@@ -680,46 +680,46 @@ Exemplos:
 <list compact>
  <item>
 <tt>tar -cf index.txt.tar index.txt</tt> - Cria um arquivo chamado 
-<file>index.txt.tar</file> que armazenar· o arquivo <file>index.txt</file>. 
-VocÍ pode notar digitando <tt>ls -la</tt> que o arquivo <file>index.txt</file> 
-foi somente arquivado (sem compactaÁ„o), isto È ˙til para juntar diversos 
-arquivos em um sÛ. 
+<file>index.txt.tar</file> que armazenar√° o arquivo <file>index.txt</file>. 
+Voc√™ pode notar digitando <tt>ls -la</tt> que o arquivo <file>index.txt</file> 
+foi somente arquivado (sem compacta√ß√£o), isto √© √∫til para juntar diversos 
+arquivos em um s√≥. 
  <item>
 <tt>tar -xf index.txt.tar</tt> - Desarquiva o arquivo <file>index.txt</file> 
 criado pelo comando acima. 
  <item>
 <tt>tar -czf index.txt.tar.gz index.txt</tt> - O mesmo que o exemplo de 
-arquivamento anterior, sÛ que agora È usado a opÁ„o <tt>-z</tt> 
-(compactaÁ„o atravÈs do programa <prgn>gzip</prgn>). VocÍ agora pode 
+arquivamento anterior, s√≥ que agora √© usado a op√ß√£o <tt>-z</tt> 
+(compacta√ß√£o atrav√©s do programa <prgn>gzip</prgn>). Voc√™ agora pode 
 notar digitando <tt>ls -la</tt> que o arquivo <file>index.txt</file> 
 foi compactado e depois arquivado no arquivo <file>index.txt.tar.gz</file> 
-(vocÍ tambÈm pode chama-lo de <file>index.txt.tgz</file> que tambÈm identifica 
+(voc√™ tamb√©m pode chama-lo de <file>index.txt.tgz</file> que tamb√©m identifica 
 um arquivo <file>.tar</file> compactado pelo <prgn>gzip</prgn>)
  <item>
 <tt>tar -xzf index.txt.tar.gz</tt> - Descompacta e desarquiva o 
 arquivo <file>index.txt.tar.gz</file> criado com o comando acima. 
  <item>
 <tt>gzip -dc index.tar.gz | tar -xf -</tt> - Faz o mesmo que o comando acima 
-sÛ que de uma forma diferente: Primeiro descompacta o arquivo 
-<file>index.txt.tar.gz</file> e envia a saÌda do arquivo descompactado para 
-o <prgn>tar</prgn> que desarquivar· o arquivo <file>index.txt</file>.
+s√≥ que de uma forma diferente: Primeiro descompacta o arquivo 
+<file>index.txt.tar.gz</file> e envia a sa√≠da do arquivo descompactado para 
+o <prgn>tar</prgn> que desarquivar√° o arquivo <file>index.txt</file>.
  <item>
 <tt>tar -cjf index.txt.tar.bz2 index.txt</tt> - Arquiva o arquivo 
 <file>index.txt</file> em <file>index.txt.tar.bz2</file> compactando 
-atravÈs do <prgn>bzip2</prgn> (opÁ„o -j). 
+atrav√©s do <prgn>bzip2</prgn> (op√ß√£o -j). 
  <item>
 <tt>tar -xjf index.txt.tar.bz2</tt> - Descompacta e desarquiva o 
 arquivo <file>index.txt.tar.bz2</file> criado com o comando acima. 
  <item>
 <tt>bzip2 -dc index.txt.tar.bz2 | tar -xf -</tt> - Faz o mesmo que o 
-comando acima sÛ que de uma forma diferente: Primeiro descompacta o arquivo 
-<file>index.txt.tar.bz2</file> e envia a saÌda do arquivo descompactado para 
-o <prgn>tar</prgn> que desarquivar· o arquivo <file>index.txt</file>.
+comando acima s√≥ que de uma forma diferente: Primeiro descompacta o arquivo 
+<file>index.txt.tar.bz2</file> e envia a sa√≠da do arquivo descompactado para 
+o <prgn>tar</prgn> que desarquivar√° o arquivo <file>index.txt</file>.
  <item>
-<tt>tar -t index.txt.tar</tt> - Lista o conte˙do de um arquivo 
+<tt>tar -t index.txt.tar</tt> - Lista o conte√∫do de um arquivo 
 <file>.tar</file>. 
  <item>
-<tt>tar -tz index.txt.tar.gz</tt> - Lista o conte˙do de um arquivo 
+<tt>tar -tz index.txt.tar.gz</tt> - Lista o conte√∫do de um arquivo 
 <file>.tar.gz</file>. 
 </list>
 
@@ -728,47 +728,47 @@ o <prgn>tar</prgn> que desarquivar· o arquivo <file>index.txt</file>.
 
 <sect id="cpctd-bzip2">bzip2
  <p>
-… um novo compactador que vem sendo cada vez mais usado porque consegue 
-atingir a melhor compactaÁ„o em arquivos texto se comparado aos j· 
-existentes (em conseq¸Íncia sua velocidade de compactaÁ„o tambÈm È menor; 
-quase duas vezes mais lento que o <prgn>gzip</prgn>). Suas opÁıes s„o 
-praticamente as mesmas usadas no <prgn>gzip</prgn> e vocÍ tambÈm pode 
+√â um novo compactador que vem sendo cada vez mais usado porque consegue 
+atingir a melhor compacta√ß√£o em arquivos texto se comparado aos j√° 
+existentes (em conseq√º√™ncia sua velocidade de compacta√ß√£o tamb√©m √© menor; 
+quase duas vezes mais lento que o <prgn>gzip</prgn>). Suas op√ß√µes s√£o 
+praticamente as mesmas usadas no <prgn>gzip</prgn> e voc√™ tamb√©m pode 
 usa-lo da mesma forma. 
-<![ %DESCRICAOD [ A extens„o dos arquivos compactados pelo 
-<prgn>bzip2</prgn> È a <file>.bz2</file> ]]>
+<![ %DESCRICAOD [ A extens√£o dos arquivos compactados pelo 
+<prgn>bzip2</prgn> √© a <file>.bz2</file> ]]>
  <p>
-<tt>bzip2 [<em>opÁıes</em>] [<em>arquivos</em>]</tt>
+<tt>bzip2 [<em>op√ß√µes</em>] [<em>arquivos</em>]</tt>
  <p>
 <![ %OPCOES [
 Onde:
 <taglist compact>
  <tag>arquivos</tag> 
  <item>
-Especifica quais arquivos ser„o compactados pelo <prgn>bzip2</prgn>. Caso 
-seja usado um <tt>-</tt>, ser· assumido a entrada padr„o. Curingas podem 
-ser usados para especificar v·rios arquivos de uma sÛ vez 
+Especifica quais arquivos ser√£o compactados pelo <prgn>bzip2</prgn>. Caso 
+seja usado um <tt>-</tt>, ser√° assumido a entrada padr√£o. Curingas podem 
+ser usados para especificar v√°rios arquivos de uma s√≥ vez 
 (veja <ref id="basico-curingas">). 
 
- <tag>OpÁıes</tag>
+ <tag>Op√ß√µes</tag>
  <tag>-d, --decompress [arquivo]</tag>  
  <item>
 Descompacta um arquivo. 
 
  <tag>-f</tag> 
  <item>
-ForÁa a compactaÁ„o, compactando atÈ mesmo links. 
+For√ßa a compacta√ß√£o, compactando at√© mesmo links. 
 
  <tag>-l [arquivo]</tag>
  <item>
-Lista o conte˙do de um arquivo compactado pelo <prgn>bzip2</prgn>.
+Lista o conte√∫do de um arquivo compactado pelo <prgn>bzip2</prgn>.
 
  <tag>-r</tag>
  <item>
-Compacta diretÛrios e sub-diretÛrios.
+Compacta diret√≥rios e sub-diret√≥rios.
 
  <tag>-c [arquivo]</tag>
  <item>
-Descompacta o arquivo para a saÌda padr„o.
+Descompacta o arquivo para a sa√≠da padr√£o.
 
  <tag>-t [arquivo]</tag>
  <item>
@@ -776,35 +776,35 @@ Testa o arquivo compactado pelo <prgn>bzip2</prgn>.
 
  <tag>-[num], --fast, --best</tag>
  <item>
-Ajustam a taxa de compactaÁ„o/velocidade da compactaÁ„o. Quanto melhor a 
-taxa  menor È a velocidade de compactaÁ„o e vice versa. A opÁ„o 
-<tt>--fast</tt> permite uma compactaÁ„o r·pida e tamanho do arquivo 
-maior. A opÁ„o <tt>--best</tt> permite uma melhor compactaÁ„o e uma 
+Ajustam a taxa de compacta√ß√£o/velocidade da compacta√ß√£o. Quanto melhor a 
+taxa  menor √© a velocidade de compacta√ß√£o e vice versa. A op√ß√£o 
+<tt>--fast</tt> permite uma compacta√ß√£o r√°pida e tamanho do arquivo 
+maior. A op√ß√£o <tt>--best</tt> permite uma melhor compacta√ß√£o e uma 
 velocidade menor. 
  <p>
-O uso da opÁ„o <tt>-[n˙mero]</tt> permite especificar uma compactaÁ„o 
-individualmente usando n˙meros entre 1 (menor compactaÁ„o) e 9 (melhor 
-compactaÁ„o). … ˙til para buscar um bom equilibro entre taxa de 
-compactaÁ„o/velocidade (especialmente em computadores muito lentos). 
+O uso da op√ß√£o <tt>-[n√∫mero]</tt> permite especificar uma compacta√ß√£o 
+individualmente usando n√∫meros entre 1 (menor compacta√ß√£o) e 9 (melhor 
+compacta√ß√£o). √â √∫til para buscar um bom equilibro entre taxa de 
+compacta√ß√£o/velocidade (especialmente em computadores muito lentos). 
 
 </taglist>
 ]]>
-Quando um arquivo È compactado pelo <prgn>bzip2</prgn>, È automaticamente 
-acrescentada a extens„o <file>.bz2</file> ao seu nome. As permissıes de 
-acesso dos arquivos s„o tambÈm armazenadas no arquivo compactado. 
+Quando um arquivo √© compactado pelo <prgn>bzip2</prgn>, √© automaticamente 
+acrescentada a extens√£o <file>.bz2</file> ao seu nome. As permiss√µes de 
+acesso dos arquivos s√£o tamb√©m armazenadas no arquivo compactado. 
 <![ %EXEMPLO [
  <p>
 Exemplos:
 <list compact>
  <item>
 <tt>bzip2 -9 texto.txt</tt> - Compacta o arquivo <file>texto.txt</file> usando 
-a compactaÁ„o m·xima (compare o tamanho do arquivo compactado usando o 
+a compacta√ß√£o m√°xima (compare o tamanho do arquivo compactado usando o 
 comando <tt>ls -la</tt>). 
  <item>
 <tt>bzip2 -d texto.txt.bz2</tt> - Descompacta o arquivo <file>texto.txt</file> 
  <item>
 <tt>bzip2 -c texto.txt.bz2</tt> - Descompacta o arquivo <file>texto.txt</file> 
-para a saÌda padr„o (tela)
+para a sa√≠da padr√£o (tela)
  <item>
 <tt>bzip2 -9 *.txt</tt> - Compacta todos os arquivos que terminam com 
 <file>.txt</file>
@@ -815,15 +815,15 @@ para a saÌda padr„o (tela)
 
 <sect id="cpctd-rar">rar
  <p>
-<prgn>rar</prgn> È um compactador desenvolvido por <tt>Eugene Roshal</tt> 
-e possui versıes para <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, 
+<prgn>rar</prgn> √© um compactador desenvolvido por <tt>Eugene Roshal</tt> 
+e possui vers√µes para <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, 
 <prgn>Windows</prgn>, <prgn>OS/2</prgn> e  <prgn>Macintosh</prgn>. 
-<![ %DESCRICAOD [ Trabalha com arquivos de extens„o <file>.rar</file> e 
-permite armazenar arquivos compactados em v·rios disquetes (m˙ltiplos 
+<![ %DESCRICAOD [ Trabalha com arquivos de extens√£o <file>.rar</file> e 
+permite armazenar arquivos compactados em v√°rios disquetes (m√∫ltiplos 
 volumes). Se trata de um produto comercial, mas decidi coloca-lo aqui porque 
-possui boas versıes Shareware e pode ser muito ˙til em algumas situaÁıes. ]]>
+possui boas vers√µes Shareware e pode ser muito √∫til em algumas situa√ß√µes. ]]>
  <p>
-<tt>rar [<em>aÁıes</em>] [<em>opÁıes</em>] [<em>arquivo-destino.rar</em>] 
+<tt>rar [<em>a√ß√µes</em>] [<em>op√ß√µes</em>] [<em>arquivo-destino.rar</em>] 
 [<em>arquivos-origem</em>]</tt>
  <p>
 <![ %OPCOES [
@@ -831,14 +831,14 @@ possui boas versıes Shareware e pode ser muito ˙til em algumas situaÁıes. ]]>
 <taglist compact>
  <tag>arquivo-destino.rar</tag>
  <item>
-… o nome do arquivo de destino
+√â o nome do arquivo de destino
 
  <tag>arquivos-origem</tag>
  <item>
-Arquivos que ser„o compactados. Podem ser usados curingas para especificar 
+Arquivos que ser√£o compactados. Podem ser usados curingas para especificar 
 mais de um arquivo.
 
- <tag>aÁıes</tag>
+ <tag>a√ß√µes</tag>
  <tag>a</tag>
  <item>
 Compacta arquivos
@@ -857,7 +857,7 @@ Verifica o arquivo compactado em busca de erros.
 
  <tag>c</tag>
  <item>
-Inclui coment·rio no arquivo compactado
+Inclui coment√°rio no arquivo compactado
 
  <tag>r</tag>
  <item>
@@ -877,43 +877,43 @@ Compacta e apaga os arquivos de origem (move).
 
  <tag>e</tag>
  <item>
-Descompacta arquivos para o diretÛrio atual
+Descompacta arquivos para o diret√≥rio atual
 
  <tag>p</tag>
  <item>
-Mostra o conte˙do do arquivo na saÌda padr„o
+Mostra o conte√∫do do arquivo na sa√≠da padr√£o
 
  <tag>rr</tag>
  <item>
-Adiciona um registro de verificaÁ„o no arquivo
+Adiciona um registro de verifica√ß√£o no arquivo
 
  <tag>s</tag>
  <item>
-Converte um arquivo <file>.rar</file> normal em arquivo auto-extr·ctil. 
-Arquivos auto-extr·cteis s„o ˙teis para enviar arquivos a pessoas que 
-n„o tem o programa <prgn>rar</prgn>. Basta executar o arquivo e ele ser· 
+Converte um arquivo <file>.rar</file> normal em arquivo auto-extr√°ctil. 
+Arquivos auto-extr√°cteis s√£o √∫teis para enviar arquivos a pessoas que 
+n√£o tem o programa <prgn>rar</prgn>. Basta executar o arquivo e ele ser√° 
 automaticamente descompactado (usando o sistema operacional que foi criado). 
-Note que esta opÁ„o requer que o arquivo <file>default.sfx</file> esteja 
-presente no diretÛrio home do usu·rio. Use o comando <prgn>find</prgn> para 
+Note que esta op√ß√£o requer que o arquivo <file>default.sfx</file> esteja 
+presente no diret√≥rio home do usu√°rio. Use o comando <prgn>find</prgn> para 
 localiza-lo em seu sistema. 
 
 
- <tag>opÁıes</tag>
+ <tag>op√ß√µes</tag>
  <tag>o+</tag>
  <item>
-Substitui arquivos j· existentes sem perguntar
+Substitui arquivos j√° existentes sem perguntar
 
  <tag>o-</tag>
  <item>
-N„o substitui arquivos existentes
+N√£o substitui arquivos existentes
 
  <tag>sfx</tag>
  <item>
-Cria arquivos auto-extr·cteis. Arquivos auto-extr·cteis s„o ˙teis para 
-enviar arquivos a pessoas que n„o tem o programa <prgn>rar</prgn>. Basta 
-executar o arquivo e ele ser· automaticamente descompactado. 
+Cria arquivos auto-extr√°cteis. Arquivos auto-extr√°cteis s√£o √∫teis para 
+enviar arquivos a pessoas que n√£o tem o programa <prgn>rar</prgn>. Basta 
+executar o arquivo e ele ser√° automaticamente descompactado. 
 Note que este processo requer que o arquivo <file>default.sfx</file> esteja 
-presente no diretÛrio home do usu·rio. Use o comando <prgn>find</prgn> para 
+presente no diret√≥rio home do usu√°rio. Use o comando <prgn>find</prgn> para 
 localiza-lo em seu sistema. 
 
  <tag>y</tag>
@@ -922,7 +922,7 @@ Assume <tt>sim</tt> para todas as perguntas
 
  <tag>r</tag>
  <item>
-Inclui sub-diretÛrios no arquivo compactado
+Inclui sub-diret√≥rios no arquivo compactado
 
  <tag>x [ARQUIVO]</tag>
  <item>
@@ -930,8 +930,8 @@ Processa tudo menos o [ARQUIVO]. Pode ser usados curingas
 
  <tag>v[TAMANHO]</tag>
  <item>
-Cria arquivos com um limite de tamanho. Por padr„o, o tamanho È especificado 
-em bytes, mas o n˙mero pode ser seguido de <tt>k</tt> (kilobytes) ou 
+Cria arquivos com um limite de tamanho. Por padr√£o, o tamanho √© especificado 
+em bytes, mas o n√∫mero pode ser seguido de <tt>k</tt> (kilobytes) ou 
 <tt>m</tt>(megabytes).
  <p>
 Exemplo: <tt>rar a -v1440k ...</tt> ou <tt>rar a -v10m ...</tt> 
@@ -943,17 +943,17 @@ capturar a linha de comando facilmente e descobrir sua senha.
 
  <tag>m [0-5]</tag>
  <item>
-Ajusta a taxa de compactaÁ„o/velocidade de compactaÁ„o. 0 n„o faz 
-compactaÁ„o alguma (mais r·pido) somente armazena os arquivos, 5 È o 
-nÌvel que usa mais compactaÁ„o (mais lento). 
+Ajusta a taxa de compacta√ß√£o/velocidade de compacta√ß√£o. 0 n√£o faz 
+compacta√ß√£o alguma (mais r√°pido) somente armazena os arquivos, 5 √© o 
+n√≠vel que usa mais compacta√ß√£o (mais lento). 
 
  <tag>ed</tag>
  <item>
-N„o inclui diretÛrios vazios no arquivo
+N√£o inclui diret√≥rios vazios no arquivo
 
  <tag>isnd</tag>
  <item>
-Ativa emiss„o de sons de alerta pelo programa
+Ativa emiss√£o de sons de alerta pelo programa
 
  <tag>ierr</tag>
  <item>
@@ -969,25 +969,25 @@ Salva o dono e grupo dos arquivos.
 
  <tag>ol</tag>
  <item>
-Salva links simbÛlicos no arquivo ao invÈs do arquivo fÌsico que o link 
-faz referÍncia. 
+Salva links simb√≥licos no arquivo ao inv√©s do arquivo f√≠sico que o link 
+faz refer√™ncia. 
  
  <tag>mm[f]</tag>
  <item>
-Usa um mÈtodo especial de compactaÁ„o para arquivos multimÌdia (sons, vÌdeos, 
-etc). Caso for usado <tt>mmf</tt>, forÁa o uso do mÈtodo multimÌdia mesmo 
-que o arquivo compactado n„o seja deste tipo. 
+Usa um m√©todo especial de compacta√ß√£o para arquivos multim√≠dia (sons, v√≠deos, 
+etc). Caso for usado <tt>mmf</tt>, for√ßa o uso do m√©todo multim√≠dia mesmo 
+que o arquivo compactado n√£o seja deste tipo. 
 </taglist>
 ]]>
 Os arquivos gerados pelo <prgn>rar</prgn> do <prgn>GNU/Linux</prgn> podem ser 
 usados em outros sistemas operacionais, basta ter o <prgn>rar</prgn> 
-instalado. Quando È usada a opÁ„o <tt>-v</tt> para a criaÁ„o de 
-m˙ltiplos volumes, a numeraÁ„o dos arquivos È feita na forma: 
+instalado. Quando √© usada a op√ß√£o <tt>-v</tt> para a cria√ß√£o de 
+m√∫ltiplos volumes, a numera√ß√£o dos arquivos √© feita na forma: 
 <file>arquivo.rar</file>, <file>arquivo.r00</file>, <file>arquivo.r01</file>, 
-etc, durante a descompactaÁ„o os arquivos ser„o pedidos em ordem. 
+etc, durante a descompacta√ß√£o os arquivos ser√£o pedidos em ordem. 
 <![ %OBS [ 
-Se vocÍ receber a mensagem <tt>cannot modify volume</tt> durante 
-a criaÁ„o de um arquivo <file>.rar</file>, provavelmente o arquivo j· existe. 
+Se voc√™ receber a mensagem <tt>cannot modify volume</tt> durante 
+a cria√ß√£o de um arquivo <file>.rar</file>, provavelmente o arquivo j√° existe. 
 Apague o arquivo existente e tente novamente. ]]> 
 <![ %EXEMPLO [
  <p>
@@ -1000,14 +1000,14 @@ em um arquivo com o nome <file>texto.rar</file>
 <tt>rar x texto.rar</tt> - Descompacta o arquivo <file>texto.rar</file>
  <item>
 <tt>rar a -m5 -v1400k textos.rar *</tt> - Compacta todos os arquivos do 
-diretÛrio atual, usando a compactaÁ„o m·xima no arquivo <file>textos.rar
-</file>. Note que o tamanho m·ximo de cada arquivo È 1440 para ser possÌvel 
+diret√≥rio atual, usando a compacta√ß√£o m√°xima no arquivo <file>textos.rar
+</file>. Note que o tamanho m√°ximo de cada arquivo √© 1440 para ser poss√≠vel 
 grava-lo em partes para disquetes. 
  <item>
-<tt>rar x -v -y textos.rar</tt> - Restaura os arquivos em m˙ltiplos volumes 
+<tt>rar x -v -y textos.rar</tt> - Restaura os arquivos em m√∫ltiplos volumes 
 criados com o processo anterior. Todos os arquivos devem ter sido 
-copiados dos disquetes para o diretÛrio atual antes de prosseguir. A 
-opÁ„o <tt>-y</tt> È ˙til para n„o precisar-mos responder <tt>yes</tt> a 
+copiados dos disquetes para o diret√≥rio atual antes de prosseguir. A 
+op√ß√£o <tt>-y</tt> √© √∫til para n√£o precisar-mos responder <tt>yes</tt> a 
 toda pergunta que o <prgn>rar</prgn> fizer. 
  <item>
 <tt>rar t textos.rar</tt> - Verifica se o arquivo <file>textos.rar</file> 

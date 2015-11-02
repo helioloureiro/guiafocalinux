@@ -1,137 +1,137 @@
-<chapt id="kern">Kernel e Módulos
+<chapt id="kern">Kernel e MÃ³dulos
  <p>
-Este capítulo descreve em detalhes o que é o kernel, módulos, 
-sua configuração e programas relacionados. 
+Este capÃ­tulo descreve em detalhes o que Ã© o kernel, mÃ³dulos, 
+sua configuraÃ§Ã£o e programas relacionados. 
 
 
 <sect id="kern-kernel">O Kernel
  <p>
-É a peça central do sistema operacional (o <prgn>Linux</prgn>), é ele 
-que controla os dispositivos e demais periféricos do sistema (como memória, 
-placas de som, vídeo, discos rígidos, disquetes, sistemas de arquivos, 
-redes e outros recursos disponíveis). Muitos confundem isto e 
-chamam a distribuição de sistema operacional. Isto é errado!  
+Ã‰ a peÃ§a central do sistema operacional (o <prgn>Linux</prgn>), Ã© ele 
+que controla os dispositivos e demais perifÃ©ricos do sistema (como memÃ³ria, 
+placas de som, vÃ­deo, discos rÃ­gidos, disquetes, sistemas de arquivos, 
+redes e outros recursos disponÃ­veis). Muitos confundem isto e 
+chamam a distribuiÃ§Ã£o de sistema operacional. Isto Ã© errado!  
 <![ %DESCRICAOD [ 
  <p>
-O <em>kernel</em> faz o controle dos periféricos do sistema e 
-para isto ele deve ter o seu suporte incluído. Para fazer uma placa de 
-som <em>Sound Blaster</em> funcionar, por exemplo, é necessário que o 
-kernel ofereça suporte a este placa e você deve configurar seus 
-parâmetros (como interrupção, I/O e DMA) com comandos específicos 
+O <em>kernel</em> faz o controle dos perifÃ©ricos do sistema e 
+para isto ele deve ter o seu suporte incluÃ­do. Para fazer uma placa de 
+som <em>Sound Blaster</em> funcionar, por exemplo, Ã© necessÃ¡rio que o 
+kernel ofereÃ§a suporte a este placa e vocÃª deve configurar seus 
+parÃ¢metros (como interrupÃ§Ã£o, I/O e DMA) com comandos especÃ­ficos 
 para ativar a placa e faze-la funcionar corretamente. 
-Existe um documento que contém quais são os periféricos suportados/
-não suportados pelo <prgn>GNU/Linux</prgn>, ele se chama <tt>Hardware-HOWTO</tt>. 
+Existe um documento que contÃ©m quais sÃ£o os perifÃ©ricos suportados/
+nÃ£o suportados pelo <prgn>GNU/Linux</prgn>, ele se chama <tt>Hardware-HOWTO</tt>. 
  <p>
-Suas versões são identificadas por números como 2.2.30, 2.4.33, 2.6.23.6, 
-as versões que contém um número par entre o primeiro e segundo 
-ponto são versões estáveis e que contém números ímpares neste mesmo 
-local são versões instáveis (em desenvolvimento). Usar versões instáveis 
-não quer dizer que ocorrerá travamentos ou coisas do tipo, mas algumas 
-partes do kernel podem não estar testadas o suficiente ou alguns 
+Suas versÃµes sÃ£o identificadas por nÃºmeros como 2.2.30, 2.4.33, 2.6.23.6, 
+as versÃµes que contÃ©m um nÃºmero par entre o primeiro e segundo 
+ponto sÃ£o versÃµes estÃ¡veis e que contÃ©m nÃºmeros Ã­mpares neste mesmo 
+local sÃ£o versÃµes instÃ¡veis (em desenvolvimento). Usar versÃµes instÃ¡veis 
+nÃ£o quer dizer que ocorrerÃ¡ travamentos ou coisas do tipo, mas algumas 
+partes do kernel podem nÃ£o estar testadas o suficiente ou alguns 
 controladores podem ainda estar incompletos para obter pleno funcionamento. 
-Se opera sua máquina em um ambiente crítico, prefira pegar versões estáveis 
+Se opera sua mÃ¡quina em um ambiente crÃ­tico, prefira pegar versÃµes estÃ¡veis 
 do kernel. ]]> 
  <p>
-Após inicializar o sistema, o kernel e seus arquivos podem ser acessados ou 
-modificados através do ponto de montagem <file>/proc</file>. Para detalhes 
+ApÃ³s inicializar o sistema, o kernel e seus arquivos podem ser acessados ou 
+modificados atravÃ©s do ponto de montagem <file>/proc</file>. Para detalhes 
 veja <ref id="disc-proc">. 
  <p>
-Caso você tenha um dispositivo (como uma placa de som) que tem suporte no 
-<prgn>GNU/Linux</prgn> mas não funciona veja <ref id="kern-suporte">. 
+Caso vocÃª tenha um dispositivo (como uma placa de som) que tem suporte no 
+<prgn>GNU/Linux</prgn> mas nÃ£o funciona veja <ref id="kern-suporte">. 
 
 
-<sect id="kern-modulos">Módulos
+<sect id="kern-modulos">MÃ³dulos
  <p>
-São partes do kernel que são carregadas somente quando são solicitadas 
-por algum aplicativo ou dispositivo e descarregadas da memória quando 
-não são mais usadas. Este recurso é útil por 2 motivos: Evita a construção 
-de um kernel grande (estático) que ocupe grande parte da memória com 
+SÃ£o partes do kernel que sÃ£o carregadas somente quando sÃ£o solicitadas 
+por algum aplicativo ou dispositivo e descarregadas da memÃ³ria quando 
+nÃ£o sÃ£o mais usadas. Este recurso Ã© Ãºtil por 2 motivos: Evita a construÃ§Ã£o 
+de um kernel grande (estÃ¡tico) que ocupe grande parte da memÃ³ria com 
 todos os drivers compilados e permite que partes do kernel ocupem a 
-memória somente quando forem necessários. 
+memÃ³ria somente quando forem necessÃ¡rios. 
 <![ %DESCRICAOD [ 
  <p>
-Os módulos do kernel estão localizados no diretório 
-<file>/lib/modules/versão_do_kernel/*</file> (onde <tt>versão_do_kernel</tt> 
-é a versão atual do kernel em seu sistema, caso seja <tt>2.6.23.6</tt> o 
-diretório que contém seus módulos será <file>/lib/modules/2.6.23.6</file>. ]]>
+Os mÃ³dulos do kernel estÃ£o localizados no diretÃ³rio 
+<file>/lib/modules/versÃ£o_do_kernel/*</file> (onde <tt>versÃ£o_do_kernel</tt> 
+Ã© a versÃ£o atual do kernel em seu sistema, caso seja <tt>2.6.23.6</tt> o 
+diretÃ³rio que contÃ©m seus mÃ³dulos serÃ¡ <file>/lib/modules/2.6.23.6</file>. ]]>
  <p>
-Os módulos são carregados automaticamente quando solicitados através do 
-programa <prgn>kmod</prgn> ou manualmente através do arquivo 
+Os mÃ³dulos sÃ£o carregados automaticamente quando solicitados atravÃ©s do 
+programa <prgn>kmod</prgn> ou manualmente atravÃ©s do arquivo 
 <![ %DEBIAN [ <file>/etc/modules</file> ]]>, <prgn>insmod</prgn> ou 
 <prgn>modprobe</prgn>. 
 <![ %OBS [
-Atenção: Não compile o suporte ao seu sistema de arquivos raíz como módulo, 
-isto o tornará inacessível, a não ser que esteja usando initrd. ]]>
+AtenÃ§Ã£o: NÃ£o compile o suporte ao seu sistema de arquivos raÃ­z como mÃ³dulo, 
+isto o tornarÃ¡ inacessÃ­vel, a nÃ£o ser que esteja usando initrd. ]]>
 
 
 <sect id="kern-suporte">Como adicionar suporte a Hardwares e outros 
 dispositivos no kernel
  <p>
-Quando seu hardware não funciona mas você tem certeza que é 
-suportado pelo <prgn>GNU/Linux</prgn>, é preciso seguir alguns passos 
+Quando seu hardware nÃ£o funciona mas vocÃª tem certeza que Ã© 
+suportado pelo <prgn>GNU/Linux</prgn>, Ã© preciso seguir alguns passos 
 para faze-lo funcionar corretamente: 
 <list>
  <item>
 Verifique se o kernel atual foi compilado com suporte ao seu dispositivo. 
-Também é possível que o suporte ao dispositivo esteja compilado como módulo. 
-Dê o comando <tt>dmesg</tt> para ver as mensagens do kernel durante a 
-inicialização e verifique se aparece alguma coisa referente ao 
+TambÃ©m Ã© possÃ­vel que o suporte ao dispositivo esteja compilado como mÃ³dulo. 
+DÃª o comando <tt>dmesg</tt> para ver as mensagens do kernel durante a 
+inicializaÃ§Ã£o e verifique se aparece alguma coisa referente ao 
 dispositivo que deseja instalar (alguma mensagem de erro, etc). Caso 
-não aparecer nada é possível que o driver esteja compilado como módulo, 
-para verificar isto entre no diretório 
-<file>/lib/modules/versao_do_kernel</file> e veja se encontra o módulo 
-correspondente ao seu dispositivo (o módulo da placa <em>NE 2000</em> 
+nÃ£o aparecer nada Ã© possÃ­vel que o driver esteja compilado como mÃ³dulo, 
+para verificar isto entre no diretÃ³rio 
+<file>/lib/modules/versao_do_kernel</file> e veja se encontra o mÃ³dulo 
+correspondente ao seu dispositivo (o mÃ³dulo da placa <em>NE 2000</em> 
 tem o nome de <file>ne.ko</file> e o da placa <em>Sound Blaster</em> 
 de <file>sb.ko</file>, por exemplo).  
 <![ %OBS [
  <p>
-<em>OBS:</em> Nos kernel 2.4 e anteriores, a extensão dos módulos era
+<em>OBS:</em> Nos kernel 2.4 e anteriores, a extensÃ£o dos mÃ³dulos era
 <file>.o</file>.
 ]]>
 <p>
-Caso o kernel não tiver o suporte ao seu dispositivo, você precisará 
+Caso o kernel nÃ£o tiver o suporte ao seu dispositivo, vocÃª precisarÃ¡ 
 recompilar seu kernel ativando seu suporte. Veja 
 <ref id="kern-recompilando">. 
 
  <item>
-Caso seu hardware esteja compilado no kernel, verifique se o módulo 
-correspondente está carregado (com o comando <prgn>lsmod</prgn>). 
-Caso não estiver, carregue-o com o <prgn>modprobe</prgn>
+Caso seu hardware esteja compilado no kernel, verifique se o mÃ³dulo 
+correspondente estÃ¡ carregado (com o comando <prgn>lsmod</prgn>). 
+Caso nÃ£o estiver, carregue-o com o <prgn>modprobe</prgn>
 (por exemplo, <tt>modprobe sb io=0x220 irq=5 dma=1 dma16=5 
 mpuio=0x330</tt>), para detalhes veja <ref id="kern-modprobe">. 
  <p>
-O uso deste comando deverá ativar seu hardware imediatamente, neste 
-caso configure o módulo para ser carregado automaticamente 
-através do programa <![ %DEBIAN [ <prgn>modconf</prgn> ]]> 
-ou edite os arquivos relacionados com os módulos 
+O uso deste comando deverÃ¡ ativar seu hardware imediatamente, neste 
+caso configure o mÃ³dulo para ser carregado automaticamente 
+atravÃ©s do programa <![ %DEBIAN [ <prgn>modconf</prgn> ]]> 
+ou edite os arquivos relacionados com os mÃ³dulos 
 (veja <ref id="kern-arquivos">). 
-Caso não tenha sucesso, será retornada uma mensagem de erro. 
+Caso nÃ£o tenha sucesso, serÃ¡ retornada uma mensagem de erro. 
 </list>
 
 
 <sect id="kern-kmod">kmod
  <p>
-Este é o programa usado para carregar os módulos automaticamente quando 
-são requeridos pelo sistema. Ele é um daemon que funciona constantemente 
-fazendo a monitoração, quando verifica que algum dispositivo ou programa 
-está solicitando o suporte a algum dispositivo, ele carrega o módulo 
+Este Ã© o programa usado para carregar os mÃ³dulos automaticamente quando 
+sÃ£o requeridos pelo sistema. Ele Ã© um daemon que funciona constantemente 
+fazendo a monitoraÃ§Ã£o, quando verifica que algum dispositivo ou programa 
+estÃ¡ solicitando o suporte a algum dispositivo, ele carrega o mÃ³dulo 
 correspondente. 
  <p>
-Ele pode ser desativado através da recompilação do kernel, 
-dando um <prgn>kill</prgn> no processo ou através do 
+Ele pode ser desativado atravÃ©s da recompilaÃ§Ã£o do kernel, 
+dando um <prgn>kill</prgn> no processo ou atravÃ©s do 
 arquivo <file>/etc/modules</file> (veja <ref id="kern-arquivos-modules">. 
-Caso seja desativado, é preciso carregar manualmente os módulos através do 
+Caso seja desativado, Ã© preciso carregar manualmente os mÃ³dulos atravÃ©s do 
 <prgn>modprobe</prgn> ou <prgn>insmod</prgn>. 
 
 
 <sect id="kern-lsmod">lsmod
  <p>
-Lista quais módulos estão carregados atualmente pelo kernel. O nome 
-<tt>lsmod</tt> é uma contração de <tt>ls</tt>+<tt>módulos</tt> - 
-Listar Módulos. A listagem feita pelo <prgn>lsmod</prgn> é uma 
+Lista quais mÃ³dulos estÃ£o carregados atualmente pelo kernel. O nome 
+<tt>lsmod</tt> Ã© uma contraÃ§Ã£o de <tt>ls</tt>+<tt>mÃ³dulos</tt> - 
+Listar MÃ³dulos. A listagem feita pelo <prgn>lsmod</prgn> Ã© uma 
 alternativa ao uso do comando <tt>cat /proc/modules</tt>. 
  <p>
-A saída deste comando tem a seguinte forma:
+A saÃ­da deste comando tem a seguinte forma:
 <example>
 Module            Size  Pages    Used by
 nls_iso8859_1     8000      1          1 (autoclean)
@@ -139,45 +139,45 @@ nls_cp437         3744      1          1 (autoclean)
 ne                6156      2          1
 8390              8390      2     [ne] 0
 </example>
-A coluna <em>Module</em> indica o nome do módulo que está carregado, a 
-coluna <em>Used</em> mostra qual módulos está usando aquele recurso. O 
-parâmetro <em>(autoclean)</em> no final da coluna indica que o módulo 
+A coluna <em>Module</em> indica o nome do mÃ³dulo que estÃ¡ carregado, a 
+coluna <em>Used</em> mostra qual mÃ³dulos estÃ¡ usando aquele recurso. O 
+parÃ¢metro <em>(autoclean)</em> no final da coluna indica que o mÃ³dulo 
 foi carregado manualmente (pelo <prgn>insmod</prgn> ou <prgn>modprobe</prgn>) 
-ou através do <prgn>kmod</prgn> e será automaticamente removido da memória 
-quando não for mais usado. 
+ou atravÃ©s do <prgn>kmod</prgn> e serÃ¡ automaticamente removido da memÃ³ria 
+quando nÃ£o for mais usado. 
  <p>
-No exemplo acima os módulos <em>ne</em> e <em>8390</em> não tem 
-o parâmetro <em>(autoclean)</em> porque foram carregados pelo 
+No exemplo acima os mÃ³dulos <em>ne</em> e <em>8390</em> nÃ£o tem 
+o parÃ¢metro <em>(autoclean)</em> porque foram carregados pelo 
 arquivo <file>/etc/modules</file> (veja <ref id="kern-arquivos-modules">). 
-Isto significa que não serão removidos da memória caso estiverem sem uso. 
+Isto significa que nÃ£o serÃ£o removidos da memÃ³ria caso estiverem sem uso. 
  <p>
-Qualquer módulo carregado pode ser removido manualmente através do 
+Qualquer mÃ³dulo carregado pode ser removido manualmente atravÃ©s do 
 comandos <prgn>rmmod</prgn>. 
 
 
 <sect id="kern-insmod">insmod
  <p>
-Carrega um módulo manualmente. Para carregar módulos que dependem de outros 
-módulos para que funcionem, você duas opções: Carregar os módulos manualmente 
-ou usar o <prgn>modprobe</prgn> que verifica e carrega as dependências 
+Carrega um mÃ³dulo manualmente. Para carregar mÃ³dulos que dependem de outros 
+mÃ³dulos para que funcionem, vocÃª duas opÃ§Ãµes: Carregar os mÃ³dulos manualmente 
+ou usar o <prgn>modprobe</prgn> que verifica e carrega as dependÃªncias 
 correspondentes. 
  <p>
-A sintaxe do comando é: <tt>insmod [<em>módulo</em>] [<em>opções_módulo</em>]
+A sintaxe do comando Ã©: <tt>insmod [<em>mÃ³dulo</em>] [<em>opÃ§Ãµes_mÃ³dulo</em>]
 </tt>
  <p>
 Onde:
 <taglist compact>
- <tag>módulo</tag>
+ <tag>mÃ³dulo</tag>
  <item>
-É o nome do módulo que será carregado.
+Ã‰ o nome do mÃ³dulo que serÃ¡ carregado.
  
- <tag>opções_módulo</tag>
+ <tag>opÃ§Ãµes_mÃ³dulo</tag>
  <item>
-Opções que serão usadas pelo módulo. Variam de módulo para módulo, alguns 
-precisam de opções outros não, tente primeiro carregar sem opções, caso seja 
-mostrada uma mensagem de erro verifique as opções usadas por ele. Para 
-detalhes sobre que opções são suportadas por cada módulo, veja a sua 
-documentação no código fonte do kernel em <file>/usr/src/linux/Documentation
+OpÃ§Ãµes que serÃ£o usadas pelo mÃ³dulo. Variam de mÃ³dulo para mÃ³dulo, alguns 
+precisam de opÃ§Ãµes outros nÃ£o, tente primeiro carregar sem opÃ§Ãµes, caso seja 
+mostrada uma mensagem de erro verifique as opÃ§Ãµes usadas por ele. Para 
+detalhes sobre que opÃ§Ãµes sÃ£o suportadas por cada mÃ³dulo, veja a sua 
+documentaÃ§Ã£o no cÃ³digo fonte do kernel em <file>/usr/src/linux/Documentation
 </file> 
 </taglist>
 <![ %EXEMPLO [
@@ -187,11 +187,11 @@ Exemplo: <tt>insmod ne io=0x300 irq=10</tt> ]]>
 
 <sect id="kern-rmmod">rmmod
  <p>
-Remove módulos carregados no kernel. Para ver os nomes dos módulos 
+Remove mÃ³dulos carregados no kernel. Para ver os nomes dos mÃ³dulos 
 atualmente carregados no kernel digite <tt>lsmod</tt> e verifique 
-na primeira coluna o nome do módulo. Caso um módulo tenha dependências 
-e você tentar remover suas dependências, uma mensagem de erro será 
-mostrada alertando que o módulo está em uso. 
+na primeira coluna o nome do mÃ³dulo. Caso um mÃ³dulo tenha dependÃªncias 
+e vocÃª tentar remover suas dependÃªncias, uma mensagem de erro serÃ¡ 
+mostrada alertando que o mÃ³dulo estÃ¡ em uso. 
 <![ %EXEMPLO [ 
  <p>
 Exemplo: <tt>rmmod ne</tt> ]]>
@@ -199,35 +199,35 @@ Exemplo: <tt>rmmod ne</tt> ]]>
 
 <sect id="kern-modprobe">modprobe
  <p>
-Carrega um módulo e suas dependências manualmente. Este comando permite 
-carregar diversos módulos e dependências de uma só vez. O comportamento 
-do <prgn>modprobe</prgn> é modificado pelo arquivo 
+Carrega um mÃ³dulo e suas dependÃªncias manualmente. Este comando permite 
+carregar diversos mÃ³dulos e dependÃªncias de uma sÃ³ vez. O comportamento 
+do <prgn>modprobe</prgn> Ã© modificado pelo arquivo 
 <![ %DEBIAN [ <file>/etc/modules.conf</file> ]]>. 
  <p>
-A sintaxe deste comando é: <tt>modprobe [<em>módulo</em>] 
-[<em>opções_módulo</em>]
+A sintaxe deste comando Ã©: <tt>modprobe [<em>mÃ³dulo</em>] 
+[<em>opÃ§Ãµes_mÃ³dulo</em>]
 </tt>
  <p>
 Onde:
 <taglist compact>
- <tag>módulo</tag>
+ <tag>mÃ³dulo</tag>
  <item>
-É o nome do módulo que será carregado.
+Ã‰ o nome do mÃ³dulo que serÃ¡ carregado.
  
- <tag>opções_módulo</tag>
+ <tag>opÃ§Ãµes_mÃ³dulo</tag>
  <item>
-Opções que serão usadas pelo módulo. Variam de módulo para módulo, alguns 
-precisam de opções outros não, tente primeiro carregar sem opções, caso seja 
-mostrada uma mensagem de erro verifique as opções usadas por ele. Para 
-detalhes sobre que opções são suportadas por cada módulo, veja a sua 
-documentação no código fonte do kernel em <file>/usr/src/linux/Documentation
+OpÃ§Ãµes que serÃ£o usadas pelo mÃ³dulo. Variam de mÃ³dulo para mÃ³dulo, alguns 
+precisam de opÃ§Ãµes outros nÃ£o, tente primeiro carregar sem opÃ§Ãµes, caso seja 
+mostrada uma mensagem de erro verifique as opÃ§Ãµes usadas por ele. Para 
+detalhes sobre que opÃ§Ãµes sÃ£o suportadas por cada mÃ³dulo, veja a sua 
+documentaÃ§Ã£o no cÃ³digo fonte do kernel em <file>/usr/src/linux/Documentation
 </file> 
 </taglist>
 <![ %OBS [
  <p>
-Nem todos os módulos são carregados corretamente pelo <prgn>modprobe</prgn>, o 
-<file>plip</file>, por exemplo, mostra uma mensagem sobre porta I/O inválida 
-mas não caso seja carregado pelo <prgn>insmod</prgn>. 
+Nem todos os mÃ³dulos sÃ£o carregados corretamente pelo <prgn>modprobe</prgn>, o 
+<file>plip</file>, por exemplo, mostra uma mensagem sobre porta I/O invÃ¡lida 
+mas nÃ£o caso seja carregado pelo <prgn>insmod</prgn>. 
 ]]>
 <![ %EXEMPLO [
  <p>
@@ -237,17 +237,17 @@ Exemplo: <tt>modprobe ne io=0x300 irq=10</tt>,
 
 <sect id="kern-depmod">depmod
  <p>
-Verifica a dependência de módulos. As dependências dos módulos são 
+Verifica a dependÃªncia de mÃ³dulos. As dependÃªncias dos mÃ³dulos sÃ£o 
 verificadas pelos scripts em <file>/etc/init.d</file> usando o 
 comando <tt>depmod -a</tt> e o resultado gravado no arquivo 
 <file>/lib/modules/versao_do_kernel/modules.dep</file>. Esta checagem 
-serve para que todas as dependências de módulos estejam corretamente 
-disponíveis na inicialização do sistema. O comportamento do 
-<prgn>depmod</prgn> pode ser modificado através do arquivo 
+serve para que todas as dependÃªncias de mÃ³dulos estejam corretamente 
+disponÃ­veis na inicializaÃ§Ã£o do sistema. O comportamento do 
+<prgn>depmod</prgn> pode ser modificado atravÃ©s do arquivo 
 <![ %DEBIAN [ <file>/etc/modules.conf</file> ]]>. 
-É possível criar a dependência de módulos imediatamente após a 
-compilação do kernel digitando 
-<tt>depmod -a [<em>versão_do_kernel</em>]</tt>. 
+Ã‰ possÃ­vel criar a dependÃªncia de mÃ³dulos imediatamente apÃ³s a 
+compilaÃ§Ã£o do kernel digitando 
+<tt>depmod -a [<em>versÃ£o_do_kernel</em>]</tt>. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>depmod -a</tt> ]]>
@@ -256,58 +256,58 @@ Exemplo: <tt>depmod -a</tt> ]]>
     <![ %DEBIAN [
 <sect id="kern-modconf">modconf
  <p>
-Este programa permite um meio mais fácil de configurar a ativação de 
-módulos e opções através de uma interface através de menus. Selecione 
-a categoria de módulos através das setas acima e abaixo e pressione 
-enter para selecionar os módulos existentes. Serão pedidas as opções 
-do módulo (como DMA, IRQ, I/O) para que sua inicialização seja possível, 
-estes parâmetros são específicos de cada módulo e devem ser vistos na 
-documentação do código fonte do kernel no diretório 
-<file>/usr/src/linux/Documentation</file>. Note que também existem 
-módulos com auto-detecção mas isto deixa o sistema um pouco mais lento, 
-porque ele fará uma varredura na faixa de endereços especificados pelo 
-módulo para achar o dispositivo. As opções são desnecessárias em 
-alguns tipos de módulos. 
+Este programa permite um meio mais fÃ¡cil de configurar a ativaÃ§Ã£o de 
+mÃ³dulos e opÃ§Ãµes atravÃ©s de uma interface atravÃ©s de menus. Selecione 
+a categoria de mÃ³dulos atravÃ©s das setas acima e abaixo e pressione 
+enter para selecionar os mÃ³dulos existentes. SerÃ£o pedidas as opÃ§Ãµes 
+do mÃ³dulo (como DMA, IRQ, I/O) para que sua inicializaÃ§Ã£o seja possÃ­vel, 
+estes parÃ¢metros sÃ£o especÃ­ficos de cada mÃ³dulo e devem ser vistos na 
+documentaÃ§Ã£o do cÃ³digo fonte do kernel no diretÃ³rio 
+<file>/usr/src/linux/Documentation</file>. Note que tambÃ©m existem 
+mÃ³dulos com auto-detecÃ§Ã£o mas isto deixa o sistema um pouco mais lento, 
+porque ele farÃ¡ uma varredura na faixa de endereÃ§os especificados pelo 
+mÃ³dulo para achar o dispositivo. As opÃ§Ãµes sÃ£o desnecessÃ¡rias em 
+alguns tipos de mÃ³dulos. 
  <p>
-As modificações feitas por este programa são gravadas no diretório 
+As modificaÃ§Ãµes feitas por este programa sÃ£o gravadas no diretÃ³rio 
 <file>/etc/modutils</file> em arquivos separados como 
-<file>/etc/modutils/alias</file> - alias de módulos, 
-<file>/etc/modutils/modconf</file> - opções usadas por módulos, 
-<file>/etc/modutils/paths</file> - Caminho onde os módulos do sistema 
-são encontrados. 
-Dentro de <file>/etc/modutils</file> é ainda encontrado um sub-diretório 
-chamado <file>arch</file> que contém opções específicas por arquiteturas. 
+<file>/etc/modutils/alias</file> - alias de mÃ³dulos, 
+<file>/etc/modutils/modconf</file> - opÃ§Ãµes usadas por mÃ³dulos, 
+<file>/etc/modutils/paths</file> - Caminho onde os mÃ³dulos do sistema 
+sÃ£o encontrados. 
+Dentro de <file>/etc/modutils</file> Ã© ainda encontrado um sub-diretÃ³rio 
+chamado <file>arch</file> que contÃ©m opÃ§Ãµes especÃ­ficas por arquiteturas. 
  <p>
-A sincronização dos arquivos gerados pelo <prgn>modconf</prgn> com o 
-<file>/etc/modules.conf</file> é feita através do utilitário 
-<prgn>update-modules</prgn>. Ele é normalmente executado após modificações 
-nos módulos feitas pelo <prgn>modconf</prgn>. 
+A sincronizaÃ§Ã£o dos arquivos gerados pelo <prgn>modconf</prgn> com o 
+<file>/etc/modules.conf</file> Ã© feita atravÃ©s do utilitÃ¡rio 
+<prgn>update-modules</prgn>. Ele Ã© normalmente executado apÃ³s modificaÃ§Ãµes 
+nos mÃ³dulos feitas pelo <prgn>modconf</prgn>. 
 
     ]]>
 
 
 <sect id="kern-recompilando">Recompilando o Kernel
  <p>
-Será que vou precisar recompilar o meu kernel? você deve estar se 
+SerÃ¡ que vou precisar recompilar o meu kernel? vocÃª deve estar se 
 perguntando agora. Abaixo alguns motivos para esclarecer suas 
-dúvidas: 
+dÃºvidas: 
 <list>
  <item>
-Melhora o desempenho do kernel. O kernel padrão que acompanha as distribuições 
+Melhora o desempenho do kernel. O kernel padrÃ£o que acompanha as distribuiÃ§Ãµes 
 <prgn>GNU/Linux</prgn> foi feito para funcionar em qualquer tipo de sistema e 
 garantir seu funcionamento e inclui suporte a praticamente tudo. Isto pode 
-gerar desde instabilidade até uma grade pausa do kernel na inicialização 
-quando estiver procurando pelos dispositivos que simplesmente não existem 
+gerar desde instabilidade atÃ© uma grade pausa do kernel na inicializaÃ§Ã£o 
+quando estiver procurando pelos dispositivos que simplesmente nÃ£o existem 
 em seu computador! 
  <p>
-A compilação permite escolher somente o suporte aos dispositivos existentes em 
-seu computador e assim diminuir o tamanho do kernel, desocupar a memória 
-RAM com dispositivos que nunca usará e assim você terá um desempenho bem 
+A compilaÃ§Ã£o permite escolher somente o suporte aos dispositivos existentes em 
+seu computador e assim diminuir o tamanho do kernel, desocupar a memÃ³ria 
+RAM com dispositivos que nunca usarÃ¡ e assim vocÃª terÃ¡ um desempenho bem 
 melhor do que teria com um kernel pesado. 
  
  <item>
-Incluir suporte a alguns hardwares que estão desativados no kernel padrão 
-(SMP, APM, ACPI, Virtualização, Firewall, Bridge, memory cards, 
+Incluir suporte a alguns hardwares que estÃ£o desativados no kernel padrÃ£o 
+(SMP, APM, ACPI, VirtualizaÃ§Ã£o, Firewall, Bridge, memory cards, 
 drivers experimentais, etc).
 
  <item>
@@ -320,205 +320,205 @@ Tornar seu sistema mais seguro
  <item>
 Impressionar os seus amigos, tentando coisas novas. 
 </list>
-Serão necessários uns 300Mb de espaço em disco disponível para copiar 
-e descompactar o código fonte do kernel e alguns pacotes de 
+SerÃ£o necessÃ¡rios uns 300Mb de espaÃ§o em disco disponÃ­vel para copiar 
+e descompactar o cÃ³digo fonte do kernel e alguns pacotes de 
 desenvolvimento como o <prgn>gcc</prgn>, <prgn>cpp</prgn>, 
 <prgn>binutils</prgn>, <prgn>gcc-i386-gnu</prgn>, <prgn>bin86</prgn>, 
 <prgn>make</prgn>, <prgn>dpkg-dev</prgn>, <prgn>perl</prgn>, 
-<prgn>kernel-package</prgn> (os três últimos somente para a distribuição 
+<prgn>kernel-package</prgn> (os trÃªs Ãºltimos somente para a distribuiÃ§Ã£o 
 <prgn>Debian</prgn>). 
 <![ %DEBIAN [
  <p>
-Na distribuição <prgn>Debian</prgn>, o melhor método é através 
-do <prgn>kernel-package</prgn> que faz tudo para você 
-(menos escolher o que terá o não o suporte no kernel) e gera um 
-pacote <prgn>.deb</prgn> que poderá ser usado para instalar o kernel 
+Na distribuiÃ§Ã£o <prgn>Debian</prgn>, o melhor mÃ©todo Ã© atravÃ©s 
+do <prgn>kernel-package</prgn> que faz tudo para vocÃª 
+(menos escolher o que terÃ¡ o nÃ£o o suporte no kernel) e gera um 
+pacote <prgn>.deb</prgn> que poderÃ¡ ser usado para instalar o kernel 
 em seu sistema ou em qualquer outro que execute a <prgn>Debian</prgn> 
-ou distribuições baseadas (<prgn>Ubuntu</prgn>, etc). Devido a sua 
-facilidade, a compilação do kernel através do <file>kernel-package</file> 
-é muito recomendado para usuários iniciantes e para aqueles que usam 
-somente um kernel no sistema (é possível usar mais de dois ao mesmo tempo, 
-veja o processo de compilação manual adiante neste capítulo). Siga este 
-passos para recompilar seu kernel através do <file>kernel-package</file>: 
+ou distribuiÃ§Ãµes baseadas (<prgn>Ubuntu</prgn>, etc). Devido a sua 
+facilidade, a compilaÃ§Ã£o do kernel atravÃ©s do <file>kernel-package</file> 
+Ã© muito recomendado para usuÃ¡rios iniciantes e para aqueles que usam 
+somente um kernel no sistema (Ã© possÃ­vel usar mais de dois ao mesmo tempo, 
+veja o processo de compilaÃ§Ã£o manual adiante neste capÃ­tulo). Siga este 
+passos para recompilar seu kernel atravÃ©s do <file>kernel-package</file>: 
 <enumlist>
  <item>
-Descompacte o código fonte do kernel (através do arquivo linux-2.6.XX.XX.tar.bz2) 
-para o diretório <file>/usr/src</file>. Caso use os pacotes da 
-<prgn>Debian</prgn> eles terão o nome de <file>kernel-source-2.6.XX.XX</file>, 
+Descompacte o cÃ³digo fonte do kernel (atravÃ©s do arquivo linux-2.6.XX.XX.tar.bz2) 
+para o diretÃ³rio <file>/usr/src</file>. Caso use os pacotes da 
+<prgn>Debian</prgn> eles terÃ£o o nome de <file>kernel-source-2.6.XX.XX</file>, 
 para detalhes de como instalar um pacote, veja <ref id="dpkg-instalar">. 
  <item>
-Após isto, entre no diretório onde o código fonte do kernel foi instalado 
-com <tt>cd /usr/src/linux</tt> (este será assumido o lugar onde o código 
+ApÃ³s isto, entre no diretÃ³rio onde o cÃ³digo fonte do kernel foi instalado 
+com <tt>cd /usr/src/linux</tt> (este serÃ¡ assumido o lugar onde o cÃ³digo 
 fonte do kernel se encontra). 
  <item>
-Como usuário <tt>root</tt>, digite <tt>make config</tt>. Você também pode 
-usar <tt>make menuconfig</tt> (configuração através de menus) ou 
-<tt>make xconfig</tt> (configuração em modo gráfico) mas precisará de 
+Como usuÃ¡rio <tt>root</tt>, digite <tt>make config</tt>. VocÃª tambÃ©m pode 
+usar <tt>make menuconfig</tt> (configuraÃ§Ã£o atravÃ©s de menus) ou 
+<tt>make xconfig</tt> (configuraÃ§Ã£o em modo grÃ¡fico) mas precisarÃ¡ de 
 pacotes adicionais para que estes dois funcionem corretamente. 
  <p>
-Serão feitas perguntas sobre se deseja suporte a tal dispositivo, etc. 
+SerÃ£o feitas perguntas sobre se deseja suporte a tal dispositivo, etc. 
 Pressione <tt>Y</tt> para incluir o suporte diretamente no kernel, 
-<tt>M</tt> para incluir o suporte como módulo ou <tt>N</tt> para não 
+<tt>M</tt> para incluir o suporte como mÃ³dulo ou <tt>N</tt> para nÃ£o 
 incluir o suporte. Note que nem todos os drivers podem ser compilados 
-como módulos. 
+como mÃ³dulos. 
  <p>
-Escolha as opções que se encaixam em seu sistema. se estiver em dúvida 
-sobre a pergunta digite <tt>?</tt> e tecle Enter para ter uma explicação 
-sobre o que aquela opção faz. Se não souber do que se trata, recomendo 
-incluir a opção (pressionando <tt>Y</tt> ou <tt>M</tt>. Este passo pode 
-levar entre 5 minutos e 1 Hora (usuários que estão fazendo isto pela 
+Escolha as opÃ§Ãµes que se encaixam em seu sistema. se estiver em dÃºvida 
+sobre a pergunta digite <tt>?</tt> e tecle Enter para ter uma explicaÃ§Ã£o 
+sobre o que aquela opÃ§Ã£o faz. Se nÃ£o souber do que se trata, recomendo 
+incluir a opÃ§Ã£o (pressionando <tt>Y</tt> ou <tt>M</tt>. Este passo pode 
+levar entre 5 minutos e 1 Hora (usuÃ¡rios que estÃ£o fazendo isto pela 
 primeira vez tendem a levar mais tempo lendo e conhecendo os recursos 
-que o <prgn>GNU/Linux</prgn> possui, antes de tomar qualquer decisão). Não 
-se preocupe se esquecer de incluir o suporte a alguma coisa, você pode 
-repetir o passo <tt>make config</tt> (todas as suas escolhas são gravadas 
+que o <prgn>GNU/Linux</prgn> possui, antes de tomar qualquer decisÃ£o). NÃ£o 
+se preocupe se esquecer de incluir o suporte a alguma coisa, vocÃª pode 
+repetir o passo <tt>make config</tt> (todas as suas escolhas sÃ£o gravadas 
 no arquivo <file>.config</file>), recompilar o kernel e instalar em 
 cima do antigo a qualquer hora que quiser. 
  <item>
-Após o <tt>make config</tt> chegar ao final, digite <tt>make-kpkg clean</tt> 
-para limpar construções anteriores do kernel. 
+ApÃ³s o <tt>make config</tt> chegar ao final, digite <tt>make-kpkg clean</tt> 
+para limpar construÃ§Ãµes anteriores do kernel. 
  <item>
 Agora compile o kernel digitando <tt>make-kpkg --revision=teste.1.0 
-kernel-image</tt>. A palavra <tt>teste</tt> pode ser substituída por qualquer 
-outra que você quiser e número da versão <tt>1.0</tt> serve apenas como 
-controle de suas compilações (pode ser qualquer número). 
+kernel-image</tt>. A palavra <tt>teste</tt> pode ser substituÃ­da por qualquer 
+outra que vocÃª quiser e nÃºmero da versÃ£o <tt>1.0</tt> serve apenas como 
+controle de suas compilaÃ§Ãµes (pode ser qualquer nÃºmero). 
 <![ %OBS [
  <p>
-Observação: Não inclua hífens (<tt>-</tt>) no parâmetro --revision, use 
+ObservaÃ§Ã£o: NÃ£o inclua hÃ­fens (<tt>-</tt>) no parÃ¢metro --revision, use 
 somente pontos. ]]>
  <item>
-Agora após compilar, o kernel será gravado no diretório superior (..) com 
+Agora apÃ³s compilar, o kernel serÃ¡ gravado no diretÃ³rio superior (..) com 
 um nome do tipo <tt>linux-image-2.6.23.6-i386_teste.1.0.deb</tt>. 
-Basta você digitar <tt>dpkg -i kernel-image-2.6.23.6-i386_teste.1.0.deb
-</tt> e o <prgn>dpkg</prgn> fará o resto da instalação do kernel para você 
-e perguntará se deseja criar um disquete de inicialização (recomendável). 
+Basta vocÃª digitar <tt>dpkg -i kernel-image-2.6.23.6-i386_teste.1.0.deb
+</tt> e o <prgn>dpkg</prgn> farÃ¡ o resto da instalaÃ§Ã£o do kernel para vocÃª 
+e perguntarÃ¡ se deseja criar um disquete de inicializaÃ§Ã£o (recomendÃ¡vel). 
  <item>
-Reinicie seu computador, seu novo kernel iniciará e você já 
-perceberá a primeira diferença pela velocidade que o <prgn>GNU/Linux</prgn> 
-é iniciado (você inclui somente suporte a dispositivos em seu sistema). 
-O desempenho dos programas também melhorará pois cortou o suporte a 
-dispositivos/funções que seu computador não precisa. 
+Reinicie seu computador, seu novo kernel iniciarÃ¡ e vocÃª jÃ¡ 
+perceberÃ¡ a primeira diferenÃ§a pela velocidade que o <prgn>GNU/Linux</prgn> 
+Ã© iniciado (vocÃª inclui somente suporte a dispositivos em seu sistema). 
+O desempenho dos programas tambÃ©m melhorarÃ¡ pois cortou o suporte a 
+dispositivos/funÃ§Ãµes que seu computador nÃ£o precisa. 
  <p>
 Caso alguma coisa sair errada, coloque o disquete que gravou no passo 
-anterior e reinicie o computador para fazer as correções. 
+anterior e reinicie o computador para fazer as correÃ§Ãµes. 
 </enumlist> 
 ]]>
 
  <p>
-Para recompilar o kernel usando o método manual, siga os seguintes 
+Para recompilar o kernel usando o mÃ©todo manual, siga os seguintes 
 passos:
 <enumlist compact>
  <item>
-Descompacte o código fonte do kernel (através do arquivo linux-2.6.XX.XX.tar.bz2) 
-para o diretório <file>/usr/src</file>. O código fonte do kernel 
+Descompacte o cÃ³digo fonte do kernel (atravÃ©s do arquivo linux-2.6.XX.XX.tar.bz2) 
+para o diretÃ³rio <file>/usr/src</file>. O cÃ³digo fonte do kernel 
 pode ser encontrado em <url id="&url-kernel-ftp;">. 
  <item>
-Após isto, entre no diretório onde o código fonte do kernel foi instalado 
-com <tt>cd /usr/src/linux</tt> (este será assumido o lugar onde o código 
+ApÃ³s isto, entre no diretÃ³rio onde o cÃ³digo fonte do kernel foi instalado 
+com <tt>cd /usr/src/linux</tt> (este serÃ¡ assumido o lugar onde o cÃ³digo 
 fonte do kernel se encontra). 
  <item>
-Como usuário <tt>root</tt>, digite <tt>make config</tt>. Você também pode 
-usar <tt>make menuconfig</tt> (configuração através de menus) ou 
-<tt>make xconfig</tt> (configuração em modo gráfico) mas precisará de 
+Como usuÃ¡rio <tt>root</tt>, digite <tt>make config</tt>. VocÃª tambÃ©m pode 
+usar <tt>make menuconfig</tt> (configuraÃ§Ã£o atravÃ©s de menus) ou 
+<tt>make xconfig</tt> (configuraÃ§Ã£o em modo grÃ¡fico) mas precisarÃ¡ de 
 pacotes adicionais. 
  <p>
-Serão feitas perguntas sobre se deseja suporte a tal dispositivo, etc. 
+SerÃ£o feitas perguntas sobre se deseja suporte a tal dispositivo, etc. 
 Pressione <tt>Y</tt> para incluir o suporte diretamente no kernel, 
-<tt>M</tt> para incluir o suporte como módulo ou <tt>N</tt> para não 
+<tt>M</tt> para incluir o suporte como mÃ³dulo ou <tt>N</tt> para nÃ£o 
 incluir o suporte. Note que nem todos os drivers podem ser compilados 
-como módulos. 
+como mÃ³dulos. 
  <p>
-Escolha as opções que se encaixam em seu sistema. se estiver em dúvida 
-sobre a pergunta digite <tt>?</tt> e tecle Enter para ter uma explicação 
-sobre o que aquela opção faz. Se não souber do que se trata, recomendo 
-incluir a opção (pressionando <tt>Y</tt> ou <tt>M</tt>. Este passo pode 
-levar entre 5 minutos e 1 Hora (usuários que estão fazendo isto pela 
+Escolha as opÃ§Ãµes que se encaixam em seu sistema. se estiver em dÃºvida 
+sobre a pergunta digite <tt>?</tt> e tecle Enter para ter uma explicaÃ§Ã£o 
+sobre o que aquela opÃ§Ã£o faz. Se nÃ£o souber do que se trata, recomendo 
+incluir a opÃ§Ã£o (pressionando <tt>Y</tt> ou <tt>M</tt>. Este passo pode 
+levar entre 5 minutos e 1 Hora (usuÃ¡rios que estÃ£o fazendo isto pela 
 primeira vez tendem a levar mais tempo lendo e conhecendo os recursos 
-que o <prgn>GNU/Linux</prgn> possui antes de tomar qualquer decisão). Não 
-se preocupe se esquecer de incluir o suporte a alguma coisa, você pode 
+que o <prgn>GNU/Linux</prgn> possui antes de tomar qualquer decisÃ£o). NÃ£o 
+se preocupe se esquecer de incluir o suporte a alguma coisa, vocÃª pode 
 repetir o passo <tt>make config</tt>, recompilar o kernel e instalar em 
 cima do antigo a qualquer hora que quiser. 
  <item>
 Caso esteja compilando um kernel 2.4 ou inferior, Digite o comando <tt>make dep</tt> 
-para verificar as dependências dos módulos. Se estiver compilando um kernel 2.6 ou 
+para verificar as dependÃªncias dos mÃ³dulos. Se estiver compilando um kernel 2.6 ou 
 superior, pule esse comando.
  <item>
-Digite o comando <tt>make clean</tt> para limpar construções anteriores 
+Digite o comando <tt>make clean</tt> para limpar construÃ§Ãµes anteriores 
 do kernel. 
  <item>
-Digite o comando <tt>make</tt> para iniciar a compilação do 
-kernel e seus módulos. Aguarde a compilação, o tempo pode variar 
+Digite o comando <tt>make</tt> para iniciar a compilaÃ§Ã£o do 
+kernel e seus mÃ³dulos. Aguarde a compilaÃ§Ã£o, o tempo pode variar 
 dependendo da quantidade de recursos que adicionou ao kernel, a velocidade 
-de seu computador e a quantidade de memória RAM disponível. 
+de seu computador e a quantidade de memÃ³ria RAM disponÃ­vel. 
  <p>
-Caso tenha acrescentado muitos ítens no Kernel, é possível que o comando 
+Caso tenha acrescentado muitos Ã­tens no Kernel, Ã© possÃ­vel que o comando 
 <tt>make zImage</tt> falhe no final (especialmente se o tamanho do kernel 
-estático for maior que 505Kb). Neste caso use <tt>make bzImage</tt>. A 
-diferença entre <em>zImage</em> e <em>bzImage</em> é que o primeiro 
-possui um limite de tamanho porque é descompactado na memória básica 
-(recomendado para alguns Notebooks), já a <em>bzImage</em>, é descompactada 
-na memória estendida e não possui as limitações da <em>zImage</em>. 
+estÃ¡tico for maior que 505Kb). Neste caso use <tt>make bzImage</tt>. A 
+diferenÃ§a entre <em>zImage</em> e <em>bzImage</em> Ã© que o primeiro 
+possui um limite de tamanho porque Ã© descompactado na memÃ³ria bÃ¡sica 
+(recomendado para alguns Notebooks), jÃ¡ a <em>bzImage</em>, Ã© descompactada 
+na memÃ³ria estendida e nÃ£o possui as limitaÃ§Ãµes da <em>zImage</em>. 
  <item>
-A compilação neste ponto está completa, você agora tem duas opções para 
-instalar o kernel: Substituir o kernel anterior pelo recém compilado ou 
-usar os dois. A segunda questão é recomendável se você não tem certeza 
-se o kernel funcionará corretamente e deseja iniciar pelo antigo no 
+A compilaÃ§Ã£o neste ponto estÃ¡ completa, vocÃª agora tem duas opÃ§Ãµes para 
+instalar o kernel: Substituir o kernel anterior pelo recÃ©m compilado ou 
+usar os dois. A segunda questÃ£o Ã© recomendÃ¡vel se vocÃª nÃ£o tem certeza 
+se o kernel funcionarÃ¡ corretamente e deseja iniciar pelo antigo no 
 caso de alguma coisa dar errado.
  <p>
-Se você optar por substituir o kernel anterior:
+Se vocÃª optar por substituir o kernel anterior:
 <enumlist compact> 
  <item>
-É recomendável renomear o diretório <file>/lib/modules/versão_do_kernel</file> 
-para <file>/lib/modules/versão_do_kernel.old</file>, isto será útil para 
-restauração completa dos módulos antigos caso alguma coisa der errado.
+Ã‰ recomendÃ¡vel renomear o diretÃ³rio <file>/lib/modules/versÃ£o_do_kernel</file> 
+para <file>/lib/modules/versÃ£o_do_kernel.old</file>, isto serÃ¡ Ãºtil para 
+restauraÃ§Ã£o completa dos mÃ³dulos antigos caso alguma coisa der errado.
  <item>
-Execute o comando <tt>make modules_install</tt> para instalar os módulos 
-do kernel recém compilado em <file>/lib/modules/versão_do_kernel</file>. 
+Execute o comando <tt>make modules_install</tt> para instalar os mÃ³dulos 
+do kernel recÃ©m compilado em <file>/lib/modules/versÃ£o_do_kernel</file>. 
  <item>
-Copie o arquivo <file>zImage</file> que contém o kernel de 
+Copie o arquivo <file>zImage</file> que contÃ©m o kernel de 
 <file>/usr/src/linux/arch/i386/boot/zImage</file> para 
-<file>/boot/vmlinuz-2.XX.XX</file> (<em>2.XX.XX</em> é a versão do kernel
+<file>/boot/vmlinuz-2.XX.XX</file> (<em>2.XX.XX</em> Ã© a versÃ£o do kernel
 anterior) 
  <item>
-Verifique se o link simbólico <file>/vmlinuz</file> aponta para a versão 
-do kernel que compilou atualmente (com <tt>ls -la /</tt>). Caso contrário, 
-apague o arquivo <file>/vmlinuz</file> do diretório raíz e crie um novo 
+Verifique se o link simbÃ³lico <file>/vmlinuz</file> aponta para a versÃ£o 
+do kernel que compilou atualmente (com <tt>ls -la /</tt>). Caso contrÃ¡rio, 
+apague o arquivo <file>/vmlinuz</file> do diretÃ³rio raÃ­z e crie um novo 
 link com <tt>ln -s /boot/vmlinuz-2.XX.Xx /vmlinuz</tt> apontando para o 
 kernel correto. 
  <item>
 Execute o comando <tt>lilo</tt> para gerar um novo setor de partida no 
-disco rígido. Para detalhes veja <ref id="boot-lilo">. 
+disco rÃ­gido. Para detalhes veja <ref id="boot-lilo">. 
  <item>
 Reinicie o sistema (<tt>shutdown -r now</tt>). 
  <item>
-Caso tudo esteja funcionando normalmente, apague o diretório antigo 
-de módulos que salvou e o kernel antigo de <file>/boot</file>. Caso 
-algo tenha dado errado e seu sistema não inicializa, inicie a partir de 
-um disquete, apague o novo kernel, apague os novos módulos, renomeie o 
-diretório de módulos antigos para o nome original, ajuste o link 
-simbólico <file>/vmlinuz</file> para apontar para o antigo kernel e 
-execute o <tt>lilo</tt>. Após reiniciar seu computador voltará como 
+Caso tudo esteja funcionando normalmente, apague o diretÃ³rio antigo 
+de mÃ³dulos que salvou e o kernel antigo de <file>/boot</file>. Caso 
+algo tenha dado errado e seu sistema nÃ£o inicializa, inicie a partir de 
+um disquete, apague o novo kernel, apague os novos mÃ³dulos, renomeie o 
+diretÃ³rio de mÃ³dulos antigos para o nome original, ajuste o link 
+simbÃ³lico <file>/vmlinuz</file> para apontar para o antigo kernel e 
+execute o <tt>lilo</tt>. ApÃ³s reiniciar seu computador voltarÃ¡ como 
 estava antes. 
 </enumlist>
  <p>
-Se você optar por manter o kernel anterior e selecionar qual será usado 
-na partida do sistema (útil para um kernel em testes): 
+Se vocÃª optar por manter o kernel anterior e selecionar qual serÃ¡ usado 
+na partida do sistema (Ãºtil para um kernel em testes): 
 <enumlist>
  <item>
-Execute o comando <tt>make modules_install</tt> para instalar os módulos 
-recém compilados do kernel em <file>/lib/modules/versao_do_kernel</file>. 
+Execute o comando <tt>make modules_install</tt> para instalar os mÃ³dulos 
+recÃ©m compilados do kernel em <file>/lib/modules/versao_do_kernel</file>. 
  <item>
-Copie o arquivo <file>zImage</file> que contém o kernel de 
+Copie o arquivo <file>zImage</file> que contÃ©m o kernel de 
 <file>/usr/src/linux/arch/i386/boot/zImage</file> para 
-<file>/boot/vmlinuz-2.XX.XX</file> (<em>2.XX.XX</em> é a versão do 
+<file>/boot/vmlinuz-2.XX.XX</file> (<em>2.XX.XX</em> Ã© a versÃ£o do 
 kernel anterior) 
  <item>
-Crie um link simbólico no diretório raíz (<file>/</file>) apontando para o 
-novo kernel. Como exemplos será usado <file>/vmlinuz-novo</file>.
+Crie um link simbÃ³lico no diretÃ³rio raÃ­z (<file>/</file>) apontando para o 
+novo kernel. Como exemplos serÃ¡ usado <file>/vmlinuz-novo</file>.
  <item>
 Modifique o arquivo <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> para 
 incluir a nova imagem de kernel. Por exemplo:
 <example>
-Antes da modificação:
+Antes da modificaÃ§Ã£o:
 
 boot=/dev/hda
 prompt
@@ -532,7 +532,7 @@ image = /vmlinuz
   label = 1
   read-only
 
-Depois da modificação:
+Depois da modificaÃ§Ã£o:
 
 boot=/dev/hda
 prompt
@@ -551,87 +551,87 @@ image = /vmlinuz-new
   label = 2
   read-only
 </example> 
-Se você digitar <tt>1</tt> no aviso de <tt>boot:</tt> do <prgn>Lilo</prgn>, o 
-kernel antigo será carregado, caso digitar <tt>2</tt> o novo kernel será 
+Se vocÃª digitar <tt>1</tt> no aviso de <tt>boot:</tt> do <prgn>Lilo</prgn>, o 
+kernel antigo serÃ¡ carregado, caso digitar <tt>2</tt> o novo kernel serÃ¡ 
 carregado. Para detalhes veja <ref id="boot-lilo-cfg"> e 
 <ref id="boot-lilo-exemplo">. 
  <item>
 Execute o comando <tt>lilo</tt> para gravar o novo setor de boot para o 
-disco rígido. 
+disco rÃ­gido. 
  <item>
 Reinicie o computador
  <item>
-Carregue o novo kernel escolhendo a opção <tt>2</tt> no aviso 
+Carregue o novo kernel escolhendo a opÃ§Ã£o <tt>2</tt> no aviso 
 de <tt>boot:</tt> do <prgn>Lilo</prgn>. Caso tiver problemas, 
-escolha a opção <tt>1</tt> para iniciar com o kernel antigo e verifique 
-os passos de configuração (o arquivo <![ %DEBIAN [ <file>lilo.conf</file> ]]> 
+escolha a opÃ§Ã£o <tt>1</tt> para iniciar com o kernel antigo e verifique 
+os passos de configuraÃ§Ã£o (o arquivo <![ %DEBIAN [ <file>lilo.conf</file> ]]> 
 foi modificado corretamente?. 
 </enumlist>
 
 </enumlist>
 
-Em alguns casos (como nos kernels empacotados em distribuições 
-<prgn>GNU/Linux</prgn>) o código fonte do kernel é gravado em 
-um diretório chamado <file>kernel-source-xx.xx.xx</file>. É 
-recomendável fazer um link com um diretório <file>GNU/Linux</file>, 
-pois é o padrão usado pelas atualização do código fonte através 
+Em alguns casos (como nos kernels empacotados em distribuiÃ§Ãµes 
+<prgn>GNU/Linux</prgn>) o cÃ³digo fonte do kernel Ã© gravado em 
+um diretÃ³rio chamado <file>kernel-source-xx.xx.xx</file>. Ã‰ 
+recomendÃ¡vel fazer um link com um diretÃ³rio <file>GNU/Linux</file>, 
+pois Ã© o padrÃ£o usado pelas atualizaÃ§Ã£o do cÃ³digo fonte atravÃ©s 
 de patches (veja <ref id="kern-patches">). 
  <p>
-Para criar o link simbólico, entre em <file>/usr/src</file> e digite: 
+Para criar o link simbÃ³lico, entre em <file>/usr/src</file> e digite: 
 <tt>ln -s kernel-source-xx.xx.xx linux</tt>. 
  <p>
-Se quiser mais detalhes sobre a compilação do kernel, consulte o 
+Se quiser mais detalhes sobre a compilaÃ§Ã£o do kernel, consulte o 
 documento <em>kernel-howto</em>. 
 
 
-<sect id="kern-arquivos">Arquivos relacionados com o Kernel e Módulos
+<sect id="kern-arquivos">Arquivos relacionados com o Kernel e MÃ³dulos
  <p>
-Esta seção descreve os arquivos usados pelo kernel e módulos, a 
-função de cada um no sistema, a sintaxe, etc.
+Esta seÃ§Ã£o descreve os arquivos usados pelo kernel e mÃ³dulos, a 
+funÃ§Ã£o de cada um no sistema, a sintaxe, etc.
 
 
 <sect1 id="kern-arquivos-modules">/etc/modules
  <p>
-A função deste arquivo é carregar módulos especificados na inicialização 
-do sistema e mantê-los carregado todo o tempo. É útil para módulos de 
-placas de rede que precisam ser carregados antes da configuração de rede 
-feita pela distribuição e não podem ser removidos quando a placa de rede 
+A funÃ§Ã£o deste arquivo Ã© carregar mÃ³dulos especificados na inicializaÃ§Ã£o 
+do sistema e mantÃª-los carregado todo o tempo. Ã‰ Ãºtil para mÃ³dulos de 
+placas de rede que precisam ser carregados antes da configuraÃ§Ã£o de rede 
+feita pela distribuiÃ§Ã£o e nÃ£o podem ser removidos quando a placa de rede 
 estiver sem uso (isto retiraria seu computador da rede). 
  <p>
-Seu conteúdo é uma lista de módulos (um por linha) que serão carregados 
-na inicialização do sistema. Os módulos carregados pelo arquivo 
+Seu conteÃºdo Ã© uma lista de mÃ³dulos (um por linha) que serÃ£o carregados 
+na inicializaÃ§Ã£o do sistema. Os mÃ³dulos carregados pelo arquivo 
 <file>/etc/modules</file> pode ser listados usando o comando 
 <prgn>lsmod</prgn> (veja <ref id="kern-lsmod">. 
  <p>
-Se o parâmetro <tt>auto</tt> estiver especificado como um módulo, o 
-<prgn>kmod</prgn> será ativado e carregará os módulos somente em demanda, 
-caso seja especificado <tt>noauto</tt> o programa <prgn>kmod</prgn> será 
-desativado. O <prgn>kmod</prgn> é ativado por padrão nos níveis de 
-execução 2 ao 5. 
+Se o parÃ¢metro <tt>auto</tt> estiver especificado como um mÃ³dulo, o 
+<prgn>kmod</prgn> serÃ¡ ativado e carregarÃ¡ os mÃ³dulos somente em demanda, 
+caso seja especificado <tt>noauto</tt> o programa <prgn>kmod</prgn> serÃ¡ 
+desativado. O <prgn>kmod</prgn> Ã© ativado por padrÃ£o nos nÃ­veis de 
+execuÃ§Ã£o 2 ao 5. 
  <p>
 Ele pode ser editado em qualquer editor de textos comum ou modificado 
-automaticamente através do utilitário 
+automaticamente atravÃ©s do utilitÃ¡rio 
 <![ %DEBIAN [ <prgn>modconf</prgn>. ]]> 
 
 
 <sect1 id="kern-arquivos-modulesconf">modules.conf
  <p>
 O arquivo <![ %DEBIAN [ <file>/etc/modules.conf</file> ]]> permite 
-controlar as opções de todos os módulos do sistema. Ele é consultado 
+controlar as opÃ§Ãµes de todos os mÃ³dulos do sistema. Ele Ã© consultado 
 pelos programas <prgn>modprobe</prgn> e <prgn>depmod</prgn>. As 
-opções especificadas neste arquivo facilita o gerenciamento de 
-módulos, evitando a digitação de opções através da linha de comando. 
+opÃ§Ãµes especificadas neste arquivo facilita o gerenciamento de 
+mÃ³dulos, evitando a digitaÃ§Ã£o de opÃ§Ãµes atravÃ©s da linha de comando. 
 <![ %DEBIAN [
  <![ %OBS [  
  <p>
-Note que é recomendado o uso do utilitário <prgn>modconf</prgn> para 
-configurar quaisquer módulos em seu sistema e o utilitário 
-<prgn>update-modules</prgn> para sincronização dos arquivos 
+Note que Ã© recomendado o uso do utilitÃ¡rio <prgn>modconf</prgn> para 
+configurar quaisquer mÃ³dulos em seu sistema e o utilitÃ¡rio 
+<prgn>update-modules</prgn> para sincronizaÃ§Ã£o dos arquivos 
 gerados pelo <prgn>modconf</prgn> em <file>/etc/modutils</file> com 
-o <file>/etc/modules.conf</file> (geralmente isto é feito automaticamente 
-após o uso do <prgn>modconf</prgn>). Por este motivo não é recomendável 
-modifica-lo manualmente, a não ser que seja um usuário experiente e 
-saiba o que está fazendo. Veja <ref id="kern-modconf"> ]]> ]]>
+o <file>/etc/modules.conf</file> (geralmente isto Ã© feito automaticamente 
+apÃ³s o uso do <prgn>modconf</prgn>). Por este motivo nÃ£o Ã© recomendÃ¡vel 
+modifica-lo manualmente, a nÃ£o ser que seja um usuÃ¡rio experiente e 
+saiba o que estÃ¡ fazendo. Veja <ref id="kern-modconf"> ]]> ]]>
 <![ %EXEMPLO [ 
  <p>
 Por exemplo: adicionando as linhas:
@@ -639,60 +639,60 @@ Por exemplo: adicionando as linhas:
 alias sound sb 
 options sb io=0x220 irq=5 dma=1 dma16=5 mpuio=0x330 
 </example>
-permitirá que seja usado somente o comando <tt>modprobe sb</tt> para 
+permitirÃ¡ que seja usado somente o comando <tt>modprobe sb</tt> para 
 ativar a placa de som. 
 ]]> 
 
 
 <sect id="kern-patches">Aplicando Patches no kernel
  <p>
-<em>Patches</em> são modificações geradas pelo programa <prgn>diff</prgn> 
+<em>Patches</em> sÃ£o modificaÃ§Ãµes geradas pelo programa <prgn>diff</prgn> 
 em que servem para atualizar um programa ou texto. 
-<![ %DESCRICAOD [ Este recurso é muito útil para os desenvolvedores, 
-pois podem gerar um arquivo contendo as diferenças entre um programa 
+<![ %DESCRICAOD [ Este recurso Ã© muito Ãºtil para os desenvolvedores, 
+pois podem gerar um arquivo contendo as diferenÃ§as entre um programa 
 antigo e um novo (usando o comando <prgn>diff</prgn>) e enviar o arquivo 
-contendo as diferenças para outras pessoas. 
+contendo as diferenÃ§as para outras pessoas. 
  <p>
 As pessoas interessadas em atualizar o programa antigo, podem 
-simplesmente pegar o arquivo contendo as diferenças e atualizar 
+simplesmente pegar o arquivo contendo as diferenÃ§as e atualizar 
 o programa usando o <prgn>patch</prgn>. ]]>
  <p>
-Isto é muito usado no desenvolvimento do kernel do <prgn>GNU/Linux</prgn> 
-em que novas versões são lançadas freqüentemente e o tamanho kernel 
-completo compactado ocupa cerca de 18MB. Você pode atualizar seu kernel 
-pegando um patch seguinte a versão que possui em 
+Isto Ã© muito usado no desenvolvimento do kernel do <prgn>GNU/Linux</prgn> 
+em que novas versÃµes sÃ£o lanÃ§adas freqÃ¼entemente e o tamanho kernel 
+completo compactado ocupa cerca de 18MB. VocÃª pode atualizar seu kernel 
+pegando um patch seguinte a versÃ£o que possui em 
 <url id="&url-kernel-ftp;">. 
  <p>
-Para aplicar um patch que atualizará seu kernel 2.6.23 para a versão 
-2.6.24 você deve proceder da seguinte forma:
+Para aplicar um patch que atualizarÃ¡ seu kernel 2.6.23 para a versÃ£o 
+2.6.24 vocÃª deve proceder da seguinte forma:
 <list compact>
  <item>
-Descompacte o código fonte do kernel 2.6.23 em <file>/usr/src/linux</file> 
-ou certifique-se que existe um link simbólico do código fonte do 
+Descompacte o cÃ³digo fonte do kernel 2.6.23 em <file>/usr/src/linux</file> 
+ou certifique-se que existe um link simbÃ³lico do cÃ³digo fonte do 
 kernel para <file>/usr/src/linux</file>. 
  <item>
 Copie o arquivo <file>patch-2.6.24.gz</file> de <url id="&url-kernel-ftp;"> 
 para <file>/usr/src</file>.
  <item>
 Use o comando <tt>gzip -dc patch-2.6.24|patch -p0 -N -E</tt> para 
-atualizar o código fonte em <file>/usr/src/linux</file> para a 
-versão 2.6.24.
+atualizar o cÃ³digo fonte em <file>/usr/src/linux</file> para a 
+versÃ£o 2.6.24.
  <p>
-Alternativamente você pode primeiro descompactar o arquivo 
+Alternativamente vocÃª pode primeiro descompactar o arquivo 
 <file>patch-2.6.24.gz</file> com o <prgn>gzip</prgn> e usar o 
 comando <tt>patch -p0 -N -E &lt;patch-2.6.24</tt> para atualizar o 
-código fonte do kernel. O <prgn>GNU/Linux</prgn> permite que você 
-obtenha o mesmo resultado através de diferentes métodos, a 
-escolha é somente sua. 
+cÃ³digo fonte do kernel. O <prgn>GNU/Linux</prgn> permite que vocÃª 
+obtenha o mesmo resultado atravÃ©s de diferentes mÃ©todos, a 
+escolha Ã© somente sua. 
 </list>
 <![ %OBS [
  <p>
 Caso deseja atualizar o kernel 2.6.20 para 2.6.24, como no 
-exemplo acima, você deverá aplicar os patches em seqüência 
+exemplo acima, vocÃª deverÃ¡ aplicar os patches em seqÃ¼Ãªncia 
 (do patch 2.6.20 ao 2.6.24). Vale a pena observar se o 
 tamanho total dos patches ultrapassa ou chega perto o 
 tamanho do kernel completo, pois dependendo da quantidade de 
-alterações pode ser mais viável baixar diretamente a nova 
-versão. ]]>
+alteraÃ§Ãµes pode ser mais viÃ¡vel baixar diretamente a nova 
+versÃ£o. ]]>
 
  

@@ -1,73 +1,73 @@
-<chapt id="compil">CompilaÁ„o
+<chapt id="compil">Compila√ß√£o
  <p>
-Este capÌtulo explica o que È compilaÁ„o, os principais compiladores e 
+Este cap√≠tulo explica o que √© compila√ß√£o, os principais compiladores e 
 como compilar programas e principalmente o Kernel do <prgn>GNU/Linux</prgn> 
 com o objetivo de personaliza-lo de acordo com os dispositivos usados 
 em seu computador e/ou os recursos que planeja utilizar. 
 
 
-<sect id="compil-descricao">O que È compilaÁ„o?
+<sect id="compil-descricao">O que √© compila√ß√£o?
  <p>
-… a transformaÁ„o de um programa em cÛdigo fonte (programa escrito pelo 
-programador) em linguagem de m·quina (programa execut·vel). 
+√â a transforma√ß√£o de um programa em c√≥digo fonte (programa escrito pelo 
+programador) em linguagem de m√°quina (programa execut√°vel). 
 <![ %DESCRICAOD [ 
  <p>
-Existem centenas de linguagens de programaÁ„o diferentes umas 
-das outras, cada uma oferece recursos especÌficos para atender 
-melhor uma necessidade ou caracterÌsticas particulares, algumas 
-s„o voltadas para bancos de dados, outras somente para a criaÁ„o 
-de interfaces comunicaÁ„o (<em>front-ends</em>), aprendizado, etc. 
-Cada linguagem de programaÁ„o possui comandos especÌficos que desempenham 
-alguma funÁ„o, mas todas trabalham com vari·veis de memÛria para a 
-manipulaÁ„o de dados de entrada/processamento. ]]>
+Existem centenas de linguagens de programa√ß√£o diferentes umas 
+das outras, cada uma oferece recursos espec√≠ficos para atender 
+melhor uma necessidade ou caracter√≠sticas particulares, algumas 
+s√£o voltadas para bancos de dados, outras somente para a cria√ß√£o 
+de interfaces comunica√ß√£o (<em>front-ends</em>), aprendizado, etc. 
+Cada linguagem de programa√ß√£o possui comandos espec√≠ficos que desempenham 
+alguma fun√ß√£o, mas todas trabalham com vari√°veis de mem√≥ria para a 
+manipula√ß√£o de dados de entrada/processamento. ]]>
 
 
 <sect id="compil-compilador">Compilador
  <p>
-… o programa que converte o programa feito pelo programador em 
-linguagem de m·quina. ApÛs o processo de compilaÁ„o o programa 
-estar· pronto para ser executado como um arquivo bin·rio. 
+√â o programa que converte o programa feito pelo programador em 
+linguagem de m√°quina. Ap√≥s o processo de compila√ß√£o o programa 
+estar√° pronto para ser executado como um arquivo bin√°rio. 
  <p>
 Existem muitos compiladores no ambiente <prgn>GNU/Linux</prgn>, um 
-dos mais usados È o <prgn>gcc</prgn>, o compilador para linguagem C. 
+dos mais usados √© o <prgn>gcc</prgn>, o compilador para linguagem C. 
 
 
     <![ %CONSTRUCAO [ 
 
-<sect id="compil-kernel">DescriÁ„o das opÁıes de compilaÁ„o do kernel
+<sect id="compil-kernel">Descri√ß√£o das op√ß√µes de compila√ß√£o do kernel
  <p>
-Esta seÁ„o descreve detalhadamente o significado de cada uma das opÁıes 
-de compilaÁ„o do kernel <prgn>GNU/Linux</prgn> durante o passo 
-de compilaÁ„o. As explicaÁıes s„o feitas usando o mÈtodo de 
-seleÁ„o em modo texto <tt>make config</tt>, mas vocÍ n„o encontrar· 
+Esta se√ß√£o descreve detalhadamente o significado de cada uma das op√ß√µes 
+de compila√ß√£o do kernel <prgn>GNU/Linux</prgn> durante o passo 
+de compila√ß√£o. As explica√ß√µes s√£o feitas usando o m√©todo de 
+sele√ß√£o em modo texto <tt>make config</tt>, mas voc√™ n√£o encontrar√° 
 dificuldades para converte-las para <tt>make menuconfig</tt> ou 
 <tt>make xconfig</tt>, o modo <tt>make config</tt> funciona em 
-qualquer situaÁ„o. 
+qualquer situa√ß√£o. 
  <p>
-O objetivo principal desta seÁ„o È esclarecer d˙vidas sobre o que 
-significa cada opÁ„o e ajuda-lo a decidir sobre o que precisa para 
-compilar seu kernel personalizado. O cÛdigo fonte usado 
-È o 2.2.15 e as opÁıes apresentadas aqui podem ser diferentes ou 
-simplesmente n„o existir em outras versıes do kernel. 
+O objetivo principal desta se√ß√£o √© esclarecer d√∫vidas sobre o que 
+significa cada op√ß√£o e ajuda-lo a decidir sobre o que precisa para 
+compilar seu kernel personalizado. O c√≥digo fonte usado 
+√© o 2.2.15 e as op√ß√µes apresentadas aqui podem ser diferentes ou 
+simplesmente n√£o existir em outras vers√µes do kernel. 
  <p>
-Para selecionar alternativas, vocÍ pode usar S,N,M ou ?:
+Para selecionar alternativas, voc√™ pode usar S,N,M ou ?:
 <list compact>
  <item>
 <tt>Y</tt> inclui o suporte ao kernel (compilado diretamente no kernel)
  <item>
-<tt>N</tt> o suporte ao dispositivo n„o ser· incluÌdo
+<tt>N</tt> o suporte ao dispositivo n√£o ser√° inclu√≠do
  <item>
-<tt>M</tt> o suporte ser· incluÌdo como mÛdulo (que poder· ser carregado e 
-descarregado da memÛria automaticamente ou manualmente, veja 
+<tt>M</tt> o suporte ser√° inclu√≠do como m√≥dulo (que poder√° ser carregado e 
+descarregado da mem√≥ria automaticamente ou manualmente, veja 
 <ref id="kern-modulos">) 
  <item> 
-<tt>?</tt> mostra uma tela de ajuda com explicaÁıes b·sicas sobre a quest„o. 
+<tt>?</tt> mostra uma tela de ajuda com explica√ß√µes b√°sicas sobre a quest√£o. 
 </list>
-Mesmo se vocÍ tenha um kernel est·vel (com um n˙mero central par - 2.6.xx.xx por 
-exemplo), a primeira pergunta È se deseja incluir suporte a dispositivos 
-experimentais. Isto n„o significa que ativando isto derrubar· seu sistema ou 
-coisa do tipo, mas que ainda n„o foram totalmente integrados ao kernel ou n„o 
-ativam todas as funÁıes requisitadas. O kernel possui mÈtodos para lidar com 
+Mesmo se voc√™ tenha um kernel est√°vel (com um n√∫mero central par - 2.6.xx.xx por 
+exemplo), a primeira pergunta √© se deseja incluir suporte a dispositivos 
+experimentais. Isto n√£o significa que ativando isto derrubar√° seu sistema ou 
+coisa do tipo, mas que ainda n√£o foram totalmente integrados ao kernel ou n√£o 
+ativam todas as fun√ß√µes requisitadas. O kernel possui m√©todos para lidar com 
 instabilidades no sistema. 
 
     ]]>

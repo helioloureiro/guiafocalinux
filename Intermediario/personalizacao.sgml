@@ -1,90 +1,90 @@
-<chapt id="pers">PersonalizaÁ„o do Sistema
+<chapt id="pers">Personaliza√ß√£o do Sistema
  <p>
-Este capÌtulo ensina como personalizar algumas caracterÌsticas de seu 
+Este cap√≠tulo ensina como personalizar algumas caracter√≠sticas de seu 
 sistema <prgn>GNU/Linux</prgn>. 
 
 
-<sect id="pers-varamb">Vari·veis de Ambientes
+<sect id="pers-varamb">Vari√°veis de Ambientes
  <p>
-… um mÈtodo simples e pr·tico que permite a especificaÁ„o de opÁıes de 
-configuraÁ„o de programas sem precisar mexer com arquivos no disco ou 
-opÁıes. Algumas vari·veis do <prgn>GNU/Linux</prgn> afetam o comportamento 
+√â um m√©todo simples e pr√°tico que permite a especifica√ß√£o de op√ß√µes de 
+configura√ß√£o de programas sem precisar mexer com arquivos no disco ou 
+op√ß√µes. Algumas vari√°veis do <prgn>GNU/Linux</prgn> afetam o comportamento 
 de todo o Sistema Operacional, como o idioma utilizado e o path 
 <![ %INICIANTE [ (veja <ref id="run-path">) ]]>. 
-Vari·veis de ambientes s„o nomes que contÈm algum valor e tem a 
-forma <tt>Nome=Valor</tt>. As vari·veis de ambiente s„o individuais para 
-cada usu·rio do sistema ou consoles virtuais e permanecem residentes na 
-memÛria RAM atÈ que o usu·rio saia do sistema (logo-off) ou atÈ que o 
+Vari√°veis de ambientes s√£o nomes que cont√©m algum valor e tem a 
+forma <tt>Nome=Valor</tt>. As vari√°veis de ambiente s√£o individuais para 
+cada usu√°rio do sistema ou consoles virtuais e permanecem residentes na 
+mem√≥ria RAM at√© que o usu√°rio saia do sistema (logo-off) ou at√© que o 
 sistema seja desligado. 
  <p>
-As vari·veis de ambiente s„o visualizadas/criadas atravÈs do comando 
+As vari√°veis de ambiente s√£o visualizadas/criadas atrav√©s do comando 
 <prgn>set</prgn> ou <tt>echo $NOME</tt> (apenas visualiza) e exportadas para 
 o sistemas com o comando <tt>export NOME=VALOR</tt>. 
  <p>
-Nos sistemas <prgn>Debian</prgn>, o local usado para especificar vari·veis 
-de ambiente È o <file>/etc/environment</file> 
-(veja <ref id="pers-environment">). Todas as vari·veis especificadas neste 
-arquivos ser„o inicializadas e automaticamente exportadas na inicializaÁ„o 
+Nos sistemas <prgn>Debian</prgn>, o local usado para especificar vari√°veis 
+de ambiente √© o <file>/etc/environment</file> 
+(veja <ref id="pers-environment">). Todas as vari√°veis especificadas neste 
+arquivos ser√£o inicializadas e automaticamente exportadas na inicializa√ß√£o 
 do sistema. 
 <![ %EXEMPLO [
  <p>
-Exemplo: Para criar uma vari·vel chamada <file>TESTE</file> que contenha o 
+Exemplo: Para criar uma vari√°vel chamada <file>TESTE</file> que contenha o 
 valor <tt>123456</tt> digite: <tt>export TESTE=123456</tt>. Agora para ver 
 o resultado digite: <tt>echo $TESTE</tt> ou <tt>set|grep TESTE</tt>. Note que 
 o <tt>$</tt> que antecede o nome <file>TESTE</file> serve para identificar 
-que se trata de uma vari·vel e n„o de um arquivo comum. ]]>
+que se trata de uma vari√°vel e n√£o de um arquivo comum. ]]>
 
 
 <sect id="pers-idioma">Modificando o Idioma usado em seu sistema
  <p>
-O idioma usado em seu sistema pode ser modificado facilmente atravÈs 
-das vari·veis de ambiente. Atualmente a maioria dos programas est„o 
-sendo <em>localizados</em>. A localizaÁ„o È um recurso que especifica 
-arquivos que contÈm as mensagens do programas em outros idiomas. VocÍ 
-pode usar o comando <prgn>locale</prgn> para listar as vari·veis de 
-localizaÁ„o do sistema e seus respectivos valores. As principais 
-vari·veis usadas para determinar qual idioma os programas 
-<tt>localizados</tt> utilizar„o s„o: 
+O idioma usado em seu sistema pode ser modificado facilmente atrav√©s 
+das vari√°veis de ambiente. Atualmente a maioria dos programas est√£o 
+sendo <em>localizados</em>. A localiza√ß√£o √© um recurso que especifica 
+arquivos que cont√©m as mensagens do programas em outros idiomas. Voc√™ 
+pode usar o comando <prgn>locale</prgn> para listar as vari√°veis de 
+localiza√ß√£o do sistema e seus respectivos valores. As principais 
+vari√°veis usadas para determinar qual idioma os programas 
+<tt>localizados</tt> utilizar√£o s√£o: 
 <list compact>
  <item>
 <file>LANG</file> - Especifica o idioma_PAIS local. Podem ser especificados 
-mais de um idioma na mesma vari·vel separando-os com <tt>:</tt>, desta forma 
-caso o primeiro n„o esteja disponÌvel para o programa o segundo ser· 
-verificado e assim por diante. A lÌngua Inglesa È identificada pelo cÛdigo 
-<tt>C</tt> e usada como padr„o caso nenhum locale seja especificado. 
+mais de um idioma na mesma vari√°vel separando-os com <tt>:</tt>, desta forma 
+caso o primeiro n√£o esteja dispon√≠vel para o programa o segundo ser√° 
+verificado e assim por diante. A l√≠ngua Inglesa √© identificada pelo c√≥digo 
+<tt>C</tt> e usada como padr√£o caso nenhum locale seja especificado. 
  <p>
 Por exemplo: <tt>export LANG=pt_BR</tt>, <tt>export LANG=pt_BR:pt_PT:C</tt>
 
  <item>
-<file>LC_MESSAGES</file> - Especifica o idioma que ser„o mostradas as 
-mensagens dos programas. Seu formato È o mesmo de <file>LANG</file>. 
+<file>LC_MESSAGES</file> - Especifica o idioma que ser√£o mostradas as 
+mensagens dos programas. Seu formato √© o mesmo de <file>LANG</file>. 
 
  <item>
-<file>LC_ALL</file> - Configura todas as vari·veis de localizaÁ„o de uma 
-sÛ vez. Seu formato È o mesmo de <file>LANG</file>. 
+<file>LC_ALL</file> - Configura todas as vari√°veis de localiza√ß√£o de uma 
+s√≥ vez. Seu formato √© o mesmo de <file>LANG</file>. 
 </list>
  <p>
-As mensagens de localizaÁ„o est„o localizadas em arquivos individuais de cada 
+As mensagens de localiza√ß√£o est√£o localizadas em arquivos individuais de cada 
 programa em 
 <![ %DEBIAN [ <file>/usr/share/locale/[Idioma]/LC_MESSAGES</file> ]]>. 
-Elas s„o geradas atravÈs de arquivos <tt>potfiles</tt> (arquivos com a 
-extens„o <file>.po</file> ou <file>.pot</file> e s„o gerados cat·logos de 
-mensagens <file>.mo</file>. As vari·veis de ambiente podem ser 
+Elas s√£o geradas atrav√©s de arquivos <tt>potfiles</tt> (arquivos com a 
+extens√£o <file>.po</file> ou <file>.pot</file> e s√£o gerados cat√°logos de 
+mensagens <file>.mo</file>. As vari√°veis de ambiente podem ser 
 especificadas no arquivo <file>/etc/environment</file> desta forma as 
-vari·veis ser„o carregadas toda a vez que seu sistema for iniciado. VocÍ 
-tambÈm pode especificar as vari·veis de localizaÁ„o em seu arquivos 
-de inicializaÁ„o <file>.bash_profile</file>, <file>.bashrc</file> ou 
-<file>.profile</file> assim toda a vez que entrar no sistema, as vari·veis 
-de localizaÁ„o personalizadas ser„o carregadas. 
+vari√°veis ser√£o carregadas toda a vez que seu sistema for iniciado. Voc√™ 
+tamb√©m pode especificar as vari√°veis de localiza√ß√£o em seu arquivos 
+de inicializa√ß√£o <file>.bash_profile</file>, <file>.bashrc</file> ou 
+<file>.profile</file> assim toda a vez que entrar no sistema, as vari√°veis 
+de localiza√ß√£o personalizadas ser√£o carregadas. 
  <p>
-Siga as instruÁıes a seguir de acordo com a vers„o de sua distribuiÁ„o 
+Siga as instru√ß√µes a seguir de acordo com a vers√£o de sua distribui√ß√£o 
 <prgn>Debian</prgn>:
 <taglist compact>
  <tag>Debian 4.0</tag>
  <item>
 Acrescente a linha <tt>pt_BR ISO-8859-1</tt> no arquivo 
-<file>/etc/locale.gen</file>, rode o utilit·rio <prgn>locale-gen</prgn> para 
-gerar os locales. Agora acrescente as vari·veis de localizaÁ„o no arquivo 
+<file>/etc/locale.gen</file>, rode o utilit√°rio <prgn>locale-gen</prgn> para 
+gerar os locales. Agora acrescente as vari√°veis de localiza√ß√£o no arquivo 
 <file>/etc/locale.def</file> seguindo a forma:
 <example>
 export LANG=pt_BR
@@ -92,55 +92,55 @@ export LC_ALL=pt_BR
 export LC_MESSAGES=pt_BR
 
 </example>
-Note que o arquivo <file>/etc/environment</file> tambÈm pode ser usado para 
+Note que o arquivo <file>/etc/environment</file> tamb√©m pode ser usado para 
 tal tarefa, mas o <file>locales.def</file> foi criado especialmente para 
-lidar com vari·veis de localizaÁ„o na <prgn>Debian</prgn> 4.0. 
+lidar com vari√°veis de localiza√ß√£o na <prgn>Debian</prgn> 4.0. 
 
 </taglist>
 Para as mensagens e programas do X-Window usarem 
-em seu idioma local, È preciso colocar as vari·veis no arquivo 
-<file>~/.xserverrc</file> do diretÛrio home de cada usu·rio e dar a permiss„o 
-de execuÁ„o neste arquivo (<tt>chmod 755 .xserverrc</tt>). Lembre-se de 
-incluir o caminho completo do arquivo execut·vel do seu gerenciador de 
-janelas na ˙ltima linha deste arquivo (sem o <tt>&</tt> no final), caso 
-contr·rio o Xserver ser· finalizado logo apÛs ler este arquivo. 
+em seu idioma local, √© preciso colocar as vari√°veis no arquivo 
+<file>~/.xserverrc</file> do diret√≥rio home de cada usu√°rio e dar a permiss√£o 
+de execu√ß√£o neste arquivo (<tt>chmod 755 .xserverrc</tt>). Lembre-se de 
+incluir o caminho completo do arquivo execut√°vel do seu gerenciador de 
+janelas na √∫ltima linha deste arquivo (sem o <tt>&</tt> no final), caso 
+contr√°rio o Xserver ser√° finalizado logo ap√≥s ler este arquivo. 
 <![ %EXEMPLO [
  <p>
-Abaixo exemplos de localizaÁ„o com as explicaÁıes: 
+Abaixo exemplos de localiza√ß√£o com as explica√ß√µes: 
 <list compact>
  <item>
-<tt>export LANG=pt_BR</tt> - Usa o idioma pt_BR como lÌngua padr„o do 
+<tt>export LANG=pt_BR</tt> - Usa o idioma pt_BR como l√≠ngua padr√£o do 
 sistema. 
-Caso o idioma Portugues do Brasil n„o esteja disponÌvel, C È usado (InglÍs). 
+Caso o idioma Portugues do Brasil n√£o esteja dispon√≠vel, C √© usado (Ingl√™s). 
  <item>
-<tt>export LANG=C</tt> - Usa o idioma InglÍs como padr„o (È a mesma coisa de 
-n„o especificar <file>LANG</file>, pois o idioma InglÍs È usado como padr„o). 
+<tt>export LANG=C</tt> - Usa o idioma Ingl√™s como padr√£o (√© a mesma coisa de 
+n√£o especificar <file>LANG</file>, pois o idioma Ingl√™s √© usado como padr√£o). 
  <item>
-<tt>export LANG=pt_BR:pt_PT:es_ES:C</tt> - Usa o idioma PortuguÍs do Brasil 
-como padr„o, caso n„o esteja disponÌvel usa o PortuguÍs de Portugal, se 
-n„o estiver disponÌvel usa o Espanhol e por fim o InglÍs. 
+<tt>export LANG=pt_BR:pt_PT:es_ES:C</tt> - Usa o idioma Portugu√™s do Brasil 
+como padr√£o, caso n√£o esteja dispon√≠vel usa o Portugu√™s de Portugal, se 
+n√£o estiver dispon√≠vel usa o Espanhol e por fim o Ingl√™s. 
  <item>
 <tt>LANG=es_ES ls --help</tt> - Executa apenas o comando <tt>ls --help</tt> usando
 o idioma es_ES (sem alterar o locale do sistema).
 </list>
-… recomend·vel usar a vari·vel <file>LC_ALL</file> para especificar o 
-idioma, desta forma todos os outras vari·veis (<file>LANG, MESSAGES, 
-LC_MONETARY, LC_NUMERIC, LC_COLLATE, LC_CTYPE e LC_TIME</file>) ser„o 
+√â recomend√°vel usar a vari√°vel <file>LC_ALL</file> para especificar o 
+idioma, desta forma todos os outras vari√°veis (<file>LANG, MESSAGES, 
+LC_MONETARY, LC_NUMERIC, LC_COLLATE, LC_CTYPE e LC_TIME</file>) ser√£o 
 configuradas automaticamente. ]]>
 
 
 <sect id="pers-alias">alias
  <p>
-Permite criar um apelido a um comando ou programa. Por exemplo, se vocÍ 
+Permite criar um apelido a um comando ou programa. Por exemplo, se voc√™ 
 gosta de digitar (como eu) o comando <tt>ls --color=auto</tt> para 
-ver uma listagem longa e colorida, vocÍ pode usar o comando <prgn>alias</prgn> 
+ver uma listagem longa e colorida, voc√™ pode usar o comando <prgn>alias</prgn> 
 para facilitar as coisas digitando: <tt>alias ls='ls --color=auto'</tt> 
-(n„o se esqueÁa da meia aspa 'para identificar o comando'). Agora quando 
-vocÍ digitar <tt>ls</tt>, a listagem ser· mostrada com cores. 
+(n√£o se esque√ßa da meia aspa 'para identificar o comando'). Agora quando 
+voc√™ digitar <tt>ls</tt>, a listagem ser√° mostrada com cores. 
  <p>
-Se vocÍ digitar <tt>ls -la</tt>, a opÁ„o <tt>-la</tt> ser· adicionada no 
+Se voc√™ digitar <tt>ls -la</tt>, a op√ß√£o <tt>-la</tt> ser√° adicionada no 
 final da linha de comando do alias: <tt>ls --color=auto -la</tt>, e a 
-listagem tambÈm ser· mostrada em cores. 
+listagem tamb√©m ser√° mostrada em cores. 
  <p>
 Se quiser utilizar isto toda vez que entrar no sistema, veja 
 <ref id="pers-bashprofile"> e <ref id="pers-bashrc">.
@@ -148,15 +148,15 @@ Se quiser utilizar isto toda vez que entrar no sistema, veja
 
 <sect id="pers-profile">Arquivo <file>/etc/profile</file>
  <p>
-Este arquivo contÈm comandos que s„o executados para <em>todos</em> 
-os usu·rios do sistema no momento do login. Somente o usu·rio 
-root pode ter permiss„o para modificar este arquivo. 
+Este arquivo cont√©m comandos que s√£o executados para <em>todos</em> 
+os usu√°rios do sistema no momento do login. Somente o usu√°rio 
+root pode ter permiss√£o para modificar este arquivo. 
  <p>
-Este arquivo È lido antes do arquivo de configuraÁ„o pessoal de cada  
-usu·rio (<file>.profile</file>(root) e <file>.bash_profile</file>).
+Este arquivo √© lido antes do arquivo de configura√ß√£o pessoal de cada  
+usu√°rio (<file>.profile</file>(root) e <file>.bash_profile</file>).
  <p>
-Quando È carregado atravÈs de um shell que requer login (nome e senha), o 
-<prgn>bash</prgn> procura estes arquivos em seq¸Íncia e executa 
+Quando √© carregado atrav√©s de um shell que requer login (nome e senha), o 
+<prgn>bash</prgn> procura estes arquivos em seq√º√™ncia e executa 
 os comandos contidos, caso existam:
 <enumlist compact>
  <item>
@@ -169,75 +169,75 @@ os comandos contidos, caso existam:
 <file>~/.profile</file>
 </enumlist>
 Ele <em>interrompe</em> a pesquisa assim que localiza o primeiro 
-arquivo no diretÛrio do usu·rio (usando a sequÍncia acima). Por exemplo, 
-se vocÍ tem o arquivo <file>~/.bash_login</file> e <file>~/.bash_profile</file> 
-em seu diretÛrio de usu·rio, ele processar· o <file>/etc/profile</file> e apÛs isto 
-o <file>~/.bash_profile</file>, mas nunca processar· o <file>~/.bash_login</file>
+arquivo no diret√≥rio do usu√°rio (usando a sequ√™ncia acima). Por exemplo, 
+se voc√™ tem o arquivo <file>~/.bash_login</file> e <file>~/.bash_profile</file> 
+em seu diret√≥rio de usu√°rio, ele processar√° o <file>/etc/profile</file> e ap√≥s isto 
+o <file>~/.bash_profile</file>, mas nunca processar√° o <file>~/.bash_login</file>
 (a menos que o <file>~/.bash_profile</file> seja apagado ou renomeado). 
  <p>
-Caso o <prgn>bash</prgn> seja carregado atravÈs de um shell que n„o requer 
-login (um terminal no X, por exemplo), o seguinte arquivo È executado: 
+Caso o <prgn>bash</prgn> seja carregado atrav√©s de um shell que n√£o requer 
+login (um terminal no X, por exemplo), o seguinte arquivo √© executado: 
 <file>~/.bashrc</file>.
 <![ %OBS [
  <p>
-ObservaÁ„o: Nos sistemas Debian, o profile do usu·rio root est· configurado 
-no arquivo <file>/root/.profile</file>. A raz„o disto È porque se o 
-<prgn>bash</prgn> for carregado atravÈs do comando <prgn>sh</prgn>, ele 
-far· a inicializaÁ„o cl·ssica deste shell lendo primeiro o 
-arquivo <file>/etc/profile</file> e apÛs o <file>~/.profile</file> e 
+Observa√ß√£o: Nos sistemas Debian, o profile do usu√°rio root est√° configurado 
+no arquivo <file>/root/.profile</file>. A raz√£o disto √© porque se o 
+<prgn>bash</prgn> for carregado atrav√©s do comando <prgn>sh</prgn>, ele 
+far√° a inicializa√ß√£o cl√°ssica deste shell lendo primeiro o 
+arquivo <file>/etc/profile</file> e ap√≥s o <file>~/.profile</file> e 
 ignorando o <file>.bash_profile</file> e <file>.bashrc</file> que 
-s„o arquivos de configuraÁ„o usados somente pelo <prgn>Bash</prgn>. ]]>
+s√£o arquivos de configura√ß√£o usados somente pelo <prgn>Bash</prgn>. ]]>
 <![ %EXEMPLO [
 Exemplo, inserindo a linha <tt>mesg y</tt> no arquivo 
-<file>/etc/profile</file> permite que todos os usu·rios do sistema recebam 
-pedidos de <file>talk</file> de outros usu·rios. Caso um usu·rio n„o 
+<file>/etc/profile</file> permite que todos os usu√°rios do sistema recebam 
+pedidos de <file>talk</file> de outros usu√°rios. Caso um usu√°rio n√£o 
 quiser receber pedidos de <prgn>talk</prgn>, basta somente adicionar 
 a linha <tt>mesg n</tt> no arquivo pessoal <file>.bash_profile</file>. ]]> 
 
 
 <sect id="pers-bashprofile">Arquivo <file>.bash_profile</file>
  <p>
-Este arquivo reside no diretÛrio pessoal de cada usu·rio. … executado 
-por shells que usam autenticaÁ„o (nome e senha). <file>.bash_profile</file> 
-contÈm comandos que s„o executados para o usu·rio no momento do login no 
-sistema apÛs o <file>/etc/profile</file>. Note que este È um arquivo 
+Este arquivo reside no diret√≥rio pessoal de cada usu√°rio. √â executado 
+por shells que usam autentica√ß√£o (nome e senha). <file>.bash_profile</file> 
+cont√©m comandos que s√£o executados para o usu√°rio no momento do login no 
+sistema ap√≥s o <file>/etc/profile</file>. Note que este √© um arquivo 
 oculto pois tem um "." no inicio do nome. 
 <![ %EXEMPLO [
  <p>
 Por exemplo colocando a linha: <tt>alias ls='ls --colors=auto'</tt> no <file> 
 .bash_profile</file>, cria um apelido para o comando <prgn>ls --colors=auto
-</prgn> usando <prgn>ls</prgn>, assim toda vez que vocÍ digitar <tt>ls</tt> 
-ser· mostrada a listagem colorida. ]]>
+</prgn> usando <prgn>ls</prgn>, assim toda vez que voc√™ digitar <tt>ls</tt> 
+ser√° mostrada a listagem colorida. ]]>
 
 
 <sect id="pers-bashrc">Arquivo <file>.bashrc</file>
  <p>
-Possui as mesmas caracterÌsticas do <file>.bash_profile</file> mas È 
-executado por shells que n„o requerem autenticaÁ„o (como uma seÁ„o de  
+Possui as mesmas caracter√≠sticas do <file>.bash_profile</file> mas √© 
+executado por shells que n√£o requerem autentica√ß√£o (como uma se√ß√£o de  
 terminal no X). 
  <p>
-Os comandos deste arquivo s„o executados no momento que o usu·rio 
-inicia um shell com as caracterÌsticas acima. Note que este È um 
+Os comandos deste arquivo s√£o executados no momento que o usu√°rio 
+inicia um shell com as caracter√≠sticas acima. Note que este √© um 
 arquivo oculto pois tem um "." no inicio do nome. 
 
 
 <sect id="pers-hushlogin">Arquivo <file>.hushlogin</file>
  <p>
-Deve ser colocado no diretÛrio pessoal do usu·rio. Este arquivo faz o 
-<prgn>bash</prgn> pular as mensagens do <file>/etc/motd</file>, n˙mero 
-de e-mails, etc. Exibindo imediatamente o aviso de comando apÛs 
-a digitaÁ„o da senha.
+Deve ser colocado no diret√≥rio pessoal do usu√°rio. Este arquivo faz o 
+<prgn>bash</prgn> pular as mensagens do <file>/etc/motd</file>, n√∫mero 
+de e-mails, etc. Exibindo imediatamente o aviso de comando ap√≥s 
+a digita√ß√£o da senha.
 
 
 <sect id="pers-environment">Arquivo <file>/etc/environment</file>
  <p>
-Armazena as vari·veis de ambiente que s„o exportadas para todo o sistema. Uma 
-vari·vel de ambiente controla o comportamento de um programa, registram 
-detalhes ˙teis durante a seÁ„o do usu·rio no sistema, especificam o 
+Armazena as vari√°veis de ambiente que s√£o exportadas para todo o sistema. Uma 
+vari√°vel de ambiente controla o comportamento de um programa, registram 
+detalhes √∫teis durante a se√ß√£o do usu√°rio no sistema, especificam o 
 idioma das mensagens do sistema, etc. 
 <![ %EXEMPLO [
  <p>
-Exemplo do conte˙do de um arquivo <file>/etc/environment</file>: 
+Exemplo do conte√∫do de um arquivo <file>/etc/environment</file>: 
 <example>
 LANG=pt_BR
 LC_ALL=pt_BR
@@ -246,10 +246,10 @@ LC_MESSAGES=pt_BR
 </example> ]]> 
 
 
-<sect id="pers-conf-skel">DiretÛrio <file>/etc/skel</file>
+<sect id="pers-conf-skel">Diret√≥rio <file>/etc/skel</file>
  <p>
-Este diretÛrio contÈm os modelos de arquivos <file>.bash_profile</file> e  
-<file>.bashrc</file> que ser„o copiados para o diretÛrio pessoal dos 
-usu·rios no momento que for criada uma conta no sistema. Desta forma vocÍ  
-n„o precisar· configurar estes arquivos separadamente para cada usu·rio. 
+Este diret√≥rio cont√©m os modelos de arquivos <file>.bash_profile</file> e  
+<file>.bashrc</file> que ser√£o copiados para o diret√≥rio pessoal dos 
+usu√°rios no momento que for criada uma conta no sistema. Desta forma voc√™  
+n√£o precisar√° configurar estes arquivos separadamente para cada usu√°rio. 
 

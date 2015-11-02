@@ -1,169 +1,169 @@
-<chapt id="deb">A distribuição Debian GNU/Linux
+<chapt id="deb">A distribuiÃ§Ã£o Debian GNU/Linux
  <p>
-Este capítulo traz algumas características sobre a distribuição 
-<prgn>Debian GNU/Linux</prgn>, programas de configuração e 
-particularidades. A maioria dos trechos aqui descritos, também 
-se aplicam a distribuições baseadas na <prgn>Debian</prgn>, como o 
+Este capÃ­tulo traz algumas caracterÃ­sticas sobre a distribuiÃ§Ã£o 
+<prgn>Debian GNU/Linux</prgn>, programas de configuraÃ§Ã£o e 
+particularidades. A maioria dos trechos aqui descritos, tambÃ©m 
+se aplicam a distribuiÃ§Ãµes baseadas na <prgn>Debian</prgn>, como o 
 <em>Kurumin</em> e o <em>Ubuntu</em>. 
  <p>
-Você deve estar se perguntando <tt>mas porque um capítulo falando 
-sobre a distribuição Debian se eu uso outra?</tt>. Bem, a partir 
-da versão <em>Intermediário</em> do <em>Foca Linux</em> existem 
-algumas partes que são especificas de algumas distribuições Linux e 
-que não se aplicam a outras, como a localização dos arquivos de 
-configuração, nomes dos programas de configuração e outros detalhes 
-específicos e esta versão é a baseada na <prgn>Debian</prgn>. Pegue 
-na página do Foca Linux (<url id="&url-manual-www;">) 
-uma versão Intermediário<![ %AVANCADO [ /Avançado ]]> do guia específico 
-para sua distribuição. 
+VocÃª deve estar se perguntando <tt>mas porque um capÃ­tulo falando 
+sobre a distribuiÃ§Ã£o Debian se eu uso outra?</tt>. Bem, a partir 
+da versÃ£o <em>IntermediÃ¡rio</em> do <em>Foca Linux</em> existem 
+algumas partes que sÃ£o especificas de algumas distribuiÃ§Ãµes Linux e 
+que nÃ£o se aplicam a outras, como a localizaÃ§Ã£o dos arquivos de 
+configuraÃ§Ã£o, nomes dos programas de configuraÃ§Ã£o e outros detalhes 
+especÃ­ficos e esta versÃ£o Ã© a baseada na <prgn>Debian</prgn>. Pegue 
+na pÃ¡gina do Foca Linux (<url id="&url-manual-www;">) 
+uma versÃ£o IntermediÃ¡rio<![ %AVANCADO [ /AvanÃ§ado ]]> do guia especÃ­fico 
+para sua distribuiÃ§Ã£o. 
 
 
     <![ %INTERMEDIARIO [ 
 
 <sect id="deb-carac">Porque usar a Debian?
  <p>
-A <prgn>Debian</prgn> é a distribuição que mais cresce no mundo, cada 
-versão é somente lançada após rigorosos testes de segurança e correção 
-de falhas fazendo desta a mais segura e confiável dentre todas as 
-outras distribuições Linux. É reconhecida como a mais segura, maior e 
-atualizada mais freqüentemente entre as outras distribuições <prgn>
-Linux</prgn>, além de ser a única sem fins comerciais. 
+A <prgn>Debian</prgn> Ã© a distribuiÃ§Ã£o que mais cresce no mundo, cada 
+versÃ£o Ã© somente lanÃ§ada apÃ³s rigorosos testes de seguranÃ§a e correÃ§Ã£o 
+de falhas fazendo desta a mais segura e confiÃ¡vel dentre todas as 
+outras distribuiÃ§Ãµes Linux. Ã‰ reconhecida como a mais segura, maior e 
+atualizada mais freqÃ¼entemente entre as outras distribuiÃ§Ãµes <prgn>
+Linux</prgn>, alÃ©m de ser a Ãºnica sem fins comerciais. 
  <p>
-É a única que adota o estilo de desenvolvimento aberto e não é mantida 
-por uma empresa comercial (note que o endereço do WebSite da 
-<prgn>Debian</prgn> termina com <file>.org</file>), ao invés disso é 
-mantida por programadores, hackers e especialistas de segurança 
+Ã‰ a Ãºnica que adota o estilo de desenvolvimento aberto e nÃ£o Ã© mantida 
+por uma empresa comercial (note que o endereÃ§o do WebSite da 
+<prgn>Debian</prgn> termina com <file>.org</file>), ao invÃ©s disso Ã© 
+mantida por programadores, hackers e especialistas de seguranÃ§a 
 espalhados ao redor do mundo, seguindo o estilo de desenvolvimento do 
 Linux. Possui suporte a mais de 12 arquiteturas e 15 sub-arquiteturas 
 (entre elas, Intel x86, Alpha, VMS, Sparc, Macintosh (m68k), Power Pc, 
 ARM, etc). 
  <p>
-Suas atualizações são constantes e não é necessário adquirir um novo 
-CD para fazer upgrades. Meu sistema é atualizado semanalmente e de 
-forma segura através de 2 simples comandos. Veja <ref id="dpkg-apt"> 
-as instruções de como fazer isto. 
+Suas atualizaÃ§Ãµes sÃ£o constantes e nÃ£o Ã© necessÃ¡rio adquirir um novo 
+CD para fazer upgrades. Meu sistema Ã© atualizado semanalmente e de 
+forma segura atravÃ©s de 2 simples comandos. Veja <ref id="dpkg-apt"> 
+as instruÃ§Ãµes de como fazer isto. 
  <p>
-Cada pacote da distribuição é mantida por uma pessoa, o que garante 
-uma boa qualidade, implementações de novos recursos e rápida correção de 
-falhas. Qualquer pessoa com bons conhecimentos no sistema e inglês pode 
+Cada pacote da distribuiÃ§Ã£o Ã© mantida por uma pessoa, o que garante 
+uma boa qualidade, implementaÃ§Ãµes de novos recursos e rÃ¡pida correÃ§Ã£o de 
+falhas. Qualquer pessoa com bons conhecimentos no sistema e inglÃªs pode 
 se tornar um <em>Debian Developer</em>, para detalhes consulte a lista 
-de discussão <em>debian-user-portuguese</em> (veja <ref id="ajuda-listas">) 
-ou veja a página oficial da <prgn>Debian</prgn>: <url id="&url-debian-www;">. 
+de discussÃ£o <em>debian-user-portuguese</em> (veja <ref id="ajuda-listas">) 
+ou veja a pÃ¡gina oficial da <prgn>Debian</prgn>: <url id="&url-debian-www;">. 
  <p>
-A distribuição apresenta compatibilidade com outros sistemas a partir da 
-instalação até a seleção de programas e execução do sistema, sua 
-instalação está até mesmo disponível desde computadores 386 que 
-utilizam unidades de disquetes de 5 1/4 polegadas até para 
-computadores UDMA66, instalando através de DVD e pen drives. Com a 
-Debian é possível iniciar a instalação usando um pen drive e continuar
+A distribuiÃ§Ã£o apresenta compatibilidade com outros sistemas a partir da 
+instalaÃ§Ã£o atÃ© a seleÃ§Ã£o de programas e execuÃ§Ã£o do sistema, sua 
+instalaÃ§Ã£o estÃ¡ atÃ© mesmo disponÃ­vel desde computadores 386 que 
+utilizam unidades de disquetes de 5 1/4 polegadas atÃ© para 
+computadores UDMA66, instalando atravÃ©s de DVD e pen drives. Com a 
+Debian Ã© possÃ­vel iniciar a instalaÃ§Ã£o usando um pen drive e continuar
 usando a internet.
  <p>
-É a distribuição mais indicada para uso em servidores devido ao seu 
-desempenho, segurança e programas úteis de gerenciamento e monitoração 
+Ã‰ a distribuiÃ§Ã£o mais indicada para uso em servidores devido ao seu 
+desempenho, seguranÃ§a e programas Ãºteis de gerenciamento e monitoraÃ§Ã£o 
 da rede, recomendados por especialistas que participam de seu 
 desenvolvimento.  
  <p>
-Não existem versões separadas da Debian para servidores, uso pessoal, etc, 
-ao invés disso a distribuição usa perfis de usuário (dependendo da função 
-do usuário) e perfis de computador (dependendo do que deseja fazer), podendo 
-ser selecionado mais de um perfil de usuário/computador. 
+NÃ£o existem versÃµes separadas da Debian para servidores, uso pessoal, etc, 
+ao invÃ©s disso a distribuiÃ§Ã£o usa perfis de usuÃ¡rio (dependendo da funÃ§Ã£o 
+do usuÃ¡rio) e perfis de computador (dependendo do que deseja fazer), podendo 
+ser selecionado mais de um perfil de usuÃ¡rio/computador. 
  <p>
-Os perfis selecionam automaticamente os pacotes mais úteis para a 
-instalação. Os pacotes existentes em cada perfil foram escolhidos 
-através de debates entre usuários que trabalham ativamente naquela 
-área, resultando em uma seleção de pacotes de alta produtividade. 
+Os perfis selecionam automaticamente os pacotes mais Ãºteis para a 
+instalaÃ§Ã£o. Os pacotes existentes em cada perfil foram escolhidos 
+atravÃ©s de debates entre usuÃ¡rios que trabalham ativamente naquela 
+Ã¡rea, resultando em uma seleÃ§Ã£o de pacotes de alta produtividade. 
  <p>
-Para os usuários avançados e exigentes, também é possível selecionar os 
-pacotes individualmente via <prgn>dselect</prgn>, o que resultará em uma 
-instalação somente com pacotes úteis e melhor configurada. 
+Para os usuÃ¡rios avanÃ§ados e exigentes, tambÃ©m Ã© possÃ­vel selecionar os 
+pacotes individualmente via <prgn>dselect</prgn>, o que resultarÃ¡ em uma 
+instalaÃ§Ã£o somente com pacotes Ãºteis e melhor configurada. 
 
 
 <sect id="deb-pacotes">Pacotes existentes na Debian
  <p>
-O número de pacotes existentes na distribuição atual da 
-<prgn>Debian</prgn> (<em>Etch</em> - 4.0) é de &DEBNUMPACKAGES;. 
+O nÃºmero de pacotes existentes na distribuiÃ§Ã£o atual da 
+<prgn>Debian</prgn> (<em>Etch</em> - 4.0) Ã© de &DEBNUMPACKAGES;. 
  <p>
 A <prgn>Debian</prgn> (como a <prgn>Red Hat</prgn>) usa um formato 
-próprio para armazenar os programas: o formato <file>.deb</file>. 
-Este formato permite a declaração, resolução e checagem automática de 
-dependências, pacotes sugeridos, opcionais e outras características 
-que o torna atraente para o desenvolvimento, gerenciamento e manutenção 
+prÃ³prio para armazenar os programas: o formato <file>.deb</file>. 
+Este formato permite a declaraÃ§Ã£o, resoluÃ§Ã£o e checagem automÃ¡tica de 
+dependÃªncias, pacotes sugeridos, opcionais e outras caracterÃ­sticas 
+que o torna atraente para o desenvolvimento, gerenciamento e manutenÃ§Ã£o 
 do sistema. 
  <p>
-Estes pacotes são gerenciados através do programa <prgn>dpkg</prgn> 
-(<em>Debian Package</em>) ou através de front-ends como o 
+Estes pacotes sÃ£o gerenciados atravÃ©s do programa <prgn>dpkg</prgn> 
+(<em>Debian Package</em>) ou atravÃ©s de front-ends como o 
 <prgn>dselect</prgn> ou <prgn>apt</prgn> (para detalhes veja 
 <ref id="dpkg">). 
 
 
-<sect id="deb-suf">O que é sid/testing/frozen/stable?
+<sect id="deb-suf">O que Ã© sid/testing/frozen/stable?
  <p>
-Para o lançamento de uma nova distribuição <prgn>Debian</prgn>, o seguinte 
+Para o lanÃ§amento de uma nova distribuiÃ§Ã£o <prgn>Debian</prgn>, o seguinte 
 processo ocorre:
 <tt>sid => testing => stable</tt>
-(sendo a <em>stable</em> sempre o lançamento oficial e sem bugs da distribuição).
+(sendo a <em>stable</em> sempre o lanÃ§amento oficial e sem bugs da distribuiÃ§Ã£o).
 
 <taglist>
  <tag>sid</tag>
  <item>
-Durante o desenvolvimento de uma nova distribuição <prgn>Debian</prgn>, 
-ela é chamada de <em>sid</em>. A <em>sid</em> é a versão <em>Unstable</em>,
-isto não significa instabilidade, mas sim que a distribuição esta sofrendo 
-modificações para se tornar uma versão estável, recebendo novos pacotes, etc. 
+Durante o desenvolvimento de uma nova distribuiÃ§Ã£o <prgn>Debian</prgn>, 
+ela Ã© chamada de <em>sid</em>. A <em>sid</em> Ã© a versÃ£o <em>Unstable</em>,
+isto nÃ£o significa instabilidade, mas sim que a distribuiÃ§Ã£o esta sofrendo 
+modificaÃ§Ãµes para se tornar uma versÃ£o estÃ¡vel, recebendo novos pacotes, etc. 
  <p>
-Quando os pacotes não são modificados após um determinado período, os scripts 
+Quando os pacotes nÃ£o sÃ£o modificados apÃ³s um determinado perÃ­odo, os scripts 
 da Debian copiam estes pacotes (novos ou atualizados) para a <em>testing</em>. 
  <p>
-Não use a distribuição <em>sid</em> (<em>unstable</em>) ao menos que tenha 
-experiência no <prgn>Linux</prgn> para corrigir problemas, que certamente 
-aparecerão. 
+NÃ£o use a distribuiÃ§Ã£o <em>sid</em> (<em>unstable</em>) ao menos que tenha 
+experiÃªncia no <prgn>Linux</prgn> para corrigir problemas, que certamente 
+aparecerÃ£o. 
 
 
  <tag>testing</tag>
  <item>
-A <em>testing</em> recebe os pacotes que não são modificados durante algum 
+A <em>testing</em> recebe os pacotes que nÃ£o sÃ£o modificados durante algum 
 tempo da <em>unstable</em>, isto significa que eles possuem alguma 
 estabilidade.
  <p>
-A <em>testing</em> é uma espécie de congelamento permanente (freeze) 
+A <em>testing</em> Ã© uma espÃ©cie de congelamento permanente (freeze) 
 durante o desenvolvimento da <em>Unstable</em>. 
  <p>
-Os novos pacotes que entram na <em>unstable</em> também caem na 
-<em>testing</em> após certo tempo.
+Os novos pacotes que entram na <em>unstable</em> tambÃ©m caem na 
+<em>testing</em> apÃ³s certo tempo.
  <p>
-Mesmo assim, podem existir falhas graves na <em>testing</em>, se você 
+Mesmo assim, podem existir falhas graves na <em>testing</em>, se vocÃª 
 precisa de um ambiente realmente livre de falhas, use a <em>stable</em>.
 
 
  <tag>frozen (congelada)</tag>
  <item>
-Na data programada pela equipe de lançamento da <prgn>Debian</prgn>, a 
-distribuição <em>testing</em> é congelada: nenhum pacote novo da 
-<em>unstable</em> cai na <em>testing</em> e começa a procura de falhas 
-na distribuição <em>testing</em>. Nenhuma nova característica
-é implementada nos pacotes (a não ser que seja extremamente necessário)
-e os developers se dedicam a correção de erros nos pacotes. 
+Na data programada pela equipe de lanÃ§amento da <prgn>Debian</prgn>, a 
+distribuiÃ§Ã£o <em>testing</em> Ã© congelada: nenhum pacote novo da 
+<em>unstable</em> cai na <em>testing</em> e comeÃ§a a procura de falhas 
+na distribuiÃ§Ã£o <em>testing</em>. Nenhuma nova caracterÃ­stica
+Ã© implementada nos pacotes (a nÃ£o ser que seja extremamente necessÃ¡rio)
+e os developers se dedicam a correÃ§Ã£o de erros nos pacotes. 
  <p>
-A distribuição <em>testing</em> congelada se tornará a futura 
-<em>stable</em> após todas as falhas serem corrigidas.
-É considerado seguro usar a <em>frozen</em> após 1 mês de 
+A distribuiÃ§Ã£o <em>testing</em> congelada se tornarÃ¡ a futura 
+<em>stable</em> apÃ³s todas as falhas serem corrigidas.
+Ã‰ considerado seguro usar a <em>frozen</em> apÃ³s 1 mÃªs de 
 "congelamento". 
  <p>
-Quando a <em>testing</em> é congelada, o ciclo de desenvolvimento da 
-<em>unstable</em> continua para que a próxima distribuição da 
-<prgn>Debian</prgn> seja lançada. 
+Quando a <em>testing</em> Ã© congelada, o ciclo de desenvolvimento da 
+<em>unstable</em> continua para que a prÃ³xima distribuiÃ§Ã£o da 
+<prgn>Debian</prgn> seja lanÃ§ada. 
 
 
  <tag>stable</tag>
  <item>
-Quando todos os bugs da <em>testing</em> congelada são eliminados, ela é 
-lançada como <em>stable</em>, a nova <em>versão Oficial</em> da 
+Quando todos os bugs da <em>testing</em> congelada sÃ£o eliminados, ela Ã© 
+lanÃ§ada como <em>stable</em>, a nova <em>versÃ£o Oficial</em> da 
 <prgn>Debian</prgn>.  
  <p>
-A <em>stable</em> é o resultado final do desenvolvimento, das correção 
-de falhas/segurança e que passou por todos os ciclos de testes para ser 
-lançada. Resumindo é a distribuição pronta para ser usada com toda a 
-segurança. 
+A <em>stable</em> Ã© o resultado final do desenvolvimento, das correÃ§Ã£o 
+de falhas/seguranÃ§a e que passou por todos os ciclos de testes para ser 
+lanÃ§ada. Resumindo Ã© a distribuiÃ§Ã£o pronta para ser usada com toda a 
+seguranÃ§a. 
 
 </taglist>
 
@@ -172,79 +172,79 @@ segurança.
 
 <sect id="deb-obtendo">Como obter a Debian
  <p>
-A instalação da distribuição pode ser obtida através de Download de 
+A instalaÃ§Ã£o da distribuiÃ§Ã£o pode ser obtida atravÃ©s de Download de 
 <url id="&url-debian-ftp;/debian/dists/stable/main/disks-i386"> 
-(para Intel x86), seus programas diversos estão disponíveis em 
+(para Intel x86), seus programas diversos estÃ£o disponÃ­veis em 
 <url id="&url-debian-ftp;/debian/dists/stable/main/binary-i386">. 
  
 
-<sect id="deb-prgnconfig">Programas de configuração
+<sect id="deb-prgnconfig">Programas de configuraÃ§Ã£o
  <p>
 <list>
  <item>
-<prgn>aptitude</prgn> - Seleciona pacote para instalação/desinstalação
+<prgn>aptitude</prgn> - Seleciona pacote para instalaÃ§Ã£o/desinstalaÃ§Ã£o
 
  <item>
 <prgn>pppconfig</prgn> - Configura o computador para se conectar a 
-Internet usando conexão discada. Após isto, use <tt>pon</tt> para se 
+Internet usando conexÃ£o discada. ApÃ³s isto, use <tt>pon</tt> para se 
 conectar a Internet, <tt>poff</tt> para se desconectar e <tt>plog</tt> 
-para monitorar a conexão. 
+para monitorar a conexÃ£o. 
 
  <item>
 <prgn>pppoeconf</prgn> - Configura o computador para conectar a internet
 usando ADSL
 
  <item>
-<prgn>modconf</prgn> - Permite selecionar os módulos que serão automaticamente 
-carregados na inicialização do sistema. Se requerido pelos módulos os 
-parâmetros I/O, IRQ e DMA também podem ser especificados. 
+<prgn>modconf</prgn> - Permite selecionar os mÃ³dulos que serÃ£o automaticamente 
+carregados na inicializaÃ§Ã£o do sistema. Se requerido pelos mÃ³dulos os 
+parÃ¢metros I/O, IRQ e DMA tambÃ©m podem ser especificados. 
 
  <item>
 <prgn>shadowconfig</prgn> - Permite ativar ou desativar o suporte a 
 senhas ocultas (shadow password). Com as senhas ocultas ativadas, as 
-senhas criptografadas dos usuários e grupos são armazenadas nos 
+senhas criptografadas dos usuÃ¡rios e grupos sÃ£o armazenadas nos 
 arquivos <file>shadow</file> e <file>gshadow</file> respectivamente, que 
-somente podem ser acessadas pelo usuário root. 
+somente podem ser acessadas pelo usuÃ¡rio root. 
  <p>
-Isto aumenta consideravelmente a segurança do sistema pois os arquivos 
-<file>passwd</file> e <file>group</file> contém dados de usuários que 
-devem ter permissão de leitura de todos os usuários do sistema. 
+Isto aumenta consideravelmente a seguranÃ§a do sistema pois os arquivos 
+<file>passwd</file> e <file>group</file> contÃ©m dados de usuÃ¡rios que 
+devem ter permissÃ£o de leitura de todos os usuÃ¡rios do sistema. 
 
  <item>
-<prgn>tasksel</prgn> - Permite selecionar/modificar de forma fácil a 
-instalação de pacotes em seu sistema através da função que sua máquina 
-terá ou do seu perfil de usuário. 
+<prgn>tasksel</prgn> - Permite selecionar/modificar de forma fÃ¡cil a 
+instalaÃ§Ã£o de pacotes em seu sistema atravÃ©s da funÃ§Ã£o que sua mÃ¡quina 
+terÃ¡ ou do seu perfil de usuÃ¡rio. 
 
  <item>
-<prgn>tzconfig</prgn> - Permite modificar/selecionar o fuso-horário usado 
-na distribuição. 
+<prgn>tzconfig</prgn> - Permite modificar/selecionar o fuso-horÃ¡rio usado 
+na distribuiÃ§Ã£o. 
 
 </list>
-Além destes, a Debian conta com o sistema de configuração 
+AlÃ©m destes, a Debian conta com o sistema de configuraÃ§Ã£o 
 baseado no <tt>dpkg-reconfigure</tt> que permite configurar de forma 
-fácil e rápida aspecto de pacotes: <tt>dpkg-reconfigure xserver-xorg</tt>. 
+fÃ¡cil e rÃ¡pida aspecto de pacotes: <tt>dpkg-reconfigure xserver-xorg</tt>. 
 
 
-<sect id="deb-startup">Arquivos de inicialização
+<sect id="deb-startup">Arquivos de inicializaÃ§Ã£o
  <p>
-Os arquivos de inicialização da distribuição <prgn>Debian</prgn> 
-(e baseadas nela) estão localizados no diretório 
-<file>/etc/init.d</file>. Cada daemon (programa residente na memória) 
-ou configuração específica possui um arquivo de onde pode ser 
-ativado/desativado. Os sistemas residentes neste diretório não são 
-ativados diretamente, mas sim através de links existentes nos diretórios 
-<file>/etc/rc?.d</file> onde cada diretório consiste em um nível de 
-execução do sistema (veja também a <ref id="deb-runlevels">). 
+Os arquivos de inicializaÃ§Ã£o da distribuiÃ§Ã£o <prgn>Debian</prgn> 
+(e baseadas nela) estÃ£o localizados no diretÃ³rio 
+<file>/etc/init.d</file>. Cada daemon (programa residente na memÃ³ria) 
+ou configuraÃ§Ã£o especÃ­fica possui um arquivo de onde pode ser 
+ativado/desativado. Os sistemas residentes neste diretÃ³rio nÃ£o sÃ£o 
+ativados diretamente, mas sim atravÃ©s de links existentes nos diretÃ³rios 
+<file>/etc/rc?.d</file> onde cada diretÃ³rio consiste em um nÃ­vel de 
+execuÃ§Ã£o do sistema (veja tambÃ©m a <ref id="deb-runlevels">). 
  <p>
-Por padrão, você pode usar as seguintes palavras chaves com os arquivos 
-de configuração:
+Por padrÃ£o, vocÃª pode usar as seguintes palavras chaves com os arquivos 
+de configuraÃ§Ã£o:
 <list compact>
- <item><tt>start</tt> - Inicia o daemon ou executa a configuração 
- <item><tt>stop</tt> - Interrompe a execução de um daemon ou desfaz a configuração 
- feita anteriormente (se possível). 
- <item><tt>restart</tt> - Reinicia a execução de um daemon. É equivalente 
+ <item><tt>start</tt> - Inicia o daemon ou executa a configuraÃ§Ã£o 
+ <item><tt>stop</tt> - Interrompe a execuÃ§Ã£o de um daemon ou desfaz a configuraÃ§Ã£o 
+ feita anteriormente (se possÃ­vel). 
+ <item><tt>restart</tt> - Reinicia a execuÃ§Ã£o de um daemon. Ã‰ equivalente 
  ao uso de <tt>stop</tt> e <tt>start</tt> mas se aplicam somente a alguns 
- daemons e configurações, que permitem a interrupção de execução e reinicio. 
+ daemons e configuraÃ§Ãµes, que permitem a interrupÃ§Ã£o de execuÃ§Ã£o e reinicio. 
 </list>
 
 <![ %EXEMPLO [ 
@@ -258,66 +258,66 @@ cd /etc/init.d
 ]]>
 
 
-<sect id="deb-runlevels">Níveis de Execução 
+<sect id="deb-runlevels">NÃ­veis de ExecuÃ§Ã£o 
  <p>
-Os <em>Níveis de execução</em> (run levels) são diferentes modos de 
+Os <em>NÃ­veis de execuÃ§Ã£o</em> (run levels) sÃ£o diferentes modos de 
 funcionamento do <prgn>GNU/Linux</prgn> com programas, daemons e recursos 
-específicos. Em geral, os sistemas <prgn>GNU/Linux</prgn> possuem sete 
-níveis de execução numerados de 0 a 6. O daemon <prgn>init</prgn> é 
-o primeiro programa executado no <prgn>GNU/Linux</prgn> (veja através 
-do <tt>ps ax|grep init</tt>) e responsável pela carga de todos daemons 
-de inicialização e configuração do sistema. 
+especÃ­ficos. Em geral, os sistemas <prgn>GNU/Linux</prgn> possuem sete 
+nÃ­veis de execuÃ§Ã£o numerados de 0 a 6. O daemon <prgn>init</prgn> Ã© 
+o primeiro programa executado no <prgn>GNU/Linux</prgn> (veja atravÃ©s 
+do <tt>ps ax|grep init</tt>) e responsÃ¡vel pela carga de todos daemons 
+de inicializaÃ§Ã£o e configuraÃ§Ã£o do sistema. 
  <p>
-O nível de execução padrão em uma distribuição <prgn>GNU/Linux</prgn> é 
-definido através do arquivo de configuração do <file>/etc/inittab</file> 
-<![ %INTERMEDIARIO [ (<ref id="etc-inittab">) ]]> através da linha 
+O nÃ­vel de execuÃ§Ã£o padrÃ£o em uma distribuiÃ§Ã£o <prgn>GNU/Linux</prgn> Ã© 
+definido atravÃ©s do arquivo de configuraÃ§Ã£o do <file>/etc/inittab</file> 
+<![ %INTERMEDIARIO [ (<ref id="etc-inittab">) ]]> atravÃ©s da linha 
 <example>
 id:2:initdefault:
 </example>
 
 
-<sect1 id="deb-runlevels-e">Entendendo o funcionamento dos níveis de execução 
+<sect1 id="deb-runlevels-e">Entendendo o funcionamento dos nÃ­veis de execuÃ§Ã£o 
 do sistema (runlevels) 
  <p>
-Os nível de execução atual do sistema pode ser visualizado através do comando 
-<prgn>runlevel</prgn> e modificado através dos programas 
-<prgn>init</prgn> ou <prgn>telinit</prgn>. Quando é executado, o 
-<prgn>runlevel</prgn> lê o arquivo <file>/var/run/utmp</file> e 
-adicionalmente lista o nível de execução anterior ou a letra <tt>N</tt> em 
-seu lugar (caso ainda não tenha ocorrido a mudança do nível de execução do 
+Os nÃ­vel de execuÃ§Ã£o atual do sistema pode ser visualizado atravÃ©s do comando 
+<prgn>runlevel</prgn> e modificado atravÃ©s dos programas 
+<prgn>init</prgn> ou <prgn>telinit</prgn>. Quando Ã© executado, o 
+<prgn>runlevel</prgn> lÃª o arquivo <file>/var/run/utmp</file> e 
+adicionalmente lista o nÃ­vel de execuÃ§Ã£o anterior ou a letra <tt>N</tt> em 
+seu lugar (caso ainda nÃ£o tenha ocorrido a mudanÃ§a do nÃ­vel de execuÃ§Ã£o do 
 sistema). 
  <p>
-Na <prgn>Debian</prgn>, os diretórios <file>/etc/rc0.d</file> a 
-<file>/etc/rc6.d</file> contém os links simbólicos para arquivos 
-em <file>/etc/init.d</file> que são acionados pelo nível de execução 
+Na <prgn>Debian</prgn>, os diretÃ³rios <file>/etc/rc0.d</file> a 
+<file>/etc/rc6.d</file> contÃ©m os links simbÃ³licos para arquivos 
+em <file>/etc/init.d</file> que sÃ£o acionados pelo nÃ­vel de execuÃ§Ã£o 
 correspondente. 
  <p> 
 Por exemplo, o arquivo <file>S10sysklogd</file> em <file>/etc/rc2.d</file>, 
-é um link simbólico para <file>/etc/init.d/sysklogd</file>. 
+Ã© um link simbÃ³lico para <file>/etc/init.d/sysklogd</file>. 
  <p>
-O que aconteceria se você removesse o arquivo <file>/etc/rc2.d/S10sysklogd</file>? 
+O que aconteceria se vocÃª removesse o arquivo <file>/etc/rc2.d/S10sysklogd</file>? 
 Simplesmente o daemon <prgn>sysklogd</prgn> deixaria de ser executado 
-no nível de execução 2 do sistema (que é o padrão da <prgn>Debian</prgn>). 
+no nÃ­vel de execuÃ§Ã£o 2 do sistema (que Ã© o padrÃ£o da <prgn>Debian</prgn>). 
  <p>
-A <prgn>Debian</prgn> segue o seguinte padrão para definir se um link 
-simbólico em <file>/etc/rc[0-6].d</file> iniciará ou interromperá 
-a execução de um serviço em <file>/etc/init.d</file>, que é o seguinte: 
+A <prgn>Debian</prgn> segue o seguinte padrÃ£o para definir se um link 
+simbÃ³lico em <file>/etc/rc[0-6].d</file> iniciarÃ¡ ou interromperÃ¡ 
+a execuÃ§Ã£o de um serviÃ§o em <file>/etc/init.d</file>, que Ã© o seguinte: 
 
 <list compact>
  <item>
-Se um link é iniciado com a letra <tt>K</tt> (kill), quer dizer que o 
-serviço será interrompido naquele nível de execução. O que ele faz é 
+Se um link Ã© iniciado com a letra <tt>K</tt> (kill), quer dizer que o 
+serviÃ§o serÃ¡ interrompido naquele nÃ­vel de execuÃ§Ã£o. O que ele faz Ã© 
 executar o daemon em <file>/etc/init.d</file> seguido de <tt>stop</tt>. 
 
  <item>
-Se um link é iniciado com a letra <tt>S</tt> (start), quer dizer que o 
-serviço será iniciado naquele nível de execução (é equivalente a executar 
+Se um link Ã© iniciado com a letra <tt>S</tt> (start), quer dizer que o 
+serviÃ§o serÃ¡ iniciado naquele nÃ­vel de execuÃ§Ã£o (Ã© equivalente a executar 
 o daemon seguido de <tt>start</tt>). 
 </list>
 
-Primeiro os links com a letra <tt>K</tt> são executado e depois os <tt>S</tt>. 
-A ordem que os links são executados dependem do valor numérico que acompanha o 
-link, por exemplo, os seguintes arquivos são executados em seqüência: 
+Primeiro os links com a letra <tt>K</tt> sÃ£o executado e depois os <tt>S</tt>. 
+A ordem que os links sÃ£o executados dependem do valor numÃ©rico que acompanha o 
+link, por exemplo, os seguintes arquivos sÃ£o executados em seqÃ¼Ãªncia: 
 <example>
 S10sysklogd
 S12kerneld
@@ -328,131 +328,131 @@ S20lprng
 S89cron
 S99xdm
 </example>
-Note que os arquivos que iniciam com o mesmo número (<tt>S20*</tt>) são 
-executados alfabeticamente. O nível de execução do sistema pode ser modificado 
+Note que os arquivos que iniciam com o mesmo nÃºmero (<tt>S20*</tt>) sÃ£o 
+executados alfabeticamente. O nÃ­vel de execuÃ§Ã£o do sistema pode ser modificado 
 usando-se o comando <prgn>init</prgn> ou <prgn>telinit</prgn>. Os seguinte 
-níveis de execução estão disponíveis na <prgn>Debian</prgn>: 
+nÃ­veis de execuÃ§Ã£o estÃ£o disponÃ­veis na <prgn>Debian</prgn>: 
 <list compact>
- <item><tt>0</tt> - Interrompe a execução do sistema. todos os programas e 
-daemons finalizados. É acionado pelo comando 
+ <item><tt>0</tt> - Interrompe a execuÃ§Ã£o do sistema. todos os programas e 
+daemons finalizados. Ã‰ acionado pelo comando 
  <tt>shutdown -h</tt>
- <item><tt>1</tt> - Modo monousuário, útil para manutenção dos sistema. 
- <item><tt>2</tt> - Modo multiusuário (padrão da Debian)
- <item><tt>3</tt> - Modo multiusuário 
- <item><tt>4</tt> - Modo multiusuário 
- <item><tt>5</tt> - Modo multiusuário com login gráfico
- <item><tt>6</tt> - Reinicialização do sistema. Todos os programas e 
- daemons são encerrados e o sistema é reiniciado. É acionado pelo comando 
+ <item><tt>1</tt> - Modo monousuÃ¡rio, Ãºtil para manutenÃ§Ã£o dos sistema. 
+ <item><tt>2</tt> - Modo multiusuÃ¡rio (padrÃ£o da Debian)
+ <item><tt>3</tt> - Modo multiusuÃ¡rio 
+ <item><tt>4</tt> - Modo multiusuÃ¡rio 
+ <item><tt>5</tt> - Modo multiusuÃ¡rio com login grÃ¡fico
+ <item><tt>6</tt> - ReinicializaÃ§Ã£o do sistema. Todos os programas e 
+ daemons sÃ£o encerrados e o sistema Ã© reiniciado. Ã‰ acionado pelo comando 
  <tt>shutdown -r</tt> e o pressionamento de <tt>CTRL</tt>+<tt>ALT</tt>+<tt>DEL</tt>. 
 </list>
 <![ %EXEMPLO [
  <p>
-Por exemplo, para listar o nível de execução atual do sistema digite: 
-<tt>runlevel</tt>. O <prgn>runlevel</prgn> deverá listar algo como: 
+Por exemplo, para listar o nÃ­vel de execuÃ§Ã£o atual do sistema digite: 
+<tt>runlevel</tt>. O <prgn>runlevel</prgn> deverÃ¡ listar algo como: 
 <example>
 N 2
 </example>
-Agora para mudar para o nível de execução 1, digite: <tt>init 3</tt>. Agora 
-confira a mudança digitando: <tt>runlevel</tt>. Você deverá ver este resultado: 
+Agora para mudar para o nÃ­vel de execuÃ§Ã£o 1, digite: <tt>init 3</tt>. Agora 
+confira a mudanÃ§a digitando: <tt>runlevel</tt>. VocÃª deverÃ¡ ver este resultado: 
 <example>
 2 3 
 </example>
-Isto quer dizer que o nível de execução anterior era o <tt>2</tt> e o atual é o 
+Isto quer dizer que o nÃ­vel de execuÃ§Ã£o anterior era o <tt>2</tt> e o atual Ã© o 
 <tt>3</tt>. ]]>
 
 
 <sect id="deb-rede">Rede no sistema Debian
  <p>
-O local que contém as configurações de rede em um sistema <prgn>Debian</prgn> 
-é o <file>/etc/network/interfaces</file>. <![ %INTERMEDIARIO [ O formato deste 
-arquivo é descrito em <ref id="etc-network-interfaces">. ]]>
+O local que contÃ©m as configuraÃ§Ãµes de rede em um sistema <prgn>Debian</prgn> 
+Ã© o <file>/etc/network/interfaces</file>. <![ %INTERMEDIARIO [ O formato deste 
+arquivo Ã© descrito em <ref id="etc-network-interfaces">. ]]>
 
 
 <sect id="deb-bts">Bug tracking system
  <p>
-É o sistema para relatar bugs e enviar sugestões sobre a distribuição. 
-Para relatar um bug primeiro você deve saber inglês (é a língua 
-universal entendida pelos desenvolvedores) e verificar se o bug já 
+Ã‰ o sistema para relatar bugs e enviar sugestÃµes sobre a distribuiÃ§Ã£o. 
+Para relatar um bug primeiro vocÃª deve saber inglÃªs (Ã© a lÃ­ngua 
+universal entendida pelos desenvolvedores) e verificar se o bug jÃ¡ 
 foi relatado. O Debian <em>Bug tracking system</em> pode ser acessado 
-pelo endereço: <url id="&url-debian-bts-www;">. 
+pelo endereÃ§o: <url id="&url-debian-bts-www;">. 
  <p>
-Para relatar uma falha/sugestão, envie um e-mail para: 
+Para relatar uma falha/sugestÃ£o, envie um e-mail para: 
 <email>submit@bugs.debian.org</email>, com o assunto referente a 
-falha/sugestão que deseja fazer e no corpo da mensagem:
+falha/sugestÃ£o que deseja fazer e no corpo da mensagem:
 <example>
 Package: pacote
 Severity: normal/grave/wishlist
-Version: versão do pacote
+Version: versÃ£o do pacote
 
 E o relato do problema
 </example>
-O bug será encaminhado diretamente ao mantenedor do pacote que 
-verificará o problema relatado. Os campos <tt>Package</tt> e 
-<tt>Severity</tt> são obrigatórios para definir o nome do pacote 
-(para endereçar o bug para a pessoa correta) e versão do pacote 
-(esta falha pode ter sido relatada e corrigida em uma nova versão). 
+O bug serÃ¡ encaminhado diretamente ao mantenedor do pacote que 
+verificarÃ¡ o problema relatado. Os campos <tt>Package</tt> e 
+<tt>Severity</tt> sÃ£o obrigatÃ³rios para definir o nome do pacote 
+(para endereÃ§ar o bug para a pessoa correta) e versÃ£o do pacote 
+(esta falha pode ter sido relatada e corrigida em uma nova versÃ£o). 
 
 
 <sect id="deb-download">Onde encontrar a Debian para Download?
  <p>
-No endereço <url id="&url-debian-ftp;">. Outros endereços podem ser 
-obtidos na página oficial da <prgn>Debian</prgn> 
+No endereÃ§o <url id="&url-debian-ftp;">. Outros endereÃ§os podem ser 
+obtidos na pÃ¡gina oficial da <prgn>Debian</prgn> 
 (<url id="&url-debian-www;">) clicando no link <tt>Download</tt> e 
 <tt>mirrors</tt>. 
  <p>
-A distribuição Etch (4.0) completa, com 18830 pacotes ocupa em torno 
-de 10 GB. Você também pode optar por fazer a instalação dos pacotes 
-opcionais via Internet através do método apt. Para detalhes veja o 
-guia do dselect ou envie uma mensagem para a lista de discussão 
+A distribuiÃ§Ã£o Etch (4.0) completa, com 18830 pacotes ocupa em torno 
+de 10 GB. VocÃª tambÃ©m pode optar por fazer a instalaÃ§Ã£o dos pacotes 
+opcionais via Internet atravÃ©s do mÃ©todo apt. Para detalhes veja o 
+guia do dselect ou envie uma mensagem para a lista de discussÃ£o 
 <email>debian-user-portuguese@lists.debian.org</email> 
 <![ %INTERMEDIARIO [ (veja <ref id="ajuda-listas"> para detalhes). ]]>
 
 
     <![ %INTERMEDIARIO [ 
 
-<sect id="deb-lista-pacotes">Lista de pacotes para uma instalação rápida e manual 
+<sect id="deb-lista-pacotes">Lista de pacotes para uma instalaÃ§Ã£o rÃ¡pida e manual 
  <p>
-Esta seção contém uma lista de pacotes necessários que atendem a 
-maioria dos usuários normais da <prgn>Debian</prgn> em um 
-<strong>sistema padrão</strong> sem desperdício de espaço e 
-sabendo exatamente o que está instalando. 
+Esta seÃ§Ã£o contÃ©m uma lista de pacotes necessÃ¡rios que atendem a 
+maioria dos usuÃ¡rios normais da <prgn>Debian</prgn> em um 
+<strong>sistema padrÃ£o</strong> sem desperdÃ­cio de espaÃ§o e 
+sabendo exatamente o que estÃ¡ instalando. 
  <p>
-Estou assumindo que você concluiu a instalação da <prgn>Debian</prgn> 
-3.0 (Woody) mas preferiu pular o passo de seleção de pacotes 
-do <prgn>dselect</prgn> e fazer uma instalação manual. 
+Estou assumindo que vocÃª concluiu a instalaÃ§Ã£o da <prgn>Debian</prgn> 
+3.0 (Woody) mas preferiu pular o passo de seleÃ§Ã£o de pacotes 
+do <prgn>dselect</prgn> e fazer uma instalaÃ§Ã£o manual. 
  <p>
-A lista de pacotes está dividida por categorias e você precisa ter o 
+A lista de pacotes estÃ¡ dividida por categorias e vocÃª precisa ter o 
 programa <prgn>apt</prgn> configurado corretamente para que os 
 comandos funcionem (veja <ref id="dpkg-apt"> para detalhes). 
  <p>
-Se pretende usar a lista de pacotes para fazer a instalação da 
-<prgn>Debian</prgn> em muitos computadores, você tem duas opções: 
+Se pretende usar a lista de pacotes para fazer a instalaÃ§Ã£o da 
+<prgn>Debian</prgn> em muitos computadores, vocÃª tem duas opÃ§Ãµes: 
 <enumlist compact>
  <item>
-Copiar o conteúdo das seções que seguem e fazer um script de instalação 
-personalizado para automatizar a instalação de pacotes da 
-<prgn>Debian</prgn> em outras máquinas
+Copiar o conteÃºdo das seÃ§Ãµes que seguem e fazer um script de instalaÃ§Ã£o 
+personalizado para automatizar a instalaÃ§Ã£o de pacotes da 
+<prgn>Debian</prgn> em outras mÃ¡quinas
 
  <item>
-Após a instalação dos pacotes no computador, utilize o comando 
+ApÃ³s a instalaÃ§Ã£o dos pacotes no computador, utilize o comando 
 <tt>dpkg --get-selections &gt;Lista-Pacotes.txt</tt> para 
 gerar o arquivo <file>Lista-Pacotes.txt</file> contendo a lista 
 de pacotes instalados. 
  <p>
-Então no computador que pretende fazer a instalação de pacotes, use 
-o comando <tt>dpkg --set-selections &lt;Lista-Pacotes.txt</tt> e então 
-digitar <tt>apt-get -f install</tt> ou escolher a opção 
+EntÃ£o no computador que pretende fazer a instalaÃ§Ã£o de pacotes, use 
+o comando <tt>dpkg --set-selections &lt;Lista-Pacotes.txt</tt> e entÃ£o 
+digitar <tt>apt-get -f install</tt> ou escolher a opÃ§Ã£o 
 <tt>Install</tt> no <prgn>dselect</prgn>. 
 </enumlist>
 Para mais detalhes veja <ref id="dpkg-get-selections"> e a 
 <ref id="dpkg-set-selections">. 
-É importante usar o comando <tt>apt-get clean</tt> após a instalação de 
+Ã‰ importante usar o comando <tt>apt-get clean</tt> apÃ³s a instalaÃ§Ã£o de 
 pacotes para remover os pacotes baixados pelo <prgn>apt</prgn> de 
-<file>/var/cache/apt/archives</file> (exceto na instalação de pacotes 
-através do disco rígido local). 
+<file>/var/cache/apt/archives</file> (exceto na instalaÃ§Ã£o de pacotes 
+atravÃ©s do disco rÃ­gido local). 
 
 
-<sect1>Pacotes Básicos (Altamente Recomendado)
+<sect1>Pacotes BÃ¡sicos (Altamente Recomendado)
  <p>
 <example>
 apt-get install cpio info libident libncurses4 man-db manpages whois nvi 
@@ -461,28 +461,28 @@ apt-get install cpio info libident libncurses4 man-db manpages whois nvi
 </example> 
  
 
-<sect1>Compilação do Kernel e programas em linguagem C 
+<sect1>CompilaÃ§Ã£o do Kernel e programas em linguagem C 
  <p>
 <example>
 apt-get install perl, gcc libc6-dev bin86 make
 </example>
 Se pretender utilizar o <package>kernel-package</package> para compilar 
-o kernel mais facilmente, então você precisará dos seguintes pacotes:
+o kernel mais facilmente, entÃ£o vocÃª precisarÃ¡ dos seguintes pacotes:
 <example>
 apt-get install kernel-package dpkg-dev 
 </example>
-Veja <ref id="kern-recompilando"> para entender como compilar seu próprio 
+Veja <ref id="kern-recompilando"> para entender como compilar seu prÃ³prio 
 kernel. 
 
 
-<sect1>X11 (básico)
+<sect1>X11 (bÃ¡sico)
  <p>
 <example>
 apt-get install xbase-clients xserver-xorg xfonts-75dpi xfonts-base 
                 xserver-common xterm xfstt xdm
 </example>
 Caso suas fontes sejam mostradas em tamanho exagerado, remova o pacotes 
-<package>xfonts-100dpi</package> ou ajuste a seção <tt>Files</tt> do 
+<package>xfonts-100dpi</package> ou ajuste a seÃ§Ã£o <tt>Files</tt> do 
 arquivo <file>/etc/X11/xorg.conf</file> apropriadamente. 
 
 
@@ -495,12 +495,12 @@ apt-get install wmaker wmakerconf wmaker-data wmavload
 </example>
 <![ %OBS [ 
  <p>
-OBS: Existem também gerenciadores de seção como o 
-<prgn>gnome</prgn>, <prgn>kde</prgn>, ocupam bastante espaço em disco
+OBS: Existem tambÃ©m gerenciadores de seÃ§Ã£o como o 
+<prgn>gnome</prgn>, <prgn>kde</prgn>, ocupam bastante espaÃ§o em disco
 ]]>
 
 
-<sect1>Impressão (texto e gráfico com sistema de spool)
+<sect1>ImpressÃ£o (texto e grÃ¡fico com sistema de spool)
  <p>
 <example>
 apt-get install lprng magicfilter gs gsfonts
@@ -521,7 +521,7 @@ apt-get install xchat gaim firefox fetchmail procmail mime-support
 </example>
 
 
-<sect1>Acessórios
+<sect1>AcessÃ³rios
  <p>
 <example>
 apt-get install gimp gimp-nonfree gnotepad openoffice freefont

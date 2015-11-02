@@ -1,90 +1,90 @@
-<chapt id="etc">Principais arquivos de configuraÁ„o do diretÛrio <file>/etc</file>
+<chapt id="etc">Principais arquivos de configura√ß√£o do diret√≥rio <file>/etc</file>
  <p>
-Este capÌtulo descreve a funÁ„o, par‚metros e exemplos de utilizaÁ„o de 
-alguns arquivos/diretÛrios de configuraÁ„o em <file>/etc</file>. 
-Estes arquivos est„o disponÌveis por padr„o na instalaÁ„o 
-b·sica do <prgn>GNU/Linux</prgn>, o que assegura um m·ximo de aproveitamento 
-deste capÌtulo. N„o ser„o descritos aqui arquivos de configuraÁ„o especÌficos 
-de servidores ou daemons (com exceÁ„o do <prgn>inetd</prgn>). 
+Este cap√≠tulo descreve a fun√ß√£o, par√¢metros e exemplos de utiliza√ß√£o de 
+alguns arquivos/diret√≥rios de configura√ß√£o em <file>/etc</file>. 
+Estes arquivos est√£o dispon√≠veis por padr√£o na instala√ß√£o 
+b√°sica do <prgn>GNU/Linux</prgn>, o que assegura um m√°ximo de aproveitamento 
+deste cap√≠tulo. N√£o ser√£o descritos aqui arquivos de configura√ß√£o espec√≠ficos 
+de servidores ou daemons (com exce√ß√£o do <prgn>inetd</prgn>). 
  
 
-<sect id="etc-alternatives">DiretÛrio <file>/etc/alternatives</file>
+<sect id="etc-alternatives">Diret√≥rio <file>/etc/alternatives</file>
  <p>
-Este diretÛrio contÈm links para diversos aplicativos padrıes utilizados pelo 
-sistema. Dentre eles s„o encontrados links para o <file>editor</file> do sistema 
-e o <file>xterm</file> padr„o usado pelo sistema. 
+Este diret√≥rio cont√©m links para diversos aplicativos padr√µes utilizados pelo 
+sistema. Dentre eles s√£o encontrados links para o <file>editor</file> do sistema 
+e o <file>xterm</file> padr√£o usado pelo sistema. 
  <p>
-Por exemplo, se vocÍ quiser usar o editor <prgn>jed</prgn> ao invÈs do 
+Por exemplo, se voc√™ quiser usar o editor <prgn>jed</prgn> ao inv√©s do 
 <prgn>ae</prgn> ou <prgn>vi</prgn>, remova o link <file>editor</file> 
-com o comando <tt>rm editor</tt>, localize o arquivo execut·vel do 
+com o comando <tt>rm editor</tt>, localize o arquivo execut√°vel do 
 <prgn>jed</prgn> com <tt>which jed</tt> e crie um link para ele 
-<tt>ln -s /usr/bin/jed editor</tt>. De agora em diante o editor padr„o 
-usado pela maioria dos aplicativos ser· o <prgn>jed</prgn>. 
+<tt>ln -s /usr/bin/jed editor</tt>. De agora em diante o editor padr√£o 
+usado pela maioria dos aplicativos ser√° o <prgn>jed</prgn>. 
 
 
 <sect id="etc-devpts">Arquivo <file>/etc/default/devpts</file>
  <p>
-Este arquivo contÈm algumas configuraÁıes para os pseudo terminais em 
+Este arquivo cont√©m algumas configura√ß√µes para os pseudo terminais em 
 <file>/dev/pts</file>. 
 
 
 <sect id="etc-rcs">Arquivo <file>/etc/default/rcS</file>
  <p>
-ContÈm vari·veis padrıes que alteram o comportamento de inicializaÁ„o dos 
+Cont√©m vari√°veis padr√µes que alteram o comportamento de inicializa√ß√£o dos 
 scripts em <file>/etc/rcS.d</file> 
  <p>
-Por exemplo, se quiser menos mensagens na inicializaÁ„o do sistema, ajuste 
-o valor da vari·vel <file>VERBOSE</file> para <tt>no</tt>. 
+Por exemplo, se quiser menos mensagens na inicializa√ß√£o do sistema, ajuste 
+o valor da vari√°vel <file>VERBOSE</file> para <tt>no</tt>. 
 <![ %OBS [
  <p>
-OBS: Somente modifique aquilo que tem certeza do que est· fazendo, um valor 
-modificado incorretamente poder· causar falhas na seguranÁa de sua rede ou 
+OBS: Somente modifique aquilo que tem certeza do que est√° fazendo, um valor 
+modificado incorretamente poder√° causar falhas na seguran√ßa de sua rede ou 
 no sistemas de arquivos do disco. ]]>
 
 
 <sect id="etc-config">Arquivo <file>/etc/console-tools/config</file>
  <p>
-Este arquivo contÈm configuraÁıes padrıes do pacote <package>console-tools</package> 
+Este arquivo cont√©m configura√ß√µes padr√µes do pacote <package>console-tools</package> 
 para as fontes de tela e mapas de teclado usados pelo sistema. A fonte 
-de tela È especificada neste arquivo (as fontes disponÌveis no sistema 
-est„o localizadas em <file>/usr/share/consolefonts</file>). 
+de tela √© especificada neste arquivo (as fontes dispon√≠veis no sistema 
+est√£o localizadas em <file>/usr/share/consolefonts</file>). 
  <p>
-Os arquivos de mapa de teclados est„o localizados no diretÛrio
+Os arquivos de mapa de teclados est√£o localizados no diret√≥rio
 <file>/usr/share/keymaps/</file>. 
 
  
-<sect id="etc-menu-methods">DiretÛrio <file>/etc/menu-methods</file>
+<sect id="etc-menu-methods">Diret√≥rio <file>/etc/menu-methods</file>
  <p>
-Este diretÛrio contÈm uma lista de arquivos que s„o executados pelo 
+Este diret√≥rio cont√©m uma lista de arquivos que s√£o executados pelo 
 programa <prgn>update-menu</prgn> para criar os menus dos programas. 
 
 
 <sect id="etc-menu-translate">Arquivo <file>/etc/menu-methods/translate_menus
 </file>
  <p>
-Este arquivo permite fazer a traduÁ„o de nomes de menus, identificaÁ„o ou 
-tÌtulos usados no ambiente gr·fico. 
+Este arquivo permite fazer a tradu√ß√£o de nomes de menus, identifica√ß√£o ou 
+t√≠tulos usados no ambiente gr√°fico. 
 
 
-<sect id="etc-networks">DiretÛrio <file>/etc/network</file>
+<sect id="etc-networks">Diret√≥rio <file>/etc/network</file>
  <p>
-Este diretÛrio contÈm as configuraÁıes das interfaces (placas) de rede do 
-sistema e outras opÁıes ˙teis para a configuraÁ„o/seguranÁa da rede. 
+Este diret√≥rio cont√©m as configura√ß√µes das interfaces (placas) de rede do 
+sistema e outras op√ß√µes √∫teis para a configura√ß√£o/seguran√ßa da rede. 
 
 
 <sect id="etc-network-interfaces">Arquivo <file>/etc/network/interfaces</file>
  <p>
-Este È o arquivo de configuraÁ„o usado pelos programas <prgn>ifup</prgn> e 
+Este √© o arquivo de configura√ß√£o usado pelos programas <prgn>ifup</prgn> e 
 <prgn>ifdown</prgn>, respectivamente para ativar e desativas as 
 interfaces de rede. 
  <p>
-O que estes utilit·rios fazem na realidade È carregar os utilit·rios 
-<prgn>ifconfig</prgn> e <prgn>route</prgn> atravÈs dos argumentos 
+O que estes utilit√°rios fazem na realidade √© carregar os utilit√°rios 
+<prgn>ifconfig</prgn> e <prgn>route</prgn> atrav√©s dos argumentos 
 passados do arquivo <file>/etc/network/interfaces</file>, permitindo 
-que o usu·rio iniciante configure uma interface de rede com mais 
+que o usu√°rio iniciante configure uma interface de rede com mais 
 facilidade. 
  <p>
-Abaixo um exemplo do arquivo <file>interfaces</file> È o seguinte:
+Abaixo um exemplo do arquivo <file>interfaces</file> √© o seguinte:
 <example>
 iface eth0 inet static
    address 192.168.1.1
@@ -93,70 +93,70 @@ iface eth0 inet static
    broadcast 192.168.1.255
 
 </example>
-As interfaces e roteamentos s„o configurados na ordem que aparecem neste 
-arquivo. Cada configuraÁ„o de interface inicia com a palavra chave 
-<tt>iface</tt>. A prÛxima palavra È o nome da interface que deseja configurar 
-(da mesma forma que È utilizada pelos comandos <prgn>ifconfig</prgn> e 
-<prgn>route</prgn>). VocÍ pode tambÈm usar <tt>IP aliases</tt> especificando 
+As interfaces e roteamentos s√£o configurados na ordem que aparecem neste 
+arquivo. Cada configura√ß√£o de interface inicia com a palavra chave 
+<tt>iface</tt>. A pr√≥xima palavra √© o nome da interface que deseja configurar 
+(da mesma forma que √© utilizada pelos comandos <prgn>ifconfig</prgn> e 
+<prgn>route</prgn>). Voc√™ pode tamb√©m usar <tt>IP aliases</tt> especificando 
 <file>eth0:0</file> mas tenha certeza que a interface real (<file>eth0</file>) 
-È inicializada antes. 
+√© inicializada antes. 
  <p>
-A prÛxima palavra especifica a familia de endereÁos da interface; Escolha 
+A pr√≥xima palavra especifica a familia de endere√ßos da interface; Escolha 
 <tt>inet</tt> para a rede TCP/IP, <tt>ipx</tt> para interfaces IPX e 
 <tt>IPv6</tt> para interfaces configuradas com o protocolo IPV6. 
  <p>
-A palavra <tt>static</tt> especifica o mÈtodo que a interface ser· 
-configurada, neste caso È uma interface com endereÁo est·tico (fixo). 
+A palavra <tt>static</tt> especifica o m√©todo que a interface ser√° 
+configurada, neste caso √© uma interface com endere√ßo est√°tico (fixo). 
  <p>
-Outros mÈtodos e seus par‚metros s„o especificados abaixo (traduzido da 
-p·gina do arquivo <prgn>interfaces</prgn>): 
+Outros m√©todos e seus par√¢metros s√£o especificados abaixo (traduzido da 
+p√°gina do arquivo <prgn>interfaces</prgn>): 
 <taglist>
- <tag>O mÈtodo <em>loopback</em></tag>
+ <tag>O m√©todo <em>loopback</em></tag>
  <item>
-… usado para configurar a interface <em>loopback</em> (lo) IPv4. 
+√â usado para configurar a interface <em>loopback</em> (lo) IPv4. 
 
- <tag>O mÈtodo <em>static</em></tag>
+ <tag>O m√©todo <em>static</em></tag>
  <item>
-… usado para configurar um endereÁo IPv4 fixo para a interface. As opÁıes 
-que podem ser usadas com o mÈtodos <em>static</em> s„o as seguintes 
-(opÁıes marcadas com * no final s„o requeridas na configuraÁ„o): 
+√â usado para configurar um endere√ßo IPv4 fixo para a interface. As op√ß√µes 
+que podem ser usadas com o m√©todos <em>static</em> s√£o as seguintes 
+(op√ß√µes marcadas com * no final s√£o requeridas na configura√ß√£o): 
 
  <taglist compact>
-  <tag>address <em>endereÁo</em> *</tag>
+  <tag>address <em>endere√ßo</em> *</tag>
   <item>
-EndereÁo IP da Interface de rede (por exemplo, 192.168.1.1).
+Endere√ßo IP da Interface de rede (por exemplo, 192.168.1.1).
 
-  <tag>netmask <em>m·scara</em> *</tag>
+  <tag>netmask <em>m√°scara</em> *</tag>
   <item>
-M·scara de rede da Interface de rede (por exemplo, 255.255.255.0).
+M√°scara de rede da Interface de rede (por exemplo, 255.255.255.0).
 
-  <tag>broadcast <em>endereÁo</em></tag>
+  <tag>broadcast <em>endere√ßo</em></tag>
   <item>
-EndereÁo de Broadcast da interface (por exemplo, 192.168.1.255). 
+Endere√ßo de Broadcast da interface (por exemplo, 192.168.1.255). 
 
-  <tag>network <em>endereÁo</em></tag>
+  <tag>network <em>endere√ßo</em></tag>
   <item>
-EndereÁo da rede (por exemplo, 192.168.0.0).
+Endere√ßo da rede (por exemplo, 192.168.0.0).
 
-  <tag>gateway <em>endereÁo</em></tag>
+  <tag>gateway <em>endere√ßo</em></tag>
   <item>
-EndereÁo do gateway padr„o (por exemplo, 192.168.1.10). O gateway È o endereÁo 
-do computador respons·vel por conectar o seu computador a outra rede. Use 
-somente se for necess·rio em sua rede. 
+Endere√ßo do gateway padr√£o (por exemplo, 192.168.1.10). O gateway √© o endere√ßo 
+do computador respons√°vel por conectar o seu computador a outra rede. Use 
+somente se for necess√°rio em sua rede. 
 
  </taglist>
 
-<tag>O mÈtodo <em>dhcp</em></tag>
+<tag>O m√©todo <em>dhcp</em></tag>
  <item>
-Este mÈtodo È usado para obter os par‚metros de configuraÁ„o atravÈs de 
-um servidor DHCP da rede atravÈs das ferramentas: <prgn>dhclient</prgn>, 
+Este m√©todo √© usado para obter os par√¢metros de configura√ß√£o atrav√©s de 
+um servidor DHCP da rede atrav√©s das ferramentas: <prgn>dhclient</prgn>, 
 <prgn>pump</prgn> (somente Kernels 2.2.x) ou <prgn>dpcpcp</prgn> 
 (somente kernels 2.0.x e 2.2.x)
  
  <taglist compact>
   <tag>hostname <em>nome</em></tag>
   <item>
-Nome da estaÁ„o de trabalho que ser· requisitado. (pump, dhcpcd)
+Nome da esta√ß√£o de trabalho que ser√° requisitado. (pump, dhcpcd)
 
   <tag>leasehours <em>leasttime</em></tag>
   <item>
@@ -170,9 +170,9 @@ Lease time preferida em segundos (dhcpcd)
   <item>
 Identificador do vendedor (dhcpcd)
 
-  <tag>client <em>identificaÁ„o</em></tag>
+  <tag>client <em>identifica√ß√£o</em></tag>
   <item>
-IdentificaÁ„o do cliente (dhcpcd)
+Identifica√ß√£o do cliente (dhcpcd)
 
  </taglist>
 Exemplo:
@@ -182,43 +182,43 @@ iface eth0 inet dhcp
  client estacao 10
 </example>
 
-<tag>O mÈtodo <em>bootp</em></tag> 
+<tag>O m√©todo <em>bootp</em></tag> 
  <item>
-Este mÈtodo pode ser usado para obter um endereÁo via <prgn>bootp</prgn>:
+Este m√©todo pode ser usado para obter um endere√ßo via <prgn>bootp</prgn>:
 
  <taglist compact>
   <tag>bootfile <file>arquivo</file></tag>
   <item>
 Diz ao servidor para utilizar <file>arquivo</file> como arquivo 
-de inicializaÁ„o
+de inicializa√ß√£o
 
-  <tag>server <em>endereÁo</em></tag>
+  <tag>server <em>endere√ßo</em></tag>
   <item>
-Especifica o endereÁo do servidor <prgn>bootp</prgn>. 
+Especifica o endere√ßo do servidor <prgn>bootp</prgn>. 
 
-  <tag>hwaddr <em>endereÁo</em></tag>
+  <tag>hwaddr <em>endere√ßo</em></tag>
   <item>
-Usa <em>endereÁo</em> como endereÁo de hardware no lugar do endereÁo 
+Usa <em>endere√ßo</em> como endere√ßo de hardware no lugar do endere√ßo 
 original. 
 
 </taglist>
 
 </taglist>
-Algumas opÁıes se aplicam a todas as interfaces e s„o as seguintes:
+Algumas op√ß√µes se aplicam a todas as interfaces e s√£o as seguintes:
 <taglist compact>
  <tag>noauto</tag>
  <item>
-N„o configura automaticamente a interface quando o <prgn>ifup</prgn> ou 
-<prgn>ifdown</prgn> s„o executados com a opÁ„o <tt>-a</tt> (normalmente 
-usada durante a inicializaÁ„o ou desligamento do sistema).
+N√£o configura automaticamente a interface quando o <prgn>ifup</prgn> ou 
+<prgn>ifdown</prgn> s√£o executados com a op√ß√£o <tt>-a</tt> (normalmente 
+usada durante a inicializa√ß√£o ou desligamento do sistema).
 
  <tag>pre-up <tt>comando</tt></tag>
  <item>
-Executa o <tt>comando</tt> antes da inicializaÁ„o da interface. 
+Executa o <tt>comando</tt> antes da inicializa√ß√£o da interface. 
 
  <tag>up <tt>comando</tt></tag>
  <item>
-Executa o <tt>comando</tt> apÛs a interface ser iniciada. 
+Executa o <tt>comando</tt> ap√≥s a interface ser iniciada. 
 
 
  <tag>down <tt>comando</tt></tag>
@@ -227,66 +227,66 @@ Executa o <tt>comando</tt> antes de desativar a interface.
 
  <tag>pre-down <tt>comando</tt></tag>
  <item>
-Executa o <tt>comando</tt> apÛs desativar a interface. 
+Executa o <tt>comando</tt> ap√≥s desativar a interface. 
 
 </taglist>
-Os comandos que s„o executados atravÈs das opÁıes <em>up</em>, <em>pre-up</em> 
-e <em>down</em> podem aparecer v·rias vezes na mesma interface, eles s„o 
-executados na seq¸Íncia que aparecem. Note que se um dos comandos 
-falharem, nenhum dos outros ser· executado. VocÍ pode ter certeza que os 
-prÛximos comandos ser„o executados adicionando <tt>|| true</tt> ao final 
+Os comandos que s√£o executados atrav√©s das op√ß√µes <em>up</em>, <em>pre-up</em> 
+e <em>down</em> podem aparecer v√°rias vezes na mesma interface, eles s√£o 
+executados na seq√º√™ncia que aparecem. Note que se um dos comandos 
+falharem, nenhum dos outros ser√° executado. Voc√™ pode ter certeza que os 
+pr√≥ximos comandos ser√£o executados adicionando <tt>|| true</tt> ao final 
 da linha de comando. 
 
 
 <sect id="etc-networks-options">Arquivo <file>/etc/networks/options</file>
  <p>
-Este arquivo contÈm opÁıes que ser„o aplicadas as interfaces de rede 
-durante a inicializaÁ„o do sistema. 
-<![ %DESCRICAOD [ Este arquivo È lido pelo script de inicializaÁ„o 
+Este arquivo cont√©m op√ß√µes que ser√£o aplicadas as interfaces de rede 
+durante a inicializa√ß√£o do sistema. 
+<![ %DESCRICAOD [ Este arquivo √© lido pelo script de inicializa√ß√£o 
 <file>/etc/init.d/network</file> que verifica os valores e aplica as 
-modificaÁıes apropriadas no kernel. ]]>
+modifica√ß√µes apropriadas no kernel. ]]>
 
 
-<sect id="etc-pam">DiretÛrio <file>/etc/pam.d</file>
+<sect id="etc-pam">Diret√≥rio <file>/etc/pam.d</file>
  <p>
-Este diretÛrio possui arquivos de configuraÁ„o de diversos mÛdulos PAM 
+Este diret√≥rio possui arquivos de configura√ß√£o de diversos m√≥dulos PAM 
 existentes em seu sistema. 
 
 
-<sect id="etc-ppp">DiretÛrio <file>/etc/ppp</file>
+<sect id="etc-ppp">Diret√≥rio <file>/etc/ppp</file>
  <p>
-ContÈm arquivos de configuraÁ„o usados pelo daemon pppd para fazer uma 
-conex„o com uma rede PPP externa, criados manualmente ou atravÈs do 
+Cont√©m arquivos de configura√ß√£o usados pelo daemon pppd para fazer uma 
+conex√£o com uma rede PPP externa, criados manualmente ou atrav√©s do 
 <prgn>pppconfig</prgn>. 
 
 
-<sect id="etc-security">DiretÛrio <file>/etc/security</file>
+<sect id="etc-security">Diret√≥rio <file>/etc/security</file>
  <p>
-Este diretÛrio contÈm arquivos para controle de seguranÁa e limites que 
-ser„o aplicados aos usu·rios do sistema. O funcionamento de muitos 
-dos arquivos deste diretÛrio depende de modificaÁıes nos arquivos 
-em <file>/etc/pam.d</file> para habilitar as funÁıes de controle, 
-acesso e restriÁıes. 
+Este diret√≥rio cont√©m arquivos para controle de seguran√ßa e limites que 
+ser√£o aplicados aos usu√°rios do sistema. O funcionamento de muitos 
+dos arquivos deste diret√≥rio depende de modifica√ß√µes nos arquivos 
+em <file>/etc/pam.d</file> para habilitar as fun√ß√µes de controle, 
+acesso e restri√ß√µes. 
 
 
 <sect id="etc-security-access">Arquivo <file>/etc/security/access.conf</file>
  <p>
-… lido no momento do login do usu·rio e permite definir quem ter· acesso 
-ao sistema e de onde tem permiss„o de acessar sua conta. O formato deste 
-arquivo s„o 3 campos separados por <tt>:</tt>, cada linha contendo uma 
+√â lido no momento do login do usu√°rio e permite definir quem ter√° acesso 
+ao sistema e de onde tem permiss√£o de acessar sua conta. O formato deste 
+arquivo s√£o 3 campos separados por <tt>:</tt>, cada linha contendo uma 
 regra de acesso. 
  <p>
 O primeiro campo deve conter o caracter <tt>+</tt> ou <tt>-</tt> para definir 
-se aquela regra permitir· (+) ou bloquear·(-) o acesso do usu·rio. 
+se aquela regra permitir√° (+) ou bloquear√°(-) o acesso do usu√°rio. 
  <p>
-O segundo campo deve conter uma lista de logins, grupos, usu·rio@computador ou 
-a palavra <tt>ALL</tt> (confere com tudo) e <tt>EXCEPT</tt> (excess„o). 
+O segundo campo deve conter uma lista de logins, grupos, usu√°rio@computador ou 
+a palavra <tt>ALL</tt> (confere com tudo) e <tt>EXCEPT</tt> (excess√£o). 
  <p>
 O terceiro campo deve conter uma lista de terminais tty (para logins locais), 
-nomes de computadores, nomes de domÌnios (iniciando com um <tt>.</tt>), 
-endereÁo IP de computadores ou endereÁo IP de redes (finalizando com <tt>.</tt>). 
-TambÈm pode ser usada a palavra <tt>ALL</tt>, <tt>LOCAL</tt> e <tt>EXCEPT</tt> 
-(atinge somente m·quinas locais conhecidas pelo sistema). 
+nomes de computadores, nomes de dom√≠nios (iniciando com um <tt>.</tt>), 
+endere√ßo IP de computadores ou endere√ßo IP de redes (finalizando com <tt>.</tt>). 
+Tamb√©m pode ser usada a palavra <tt>ALL</tt>, <tt>LOCAL</tt> e <tt>EXCEPT</tt> 
+(atinge somente m√°quinas locais conhecidas pelo sistema). 
 <![ %EXEMPLO [
  <p>
 Abaixo um exemplo do <file>access.conf</file>
@@ -303,11 +303,11 @@ Abaixo um exemplo do <file>access.conf</file>
 #
 -:wheel:ALL EXCEPT LOCAL .win.tue.nl
 
-# Algumas contas n„o tem permiss„o de acessar o sistema de nenhum lugar:
+# Algumas contas n√£o tem permiss√£o de acessar o sistema de nenhum lugar:
 #
 -:wsbscaro wsbsecr wsbspac wsbsym wscosor wstaiwde:ALL
 
-# Todas as outras contas que n„o se encaixam nas regras acima, podem acessar de 
+# Todas as outras contas que n√£o se encaixam nas regras acima, podem acessar de 
 # qualquer lugar
 
 </example> ]]>
@@ -315,30 +315,30 @@ Abaixo um exemplo do <file>access.conf</file>
 
 <sect id="etc-securith-limits">Arquivo <file>/etc/security/limits.conf</file>
  <p>
-Defini limites de uso dos recursos do sistema para cada usu·rio ou grupos de 
-usu·rios. Os recursos s„o descritos em linhas da seguinte forma: 
+Defini limites de uso dos recursos do sistema para cada usu√°rio ou grupos de 
+usu√°rios. Os recursos s√£o descritos em linhas da seguinte forma: 
 <example>
 #&lt;dominio&gt;          &lt;tipo&gt;  &lt;item&gt;  &lt;valor&gt;
 </example>
-O <tt>domÌnio</tt> pode ser um nome de usu·rio, um grupo (especificado como 
+O <tt>dom√≠nio</tt> pode ser um nome de usu√°rio, um grupo (especificado como 
 <tt>@grupo</tt>) ou o curinga <tt>*</tt>. 
  <p>
-O <tt>tipo</tt> pode ser <tt>soft</tt> para o limite mÌnimos e 
-<tt>hard</tt> para o limite m·ximo. O campo <tt>item</tt> pode 
+O <tt>tipo</tt> pode ser <tt>soft</tt> para o limite m√≠nimos e 
+<tt>hard</tt> para o limite m√°ximo. O campo <tt>item</tt> pode 
 ser um dos seguintes: 
 <list compact>
 <item><tt>core</tt> - limita o tamanho do arquivo core (KB)
-<item><tt>data</tt> - tamanho m·ximo de dados (KB)
-<item><tt>fsize</tt> - Tamanho m·ximo de arquivo (KB)
-<item><tt>memlock</tt> - EspaÁo m·ximo de endereÁos bloqueados na memÛria (KB)
-<item><tt>nofile</tt> - N˙mero m·ximo de arquivos abertos
-<item><tt>rss</tt> - Tamanho m·ximo dos programas residentes (KB)
-<item><tt>stack</tt> - Tamanho m·ximo de pilha (KB)
-<item><tt>cpu</tt> - Tempo m·ximo usado na CPU (MIN)
-<item><tt>nproc</tt> - N˙mero m·ximo de processos
-<item><tt>as</tt> - Limite de espaÁo de endereÁos
-<item><tt>maxlogins</tt> - N˙mero m·ximo de logins deste usu·rio
-<item><tt>priority</tt> - Prioridade que os programas deste usu·rio ser„o 
+<item><tt>data</tt> - tamanho m√°ximo de dados (KB)
+<item><tt>fsize</tt> - Tamanho m√°ximo de arquivo (KB)
+<item><tt>memlock</tt> - Espa√ßo m√°ximo de endere√ßos bloqueados na mem√≥ria (KB)
+<item><tt>nofile</tt> - N√∫mero m√°ximo de arquivos abertos
+<item><tt>rss</tt> - Tamanho m√°ximo dos programas residentes (KB)
+<item><tt>stack</tt> - Tamanho m√°ximo de pilha (KB)
+<item><tt>cpu</tt> - Tempo m√°ximo usado na CPU (MIN)
+<item><tt>nproc</tt> - N√∫mero m√°ximo de processos
+<item><tt>as</tt> - Limite de espa√ßo de endere√ßos
+<item><tt>maxlogins</tt> - N√∫mero m√°ximo de logins deste usu√°rio
+<item><tt>priority</tt> - Prioridade que os programas deste usu√°rio ser√£o 
 executados
 </list>
 <![ %EXEMPLO [
@@ -359,16 +359,16 @@ ftp             hard    nproc           0
 
 <sect id="etc-crontab">Arquivo <file>/etc/crontab</file>
  <p>
-Arquivo que contÈm a programaÁ„o de programas que ser„o executados em 
-hor·rios/datas programadas. 
+Arquivo que cont√©m a programa√ß√£o de programas que ser√£o executados em 
+hor√°rios/datas programadas. 
  <p>
 Veja <ref id="manut-cron"> para mais detalhes sobre o formato 
-deste arquivo e outras opÁıes. 
+deste arquivo e outras op√ß√µes. 
 
 
 <sect>Arquivo <file>/etc/fstab</file>
  <p>
-ContÈm detalhes para a montagem dos sistemas de arquivos do sistema. 
+Cont√©m detalhes para a montagem dos sistemas de arquivos do sistema. 
 <![ %INIC-INTER [ Veja <ref id="disc-fstab"> para detalhes 
 sobre o formato deste arquivo. ]]>
 
@@ -381,8 +381,8 @@ para mais detalhes sobre o formato deste arquivo.
 
 <sect id="etc-gshadow">Arquivo <file>/etc/gshadow</file>
  <p>
-Senhas ocultas dos grupos existentes no sistema (somente o usu·rio 
-<tt>root</tt> pode ter acesso a elas). Use o utilit·rio 
+Senhas ocultas dos grupos existentes no sistema (somente o usu√°rio 
+<tt>root</tt> pode ter acesso a elas). Use o utilit√°rio 
 <prgn>shadowconfig</prgn> para ativar/desativar o suporte a 
 senhas ocultas. 
 
@@ -394,13 +394,13 @@ Veja <ref id="rede-dns-a-hostconf">.
 
 <sect>Arquivo <file>/etc/hostname</file>
  <p>
-Arquivo lido pelo utilit·rio <prgn>hostname</prgn> para definir o nome de 
-sua estaÁ„o de trabalho. 
+Arquivo lido pelo utilit√°rio <prgn>hostname</prgn> para definir o nome de 
+sua esta√ß√£o de trabalho. 
 
 
 <sect>Arquivo <file>/etc/hosts</file>
  <p>
-Banco de dados DNS est·tico que mapeia o nome ao endereÁo IP da estaÁ„o 
+Banco de dados DNS est√°tico que mapeia o nome ao endere√ßo IP da esta√ß√£o 
 de trabalho (ou vice versa). Veja <ref id="rede-dns-a-hosts"> para mais 
 detalhes sobre o formato deste arquivo. 
 
@@ -408,22 +408,22 @@ detalhes sobre o formato deste arquivo.
 <sect>Arquivo <file>/etc/hosts.allow</file>
  <p>
 Controle de acesso do wrapper TCPD que permite o acesso de determinadas de 
-determinados endereÁos/grupos aos serviÁos da rede. Veja 
+determinados endere√ßos/grupos aos servi√ßos da rede. Veja 
 <ref id="rede-seg-tcpd-a"> para detalhes sobre o formato deste arquivo. 
 
 
 <sect>Arquivo <file>/etc/hosts.deny</file>
  <p>
 Controle de acesso do wrapper TCPD que bloqueia o acesso de determinados 
-endereÁos/grupos aos serviÁos da rede. Este arquivo È somente lido caso o 
-<file>/etc/hosts.allow</file> n„o tenha permitido acesso aos serviÁos que 
-contÈm. Um valor padr„o razoavelmente seguro que pode ser usado neste 
-arquivo que serve para a maioria dos usu·rios domÈsticos È:
+endere√ßos/grupos aos servi√ßos da rede. Este arquivo √© somente lido caso o 
+<file>/etc/hosts.allow</file> n√£o tenha permitido acesso aos servi√ßos que 
+cont√©m. Um valor padr√£o razoavelmente seguro que pode ser usado neste 
+arquivo que serve para a maioria dos usu√°rios dom√©sticos √©:
 <example>
 ALL: ALL
 </example>
-caso o acesso ao serviÁo n„o tenha sido bloqueado no <file>hosts.deny</file>, 
-o acesso ao serviÁo È permitido. 
+caso o acesso ao servi√ßo n√£o tenha sido bloqueado no <file>hosts.deny</file>, 
+o acesso ao servi√ßo √© permitido. 
  <p>
 Veja <ref id="rede-seg-tcpd-d"> para detalhes sobre o formato deste arquivo. 
 
@@ -440,50 +440,50 @@ Veja <ref id="rede-servicos-inetd-c">.
 
 <sect id="etc-inittab">Arquivo <file>/etc/inittab</file>
  <p> 
-Este È o arquivo de configuraÁ„o utilizado pelo programa <prgn>init</prgn> 
-para a inicializaÁ„o do sistema. Para mais detalhes sobre o formato 
-deste arquivo, consulte a p·gina de manual do <em>inittab</em>. 
+Este √© o arquivo de configura√ß√£o utilizado pelo programa <prgn>init</prgn> 
+para a inicializa√ß√£o do sistema. Para mais detalhes sobre o formato 
+deste arquivo, consulte a p√°gina de manual do <em>inittab</em>. 
 
 
 <sect id="etc-inputrc">Arquivo <file>/etc/inputrc</file>
  <p>
-Este arquivo contÈm par‚metros para a configuraÁ„o do teclado. 
-<![ %INIC-INTER [ Veja o final da seÁ„o <ref id="cfg-acentuacao-t"> 
-e a p·gina de manual do <em>inputrc</em> para mais detalhes. ]]>
+Este arquivo cont√©m par√¢metros para a configura√ß√£o do teclado. 
+<![ %INIC-INTER [ Veja o final da se√ß√£o <ref id="cfg-acentuacao-t"> 
+e a p√°gina de manual do <em>inputrc</em> para mais detalhes. ]]>
 
 
 <sect id="etc-issue">Arquivo <file>/etc/issue</file>
  <p>
-ContÈm um texto ou mensagem que ser· mostrada antes do login do sistema. 
+Cont√©m um texto ou mensagem que ser√° mostrada antes do login do sistema. 
 
 
 <sect id="etc-issue-n">Arquivo <file>/etc/issue.net</file>
  <p>
-Mesma utilidade do <file>/etc/issue</file> mas È mostrado antes do 
-login de uma seÁ„o <prgn>telnet</prgn>. Outra diferenÁa È que este 
-arquivo aceita os seguintes tipos de vari·veis: 
+Mesma utilidade do <file>/etc/issue</file> mas √© mostrado antes do 
+login de uma se√ß√£o <prgn>telnet</prgn>. Outra diferen√ßa √© que este 
+arquivo aceita os seguintes tipos de vari√°veis: 
 <list compact>
  <item><tt>%t</tt> - Mostra o terminal tty atual. 
- <item><tt>%h</tt> - Mostra o nome de domÌnio completamente qualificado (FQDN).
- <item><tt>%D</tt> - Mostra o nome do domÌnio NIS.
+ <item><tt>%h</tt> - Mostra o nome de dom√≠nio completamente qualificado (FQDN).
+ <item><tt>%D</tt> - Mostra o nome do dom√≠nio NIS.
  <item><tt>%d</tt> - Mostra a data e hora atual. 
  <item><tt>%s</tt> - Mostra o nome do Sistema Operacional.
  <item><tt>%m</tt> - Mostra o tipo de hardware do computador. 
- <item><tt>%r</tt> - Mostra a revis„o do Sistema Operacional.
- <item><tt>%v</tt> - Mostra a vers„o do Sistema Operacional. 
+ <item><tt>%r</tt> - Mostra a revis√£o do Sistema Operacional.
+ <item><tt>%v</tt> - Mostra a vers√£o do Sistema Operacional. 
  <item><tt>%%</tt> - Mostra um simples sinal de porcentagem (%). 
 </list>
 
  
 <sect>Arquivo <file>/etc/lilo.conf</file>
  <p>
-Arquivo de configuraÁ„o do gerenciador de partida <prgn>lilo</prgn>. Veja 
+Arquivo de configura√ß√£o do gerenciador de partida <prgn>lilo</prgn>. Veja 
 <ref id="boot-lilo"> e <ref id="boot-lilo-exemplo">. 
 
 
 <sect id="etc-login-d">Arquivo <file>/etc/login.defs</file>
  <p>
-DefiniÁıes de configuraÁ„o para o pacote login
+Defini√ß√µes de configura√ß√£o para o pacote login
 
 
 <sect>Arquivo <file>/etc/modules</file>
@@ -498,15 +498,15 @@ Veja <ref id="kern-arquivos-modulesconf">.
 
 <sect id="etc-motd">Arquivo <file>/etc/motd</file>
  <p>
-Mostra um texto ou mensagem apÛs o usu·rio se logar com sucesso no sistema. 
-TambÈm È usado pelo telnet, ftp, e outros servidores que requerem autenticaÁ„o 
-do usu·rio (nome e senha). 
+Mostra um texto ou mensagem ap√≥s o usu√°rio se logar com sucesso no sistema. 
+Tamb√©m √© usado pelo telnet, ftp, e outros servidores que requerem autentica√ß√£o 
+do usu√°rio (nome e senha). 
 
 
 <sect id="etc-mtab">Arquivo <file>/etc/mtab</file>
  <p>
-Lista os sistemas de arquivos montados atualmente no sistema. Sua funÁ„o È 
-idÍntica ao <file>/proc/mounts</file>. 
+Lista os sistemas de arquivos montados atualmente no sistema. Sua fun√ß√£o √© 
+id√™ntica ao <file>/proc/mounts</file>. 
 
 
 <sect>Arquivo <file>/etc/networks</file>
@@ -516,16 +516,16 @@ Veja <ref id="rede-dns-a-networks">.
 
 <sect id="etc-passwd">Arquivo <file>/etc/passwd</file>
  <p>
-… o arquivo mais cobiÁado por Hackers porque contÈm os dados pessoais 
-do usu·rio como o login, uid, telefone e senha (caso seu sistema esteja 
-usando senhas ocultas, a senha ter· um <tt>*</tt> no lugar e as senhas reais 
-estar„o armazenadas no arquivo <file>/etc/shadow</file>). 
+√â o arquivo mais cobi√ßado por Hackers porque cont√©m os dados pessoais 
+do usu√°rio como o login, uid, telefone e senha (caso seu sistema esteja 
+usando senhas ocultas, a senha ter√° um <tt>*</tt> no lugar e as senhas reais 
+estar√£o armazenadas no arquivo <file>/etc/shadow</file>). 
 
 
 <sect id="etc-printcap">Arquivo <file>/etc/printcap</file>
  <p>
-Banco de dados de configuraÁ„o da impressora, usado por daemons 
-de impress„o como o <prgn>lpr</prgn> e <prgn>lprng</prgn>. 
+Banco de dados de configura√ß√£o da impressora, usado por daemons 
+de impress√£o como o <prgn>lpr</prgn> e <prgn>lprng</prgn>. 
 
 
 <sect>Arquivo <file>/etc/protocols</file>
@@ -540,10 +540,10 @@ Veja <ref id="rede-dns-a-resolv">.
 
 <sect id="serial-c">Arquivo <file>/etc/serial.conf</file>
  <p>
-ConfiguraÁıes das portas seriais do sistema. Veja a p·gina de manual do 
-<em>serial.conf</em> e a p·gina de manual do utilit·rio 
+Configura√ß√µes das portas seriais do sistema. Veja a p√°gina de manual do 
+<em>serial.conf</em> e a p√°gina de manual do utilit√°rio 
 <prgn>setserial</prgn> para detalhes de como configurar adequadamente a 
-taxa de transmiss„o serial conforme seu dispositivo. 
+taxa de transmiss√£o serial conforme seu dispositivo. 
 
 
 <sect>Arquivo <file>/etc/services</file>
@@ -554,24 +554,24 @@ Veja <ref id="rede-outros-services">.
 <sect id="etc-shadow">Arquivo <file>/etc/shadow</file>
  <p>
 Este arquivo armazena as senhas criptografadas caso estiver usando o recurso 
-de senhas ocultas. Este arquivo somente pode ser lido pelo usu·rio 
+de senhas ocultas. Este arquivo somente pode ser lido pelo usu√°rio 
 <tt>root</tt>.  
 
 
 <sect id="etc-shells">Arquivo <file>/etc/shells</file>
  <p>
-ContÈm uma lista de interpretadores de comando (shells) v·lidos no sistema. 
+Cont√©m uma lista de interpretadores de comando (shells) v√°lidos no sistema. 
 
 
 <sect id="etc-syslog-c">Arquivo <file>/etc/syslog.conf</file>
  <p>
-ContÈm configuraÁıes para definir o que ser· registrado nos arquivos de 
-log em <file>/var/log</file> do sistema. Veja a p·gina de manual 
+Cont√©m configura√ß√µes para definir o que ser√° registrado nos arquivos de 
+log em <file>/var/log</file> do sistema. Veja a p√°gina de manual 
 <em>syslog.conf</em> e dos programas <prgn>klog</prgn> e <prgn>syslogd</prgn> 
 para entender o formato usado neste arquivo. 
 
 
 <sect id="etc-timezones">Arquivo <file>/etc/timezone</file>
  <p>
-ContÈm a sua localizaÁ„o para c·lculo correto do seu fuso-hor·rio local. 
+Cont√©m a sua localiza√ß√£o para c√°lculo correto do seu fuso-hor√°rio local. 
 
