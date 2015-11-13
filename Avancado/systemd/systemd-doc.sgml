@@ -1,7 +1,7 @@
 <chapt id="systemd">SYSTEMD, o novo e controverso sistema de inicialização do 
 Linux
 
-<setc id="s-systemd-historia>Um pouco história sobre o systemd
+<sect id="s-systemd-historia">Um pouco história sobre o systemd
 
 <sect1 id="s-systemd-sysvinit">sysvinit
  <p>
