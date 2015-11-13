@@ -200,7 +200,7 @@ Por padrão esta opção está desligada. Quando ligada, faz com que o caracter
  <tag>mget [arquivos]</tag>
  <item>
 Semelhante ao get, mas pode copiar diversos arquivos e permite o uso 
-de curingas. 
+de coringas. 
  
  <tag>send [arquivo]</tag>
  <item>

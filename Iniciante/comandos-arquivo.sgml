@@ -154,7 +154,7 @@ onde:
  <tag><em>origem</em></tag>
  <item>
 Arquivo que será copiado. Podem ser especificados mais de um arquivo para 
-ser copiado usando "Curingas" (veja <ref id="basico-curingas">).
+ser copiado usando "Coringas" (veja <ref id="basico-coringas">).
 
  <tag><em>destino</em></tag>
  <item>

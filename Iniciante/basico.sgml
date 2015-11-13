@@ -759,12 +759,12 @@ quando o sistema é reiniciado ou desligado.
     ]]>
 
 
-<sect id="basico-curingas">Curingas
+<sect id="basico-coringas">Coringas
  <p>
-Curingas (ou referência global) é um recurso usado para especificar um ou  
+Coringas (ou referência global) é um recurso usado para especificar um ou  
 mais arquivos ou diretórios do sistema de uma só vez. Este é um recurso 
 permite que você faça a filtragem do que será listado, copiado, apagado, etc. 
-São usados 4 tipos de curingas no <prgn>GNU/Linux</prgn>: 
+São usados 4 tipos de coringas no <prgn>GNU/Linux</prgn>: 
 <list>
  <item>
 "*" - Faz referência a um nome completo/restante de um  
@@ -806,7 +806,7 @@ e <tt>X10</tt>.
 O que diferencia este método de expansão dos demais é que a existência do 
 arquivo/diretório é opcional para geração do resultado. Isto é útil para 
 a criação de diretórios.
-Lembrando que os 4 tipos de curingas ("*", "?", "[]", "{}") 
+Lembrando que os 4 tipos de coringas ("*", "?", "[]", "{}") 
 podem ser usados juntos. 
 
 <![ %EXEMPLO [
@@ -871,7 +871,7 @@ posição e terminem com qualquer extensão.
 
 Existem muitas outras formas de se fazer a mesma coisa, isto depende do 
 gosto de cada um. O que pretendi fazer aqui foi mostrar como especificar 
-mais de um arquivo de uma só vez. O uso de curingas será útil ao copiar 
+mais de um arquivo de uma só vez. O uso de coringas será útil ao copiar 
 arquivos, apagar, mover, renomear, e nas mais diversas partes do 
 sistema. Alias esta é uma característica do <prgn>GNU/Linux</prgn>: permitir 
 que a mesma coisa possa ser feita com liberdade de várias maneiras 

@@ -1272,7 +1272,7 @@ Onde:
  <tag><em>arquivos/diretórios</em></tag>
   <item>
 Arquivos/Diretórios que terão os atributos modificados. Podem ser usados 
-curingas
+coringas
 
  <tag><em>opções</em></tag>
  <tag>-R</tag>
@@ -1382,7 +1382,7 @@ Onde:
  <tag><em>arquivos/diretórios</em></tag>
   <item>
 Arquivos/diretórios que deseja listar os atributos. Podem ser usados 
-curingas. 
+coringas. 
 
  <tag><em>opções</em></tag>
  <tag>-a</tag>
