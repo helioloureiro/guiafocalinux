@@ -1,26 +1,28 @@
-<sect id="s-systemd">SYSTEMD, o novo e controverso sistema de inicialização do 
+<chapt id="systemd">SYSTEMD, o novo e controverso sistema de inicialização do 
 Linux
 
-<sect1 id="s-systemd">sysvinit
+<setc id="s-systemd-historia>Um pouco história sobre o systemd
+
+<sect1 id="s-systemd-sysvinit">sysvinit
  <p>
 Quando foi criado o primeiro Unix em 1970 por Ken Thompson e Denis
 Ritchie, seu nome foi um batismo pela mudança de filosofia de seu
 antecessor, multics, que era time-sharing, para um sistema com um
 único processo que se iniciava e controlava o restante do sistema:
 o init.  Único e Unix.  Entendeu a brincadeira?
-
+<p>
 Quando Linux começou a surgir como sistema operacional, foi adotado um sistema 
 de init compatível com padrão SYSV, que basicamente lia os scripts colocados em 
-<file>/etc/init.d/rc<n>.d</file> no padrão de RedHat/Suse, ou em 
-<config>/etc/rc<n>.d</config> no padrão Debian, e inicializava como shell 
+<file>/etc/init.d/rc<strong>&lt;n&gt;</strong>.d</file> no padrão de RedHat/Suse, ou em 
+<file>/etc/rc<strong>&lt;n&gt;</strong>.d</file> no padrão Debian, e inicializava como shell 
 script, rodando <prgn>/bin/sh</prgn> todos os scripts que começassem com 
-<strong>S</strong>.  Cada diretório de inicialização tinha um <n> referente ao 
+<strong>S</strong>.  Cada diretório de inicialização tinha um <strong>&lt;n&gt;</strong> referente ao 
 corrente runlevel.  Então um boot em initlevel 5, todos os scripts em 
 <file>/etc/rc5.d/S*</file> seriam lidos.  Não somente lidos, mas executados como 
 script e tendo como argumento o parâmetro <strong>start</strong>.
-
+<p>
 Em termos bem simplistas, o que o init padrão SYSV fazia era (usando Debian como exemplo):
-    
+<p> 
 <example>
 level=$(runlevel | cut -d" " -f 2) # ler qual o runlevel corrent
 for script in /etc/rc.$level/S*
@@ -28,3 +30,47 @@ for script in /etc/rc.$level/S*
     /bin/sh $script start
 done
 </example>
+<p>
+Da mesma forma, ao mudar de runlevel (o que acontecia ao desligar o sistema), os 
+scripts que tinham <strong>K</strong> como primeira letra eram executados com o 
+argumento <strong>stop</strong>
+<p>
+Assim por muitos anos os sistemas GNU/Linux viveram felizes inicializando e 
+terminando seus sistemas.  Em geral qualquer um poderia criar um script de 
+inicialização utilizando um formato parecido com o seguinte:
+<example>
+#! /bin/sh
+
+case $1 in
+    start) fazendo coisas de start ;;
+    stop) fazendo coisas de stop ;;
+    status) verificando se está rodando ou não;
+    restart) $0 stop
+             $0 start
+             ;;
+    *) echo "Use: $0 [start|stop|status]"
+esac
+</example>
+<p>
+O problema de toda essa bela simplicidade é que se por algum motivo a parte do script que 
+era chamada parasse, os outros scripts não eram executados.  Isso levava 
+geralmente os scripts de inicialização pouco testados a gerar belos travamentos 
+em servidores depois de reboots.
+<p>
+A primeira solução adotada foi a mais óbvia: colocar todo mundo pra rodar em 
+background usando <strong>&amp;</strong>.  Essa solução era perfeita e 
+resolvia o problema de travamento na inicialização mas... (sempre tem um mas) 
+alguns scripts dependiam de outros scripts, que não tinham terminado de 
+inicializar.  Então veio o segundo problema: ordenação desses scripts.
+<p>
+<sect1 id="s-systemd-upstart">upstart
+<p>
+
+<sect1 id="s-systemd-systemd">systemd
+<p>
+
+<sect1 id="s-systemd-polemicas">As polêmicas em torno do systemd
+<p>
+
+<sect id="s-systemd-uso">Usando o systemd
+<p>

@@ -162,12 +162,12 @@ Free Documentation License".
  &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
  &d-restricoes1;
  &d-cripto1;
- &s-systemd;
   ]]>
   <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
        de aplicativos de rede que ele contém -->
   <![ %INTERMEDIARIO [ &aplicativos; ]]>
   <![ %INIC-INTER [ &ajuda; ]]>
+  &s-systemd;
   &apendice;
 
  </book>
