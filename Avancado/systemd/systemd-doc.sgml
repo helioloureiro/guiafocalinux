@@ -10,7 +10,14 @@ antecessor, multics, que era time-sharing, para um sistema com um
 o init.  Único e Unix.  Entendeu a brincadeira?
 
 Quando Linux começou a surgir como sistema operacional, foi adotado um sistema 
-de init compatível com padrão SYSV, que basicamente lia os scripts colocados em <config>/etc/init.d/rc<n>.d</config> no padrão de RedHat/Suse, ou em <config>/etc/rc<n>.d</config> no padrão Debian, e inicializava como shell script, rodando <strong>/bin/sh</strong> todos os scripts que começassem com <strong>S</strong>.  Cada diretório de inicialização tinha um <n> referente ao corrente runlevel.  Então um boot em initlevel 5, todos os scripts em <config>/etc/rc5.d/S*</config> seriam lidos.  Não somente lidos, mas executados como script e tendo como argumento o parâmetro <strong>start</strong>.
+de init compatível com padrão SYSV, que basicamente lia os scripts colocados em 
+<file>/etc/init.d/rc<n>.d</file> no padrão de RedHat/Suse, ou em 
+<config>/etc/rc<n>.d</config> no padrão Debian, e inicializava como shell 
+script, rodando <prgn>/bin/sh</prgn> todos os scripts que começassem com 
+<strong>S</strong>.  Cada diretório de inicialização tinha um <n> referente ao 
+corrente runlevel.  Então um boot em initlevel 5, todos os scripts em 
+<file>/etc/rc5.d/S*</file> seriam lidos.  Não somente lidos, mas executados como 
+script e tendo como argumento o parâmetro <strong>start</strong>.
 
 Em termos bem simplistas, o que o init padrão SYSV fazia era (usando Debian como exemplo):
     

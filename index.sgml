@@ -71,7 +71,7 @@ Estilo de tags adotadas neste documento:
 - Aviso de observação, atenção, etc - <strong>
 - Nome de variável                  - <var>
   
-Copyleft 1999-2010, Gleydson Mazioli da Silva <gleydson@cipsga.org.br>
+Copyleft 1999-2015, Gleydson Mazioli da Silva <gleydson@guiafoca.org>
 -->
 ]>
 
@@ -162,7 +162,7 @@ Free Documentation License".
  &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
  &d-restricoes1;
  &d-cripto1;
- 
+ &s-systemd;
   ]]>
   <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
        de aplicativos de rede que ele contém -->
