@@ -56,7 +56,7 @@
 <!entity % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
 <!entity % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
 <!entity % git          SYSTEM "Avancado/git/git-index.sgml"> %git;
-<!entity % systemd      SYSTEM "Avancado/systemd/systemd-index.sgml"> %systemd;
+<!entity % systemd      SYSTEM "Avancado/systemd/systemd-INDEX.sgml"> %systemd;
 
 <!-- 
 Guia Foca GNU/Linux
