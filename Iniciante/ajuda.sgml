@@ -3236,7 +3236,7 @@ se fizer mal uso dele.
 </list>
 
 
-<sect1 id="ajuda-netiqueta-icq">ICQ/MSN/Gtalk/Skype
+<sect1 id="ajuda-netiqueta-icq">ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype
  <p>
 Ferramentas de mensagens instantâneas são eficientes, alertando a presença on-line
 do usuário, auxiliando na redução de custos, etc. Este documento inclui algumas recomendações
@@ -3429,7 +3429,7 @@ Um filtro de mensagens muito usado no <prgn>GNU/Linux</prgn> é o
 <prgn>procmail</prgn>, para maiores detalhes consulte a 
 documentação deste programa. 
  <p>
-O Netscape também tem recursos de filtros de mensagem que podem ser 
+O Mozilla Thunderbrid também tem recursos de filtros de mensagem que podem ser 
 criadas facilmente através da opção "Arquivo/Nova SubPasta" 
 ("File/New Subfolder") do programa de E-mail. Então defina as regras 
 através do menu "Editar/Filtros de Mensagens" ("Edit/Message filters") 
