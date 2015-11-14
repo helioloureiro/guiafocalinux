@@ -95,51 +95,51 @@ Debian, Red Hat e seus derivados.
 Os comandos podem ser utilizados em qualquer distribuição.
 
 <p><strong>Verificando a versão instalada do systemd:</strong>
-<exemple>
+<example>
 $ systemctl --version
-</exemple>
+</example>
 
 <p><strong>Verificar o tempo de boot do sistema:</strong>
-<exemple>
+<example>
 $ systemd-analyze
-</exemple>
+</example>
 
 <p><strong>Verificar processos por grupos de controle:</strong>
-<exemple>
+<example>
 # systemd-cgtop
-</exemple>
+</example>
 
 <p><strong>Exibir uma lista de todas as units (serviços, pontos de montagem, devices):</strong>
-<exemple>
+<example>
 # systemctl
-</exemple>
+</example>
 
 <p><strong>Ativando o serviço "exemplo":</strong>
-<exemple>
+<example>
 # systemctl start examplo
-</exemple>
+</example>
 
 <p><strong>Desativando "exemplo":</strong>
-<exemple>
+<example>
 # systemctl stop example
-</exemple>
+</example>
 
 <p><strong>Reiniciando o serviço "exemplo"</strong>
-<exemple>
+<example>
 # systemctl restart examplo
-</exemple>
+</example>
 
 <p><strong>Verificando o status de "examplo":</strong>
-<exemple>
+<example>
 # systemctl status examplo
-</exemple>
+</example>
 
 <p><strong>Habilitando "exemplo" para iniciar no boot:</strong>
-<exemple>
+<example>
 # systemctl enable examplo
-</exemple>
+</example>
 
 <p><strong>Desativando "examplo" para que não inicie no boot:</strong>
-<exemple>
+<example>
 # systemctl disable examplo
-</exemple>
+</example>
