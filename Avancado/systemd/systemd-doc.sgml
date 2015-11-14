@@ -1,5 +1,4 @@
-<chapt id="systemd">SYSTEMD, o novo e controverso sistema de inicialização do 
-Linux
+<chapt id="systemd">SYSTEMD, o novo e controverso sistema de inicialização do Linux
 
 <sect id="s-systemd-historia">Um pouco história sobre o systemd
 
@@ -65,12 +64,82 @@ inicializar.  Então veio o segundo problema: ordenação desses scripts.
 <p>
 <sect1 id="s-systemd-upstart">upstart
 <p>
-
+O Upstart, desenvolvido pela Canonical, tinha como objetivo substituir o daemon init do Linux, 
+tendo como grande trunfo ser orientado a eventos. 
+Isso significa que, um evento pode iniciar um serviço, que inicia outro evento e dispara outro serviço, 
+e assim consecutivamente.
+Tinha como meta compatibilidade total com o init System V, podendo rodar scritps deste init sem modificações. 
 <sect1 id="s-systemd-systemd">systemd
 <p>
+Semelhante ao Upstart, porém, o Systemd elimina o uso de scritps de inicialização. 
+Apesar disso, este sistema e gerenciador de serviços pode criar chamadas para scripts no momento da inicialização.
+Seu paralelismo é mais agressivo que o Upstart e utiliza sockets D-Bus (mecanismo de intercomunicação entre processos concorrentes).
+Ele, o Systemd, se propõe a realizar a inicialização do sistema de forma mais rápida, usando paralelismo e ordem de prioridade.
+Para garantir que o sistema inicialize mais rapidamente o Systemd acaba por controlar parte do hardware, como :
+    <list>
+	<item> Reconhecimento de Hardware
+	<item> Montagem de Dispositivo
+	<item> Permissões de Montagem
+	</list>
 
 <sect1 id="s-systemd-polemicas">As polêmicas em torno do systemd
 <p>
+Tomando conta do hardware o sistema fica dependente do Systemd. Como é quase todo binário sua alteração, e conseguente
+controle do usuário torna-se complexa, e muitas vezes o usuário fica refém do binário, sem poder alterá-lo. 
+De certa forma, ele pode ser utilizado em qualquer distribuição Linux, mas tem mostrado melhor desempenho nas distribuições
+Debian, Red Hat e seus derivados.
 
 <sect id="s-systemd-uso">Usando o systemd
 <p>
+
+Os comandos podem ser utilizados em qualquer distribuição.
+
+<p><strong>Verificando a versão instalada do systemd:</strong>
+<exemple>
+$ systemctl --version
+</exemple>
+
+<p><strong>Verificar o tempo de boot do sistema:</strong>
+<exemple>
+$ systemd-analyze
+</exemple>
+
+<p><strong>Verificar processos por grupos de controle:</strong>
+<exemple>
+# systemd-cgtop
+</exemple>
+
+<p><strong>Exibir uma lista de todas as units (serviços, pontos de montagem, devices):</strong>
+<exemple>
+# systemctl
+</exemple>
+
+<p><strong>Ativando o serviço "exemplo":</strong>
+<exemple>
+# systemctl start examplo
+</exemple>
+
+<p><strong>Desativando "exemplo":</strong>
+<exemple>
+# systemctl stop example
+</exemple>
+
+<p><strong>Reiniciando o serviço "exemplo"</strong>
+<exemple>
+# systemctl restart examplo
+</exemple>
+
+<p><strong>Verificando o status de "examplo":</strong>
+<exemple>
+# systemctl status examplo
+</exemple>
+
+<p><strong>Habilitando "exemplo" para iniciar no boot:</strong>
+<exemple>
+# systemctl enable examplo
+</exemple>
+
+<p><strong>Desativando "examplo" para que não inicie no boot:</strong>
+<exemple>
+# systemctl disable examplo
+</exemple>
