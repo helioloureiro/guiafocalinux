@@ -92,6 +92,8 @@ Debian, Red Hat e seus derivados.
 <sect id="s-systemd-uso">Usando o systemd
 <p>
 
+<sect1 id="s-systemd-systemctl">systemctl
+<p>
 Os comandos podem ser utilizados em qualquer distribuição.
 
 <p><strong>Verificando a versão instalada do systemd:</strong>
@@ -143,3 +145,9 @@ $ systemd-analyze
 <example>
 # systemctl disable exemple
 </example>
+
+<sect1 id="s-systemd-journalctl">journalctl
+<p>
+
+<sect1 id="s-systemd-runlevel">Mudando o runlevel com systemd (ou como dar boot em "single mode")
+<p>
