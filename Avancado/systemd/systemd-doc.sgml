@@ -116,7 +116,7 @@ $ systemd-analyze
 
 <p><strong>Ativando o serviço "exemplo":</strong>
 <example>
-# systemctl start examplo
+# systemctl start exemplo
 </example>
 
 <p><strong>Desativando "exemplo":</strong>
@@ -126,20 +126,20 @@ $ systemd-analyze
 
 <p><strong>Reiniciando o serviço "exemplo"</strong>
 <example>
-# systemctl restart examplo
+# systemctl restart exemplo
 </example>
 
-<p><strong>Verificando o status de "examplo":</strong>
+<p><strong>Verificando o status de "exemplo":</strong>
 <example>
-# systemctl status examplo
+# systemctl status exemplo
 </example>
 
 <p><strong>Habilitando "exemplo" para iniciar no boot:</strong>
 <example>
-# systemctl enable examplo
+# systemctl enable exemplo
 </example>
 
-<p><strong>Desativando "examplo" para que não inicie no boot:</strong>
+<p><strong>Desativando "exemplo" para que não inicie no boot:</strong>
 <example>
-# systemctl disable examplo
+# systemctl disable exemple
 </example>
