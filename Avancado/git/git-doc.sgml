@@ -1,0 +1,56 @@
+<chapt id="git">GIT, controle de versões
+
+<p>
+<sect id="s-git-historia">Sobre o GIT
+<p>
+Sistema de controle de versão, distribuído sob a versão 2 da GNU Public License, foi criado originalmente para ser o sistema de controle de versões do Kernel Linux. 
+Seu desenvolvedor foi o próprio Linus Torvalds, criador do Kernel Linux. 
+Inicialmente o Git foi uma alternativa ao software proprietário BitKeeper.
+<p>
+Conceitualmente o Git trabalha com branches, merges, commits e histórico de desenvolvimento. 
+
+<p>
+<strong>Branches</strong> são ramificações do repositório pai. 
+<strong>Merges</strong> são as mesclas entre o repositório pai e os filhos.
+<strong>Commit</strong> é a ação de enviar para o repositório filho, ou pai, as modificações locais.
+
+<p>
+<sect id="s-git-caracteristicas">Características e critérios
+<p>
+São características do Git :
+<p>
+<list>
+<item>Suporte consistente para desenvolvimentos não-lineares
+<item>Desenvolvimento distribuído
+<item>Compatibilidade com protocolos/sistemas existentes
+<item>Manipulação eficiente de projetos extensos
+<item>Autenticação criptográfica do histórico
+<item>Modelo baseado em ferramentas
+<item>Estratégias de mescla (merge) conectáveis
+<item>Empacotamento periódico explícito de objetos
+</list>
+
+<p>
+Os critérios para o projeto do Git foram:
+<p>
+<list>
+<item> Usar o CVS como exemplo a NÃO ser seguido. 
+<item> Suportar Fluxo distribuído.
+<item> Proteções fortes contra corrompimento de arquivos.
+<item> Alta performance. 
+</list>
+
+<p>
+Sobre o merge, o Git trabalha com três formas para mesclar os projetos:
+<p>
+<list>
+<item>Resolve
+<item>Recursive
+<item>Octopus
+</list>
+
+<p>
+O Git é um projeto portável, possuíndo compatibilidade com sistemas operacionais UNIX Like, Windows e Mac.
+
+
+
