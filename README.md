@@ -26,4 +26,4 @@ Não é necessário gerar o documento para contribuir.  Se não tiver um ambient
 
 Nota de copyright
 =================
-O Guia Foca GNU/Linux é de autoria de Gleydson Mazioli da Silva <gleydson@guiafoca.org> e distribuído sob a licença GDFL 1.2.
+O Guia Foca GNU/Linux é de autoria de Gleydson Mazioli da Silva <gleydson@guiafoca.org> e distribuído sob a licença GFDL 1.2.
