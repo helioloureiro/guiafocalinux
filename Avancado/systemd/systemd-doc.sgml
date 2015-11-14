@@ -23,7 +23,7 @@ script e tendo como argumento o parâmetro <strong>start</strong>.
 Em termos bem simplistas, o que o init padrão SYSV fazia era (usando Debian como exemplo):
 <p> 
 <example>
-level=$(runlevel | cut -d" " -f 2) # ler qual o runlevel corrent
+level=$(runlevel | cut -d" " -f 2) # ler qual o runlevel atual
 for script in /etc/rc.$level/S*
     do
     /bin/sh $script start
