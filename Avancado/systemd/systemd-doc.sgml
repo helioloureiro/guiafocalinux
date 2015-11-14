@@ -24,7 +24,7 @@ Em termos bem simplistas, o que o init padrão SYSV fazia era (usando Debian com
 <p> 
 <example>
 level=$(runlevel | cut -d" " -f 2) # ler qual o runlevel atual
-for script in /etc/rc.$level/S*
+for script in /etc/rc${level}.d/S*
     do
     /bin/sh $script start
 done
