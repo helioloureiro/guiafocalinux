@@ -1,7 +1,7 @@
-<chapt id="git">GIT, controle de versões
+<chapt id="git">Git, controle de versões
 
 <p>
-<sect id="s-git-historia">Sobre o GIT
+<sect id="s-git-historia">Sobre o Git
 <p>
 Sistema de controle de versão, distribuído sob a versão 2 da GNU Public License, foi criado originalmente para ser o sistema de controle de versões do Kernel Linux. 
 Seu desenvolvedor foi o próprio Linus Torvalds, criador do Kernel Linux. 
@@ -13,6 +13,15 @@ Conceitualmente o Git trabalha com branches, merges, commits e histórico de des
 <strong>Branches</strong> são ramificações do repositório pai. 
 <strong>Merges</strong> são as mesclas entre o repositório pai e os filhos.
 <strong>Commit</strong> é a ação de enviar para o repositório filho, ou pai, as modificações locais.
+
+<p> 
+O Git trabalha com quatro diretórios:
+<list>
+<item>.Git, contém todos os arquivos versionados.
+<item>Working Directory, contém os arquivos de trabalho atuais.
+<item>Stage, temporário que contém arquivos de trabalho antes de serem commitados.
+<item>Stash, temporário que pode conter arquivos do Stage.
+</list>
 
 <p>
 <sect id="s-git-caracteristicas">Características e critérios
@@ -52,5 +61,117 @@ Sobre o merge, o Git trabalha com três formas para mesclar os projetos:
 <p>
 O Git é um projeto portável, possuíndo compatibilidade com sistemas operacionais UNIX Like, Windows e Mac.
 
+<p>
+<sect id="s-git-comandos">Comandos do Git
+<p>
+Existem várias GUIs para o Git, por padrão, a interface do Git é o gitk, que deve ser chamdo via terminal a partir do diretório versionado ou
+que será versionado. 
 
+Para chamar o gitk :
+<exemple>
+$ gitk
+</exemple>
+<p>
+Porém, é possível utilizar o git diretamente no terminal.
+<p>
+Criar novo repositório, a partir de um diretório local:
+<exemple>
+$ git init
+</exemple>
+<p>
+Obter um repositório, local, remoto ou na internet:
+<exemple>
+$ git clone caminho 
+</exemple>
+<p>
+Adicionar todos arquivos do diretório no Stage:
+<exemple>
+$ git add 
+</exemple>
+<p>
+Adicionar arquivo específico no Stage:
+<exemple>
+$ git add arquivo
+</exemple>
+<p>
+Commitando as alterações dos arquivos adicionados:
+<exemple>
+$ git commit -m "breve comentário a respeito das alterações". 
+</exemple>
+<p>
+Enviar as alterações commitadas para o repositório remoto:
+<exemple>
+$ git push origin
+</exemple>
+<p>
+Enviar as alterações commitadas para o repositório remoto específico:
+(substituir master pelo nome do branche (repositório)
+<exemple>
+$ git push origin master
+</exemple>
+<p>
+Atualizar o repositório local com novas modificações do repositório remoto:
+<exemple>
+$ git pull
+</exemple>
+<p>
+Mesclar alterações locais com alterações do repositório remoto:
+<exemple>
+$ git merge nome_do_branch
+</exemple>
+<strong>*</strong> Nos casos acima do Git tenta fazer o merge (junção) automaticamente, nem sempre é possível.
+Nesses casos é criado um conflito que deve ser resolvido. 
+O usuário é o responsável por corrir esses conflitos para poder enviar o arquivo para o repositório remoto. 
+com o comando git add.
+<p>
+Visualizar as diferenças entre arquivos :
+<exemple>
+$ git diff branch_de_origem branch_de_destino
+</exemple>
+<p>
+Voltar ao último commit :
+<exemple>
+$ git reset --hard HEAD~1 
+</exemple>
+<p>
+Desfazer alterações de arquivo no Stage:
+<exemple>
+$ git checkout -- nome_do_arquivo
+</exemple>
+<p>
+Visualizar log:
+<exemple>
+$ git log
+</exemple>
+<p>
+Rótulos :
+<strong>*</strong> Criar rótulos é importante, por exemplo, para gerar releases de software, ou para marcar grandes
+alterações no ciclo de desenvolvimento do projeto. 
 
+Criar um rótulo:
+<exemple>
+$ git tag 0.0.1 8h7g6f5e4d
+</exemple>
+<strong>*</strong> 8h7g6f5e4d são os dez primeiros caractéres do ID do commit a ser referenciado pelo rótulo.
+É possível obter o id com o comando git log.
+<strong>*</strong> É possível omitir o id do commit.
+<p>
+Enviar rótulo para o respositório remoto:
+<exemple>
+$ git push origin 0.0.1 
+</exemple>
+<p>
+Enviar todos os rótulos para o respositório remoto:
+<exemple>
+$ git push --tag 
+</exemple>
+<p>
+Criar branch a partir de um rótulo
+<exemple>
+$ git checkout -b nome_do_branch 0.0.1 
+</exemple>
+<p>
+Usar saídas coloridas:
+<exemple>
+$ git config color.ui true
+</exemple>
