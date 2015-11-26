@@ -1,0 +1,5 @@
+<!entity s-nftables1 SYSTEM "Nftables-Introducao.sgml">
+<!entity s-nftables2 SYSTEM "Nftables-Chains.sgml">
+<!entity s-nftables3 SYSTEM "Nftables-Matches.sgml">
+<!entity s-nftables4 SYSTEM "Nftables-Rules.sgml">
+<!entity s-nftables5 SYSTEM "Nftables-Tables.sgml">

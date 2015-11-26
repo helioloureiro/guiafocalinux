@@ -1,0 +1,5 @@
+<!entity s-nginx1 SYSTEM "Nginx-Introducao.sgml">
+<!entity s-nginx2 SYSTEM "Nginx-http2.sgml">
+<!entity s-nginx3 SYSTEM "Nginx-Integracao-php.sgml">
+<!entity s-nginx4 SYSTEM "Nginx-modsecurety.sgml">
+<!entity s-nginx5 SYSTEM "Nginx-Exemplos.sgml">

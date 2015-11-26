@@ -1,0 +1,2 @@
+<!entity s-haproxy1 SYSTEM "haproxy-Introducao.sgml">
+<!entity s-haproxy2 SYSTEM "haproxy-exemplos.sgml">

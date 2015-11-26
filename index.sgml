@@ -41,6 +41,7 @@
 <!entity tasks              SYSTEM "Intermediario/tasks.sgml"          >
 <!entity etc                SYSTEM "Intermediario/etc.sgml"            >
 <!entity rede               SYSTEM "Intermediario/rede.sgml"           >
+<!entity colaboradores      SYSTEM "Iniciante/colaboradores.sgml"      >
 
 <!--                  Versão Avançado                         -->
 <!entity % apache	SYSTEM "Avancado/apache/Apache-INDEX.sgml"> %apache;
@@ -55,9 +56,16 @@
 <!entity % pop3         SYSTEM "Avancado/pop3/pop3-INDEX.sgml"> %pop3;
 <!entity % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
 <!entity % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
-<!entity % git          SYSTEM "Avancado/git/git-index.sgml"> %git;
+<!entity % git          SYSTEM "Avancado/git/git-INDEX.sgml"> %git;
 <!entity % systemd      SYSTEM "Avancado/systemd/systemd-INDEX.sgml"> %systemd;
-
+<!entity % nginx        SYSTEM "Avancado/nginx/nginx-INDEX.sgml"> %nginx;
+<!entity % nftables     SYSTEM "Avancado/nftables-firewall/nftables-INDEX.sgml"> 
+%nftables;
+<!entity % haproxy        SYSTEM "Avancado/haproxy/haproxy-INDEX.sgml"> 
+%haproxy;
+<!entity % virtualizacao  SYSTEM 
+"Avancado/virtualizacao/virtualizacao-INDEX.sgml"> 
+%virtualizacao;
 <!-- 
 Guia Foca GNU/Linux
 
@@ -168,6 +176,11 @@ Free Documentation License".
   <![ %INTERMEDIARIO [ &aplicativos; ]]>
   <![ %INIC-INTER [ &ajuda; ]]>
   &s-systemd;
+  &s-git;
+  &s-nginx1; &s-nginx2; &s-nginx3; &s-nginx4; &s-nginx5;
+  &s-haproxy1; &s-haproxy2;
+  &s-nftables1; &s-nftables2; &s-nftables3; &s-nftables4; &s-nftables5;
+  &s-virtualizacao1; &s-virtualizacao2; &s-virtualizacao3;
   &apendice;
 
  </book>

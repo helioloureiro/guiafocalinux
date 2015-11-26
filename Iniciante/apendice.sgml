@@ -158,72 +158,7 @@ formulário encontrado no final da Home Page do guia.
  atualizações e novidades.
 </list>
 
-
-<sect id="apend-colaboradores">Colaboradores do Guia
- <p>
-Entre as principais colaborações até a versão atual, posso citar as seguintes: 
-<list>
- <item>
-<tt>Djalma Valois <email>djalma@cipsga.org.br</email></tt> - Pela
-atual hospedagem do Foca GNU/Linux. Estou muito feliz vendo o Foca GNU/Linux 
-fazendo parte de um projeto tão positivo como o CIPSGA é para o 
-crescimento e desenvolvimento do software livre nacional. 
-
- <item>
-<tt>Bakurih <email>bakurih@yahoo.com</email></tt> - Revisão inicial do 
-guia, após suas primeiras versões.
-
- <item>
-<tt>Eduardo Marcel Maçan <email>macan@debian.org</email></tt> - Pela
-antiga hospedagem, na época do site metainfo.
-
- <item>
-<tt>Michelle Ribeiro <email>michelle@cipsga.org.br</email></tt> - 
-Por dispensar parte de seu atencioso tempo enviando revisões e sugestões 
-que estão melhorando bastante a qualidade do guia. Entre eles 
-detalhes que passaram despercebidos durante muito tempo no guia 
-e página principal. 
- <p>
-E também por cuidar do fonte do guia ;-)
-
- <item>
-<tt>Augusto Campos <email>brain@matrix.com.br</email></tt> - Descrição  
-sobre a distribuição <prgn>Suse</prgn> 
-<![ %INICIANTE [ em <ref id="introducao-distrib"> ]]>.
-
- <item>
-<tt>Paulo Henrique Baptista de Oliveira <email>baptista@linuxsolutions.com.br
-</email></tt> - Pelo apoio moral oferecido durante os freqüentes lançamentos 
-do guia, acompanhamento e divulgação. 
-
- <item>
-<tt>Diego Abadan <email>diego@hipernet.ufsc.br</email></tt> - Envio de 
-correções significativas, novos endereços de listas de discussão. 
-
- <item>
-<tt>Alexandre Costa <email>alebyte@bol.com.br</email></tt> - Envio de 
-centenas de patches ortográficos nas versões Iniciante e Intermediário
-do guia que passaram desapercebidas durante várias versões do guia... 
-
- <item>
-<tt>Christoph Simon <email>ciccio@prestonet.com.br</email></tt> - Pela 
-pesquisa e a gigantesca coletânea de textos sobre o Linux enviada. Eles 
-estão sendo muito úteis tanto para mim quanto no desenvolvimento do guia. 
-
- <item>
-<tt>Gustavo Noronha <email>dockov@zaz.com.br</email></tt> - Vem enviando 
-freqüentes correções, contribuições construtivas ao desenvolvimento além 
-de apoio ao desenvolvimento do guia . 
-Vale a pena destaca-lo por sua atual dedicação junto a distribuição 
-Debian/GNU, sua tradução e a comunidade Open Source. 
-
- <item>
-<tt>Pedro Zorzenon Neto <email>pzn@debian.org</email></tt> - Envio de 
-diversas atualizações para o nível Avançado, principalmente sobre o 
-firewall iptables.
- 
-</list>
-
+&colaboradores;
 
 <sect id="apend-mr">Marcas Registradas
  <p>
