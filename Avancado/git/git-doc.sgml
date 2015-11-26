@@ -68,110 +68,110 @@ Existem várias GUIs para o Git, por padrão, a interface do Git é o gitk, que 
 que será versionado. 
 
 Para chamar o gitk :
-<exemple>
+<example>
 $ gitk
-</exemple>
+</example>
 <p>
 Porém, é possível utilizar o git diretamente no terminal.
 <p>
 Criar novo repositório, a partir de um diretório local:
-<exemple>
+<example>
 $ git init
-</exemple>
+</example>
 <p>
 Obter um repositório, local, remoto ou na internet:
-<exemple>
+<example>
 $ git clone caminho 
-</exemple>
+</example>
 <p>
 Adicionar todos arquivos do diretório no Stage:
-<exemple>
+<example>
 $ git add 
-</exemple>
+</example>
 <p>
 Adicionar arquivo específico no Stage:
-<exemple>
+<example>
 $ git add arquivo
-</exemple>
+</example>
 <p>
 Commitando as alterações dos arquivos adicionados:
-<exemple>
+<example>
 $ git commit -m "breve comentário a respeito das alterações". 
-</exemple>
+</example>
 <p>
 Enviar as alterações commitadas para o repositório remoto:
-<exemple>
+<example>
 $ git push origin
-</exemple>
+</example>
 <p>
 Enviar as alterações commitadas para o repositório remoto específico:
 (substituir master pelo nome do branche (repositório)
-<exemple>
+<example>
 $ git push origin master
-</exemple>
+</example>
 <p>
 Atualizar o repositório local com novas modificações do repositório remoto:
-<exemple>
+<example>
 $ git pull
-</exemple>
+</example>
 <p>
 Mesclar alterações locais com alterações do repositório remoto:
-<exemple>
+<example>
 $ git merge nome_do_branch
-</exemple>
+</example>
 <strong>*</strong> Nos casos acima do Git tenta fazer o merge (junção) automaticamente, nem sempre é possível.
 Nesses casos é criado um conflito que deve ser resolvido. 
 O usuário é o responsável por corrir esses conflitos para poder enviar o arquivo para o repositório remoto. 
 com o comando git add.
 <p>
 Visualizar as diferenças entre arquivos :
-<exemple>
+<example>
 $ git diff branch_de_origem branch_de_destino
-</exemple>
+</example>
 <p>
 Voltar ao último commit :
-<exemple>
+<example>
 $ git reset --hard HEAD~1 
-</exemple>
+</example>
 <p>
 Desfazer alterações de arquivo no Stage:
-<exemple>
+<example>
 $ git checkout -- nome_do_arquivo
-</exemple>
+</example>
 <p>
 Visualizar log:
-<exemple>
+<example>
 $ git log
-</exemple>
+</example>
 <p>
 Rótulos :
 <strong>*</strong> Criar rótulos é importante, por exemplo, para gerar releases de software, ou para marcar grandes
 alterações no ciclo de desenvolvimento do projeto. 
 
 Criar um rótulo:
-<exemple>
+<example>
 $ git tag 0.0.1 8h7g6f5e4d
-</exemple>
+</example>
 <strong>*</strong> 8h7g6f5e4d são os dez primeiros caractéres do ID do commit a ser referenciado pelo rótulo.
 É possível obter o id com o comando git log.
 <strong>*</strong> É possível omitir o id do commit.
 <p>
 Enviar rótulo para o respositório remoto:
-<exemple>
+<example>
 $ git push origin 0.0.1 
-</exemple>
+</example>
 <p>
 Enviar todos os rótulos para o respositório remoto:
-<exemple>
+<example>
 $ git push --tag 
-</exemple>
+</example>
 <p>
 Criar branch a partir de um rótulo
-<exemple>
+<example>
 $ git checkout -b nome_do_branch 0.0.1 
-</exemple>
+</example>
 <p>
 Usar saídas coloridas:
-<exemple>
+<example>
 $ git config color.ui true
-</exemple>
+</example>
