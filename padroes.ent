@@ -35,7 +35,7 @@ utilizarão as entities "INIC-INTER" e "INTER-AVANC".
 <!entity % DEBIAN        "INCLUDE">
 
 <!-- Número de pacotes da distribução Debian -->
-<!entity DEBNUMPACKAGES "25000">
+<!entity DEBNUMPACKAGES "43000">
 
 <!-- Dados variáveis -->
 <!entity ULTIMOANO "2010">

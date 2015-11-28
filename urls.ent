@@ -12,8 +12,11 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-redhat-www         "http://www.redhat.com/">
 <!entity url-slackware-www      "http://www.slackware.com/">
 <!entity url-suse-www           "http://www.suse.com/">
-<!entity url-fedora-www         "http://fedora.redhat.com/">
-<!entity url-mandriva-www         "http://www.mandriva.com/">
+<!entity url-fedora-www         "http://getfedora.org">
+<!entity url-mandriva-www       "http://www.mandriva.com/">
+<!entity url-mageia-www         "http://www.mageia.org">
+<!entity url-openmandriva-www   "http://www.openmandriva.org">
+<!entity url-opensuse-www       "http://www.opensuse.org">
 
 <!-- URLs de Servidores FTP das distribuições Linux acima -->
 <!entity url-debian-ftp         "ftp://ftp.debian.org/">
@@ -26,19 +29,19 @@ E-Mail: gleydson@guiafoca.org
 
 
 <!-- URLs de Páginas Internet Citadas no guia -->
-<!entity url-linux-www          "http://www.linux.org/">
-<!entity url-linuxtrix-www      "http://www.br-linux.org/">
-<!entity url-bakuri-www         "http://www.geocities.com/bakurih/">
-<!entity url-olinux-www         "http://www.olinux.com.br/">
-<!entity url-linuxcounter-www   "http://counter.li.org/">
-<!entity url-ldpbr-www          "http://www.tldp.org/">
-<!entity url-metalab-www        "http://metalab.unc.edu/">
-<!entity url-themes-www         "http://www.themes.org/">
-<!entity url-cipsga-www         "http://www.cipsga.org.br/">
-<!entity url-debianbr-www       "http://www.debianbrasil.org/">
+<!entity url-linux-www           "http://www.linux.org/">
+<!entity url-linuxtrix-www       "http://www.br-linux.org/">
+<!entity url-bakuri-www          "http://www.geocities.com/bakurih/">
+<!entity url-olinux-www          "http://www.olinux.com.br/">
+<!entity url-linuxcounter-www    "http://counter.li.org/">
+<!entity url-ldpbr-www           "http://www.tldp.org/">
+<!entity url-metalab-www         "http://metalab.unc.edu/">
+<!entity url-themes-www          "http://www.themes.org/">
+<!entity url-cipsga-www          "http://www.cipsga.org.br/">
+<!entity url-debianbr-www        "http://www.debianbrasil.org/">
 <!entity url-linuxsecuritybr-www "http://www.linuxsecurity.com.br/">
-<!entity url-noticiaslinux-www  "http://www.noticiaslinux.com.br/">
-<!entity url-oreillsafari-www   "http://www.oreill.com/safari/">
+<!entity url-noticiaslinux-www   "http://www.noticiaslinux.com.br/">
+<!entity url-oreillsafari-www    "http://www.oreill.com/safari/">
 
 <!-- E-Mail dos responsáveis pelas páginas Acima -->
 <!entity email-linux-resp          "webmaster@linux.org">
@@ -58,22 +61,22 @@ E-Mail: gleydson@guiafoca.org
 <!entity url-debian-bts-www      "http://bugs.debian.org/">
 <!entity url-netcraft-www        "http://www.netcraft.com/">
 
-<!entity url-apache-bug-report   "http://www.apache.org/bug_report.html/">
-<!entity url-apache-dev          "http://dev.apache.org/">
-<!entity url-ebtables-www        "http://users.pandora.be/bart.de.schuymer/ebtables/">
-<!entity url-mit-keyserver-www   "http://pgp.ai.mit.edu">
-<!entity url-wincvs-down        "http://telia.dl.sourceforge.net/sourceforge/cvsgui/WinCvs13b13.zip">
+<!entity url-apache-bug-report    "http://www.apache.org/bug_report.html/">
+<!entity url-apache-dev           "http://dev.apache.org/">
+<!entity url-ebtables-www         "http://users.pandora.be/bart.de.schuymer/ebtables/">
+<!entity url-mit-keyserver-www    "http://pgp.ai.mit.edu">
+<!entity url-wincvs-down          "http://telia.dl.sourceforge.net/sourceforge/cvsgui/WinCvs13b13.zip">
 <!entity url-python-win-down      "http://starship.python.net/crew/mhammond/downloads/win32all-153.exe">
-<!entity url-maccvs-down        "http://telia.dl.sourceforge.net/sourceforge/cvsgui/MacCvsX-3.3a1-1.dmg">
-<!entity url-cvs-down           "http://www.cvshome.org/">
+<!entity url-maccvs-down          "http://telia.dl.sourceforge.net/sourceforge/cvsgui/MacCvsX-3.3a1-1.dmg">
+<!entity url-cvs-down             "http://www.cvshome.org/">
 
-<!entity url-netfilter-www           "http://netfilter.filewatcher.org">
-<!entity url-netfilter-dev           "http://lists.samba.org">
-<!entity url-qpopper-www             "http://www.eudora.com/qpopper/">
-<!entity url-pamauth-doc-ftp           "ftp://ftp.us.kernel.org/pub/linux/libs/pam/Linux-PAM-html/pam.html">
-<!entity url-pamauth-doc-www           "http://www.kernel.org/pub/linux/libs/pam/pre/doc/rfc86.0.txt.gz">
-<!entity url-restrictedproc-www           "http://noc.res.cmu.edu/proc">
-<!entity url-rfc-www                    "http://rfc.net">
+<!entity url-netfilter-www        "http://netfilter.filewatcher.org">
+<!entity url-netfilter-dev        "http://lists.samba.org">
+<!entity url-qpopper-www          "http://www.eudora.com/qpopper/">
+<!entity url-pamauth-doc-ftp      "ftp://ftp.us.kernel.org/pub/linux/libs/pam/Linux-PAM-html/pam.html">
+<!entity url-pamauth-doc-www      "http://www.kernel.org/pub/linux/libs/pam/pre/doc/rfc86.0.txt.gz">
+<!entity url-restrictedproc-www   "http://noc.res.cmu.edu/proc">
+<!entity url-rfc-www              "http://rfc.net">
 
 <!entity url-putty-www            "http://www.chiark.greenend.org.uk/~sgtatham/putty/">
 <!entity url-mindterm-www         "http://www.mindbright.se/mindterm/">
