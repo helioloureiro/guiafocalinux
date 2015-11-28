@@ -2992,6 +2992,14 @@ Caso conhecer uma página de Internet que contenha materiais úteis a comunidade
 <prgn>GNU/Linux</prgn> ou desejar incluir a sua, entre em contato para sua 
 inclusão na próxima versão do guia junto com uma descrição da página.
 
+<sect1 id="ajuda-redes-sociais">Redes sociais
+ <p>
+ Atualmente a mais comum forma de se buscar ajuda são as redes sociais como Twitter, Facebook, Diaspora, Google+, StatusNet (ou GnuSocial).
+ <p>
+ Algumas redes sociais usam o formato de grupos fechados ou por assunto, como grupos de Debian ou software livre, outras usam a marcação de texto por <em>hashtags</em>, como <em>#debianbr</em>.
+ <p>
+ Não existe uma receita fácil em redes sociais pela forma de sua dinâmica, que muda muito rapidamente.  A sugestão é encontrar uma rede em que se adapte melhor, com mais conhecidos, e que tenha uma velocidade maior de resposta.  Também é bom evitar as redes sociais onde todo o conteúdo torna-se motivo de chacota e brincadeira, pois isso normalmente consome muita energia e tempo, não tornando essa rede social realmente útil para questões relacionadas à GNU/Linux ou mesmo software livre.
+
 
 <sect1 id="ajuda-listas">Listas de discussão
  <p>
@@ -3060,26 +3068,6 @@ palavra <tt>subscribe</tt> no assunto da mensagem. Será enviada uma mensagem
 a você pedindo a confirmação da inscrição na lista de discussão, simplesmente 
 dê um reply na mensagem (responder) e você passará a receber as notícias sobre 
 a Debian em Português.
-
-
-<tag><email>linux-br@unicamp.br</email></tag> 
- <item>
-Lista de discussão que cobre assuntos diversos. Esta lista é voltada para 
-usuários com bons conhecimentos no <prgn>GNU/Linux</prgn>, são abordados 
-assuntos como redes, configurações, etc. Esta é uma lista moderada, o que 
-significa que a mensagem que envia passam por uma pessoa que verifica 
-(modera) e a libera caso estejam dentro das normas adotada na lista. 
-É uma lista de alto nível e recomendada para quem deseja fugir de mensagens 
-como <tt>não consigo instalar o Linux</tt>, <tt>não sei compilar o 
-kernel</tt>, <tt>o que eu faço quando vejo uma tela com o nome 
-login:?</tt>, etc. 
- <p>
-Para se inscrever nesta lista, envie uma mensagem para:
-<email>linux-br-request@unicamp.br</email> contendo a palavra 
-<tt>subscribe</tt> no assunto da mensagem e aguarde o recebimento 
-da confirmação da inscrição. Apenas responda a mensagem de confirmação 
-para se inscrever. Para se descadastrar envie uma mensagem para o mesmo 
-endereço mas use a palavra <tt>unsubscribe</tt>. 
 
 <tag><email>dicas-l@unicamp.br</email></tag>
  <item>
@@ -3168,7 +3156,7 @@ Se você troca mensagens com pessoas do mundo todo, não espere que
 um japonês responda logo seu e-mail que enviou as 15:00 da tarde. 
 A essa hora no país dele, ele está roncando forte na cama e sonhando 
 com a placa 3D que vai ganhar para melhorar o desempenho de seus jogos
-de <prgn>Linux</prgn>.
+de <prgn>GNU/Linux</prgn>.
 
  <item>
 Durante a comunicação com pessoas de diferentes regiões (ou países), 
@@ -3181,6 +3169,11 @@ Assuma que sua mensagem está trafegando sobre uma via não segura, desta
 forma não envie informações pessoais que não enviaria em uma carta comum. 
 O uso de criptografia pode garantir melhor segurança na transmissão de 
 dados. 
+
+ <item>
+Evite o "terrorismo virtual".  Colocar frases como "se não me ajudarem eu volto pra Windows" ou "sou professor, não tenho tempo para ler código fonte" não são vistas como positivas e em geral terminam virando piada entre os usuários mais antigos.  Tente ser conciso e coerente com suas perguntas.
+ <item>
+Evite discutir outro tópico que não seja aquele na thread corrente.  Se um usuário perguntou algo sobre kernel, não coloque entre as mensagens que segue o tópico uma outra pergunta.  Crie um tópico novo.
 </list>
 
 
@@ -3194,26 +3187,6 @@ envia para identificar seu conteúdo.
  <item>
 Respeite os direitos autorais das mensagens de e-mail. Se precisar 
 encaminhar mensagens, preserve seu conteúdo original.
-
- <item>
-Procure limitar o tamanho da linha a 70 caracteres. Muitos usuários utilizam
-cliente de e-mail em modo texto, e nem todo mundo usa a mesma resolução que 
-você. 
-
- <item>
-Caso o e-mail que responda tenha mais que 100 linhas, é recomendável 
-colocar a palavra "LONGA" no assunto da mensagem. Se possível corte
-as partes não necessárias da mensagens de respostas tendo o cuidado 
-de não "cortar" de forma mal educada a mensagem de outra pessoa. 
-
- <item>
-Caso utiliza um editor programa de e-mails com suporte a HTML, envie o 
-e-mail utilizando ambos os formatos TEXTO e HTML, muitos administradores
-Linux utilizam sistemas que não suportam HTML.
-
- <item>
-Não espere que o espaçamento ou desenhos ASCII usados em uma mensagem 
-sejam mostrados corretamente em todos os sistemas.
 
  <item>
 Utilize sempre uma assinatura no final da mensagem para identificar você 
