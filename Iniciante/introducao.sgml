@@ -14,7 +14,7 @@ Entre o conteúdo do guia, você encontrará:
 <list> 
 <![ %INICIANTE [
  <item> 
-Textos explicativos falando sobre o sistema <prgn>Linux</prgn>, seus comandos, 
+Textos explicativos falando sobre o sistema <prgn>GNU/Linux</prgn>, seus comandos, 
 como manusear arquivos, diretórios, etc.
  <item> 
 Explicações iniciais sobre as partes básicas do computador e periféricos 
@@ -39,7 +39,7 @@ mínimo requerido e espaço em disco recomendado para instalação.
 Particionamento de disco
  <item>
 Criação de partições e arquivos contendo o sistema de arquivos 
-<em>ext2</em>, <em>ext3</em>, <em>reiserfs</em> ou <em>xfs</em> (para 
+<em>ext2</em>, <em>ext3</em>, <em>ext4</em>, <em>reiserfs</em> ou <em>xfs</em> (para 
 gravação de arquivos e diretórios) e swap (memória virtual) e as vantagens/desvantagens 
 de se utilizar um arquivo ou partição para armazenamento de dados. 
  <item>
@@ -103,7 +103,7 @@ troca de senha periódica, políticas de segurança, etc (<ref id="d-contas">).
 Principais tipos de ataques para descoberta de senhas e alguns métodos de 
 como evita-las (<ref id="d-contas-cms-senhas">). 
  <item>
-Integrar máquinas <prgn>Windows</prgn> e <prgn>Linux</prgn> em uma 
+Integração de máquinas <prgn>Windows</prgn> e <prgn>GNU/Linux</prgn> em uma 
 mesma rede compartilhando dados entre si e impressão (<ref id="s-samba">).
  <item>
 Sistemas de proteção de senhas do sistema (<ref id="d-contas-segsenhas">). 
@@ -146,10 +146,10 @@ criptografia usando o <prgn>ssh</prgn> (<ref id="s-ssh">).
 Servidor de identificação usando o <prgn>oidentd</prgn> (<ref id="s-ident">). 
  <item>
 Montagem de um servidor pop3 para que suas estações de rede possam 
-acessar o email na máquina servidor <prgn>Linux</prgn> usando programas 
+acessar o email na máquina servidor <prgn>GNU/Linux</prgn> usando programas 
 como <prgn>Outlook</prgn>, <prgn>Communicator</prgn>, <prgn>Mutt</prgn>, 
-<prgn>sylpheed</prgn> e outros que utilizem o protocolo <prgn>pop3</prgn> 
-(<ref id="s-pop3">). 
+<prgn>sylpheed</prgn>, <prgn>Thunderbird</prgn> e outros que utilizem o protocolo 
+<prgn>pop3</prgn> (<ref id="s-pop3">).
  <item>
 Restrições de acesso a instalação do computador, acesso a grupos do sistema, 
 restrições de login usando <em>PAM</em> (<ref id="d-restr">). 
@@ -174,7 +174,7 @@ como root a determinados usuários (<ref id="d-restr-sudo">).
 </list>
 ]]>
  <p>
-Para melhor organização, dividi o guia em 3 versões: <em>Iniciante</em>, 
+Para melhor organização, o guia foi divido em 3 versões: <em>Iniciante</em>, 
 <em>Intermediário</em> e <em>Avançado</em>. Sendo que a versão <em>Iniciante
 </em> é voltada para o usuário que não tem <tt>nenhuma</tt> experiência no 
 <prgn>GNU/Linux</prgn>. A última versão deste guia pode ser encontrada em: 
@@ -184,7 +184,7 @@ Caso tiver alguma sugestão, correção, crítica para a melhoria deste guia,
 envie um e-mail para <email>gleydson@guiafoca.org</email>. 
  <p>
 O <em>Foca GNU/Linux</em> é atualizado freqüentemente, por este motivo 
-recomendo que preencha a ficha do aviso de atualizações na página web em 
+recomenda-se que preencha a ficha do aviso de atualizações na página web em 
 <url id="&url-manual-www;" name="Página Oficial do guia Foca GNU/Linux"> no fim da página 
 principal. Após preencher a ficha do aviso de atualizações, você receberá um 
 e-mail sobre o lançamento de novas versões do guia e o que foi modificado, 
@@ -194,10 +194,10 @@ modificações que considera importantes.
 Tenho recebido elegios de pessoas do Brasil (e de paises de fora 
 também) elogiando o trabalho e a qualidade da documentação. Agradeço a 
 todos pelo apoio, tenham certeza que este trabalho é desenvolvido pensando 
-em repassar um pouco do conhecimento que adquiri ao começar o uso do Linux.
+em repassar um pouco do conhecimento que adquiri ao começar o uso do GNU/Linux.
  <p>
 Também venho recebendo muitos e-mails de pessoas que passaram na prova 
-LPI nível 1 e 2 após estudar usando o guia Foca GNU/Linux. Fico bastante
+LPI niveis 1 e 2 após estudar usando o guia Foca GNU/Linux. Fico bastante
 feliz por saber disso, pois nunca tive a intenção de tornar o guia uma 
 referência livre para estudo da LPI e hoje é usado para estudo desta 
 difícil certificação que aborda comandos, serviços, configurações, 
@@ -234,23 +234,23 @@ sobre o computador, <prgn>GNU/Linux</prgn>, etc., você pode pular este capítul
 caso já conheça estas explicações ou se desejar partir para a prática e  
 quiser vê-los mais tarde, se lhe interessar. 
  <p>
-Se você já é um usuário do <prgn>DOS</prgn> e <prgn>Windows</prgn>, recomendo 
-ler <ref id="d-l">. Lá você vai encontrar comparações de comandos 
+Se você já é um usuário de linha de comandos do <prgn>DOS</prgn> ou do <prgn>Windows</prgn>, 
+recomenda-se ler <ref id="d-l">. Lá serão encontradas comparações de comandos 
 e programas <prgn>DOS/Windows</prgn> e <prgn>GNU/Linux</prgn>. 
  <p>
 Para quem está começando, muita teoria pode atrapalhar o aprendizado, é mais  
 produtivo ver na prática o que o computador faz e depois porque ele faz 
-isto. Mesmo assim, recomendo ler estes capítulos pois seu conteúdo pode 
+isto. Mesmo assim, recomenda-se ler estes capítulos pois seu conteúdo pode 
 ser útil...
  <p>
-Coloquei abaixo algumas dicas para um bom começo: 
+Abaixo seguem algumas dicas para um bom começo: 
 <list compact>
  <item>
-Recomendo que faça a leitura deste guia e pratique imediatamente o 
+Recomenda-se que faça a leitura deste guia e pratique imediatamente o 
 que aprendeu. Isto facilita o entendimento do programa/comando/configuração. 
  <item>
-É preciso ter interesse em aprender, se você tiver vontade em aprender algo,  
-você terá menos dificuldade do que em algo que não gosta e está se obrigando  
+É preciso ter interesse em aprender. Se você tiver vontade em aprender algo,  
+você terá menos dificuldade do que em algo que não gosta e estará se obrigando  
 a aprender. 
  <item>
 Decorar não adianta, pelo contrário, só atrapalha no aprendizado. Você precisa  
@@ -272,8 +272,9 @@ Ninguém pode saber tudo da noite para o dia, não procure saber TUDO
 sobre o sistema de uma só vez, senão não entenderá NADA. Caso tenha  
 dúvidas sobre o sistema, procure ler novamente a seção do guia, e 
 caso ainda não tenha entendido procure ajuda nas página de manual 
-(veja <ref id="ajuda-man">), ou nas listas de discussão 
-(veja <ref id="ajuda-listas">) ou me envie uma mensagem 
+(veja <ref id="ajuda-man">), ou nas redes sociais (veja <ref id="ajuda-redes-sociais">
+nas listas de discussão 
+(veja <ref id="ajuda-listas">) ou envie uma mensagem para
 <email>gleydson@guiafoca.org</email>. 
  <item>
 Certamente você buscará documentos na Internet que falem sobre algum 
@@ -294,7 +295,7 @@ Por exemplo, você pode esbarrar pela Internet com um documento que diz que
 o Kernel não tem suporte aos "nomes extensos" da VFAT (Windows 95), isto 
 é verdade para kernels anteriores ao 2.0.31, mas as versões mais novas 
 que a 2.0.31 reconhecem sem problemas os nomes extensos da partição 
-Windows VFAT. 
+Windows VFAT. <footnote>Atualmente o kernel Linux se encontra na versão 4.4-RC1.</footnote>
  <p>
 Uma pessoa desavisada pode ter receio de instalar o <prgn>GNU/Linux</prgn> 
 em uma mesma máquina com Windows por causa de um documento como este. 
@@ -321,8 +322,9 @@ usar qualquer outro sistema operacional.
  <item>
 Peça ajuda a outros usuários do <prgn>GNU/Linux</prgn> quando estiver em 
 dúvida ou não souber fazer alguma coisa no sistema. Você pode entrar em 
-contato diretamente com outros usuários ou através de listas de discussão  
-(veja <ref id="ajuda-listas">). 
+contato diretamente com outros usuários, através de listas de discussão  
+(veja <ref id="ajuda-listas">) ou através de grupos de ajuda em redes sociais
+(veja <ref id="ajuda-redes-sociais">). 
 </list>
 Boa Sorte e bem vindo ao <prgn>GNU/Linux</prgn>! 
  <p>
@@ -346,7 +348,7 @@ em <url id="&url-manual-www;">.
 ]]>
 <![ %AVANCADO [
 É assumido que você ja tenha experiência na configuração de sistemas 
-<prgn>Linux</prgn>, conheça boa parte dos comandos e sua utilização, tenha 
+<prgn>GNU/Linux</prgn>, conheça boa parte dos comandos e sua utilização, tenha 
 noções de rede e saiba como procurar documentação para complementar o que vem 
 aprendendo. Enfim, requer que se tiver interesse em se aprofundar em determinada 
 área, que utilize os métodos de busca de documentação sugeridos no guia para 
@@ -367,9 +369,9 @@ a interface do usuário e seus programas com o computador. Ele é responsável
 pelo gerenciamento de recursos e periféricos (como memória, discos, arquivos, 
 impressoras, CD-ROMs, etc.), interpretação de mensagens e a execução de programas. 
  <p>
-No <prgn>Linux</prgn> o Kernel mais o conjunto de ferramentas GNU compõem o 
+No <prgn>GNU/Linux</prgn> o Kernel <em>Linux</em> mais o conjunto de ferramentas <em>GNU</em> compõem o 
 Sistema Operacional. O kernel (que é a base principal de um sistema operacional), 
-poderá ser construído de acordo com a configuração do seu computador e dos
+poderá ser construído de acordo com a configuração do computador e dos
 periféricos que possui.
     ]]>
 
@@ -377,10 +379,10 @@ periféricos que possui.
 <sect id="introducao-linux">O Linux
  <p>
 O <prgn>Linux</prgn> é um sistema operacional criado em 1991 por <em>Linus 
-Torvalds</em> na universidade de Helsinki na Finlândia. É um sistema 
-Operacional de código aberto distribuído gratuitamente pela Internet. 
+Torvalds</em> na universidade de Helsinki na Finlândia. É um kernel
+de código aberto distribuído gratuitamente pela Internet. 
 Seu código fonte é liberado como <em>Free Software</em> (software livre),
-sob licença GPL, o aviso de copyright do kernel feito por Linus descreve 
+sob licença GPLv2. O aviso de copyright do kernel feito por Linus descreve 
 detalhadamente isto e mesmo ele não pode fechar o sistema para que seja 
 usado apenas comercialmente.
  <p>
@@ -390,55 +392,66 @@ nós inclusive incentivamos você a fazer isto. Ser um sistema de código
 aberto pode explicar a performance, estabilidade e velocidade em que 
 novos recursos são adicionados ao sistema. 
  <p>
-O requisito mínimo para rodar o <prgn>Linux</prgn> depende do kernel que será
+O requisito mínimo para rodar o <prgn>GNU/Linux</prgn> depende do kernel que será
 usado:
 <list compact>
  <item><tt>2.2.x</tt> - Computador 386 SX com 2 MB de memória 
- <item><tt>2.4.x</tt> - Computador 386 SX com 4MB de memória
- <item><tt>2.6.x</tt> - Computador 486 DX com no mínimo 8MB 
+ <item><tt>2.4.x</tt> - Computador 386 SX com 4 MB de memória
+ <item><tt>2.6.x</tt> - Computador 486 DX com no mínimo 8 MB de memória
+ <item><tt>3.x</tt> - Computador 486 DX com no mínimo 8 MB de memória
+ <item><tt>4.x</tt> - Computador 486 DX com no mínimo 8 MB de memória
 </list> 
-Para espaço em disco é requerido 500MB para uma instalação básica usando modo 
+Esse requisito mínimo não significa ter um sistema Desktop completo, mas um sistema GNU/Linux básico funcionando com console.
+<p>
+Para espaço em disco é requerido 500 MB para uma instalação básica usando modo 
 texto com suporte a rede. Claro que não é considerada a execução de 
 ambiente gráfico ou serviços de rede em produção, que neste caso é exigido
 mais memória RAM e espaço em disco para armazenamento de dados de programas 
-e usuários.
+e usuários. <footnote>Alguns sistemas minimalistas também permitem instalar em floppy disks, o que significa o uso de 1.44 MB de disco.  Mas atualmente é mais difícil de achar uma unidade de floppy disco que fazer uso de um pendrive.</footnote>
  <p>
 O sistema segue o padrão <em>POSIX</em> que é o mesmo usado por sistemas 
 <em>UNIX</em> e suas variantes. Assim, aprendendo o <prgn>Linux</prgn>  
 você não encontrará muita dificuldade em operar um sistema do tipo <prgn>UNIX, 
 FreeBSD, HPUX, SunOS,</prgn> etc., bastando apenas aprender alguns detalhes 
-encontrados em cada sistema. 
+encontrados em cada sistema. Apesar disso o Linux não é derivado do Unix, assim
+sendo o GNU/Linux um clone do Unix que teve como base o sistema operacional Minix.
+<footnote>Por ter sido derivado do BSD-4.4 Lite, especificação livre do sistema BSD-4.3 sem os
+trechos de códigos considerados de propriedade da AT&amp;T, os sistemas BSD (FreeBSD, NetBSD, e OpenBSD)
+são considerados e chamados de <em>true Unix</em> (Unix verdadeiro), mas nenhum deles tem tal certificação.</footnote>
  <p>
 O código fonte aberto permite que qualquer pessoa veja como o sistema 
-funciona (útil para aprendizado), corrigir algum problema ou fazer alguma 
-sugestão sobre sua melhoria, esse é um dos motivos de seu rápido crescimento, 
+funciona (útil para aprendizado), corrija algum problema ou faça alguma 
+sugestão sobre sua melhoria.  Esse é um dos motivos de seu rápido crescimento, 
 do aumento da compatibilidade de periféricos (como novas placas sendo 
-suportadas logo após seu lançamento) e de sua estabilidade. 
+suportadas logo após seu lançamento), de novas funcionalidades e de sua estabilidade. 
  <p>
-Outro ponto em que ele se destaca é o suporte que oferece a placas, 
+Outro ponto em que Linux se destaca é o suporte que oferece à placas de vídeo, 
 CD/DVD-RWs, BluRay e outros tipos de dispositivos de última geração 
 e mais antigos (a maioria deles já ultrapassados e sendo completamente 
 suportados pelo  sistema operacional). Este é um ponto forte para empresas 
-que desejam manter seus micros em funcionamento e pretendem investir em 
-avanços tecnológicos com as máquinas que possui. 
+que desejam manter seus parques computacionais em funcionamento e pretendem investir em 
+avanços tecnológicos com as máquinas que possui, alterando o paradigma da obsolecência programada 
+(ou forçada). 
  <p>
 O <prgn>Linux</prgn> é desenvolvido por milhares de pessoas espalhadas  
-pelo mundo, cada uma fazendo sua contribuição ou mantendo alguma parte do  
+pelo mundo, sendo sua maioria funcionários de grandes empresas como RedHat e IBM,
+cada uma fazendo sua contribuição ou mantendo alguma parte do  
 kernel gratuitamente. <em>Linus Torvalds</em> ainda trabalha em seu  
-desenvolvimento e na coordenação dos grupos de trabalho do kernel. 
+desenvolvimento e na coordenação dos grupos de trabalho do kernel, mas passa a maior
+parte de seu tempo organizando as contribuições e aprovando novos trechos de código.
  <p>
 O suporte ao sistema também se destaca como sendo o mais eficiente e rápido 
 do que qualquer programa comercial disponível no mercado. Existem milhares 
 de consultores e empresas especializadas no suporte e treinamento espalhados 
-ao redor do mundo. Outra opção de suporte é através da comunidade Linux;
-você pode se inscrever em uma lista de discussão e relatar sua dúvida ou 
+ao redor do mundo. Outra opção de suporte é através da comunidade Linux:
+você pode se inscrever em uma lista de discussão ou grupo em redes socias e relatar sua dúvida ou 
 alguma falha, e sua mensagem será vista por centenas de usuários 
 na Internet e algum irá te ajudar ou avisará as pessoas responsáveis sobre a 
 falha encontrada para devida correção. 
 <![ %INIC-INTER [ Para detalhes, veja <ref id="ajuda-listas">. ]]>
 
 
-<sect1 id="introducao-linux-carac">Algumas Características do Linux
+<sect1 id="introducao-linux-carac">Algumas Características do GNU/Linux
  <p>
 <list compact>
  <item>
@@ -448,54 +461,62 @@ mundo que tem como objetivo a contribuição para a melhoria
 e crescimento deste sistema operacional. 
  <p>
 Muitos deles estavam cansados do excesso de propaganda (Marketing) e 
-baixa qualidade de sistemas comerciais existentes 
+baixa qualidade de sistemas comerciais existentes.
 
  <item>
-Também recebe apoio de grandes empresas como IBM, Sun, HP, etc. para 
-seu desenvolvimento
+Também recebe apoio de grandes empresas como IBM, Oracle, HP, etc. para 
+seu desenvolvimento.
 
  <item>
 Convivem sem nenhum tipo de conflito com outros sistemas operacionais 
-(com o <prgn>DOS</prgn>, <prgn>Windows</prgn>, <prgn>OS/2</prgn>) no 
-mesmo computador. 
+(com o <prgn>DOS</prgn>, <prgn>Windows</prgn>, <prgn>OS/2</prgn>, ou mesmo
+os <prgn>BSDs</prgn>) no mesmo computador. 
 
  <item>
-Multitarefa real
+Multitarefa.
 
  <item>
-Multiusuário 
+Escalonamento com possibilidade de uso de parâmetro de tempo real (missão crítica).
 
  <item>
-Suporte a nomes extensos de arquivos e diretórios (255 caracteres)
+Multiusuários.
 
  <item>
-Conectividade com outros tipos de plataformas como <em>Apple, Sun, Macintosh, 
-Sparc, Alpha, PowerPc, ARM, Unix, Windows, DOS, etc</em>. 
+Suporte a nomes extensos de arquivos e diretórios (255 caracteres).
+
+ <item>
+Conectividade com outros tipos de plataformas como <em>Apple/MacOSX, Oracle/Solaris, 
+Windows, DOS, etc</em>.
+
+ <item>
+Suporte a diferente tipos de hardware como <em>Sparc, Alpha, PowerPC, ARM, ARM64, etc</em>.
 
  <item>
 Utiliza permissões de acesso a arquivos, diretórios e programas em 
 execução na memória RAM.
 
  <item>
-Proteção entre processos executados na memória RAM
+Proteção entre processos executados na memória RAM e uso de mecanismos de proteção como <em>canary</em><footnote><em>Canary</em> é um sistema de alocação aleatória de memória que evita
+ataques do tipo buffer overflow.  Os dados nunca sem encontram na mesma posição de memória.</footnote>.
 
  <item>
-Suporte a mais de 63 terminais virtuais (consoles) 
+Suporte a mais de 63 terminais virtuais (consoles).
 
  <item>
-Modularização - O <prgn>Linux</prgn> somente carrega para a memória o que 
+Modularização - O <prgn>GNU/Linux</prgn> somente carrega para a memória os módulos de
+kernel referentes ao que 
 é usado durante o processamento, liberando totalmente a memória 
-assim que o programa/dispositivo é finalizado
+assim que o programa/dispositivo é finalizado.
 
  <item>
 Devido a modularização, os drivers dos periféricos e recursos do sistema 
 podem ser carregados e removidos completamente da memória RAM a qualquer 
-momento. Os drivers (módulos) ocupam pouco espaço quando carregados na 
-memória RAM (cerca de 6Kb para a Placa de rede NE 2000, por exemplo) 
+momento. Os drivers (módulos) ocupam pouco espaço quando carregados 
+(cerca de 6Kb para a Placa de rede NE 2000, por exemplo).
 
  <item>
-Suporte nativo a rede e tecnologias avançadas como: balanceamento de carga,
-ips alias, failover, vlans, bridge, trunking, OSPF, BGP.
+Suporte nativo a rede e tecnologias de roteamento avançado como: balanceamento de carga,
+IP alias, failover, vlans, bridge, trunking, OSPF, BGP, IPv6, etc.
 
  <item>
 Não há a necessidade de se reiniciar o sistema após a modificar a configuração 
@@ -505,51 +526,49 @@ algum hardware (queima do processador, placa mãe, etc.).
 
  <item>
 Não precisa de um processador potente para funcionar. O sistema roda bem em 
-computadores 386Sx 25 com 4MB de memória RAM (sem rodar o sistema gráfico 
-X, que é recomendado 32MB de RAM). Já pensou no seu desempenho em um 
+computadores 486 com 8 MB de memória RAM (sem rodar o sistema gráfico 
+X, que é recomendado 128 MB de RAM). Já pensou no seu desempenho em um 
 Pentium, Xeon, ou Athlon? ;-)
 
  <item>
-Suporte nativo a múltiplas CPUs, assim processadores como Dual Core,
-Core Duo, Athlon Duo, Quad Core tem seu poder de processamento integralmente 
-aproveitado, tanto em 32 ou 64 bits.
+Suporte nativo à múltiplas CPUs, assim processadores como Dual Core,
+Core Duo, Athlon Duo, Quad Core, e Intel Core i[5,6,7] tem seu poder de processamento integralmente 
+aproveitado, tanto em 32 ou em 64 bits.
 
  <item>
-Suporte nativo a dispositivos SATA, PATA, Fiber Channel
+Suporte nativo à dispositivos SATA, PATA, Fiber Channel e SDD.
 
  <item>
-Suporte nativo a virtualização, onde o <prgn>Linux</prgn> se destaca como
+Suporte nativo à virtualização, onde o <prgn>GNU/Linux</prgn> se destaca como
 plataforma preferida para execução de múltiplos sistemas operacionais com
-performance e segurança.
+performance e segurança, principalmente em cloud.
 
  <item>
 O crescimento e novas versões do sistema não provocam lentidão, pelo 
 contrário, a cada nova versão os desenvolvedores procuram buscar maior 
 compatibilidade, acrescentar recursos úteis e melhor desempenho do 
-sistema (como o que aconteceu na passagem do kernel 2.0.x para 2.2.x,
-da 2.2.x para a 2.4.x e da 2.4.x para a 2.6.x). 
+sistema (vide os frequentes releases de kernel da versão 4.x). 
 
  <item>
 O <prgn>GNU/Linux</prgn> é distribuido livremente e 
-licenciado de acordo com os termos da GPL.
+licenciado de acordo com os termos da GPL e outras licenças livres como BSD, Mozilla, Apache, etc.
 
  <item>
 Acessa corretamente discos formatados pelo <prgn>DOS, Windows, Novell, OS/2, 
 NTFS, SunOS, Amiga, Atari, Mac,</prgn> etc.
 
-
  <item>
-O LINUX NÃO É VULNERÁVEL A VÍRUS! Devido a separação de privilégios
+O GNU/LINUX NÃO É VULNERÁVEL A VÍRUS! Devido a separação de privilégios
 entre processos e respeitadas as recomendações padrão de política de 
-segurança e uso de contas privilegiadas (como a de root, como veremos adiante), 
+segurança e uso de contas privilegiadas (como a de root, como será visto adiante), 
 programas como vírus tornam-se inúteis pois tem sua ação limitada pelas
 restrições de acesso do sistema de arquivos e execução. 
  <p>
 Qualquer programa (nocivo ou não) poderá alterar partes do sistema que possui 
 permissões (será abordado como alterar permissões e tornar seu sistema mais 
 restrito no decorrer do guia). Frequentemente são criados exploits que tentam 
-se aproveitar de falhas existentes em sistemas desatualizados e usa-las para 
-causar danos.
+se aproveitar de falhas existentes em sistemas desatualizados e usá-los para 
+causar danos ou até mesmo ataque de negação de serviço, os famosos DDOS.
 <em>Erroneamente</em> este tipo de ataque é classificado como vírus por 
 pessoas mal informadas e são resolvidas com sistemas bem mantidos. 
 Em geral, usando uma boa distribuição que tenha um eficiente sistema de 
@@ -564,8 +583,8 @@ modem a Internet, a velocidade de transmissão é 10% maior.
  <item>
 Executa outros sistemas operacionais como <em>Windows</em>, <em>MacOS</em>, 
 <em>DOS</em> ou outro sistema <prgn>Linux</prgn> através de consagrados sistemas de 
-virtualização como <prgn>Xen</prgn>, <prgn>vmware</prgn>, ou emulação como 
-o <prgn>DOSEMU</prgn>, <prgn>QEMU</prgn>, <prgn>WINE</prgn>.
+virtualização como <prgn>Xen</prgn>, <prgn>vmware</prgn>, <prgn>VirtualBox</prgn> ou emulação como 
+o <prgn>DOSEMU</prgn>, <prgn>QEMU</prgn> (libvirt), e <prgn>WINE</prgn>.
 
  <item>
 Suporte completo e nativo a diversos dispositivos de comunicação via 
@@ -581,16 +600,16 @@ Suporte a rede via rádio amador.
 Suporte a dispositivos Plug-and-Play.
 
  <item>
-Suporte nativo a pen drivers, dispositivos de armazenamento e cartões de memória.
+Suporte nativo a pendrives, dispositivos de armazenamento e cartões de memória.
 
  <item>
-Suporte nativo a dispositivos I2C
+Suporte nativo a dispositivos I2C.
 
  <item>
-Integração com gerenciamento de energia ACPI e APM
+Integração com gerenciamento de energia ACPI e APM.
  
  <item>
-Dispositivos de rede Wireless. Tanto com criptografia WEB e WPA PSK
+Dispositivos de rede Wireless. Tanto com criptografia WEB e WPA PSK.
 
  <item>
 Vários tipos de firewalls avançados de alta qualidade na detecção de tráfego
@@ -601,7 +620,7 @@ e controle de sua rede.
 Roteamento estático e dinâmico de pacotes. 
 
  <item>
-Ponte entre Redes, proxy arp
+Ponte entre Redes, proxy arp.
 
  <item>
 Proxy Tradicional e Transparente.
