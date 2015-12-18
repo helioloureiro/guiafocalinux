@@ -54,7 +54,7 @@ ssh-keygen
 </example>
 Um par de chaves RSA versão 1 será gerado com o tamanho de 1024 bits por padrão,
 garantindo uma boa segurança/performance, e salvas no diretório <file>~/.ssh</file> 
-com o nome <file>identity</file> e <file>identity.pub</file>. Para alterar o 
+com o nome <file>idENTITY</file> e <file>idENTITY.pub</file>. Para alterar o 
 tamanho da chave use a opção <em>-b tamanho</em>. Depois de gerar a chave, o 
 <prgn>ssh-keygen</prgn> pedirá uma <tt>frase-senha</tt> (é recomendável ter um 
 tamanho maior que 10 caracteres e podem ser incluídos espaços). Se não quiser 
@@ -74,11 +74,11 @@ e guarde-a em um lugar seguro. ]]>
 Instale a chave pública no servidor remoto que deseja se conectar, por exemplo, 
 <file>www.sshserver.org</file>:
 <example>
-ssh-copy-id -i ~/.ssh/identity gleydson@www.servidorssh.org
+ssh-copy-id -i ~/.ssh/idENTITY gleydson@www.servidorssh.org
 
 </example>
 A função do utilitário acima é entrar no sistema remoto e adicionar a chave 
-pública local <file>~/.ssh/identity.pub</file> no arquivo 
+pública local <file>~/.ssh/idENTITY.pub</file> no arquivo 
 <file>/home/gleydson/.ssh/authorized_keys</file> do sistema remoto 
 <file>www.sshserver.org</file>. O mesmo processo poderá ser feito manualmente 
 usando os métodos tradicionais (<prgn>ssh</prgn>/<prgn>scp</prgn>). Caso o 
@@ -166,9 +166,9 @@ para selecionar o método de criptografia:
 </list> 
  <p>
 Para trocar a senha utilize o comando: 
-<tt>ssh-keygen -p -t tipo_chave -f ~/.ssh/identity</tt> - será pedida sua senha antiga e 
+<tt>ssh-keygen -p -t tipo_chave -f ~/.ssh/idENTITY</tt> - será pedida sua senha antiga e 
 a nova senha (no mesmo estilo do <prgn>passwd</prgn>). 
-Opcionalmente você pode utilizar a sintaxe: <tt>ssh-keygen -p -f ~/.ssh/identity 
+Opcionalmente você pode utilizar a sintaxe: <tt>ssh-keygen -p -f ~/.ssh/idENTITY 
 -P senha_antiga -N senha_nova</tt>, que troca a senha em um único comando 
 (útil para ser usado em scripts junto com a opção <em>-q</em> para evitar a 
 exibição de mensagens de saída do <prgn>ssh-keygen</prgn>). 

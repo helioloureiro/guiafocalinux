@@ -1,3 +1,6 @@
+DOCX := SP_ENCODING=XML docbook2
+DOCXOPTS :=
+
 PACKAGES := index.html
 PACKAGES += index.en.pdf
 PACKAGES += index.en.dvi
@@ -102,13 +105,16 @@ SRC += Avancado/telnet/telnet-Introducao.sgml
 all: $(PACKAGES)
 
 index.html: $(SRC)
-	debiandoc2html -C -l en.UTF-8 -1 index.sgml
+	#debiandoc2html -C -l en.UTF-8 -1 index.sgml
+	$(DOCX)html $(DOCXOPTS) index.sgml
 
 index.en.pdf: $(SRC)
-	debiandoc2pdf -C -l en.UTF-8 index.sgml
+	#debiandoc2pdf -C -l en.UTF-8 index.sgml
+	$(DOCX)pdf $(DOCXOPTS) index.sgml
 
 index.en.dvi: $(SRC)
-	debiandoc2dvi -C -l en.UTF-8 index.sgml
+	#debiandoc2dvi -C -l en.UTF-8 index.sgml
+	$(DOCX)dvi $(DOCXOPTS) index.sgml
 
 clean:
 	rm -rf $(PACKAGES)

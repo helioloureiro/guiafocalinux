@@ -121,7 +121,7 @@ privada para autenticação via chave pública (DSA ou RSA).
 <file>know_hosts</file>. 
 
  <item>
-<tt>ssh-copy-id</tt> - Usado para instalação do arquivo <file>identity.pub</file> 
+<tt>ssh-copy-id</tt> - Usado para instalação do arquivo <file>idENTITY.pub</file> 
 em uma máquina remota. 
  
 </list>

@@ -118,10 +118,10 @@ Host 192.168.1.5
 #   UseRsh no
 #   BatchMode no
 #   StrictHostKeyChecking yes
-#   IdentityFile ~/.ssh/identity
-#   IdentityFile ~/.ssh/id_dsa
-#   IdentityFile ~/.ssh/id_rsa1
-#   IdentityFile ~/.ssh/id_rsa2
+#   IdENTITYFile ~/.ssh/idENTITY
+#   IdENTITYFile ~/.ssh/id_dsa
+#   IdENTITYFile ~/.ssh/id_rsa1
+#   IdENTITYFile ~/.ssh/id_rsa2
 #   EscapeChar ~
 
 </example>

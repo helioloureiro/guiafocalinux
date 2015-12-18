@@ -1,69 +1,74 @@
-<!doctype debiandoc public "-//DebianDoc//DTD DebianDoc//EN" [
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+
+<!-- importando definições do debiandoc pra manter compatibilidade -->
+<!ENTITY % guialinuxdebiandoc   SYSTEM "guialinuxdebiandoc.dtd"> %guialinuxdebiandoc;
 
 <!-- Definições de entities dinâmicas usadas no Foca Linux -->
-<!entity % dinamic    SYSTEM "dinamicas.ent"> %dinamic;
-<!entity % definicoes SYSTEM "padroes.ent"  > %definicoes;
-<!entity % urldata    SYSTEM "urls.ent"     > %urldata;
+<!ENTITY % dinamic    SYSTEM "dinamicas.ent"> %dinamic;
+<!ENTITY % definicoes SYSTEM "padroes.ent"  > %definicoes;
+<!ENTITY % urldata    SYSTEM "urls.ent"     > %urldata;
 
 <!-- Arquivos separados contendo o texto do Documento -->
 <!--                Versão Iniciante                       -->
-<!entity introducao         SYSTEM "Iniciante/introducao.sgml"         >
-<!entity basico             SYSTEM "Iniciante/basico.sgml"             >
-<!entity discos             SYSTEM "Iniciante/discos.sgml"             >
-<!entity ajuda              SYSTEM "Iniciante/ajuda.sgml"              >
-<!entity migrando           SYSTEM "Iniciante/migrando.sgml"           >
-<!entity comandos-arquivo   SYSTEM "Iniciante/comandos-arquivo.sgml"   >
-<!entity comandos-contas    SYSTEM "Iniciante/comandos-contas.sgml"    >
-<!entity comandos-diretorio SYSTEM "Iniciante/comandos-diretorio.sgml" >
-<!entity comandos-diversos  SYSTEM "Iniciante/comandos-diversos.sgml"  >
-<!entity comandos-rede      SYSTEM "Iniciante/comandos-rede.sgml"      >
-<!entity configurando       SYSTEM "Iniciante/configurando.sgml"       >
-<!entity redir              SYSTEM "Iniciante/redir.sgml"              >
-<!entity run                SYSTEM "Iniciante/run.sgml"                >
-<!entity impressao          SYSTEM "Iniciante/impressao.sgml"          >
-<!entity x11                SYSTEM "Iniciante/x11.sgml"                >
-<!entity permissoes         SYSTEM "Iniciante/permissoes.sgml"         >
-<!entity apendice           SYSTEM "Iniciante/apendice.sgml"           >
+<!ENTITY introducao         SYSTEM "Iniciante/introducao.sgml"         >
+<!ENTITY basico             SYSTEM "Iniciante/basico.sgml"             >
+<!ENTITY discos             SYSTEM "Iniciante/discos.sgml"             >
+<!ENTITY ajuda              SYSTEM "Iniciante/ajuda.sgml"              >
+<!ENTITY migrando           SYSTEM "Iniciante/migrando.sgml"           >
+<!ENTITY comandos-arquivo   SYSTEM "Iniciante/comandos-arquivo.sgml"   >
+<!ENTITY comandos-contas    SYSTEM "Iniciante/comandos-contas.sgml"    >
+<!ENTITY comandos-diretorio SYSTEM "Iniciante/comandos-diretorio.sgml" >
+<!ENTITY comandos-diversos  SYSTEM "Iniciante/comandos-diversos.sgml"  >
+<!ENTITY comandos-rede      SYSTEM "Iniciante/comandos-rede.sgml"      >
+<!ENTITY configurando       SYSTEM "Iniciante/configurando.sgml"       >
+<!ENTITY redir              SYSTEM "Iniciante/redir.sgml"              >
+<!ENTITY run                SYSTEM "Iniciante/run.sgml"                >
+<!ENTITY impressao          SYSTEM "Iniciante/impressao.sgml"          >
+<!ENTITY x11                SYSTEM "Iniciante/x11.sgml"                >
+<!ENTITY permissoes         SYSTEM "Iniciante/permissoes.sgml"         >
+<!ENTITY apendice           SYSTEM "Iniciante/apendice.sgml"           >
 
 <!--                  Versão Intermediário                     -->
-<!entity aplicativos        SYSTEM "Intermediario/aplicativos.sgml"    >
-<!entity bootloaders        SYSTEM "Intermediario/bootloaders.sgml"    >
-<!entity compactadores      SYSTEM "Intermediario/compactadores.sgml"  >
-<!entity compilacao         SYSTEM "Intermediario/compilacao.sgml"     >
-<!entity debian             SYSTEM "Intermediario/debian.sgml"         >
-<!entity dpkg               SYSTEM "Intermediario/dpkg.sgml"           >
-<!entity hardware           SYSTEM "Intermediario/hardware.sgml"       >
-<!entity kernel             SYSTEM "Intermediario/kernel.sgml"         >
-<!entity log                SYSTEM "Intermediario/log.sgml"            >
-<!entity manutencao         SYSTEM "Intermediario/manutencao.sgml"     >
-<!entity internet           SYSTEM "Intermediario/internet.sgml"       >
-<!entity personalizacao     SYSTEM "Intermediario/personalizacao.sgml" >
-<!entity tasks              SYSTEM "Intermediario/tasks.sgml"          >
-<!entity etc                SYSTEM "Intermediario/etc.sgml"            >
-<!entity rede               SYSTEM "Intermediario/rede.sgml"           >
-<!entity colaboradores      SYSTEM "Iniciante/colaboradores.sgml"      >
+<!ENTITY aplicativos        SYSTEM "Intermediario/aplicativos.sgml"    >
+<!ENTITY bootloaders        SYSTEM "Intermediario/bootloaders.sgml"    >
+<!ENTITY compactadores      SYSTEM "Intermediario/compactadores.sgml"  >
+<!ENTITY compilacao         SYSTEM "Intermediario/compilacao.sgml"     >
+<!ENTITY debian             SYSTEM "Intermediario/debian.sgml"         >
+<!ENTITY dpkg               SYSTEM "Intermediario/dpkg.sgml"           >
+<!ENTITY hardware           SYSTEM "Intermediario/hardware.sgml"       >
+<!ENTITY kernel             SYSTEM "Intermediario/kernel.sgml"         >
+<!ENTITY log                SYSTEM "Intermediario/log.sgml"            >
+<!ENTITY manutencao         SYSTEM "Intermediario/manutencao.sgml"     >
+<!ENTITY internet           SYSTEM "Intermediario/internet.sgml"       >
+<!ENTITY personalizacao     SYSTEM "Intermediario/personalizacao.sgml" >
+<!ENTITY tasks              SYSTEM "Intermediario/tasks.sgml"          >
+<!ENTITY etc                SYSTEM "Intermediario/etc.sgml"            >
+<!ENTITY rede               SYSTEM "Intermediario/rede.sgml"           >
+<!ENTITY colaboradores      SYSTEM "Iniciante/colaboradores.sgml"      >
 
 <!--                  Versão Avançado                         -->
-<!entity % apache	SYSTEM "Avancado/apache/Apache-INDEX.sgml"> %apache;
-<!entity % cfgrede      SYSTEM "Avancado/conf-rede/CFGRede-INDEX.sgml"> %cfgrede;
-<!entity % iptables     SYSTEM "Avancado/iptables-firewall/iptables-INDEX.sgml"> %iptables;
-<!entity % contas       SYSTEM "Avancado/gerenc-contas/contas-INDEX.sgml"> %contas;
-<!entity % restricoes   SYSTEM "Avancado/restr-seguranca/restricoes-INDEX.sgml"> %restricoes;
-<!entity % criptografia SYSTEM "Avancado/criptografia/Cripto-INDEX.sgml"> %criptografia;
-<!entity % ident        SYSTEM "Avancado/identd/Ident-INDEX.sgml"> %ident;
-<!entity % telnet       SYSTEM "Avancado/telnet/telnet-INDEX.sgml"> %telnet;
-<!entity % ssh          SYSTEM "Avancado/ssh/ssh-INDEX.sgml"> %ssh;
-<!entity % pop3         SYSTEM "Avancado/pop3/pop3-INDEX.sgml"> %pop3;
-<!entity % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
-<!entity % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
-<!entity % git          SYSTEM "Avancado/git/git-INDEX.sgml"> %git;
-<!entity % systemd      SYSTEM "Avancado/systemd/systemd-INDEX.sgml"> %systemd;
-<!entity % nginx        SYSTEM "Avancado/nginx/nginx-INDEX.sgml"> %nginx;
-<!entity % nftables     SYSTEM "Avancado/nftables-firewall/nftables-INDEX.sgml"> 
+<!ENTITY % apache	SYSTEM "Avancado/apache/Apache-INDEX.sgml"> %apache;
+<!ENTITY % cfgrede      SYSTEM "Avancado/conf-rede/CFGRede-INDEX.sgml"> %cfgrede;
+<!ENTITY % iptables     SYSTEM "Avancado/iptables-firewall/iptables-INDEX.sgml"> %iptables;
+<!ENTITY % contas       SYSTEM "Avancado/gerenc-contas/contas-INDEX.sgml"> %contas;
+<!ENTITY % restricoes   SYSTEM "Avancado/restr-seguranca/restricoes-INDEX.sgml"> %restricoes;
+<!ENTITY % criptografia SYSTEM "Avancado/criptografia/Cripto-INDEX.sgml"> %criptografia;
+<!ENTITY % ident        SYSTEM "Avancado/identd/Ident-INDEX.sgml"> %ident;
+<!ENTITY % telnet       SYSTEM "Avancado/telnet/telnet-INDEX.sgml"> %telnet;
+<!ENTITY % ssh          SYSTEM "Avancado/ssh/ssh-INDEX.sgml"> %ssh;
+<!ENTITY % pop3         SYSTEM "Avancado/pop3/pop3-INDEX.sgml"> %pop3;
+<!ENTITY % cvs          SYSTEM "Avancado/cvs/CVS-INDEX.sgml"> %cvs;
+<!ENTITY % samba        SYSTEM "Avancado/samba/SAMBA-INDEX.sgml"> %samba;
+<!ENTITY % git          SYSTEM "Avancado/git/git-INDEX.sgml"> %git;
+<!ENTITY % systemd      SYSTEM "Avancado/systemd/systemd-INDEX.sgml"> %systemd;
+<!ENTITY % nginx        SYSTEM "Avancado/nginx/nginx-INDEX.sgml"> %nginx;
+<!ENTITY % nftables     SYSTEM "Avancado/nftables-firewall/nftables-INDEX.sgml"> 
 %nftables;
-<!entity % haproxy        SYSTEM "Avancado/haproxy/haproxy-INDEX.sgml"> 
+<!ENTITY % haproxy        SYSTEM "Avancado/haproxy/haproxy-INDEX.sgml"> 
 %haproxy;
-<!entity % virtualizacao  SYSTEM 
+<!ENTITY % virtualizacao  SYSTEM 
 "Avancado/virtualizacao/virtualizacao-INDEX.sgml"> 
 %virtualizacao;
 <!-- 
@@ -82,19 +87,17 @@ Estilo de tags adotadas neste documento:
 Copyleft 1999-2015, Gleydson Mazioli da Silva <gleydson@guiafoca.org>
 -->
 ]>
-
- <debiandoc>
  <book>
+    <bookinfo>
+        <title>Guia Foca GNU/Linux</title>
+        <author>
+            <firstname>Gleydson</firstname>
+            <surname>Mazioli da Silva</surname>
+            <email>gleydson@guiafoca.org</email>
+        </author>
+   <releaseinfo>Versão &VERSAO; - &DATADOC;</releaseinfo>
 
-  <titlepag>
-   <title>Guia Foca GNU/Linux</title>
-   <author>
-    <name>Gleydson Mazioli da Silva</name>
-    <email>gleydson@guiafoca.org</email>
-   </author>
-   <version>Versão &VERSAO; - &DATADOC;</version>
-
-  <abstract>
+  <legalnotice>
 Este documento tem por objetivo ser uma referência ao aprendizado do 
 usuário e um guia de consulta, operação e configuração de sistemas Linux 
 (e outros tipos de *ix). A última versão deste guia pode ser encontrada 
@@ -102,8 +105,7 @@ na <url id="&url-manual-www;" name="Página Oficial do Foca GNU/Linux">.
 Novas versões são lançadas com uma freqüência mensal e você pode receber 
 avisos de novos lançamentos deste guia preenchendo um formulário na página 
 Web. 
-  </abstract>
-  
+  </legalnotice>
    <copyright>
     <copyrightsummary>
      Copyright &copy; 1999-&ULTIMOANO; - Gleydson Mazioli da Silva.
@@ -115,7 +117,7 @@ published by the Free Software Foundation;
 A copy of the license is included in the section entitled "GNU
 Free Documentation License".
    </copyright>
-  </titlepag>
+  </bookinfo>
 
 <!-- A ordem dos capítulos abaixo pode ser modificada, desta forma, a ordem 
      que eles aparecem no guia também será modificada --> 

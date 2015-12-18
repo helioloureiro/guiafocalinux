@@ -456,7 +456,7 @@ falha encontrada para devida correção.
 <list compact>
  <item>
 É livre e desenvolvido voluntariamente por programadores 
-experientes, hackers, e contribuidores espalhados ao redor do 
+experientes, hackers, empresas e contribuidores espalhados ao redor do 
 mundo que tem como objetivo a contribuição para a melhoria 
 e crescimento deste sistema operacional. 
  <p>
@@ -575,12 +575,6 @@ Em geral, usando uma boa distribuição que tenha um eficiente sistema de
 atualização e bem configurado, você terá 99.9% de sua tranquilidade.
 
  <item>
-Rede TCP/IP mais rápida que no Windows e tem sua pilha constantemente 
-melhorada. O <prgn>GNU/Linux</prgn> tem suporte nativo a redes TCP/IP e 
-não depende de uma camada intermediária como o WinSock. Em acessos via 
-modem a Internet, a velocidade de transmissão é 10% maior. 
-
- <item>
 Executa outros sistemas operacionais como <em>Windows</em>, <em>MacOS</em>, 
 <em>DOS</em> ou outro sistema <prgn>Linux</prgn> através de consagrados sistemas de 
 virtualização como <prgn>Xen</prgn>, <prgn>vmware</prgn>, <prgn>VirtualBox</prgn> ou emulação como 
@@ -634,29 +628,26 @@ O servidor WEB e FTP podem estar localizados no mesmo computador, mas o usuário
 se conecta tem a impressão que a rede possui servidores diferentes. 
 
  <item>
-Os sistemas de arquivos usados pelo <prgn>GNU/Linux</prgn> (<tt>Ext2</tt>, <tt>Ext3</tt>,
+Os sistemas de arquivos usados pelo <prgn>GNU/Linux</prgn> (<tt>Ext2</tt>, <tt>Ext3</tt>, <tt>Ext4</tt>
 <tt>reiserfs</tt>, <tt>xfs</tt>, <tt>jfs</tt>) organiza os arquivos de forma inteligente 
-evitando a fragmentação e fazendo-o um poderoso sistema para aplicações multi-usuárias 
+evitando a fragmentação e fazendo-o um poderoso sistema para aplicações multiusuárias 
 exigentes e gravações intensivas. 
 
  <item>
 Permite a montagem de um servidor de publicação Web, E-mail, News, etc. com um 
-baixo custo e alta performance. O melhor servidor Web do mercado, 
+baixo custo e alta performance. O servidor Web líder de mercado por mais de 15 anos, 
 o <prgn>Apache</prgn>, é distribuído gratuitamente junto com a 
-maioria das distribuições Linux. O mesmo acontece com o <prgn>Sendmail</prgn>.
+maioria das distribuições Linux. O mesmo acontece com o <prgn>Sendmail</prgn> e o <prgn>postfix</prgn>.
 
  <item>
 Por ser um sistema operacional de código aberto, você pode ver o 
 que o código fonte (instruções digitadadas pelo programador) faz e 
-adapta-lo as suas necessidades ou de sua empresa. Esta característica 
-é uma segurança a mais para empresas sérias e outros que não querem ter 
-seus dados roubados (você não sabe o que um sistema sem código fonte faz 
-na realidade enquanto esta processando o programa).
+adaptá-lo as suas necessidades ou de sua empresa.
  <item>
 Suporte a diversos dispositivos e periféricos disponíveis no mercado, 
 tanto os novos como obsoletos.
  <item>
-Pode ser executado em 16 arquiteturas diferentes (Intel, Macintosh, Alpha,
+Pode ser executado em 16 arquiteturas diferentes (Intel, PowerPC, Alpha, Sparc
 Arm, etc.) e diversas outras sub-arquiteturas.
  <item>
 Empresas especializadas e consultores especializados no suporte ao sistema 
@@ -666,14 +657,13 @@ Entre muitas outras características que você descobrirá durante o uso do
 sistema (além de poder criar outras, caso seja um administrador avançado 
 ou desenvolvedor).
 </list>
-TODOS OS ÍTENS DESCRITOS ACIMA SÃO VERDADEIROS E TESTADOS PARA QUE TIVESSE 
+TODOS OS ÍTENS DESCRITOS ACIMA FORAM TESTADOS PARA QUE TIVESSE 
 PLENA CERTEZA DE SEU FUNCIONAMENTO. 
-
 
     <![ %INICIANTE [
 <sect id="introducao-distrib">Distribuições do Linux
  <p>
-Só o kernel <prgn>GNU/Linux</prgn> não é suficiente 
+Só o kernel <prgn>Linux</prgn> não é suficiente 
 para se ter uma sistema funcional, mas é o principal. 
  <p>
 Existem grupos de pessoas, empresas e organizações que decidem 
@@ -681,19 +671,19 @@ Existem grupos de pessoas, empresas e organizações que decidem
 exemplo <prgn>editores gráficos, planilhas, bancos de dados, ambientes 
 de programação, formatação de documentos, firewalls, etc</prgn>). 
  <p>
-Este é o significado essencial de <em>distribuição</em>. Cada distribuição 
+Este é o significado essencial de <em>distribuição</em>, às vezes chamadas também de <em>distro</em> simplismente. Cada distribuição 
 tem sua característica própria, como o sistema de instalação, o 
 objetivo, a localização de programas, nomes de arquivos de configuração, 
 etc. A escolha de uma distribuição é pessoal e depende das necessidades de 
 cada um.
  <p>
 Algumas distribuições bastante conhecidas são: <em>Ubuntu, Debian, Slackware, 
-Red Hat, Gentoo, Suse</em> todas usando o SO Linux como kernel principal 
+RedHat, Gentoo, Suse, Arch, OpenSuse e Fedora</em> todas usando o Linux como kernel principal 
 (a <prgn>Debian</prgn> é uma distribuição independente de kernel e pode 
-ser executada sob outros kernels, como o GNU hurd ou o kernel BSD). 
+ser executada sob outros kernels, como o GNU hurd ou o kernel BSD<footnote>Com a adoção do suporte ao <em>systemd</em> em <prgn>Debian</prgn>, esse suporte de diferentes kernels ficou bastante prejudicado e em alguns casos impossível.  No momento o suporte ao kFreeBSD (Kernel FreeBSD) não se encontra mais ativo.</footnote>).
  <p>
 A escolha de sua distribuição deve ser feita com muita atenção, não adianta 
-muita coisa perguntar em canais de IRC sobre qual é a melhor distribuição, 
+muita coisa perguntar em grupos de redes sociais sobre qual é a melhor distribuição, 
 ser levado pelas propagandas, pelo vizinho, etc. O melhor caminho para a 
 escolha da distribuição, acredito eu, seria perguntar as características  
 de cada uma e porque essa pessoa gosta dela ao invés de perguntar qual é a 
@@ -708,11 +698,10 @@ site principal e endereço para download:
  <item>
  <tt><url id="&url-debian-www;"></tt> - Distribuição desenvolvida e  
 atualizada através do esforço de voluntários espalhados ao redor do  
-mundo, seguindo o estilo de desenvolvimento <prgn>GNU/Linux</prgn>. Por este 
-motivo, foi adotada como a distribuição oficial do projeto <em>GNU</em>. 
-Possui suporte a língua Portuguesa, é a única que tem suporte a 14 
-arquiteturas diferentes (i386, IA64, AMD64, Alpha, Sparc, PowerPc, Macintosh, 
-Arm, etc.) e aproximadamente 15 sub-arquiteturas. A instalação da distribuição 
+mundo, seguindo o estilo de desenvolvimento <prgn>GNU/Linux</prgn>. 
+Possui suporte à língua Portuguesa, é a única que tem suporte a 14 
+arquiteturas diferentes (i386, IA64, AMD64, Alpha, Sparc, PowerPc, 
+Arm, etc.<footnote>Algumas arquiteturas são suportadas apenas em versões específicas.</footnote>) e aproximadamente 15 sub-arquiteturas. A instalação da distribuição 
 pode ser feita tanto através de Disquetes, CD-ROM, Tftp, Ftp, NFS ou através da 
 combinação de vários destes em cada etapa de instalação. 
  <p>
@@ -778,19 +767,29 @@ execução através de Live CD.
  <p>
 <tt><url id="&url-ubuntu-ftp;"></tt> - Endereço para download do Ubuntu.
  
+ <tag><em>Fedora</em></tag>
+ <item>
+ <tt><url id="&url-fedora-www;"></tt> - Variante da distribuição RedHat,
+ tornou-se um braço comunitário quando a empresa modificou a distribuição e
+ disponibilização de seu próprio sistema, aderindo ao modo <em>enterprise</em>.
+ Fedora conta com vários embaixadores e uma forte comunidade que suporta seus
+ desenvolvimento, sendo a primeira distribuição a adotar <em>systemd</em>.
+ <p>
+<tt><url id="&url-fedora-ftp;"></tt> - Endereço para download do Fedora.
+
  
  <tag><em>Slackware</em></tag>
  <item>
  <tt><url id="&url-slackware-www;"></tt> - Distribuição desenvolvida por 
-<tt>Patrick Volkerding</tt>, desenvolvida para alcançar facilidade de 
+<tt>Patrick Volkerding</tt> para alcançar facilidade de 
 uso e estabilidade como prioridades principais. Foi a primeira distribuição 
-a ser lançada no mundo e costuma trazer o que há de mais novo enquanto mantém 
+a ser lançada no mundo junto com a já inexistente <em>Yggdrasil</em> e mantém 
 uma certa tradição, provendo simplicidade, facilidade de uso e com isso 
 flexibilidade e poder.
  <p>
 Desde a primeira versão lançada em Abril de 1993, o Projeto 
 <prgn>Slackware Linux</prgn> tem buscado produzir a distribuição 
-<prgn>Linux</prgn> mais <tt>UNIX-like</tt>, ou seja, mais parecida 
+<prgn>GNU/Linux</prgn> mais <tt>BSD-like</tt>, ou seja, mais parecida 
 com UNIX. O Slackware segue os padrões Linux como o Linux File System 
 Standard, que é um padrão de organização de diretórios e arquivos para 
 as distribuições.
@@ -799,11 +798,16 @@ Enquanto as pessoas diziam que a Red Hat era a melhor distribuição
 para o usuário iniciante, o <prgn>Slackware</prgn> é o melhor para o 
 usuário mais "velho", ou seja programadores, administradores, etc.
  <p>
+Como nos últimos anos <tt>Slackware</tt> sumiu do cenários de distros relevantes, 
+com menos releases, muito de seus usuários migraram para <tt>Arch</tt>, que
+mantém muito do espírito que fez surgir <tt>Slackware</tt>, mas de uma
+forma mais comunitária.
+<p>
 <tt><url id="&url-slackware-ftp;"></tt> - Ftp da distribuição Slackware.
 
  <tag><em>SuSE</em></tag>
  <item>
- <tt><url id="&url-suse-www;"></tt> - Distribuição comercial Alemã com a 
+ <tt><url id="&url-suse-www;"></tt> - Distribuição comercial de origem Alemã com a 
 coordenação sendo feita através dos processos administrativos dos 
 desenvolvedores e de seu braço norte-americano. O foco da Suse é o 
 usuário com conhecimento técnico no Linux (programador, administrador de 

@@ -1,0 +1,168 @@
+<!--
+guialinuxdebiandoc.dtd
+
+Copyright 2015 Helio Loureiro
+
+This is free software.  You may distribute it under the terms of
+the GNU General Public Licence, version 2 or at your option any
+later version.
+
+This DTD was copied from debiandoc.dtd and removed several parts
+just to fit into this document.
+Contributors to debiandoc.dtd include Ardo van Rangelrooij and
+Ian Jackson.
+Contributors to linuxdoc.dtd include Matt Welsh, Greg Hankins,
+Eric Raymond, Marc Baudoin, Tristan Debeaupuis and Tom Gordon.
+-->
+
+<!ENTITY % ISOamsa PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN">
+%ISOamsa;
+
+<!ENTITY % ISOamsb PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN">
+%ISOamsb;
+
+<!ENTITY % ISOamsc PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Delimiters//EN">
+%ISOamsc;
+
+<!ENTITY % ISOamsn PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Negated Relations//EN">
+%ISOamsn;
+
+<!ENTITY % ISOamso PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Ordinary//EN">
+%ISOamso;
+
+<!ENTITY % ISOamsr PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Relations//EN">
+%ISOamsr;
+
+<!ENTITY % ISObox PUBLIC
+"ISO 8879:1986//ENTITIES Box and Line Drawing//EN">
+%ISObox;
+
+<!ENTITY % ISOcyr1 PUBLIC
+"ISO 8879:1986//ENTITIES Russian Cyrillic//EN">
+%ISOcyr1;
+
+<!ENTITY % ISOcyr2 PUBLIC
+"ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN">
+%ISOcyr2;
+
+<!ENTITY % ISOdia PUBLIC
+"ISO 8879:1986//ENTITIES Diacritical Marks//EN">
+%ISOdia;
+
+<!ENTITY % ISOgrk1 PUBLIC
+"ISO 8879:1986//ENTITIES Greek Letters//EN">
+%ISOgrk1;
+
+<!ENTITY % ISOgrk2 PUBLIC
+"ISO 8879:1986//ENTITIES Monotoniko Greek//EN">
+%ISOgrk2;
+
+<!ENTITY % ISOgrk3 PUBLIC
+"ISO 8879:1986//ENTITIES Greek Symbols//EN">
+%ISOgrk3;
+
+<!ENTITY % ISOgrk4 PUBLIC
+"ISO 8879:1986//ENTITIES Alternative Greek Symbols//EN">
+%ISOgrk4;
+
+<!ENTITY % ISOlat1 PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 1//EN">
+%ISOlat1;
+
+<!ENTITY % ISOlat2 PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 2//EN">
+%ISOlat2;
+
+<!ENTITY % ISOnum PUBLIC
+"ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN">
+%ISOnum;
+
+<!ENTITY % ISOpub PUBLIC
+"ISO 8879:1986//ENTITIES Publishing//EN">
+%ISOpub;
+
+<!ENTITY % ISOtech PUBLIC
+"ISO 8879:1986//ENTITIES General Technical//EN">
+%ISOtech;
+
+<!ENTITY urlname SDATA "" >
+
+<!ENTITY % xref "ref|manref|email|ftpsite|ftppath|httpsite|httppath|url">
+<!ENTITY % emph "em|strong|var|package|prgn|file|tt|qref">
+<!ENTITY % list "list|enumlist|taglist">
+<!ENTITY % inline "(#PCDATA|%emph|%xref|footnote|comment)+">
+<!ENTITY % inpara "((%inline)|(%list)|example|include)+">
+<!ENTITY % paras "(p+)">
+<!ENTITY % sect "heading,(%paras)?">
+
+<!ELEMENT debiandoc O O (book)>
+<!ATTLIST book id CDATA #IMPLIED>
+
+<!ELEMENT titlepag O O (title,author+,translator*,version?,abstract?,copyright?)>
+<!ELEMENT translator - O (name,email?)>
+<!ELEMENT name O O (%inline) -(email)>
+<!ELEMENT version - O (#PCDATA|date)+>
+<!ELEMENT copyrightsummary O O (%inpara)>
+
+<!ATTLIST toc detail (chapt|sect|sect1|sect2) "sect">
+
+<!ELEMENT chapt - O ((%sect),sect*)>
+<!ATTLIST chapt id CDATA #IMPLIED>
+<!ATTLIST appendix id CDATA #IMPLIED>
+<!ELEMENT sect - O ((%sect),sect1*)>
+<!ATTLIST sect id CDATA #IMPLIED>
+<!ATTLIST sect1 id CDATA #IMPLIED>
+<!ATTLIST sect2 id CDATA #IMPLIED>
+<!ATTLIST sect3 id CDATA #IMPLIED>
+<!ATTLIST sect4 id CDATA #IMPLIED>
+
+<!ELEMENT heading O O (%inline) -(%xref)>
+<!ELEMENT p O O (%inpara)>
+
+<!ATTLIST example compact (compact) #IMPLIED>
+<!ELEMENT include - O EMPTY>
+<!ATTLIST include source CDATA #REQUIRED
+                  language (text) "text"
+                  compact (compact) #IMPLIED>
+
+<!ELEMENT comment - - (%paras)>
+<!ATTLIST comment editor CDATA "">
+
+<!ELEMENT list - - (item+)>
+<!ATTLIST list compact (compact) #IMPLIED>
+<!ELEMENT enumlist - - (item+)>
+<!ATTLIST enumlist compact (compact) #IMPLIED
+                   continue (continue) #IMPLIED
+                   numeration (arabic|upperalpha|loweralpha|upperroman|lowerroman) "arabic">
+<!ELEMENT taglist - - (tag+,item)+>
+<!ATTLIST taglist compact (compact) #IMPLIED>
+<!ELEMENT tag - O (%inline)>
+<!ELEMENT item - O (%paras)>
+
+<!ELEMENT em - - (%inline)>
+<!ELEMENT strong - - (%inline)>
+<!ELEMENT var - - (%inline)>
+<!ELEMENT prgn - - (%inline)>
+<!ELEMENT file - - (%inline)>
+<!ELEMENT tt - - (%inline)>
+<!ELEMENT qref - - (%inline)>
+<!ATTLIST qref id CDATA #REQUIRED>
+
+<!ELEMENT ref - O EMPTY>
+<!ATTLIST ref id CDATA #REQUIRED>
+<!ELEMENT manref - O EMPTY>
+<!ATTLIST manref name CDATA #REQUIRED
+                 section CDATA #REQUIRED>
+<!ELEMENT ftpsite - - (#PCDATA)>
+<!ELEMENT ftppath - - (#PCDATA)>
+<!ELEMENT httpsite - - (#PCDATA)>
+<!ELEMENT httppath - - (#PCDATA)>
+<!ELEMENT url - O EMPTY>
+<!ATTLIST url id CDATA #REQUIRED
+              name CDATA "&urlname">

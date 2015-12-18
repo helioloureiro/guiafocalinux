@@ -1,1 +1,1 @@
-<!entity s-systemd SYSTEM "systemd-doc.sgml">
+<!ENTITY s-systemd SYSTEM "systemd-doc.sgml">

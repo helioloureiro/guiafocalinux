@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Nível da versão que será gerada (podem ser gerada mais de uma versão
 em um único guia, produzindo uma versão INICIANTE/INTERMEDIÁRIO, por
 exemplo). Não se preocupe, a versão final do guia será bem organizada
 (e um pouco grande, dependendo das escolhas...)
 -->
-<!entity % INICIANTE "INCLUDE" >
-<!entity % INTERMEDIARIO "IGNORE" >
-<!entity % AVANCADO "IGNORE" >
-<!entity % CAPJUNTOS "INCLUDE" >
+<!ENTITY % INICIANTE "INCLUDE" >
+<!ENTITY % INTERMEDIARIO "IGNORE" >
+<!ENTITY % AVANCADO "IGNORE" >
+<!ENTITY % CAPJUNTOS "INCLUDE" >
 
 <!-- Data da criação do Documento -->
-<!entity DATADOC "domingo, 05 de setembro de 2010" >
+<!ENTITY DATADOC "domingo, 05 de setembro de 2010" >
