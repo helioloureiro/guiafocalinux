@@ -14,7 +14,7 @@ iptables -A INPUT -i ppp0 -m state --state ! ESTABLISHED,RELATED -j DROP
 
 </example>
 Todas as conexões vindas de ppp0 de estado diferente de ESTABLISHED e RELATED 
-(NEW e INVALID) serão derrubadas. Veja <ref id="fw-iptables-mod-state"> para 
+(NEW e INVALID) serão derrubadas. Veja <xref linkend="fw-iptables-mod-state"> para 
 detalhes. 
 
 <example>
@@ -37,7 +37,7 @@ externamente e protegendo outros.
  <p>
 As regras abaixo alertam sobre a tentativa de conexão dos trojans "For Win" mais 
 conhecidos. Coloquei isto aqui por curiosidade de algumas pessoas, pois máquinas 
-<prgn>Linux</prgn> são imunes a este tipo de coisa:
+<command>Linux</command> são imunes a este tipo de coisa:
 <example>
 #!/bin/sh
 
@@ -53,29 +53,29 @@ done
 
 iptables -t filter -A INPUT -i ppp0 -j trojans-in
 </example>
-A primeira linha do <prgn>iptables</prgn> cria o chain <em>trojans-in</em> dentro 
+A primeira linha do <command>iptables</command> cria o chain <em>trojans-in</em> dentro 
 da tabela <em>filter</em> que usaremos para armazenar nossas regras de firewall. 
 A segunda (dentro do laço for) faz uma regra de LOG para registrar as tentativas de 
 acesso de trojans em nosso sistema, a terceira rejeita o acesso. A quarta 
-regra do <prgn>iptables</prgn> cria de todo o tráfego vindo da interface 
+regra do <command>iptables</command> cria de todo o tráfego vindo da interface 
 ppp0 pra o chain trojans-in (queremos que só o tráfego vindo da internet 
 seja analisado pelo chain <em>trojans-in</em>).
  <p>
-Muitas das portas especificadas na variável <var>TROJAN_PORTS</var> são antigas 
-conhecidas de quem já brincou ou sofreram com o <prgn>Back Orifice</prgn>, 
-<prgn>Win Crack</prgn>, <prgn>NetBus</prgn> (quem nunca passou pela fase de ter 
+Muitas das portas especificadas na variável <envar>TROJAN_PORTS</envar> são antigas 
+conhecidas de quem já brincou ou sofreram com o <command>Back Orifice</command>, 
+<command>Win Crack</command>, <command>NetBus</command> (quem nunca passou pela fase de ter 
 uma lista com mais de 100 netmasks e conseguir encontrar centenas de máquinas
 por dia infectadas pelo BO? :-).
  <p>
 No código acima a única coisa que precisa fazer para adicionar mais portas é 
-inseri-las na variável <var>TROJAN_PORTS</var> e executar o programa. O 
+inseri-las na variável <envar>TROJAN_PORTS</envar> e executar o programa. O 
 laço do <tt>for</tt> executará as 2 regras para cada porta processada 
 (economizando linhas e linhas de regras, me livrando de uma LER e poupando muitos
 bytes neste guia ;-).
  <p>
 Dependendo do número de portas alvo, este código pode ser muito simplificado 
-usando o recurso multiport do <prgn>iptables</prgn> (veja 
-<ref id="fw-iptables-mod-multiport"> para detalhes). 
+usando o recurso multiport do <command>iptables</command> (veja 
+<xref linkend="fw-iptables-mod-multiport"> para detalhes). 
 
 
 <sect1 id="fw-iptables-exemplo-snat">Conectando sua rede interna a Internet
@@ -95,7 +95,7 @@ echo "1" >/proc/sys/net/ipv4/ip_forward
 Esta seção possui um exemplo mais elaborado de firewall que servirá para 
 máquinas conectadas via ppp com uma rede interna conectada via Masquerading. 
 Este exemplo não é tão complexo e cobre as expectativas mais comuns de pessoas 
-que gostam de explorar os potenciais de rede no <prgn>Linux</prgn> ou satisfazer 
+que gostam de explorar os potenciais de rede no <command>Linux</command> ou satisfazer 
 sua curiosidade. Ele poderá ser facilmente adaptado para atender outro tipo 
 de necessidade. A configuração assumida é a seguinte: 
 <enumlist compact>
@@ -108,18 +108,18 @@ outra é <file>ppp0</file> que é a interface Internet.
 Qualquer acesso externo a máquinas da rede interna é bloqueado. 
 
  <item>
-Os usuários da rede local tem acesso livre ao servidor <prgn>Linux</prgn>. 
+Os usuários da rede local tem acesso livre ao servidor <command>Linux</command>. 
 
  <item>
 Qualquer acesso externo a máquina do firewall é bloqueado, exceto 
-conexões para o serviço <prgn>Apache</prgn> (<tt>httpd</tt>). Outras 
+conexões para o serviço <command>Apache</command> (<tt>httpd</tt>). Outras 
 tentativas de conexões devem ser explicitamente registradas nos logs 
 do sistema para conhecimento do administrador.
 
  <item>
 Todos os usuários possuem acesso livre a Internet via Masquerading, exceto que 
-o acesso para o serviço www deve ser obrigatoriamente feito via <prgn>squid</prgn>, 
-e o servidor smtp a ser usado deverá ser o do firewall <prgn>Linux</prgn>. 
+o acesso para o serviço www deve ser obrigatoriamente feito via <command>squid</command>, 
+e o servidor smtp a ser usado deverá ser o do firewall <command>Linux</command>. 
 
  <item>
 Prioridades serão estabelecidas para os serviços de telnet, IRC,talk e DNS.

@@ -3,7 +3,7 @@
 A tabela <em>mangle</em> serve para especificar ações especiais para o tratamento 
 do tráfego que atravessa os chains. Nesta tabela existem cincos chains: 
 <em>PREROUTING</em>, <em>POSTROUTING</em>, <em>INPUT</em>, <em>OUTPUT</em> e
-<em>FORWARD</em> (veja <ref id="fw-iptables-tabelas"> para 
+<em>FORWARD</em> (veja <xref linkend="fw-iptables-tabelas"> para 
 maiores detalhes). 
  <p>
 Em geral, cada um deste chain é processado antes do chain correspondente 
@@ -17,7 +17,7 @@ classificar e aumentar consideravelmente a velocidade de tráfego considerados
 em tempo real. Mesmo após o tráfego ser estabelecido, os chains da tabela
 mangle continuam ativos para garantir que as opções especiais relacionadas
 com a conexão continuem fazendo efeito (veja os exemplos de 
-<ref id="fw-iptables-path">).
+<xref linkend="fw-iptables-path">).
 
 
 <sect1 id="fw-iptables-mangle-TOS">Especificando o tipo de serviço

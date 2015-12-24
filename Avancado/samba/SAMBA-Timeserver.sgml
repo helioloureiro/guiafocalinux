@@ -3,9 +3,9 @@
 O samba pode atuar como um servidor de data/hora ajustando o horário de 
 suas estações de trabalho com o servidor da rede. 
  <p>
-As estações clientes poderão executar o comando <prgn>net</prgn> para sincronizar
+As estações clientes poderão executar o comando <command>net</command> para sincronizar
 seu relógio durante a inicialização do Windows, ou durante o logon da rede através
-do script de logon, caso tenha configurado o servidor <prgn>samba</prgn> para 
+do script de logon, caso tenha configurado o servidor <command>samba</command> para 
 logon em domínios NT. 
 
 
@@ -20,7 +20,7 @@ time server = yes
 
 </example>
 Para sincronizar a data/hora das estações de trabalho usando o servidor 
-samba, veja <ref id="s-samba-s-timeserver-c">. 
+samba, veja <xref linkend="s-samba-s-timeserver-c">. 
 Caso o seu servidor SAMBA também seja o servidor de autenticação PDC da 
 rede, a melhor forma de se fazer isto é colocar o comando 
 <tt>net time \\servidor_SAMBA /set /yes</tt> em um script que será 

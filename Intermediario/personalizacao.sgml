@@ -1,16 +1,16 @@
 <chapt id="pers">Personalização do Sistema
  <p>
 Este capítulo ensina como personalizar algumas características de seu 
-sistema <prgn>GNU/Linux</prgn>. 
+sistema <command>GNU/Linux</command>. 
 
 
 <sect id="pers-varamb">Variáveis de Ambientes
  <p>
 É um método simples e prático que permite a especificação de opções de 
 configuração de programas sem precisar mexer com arquivos no disco ou 
-opções. Algumas variáveis do <prgn>GNU/Linux</prgn> afetam o comportamento 
+opções. Algumas variáveis do <command>GNU/Linux</command> afetam o comportamento 
 de todo o Sistema Operacional, como o idioma utilizado e o path 
-<![ %INICIANTE [ (veja <ref id="run-path">) ]]>. 
+<![ %INICIANTE [ (veja <xref linkend="run-path">) ]]>. 
 Variáveis de ambientes são nomes que contém algum valor e tem a 
 forma <tt>Nome=Valor</tt>. As variáveis de ambiente são individuais para 
 cada usuário do sistema ou consoles virtuais e permanecem residentes na 
@@ -18,12 +18,12 @@ memória RAM até que o usuário saia do sistema (logo-off) ou até que o
 sistema seja desligado. 
  <p>
 As variáveis de ambiente são visualizadas/criadas através do comando 
-<prgn>set</prgn> ou <tt>echo $NOME</tt> (apenas visualiza) e exportadas para 
+<command>set</command> ou <tt>echo $NOME</tt> (apenas visualiza) e exportadas para 
 o sistemas com o comando <tt>export NOME=VALOR</tt>. 
  <p>
-Nos sistemas <prgn>Debian</prgn>, o local usado para especificar variáveis 
+Nos sistemas <command>Debian</command>, o local usado para especificar variáveis 
 de ambiente é o <file>/etc/environment</file> 
-(veja <ref id="pers-environment">). Todas as variáveis especificadas neste 
+(veja <xref linkend="pers-environment">). Todas as variáveis especificadas neste 
 arquivos serão inicializadas e automaticamente exportadas na inicialização 
 do sistema. 
 <![ %EXEMPLO [
@@ -41,7 +41,7 @@ O idioma usado em seu sistema pode ser modificado facilmente através
 das variáveis de ambiente. Atualmente a maioria dos programas estão 
 sendo <em>localizados</em>. A localização é um recurso que especifica 
 arquivos que contém as mensagens do programas em outros idiomas. Você 
-pode usar o comando <prgn>locale</prgn> para listar as variáveis de 
+pode usar o comando <command>locale</command> para listar as variáveis de 
 localização do sistema e seus respectivos valores. As principais 
 variáveis usadas para determinar qual idioma os programas 
 <tt>localizados</tt> utilizarão são: 
@@ -78,12 +78,12 @@ de inicialização <file>.bash_profile</file>, <file>.bashrc</file> ou
 de localização personalizadas serão carregadas. 
  <p>
 Siga as instruções a seguir de acordo com a versão de sua distribuição 
-<prgn>Debian</prgn>:
+<command>Debian</command>:
 <taglist compact>
  <tag>Debian 4.0</tag>
  <item>
 Acrescente a linha <tt>pt_BR ISO-8859-1</tt> no arquivo 
-<file>/etc/locale.gen</file>, rode o utilitário <prgn>locale-gen</prgn> para 
+<file>/etc/locale.gen</file>, rode o utilitário <command>locale-gen</command> para 
 gerar os locales. Agora acrescente as variáveis de localização no arquivo 
 <file>/etc/locale.def</file> seguindo a forma:
 <example>
@@ -94,7 +94,7 @@ export LC_MESSAGES=pt_BR
 </example>
 Note que o arquivo <file>/etc/environment</file> também pode ser usado para 
 tal tarefa, mas o <file>locales.def</file> foi criado especialmente para 
-lidar com variáveis de localização na <prgn>Debian</prgn> 4.0. 
+lidar com variáveis de localização na <command>Debian</command> 4.0. 
 
 </taglist>
 Para as mensagens e programas do X-Window usarem 
@@ -133,7 +133,7 @@ configuradas automaticamente. ]]>
  <p>
 Permite criar um apelido a um comando ou programa. Por exemplo, se você 
 gosta de digitar (como eu) o comando <tt>ls --color=auto</tt> para 
-ver uma listagem longa e colorida, você pode usar o comando <prgn>alias</prgn> 
+ver uma listagem longa e colorida, você pode usar o comando <command>alias</command> 
 para facilitar as coisas digitando: <tt>alias ls='ls --color=auto'</tt> 
 (não se esqueça da meia aspa 'para identificar o comando'). Agora quando 
 você digitar <tt>ls</tt>, a listagem será mostrada com cores. 
@@ -143,7 +143,7 @@ final da linha de comando do alias: <tt>ls --color=auto -la</tt>, e a
 listagem também será mostrada em cores. 
  <p>
 Se quiser utilizar isto toda vez que entrar no sistema, veja 
-<ref id="pers-bashprofile"> e <ref id="pers-bashrc">.
+<xref linkend="pers-bashprofile"> e <xref linkend="pers-bashrc">.
 
 
 <sect id="pers-profile">Arquivo <file>/etc/profile</file>
@@ -156,7 +156,7 @@ Este arquivo é lido antes do arquivo de configuração pessoal de cada
 usuário (<file>.profile</file>(root) e <file>.bash_profile</file>).
  <p>
 Quando é carregado através de um shell que requer login (nome e senha), o 
-<prgn>bash</prgn> procura estes arquivos em seqüência e executa 
+<command>bash</command> procura estes arquivos em seqüência e executa 
 os comandos contidos, caso existam:
 <enumlist compact>
  <item>
@@ -175,23 +175,23 @@ em seu diretório de usuário, ele processará o <file>/etc/profile</file> e ap�
 o <file>~/.bash_profile</file>, mas nunca processará o <file>~/.bash_login</file>
 (a menos que o <file>~/.bash_profile</file> seja apagado ou renomeado). 
  <p>
-Caso o <prgn>bash</prgn> seja carregado através de um shell que não requer 
+Caso o <command>bash</command> seja carregado através de um shell que não requer 
 login (um terminal no X, por exemplo), o seguinte arquivo é executado: 
 <file>~/.bashrc</file>.
 <![ %OBS [
  <p>
 Observação: Nos sistemas Debian, o profile do usuário root está configurado 
 no arquivo <file>/root/.profile</file>. A razão disto é porque se o 
-<prgn>bash</prgn> for carregado através do comando <prgn>sh</prgn>, ele 
+<command>bash</command> for carregado através do comando <command>sh</command>, ele 
 fará a inicialização clássica deste shell lendo primeiro o 
 arquivo <file>/etc/profile</file> e após o <file>~/.profile</file> e 
 ignorando o <file>.bash_profile</file> e <file>.bashrc</file> que 
-são arquivos de configuração usados somente pelo <prgn>Bash</prgn>. ]]>
+são arquivos de configuração usados somente pelo <command>Bash</command>. ]]>
 <![ %EXEMPLO [
 Exemplo, inserindo a linha <tt>mesg y</tt> no arquivo 
 <file>/etc/profile</file> permite que todos os usuários do sistema recebam 
 pedidos de <file>talk</file> de outros usuários. Caso um usuário não 
-quiser receber pedidos de <prgn>talk</prgn>, basta somente adicionar 
+quiser receber pedidos de <command>talk</command>, basta somente adicionar 
 a linha <tt>mesg n</tt> no arquivo pessoal <file>.bash_profile</file>. ]]> 
 
 
@@ -205,8 +205,8 @@ oculto pois tem um "." no inicio do nome.
 <![ %EXEMPLO [
  <p>
 Por exemplo colocando a linha: <tt>alias ls='ls --colors=auto'</tt> no <file> 
-.bash_profile</file>, cria um apelido para o comando <prgn>ls --colors=auto
-</prgn> usando <prgn>ls</prgn>, assim toda vez que você digitar <tt>ls</tt> 
+.bash_profile</file>, cria um apelido para o comando <command>ls --colors=auto
+</command> usando <command>ls</command>, assim toda vez que você digitar <tt>ls</tt> 
 será mostrada a listagem colorida. ]]>
 
 
@@ -224,7 +224,7 @@ arquivo oculto pois tem um "." no inicio do nome.
 <sect id="pers-hushlogin">Arquivo <file>.hushlogin</file>
  <p>
 Deve ser colocado no diretório pessoal do usuário. Este arquivo faz o 
-<prgn>bash</prgn> pular as mensagens do <file>/etc/motd</file>, número 
+<command>bash</command> pular as mensagens do <file>/etc/motd</file>, número 
 de e-mails, etc. Exibindo imediatamente o aviso de comando após 
 a digitação da senha.
 

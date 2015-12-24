@@ -6,7 +6,7 @@ positivos/negativos de sua utilização para aumentar a segurança
 quando usado junto com o mecanismo de controle de acesso. 
  <p>
 O servidor identd escolhido para ser descrito nesta seção do guia foi o 
-<prgn>oidentd</prgn>. 
+<command>oidentd</command>. 
 
 
 <sect id="s-ident-intro">Introdução
@@ -16,7 +16,7 @@ determinada conexão e o sistema operacional usado. Ele opera na porta <tt>113</
 por padrão e retorna nomes de usuários localmente válidos, e é consultado por 
 serviços conhecidos como <tt>IRC</tt>, alguns servidores <tt>ftp</tt>, 
 <tt>smtp</tt> e outros. Outro benefício é a utilização de mecanismos 
-de restrições de acesso baseadas em usuários/endereçoIP (o <prgn>tcpd</prgn> é 
+de restrições de acesso baseadas em usuários/endereçoIP (o <command>tcpd</command> é 
 um exemplo de serviço que permite esta característica). A sintaxe usada para fazer 
 tal restrição é universal: <em>usuário@endereçoIP</em> onde normalmente 
 aparece o <em>endereçoIP</em> que é usado para bloquear/permitir o acesso. 
@@ -25,12 +25,12 @@ No momento da conexão, o endereço IP é checado pra ver se confere, e o servid
 Ident da máquina que está efetuando a conexão é consultado para checar se o 
 usuário que tem acesso é o mesmo especificado no controle de acesso. Isso aumenta 
 um pouco a segurança do sistema, mas existem algumas implicações e pontos frágeis 
-do <prgn>identd</prgn> que serão explicados no decorrer deste capítulo. 
+do <command>identd</command> que serão explicados no decorrer deste capítulo. 
 
 
 <sect1 id="s-ident-versao">Versão
  <p>
-É assumido que esteja usando a versão 1.7 do <prgn>oidentd</prgn>. As explicações 
+É assumido que esteja usando a versão 1.7 do <command>oidentd</command>. As explicações 
 contidas aqui podem funcionar para versões posteriores, mas é recomendável que 
 leia a documentação sobre modificações no programa (changelog) em busca de 
 mudanças que alterem o sentido das explicações fornecidas aqui.  
@@ -38,14 +38,14 @@ mudanças que alterem o sentido das explicações fornecidas aqui.
 
 <sect1 id="s-ident-contribuindo">Contribuindo
  <p>
-A Home page do projeto <prgn>oidentd</prgn> é <file>http://ojnk.sourceforge.net</file>
+A Home page do projeto <command>oidentd</command> é <file>http://ojnk.sourceforge.net</file>
 Sugestões, críticas, comentários, etc., podem ser enviados para 
 <email>odin@numb.org</email>. 
 
 
 <sect1 id="s-ident-caracteristicas">Características
  <p>
-Características do <prgn>oidentd</prgn>: 
+Características do <command>oidentd</command>: 
 <list compact>
  <item>
 Pode ser executado tanto como <em>daemon</em> quanto via <em>inetd</em> (este 
@@ -77,29 +77,29 @@ Utilitários:
  <item><tt>oidentd</tt> - Servidor identd
 </list>
 
-Arquivos de configuração do <prgn>oidentd</prgn>: 
+Arquivos de configuração do <command>oidentd</command>: 
 <taglist compact>
  <tag>identd.spoof</tag>
  <item>
 Controla o spoof (falsificação) de nomes de usuários. O formato deste arquivo 
 são dois campos separados por ":", o primeiro contendo a identificação original do 
-usuário e o segundo o nome que será enviado pelo <prgn>identd</prgn>. O 
+usuário e o segundo o nome que será enviado pelo <command>identd</command>. O 
 segundo campo pode ser omitido, neste caso a resposta de identificação é 
 lida através do arquivo <file>~/.ispoof</file>. 
  <p>
 Este arquivo deve ter como dono o usuário do primeiro campo do 
 <file>identd.spoof</file> e a identificação retornada será a contida no arquivo. 
-Esteja certo que o daemon <prgn>oidentd</prgn> tem permissões para acessar este 
+Esteja certo que o daemon <command>oidentd</command> tem permissões para acessar este 
 arquivo, caso contrário nenhum spoof de identidade será realizado. 
  <p>
-Para o spoof ser habilitado, o serviço <prgn>oidentd</prgn> deverá ser iniciado 
+Para o spoof ser habilitado, o serviço <command>oidentd</command> deverá ser iniciado 
 com a opção <em>-s</em> ou <em>-S</em> (veja mais detalhes 
-<ref id="s-ident-opcoescmd">). 
+<xref linkend="s-ident-opcoescmd">). 
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Certifique-se de colocar as permissões adequadas para que 
 somente o daemon <em>oidentd</em> tenha acesso a este arquivo (de acordo com 
-o <em>usuário</em> e <em>grupo</em> usado para executar o <prgn>oidentd</prgn>), os 
+o <em>usuário</em> e <em>grupo</em> usado para executar o <command>oidentd</command>), os 
 detalhes de mapeamento de nomes podem ser perigosos em mãos erradas, e garantir 
 o sucesso de uma conexão indesejável. ]]> 
 
@@ -119,16 +119,16 @@ deste arquivo é o seguinte:
 As conexões vindas dos endereços da primeira coluna são mapeados para o nome/sistema
 da segunda/terceira coluna e enviados a máquina que requisitou a identificação. 
 Para o suporta a mapeamento de usuários via Masquerading funcionar, o daemon 
-<prgn>oidentd</prgn> deverá ser iniciado com a opção <em>-m</em>.
+<command>oidentd</command> deverá ser iniciado com a opção <em>-m</em>.
 
 </taglist>
 
 
 <sect1 id="s-ident-hwreq">Requerimentos de Hardware
  <p>
-O <prgn>oidentd</prgn> requer pouca memória e pode ser executado sem 
+O <command>oidentd</command> requer pouca memória e pode ser executado sem 
 problemas em um sistema com o mínimo de memória necessária para rodar o kernel 
-do <prgn>Linux</prgn> (2 MB para 2.2 e 4MB para as séries 2.4 do kernel). Mesmo 
+do <command>Linux</command> (2 MB para 2.2 e 4MB para as séries 2.4 do kernel). Mesmo 
 assim é interessante considerar 1 MB a mais que o mínimo requerido pelo kernel 
 para uma folga na execução do serviço de identificação junto a outros do sistema. 
 
@@ -136,27 +136,27 @@ para uma folga na execução do serviço de identificação junto a outros do si
 <sect1 id="s-ident-logs">Arquivos de log criados pelo Ident
  <p>
 Mensagens informativas, erros, e outras sobre execuções do serviço 
-<prgn>oidentd</prgn> são enviadas ao <prgn>syslog</prgn> do sistema. 
+<command>oidentd</command> são enviadas ao <command>syslog</command> do sistema. 
 
 
 <sect1 id="s-ident-install">Instalação
  <p>
-Para instalar o daemon do <prgn>oidentd</prgn> digite:
+Para instalar o daemon do <command>oidentd</command> digite:
 <example>
 apt-get install oidentd
 
 </example>
 Por padrão o serviço é instalado para ser executado como daemon, para executa-lo 
-através do <prgn>inetd</prgn> siga os passos em <ref id="s-ident-install-inetd">. 
+através do <command>inetd</command> siga os passos em <xref linkend="s-ident-install-inetd">. 
 O serviço será executado sob o usuário <tt>nobody</tt> e grupo <tt>nogroup</tt> 
 por motivos de segurança, alterações de nome/grupo que executará o 
-<prgn>oidentd</prgn> podem ser feitas no arquivo 
+<command>oidentd</command> podem ser feitas no arquivo 
 <file>/etc/defaults/oidentd</file> ou <file>/etc/init.d/oidentd</file>.
 
 
 <sect1 id="s-ident-install-inetd">Instalação via Inetd
  <p>
-Siga os procedimentos de instalação em <ref id="s-ident-install"> e 
+Siga os procedimentos de instalação em <xref linkend="s-ident-install"> e 
 os seguintes passos: 
 <enumlist compact>
  <item>
@@ -166,33 +166,33 @@ Edite o arquivo <file>/etc/inetd.conf</file> e adicione a seguinte linha:
 auth		stream	tcp	nowait.40	nobody.nogroup	/usr/sbin/oidentd oidentd -q -i -t 40
 
 </example> 
-A opção <em>-i</em> permite o <prgn>oidentd</prgn> aceitar requisições via 
-<prgn>inetd</prgn> (sem ela ele será executado no modo daemon). As opções 
+A opção <em>-i</em> permite o <command>oidentd</command> aceitar requisições via 
+<command>inetd</command> (sem ela ele será executado no modo daemon). As opções 
 <em>-s</em> e <em>-m</em> devem também ser especificadas caso desejar os 
 recursos de falsificação de identificação (mapeamento de nomes) e masquerading
-(veja <ref id="s-ident-opcoescmd">). Aqui foi definido um parâmetro máximo de 
+(veja <xref linkend="s-ident-opcoescmd">). Aqui foi definido um parâmetro máximo de 
 40 requisições por minuto (típico de um serviço poucos usado no sistema), caso
 este limite seja ultrapassado o serviço será desativado na seção atual do 
-<prgn>inetd</prgn>). <![ %CAPJUNTOS [ Os outros campos são descritos em 
-<ref id="rede-servicos-inetd-c">. ]]>
+<command>inetd</command>). <![ %CAPJUNTOS [ Os outros campos são descritos em 
+<xref linkend="rede-servicos-inetd-c">. ]]>
 
  <item>
-Interrompa a execução do daemon do <prgn>oidentd</prgn> atual dando um 
+Interrompa a execução do daemon do <command>oidentd</command> atual dando um 
 <tt>./etc/init.d/oidentd stop</tt>. 
 
  <item>
 Remova os links dos runlevels em <file>/etc/rc?.d</file> que iniciam/interrompem 
 a execução do daemon com o comando: <tt>update-rc.d -f oidentd remove</tt>. 
-Neste ponto o daemon <prgn>oidentd</prgn> não será mais iniciado. Para reverter 
+Neste ponto o daemon <command>oidentd</command> não será mais iniciado. Para reverter 
 esta ação, execute o comando: <tt>udpate-rc.d oidentd defaults</tt>. 
  <item>
-De um comando <tt>killall -HUP inetd</tt> para fazer o serviço <prgn>inetd</prgn> 
+De um comando <tt>killall -HUP inetd</tt> para fazer o serviço <command>inetd</command> 
 recarregar o arquivo de configuração <file>/etc/inetd.conf</file>. O serviço 
 de identd já estará funcionando. 
 </enumlist>
 <![ %OBS [
  <p>
-<strong>OBS:</strong> A configuração da distribuição <prgn>Debian</prgn> 
+<strong>OBS:</strong> A configuração da distribuição <command>Debian</command> 
 permite detectar quando o serviço ident (auth) está sendo executado no 
 <file>/etc/inetd.conf</file> através de seus scripts de inicialização. 
 Você poderá fazer as coisas manualmente baseado nisso se desejar. ]]>
@@ -200,32 +200,32 @@ Você poderá fazer as coisas manualmente baseado nisso se desejar. ]]>
 
 <sect1 id="s-ident-tcpwrappers">Usando tcpwrappers com oidentd
  <p>
-Especifique a opção <em>-W</em> para fazer o <prgn>oidentd</prgn> 
+Especifique a opção <em>-W</em> para fazer o <command>oidentd</command> 
 utilizar o mecanismo de acesso em <file>hosts.allow</file> e 
 <file>hosts.deny</file> para garantir/bloquear ao serviço de acordo 
 com endereços/hosts especificados. 
 <![ %OBS [
  <p>
-<strong>OBS</strong> O <prgn>oidentd</prgn> é somente 
+<strong>OBS</strong> O <command>oidentd</command> é somente 
 executado após a conferência de todos os parâmetros de endereços 
 nestes arquivos de acesso, não utilize a sintaxe "usuário@endereço" 
-como endereço na linha de acesso do serviço <prgn>oidentd</prgn> 
+como endereço na linha de acesso do serviço <command>oidentd</command> 
 (por motivos óbvios). ]]>
 
 
 <sect1 id="s-ident-rodando">Iniciando o servidor/reiniciando/recarregando a 
 configuração
  <p>
-O arquivo que controla o funcionamento do daemon do <prgn>oidentd</prgn> é 
+O arquivo que controla o funcionamento do daemon do <command>oidentd</command> é 
 controlado pelo arquivo <file>/etc/init.d/oidentd</file>. 
  <p>
-A execução do <prgn>oidentd</prgn> através de <prgn>inetd</prgn> é 
+A execução do <command>oidentd</command> através de <command>inetd</command> é 
 automática quando é feita uma requisição para a porta <em>113</em>. 
 
 
 <sect1 id="s-ident-opcoescmd">Opções de linha de comando
  <p>
-Opções de linha de comando do <prgn>oidentd</prgn>:
+Opções de linha de comando do <command>oidentd</command>:
 <list compact>
  <item>
 <tt>-a [endereçoIP]</tt> - Espera por requisições somente no nome ou endereço IP 
@@ -254,10 +254,10 @@ MASQUERADE para o computador na porta especificada.
 <tt>-F</tt> - O mesmo que <em>-f</em>, mas usa a porta 113 como padrão. 
 
  <item>
-<tt>-g [gid]</tt> - Executa o daemon do <prgn>oidentd</prgn> no grupo especificado. 
+<tt>-g [gid]</tt> - Executa o daemon do <command>oidentd</command> no grupo especificado. 
 
  <item>
-<tt>-i</tt> - Permite ser executado através do <prgn>inetd</prgn>.
+<tt>-i</tt> - Permite ser executado através do <command>inetd</command>.
 
  <item>
 <tt>-m</tt> - Ativa o suporta a IP Masquerading. 
@@ -282,7 +282,7 @@ a 113 - serviço auth).
 
  <item>
 <tt>-P [proxy]</tt> - O proxy especificado (endereço IP) faz redirecionamento 
-de conexões para a máquina executando o <prgn>oidentd</prgn>. 
+de conexões para a máquina executando o <command>oidentd</command>. 
 
  <item>
 <tt>-r</tt> - Retorna respostas aleatórias de identd. As opções 
@@ -290,7 +290,7 @@ de conexões para a máquina executando o <prgn>oidentd</prgn>.
 
  <item>
 <tt>-s</tt> - Permite utilizar os mecanismos de spoofing (falsificação) do 
-<prgn>oidentd</prgn>. 
+<command>oidentd</command>. 
 
  <item>
 <tt>-S</tt> - O mesmo que <em>-s</em> mas permitem todos os usuários EXCETO os 
@@ -300,12 +300,12 @@ especificados em <file>/etc/identd.spoof</file> falsificarem suas respostas.
 <tt>-t [segundos]</tt> - Espera o tempo especificado antes de ser encerrado. 
 
  <item>
-<tt>-T [segundos]</tt> - O <prgn>oidentd</prgn> permanecerá aceitando 
+<tt>-T [segundos]</tt> - O <command>oidentd</command> permanecerá aceitando 
 conexões quando é executado com a opção <em>-w</em> pelo número de segundos 
 especificado. 
 
  <item>
-<tt>-u [uid]</tt> - Executa o servidor <prgn>oidentd</prgn> com a uid 
+<tt>-u [uid]</tt> - Executa o servidor <command>oidentd</command> com a uid 
 especificada. 
 
  <item>
@@ -319,18 +319,18 @@ especificada.
 
  <item>
 <tt>-W</tt> - Utiliza os mecanismos de acesso <file>hosts.allow</file> e 
-<file>hosts.deny</file> do <prgn>tcpd</prgn>.
+<file>hosts.deny</file> do <command>tcpd</command>.
 
  <item>
-<tt>-h</tt> - Mostra as opções de linha de comando do <prgn>oidentd</prgn>. 
+<tt>-h</tt> - Mostra as opções de linha de comando do <command>oidentd</command>. 
 
 </list>
 
 
 <sect1 id="s-ident-exemplo">Exemplos
  <p>
-Não faz muito sentido exemplos de arquivo de configuração do <prgn>oidentd</prgn> 
-por estes serem muito simples e estarem bem explicados em <ref id="s-ident-ficha">.
+Não faz muito sentido exemplos de arquivo de configuração do <command>oidentd</command> 
+por estes serem muito simples e estarem bem explicados em <xref linkend="s-ident-ficha">.
 No entanto acho interessante mostrar alguns exemplos de configurações do 
 <file>hosts.allow</file> e <file>hosts.deny</file> fazendo uso dos recursos 
 de restrições baseadas em usuário@endereço : 

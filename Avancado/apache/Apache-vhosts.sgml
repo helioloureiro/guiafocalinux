@@ -9,13 +9,13 @@ Existem 2 métodos de virtual hosts:
  <item>
 <tt>Virtual Hosts baseados em IP</tt> - Requer um endereço IP diferente 
 para cada site. Este poderá ser um IP real (da interface de rede) ou um 
-apelido <![ %CAPJUNTOS [ (veja <ref id="cfgrede-ipalias">)]]>, o que 
+apelido <![ %CAPJUNTOS [ (veja <xref linkend="cfgrede-ipalias">)]]>, o que 
 interessa é que deve haver um endereço IP diferente para cada site. O número 
 de sites servidos estará limitado a quantidade de endereços IP disponíveis em 
-sua classe de rede. Veja <ref id="s-apache-vhosts-ip"> para detalhes de como 
+sua classe de rede. Veja <xref linkend="s-apache-vhosts-ip"> para detalhes de como 
 construir um virtual host deste tipo. 
  <p>
-O <prgn>apache</prgn> foi um dos primeiros servidores web a incluir suporte a 
+O <command>apache</command> foi um dos primeiros servidores web a incluir suporte a 
 virtual hosts baseados em IP. 
  
  <item>
@@ -24,18 +24,18 @@ identificar os sites servidos e requerem somente um endereço IP.
 Desta maneira é possível servir um número ilimitado de sites virtuais. 
 O navegador do cliente deve suportar os cabeçalhos necessários para 
 garantir o funcionamento deste recurso (praticamente todos os navegadores 
-atuais possuem este suporte). Veja <ref id="s-apache-vhosts-nome"> para 
+atuais possuem este suporte). Veja <xref linkend="s-apache-vhosts-nome"> para 
 detalhes de como construir um virtual host deste tipo. 
 
 </list>
-As explicações desta seção são baseadas na documentação do <prgn>Apache</prgn>. 
+As explicações desta seção são baseadas na documentação do <command>Apache</command>. 
 
 
 <sect1 id="s-apache-vhosts-ip">Virtual hosts baseados em IP
  <p>
 Existem duas maneiras de rodar este tipo de host virtual: Através 
-de daemons <prgn>httpd</prgn> separados ou em um único daemon 
-<prgn>httpd</prgn> usando a diretiva &lt;VirtualHost&gt;. 
+de daemons <command>httpd</command> separados ou em um único daemon 
+<command>httpd</command> usando a diretiva &lt;VirtualHost&gt;. 
  <p>
 As vantagens do uso de <em>daemons separados</em> para servir requisições é 
 a proteção sob <em>UID</em> e <em>GID</em> diferente dos outros 
@@ -78,7 +78,7 @@ ServerAdmin webmaster@site.com.br
 Qualquer diretiva dentro de &lt;VirtualHost&gt; controlarão terão efeito 
 no site virtual especificado. Quando uma diretiva não for especificada 
 dentro de &lt;VirtualHost&gt;, serão usados os valores padrões 
-especificados no arquivo de configuração do <prgn>Apache</prgn> 
+especificados no arquivo de configuração do <command>Apache</command> 
 (como a diretiva <em>ServerAdmin webmaster@site.com.br</em> que será usado 
 como padrão na configuração de <em>www.site2.com.br</em>). 
  <p>
@@ -94,15 +94,15 @@ quando o cliente digita um endereço qualquer.
 <strong>OBS2:</strong> Utilize sempre que possível endereços IP em 
 configurações críticas, assim os serviços não serão tão vulneráveis 
 a possíveis falsificações ou erros. <![ %CAPJUNTOS [ Veja 
-<ref id="rede-dns-a-hostconf"> e <ref id="fw-iptables-outras-ipspoof">. ]]>
-Leia também a seção <ref id="s-apache-vhosts-dnssec">. 
+<xref linkend="rede-dns-a-hostconf"> e <xref linkend="fw-iptables-outras-ipspoof">. ]]>
+Leia também a seção <xref linkend="s-apache-vhosts-dnssec">. 
  <p>
 <strong>OBS3:</strong> Não permita que outros usuários a não ser o 
-root e o dono do processo <prgn>Apache</prgn> (especificado pela 
+root e o dono do processo <command>Apache</command> (especificado pela 
 diretiva <em>User</em>) tenham acesso de gravação aos logs gerados 
 pelo servidor, pois os dados podem ser apagados ou criados links 
 simbólicos para binários do sistema que serão destruídos quando o 
-<prgn>Apache</prgn> gravar dados. Alguns binários e bibliotecas são 
+<command>Apache</command> gravar dados. Alguns binários e bibliotecas são 
 essenciais para o funcionamento do sistema. ]]>
 
 
@@ -181,11 +181,11 @@ Isto deve ser feito via DNS <![ %CONSTRUCAO [ (veja **********) ]]> ou nos arqui
 <strong>OBS1:</strong> Utilize sempre que possível endereços IP em 
 configurações críticas, assim os serviços não serão tão vulneráveis 
 a possíveis falsificações ou erros. <![ %CAPJUNTOS [ Veja 
-<ref id="rede-dns-a-hostconf"> e <ref id="fw-iptables-outras-ipspoof">. ]]> 
-Leia também a seção <ref id="s-apache-vhosts-dnssec">. 
+<xref linkend="rede-dns-a-hostconf"> e <xref linkend="fw-iptables-outras-ipspoof">. ]]> 
+Leia também a seção <xref linkend="s-apache-vhosts-dnssec">. 
  <p>
 <strong>OBS2:</strong> Não permita que outros usuários a não ser o 
-root e o dono do processo <prgn>Apache</prgn> (especificado pela 
+root e o dono do processo <command>Apache</command> (especificado pela 
 diretiva <em>User</em>) tenha acesso de gravação aos logs gerados 
 pelo servidor. Pois os dados podem ser apagados ou criados links 
 para binários do sistema que serão destruídos quando o apache 
@@ -216,7 +216,7 @@ pode acontecer com a diretiva abaixo:
 Outra situação, que impede o funcionamento do servidor Web, é quando o 
 servidor DNS está em manutenção ou por algum outro motivo não 
 pode resolver o endereço IP de um nome especificado (como <tt>www.site1.com.br</tt>). 
-O <prgn>apache</prgn> precisa saber qual é o seu endereço IP para ser executado. 
+O <command>apache</command> precisa saber qual é o seu endereço IP para ser executado. 
 Veja a próxima modificação: 
 <example>
 &lt;VirtualHost 192.168.1.1&gt;
@@ -227,7 +227,7 @@ Veja a próxima modificação:
 
 </example>
 Na configuração acima usamos o IP do servidor para especificar o virtual host. 
-O <prgn>apache</prgn> tentará fazer o DNS reverso para determinar qual nome 
+O <command>apache</command> tentará fazer o DNS reverso para determinar qual nome 
 é servido por aquele endereço IP (<tt>www.site1.com.br</tt>). Se ele falhar, 
 somente a seção &lt;VirtualHost&gt; correspondente será desativada. Isto 
 já é uma melhoria sobre a primeira configuração. O nome do servidor 
@@ -248,7 +248,7 @@ evita o acesso de qualquer usuário para a falsificação de endereços.
 Este arquivo também é útil caso a pesquisa DNS falhe (quando a ordem de pesquisa 
 for do servidor DNS para o arquivo <file>hosts</file> no arquivo 
 <file>/etc/host.conf</file>), pois de qualquer forma o nome será resolvido e 
-o servidor <prgn>Apache</prgn> será executado. 
+o servidor <command>Apache</command> será executado. 
 
  <item>
 Evite dar poderes a outros administradores manipularem seu próprio 

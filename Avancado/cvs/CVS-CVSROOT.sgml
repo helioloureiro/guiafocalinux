@@ -13,35 +13,35 @@ oferecem uma boa compreensão do seu conteúdo.
 Este arquivo é segue os padrões do arquivos de configuração e possui alguns parâmetros
 que controlam o comportamento do CVS. Segue uma lista deles:
 <taglist compact>
- <tag><var>SystemAuth</var></tag>
+ <tag><envar>SystemAuth</envar></tag>
   <item>
 Define se será utilizado a autenticação via <file>/etc/passwd</file> quando o 
 método <em>pserver</em> for utilizado. Note que se o arquivo <file>passwd</file> 
-for criado no <file>CVSROOT</file>, o <var>SystemAuth</var> será definido 
+for criado no <file>CVSROOT</file>, o <envar>SystemAuth</envar> será definido 
 automaticamente para <tt>no</tt>. 
  <p>
 Exemplo: <tt>SystemAuth=yes</tt>.
 
- <tag><var>LockDir</var></tag>
+ <tag><envar>LockDir</envar></tag>
   <item>
 Especifica o diretório onde serão gravados os arquivos de lock. Caso não seja
 especificado, será usado o diretório do CVS. 
  <p>
 Exemplo: <tt>LockDir=/var/lock/cvs</tt>
 
- <tag><var>TopLevelAdmin</var></tag>
+ <tag><envar>TopLevelAdmin</envar></tag>
   <item>
 Permite criar ou não um diretório chamado <file>CVS</file> no root do 
 diretório de trabalho durante o <tt>cvs checkout</tt>.
 
- <tag><var>LogHistory</var></tag>
+ <tag><envar>LogHistory</envar></tag>
   <item>
 Utiliza opções para especificar o que será registrado nos arquivos de log 
 do <tt>CVS</tt>. 
  <list compact>
   <item><tt>TOFEWGCMAR</tt> ou <tt>all</tt>
    <p>
-Registra todas as operações nos logs do <prgn>cvs</prgn>.
+Registra todas as operações nos logs do <command>cvs</command>.
 
   <item><tt>TMAR</tt>
    <p>

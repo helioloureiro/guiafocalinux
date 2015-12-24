@@ -1,7 +1,7 @@
 <chapt id="bas">Explicações Básicas
  <p>
 Este capítulo traz explicações sobre os principais componentes 
-existentes no computador e do sistema operacional <prgn>Linux</prgn>. 
+existentes no computador e do sistema operacional <command>Linux</command>. 
 
 
     <![ %INICIANTE [
@@ -24,9 +24,9 @@ Cada arquivo deve ser identificado por um <tt>nome</tt>, assim ele pode ser
 encontrado facilmente quando desejar usa-lo. Se estiver fazendo um 
 trabalho de história, nada melhor que salva-lo com o nome 
 <file>historia</file>. Um arquivo pode ser binário ou texto (para detalhes 
-veja <ref id="basico-arquivo-bintext">).
+veja <xref linkend="basico-arquivo-bintext">).
  <p>
-O <prgn>GNU/Linux</prgn> é <em>Case Sensitive</em> ou seja, ele diferencia letras 
+O <command>GNU/Linux</command> é <em>Case Sensitive</em> ou seja, ele diferencia letras 
 <em>maiúsculas</em> e <em>minúsculas</em> nos arquivos. O arquivo 
 <file>historia</file> é completamente diferente de <file>Historia</file>. 
 Esta regra também é válido para os <em>comandos</em> e <em>diretórios</em>. 
@@ -34,7 +34,7 @@ Prefira, sempre que possível, usar letras minúsculas para identificar seus
 arquivos, pois quase todos os comandos do sistema estão em  
 <em>minúsculas</em>.
  <p>
-Um arquivo oculto no <prgn>GNU/Linux</prgn> é identificado por um "." no inicio 
+Um arquivo oculto no <command>GNU/Linux</command> é identificado por um "." no inicio 
 do nome (por exemplo, <file>.bashrc</file>). Arquivos ocultos não aparecem 
 em listagens normais de diretórios, deve ser usado o comando <tt>ls -a</tt> 
 para também listar arquivos ocultos.
@@ -56,20 +56,20 @@ por <file>/bin/sh</file>).
 sistema.
  <item>
 <file>arquivo<strong>.gz</strong></file> - Arquivo compactado pelo utilitário 
-<prgn>gzip</prgn>.
+<command>gzip</command>.
  <item>
 <file>index<strong>.html</strong></file> - Página de Internet (formato  
 Hypertexto).
 </list>
 A extensão de um arquivo também ajuda a saber o que precisamos fazer para 
 abri-lo. Por exemplo, o arquivo <file>relatório.txt</file> é um texto simples 
-e podemos ver seu conteúdo através do comando <ref id="comandos-cat">, já  
+e podemos ver seu conteúdo através do comando <xref linkend="comandos-cat">, já  
 o arquivo <file>index.html</file> contém uma página de Internet e  
 precisaremos de um navegador para poder visualiza-lo (como o  
-<prgn>lynx</prgn>, <prgn>Firefox</prgn> ou o <prgn>Konqueror</prgn>).
+<command>lynx</command>, <command>Firefox</command> ou o <command>Konqueror</command>).
  <p> 
 A extensão (na maioria dos casos) não é requerida pelo sistema operacional 
-<prgn>GNU/Linux</prgn>, mas é conveniente o seu uso para determinarmos facilmente 
+<command>GNU/Linux</command>, mas é conveniente o seu uso para determinarmos facilmente 
 o tipo de arquivo e que programa precisaremos usar para abri-lo.
 
 
@@ -143,10 +143,10 @@ diferente do diretório <file>/Teste</file>).
 um diretório, ou um sub-diretório com um mesmo nome de um arquivo em um 
 mesmo diretório. ]]>
  <p>
-Um diretório nos sistemas <prgn>Linux/UNIX</prgn> são especificados por uma 
-"<em>/</em>" e não uma "<em>\</em>" como é feito no <prgn>DOS</prgn>. 
+Um diretório nos sistemas <command>Linux/UNIX</command> são especificados por uma 
+"<em>/</em>" e não uma "<em>\</em>" como é feito no <command>DOS</command>. 
 Para detalhes sobre como criar um diretório, veja o comando 
-<prgn>mkdir</prgn> (<ref id="comando-mkdir">).
+<command>mkdir</command> (<xref linkend="comando-mkdir">).
 
 
 <sect1 id="basico-diretorio-raiz">Diretório Raíz
@@ -193,18 +193,18 @@ definindo que tipo de arquivo deve ser armazenado em cada diretório. ]]>
 <sect1 id="basico-diretorio-atual">Diretório atual
  <p>
 É o diretório em que nos encontramos no momento. Você pode digitar 
-<tt>pwd</tt> (veja <ref id="comando-pwd">) para verificar qual é seu 
+<tt>pwd</tt> (veja <xref linkend="comando-pwd">) para verificar qual é seu 
 diretório atual. 
  <p>
 O diretório atual também é identificado por um "." (ponto). O 
 comando comando <tt>ls .</tt> pode ser usado para listar seus arquivos 
 (é claro que isto é desnecessário porque se não digitar nenhum diretório, 
-o comando <prgn>ls</prgn> listará o conteúdo do diretório atual). 
+o comando <command>ls</command> listará o conteúdo do diretório atual). 
 
 
 <sect1 id="basico-diretorio-home">Diretório home
  <p>
-Também chamado de diretório de usuário. Em sistemas <prgn>GNU/Linux</prgn> cada 
+Também chamado de diretório de usuário. Em sistemas <command>GNU/Linux</command> cada 
 usuário (inclusive o root) possui seu próprio diretório onde poderá armazenar 
 seus programas e arquivos pessoais. 
  <p>
@@ -215,7 +215,7 @@ digitar tanto o comando <tt>ls /home/joao</tt> como <tt>ls ~</tt> para
 listar os arquivos de seu diretório home. 
  <p>
 O diretório home do usuário root (na maioria das distribuições 
-<prgn>GNU/Linux</prgn>) está localizado em <file>/root</file>.
+<command>GNU/Linux</command>) está localizado em <file>/root</file>.
  <p>
 Dependendo de sua configuração e do número de usuários em seu sistema, o 
 diretório de usuário pode ter a seguinte forma: 
@@ -256,7 +256,7 @@ Mudar o diretório padrão para <file>/etc</file> com o comando
 <tt>cd /etc</tt> e usar o comando <tt>cat hosts</tt>
 
  <item>
-Usar o comando <prgn>"cat"</prgn> especificando o caminho completo na 
+Usar o comando <command>"cat"</command> especificando o caminho completo na 
 estrutura de diretórios e o nome de arquivo: <tt>cat 
 /etc/hosts</tt>.
 </enumlist>
@@ -269,13 +269,13 @@ diferença entre as duas é a seguinte:
 Na primeira, você muda o diretório padrão para <file>/usr/doc/copyright</file> 
 (confira digitando <tt>pwd</tt>) e depois o comando <tt>cat GPL</tt>.  
 Você pode ver os arquivos de <file>/usr/doc/copyright</file> com o comando 
-<prgn>"ls"</prgn>.
+<command>"ls"</command>.
  <p>
 <file>/usr/doc/copyright</file> é o caminho de diretório que devemos 
 percorrer para chegar até o arquivo <file>GPL</file>. 
 
  <item>
-Na segunda, é digitado o caminho completo para o <prgn>"cat"</prgn> 
+Na segunda, é digitado o caminho completo para o <command>"cat"</command> 
 localizar o arquivo <file>GPL</file>: <tt>cat /usr/doc/copyright/GPL</tt>. 
 Neste caso, você continuará no diretório padrão (confira digitando <tt>pwd
 </tt>). 
@@ -315,7 +315,7 @@ vendas. Da mesma forma, <file>vendas</file> é um sub-diretório de <file>pub
 <sect1 id="basico-diretorio-estrutura">Estrutura básica de diretórios do 
 Sistema Linux
  <p>
-O sistema <prgn>GNU/Linux</prgn> possui a seguinte estrutura básica de 
+O sistema <command>GNU/Linux</command> possui a seguinte estrutura básica de 
 diretórios organizados segundo o FHS (Filesystem Hierarchy Standard):
 <taglist>
  <tag><file>/bin</file></tag>
@@ -360,7 +360,7 @@ Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel.
  <tag><file>/lost+found</file></tag>
  <item>
 Local para a gravação de arquivos/diretórios recuperados pelo utilitário 
-<prgn>fsck.ext2</prgn>. Cada partição possui seu próprio diretório <file>
+<command>fsck.ext2</command>. Cada partição possui seu próprio diretório <file>
 lost+found</file>. 
 
  <tag><file>/mnt</file></tag>
@@ -408,13 +408,13 @@ programas do sistema, e-mails, spool de impressora, cache, etc.
 
 <sect id="basico-nomeando">Nomeando Arquivos e Diretórios
  <p>
-No <prgn>GNU/Linux</prgn>, os arquivos e diretórios pode ter o tamanho de até  
+No <command>GNU/Linux</command>, os arquivos e diretórios pode ter o tamanho de até  
 <em>255</em> letras. Você pode identifica-lo com uma extensão (um conjunto 
 de letras separadas do nome do arquivo por um "."). 
  <p>
-Os programas executáveis do <prgn>GNU/Linux</prgn>, ao contrário dos programas 
-de <prgn>DOS</prgn> e <prgn>Windows</prgn>, não são executados a partir de  
-extensões <file>.exe, .com</file> ou <file>.bat</file>. O <prgn>GNU/Linux</prgn> 
+Os programas executáveis do <command>GNU/Linux</command>, ao contrário dos programas 
+de <command>DOS</command> e <command>Windows</command>, não são executados a partir de  
+extensões <file>.exe, .com</file> ou <file>.bat</file>. O <command>GNU/Linux</command> 
 (como todos os sistemas POSIX) usa a <em>permissão de execução</em> de arquivo 
 para identificar se um arquivo pode ou não ser executado. 
  <p>
@@ -439,9 +439,9 @@ Cada comando tem uma função específica, devemos saber a função de cada
 comando e escolher o mais adequado para fazer o que desejamos, por exemplo: 
 <list compact>
  <item>
-<prgn>ls</prgn> - Mostra arquivos de diretórios
+<command>ls</command> - Mostra arquivos de diretórios
  <item>
-<prgn>cd</prgn> - Para mudar de diretório
+<command>cd</command> - Para mudar de diretório
 </list>
 Este guia tem uma lista de vários comandos organizados por 
 categoria com a explicação sobre o seu funcionamento e as opções 
@@ -480,7 +480,7 @@ Um parâmetro identifica o <em>caminho, origem, destino, entrada padrão</em>
 ou <em>saída padrão</em> que será passada ao comando. 
  <p>
 Se você digitar: <tt>ls /usr/share/doc/copyright</tt>, <file>/usr/share/doc/copyright 
-</file> será o parâmetro passado ao comando <prgn>ls</prgn>, neste caso  
+</file> será o parâmetro passado ao comando <command>ls</command>, neste caso  
 queremos que ele liste os arquivos do diretório <em>/usr/share/doc/copyright</em>.
  <p>
 É normal errar o nome de comandos, mas não se preocupe, quando isto acontecer 
@@ -489,7 +489,7 @@ encontrado) e voltará ao aviso de comando. As mensagens de erro não fazem
 nenhum mal ao seu sistema, somente dizem que algo deu errado para que você 
 possa corrigir e entender o que aconteceu.
   
-No <prgn>GNU/Linux</prgn>, você tem a possibilidade de criar comandos  
+No <command>GNU/Linux</command>, você tem a possibilidade de criar comandos  
 personalizados usando outros comandos mais simples (isto será visto  
 mais adiante). Os comandos se encaixam em duas categorias: <em>Comandos 
 Internos</em> e <em>Comandos Externos</em>. 
@@ -504,7 +504,7 @@ o diretório passado como parâmetro ao comando <tt>ls</tt>. ]]>
 <sect1 id="basico-comandos-internos">Comandos Internos
  <p>
 São comandos que estão localizados dentro do interpretador de comandos 
-(normalmente o <prgn>Bash</prgn>) e não no disco. Eles são carregados 
+(normalmente o <command>Bash</command>) e não no disco. Eles são carregados 
 na memória RAM do computador junto com o interpretador de comandos. 
  <p>
 Quando executa um comando, o interpretador de comandos verifica primeiro se 
@@ -519,7 +519,7 @@ Exemplos de comandos internos são: <tt>cd, exit, echo, bg, fg, source, help</tt
 São comandos que estão localizados no disco. Os comandos são procurados no 
 disco usando o ordem do <tt>PATH</tt> e executados assim que encontrados. 
  <p>
-Para detalhes veja <ref id="run-path">.
+Para detalhes veja <xref linkend="run-path">.
  
 
 <sect id="basico-avisocmd">Aviso de comando (Prompt)
@@ -535,7 +535,7 @@ digitação de textos e nos orientarmos quanto a posição na tela.
  <p>
 O aviso de comando do usuário <tt>root</tt> é identificado por uma 
 "#" (tralha), e o aviso de comando de usuários é identificado 
-pelo símbolo "$". Isto é padrão em sistemas <prgn>UNIX</prgn>. 
+pelo símbolo "$". Isto é padrão em sistemas <command>UNIX</command>. 
  <p>
 Você pode retornar comandos já digitados pressionando as teclas <tt>Seta para 
 cima</tt> / <tt>Seta para baixo</tt>.
@@ -567,7 +567,7 @@ cursor. O conteúdo apagado é copiado para uso com <tt>CTRL</tt>+<tt>y</tt>.
  <item>
 Pressione <tt>CTRL</tt>+<tt>L</tt> para limpar a tela e manter o texto 
 que estiver sendo digitado na linha de comando (parecido com o comando 
-<prgn>clear</prgn>). 
+<command>clear</command>). 
  <item>
 Pressione <tt>CTRL</tt>+<tt>Y</tt> para colocar o texto que foi apagado 
 na posição atual do cursor.
@@ -591,7 +591,7 @@ com os de log do sistema residentes em <file>/var/log</file>.
 Acostume-se a olhar constantemente os arquivos de log em seu sistema, isto 
 pode ser importante para encontrar possíveis falhas de segurança, tentativa 
 de acesso ao sistema e, principalmente, solucionar problemas (principalmente 
-os mais complicados). <![ %CAPJUNTOS [ Leia <ref id="log"> para mais detalhes. ]]>
+os mais complicados). <![ %CAPJUNTOS [ Leia <xref linkend="log"> para mais detalhes. ]]>
 
 
 <sect1 id="basico-delarquivos">Destruindo arquivos/partições de forma segura
@@ -601,7 +601,7 @@ devido de técnicas para garantir que dados sensíveis sejam apagados de
 forma um pouco mais segura em seu sistema.
  <p>
 Quando um arquivo é apagado, apenas a entrada na tabela de inodes
-é mexida, e ele pode ainda ser recuperado com o <prgn>debugfs</prgn> e
+é mexida, e ele pode ainda ser recuperado com o <command>debugfs</command> e
 um pouco de paciência e engenharia. O mesmo acontece com as partições,
 que podem ser recuperadas com facilidade (isto é explicado no
 nível Intermediário do guia). Esta recuperação é proporcionada
@@ -621,7 +621,7 @@ em pouco tempo, dependendo do tamanho de sua partição e se esta
 for uma <file>/var/spool</file> em um servidor de e-mails :-)
  <p>
 Baseado nesta teoria, você poderá apagar os dados de forma
-destrutiva usando o programa <prgn>shred</prgn>, que regrava o
+destrutiva usando o programa <command>shred</command>, que regrava o
 arquivo repetidamente com dados aleatórios. Sua sintaxe é
 a seguinte:
 <example>
@@ -643,8 +643,8 @@ procedimentos servem para dificultar ao máximo a recuperação de dados.
  <p>
 <strong>OBS2: </strong> Devido as tecnologias de sistemas que utilizam
 journaling (<em>XFS</em>, <em>EXT3</em>, <em>EXT4</em>, <em>JFS</em> e 
-<em>ReiserFS</em>) e sistemas RAID, o <prgn>shred</prgn> não funcionará. 
-O <prgn>shred</prgn> também não funcionará com sistemas de arquivos via rede 
+<em>ReiserFS</em>) e sistemas RAID, o <command>shred</command> não funcionará. 
+O <command>shred</command> também não funcionará com sistemas de arquivos via rede 
 (<em>NFS</em>, <em>SMB</em>, etc.). Se procura alguma forma de proteger seus 
 dados, mesmo que apagados, utilize um método de criptografia como o 
 <em>DM-CRYPTO</em>, <em>crypto-loop</em>, <em>gpg</em>, etc.
@@ -665,10 +665,10 @@ as instruções enviadas pelo usuário e seus programas ao sistema
 operacional (o kernel). 
 <![ %DESCRICAOD [ Ele que executa comandos lidos do dispositivo 
 de entrada padrão (teclado) ou de um arquivo executável. É a principal 
-ligação entre o usuário, os programas e o kernel. O <prgn>GNU/Linux</prgn> 
+ligação entre o usuário, os programas e o kernel. O <command>GNU/Linux</command> 
 possui diversos tipos de interpretadores de comandos, entre eles posso 
-destacar o <prgn>bash, ash, csh, tcsh, sh, </prgn> etc. Entre eles o mais 
-usado é o <prgn>bash</prgn>. O interpretador de comandos do DOS, por exemplo, 
+destacar o <command>bash, ash, csh, tcsh, sh, </command> etc. Entre eles o mais 
+usado é o <command>bash</command>. O interpretador de comandos do DOS, por exemplo, 
 é o <file>command.com</file>. ]]>
  <p>
 Os comandos podem ser enviados de duas maneiras para o interpretador: 
@@ -692,10 +692,10 @@ Este sistema é útil quando temos que digitar por várias vezes seguidas um
 mesmo comando ou para compilar algum programa complexo.
 </taglist>
  <p>
-O shell <prgn>Bash</prgn> possui ainda outra característica interessante: 
+O shell <command>Bash</command> possui ainda outra característica interessante: 
 A completação dos nomes. Isto é feito pressionando-se a tecla 
 <tt>TAB</tt>. Por exemplo, se digitar "ls tes" e pressionar &lt;tab&gt;, 
-o <prgn>Bash</prgn> localizará todos os arquivos que iniciam com "tes" e 
+o <command>Bash</command> localizará todos os arquivos que iniciam com "tes" e 
 completará o restante do nome. Caso a completação de nomes encontre mais do 
 que uma expressão que satisfaça a pesquisa, ou nenhuma, é emitido um beep. 
 Se você apertar novamente a tecla TAB imediatamente depois do beep, o 
@@ -711,16 +711,16 @@ Exemplo: <tt>ech</tt> (pressione <tt>TAB</tt>).
 <sect id="basico-terminal">Terminal Virtual (console)
  <p>
 Terminal (ou console) é o teclado e tela conectados em seu computador. O 
-<prgn>GNU/Linux</prgn> faz uso de sua característica <em>multi-usuária</em>  
+<command>GNU/Linux</command> faz uso de sua característica <em>multi-usuária</em>  
 usando os "terminais virtuais". Um terminal virtual é uma segunda seção 
 de trabalho completamente independente de outras, que pode ser acessada 
-no computador local ou remotamente via <prgn>telnet, rsh, rlogin,</prgn> 
+no computador local ou remotamente via <command>telnet, rsh, rlogin,</command> 
 etc. 
  <p>
-No <prgn>GNU/Linux</prgn>, em modo texto, você pode acessar outros terminais 
+No <command>GNU/Linux</command>, em modo texto, você pode acessar outros terminais 
 virtuais segurando a tecla <tt>ALT</tt> e pressionando <tt>F1 a F6</tt>. 
 Cada tecla de função corresponde a um número de terminal do 1 ao 6 (o 
-sétimo é usado por padrão pelo ambiente gráfico X). O <prgn>GNU/Linux</prgn> 
+sétimo é usado por padrão pelo ambiente gráfico X). O <command>GNU/Linux</command> 
 possui mais de  63 terminais virtuais, mas apenas 6 estão disponíveis 
 inicialmente por motivos de economia de memória RAM 
 <![ %INTERMEDIARIO [ (cada terminal virtual ocupa aproximadamente 
@@ -754,7 +754,7 @@ o <em>logout</em>.
 <sect id="basico-logout">Logout
  <p>
 Logout é a saída do sistema. A saída do sistema é feita pelos comandos 
-<prgn>logout</prgn>, <prgn>exit</prgn>, <tt>CTRL</tt>+<tt>D</tt>, ou  
+<command>logout</command>, <command>exit</command>, <tt>CTRL</tt>+<tt>D</tt>, ou  
 quando o sistema é reiniciado ou desligado.
     ]]>
 
@@ -764,7 +764,7 @@ quando o sistema é reiniciado ou desligado.
 Coringas (ou referência global) é um recurso usado para especificar um ou  
 mais arquivos ou diretórios do sistema de uma só vez. Este é um recurso 
 permite que você faça a filtragem do que será listado, copiado, apagado, etc. 
-São usados 4 tipos de coringas no <prgn>GNU/Linux</prgn>: 
+São usados 4 tipos de coringas no <command>GNU/Linux</command>: 
 <list>
  <item>
 "*" - Faz referência a um nome completo/restante de um  
@@ -821,8 +821,8 @@ especificar todos os arquivos do diretório:
  <p>
 <tt>cd /usr/teste</tt> e <tt>ls *</tt> ou <tt>ls /usr/teste/*</tt>. 
 <p>
-Não tem muito sentido usar o comando <prgn>ls</prgn> com "*" porque 
-todos os arquivos serão listados se o <prgn>ls</prgn> for usado sem 
+Não tem muito sentido usar o comando <command>ls</command> com "*" porque 
+todos os arquivos serão listados se o <command>ls</command> for usado sem 
 nenhum Coringa. 
  <p>
 Agora para listar todos os arquivos <file>teste1.txt, teste2.txt, teste3.txt 
@@ -873,7 +873,7 @@ Existem muitas outras formas de se fazer a mesma coisa, isto depende do
 gosto de cada um. O que pretendi fazer aqui foi mostrar como especificar 
 mais de um arquivo de uma só vez. O uso de coringas será útil ao copiar 
 arquivos, apagar, mover, renomear, e nas mais diversas partes do 
-sistema. Alias esta é uma característica do <prgn>GNU/Linux</prgn>: permitir 
+sistema. Alias esta é uma característica do <command>GNU/Linux</command>: permitir 
 que a mesma coisa possa ser feita com liberdade de várias maneiras 
 diferentes. ]]>
 

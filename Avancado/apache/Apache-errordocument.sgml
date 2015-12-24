@@ -5,7 +5,7 @@ Documentos de erros personalizados são definidos através da diretiva
 serão atendidos por certos documentos ou colocar esta diretiva dentro 
 de blocos de controle de acesso &lt;Directory&gt;, &lt;Location&gt; ou 
 &lt;VirtualHost&gt; para que tenham mensagens de erro personalizadas, 
-ao invés da padrão usada pelo servidor <prgn>httpd</prgn>. 
+ao invés da padrão usada pelo servidor <command>httpd</command>. 
  <p>
 <tt>ErrorDocument [<em>código de erro</em>] [<em>documento</em>]</tt>
  <p>
@@ -15,7 +15,7 @@ Onde:
 <taglist compact>
  <tag><em>código de erro</em></tag>
  <item>
-Código de erro da mensagem (veja <ref id="s-apache-httpcodes"> como referência).
+Código de erro da mensagem (veja <xref linkend="s-apache-httpcodes"> como referência).
 O código de erro <em>401</em> deve referir-se a um arquivo local. 
 
  <tag><em>documento</em></tag>

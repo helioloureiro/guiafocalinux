@@ -84,7 +84,7 @@ iptables -A INPUT -s 200.123.123.10 -i ppp+ -j DROP
 </example>
 O sinal de "+" funciona como um coringa, assim a regra terá efeito em 
 qualquer interface de ppp0 a ppp9. As interfaces ativas no momento podem 
-ser listadas com o comando <prgn>ifconfig</prgn>, mas é permitido especificar 
+ser listadas com o comando <command>ifconfig</command>, mas é permitido especificar 
 uma regra que faz referência a uma interface que ainda não existe, isto é 
 interessante para conexões intermitentes como o PPP. Para bloquear qualquer 
 tráfego local para a Internet:
@@ -103,7 +103,7 @@ iptables -A FORWARD -i ppp0 -o eth1 -j DROP
 <sect1 id="fw-iptables-outras-proto">Especificando um protocolo
  <p>
 A opção <tt>-p</tt> (ou --protocol) é usada para especificar protocolos no 
-<prgn>iptables</prgn>. 
+<command>iptables</command>. 
 Podem ser especificados os protocolos <em>tcp</em>, <em>udp</em> e <em>icmp</em>. 
 Por exemplo, para rejeitar todos os pacotes UDP vindos de 200.200.200.200: 
 <example>
@@ -139,7 +139,7 @@ Caso a <em>PortaOrigem</em> de uma faixa de portas não seja especificada, 0 é
 assumida como padrão, caso a <em>Porta Destino</em> não seja especificada, 
 65535 é assumida como padrão. Caso precise especificar diversas regras que 
 envolvam o tratamento de portas diferentes, recomendo da uma olhada em 
-<ref id="fw-iptables-mod-multiport">, antes de criar um grande número de 
+<xref linkend="fw-iptables-mod-multiport">, antes de criar um grande número de 
 regras. 
  
 
@@ -237,7 +237,7 @@ do firewall esteja completa, pode ser uma solução eficiente.
 Outra alternativa segura é configurar as regras de firewall antes das interfaces 
 de rede se tornarem ativas (usando a opção "pre-up comando_firewall" no arquivo 
 de configuração <file>/etc/network/interfaces</file> em sistemas 
-<prgn>Debian</prgn>. ]]>
+<command>Debian</command>. ]]>
 
 
 <sect1 id="fw-iptables-outras-fragmentos">Especificando fragmentos
@@ -262,7 +262,7 @@ pacotes seguintes enviados por 200.200.200.1 até nós.
 <![ %OBS [ 
  <p>
 <strong>OBS1:</strong> Note que se o cabeçalho do pacote não tiver detalhes 
-suficientes para checagem de regras no <prgn>iptables</prgn>, a regra 
+suficientes para checagem de regras no <command>iptables</command>, a regra 
 simplesmente não ira conferir. 
  <p>
 <strong>OBS2:</strong> Não é preciso especificar a opção "-f" para conexões
@@ -308,7 +308,7 @@ rejeitar o pacote (-j REJECT), redirecionar um pacote -j REDIRECT, retornar
 ao chain anterior sem completar o processamento no chain atual (-j RETURN), 
 passar para processamento de programas externos (-j QUEUE), fazer 
 source nat (-j SNAT), destination nat (-j DNAT), etc. Podem existir mais alvos, 
-pois o <prgn>iptables</prgn> é modularizável, e módulos que acrescentam mais funções
+pois o <command>iptables</command> é modularizável, e módulos que acrescentam mais funções
 podem ser carregados em adição aos já existentes no kernel.
  <p>
 Nos exemplos anteriores vimos o uso de diversos alvos como o DROP e o ACCEPT. 
@@ -320,15 +320,15 @@ uma seção seguinte:
   <item> 
 O pacote é ACEITO e o processamento das regras daquele chains é concluído. Pode 
 ser usado como alvo em todos os chains de todas as tabelas do 
-<prgn>iptables</prgn> e também pode ser especificado na política padrão das 
-regras do firewall (veja <ref id="fw-iptables-chains-P">). 
+<command>iptables</command> e também pode ser especificado na política padrão das 
+regras do firewall (veja <xref linkend="fw-iptables-chains-P">). 
 
  <tag>DROP</tag>
   <item>
 Rejeita o pacote e o processamento das regras daquele chain é concluído. Pode ser 
-usado como alvo em todos os chains de todas as tabelas do <prgn>iptables</prgn> e 
+usado como alvo em todos os chains de todas as tabelas do <command>iptables</command> e 
 também pode ser especificado na política padrão das regras do firewall 
-(veja <ref id="fw-iptables-chains-P">).
+(veja <xref linkend="fw-iptables-chains-P">).
 
  <tag>REJECT</tag>
   <item>
@@ -339,7 +339,7 @@ como alvo somente nos chains da tabela (não como política padrão).
 
  <tag>LOG</tag>
   <item>
-Este módulo envia uma mensagem ao <prgn>syslog</prgn> caso a regra confira, o 
+Este módulo envia uma mensagem ao <command>syslog</command> caso a regra confira, o 
 processamento continua normalmente para a próxima regra (o pacote não é nem 
 considerado ACEITO ou REJEITADO). 
 
@@ -374,7 +374,7 @@ de mensagem ICMP com a opção <em>--reject-with tipo_icmp</em>.
  <p>
 <strong>OBS:</strong> REJECT pode ser usado somente como alvo na tabela filter 
 e não é possível especifica-lo como política padrão do chain filter (como 
-acontecia no <prgn>ipchains</prgn>. Uma forma alternativa é inserir como 
+acontecia no <command>ipchains</command>. Uma forma alternativa é inserir como 
 última regra uma que pegue todos os pacotes restantes daquele chain e 
 tenha como alvo REJECT (como <tt>iptables -A INPUT -j REJECT</tt>), desta forma 
 ele nunca atingirá a política padrão do chain. ]]>
@@ -387,7 +387,7 @@ iptables -A INPUT -s 200.200.200.1 -i ppp+ -j REJECT
 
 <sect2 id="fw-iptables-outras-alvo-LOG">Especificando LOG como alvo
  <p>
-Este alvo é usado para registrar a passagem de pacotes no <prgn>syslog</prgn> 
+Este alvo é usado para registrar a passagem de pacotes no <command>syslog</command> 
 do sistema. É um alvo muito interessante para ser usado para regras que bloqueiam 
 determinados tráfegos no sistema (para que o administrador tome conhecimento sobre 
 tais tentativas), para regras de fim de chain (quando você tem um grande conjunto 
@@ -409,7 +409,7 @@ padrão do seu firewall for restritiva (-P DROP).
 A única coisa que muda nas regras de log é o alvo da regra, isto facilita a 
 implementação de grandes conjuntos de regras de firewall.
  <p>
-A regra acima mostrará a seguinte saída no <prgn>syslog</prgn> do sistema: 
+A regra acima mostrará a seguinte saída no <command>syslog</command> do sistema: 
 <example>
 Aug 25 10:08:01 debian kernel: IN=ppp0 OUT= MAC=10:20:30:40:50:60:70:80:90:00:00:00:08:00 SRC=200.200.200.1 DST=200.210.10.10 LEN=61 TOS=0x00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=1031 DPT=53 LEN=41
 
@@ -424,7 +424,7 @@ Os campos possuem o seguinte significado:
  Nome do computador que registrou o pacote.
  <tag>kernel:</tag>
   <item>
- Daemon que registrou a mensagem, no caso o <prgn>iptables</prgn> faz parte 
+ Daemon que registrou a mensagem, no caso o <command>iptables</command> faz parte 
  do próprio kernel.
 
  <tag>IN=ppp0</tag>
@@ -458,12 +458,12 @@ Número de seqüência da recepção. É ativado com a opção <em>--log-tcp-seq
  <tag>TOS=0x00</tag>
   <item>
  Prioridade do cabeçalho TOS (Tipo). Veja a seção
- <ref id="fw-iptables-mangle-TOS"> para mais detalhes. 
+ <xref linkend="fw-iptables-mangle-TOS"> para mais detalhes. 
 
  <tag>PREC=0x00</tag>
   <item>
 Prioridade do cabeçalho TOS (Precedência). 
-Veja a seção <ref id="fw-iptables-mangle-TOS"> para mais detalhes. 
+Veja a seção <xref linkend="fw-iptables-mangle-TOS"> para mais detalhes. 
  
  <tag>TTL=64</tag>
   <item>
@@ -520,8 +520,8 @@ podemos usar com o alvo LOG:
  
  <tag>--log-level nível</tag>
   <item>
- Especifica o nível da mensagem no <prgn>syslog</prgn>. 
- <![ %INTERMEDIARIO [ Veja os níveis na seção <ref id="log-syslogd-exemplo"> 
+ Especifica o nível da mensagem no <command>syslog</command>. 
+ <![ %INTERMEDIARIO [ Veja os níveis na seção <xref linkend="log-syslogd-exemplo"> 
  do guia. ]]>
  
  <tag>--log-tcp-options</tag>
@@ -539,7 +539,7 @@ podemos usar com o alvo LOG:
  IP spoofing em seu sistema caso algum usuário tenha acesso a estes logs. 
  Caso utilize tcp/ip em servidores públicos, o uso desta opção ajudará a 
  entender bem os ataques DoS causados por syn-flood e porque ativar os 
- SynCookies (veja <ref id="fw-iptables-mod-limit-synflood">).
+ SynCookies (veja <xref linkend="fw-iptables-mod-limit-synflood">).
  
 </taglist>
 <![ %OBS [ 
@@ -551,7 +551,7 @@ para analisar e consertar erros em suas regras do firewall.
 <strong>OBS2:</strong>Caso esteja usando o firewall em um servidor público, 
 recomendo associar um limite a regra de log, pois um ataque poderia causar
 um DoS enchendo sua partição. Leia mais sobre isso em 
-<ref id="fw-iptables-mod-limit">.
+<xref linkend="fw-iptables-mod-limit">.
 ]]>
 <example>
 # Complementando o exemplo anterior:
@@ -573,7 +573,7 @@ de estatísticas que podem servir como base para a criação de novas regras
 de firewall ou eliminação de outras). 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Se você sente falta da função "-l" do <prgn>ipchains</prgn> 
+<strong>OBS:</strong> Se você sente falta da função "-l" do <command>ipchains</command> 
 que combina o alvo e log na mesma regra você pode criar um alvo como o seguinte: 
 <example>
 iptables -N log-drop
@@ -582,7 +582,7 @@ iptables -A log-drop -j DROP
 
 </example>
 E usar "log-drop" como alvo em suas regras. Mesmo assim esta solução é "limitada" 
-em relação a "-l" do <prgn>ipchains</prgn> porque o <prgn>iptables</prgn> não 
+em relação a "-l" do <command>ipchains</command> porque o <command>iptables</command> não 
 inclui detalhes de qual chain bloqueou o pacote/qual pacote foi bloqueado, assim 
 é necessário a especificação da opção <em>--log-prefix</em> para as mensagens se 
 tornarem mais compreensíveis. Esta limitação pode ser contornada utilizando
@@ -592,7 +592,7 @@ maior sobre o seu programa usando funções e integração com outros utilitári
 
 <sect2 id="fw-iptables-outras-alvo-RETURN">Especificando RETURN como alvo
  <p>
-O alvo RETURN diz ao <prgn>iptables</prgn> interromper o processamento no chain 
+O alvo RETURN diz ao <command>iptables</command> interromper o processamento no chain 
 atual e retornar o processamento ao chain anterior. Ele é útil quando criamos 
 um chain que faz um determinado tratamento de pacotes, por exemplo 
 bloquear conexões vindas da internet para portas baixas, exceto para 
@@ -629,7 +629,7 @@ opções -s, -d, etc para poder garantir o acesso livre a determinadas máquinas
 <sect1 id="fw-iptables-outras-save-restore">Salvando e Restaurando regras
  <p>
 As regras que você está trabalhosamente criando e testando manualmente enquanto
-manipula o <prgn>iptables</prgn> podem ser salvas de 2 formas; uma delas é 
+manipula o <command>iptables</command> podem ser salvas de 2 formas; uma delas é 
 escrevendo um shell script que tenha todos os comandos, um por linha. Isto 
 é recomendado quando tem um firewall grande e que exige uma boa padronização 
 de regras, bem como sua leitura, comentários. O script shell também permite
@@ -637,15 +637,15 @@ o uso de funções presente no interpretador de comando, portanto se você é
 uma pessoa que gosta de interagir com as funções do shell e deixar as coisas
 mais flexíveis, prefira esta opção.
  <p>
-A outra forma é usando as ferramentas <prgn>iptables-save</prgn> e 
-<prgn>iptables-restore</prgn> baseada na idéia do <prgn>ipchains-save</prgn> 
-e <prgn>ipchains-restore</prgn>. O <prgn>iptables-save</prgn> deve ser 
+A outra forma é usando as ferramentas <command>iptables-save</command> e 
+<command>iptables-restore</command> baseada na idéia do <command>ipchains-save</command> 
+e <command>ipchains-restore</command>. O <command>iptables-save</command> deve ser 
 usado sempre que modificar regras no firewall iptables da seguinte forma:
 <example>
 iptables-save &gt;/dir/iptables-regras
 
 </example>
-Uma das vantagens do uso do <prgn>iptables-save</prgn> é ele também salvar 
+Uma das vantagens do uso do <command>iptables-save</command> é ele também salvar 
 os contadores de chains, ou seja, a quantidade de pacotes que conferiram com 
 a regra. Isto também pode ser feito com algumas regras adicionais em seu shell 
 script, caso tenha interesse nesses contadores para estatísticas ou outros

@@ -6,15 +6,15 @@ este programas são gravados no <em>setor de boot</em> (inicialização) da
 partição ativa ou no <em>master boot record</em> (MBR) do disco rígido. 
  <p>
 Este capitulo explica o funcionamento de cada um dos principais gerenciadores 
-de partida usados no <prgn>GNU/Linux</prgn>, em que situações é recomendado 
+de partida usados no <command>GNU/Linux</command>, em que situações é recomendado 
 seu uso, as características, como configura-lo e alguns exemplos de 
 configuração. 
 
 
 <sect id="boot-lilo">LILO
  <p>
-O <prgn>LILO</prgn> (<em>Linux Loader</em>) é sem dúvida o gerenciador de 
-partida padrão para quem deseja iniciar o <prgn>GNU/Linux</prgn> 
+O <command>LILO</command> (<em>Linux Loader</em>) é sem dúvida o gerenciador de 
+partida padrão para quem deseja iniciar o <command>GNU/Linux</command> 
 através do disco rígido. Ele permite selecionar qual sistema 
 operacional será iniciado (caso você possua mais de um) e funciona tanto 
 em discos rígidos <em>IDE</em> como <em>SCSI</em>. 
@@ -22,7 +22,7 @@ em discos rígidos <em>IDE</em> como <em>SCSI</em>.
  <p>
 A seleção de qual sistema operacional e a passagem de parâmetros ao 
 kernel pode ser feita automaticamente ou usando o aviso de <tt>boot:</tt> 
-do <prgn>LILO</prgn>. ]]>
+do <command>LILO</command>. ]]>
 
 
 <sect1 id="boot-lilo-cfg">Criando o arquivo de configuração do LILO
@@ -31,8 +31,8 @@ Os dados para a criação do novo <em>setor de boot</em> que armazenará o
 gerenciador de partida são lidos do arquivo 
 <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> 
 Este arquivo pode ser criado em qualquer editor de textos (como o 
-<prgn>ae</prgn> ou <prgn>vi</prgn>). Normalmente ele é criado durante a 
-instalação de sua distribuição <prgn>GNU/Linux</prgn> 
+<command>ae</command> ou <command>vi</command>). Normalmente ele é criado durante a 
+instalação de sua distribuição <command>GNU/Linux</command> 
 mas por algum motivo pode ser preciso modifica-lo ou personaliza-lo 
 (para incluir novos sistemas operacionais, mensagens, alterar o tempo 
 de espera para a partida automática, etc). 
@@ -40,14 +40,14 @@ de espera para a partida automática, etc).
 O arquivo <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> é dividido 
 em duas seções: <em>Geral</em> e <em>Imagens</em>. A seção 
 <em>Geral</em> vem no inicio do arquivo e contém opções que 
-serão usadas na inicialização do <prgn>Lilo</prgn> e parâmetros que 
+serão usadas na inicialização do <command>Lilo</command> e parâmetros que 
 serão passados ao kernel. A seção <em>Imagens</em> 
 contém opções especificas identificando qual a partição que contém 
 o sistema operacional, como será montado inicialmente o sistema de 
 arquivos, tabela de partição, o arquivo que será carregado na memória 
 para inicializar o sistema, etc. Abaixo um modelo do arquivo 
 <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> para sistemas que só 
-possuem o <prgn>GNU/Linux</prgn> instalado: 
+possuem o <command>GNU/Linux</command> instalado: 
 
 <example>
 boot=/dev/hda1
@@ -70,22 +70,22 @@ execute o comando <tt>lilo</tt>.
  <p>
 No exemplo acima, o gerenciador de partida será instalado em 
 <file>/dev/hda1</file> 
-<![ %INIC-INTER [ (veja <ref id="disc-id">) ]]>, utilizará um setor 
+<![ %INIC-INTER [ (veja <xref linkend="disc-id">) ]]>, utilizará um setor 
 de boot compacto (compact), modo de vídeo VGA normal (80x25), 
 esperará 2 segundos antes de processar automaticamente a primeira seção 
 <tt>image=</tt> e carregará o kernel <file>/vmlinux</file> de 
 <file>/dev/hda1</file>. Para detalhes sobre opções que podem 
-ser usadas neste arquivo veja <ref id="boot-lilo-opcoes">. 
+ser usadas neste arquivo veja <xref linkend="boot-lilo-opcoes">. 
  <p>
 Para mostrar o aviso de <tt>boot:</tt>, você 
 deverá ligar as teclas Caps Lock ou Scrool lock na partida ou 
 pressionar a tecla <tt>Shift</tt> durante os dois segundos de pausa. 
 Outro método é incluir a opção <tt>prompt</tt> na seção <em>global</em> 
 para que o aviso de <tt>boot:</tt> seja mostrado automaticamente após 
-carregar o <prgn>Lilo</prgn>. 
+carregar o <command>Lilo</command>. 
  <p>
 Abaixo uma configuração para computadores com mais de um sistema 
-operacional (Usando <prgn>GNU/Linux</prgn> e <prgn>DOS</prgn>):
+operacional (Usando <command>GNU/Linux</command> e <command>DOS</command>):
 
 <example>
 boot=/dev/hda1
@@ -110,19 +110,19 @@ other=/dev/hda2
 O exemplo acima é idêntico ao anterior, o que foi acrescentado foi 
 a opção <tt>prompt</tt> na seção <em>geral</em> (para que seja 
 mostrado imediatamente o aviso de <tt>boot:</tt> no momento em que o 
-<prgn>LILO</prgn> for carregado), e incluída uma imagem de disco 
-<prgn>DOS</prgn> localizado em <file>/dev/hda2</file>. No momento da 
+<command>LILO</command> for carregado), e incluída uma imagem de disco 
+<command>DOS</command> localizado em <file>/dev/hda2</file>. No momento da 
 inicialização é mostrada a mensagem <tt>boot:</tt> e caso seja digitado 
-<tt>DOS</tt> e pressionado ENTER, o sistema iniciará o <prgn>DOS</prgn>. 
+<tt>DOS</tt> e pressionado ENTER, o sistema iniciará o <command>DOS</command>. 
 Caso a tecla Enter seja pressionada sem especificar a imagem, a primeira 
-será carregada (neste caso o <prgn>GNU/Linux</prgn>). 
+será carregada (neste caso o <command>GNU/Linux</command>). 
 <![ %OBS [
  <p>
 Você pode substituir a palavra <tt>GNU/Linux</tt> da opção <tt>label</tt> 
 por o número <tt>1</tt> e <tt>DOS</tt> por <tt>2</tt>, desta forma 
 o número pode ser digitado para iniciar o sistema operacional. 
 Isto é muito útil para construir um menu usando a opção 
-<tt>message</tt>. Para detalhes veja <ref id="boot-lilo-opcoes">. ]]>
+<tt>message</tt>. Para detalhes veja <xref linkend="boot-lilo-opcoes">. ]]>
  <p>
 A seção <em>Geral</em> vem do inicio do arquivo até a palavra 
 <tt>delay=20</tt>. A partir do primeiro aparecimento da palavra 
@@ -132,18 +132,18 @@ abaixo será interpretado como imagens de inicialização.
 Por padrão, a imagem carregada é a especificada por <tt>default=</tt> ou 
 a primeira que aparece no arquivo (caso <tt>default=</tt> não seja 
 especificado). Para carregar 
-o outro sistema (o <prgn>DOS</prgn>), digite o nome da imagem de disco 
+o outro sistema (o <command>DOS</command>), digite o nome da imagem de disco 
 no aviso de <tt>boot:</tt> (especificada em <tt>label=</tt>) que será 
 carregada. Você também pode passar parâmetros manualmente ao kernel 
 digitando o nome da imagem de disco e uma opção do kernel ou 
 através do arquivo <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> 
-(veja <ref id="boot-lilo-opcoes">). 
+(veja <xref linkend="boot-lilo-opcoes">). 
  <p>
-O <prgn>LILO</prgn> pode inicializar o seguintes tipos de imagens:
+O <command>LILO</command> pode inicializar o seguintes tipos de imagens:
 <list compact>
  <item>
 Imagens do kernel de um arquivo. Normalmente usado para iniciar o 
-<prgn>GNU/Linux</prgn> pelo disco rígido e especificado pelo parâmetro 
+<command>GNU/Linux</command> pelo disco rígido e especificado pelo parâmetro 
 <tt>image=</tt>. 
 
  <item>
@@ -160,8 +160,8 @@ image=/dev/fd0
 Todas as opções do kernel podem ser usadas na inicialização por dispositivo. 
 
  <item>
-O setor de boot de outro sistema operacional (como o <prgn>DOS</prgn>, 
-<prgn>OS/2</prgn>, etc). O setor de partida é armazenado junto com a tabela 
+O setor de boot de outro sistema operacional (como o <command>DOS</command>, 
+<command>OS/2</command>, etc). O setor de partida é armazenado junto com a tabela 
 de partição no arquivo <file>/boot/map</file>. É necessário especificar o 
 parâmetro <tt>OTHER=dispositivo</tt> ou <tt>OTHER=arquivo</tt> e a 
 inicialização através de um setor de partida possui algumas opções especiais 
@@ -189,9 +189,9 @@ Caso o gerenciador de partida seja instalado no MBR do disco rígido
 (boot=/dev/hda), o setor de boot do antigo sistema operacional será 
 substituído, retire uma cópia do setor de boot para um disquete usando 
 o comando <tt>dd if=/dev/hda of=/floppy/mbr bs=512 count=1</tt> no 
-<prgn>GNU/Linux</prgn> para salvar o setor de boot em um disquete e 
+<command>GNU/Linux</command> para salvar o setor de boot em um disquete e 
 <tt>dd if=/floppy/mbr of=/dev/hda bs=446 count=1</tt> para restaura-lo. No 
-<prgn>DOS</prgn> você pode usar o comando <prgn>fdisk /mbr</prgn> para criar 
+<command>DOS</command> você pode usar o comando <command>fdisk /mbr</command> para criar 
 um novo Master Boot Record. 
 
  <item>
@@ -202,23 +202,23 @@ disco rígido. Isto também é válido caso o kernel seja atualizado ou
 a partição que contém a imagem do kernel desfragmentada. 
 
  <item>
-A limitação de 1024 cilindros do <prgn>Lilo</prgn> não existe mais a 
+A limitação de 1024 cilindros do <command>Lilo</command> não existe mais a 
 partir da versão 21.4.3 (recomendada, por conter muitas correções) e 
 superiores. 
 
  <item>
-A reinstalação, formatação de sistemas <prgn>DOS</prgn> e 
-<prgn>Windows</prgn> pode substituir o setor de partida do HD 
+A reinstalação, formatação de sistemas <command>DOS</command> e 
+<command>Windows</command> pode substituir o setor de partida do HD 
 e assim o gerenciador de partida, tornando impossível a inicialização do 
-<prgn>GNU/Linux</prgn>. Antes de reinstalar o <prgn>DOS</prgn> ou 
-<prgn>Windows</prgn>, verifique se possui um disquete de partida do 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. Antes de reinstalar o <command>DOS</command> ou 
+<command>Windows</command>, verifique se possui um disquete de partida do 
+<command>GNU/Linux</command>. 
  <p>
 Para gerar um novo boot loader, coloque o disquete na unidade e após 
 o aviso <tt>boot:</tt> ser mostrado, digite <tt>linux root=/dev/hda1</tt> 
 (no lugar de <file>/dev/hda1</file> você coloca a partição raiz do 
-<prgn>GNU/Linux</prgn>), o sistema iniciará. Dentro do <prgn>GNU/Linux</prgn>, 
-digite o comando <prgn>lilo</prgn> para gerar um novo setor de partida. 
+<command>GNU/Linux</command>), o sistema iniciará. Dentro do <command>GNU/Linux</command>, 
+digite o comando <command>lilo</command> para gerar um novo setor de partida. 
  <p>
 Agora reinicie o computador, tudo voltará ao normal. 
 </list>
@@ -240,7 +240,7 @@ o arquivo ou dispositivo especificado.
 
  <item>
 <tt>boot=dispositivo</tt> - Define o nome do dispositivo onde será gravado 
-o setor de partida do <prgn>LILO</prgn> (normalmente é usada a partição 
+o setor de partida do <command>LILO</command> (normalmente é usada a partição 
 ativa ou o Master Boot Record - MBR). Caso não seja especificado, o 
 dispositivo montado como a partição raiz será usado. 
 
@@ -276,8 +276,8 @@ opções são permitidas:
 </list> 
 
  <item>
-<tt>lba32</tt> - Permite que o <prgn>LILO</prgn> quebre o limite de 
-1024 cilindros do disco rígido, inicializando o <prgn>GNU/Linux</prgn> em 
+<tt>lba32</tt> - Permite que o <command>LILO</command> quebre o limite de 
+1024 cilindros do disco rígido, inicializando o <command>GNU/Linux</command> em 
 um cilindro acima deste através do acesso . Note que isto requer compatibilidade 
 com o BIOS, mais especificamente que tenha suporte a chamadas int 0x13 e 
 AH=0x42. É recomendado o seu uso. 
@@ -310,7 +310,7 @@ de mostrar somente quando a tecla <tt>Shift</tt> é pressionada.
 
  <item>
 <tt>verbose=[num]</tt> - Ativa mensagens sobre o processamento do 
-<prgn>LILO</prgn>. Os números podem ser especificados de 1 a 5, 
+<command>LILO</command>. Os números podem ser especificados de 1 a 5, 
 quanto maior o número, maior a quantidade de detalhes mostrados. 
 
  <item>
@@ -356,7 +356,7 @@ presentes no sistema.
 
  <item>
 <tt>password=senha</tt> - Protege a imagem atual com a senha. Caso 
-a senha esteja incorreta, o setor de partida do <prgn>Lilo</prgn> é 
+a senha esteja incorreta, o setor de partida do <command>Lilo</command> é 
 novamente carregado. 
 
  <item>
@@ -364,7 +364,7 @@ novamente carregado.
 o sistema for iniciado no modo single. 
 </list>
 Também podem ser usados parâmetros de inicialização do kernel no arquivo 
-<file>/etc/lilo.conf</file>, veja a seção <ref id="boot-kernelparam"> para 
+<file>/etc/lilo.conf</file>, veja a seção <xref linkend="boot-kernelparam"> para 
 maiores detalhes. 
 
 
@@ -372,8 +372,8 @@ maiores detalhes.
 <![ %DEBIAN [ lilo.conf ]]> 
  <p>
 Abaixo um exemplo do arquivo <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> 
-que poderá ser usado em instalações <prgn>GNU/Linux</prgn> com o 
-<prgn>DOS</prgn>. 
+que poderá ser usado em instalações <command>GNU/Linux</command> com o 
+<command>DOS</command>. 
 <example>
 boot=/dev/hda1        #Instala o LILO em /dev/hda1
 compact               
@@ -402,28 +402,28 @@ Você pode usar o exemplo acima como base para construir sua própria
 configuração personalizada do 
 <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]> mas não se esqueça de 
 modificar as tabelas de partições para seu sistema. Se você usa o 
-<prgn>Windows NT 4.0</prgn>, <prgn>Windows NT 5.0 (Windows 2000)</prgn> 
-ou o <prgn>OS/2</prgn>, recomendo ler o <tt>DOS+Windows+OS/2-HOWTO</tt>. 
+<command>Windows NT 4.0</command>, <command>Windows NT 5.0 (Windows 2000)</command> 
+ou o <command>OS/2</command>, recomendo ler o <tt>DOS+Windows+OS/2-HOWTO</tt>. 
  <p>
 Após criar seu arquivo <![ %DEBIAN [ <file>/etc/lilo.conf</file> ]]>, 
 execute o comando <tt>lilo</tt> e se tudo ocorrer bem, o 
-<prgn>LILO</prgn> será instalado. 
+<command>LILO</command> será instalado. 
 
 
 
 <sect id="boot-grub">GRUB
  <p>
-(Os detalhes contidos na seção sobre o <prgn>GRUB</prgn>, foram integralmente 
+(Os detalhes contidos na seção sobre o <command>GRUB</command>, foram integralmente 
 desenvolvidos por Alexandre Costa <email>alebyte@bol.com.br</email> como 
 contribuição ao guia FOCA GNU/Linux.)
  <p>
-O <prgn>GRUB</prgn> (<em>Grand Unified Boot Loader</em>) é mais uma alternativa 
+O <command>GRUB</command> (<em>Grand Unified Boot Loader</em>) é mais uma alternativa 
 como gerenciador de boot e apresenta alguns recursos extras com relação as outras 
 opções disponíveis. 
 Ele é flexível, funcional e poderoso, podendo inicializar sistemas 
-operacionais como o <prgn>Windows</prgn> (9x, ME, NT, 2000 e XP), 
-<prgn>Dos</prgn>, <prgn>Linux</prgn>, <prgn>GNU Hurd</prgn>, <prgn>*BSD</prgn>, 
-<prgn>OS/2</prgn> e etc.
+operacionais como o <command>Windows</command> (9x, ME, NT, 2000 e XP), 
+<command>Dos</command>, <command>Linux</command>, <command>GNU Hurd</command>, <command>*BSD</command>, 
+<command>OS/2</command> e etc.
 Podemos destacar também o suporte aos sistemas de arquivos ext2 (Linux), ext3 e 
 reiserfs (novos sistemas de arquivos journaling do Linux), FAT16 e FAT32 
 (Win 9x/ME), FFS (Fast File System usado no *BSD), minix (MINIX OS) e etc. 
@@ -472,18 +472,18 @@ No Linux                No GRUB
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Os discos <em>IDE</em> e <em>SCSI</em> são referenciados 
-ambos como (<tt>hd?</tt>) pelo <prgn>GRUB</prgn>. Não há distinção entre os discos 
+ambos como (<tt>hd?</tt>) pelo <command>GRUB</command>. Não há distinção entre os discos 
 e de modo geral a identificação de unidades IDE é menor do que qualquer tipo de 
 drive SCSI, salvo se você alterar a seqüência de inicialização (boot) na BIOS.
  <p>
-Para saber como o Linux trabalha com partições veja <ref id="disc-id">.
+Para saber como o Linux trabalha com partições veja <xref linkend="disc-id">.
 ]]>
 
 
 <sect1 id="boot-grub-install">Instalando o GRUB
  <p>
-A instalação do <prgn>GRUB</prgn> ao contrário da instalação do 
-<prgn>LILO</prgn> (<ref id="boot-lilo">), só precisa ser executada uma 
+A instalação do <command>GRUB</command> ao contrário da instalação do 
+<command>LILO</command> (<xref linkend="boot-lilo">), só precisa ser executada uma 
 única vez. Caso seja necessária alguma mudança como por exemplo adicionar 
 uma nova imagem, esta pode ser feita apenas editando o arquivo de configuração 
 <file>menu.lst</file>.
@@ -491,22 +491,22 @@ uma nova imagem, esta pode ser feita apenas editando o arquivo de configuração
 
 <sect2 id="boot-grub-install-mbr">No MBR
  <p>
-Um método simples de adicionar o <prgn>GRUB</prgn> para gerenciar seu MBR 
+Um método simples de adicionar o <command>GRUB</command> para gerenciar seu MBR 
 (<em>Master Boot Record</em>) é rodando o seguinte comando (como superusuário):
 <example>
 # /sbin/grub-install /dev/hda
 
 </example>
-Este comando grava o <prgn>GRUB</prgn> no MBR do primeiro disco e cria o 
+Este comando grava o <command>GRUB</command> no MBR do primeiro disco e cria o 
 diretório <file>/boot/grub</file> onde estarão os arquivos necessários para 
 o seu funcionamento.
-Neste ponto o <prgn>GRUB</prgn> já está instalado e quando você reiniciar seu 
+Neste ponto o <command>GRUB</command> já está instalado e quando você reiniciar seu 
 computador irá se deparar com uma linha de comandos, onde terá que carregar a 
 imagem do kernel manualmente. Mais adiante será explorada a utilização desta 
 linha de comando que é muito eficiente. 
  <p>
 Provavelmente você achará mais interessante copiar o arquivo de configuração 
-de exemplos do <prgn>GRUB</prgn> e otimizá-lo às suas necessidades. Note que isto 
+de exemplos do <command>GRUB</command> e otimizá-lo às suas necessidades. Note que isto 
 não exclui a possibilidade de utilizar a linha de comando, apenas cria uma 
 interface de menus onde você pode configurar várias opções de boot de uma 
 forma organizada, automatizada e funcional.
@@ -524,7 +524,7 @@ necessidades, o que será abordado mais a frente.
  <p>
 Quando criamos um disquete de partida, este funcionará em um sistema qualquer, 
 podendo utilizar este disquete em várias máquinas diferentes ou em uma 
-máquina em que tenha tido algum problema com o <prgn>GRUB</prgn> no MBR.
+máquina em que tenha tido algum problema com o <command>GRUB</command> no MBR.
 Coloque um disquete virgem e digite os seguintes comandos:
 <example>
 # dd if=/usr/lib/grub/i386-pc/stage1 of=/dev/fd0 count=1
@@ -634,8 +634,8 @@ identificar o sistema a ser inicializado.
 
   <item>
  <tt>rootnoverify</tt> = Idêntica a opção <tt>root</tt>, mas não tenta montar 
-a partição-alvo, o que é necessário para alguns sistemas como <prgn>Dos</prgn> 
-e <prgn>Windows</prgn>. 
+a partição-alvo, o que é necessário para alguns sistemas como <command>Dos</command> 
+e <command>Windows</command>. 
 
   <item>
  <tt>kernel</tt> = Nesta opção você informa qual o kernel vai ser inicializado. 
@@ -648,7 +648,7 @@ Ex.: kernel (hd0,0)/boot/vmlinuz-2.4.16 vga=6
  <tt>module</tt> = Faz com que algum módulo necessário para o boot seja carregado. 
 Lembre-se que estes não são módulos do kernel (módulos de som, rede, etc.) e 
 sim módulos necessários ao boot de alguns sistemas, como por exemplo o 
-<prgn>GNU Hurd</prgn>.
+<command>GNU Hurd</command>.
 
   <item>
  <tt>lock</tt> = Quando você quiser controlar se uma pessoa pode iniciar um sistema 
@@ -698,7 +698,7 @@ makeactive
   <item>
  <tt>map</tt> = Alguns sistemas não permitem ser inicializados quando não 
 estão no primeiro disco (Dos, Win 9x, etc.). Para resolver esta e outras situações 
-o <prgn>GRUB</prgn> tem um comando que permite enganar tal sistema mapeando as 
+o <command>GRUB</command> tem um comando que permite enganar tal sistema mapeando as 
 unidades de disco do modo como lhe for mais conveniente.
  <p>
 Imagine que você tenha o primeiro disco (hd0) com o GNU/Linux instalado 
@@ -721,7 +721,7 @@ este sistema como (hd0) "enganado" o mesmo e possibilitando o boot.
  <tag>Parâmetros enviados diretamente ao kernel</tag>
  <item>
 Pode ser necessário passar alguns parâmetros para o kernel no momento do boot. 
-Para maiores informações ver a seção <ref id="boot-kernelparam">.
+Para maiores informações ver a seção <xref linkend="boot-kernelparam">.
 Você pode passar os parâmetros da seguinte maneira:
 <example>
 # Exemplo de entrada no 'menu.lst'.
@@ -811,17 +811,17 @@ color light-green/brown blink-red/blue
 
 <sect1 id="boot-grub-cmdline">Usando a linha de comandos do GRUB
  <p>
-O <prgn>GRUB</prgn> possui inúmeros recursos, mas com certeza um dos mais 
+O <command>GRUB</command> possui inúmeros recursos, mas com certeza um dos mais 
 importantes e que merece destaque é sua linha de comandos. A maioria dos 
 comandos usados no arquivo de configuração <file>menu.lst</file> são 
 válidos aqui e muitos outros estão disponíveis. Uma breve apresentação da 
 linha de comandos será dada, ficando por conta do leitor se aprofundar o 
 quanto achar necessário em sua flexibilidade. 
  <p>
-Quando o <prgn>GRUB</prgn> é inicializado você pode se deparar com sua linha 
+Quando o <command>GRUB</command> é inicializado você pode se deparar com sua linha 
 de comandos ou se possuir o arquivo <file>menu.lst</file> configurado, um menu 
 de escolha. Mesmo usando os menus de escolha você pode utilizar a linha de comandos, 
-bastando para isso seguir as instruções no rodapé da tela onde o <prgn>GRUB</prgn> 
+bastando para isso seguir as instruções no rodapé da tela onde o <command>GRUB</command> 
 nos informa que podemos digitar <tt>e</tt> para editar as entradas de boot ou 
 <tt>c</tt> para ter acesso a linha de comandos (lembre-se que pressionar 
 <tt>&lt;ESC&gt;</tt> faz com que você volte aos menus de escolha).
@@ -847,7 +847,7 @@ importantes.
 Para contornar este problema o parâmetro <tt>password</tt> é utilizado 
 no arquivo <file>menu.lst</file> e faz com que uma senha seja solicitada 
 antes de liberar o acesso a linha de comandos. Não esqueça que ainda é 
-possível utilizar um disquete com o <prgn>GRUB</prgn> para dar boot na 
+possível utilizar um disquete com o <command>GRUB</command> para dar boot na 
 máquina o que permite usar a linha de comandos pelo disquete.
 
 <example>
@@ -931,24 +931,24 @@ grub&gt; boot
 
 </example>
 </list>
-Muitos outros comandos estão disponíveis tanto na linha de comandos do <prgn>GRUB
-</prgn> quanto no arquivo de configuração <file>menu.lst</file>. Estes comandos 
+Muitos outros comandos estão disponíveis tanto na linha de comandos do <command>GRUB
+</command> quanto no arquivo de configuração <file>menu.lst</file>. Estes comandos 
 adicionais podem ser necessários apenas para algumas pessoas e por isso não serão 
 explicados. 
 
 
 <sect1 id="boot-grub-removendo">Removendo o GRUB do MBR
  <p>
-Não existe a necessidade de se remover o <prgn>GRUB</prgn> do MBR pois não há 
-utilização para o mesmo vazio. Para substituir o <prgn>GRUB</prgn> do MBR é 
+Não existe a necessidade de se remover o <command>GRUB</command> do MBR pois não há 
+utilização para o mesmo vazio. Para substituir o <command>GRUB</command> do MBR é 
 necessário apenas que outro gerenciador de boot escreva algo nele.
-Você pode seguir o procedimento de instalação do <prgn>LILO</prgn> para escrever 
+Você pode seguir o procedimento de instalação do <command>LILO</command> para escrever 
 algo no MBR ou usar o comando <tt>fdisk /mbr</tt> do DOS.
 
 
 <sect1 id="boot-grub-detalhes">Como obter informações mais detalhadas
  <p>
-Para obter informações mais detalhadas sobre o <prgn>GRUB</prgn> é recomendado 
+Para obter informações mais detalhadas sobre o <command>GRUB</command> é recomendado 
 o site oficial do mesmo, o qual está disponível apenas na língua inglesa.
 
 Os seguintes sites foram utilizados na pesquisa:
@@ -1011,41 +1011,41 @@ perguntar o modo de vídeo.
  </list>
 </list>
 Uma lista mais detalhada de parâmetros de inicialização pode ser obtida 
-no documento <tt>Boot-prompt-howto</tt> (veja <ref id="ajuda-howto">).
+no documento <tt>Boot-prompt-howto</tt> (veja <xref linkend="ajuda-howto">).
 
 
 <sect id="boot-loadlin">LOADLIN
  <p>
-É um gerenciador de partida que permite iniciar o <prgn>GNU/Linux</prgn> 
-a partir do <prgn>DOS</prgn>.  
-<![ %DESCRICAOD [ A vantagem do uso do <prgn>Loadlin</prgn> é não ser 
-preciso reiniciar o computador para se entrar no <prgn>GNU/Linux</prgn>. 
-Ele funciona carregando o <prgn>kernel</prgn> (copiado para a 
-partição <prgn>DOS</prgn>) para a memória e inicializando o 
-<prgn>GNU/Linux</prgn>. 
+É um gerenciador de partida que permite iniciar o <command>GNU/Linux</command> 
+a partir do <command>DOS</command>.  
+<![ %DESCRICAOD [ A vantagem do uso do <command>Loadlin</command> é não ser 
+preciso reiniciar o computador para se entrar no <command>GNU/Linux</command>. 
+Ele funciona carregando o <command>kernel</command> (copiado para a 
+partição <command>DOS</command>) para a memória e inicializando o 
+<command>GNU/Linux</command>. 
  <p>
-Outro motivo pelo qual é muito usado é quando o <prgn>GNU/Linux</prgn> não 
+Outro motivo pelo qual é muito usado é quando o <command>GNU/Linux</command> não 
 tem suporte a um certo tipo de dispositivo, mas este tem seu suporte 
-no <prgn>DOS</prgn> ou <prgn>Windows</prgn> e funciona corretamente com 
+no <command>DOS</command> ou <command>Windows</command> e funciona corretamente com 
 eles. 
  <p>
-O truque é o seguinte: Você inicia normalmente pelo <prgn>DOS</prgn> e 
+O truque é o seguinte: Você inicia normalmente pelo <command>DOS</command> e 
 após seu dispositivo ser configurado corretamente pelo driver do 
-<prgn>DOS</prgn> e funcionando corretamente, você 
-executa o <prgn>Loadlin</prgn> e o <prgn>GNU/Linux</prgn> assim poderá 
-usa-lo. Muitos usam o comando <prgn>Loadlin</prgn> dentro do arquivo 
-<file>autoexec.bat</file> para iniciar o <prgn>GNU/Linux</prgn> 
+<command>DOS</command> e funcionando corretamente, você 
+executa o <command>Loadlin</command> e o <command>GNU/Linux</command> assim poderá 
+usa-lo. Muitos usam o comando <command>Loadlin</command> dentro do arquivo 
+<file>autoexec.bat</file> para iniciar o <command>GNU/Linux</command> 
 automaticamente após o dispositivo ser configurado pelo 
-<prgn>DOS</prgn>. ]]>
+<command>DOS</command>. ]]>
 <![ %OBS [
  <p>
-ATENÇÃO!!! Não execute o <prgn>Loadlin</prgn> dentro do Windows. ]]>
+ATENÇÃO!!! Não execute o <command>Loadlin</command> dentro do Windows. ]]>
 
 
 <sect1 id="boot-loadlin-opcoes">Opções do LOADLIN
  <p>
 Abaixo a lista de opções que podem ser usadas com o programa 
-<prgn>LOADLIN</prgn> (note que todas são usadas no <prgn>DOS</prgn>): 
+<command>LOADLIN</command> (note que todas são usadas no <command>DOS</command>): 
  <p>
 <tt>loadlin [<em>imagem_kernel</em>] [<em>argumentos</em>] 
 [<em>opções</em>]</tt>
@@ -1057,7 +1057,7 @@ Abaixo a lista de opções que podem ser usadas com o programa
  <item>
 <tt>root=dispositivo</tt> - Especifica o dispositivo que contém o 
 sistema de arquivos raiz. É especificado de acordo com a identificação 
-de dispositivos no <prgn>GNU/Linux</prgn> (<file>/dev/hda1</file>, 
+de dispositivos no <command>GNU/Linux</command> (<file>/dev/hda1</file>, 
 <file>/dev/hdb1</file>, etc).
 
  <item>
@@ -1079,7 +1079,7 @@ sistema.
 
  <item>
 <tt>-t</tt> - Modo de teste, tudo é feito menos a inicialização 
-do <prgn>GNU/Linux</prgn>. 
+do <command>GNU/Linux</command>. 
 
  <item>
 <tt>-d arquivo</tt> - Mesma função de <tt>-t</tt>, mas envia a saída 
@@ -1091,15 +1091,15 @@ inicializar o kernel.
 
  <item>
 <tt>-dskreset</tt> - Após carregar a imagem do kernel, reseta 
-todos os discos rígidos antes de inicializar o <prgn>GNU/Linux</prgn>. 
+todos os discos rígidos antes de inicializar o <command>GNU/Linux</command>. 
 </list>
 
 
 <sect1 id="boot-loadlin-exemplo">Exemplo de inicialização com o LOADLIN
  <p>
 Abaixo você encontra um exemplo do comando <tt>loadlin</tt> que 
-poderá ser usado em sua instalação <prgn>GNU/Linux</prgn> (precisando 
-apenas ajustar a localização da partição raiz do <prgn>GNU/Linux</prgn> 
+poderá ser usado em sua instalação <command>GNU/Linux</command> (precisando 
+apenas ajustar a localização da partição raiz do <command>GNU/Linux</command> 
 de acordo com seu sistema).
 <example>
  C:\> LOADLIN vmlinuz root=/dev/hda1 ro
@@ -1115,18 +1115,18 @@ de acordo com seu sistema).
 <sect id="boot-syslinux">syslinux
  <p>
 Outro gerenciador de partida que funciona somente com sistemas de 
-arquivos <prgn>DOS</prgn>. A principal diferença do <prgn>syslinux</prgn> 
-em relação ao <prgn>LOADLIN</prgn> é que foi feito especialmente para 
-funcionar em disquetes formatados no <prgn>DOS</prgn>, facilitando a 
-instalação do <prgn>GNU/Linux</prgn> e para a criação de disquetes de 
+arquivos <command>DOS</command>. A principal diferença do <command>syslinux</command> 
+em relação ao <command>LOADLIN</command> é que foi feito especialmente para 
+funcionar em disquetes formatados no <command>DOS</command>, facilitando a 
+instalação do <command>GNU/Linux</command> e para a criação de disquetes de 
 recuperação ou de inicialização. Um disquete gerado pelo 
-<prgn>syslinux</prgn> é lido sem problemas pelo 
-<prgn>DOS</prgn>/<prgn>Windows</prgn>. 
+<command>syslinux</command> é lido sem problemas pelo 
+<command>DOS</command>/<command>Windows</command>. 
  <p>
 <tt>syslinux [-s] [<em>dispositivo</em>]</tt>
  <p>
 A opção <tt>-s</tt> instala no disquete uma versão segura, lenta e estúpida 
-do <prgn>syslinux</prgn>. Isto é necessário para algumas <tt>BIOS</tt> 
+do <command>syslinux</command>. Isto é necessário para algumas <tt>BIOS</tt> 
 problemáticas. 
 
 
@@ -1134,14 +1134,14 @@ problemáticas.
 com o syslinux
  <p>
 Siga os passos abaixo para criar um disquete de inicialização com o 
-<prgn>syslinux</prgn>:
+<command>syslinux</command>:
 <enumlist>
  <item>
-Formate o disquete no <prgn>DOS</prgn> ou com alguma ferramenta 
-<prgn>GNU/Linux</prgn> que faça a formatação de disquetes para 
-serem usados no <prgn>DOS</prgn>.
+Formate o disquete no <command>DOS</command> ou com alguma ferramenta 
+<command>GNU/Linux</command> que faça a formatação de disquetes para 
+serem usados no <command>DOS</command>.
  <item>
-Copie um ou mais arquivos de <prgn>kernel</prgn> para o disquete
+Copie um ou mais arquivos de <command>kernel</command> para o disquete
  <item>
 Digite <tt>syslinux /dev/fd0</tt> (lembre-se de usar a opção <tt>-s</tt> 
 se tiver problemas de inicialização). Este comando modificará o setor 
@@ -1150,32 +1150,32 @@ no diretório raiz do disquete.
 <![ %OBS [ 
  <p>
 Lembre-se: O disquete deve estar desmontado antes de usar o comando 
-<prgn>syslinux</prgn>, caso o disquete estiver montado uma mensagem 
-será mostrada e o <prgn>syslinux</prgn> abortado. ]]>
+<command>syslinux</command>, caso o disquete estiver montado uma mensagem 
+será mostrada e o <command>syslinux</command> abortado. ]]>
 </enumlist>
 Por padrão é carregado o kernel de nome <file>GNU/Linux</file>. Este padrão 
 pode ser modificado através do arquivo de configuração <file>SYSLINUX.CFG
 </file> que também é gravado no diretório raiz do disquete. Veja 
-<ref id="boot-syslinux-opcoes"> para detalhes. 
+<xref linkend="boot-syslinux-opcoes"> para detalhes. 
  <p>
 Se as teclas Caps Lock ou Scrool Lock estiverem ligadas ou Shift, Alt 
-forem pressionadas durante o carregamento do <prgn>syslinux</prgn>, o 
-<prgn>syslinux</prgn> mostrará um aviso de <tt>boot:</tt> no estilo do 
-<prgn>LILO</prgn>. O usuário pode então digitar o nome do kernel seguido 
-de qualquer parâmetro para inicializar o <prgn>GNU/Linux</prgn>. 
+forem pressionadas durante o carregamento do <command>syslinux</command>, o 
+<command>syslinux</command> mostrará um aviso de <tt>boot:</tt> no estilo do 
+<command>LILO</command>. O usuário pode então digitar o nome do kernel seguido 
+de qualquer parâmetro para inicializar o <command>GNU/Linux</command>. 
 
 
 <sect1 id="boot-syslinux-opcoes">O arquivo SYSLINUX.CFG
  <p>
 Este arquivo é criado no diretório raiz da unidade de disquete e contém 
 as opções que serão usadas para modificar o funcionamento do 
-<prgn>syslinux</prgn>. 
+<command>syslinux</command>. 
 Abaixo a listagem de opções que podem ser especificadas neste arquivo:
 <taglist compact> 
  <tag>default [kernel] [opções]</tag>
  <item>
 Indica o nome do kernel e as opções dele que serão usadas na inicialização, 
-caso <prgn>syslinux</prgn> seja iniciado automaticamente. Caso não 
+caso <command>syslinux</command> seja iniciado automaticamente. Caso não 
 for especificada, o valor assumido será <em>linux auto</em> sem 
 nenhuma opção de inicialização. 
 
@@ -1183,14 +1183,14 @@ nenhuma opção de inicialização.
  <item>
 Passa uma ou mais opções ao kernel na inicialização. Elas serão adicionadas 
 automaticamente para inicializações automáticas e manuais do 
-<prgn>syslinux</prgn>. 
+<command>syslinux</command>. 
 
 <tag>label [nome]</tag>
 <tag>   kernel [kernel]</tag>
 <tag>   append [opções]</tag>
  <item>
 Nome que identificará o kernel no aviso de <tt>boot:</tt> (idêntica a 
-opção <tt>label=</tt> do <prgn>LILO</prgn>). Se a imagem especificada 
+opção <tt>label=</tt> do <command>LILO</command>). Se a imagem especificada 
 por <tt>nome</tt> for selecionada, o kernel usado será o especificado 
 pelo parâmetro <tt>kernel</tt> e as opções usadas por <tt>append</tt>. 
  <p>
@@ -1204,7 +1204,7 @@ especificada na opção <tt>label</tt>.
 
 <tag>timeout [tempo]</tag> 
  <item>
-Indica quanto tempo o <prgn>syslinux</prgn> aguardará antes de inicializar 
+Indica quanto tempo o <command>syslinux</command> aguardará antes de inicializar 
 automaticamente (medido em 1/10 de segundos). Caso alguma tecla seja 
 pressionada, a inicialização automática é interrompida. Para desativar 
 esta característica, use 0 como <tt>timeout</tt>. O valor máximo é 
@@ -1213,7 +1213,7 @@ de 35996.
 <tag>font [nome]</tag>
  <item>
 Especifica uma fonte (em formato <file>.psf</file>) que será usada 
-para mostrar as mensagens do <prgn>syslinux</prgn> (após o aviso de 
+para mostrar as mensagens do <command>syslinux</command> (após o aviso de 
 copyright do programa). 
 Ele carrega a fonte para a placa de vídeo, se a fonte conter uma 
 tabela unicode, ela será ignorada. Somente funciona em placas 
@@ -1222,24 +1222,24 @@ EGA e VGA.
 <tag>kbdmap [mapa]</tag> 
  <item>
 Instala um simples mapa de teclado. O mapa de teclados usado é muito 
-simples: somente remapeia códigos conhecidos pela <prgn>BIOS</prgn>, o 
+simples: somente remapeia códigos conhecidos pela <command>BIOS</command>, o 
 que significa que somente teclas usadas no teclado padrão EUA serão 
 usadas. 
  <p>
-O utilitário <prgn>keytab-lilo.pl</prgn> da distribuição do 
-<prgn>lilo</prgn> pode ser usado para criar tais mapas de teclado. 
+O utilitário <command>keytab-lilo.pl</command> da distribuição do 
+<command>lilo</command> pode ser usado para criar tais mapas de teclado. 
 
 <tag>prompt [valor]</tag>
  <item>
 Se [valor] for igual a 1, mostra automaticamente o aviso de <tt>boot:</tt> 
-assim que o <prgn>syslinux</prgn> for iniciado. Caso seja igual a 0, 
+assim que o <command>syslinux</command> for iniciado. Caso seja igual a 0, 
 mostra o aviso de <tt>boot:</tt> somente se as teclas Shift ou Alt 
 forem pressionadas ou Caps Lock e Scrool Lock estiverem ativadas. 
 
 <tag>display [arquivo]</tag>
  <item>
 Mostra o conteúdo do [arquivo] durante a inicialização do 
-<prgn>syslinux</prgn>. 
+<command>syslinux</command>. 
 
 <tag>F1 [arquivo]</tag>
 <tag>F2 [arquivo]</tag>
@@ -1248,7 +1248,7 @@ Mostra o conteúdo do [arquivo] durante a inicialização do
  <item>
 Especifica que arquivos serão mostrados quando as teclas de F1 até 
 F10 forem pressionadas. Para detalhes, veja 
-<ref id="boot-syslinux-formatacao">. 
+<xref linkend="boot-syslinux-formatacao">. 
 
 </taglist>
 
@@ -1256,11 +1256,11 @@ F10 forem pressionadas. Para detalhes, veja
 <sect1 id="boot-syslinux-formatacao">Formatação dos arquivos de tela do 
 syslinux
  <p>
-Os arquivos de texto que são mostrados na tela pelo <prgn>syslinux</prgn> 
+Os arquivos de texto que são mostrados na tela pelo <command>syslinux</command> 
 podem ter suas cores modificadas usando parâmetros simples, isto 
 causa um bom efeito de apresentação. Abaixo estão os códigos 
 que podem ser usados para criar um arquivo texto que será exibido pelo 
-<prgn>syslinux</prgn>: 
+<command>syslinux</command>: 
 <example>
 CTRL+L - Limpa a tela (semelhante ao que o clear faz). 
 CTRL+O[frente][fundo] - Define a cor de frente e fundo, se somente 

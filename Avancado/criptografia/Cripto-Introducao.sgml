@@ -43,14 +43,14 @@ para solução de problemas em rede (quando usado com boas intenções pelo
 administrador do sistema) ou para ataques ao sistema (quando usado pelo 
 cracker para obter nomes/senhas e outros detalhes úteis para espionagem). 
  <p>
-Os sniffers mais conhecidos para sistemas <prgn>Linux</prgn> são 
-<prgn>tcpdump</prgn>, <prgn>ethereal</prgn>. Este último apresenta 
+Os sniffers mais conhecidos para sistemas <command>Linux</command> são 
+<command>tcpdump</command>, <command>ethereal</command>. Este último apresenta 
 uma interface gráfica GTK para fácil operação em máquinas que 
 executam o servidor X. 
 Para explicar o funcionamento de um sniffer, vou assumir o 
-<prgn>ethereal</prgn> instalado (ele não requer modificações no 
+<command>ethereal</command> instalado (ele não requer modificações no 
 sistema além de ser fácil de executar e fazer pesquisa de 
-expressões específicas). Instale o <prgn>ethereal</prgn> com o comando 
+expressões específicas). Instale o <command>ethereal</command> com o comando 
 <tt>apt-get install ethereal</tt>. 
  <p>
 Agora vamos a prática para entender como o sniffer funciona e a 
@@ -60,7 +60,7 @@ entender falando muita teoria :-):
  <item>
 Conecte-se a Internet
  <item>
-Execute o <prgn>ethereal</prgn> como usuário <tt>root</tt>.
+Execute o <command>ethereal</command> como usuário <tt>root</tt>.
  <item>
 Pressione <tt>CTRL+K</tt> para abrir a tela de captura de pacotes. 
 Em <tt>Interface</tt> selecione sua interface de internet. Nesta 
@@ -78,12 +78,12 @@ Finalize a captura de pacotes clicando no botão "STOP"
 
 </enumlist>
 Agora vá em "File"/"Open" e abra o arquivo capturado. Ele está no formato usado 
-pelo sniffer <prgn>tcpdump</prgn> como padrão. Procure no campo "INFO" 
+pelo sniffer <command>tcpdump</command> como padrão. Procure no campo "INFO" 
 a linha "Request: USER anonymous", logo abaixo você verá a senha digitada pelo 
 usuário. Entendeu agora a importância da criptografia na transferência segura 
 de dados? não só o nome/senha pode ser capturado mas toda a seções 
-feitas pelo usuário. Scanners como o <prgn>tcpdump</prgn> e 
-<prgn>ethereal</prgn> são flexivelmente configuráveis para procurar 
+feitas pelo usuário. Scanners como o <command>tcpdump</command> e 
+<command>ethereal</command> são flexivelmente configuráveis para procurar 
 por dados específicos nas conexões e salva-los para posterior 
 recuperação.
 
@@ -103,9 +103,9 @@ Sep 25 16:54:18 myserver kernel: device eth0 left promiscuous mode
 Sep 25 16:54:31 myserver kernel: device eth0 entered promiscuous mode
 
 </example>
-O <prgn>logcheck</prgn> monitora estas atividades e classificam esta mensagem 
+O <command>logcheck</command> monitora estas atividades e classificam esta mensagem 
 como prioridade "Violação" (dependendo da configuração dos seus filtros em 
-<file>/etc/logcheck</file>. <![ %CAPJUNTOS [ Veja <ref id="log-uteis-logcheck"> 
+<file>/etc/logcheck</file>. <![ %CAPJUNTOS [ Veja <xref linkend="log-uteis-logcheck"> 
 para detalhes sobre este programa. ]]>
 
 <![ %OBS [
@@ -127,10 +127,10 @@ administração via web ou que tenham dados que oferecem risco, se capturados.
  <p>
 Existem duas alternativas: instalar o servidor Apache-ssl (pacote 
 <package>apache-ssl</package> ou adicionar o módulo 
-<file>mod-ssl</file> na instalação padrão do <prgn>Apache</prgn>. Esta 
+<file>mod-ssl</file> na instalação padrão do <command>Apache</command>. Esta 
 segunda é a preferida por ser mais rápida e simples de se administrar, 
-por usar o servidor Web <prgn>Apache</prgn> padrão e sua configuração. 
-<![ %CAPJUNTOS [ Veja <ref id="s-apache-ssl"> para detalhes de como 
+por usar o servidor Web <command>Apache</command> padrão e sua configuração. 
+<![ %CAPJUNTOS [ Veja <xref linkend="s-apache-ssl"> para detalhes de como 
 configurar um servidor Web para transmissão de dados criptografados. ]]>
 
 
@@ -139,10 +139,10 @@ configurar um servidor Web para transmissão de dados criptografados. ]]>
 A codificação padrão usada para o envio de mensagens em muitos clientes 
 de e-mail é o MIME/base64. Isto não oferece muita segurança porque os dados 
 podem ser facilmente descriptografados se pegos por sniffers 
-(veja <ref id="d-cripto-sniffer">) ou abertos por administradores não confiáveis 
+(veja <xref linkend="d-cripto-sniffer">) ou abertos por administradores não confiáveis 
 no diretório de spool do servidor. 
  <p>
-Existem uma diversidade de servidores SMTP, POP, IMAP do <prgn>Linux</prgn> 
+Existem uma diversidade de servidores SMTP, POP, IMAP do <command>Linux</command> 
 que já implementam o protocolo de autenticação <em>SSL</em>/<em>TLS</em>, 
 exigindo login/senha para o envio/recepção de mensagens, cabeçalhos de 
 autenticação (aumentando um pouco mais a confiança sobre quem enviou 
@@ -151,56 +151,56 @@ nossas contas de e-mail para a Internet, por algum motivo, e não
 queremos que outros façam relay sem nossa autorização.
  <p>
 Outra forma de garantir a segurança da mensagem/arquivos através do 
-correio eletrônico é usando o PGP (veja <ref id="d-cripto-gpg">) em conjunto 
+correio eletrônico é usando o PGP (veja <xref linkend="d-cripto-gpg">) em conjunto 
 com um MUA (Mail User Agent - cliente de e-mails) que suporte o envio de 
 mensagens criptografadas/assinadas usando PGP. A vantagem do GPG em 
 cima da autenticação SSL é que você tem garantidas da autenticidade da 
 mensagem e você pode verificar sua integridade. Os dois programas mais usados 
-em sistemas <prgn>Unix</prgn> são o <prgn>mutt</prgn> e o <prgn>sylpheed</prgn>. 
-O <prgn>mutt</prgn> é um MUA para modo texto e o <prgn>sylpheed</prgn> para 
+em sistemas <command>Unix</command> são o <command>mutt</command> e o <command>sylpheed</command>. 
+O <command>mutt</command> é um MUA para modo texto e o <command>sylpheed</command> para 
 modo gráfico. Ambos são muito flexíveis, permitem uma grande variedade 
 de configurações, personalizações, possuem agenda de endereços e gerenciam 
 diversas contas de e-mails em um só programa. 
  <p>
-Para encriptar/assinar uma mensagem no <prgn>mutt</prgn> escreva/responda 
+Para encriptar/assinar uma mensagem no <command>mutt</command> escreva/responda 
 seu e-mail normalmente, quando aparecer a tela onde você tecla "y" para 
 enviar a mensagem, tecle "p" e selecione uma das opções para 
 criptografar/assinar uma mensagem.
  <p>
-Para fazer a mesma operação no <prgn>sylpheed</prgn>, escreva/responda seu 
+Para fazer a mesma operação no <command>sylpheed</command>, escreva/responda seu 
 e-mail normalmente e clique no menu "Mensagem" e marque "assinar", "criptografar" 
 ou ambos. A chave pública deverá estar disponível para tal operação
-(veja <ref id="d-cripto-gpg-c-a"> e <ref id="d-cripto-gpg-c-e">). 
+(veja <xref linkend="d-cripto-gpg-c-a"> e <xref linkend="d-cripto-gpg-c-e">). 
 
 
 <sect1 id="d-cripto-pop3">Servidor pop3
  <p>
-A alternativa mais segura é a utilização do protocolo <prgn>IMAP</prgn> com 
+A alternativa mais segura é a utilização do protocolo <command>IMAP</command> com 
 suporte a ssl. Nem todos os clientes de e-mail suportam este protocolo. 
 
 
 <sect1 id="d-cripto-ftp">Transferência de arquivos
  <p>
-Ao invés do <prgn>ftp</prgn>, use o <prgn>scp</prgn> ou o <prgn>sftp</prgn> 
+Ao invés do <command>ftp</command>, use o <command>scp</command> ou o <command>sftp</command> 
 para transferência segura de arquivos. 
-<![ %CAPJUNTOS [ Veja <ref id="s-ssh-cliente-scp"> e 
-<ref id="s-ssh-cliente-sftp">. ]]> Uma outra alternativa é a configuração 
+<![ %CAPJUNTOS [ Veja <xref linkend="s-ssh-cliente-scp"> e 
+<xref linkend="s-ssh-cliente-sftp">. ]]> Uma outra alternativa é a configuração 
 de uma VPN entre redes para garantir não só a transferência de arquivos, mas
 uma seção em cima de um tunel seguro entre duas pontas.
 
 
 <sect1 id="d-cripto-rlogin">login remoto
  <p>
-Ao invés do uso do <prgn>rlogin</prgn>, <prgn>telnet</prgn> 
-e <prgn>rsh</prgn> utilize o <prgn>ssh</prgn> 
-<![ %CAPJUNTOS [ (veja <ref id="s-ssh-cliente-ssh">) ]]>
+Ao invés do uso do <command>rlogin</command>, <command>telnet</command> 
+e <command>rsh</command> utilize o <command>ssh</command> 
+<![ %CAPJUNTOS [ (veja <xref linkend="s-ssh-cliente-ssh">) ]]>
 ou o telnet com suporte a ssl<![ %CAPJUNTOS [ 
-(veja <ref id="s-telnet-install">)]]>. 
+(veja <xref linkend="s-telnet-install">)]]>. 
 
 
 <sect1 id="d-cripto-irc">Bate papo via IRC
  <p>
-O programa <prgn>SILC</prgn> (Secure Internet Live Conference) 
+O programa <command>SILC</command> (Secure Internet Live Conference) 
 realiza a criptografia de dados durante o bate papo entre diversos 
 usuários conectados via rede. 
 
@@ -216,8 +216,8 @@ falsificações de pacotes. Outro ponto fraco
 descartados perdendo a mensagem.
  <p>
 Ao invés do ICQ, você poderá usar algum cliente do protocolo 
-<prgn>Jabber</prgn> (como o <prgn>gaim</prgn>, <prgn>gaber</prgn> ou 
-<prgn>gossip</prgn>) ou o LICQ mais atual com suporte a ssl compilado.
+<command>Jabber</command> (como o <command>gaim</command>, <command>gaber</command> ou 
+<command>gossip</command>) ou o LICQ mais atual com suporte a ssl compilado.
 O problema do LICQ com ssh, é que as duas pontas deverão ter este 
 suporte compilado e funcionando.
 
@@ -228,7 +228,7 @@ Esta é uma forma excelente para armazenamento seguro de seus dados,
 pois estarão criptografados e serão somente acessados após fornecer 
 uma senha que só você conhece. O sistema usado é a montagem 
 de um arquivo comum como um sistema de arquivos via loopback 
-<![ %INTERMEDIARIO [ (veja <ref id="disc-ext2-criando-a">) ]]> 
+<![ %INTERMEDIARIO [ (veja <xref linkend="disc-ext2-criando-a">) ]]> 
 você pode escolher um nome de arquivo discreto para dificultar 
 sua localização (use a imaginação) e poderá ser armazenado até 
 mesmo em partições não-ext2. Siga estes passos para criar seu sistema 
@@ -265,7 +265,7 @@ suporte aos cyphers <tt>cast128</tt> e <tt>twofish</tt>.
  <p>
 Não ative as opções de criptografia para a seção "Networking" (a não ser 
 que saiba o que está fazendo). Recompile e instale seu kernel
-<![ %INTERMEDIARIO [ (veja <ref id="kern-recompilando">)]]>.
+<![ %INTERMEDIARIO [ (veja <xref linkend="kern-recompilando">)]]>.
 
  <tag>Crie um arquivo usando os números aleatórios de <file>/dev/urandom</file>:</tag>
   <item>
@@ -342,9 +342,9 @@ Com este sistema, seus dados estarão protegidos mesmo do usuário <tt>root</tt>
 
 
 
-<sect id="d-cripto-gpg">Usando pgp (<prgn>gpg</prgn>)para criptografia de arquivos
+<sect id="d-cripto-gpg">Usando pgp (<command>gpg</command>)para criptografia de arquivos
  <p>
-O <prgn>gpg</prgn> (GNU pgp, versão livre da ferramenta pgp) permite encriptar 
+O <command>gpg</command> (GNU pgp, versão livre da ferramenta pgp) permite encriptar 
 dados, assim somente o destinatário terá acesso aos dados, adicionalmente 
 poderá verificar se a origem dos dados é confiável (através da 
 assinatura de arquivos). 
@@ -355,7 +355,7 @@ ser distribuída).
 As chaves públicas e privadas são armazenadas nos arquivos 
 <file>pubring.gpg</file> e <file>secring.gpg</file> respectivamente, 
 dentro do subdiretório <file>~/.gnupg</file>. Veja 
-<ref id="d-cripto-gpg-criando"> para criar este par de chaves. 
+<xref linkend="d-cripto-gpg-criando"> para criar este par de chaves. 
  <p>
 Os dados que recebe de outra pessoa são criptografados usando 
 sua chave pública e somente você (de posse da chave privada) poderá 
@@ -364,12 +364,12 @@ pgp, ele faz isto usando sua chave privada, o destinatário de posse
 da chave pública poderá então confirmar que a origem dos dados é 
 confiável. 
  <p>
-O <prgn>gpg</prgn> vem largamente sendo usado para transmissão segura de 
-dados via internet. Muitos programas de e-mails como o <prgn>mutt</prgn> e 
-<prgn>sylpheed</prgn> incluem o suporte a pgp embutido para envio de 
+O <command>gpg</command> vem largamente sendo usado para transmissão segura de 
+dados via internet. Muitos programas de e-mails como o <command>mutt</command> e 
+<command>sylpheed</command> incluem o suporte a pgp embutido para envio de 
 mensagens assinadas/encriptadas (MIME não tem uma codificação segura e 
 não garante que a mensagem vem de quem realmente diz ser). Um 
-servidor de e-mail no <prgn>Linux</prgn> configurado como as 
+servidor de e-mail no <command>Linux</command> configurado como as 
 mesmas configurações/endereços do provedor da vítima pode 
 enganar com sucesso um usuário passando-se por outro. 
 
@@ -378,7 +378,7 @@ enganar com sucesso um usuário passando-se por outro.
  <p> 
 apt-get install gnupg
  <p>
-Após instalar o <package>gnupg</package>, execute o comando <prgn>gpg</prgn> 
+Após instalar o <package>gnupg</package>, execute o comando <command>gpg</command> 
 para criar o diretório <file>~/.gnupg</file> que armazenará as chaves 
 pública e privada.
 
@@ -412,7 +412,7 @@ letras para modificar os dados de sua chave.
 <tt>Digite a FraseSenha</tt> - Senha que irá identificá-lo(a) como proprietário 
 da chave privada. É chamada de FraseSenha pois pode conter espaços e não há 
 limite de caracteres. Para alterá-la posteriormente, siga as instruções em 
-<ref id="d-cripto-gpg-chpasswd">. 
+<xref linkend="d-cripto-gpg-chpasswd">. 
  <item>
 <tt>Confirme e aguarde a geração da chave pública/privada</tt>.
 
@@ -443,7 +443,7 @@ opção <em>-a</em> é muito usada para o envio de e-mails.
  <p>
 Para criptografar o arquivo para ser enviado a outro usuário, 
 você deverá ter a chave pública do usuário cadastrado no seu 
-chaveiro (veja <ref id="d-cripto-gpg-c-a">) e especificar a opção 
+chaveiro (veja <xref linkend="d-cripto-gpg-c-a">) e especificar a opção 
 <em>-r</em> seguida do nome/e-mail/ID da chave pública: 
 <example>
 gpg -r kov -e arquivo.txt
@@ -501,7 +501,7 @@ arquivo assinado e sem compactação.
 A checagem de assinatura consiste em verificar que quem nos enviou 
 o arquivo é realmente quem diz ser e se os dados foram de alguma 
 forma alterados. Você deverá ter a chave pública do usuário no seu 
-chaveiro para fazer esta checagem (veja <ref id="d-cripto-gpg-c-a">). 
+chaveiro para fazer esta checagem (veja <xref linkend="d-cripto-gpg-c-a">). 
 Para verificar os dados assinados acima usamos a opção <em>--verify</em>: 
 <example>
 gpg --verify arquivo.txt.asc
@@ -542,10 +542,10 @@ gpg --import chave-pub-usuario.txt
 
 </example>
 Assumindo que o arquivo <file>chave-pub-usuario.txt</file> contém 
-a chave pública do usuário criada em <ref id="d-cripto-gpg-c-e">. O 
-<prgn>gpg</prgn> detecta chaves públicas dentro de textos e faz a 
+a chave pública do usuário criada em <xref linkend="d-cripto-gpg-c-e">. O 
+<command>gpg</command> detecta chaves públicas dentro de textos e faz a 
 extração corretamente. Minha chave pública pode ser encontrada em 
-<ref id="apend-pgp"> ou <url id="&url-mit-keyserver-www;">. 
+<xref linkend="apend-pgp"> ou <url id="&url-mit-keyserver-www;">. 
 
 
 <sect1 id="d-cripto-gpg-c-l">Listando chaves de seu chaveiro
@@ -599,14 +599,14 @@ PGP. Assinar uma chave de alguém é algo sério, você deve ter noção do que
 isto significa e das conseqüências que isto pode trazer antes de sair assinando 
 chaves de qualquer um. 
  <p>
-O próprio teste para desenvolvedor da distribuição <prgn>Debian</prgn> requer 
+O próprio teste para desenvolvedor da distribuição <command>Debian</command> requer 
 como primeiro passo a identificação do candidato, caso sua chave pgp seja 
 assinada por algum desenvolvedor desta distribuição, imediatamente o teste de 
 identificação é completado. A partir disso você deve ter uma noção básica do que 
 isto significa. Para assinar uma chave siga os seguintes passos: 
 <enumlist compact>
  <item>
-Importe a chave pública do usuário (veja <ref id="d-cripto-gpg-c-a">).
+Importe a chave pública do usuário (veja <xref linkend="d-cripto-gpg-c-a">).
  <item>
 Execute o comando <tt>gpg --edit-key usuario</tt> (onde <em>usuario</em> 
 é o nome do usuário/e-mail/IDchave da chave pública importada).
@@ -643,7 +643,7 @@ confiável).
 <![ %CONSTRUCAO [ 
 Se você deseja estabelecer uma teia de confiança seguindo boas políticas 
 para a assinatura de chaves digitais, leia um guia explicativo em 
-<ref id="d-cripto-gpg-c-sign-guia">. ]]>
+<xref linkend="d-cripto-gpg-c-sign-guia">. ]]>
 
 
 <sect1 id="d-cripto-gpg-c-sign-l">Listando assinaturas digitais

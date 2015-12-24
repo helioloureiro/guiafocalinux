@@ -18,20 +18,20 @@ por um ponto:
 <list>
  <item>
 <tt>fsck.ext2</tt> - Verifica o sistema de arquivos <tt>EXT2</tt> ou 
-<tt>EXT3</tt>. Pode também ser encontrado com o nome <prgn>e2fsck</prgn>. 
+<tt>EXT3</tt>. Pode também ser encontrado com o nome <command>e2fsck</command>. 
  <item>
-<tt>fsck.ext3</tt> - Um alias para <prgn>fsck.ext3</prgn>.
+<tt>fsck.ext3</tt> - Um alias para <command>fsck.ext3</command>.
  <item>
 <tt>fsck.minix</tt> - Verifica o sistema de arquivos <tt>Minix</tt>. 
  <item>
 <tt>fsck.msdos</tt> - Verifica o sistema de arquivos <tt>Msdos</tt>. Pode 
-também ser encontrado com o nome <prgn>dosfsck</prgn>. 
+também ser encontrado com o nome <command>dosfsck</command>. 
 </list>
 Para verificar um sistema de arquivos é necessário que ele esteja desmontado 
 caso contrário poderá ocorrer danos em sua estrutura. Para verificar o 
 sistema de arquivos raíz (que não pode ser desmontado enquanto o sistema 
 estiver sendo executado) você precisará inicializar através de um disquete 
-e executar o <prgn>fsck.ext2</prgn>. 
+e executar o <command>fsck.ext2</command>. 
 
 
 <sect1 id="manut-checagem-ext2">fsck.ext2
@@ -52,12 +52,12 @@ Este utilitário permite verificar erros em sistemas de arquivos
  <tag>opções</tag>
  <tag>-c</tag>
  <item>
-Faz o <prgn>fsck.ext2</prgn> verificar se existem agrupamentos danificados 
+Faz o <command>fsck.ext2</command> verificar se existem agrupamentos danificados 
 na unidade de disco durante a checagem. 
 
  <tag>-d</tag>
  <item>
-Debug - Mostra detalhes de processamento do <prgn>fsck.ext2</prgn>.
+Debug - Mostra detalhes de processamento do <command>fsck.ext2</command>.
 
  <tag>-f</tag>
  <item>
@@ -73,7 +73,7 @@ Grava os dados do cache no disco antes de iniciar.
  <item>
 Inclui os blocos listados no [arquivo] como blocos defeituosos no sistema 
 de arquivos. O formato deste arquivo é o mesmo gerado pelo programa 
-<prgn>badblocks</prgn>. 
+<command>badblocks</command>. 
 
  <tag>-L [arquivo]</tag>
  <item>
@@ -110,9 +110,9 @@ Assume <tt>sim</tt> para todas as questões.
 </taglist> 
 ]]> 
 Caso sejam encontrados arquivos problemáticos e estes não possam ser 
-recuperados, o <prgn>fsck.ext2</prgn> perguntará se deseja salva-los 
+recuperados, o <command>fsck.ext2</command> perguntará se deseja salva-los 
 no diretório <file>lost+found</file>. Este diretório é encontrado em 
-todas as partições <em>ext2</em>. Não há risco de usar o <prgn>fsck.ext3</prgn> 
+todas as partições <em>ext2</em>. Não há risco de usar o <command>fsck.ext3</command> 
 em uma partição <tt>EXT2</tt>.
  <p>
 Após sua execução é mostrado detalhes sobre o sistema de arquivos 
@@ -126,7 +126,7 @@ Exemplos: <tt>fsck.ext2 /dev/hda2</tt>, <tt>fsck.ext2 -f /dev/hda2</tt>,
 
 <sect id="manut-checagem-reiserfsck">reiserfsck
  <p>
-Verifica um sistema de arquivos <prgn>reiserfs</prgn> em sistema 
+Verifica um sistema de arquivos <command>reiserfs</command> em sistema 
 de arquivos.
  <p>
 <tt>reiserfsck [<em>opções</em>] [<em>dispositivo</em>]</tt>
@@ -135,7 +135,7 @@ de arquivos.
 <taglist compact>
  <tag><em>dispositivo</em></tag>
   <item>
-Dispositivo que contém o sistema de arquivos <prgn>reiserfs</prgn> que 
+Dispositivo que contém o sistema de arquivos <command>reiserfs</command> que 
 será verificado.
 
  <tag><em>opções</em></tag>
@@ -157,7 +157,7 @@ Constrói a árvore de todos os blocos do dispositivo.
 
 </taglist>
 ]]>
-O <prgn>reiserfsck</prgn> possui outros modos de operação além de 
+O <command>reiserfsck</command> possui outros modos de operação além de 
 checagem (o padrão), para detalhes veja a página de manual do 
 programa.
 <![ %EXEMPLO [
@@ -215,7 +215,7 @@ Procura blocos defeituosos em um dispositivo. Note que este
 <strong>apenas</strong> pesquisa por blocos defeituosos, 
 sem alterar a configuração do disco. Para marcar os blocos
 defeituosos para não serem mais usados, utilize a 
-opção <tt>-l</tt> do <prgn>fsck</prgn> (veja <ref id="manut-checagem-ext2">). 
+opção <tt>-l</tt> do <command>fsck</command> (veja <xref linkend="manut-checagem-ext2">). 
  <p>
 <tt>badblocks [<em>opções</em>] [<em>dispositivo</em>]</tt>
  <p>
@@ -235,13 +235,13 @@ Especifica o [tamanho] do bloco do dispositivo em bytes
  <tag>-o [arquivo]</tag>
  <item>
 Gera uma lista dos blocos defeituosos do disco no [arquivo]. Este lista 
-pode ser usada com o programa <prgn>fsck.ext2</prgn> junto com a opção 
+pode ser usada com o programa <command>fsck.ext2</command> junto com a opção 
 <tt>-l</tt>. 
  
  <tag>-s</tag>
  <item>
 Mostra o número de blocos checados durante a execução do 
-<prgn>badblocks</prgn>. 
+<command>badblocks</command>. 
 
  <tag>-v</tag>
  <item>
@@ -249,7 +249,7 @@ Modo verbose - São mostrados mais detalhes.
 
  <tag>-w</tag>
  <item>
-Usa o modo leitura/gravação. Usando esta opção o <prgn>badblocks</prgn> 
+Usa o modo leitura/gravação. Usando esta opção o <command>badblocks</command> 
 procura por blocos defeituosos gravando alguns padrões (0xaa, 0x55, 
 0xff, 0x00) em cada bloco do dispositivo e comparando seu conteúdo. 
  <p>
@@ -274,16 +274,16 @@ cabeça para outra região do disco onde o arquivo continua, por este
 motivo discos fragmentados tendem a fazer um grande barulho na leitura 
 e o desempenho menor. 
  <p>
-A desfragmentação normalmente é desnecessária no <prgn>GNU/Linux</prgn> porque o 
+A desfragmentação normalmente é desnecessária no <command>GNU/Linux</command> porque o 
 sistema de arquivos <em>ext2</em> procura automaticamente o melhor local para 
 armazenar o arquivo. Mesmo assim, é recomendável desfragmentar um sistema 
 de arquivos assim que sua taxa de fragmentação subir acima de 10%. A taxa de 
-fragmentação pode ser vista através do <prgn>fsck.ext2</prgn>. Após o 
-<prgn>fsck.ext2</prgn> ser executado é mostrada a taxa de fragmentação 
+fragmentação pode ser vista através do <command>fsck.ext2</command>. Após o 
+<command>fsck.ext2</command> ser executado é mostrada a taxa de fragmentação 
 seguida de <tt>non-contiguos</tt>. ]]> 
  <p>
-A ferramenta de desfragmentação usada no <prgn>GNU/Linux</prgn> é o 
-<prgn>defrag</prgn> que vem com os seguintes programas: 
+A ferramenta de desfragmentação usada no <command>GNU/Linux</command> é o 
+<command>defrag</command> que vem com os seguintes programas: 
 <list compact>
  <item>
 <tt>e2defrag</tt> - Desfragmenta sistemas de arquivos <em>Ext2</em>.
@@ -301,7 +301,7 @@ arquivos raíz (<file>/</file>), você precisará inicializar
 através de um disquete e executar um dos programas de 
 desfragmentação apropriado ao seu sistema de arquivos. 
 A checagem individual de fragmentação em arquivos pode ser 
-feita com o programa <prgn>frag</prgn>. 
+feita com o programa <command>frag</command>. 
 <![ %OBS [
  <p>
 ATENÇÃO: Retire cópias de segurança de sua unidade antes de fazer 
@@ -326,7 +326,7 @@ Debug - serão mostrados detalhes do funcionamento
  <item>
 Não mostra o mapa do disco na desfragmentação. É útil quando você inicializa 
 por disquetes e recebe a mensagem "Failed do open term Linux" ao tentar 
-executar o <prgn>e2defrag</prgn>. 
+executar o <command>e2defrag</command>. 
 
  <tag>-r</tag>
  <item>
@@ -405,34 +405,34 @@ um disquete de boot lhe fará agendar uma parada no sistema e notificar os
 usuários, evitando sérios problemas do que fazendo isto com um sistema em 
 produção.
  <item>
-Execute o <prgn>badblocks</prgn> usando a opção <tt>-o</tt> para gravar os 
+Execute o <command>badblocks</command> usando a opção <tt>-o</tt> para gravar os 
 possíveis blocos defeituosos encontrados para um arquivo: <tt>badblocks -v -o blocos-defeituosos.lista /dev/hd??</tt>. 
  <p>
 Substitua o dispositivo <file>/dev/hd??</file> pelo dispositivo que deseja 
-verificar. A checagem do <prgn>badblocks</prgn> deverá ser feita para cada 
+verificar. A checagem do <command>badblocks</command> deverá ser feita para cada 
 partição existente no disco rígido. O tempo de checagem dependerá da velocidade
 do disco rígido, velocidade do barramento, cabo de dados utilizado, velocidade
 de processamento e é claro, do estado do disco rígido (quantos setores 
 defeituosos ele tem).
  <item>
-Após concluir o <prgn>badblocks</prgn>, veja se foram encontrados blocos 
+Após concluir o <command>badblocks</command>, veja se foram encontrados blocos 
 defeituosos. Caso tenha encontrado, siga para o próximo passo.
  <item>
-Para marcar os blocos encontrados pelo <prgn>badblocks</prgn> como defeituosos, 
+Para marcar os blocos encontrados pelo <command>badblocks</command> como defeituosos, 
 execute o comando: <tt>fsck.ext3 -l blocos-defeituosos.lista -f /dev/hd??</tt>.
  <p>
-Substitua o dispositivo, pelo dispositivo que verificou com o <prgn>badblocks</prgn>.
+Substitua o dispositivo, pelo dispositivo que verificou com o <command>badblocks</command>.
 O arquivo <file>blocos-defeituosos.list</file> contém a lista de blocos gerada pelo 
-<prgn>badblocks</prgn> que serão marcados como defeituosos.
+<command>badblocks</command> que serão marcados como defeituosos.
 
 </list>
 Para mais detalhes sobre as opções de checagem usada pelos programas, veja 
-<ref id="manut-badblocks"> e <ref id="manut-checagem-ext2">.
+<xref linkend="manut-badblocks"> e <xref linkend="manut-checagem-ext2">.
 
 
 <sect id="manut-logs-l">Limpando arquivos de LOGS
  <p>
-Tudo que acontece em sistemas <prgn>GNU/Linux</prgn> pode ser registrado em 
+Tudo que acontece em sistemas <command>GNU/Linux</command> pode ser registrado em 
 arquivos de log em <file>/var/log</file>, como vimos anteriormente. Eles 
 são muito úteis por diversos motivos, para o diagnóstico de problemas, 
 falhas de dispositivos, checagem da segurança, alerta de eventuais 
@@ -459,14 +459,14 @@ done
 echo Limpeza dos arquivos de log concluída!
 </example>
 Copie o conteúdo acima em um arquivo com a extensão <file>.sh</file>, 
-dê permissão de execução com o <prgn>chmod</prgn> e o execute como 
+dê permissão de execução com o <command>chmod</command> e o execute como 
 usuário <tt>root</tt>. É necessário executar este script para zerar 
 arquivos de log em subdiretórios de <file>/var/log</file>, caso sejam 
 usados em seu sistema. 
  <p>
-Algumas distribuições, como a <prgn>Debian</prgn> GNU/Linux, fazem o 
+Algumas distribuições, como a <command>Debian</command> GNU/Linux, fazem o 
 arquivamento automático de arquivos de LOGs em arquivos <file>.gz</file> 
-através de scripts disparados automaticamente pelo <prgn>cron</prgn>. 
+através de scripts disparados automaticamente pelo <command>cron</command>. 
 <![ %OBS [ 
 ATENÇÃO: LEMBRE-SE QUE O SCRIPT ACIMA APAGARÁ TODOS OS ARQUIVOS DE LOGs DO 
 SEU SISTEMA SEM POSSIBILIDADE DE RECUPERAÇÃO. TENHA ABSOLUTA CERTEZA DO 
@@ -516,7 +516,7 @@ críticos, e estas são totalmente possíveis e as mais usadas documentadas nest
 <list compact>
  <item>
 Como primeiro passo consiga um CD de partida ou disquete de uma distribuição
-<prgn>Linux</prgn>. Normalmente os mesmos CDs que usou para instalar sua 
+<command>Linux</command>. Normalmente os mesmos CDs que usou para instalar sua 
 distribuição também são desenvolvidos para permitir a manutenção do sistema, 
 contendo ferramentas diversas e um terminal virtual disponível para trabalhos
 manuais (tanto de instalação como manutenção). 
@@ -534,8 +534,8 @@ Na maioria dos casos você provavelmente estará utilizando o CD-ROM que usou pa
 instalar sua distribuição. Imediatamente quando o programa de instalação for 
 iniciado, pressione <em>ALT</em>+<em>F2</em> para alternar para o segundo 
 terminal virtual do sistema. O segundo terminal esta sempre disponível nas 
-distribuições distribuições <prgn>Debian</prgn>, <prgn>Red Hat</prgn>, 
-<prgn>Mandriva</prgn>, <prgn>Fedora</prgn>, etc.
+distribuições distribuições <command>Debian</command>, <command>Red Hat</command>, 
+<command>Mandriva</command>, <command>Fedora</command>, etc.
 
  <item>
 O próximo passo será montar sua partição raíz para ser possível alterar sua 
@@ -552,7 +552,7 @@ diretório raíz atual com o comando: <tt>chroot .</tt>.
 digite <tt>passwd</tt> e entre com a nova senha de superusuário.
 
  <item>
-saia do <prgn>chroot</prgn> digitando <tt>exit</tt>
+saia do <command>chroot</command> digitando <tt>exit</tt>
 
  <item>
 Digite <tt>sync</tt> para salvar todas as alterações pendentes para o disco e 
@@ -570,7 +570,7 @@ Normalmente as distribuições seguem o padrão FHS, mantendo binários de
 administração necessários para recuperação do sistema em caso de panes dentro 
 da partição <file>/</file>, se este não for o caso de sua distribuição (hoje em 
 dia é raro), você terá que montar sistemas de arquivos adicionais (como o 
-<file>/usr</file>, <file>/var</file>) ou então o comando <prgn>passwd</prgn> 
+<file>/usr</file>, <file>/var</file>) ou então o comando <command>passwd</command> 
 não será encontrado ou terá problemas durante sua execução.
 
 
@@ -585,17 +585,17 @@ programam tarefas nestes diretórios e não é possível descrever todas,
 para detalhes sobre o que cada arquivo faz veja o cabeçalho e o código 
 de cada arquivo.  
  <p>
-Estes arquivos são executados pelo <prgn>cron</prgn> através do arquivo 
+Estes arquivos são executados pelo <command>cron</command> através do arquivo 
 <file>/etc/crontab</file>. Você pode programar quantas tarefas 
-desejar, para detalhes veja <ref id="manut-cron"> e <ref id="manut-at">. 
-Alguns programas mantém arquivos do <prgn>cron</prgn> individuais em 
+desejar, para detalhes veja <xref linkend="manut-cron"> e <xref linkend="manut-at">. 
+Alguns programas mantém arquivos do <command>cron</command> individuais em 
 <![ %DEBIAN [ <file>/var/spool/cron/crontabs</file> ]]> 
 que executam comandos periodicamente. 
  
 
 <sect id="manut-cron">cron
  <p>
-O <prgn>cron</prgn> é um daemon que permite o agendamento da execução de 
+O <command>cron</command> é um daemon que permite o agendamento da execução de 
 um comando/programa para um determinado dia/mês/ano/hora. 
 <![ %DESCRICAOD [
 É muito usado em tarefas de arquivamento de logs, checagem da integridade 
@@ -604,16 +604,16 @@ do sistema e execução de programas/comandos em horários determinados. ]]>
 As tarefas são definidas no arquivo <file>/etc/crontab</file> 
 e por arquivos individuais de usuários em 
 <![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usuário]</file> ]]> (criados 
-através do programa <prgn>crontab</prgn>). Adicionalmente a distribuição 
-<prgn>Debian</prgn> utiliza os arquivos no diretório <file>/etc/cron.d</file> 
+através do programa <command>crontab</command>). Adicionalmente a distribuição 
+<command>Debian</command> utiliza os arquivos no diretório <file>/etc/cron.d</file> 
 como uma extensão para o <file>/etc/crontab</file>. 
  <p>
 Para agendar uma nova tarefa, basta editar o arquivo <file>/etc/crontab</file> 
-com qualquer editor de texto (como o <prgn>ae</prgn> e o <prgn>vi</prgn>) e 
+com qualquer editor de texto (como o <command>ae</command> e o <command>vi</command>) e 
 definir o mês/dia/hora que a tarefa será executada. Não é necessário 
-reiniciar o daemon do <prgn>cron</prgn> porque ele verifica seus 
-arquivos a cada minuto. Veja a seção <ref id="manut-cron-formato"> para 
-entender o formato de arquivo <prgn>cron</prgn> usado no agendamento de 
+reiniciar o daemon do <command>cron</command> porque ele verifica seus 
+arquivos a cada minuto. Veja a seção <xref linkend="manut-cron-formato"> para 
+entender o formato de arquivo <command>cron</command> usado no agendamento de 
 tarefas. 
 
 
@@ -680,7 +680,7 @@ desta seção.
  <p>
 O arquivo gerado em 
 <![ %DEBIAN [ <file>/var/spool/cron/crontabs/[usuário]</file> ]]> pelo 
-<prgn>crontab</prgn> tem o mesmo formato do <file>/etc/crontab</file> 
+<command>crontab</command> tem o mesmo formato do <file>/etc/crontab</file> 
 exceto por não possuir o campo <tt>usuário (UID)</tt>, pois o nome 
 do arquivo já identifica o usuário no sistema. 
  <p>
@@ -696,13 +696,13 @@ do <tt>crontab -e</tt> e apagando a linha correspondente).
 OBS: Não esqueça de incluir uma linha em branco no final do arquivo, caso 
 contrário o último comando não será executado. ]]>
  <p>
-O <prgn>cron</prgn> define o valor de algumas variáveis automaticamente 
+O <command>cron</command> define o valor de algumas variáveis automaticamente 
 durante sua execução; a variável <file>SHELL</file> é definida como 
 <tt>/bin/sh</tt>, <file>PATH</file> como <tt>/usr/bin:/bin</tt>, 
 <file>LOGNAME</file>, <file>MAILTO</file> e <file>HOME</file> são 
 definidas através do arquivo <file>/etc/passwd</file>. Os valores 
 padrões destas variáveis podem ser substituídos especificando um 
-novo valor nos arquivos do <prgn>cron</prgn>. 
+novo valor nos arquivos do <command>cron</command>. 
 <![ %EXEMPLO [
  <p>
 Exemplos de um arquivo <file>/etc/crontab</file>:
@@ -727,14 +727,14 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
 <sect id="manut-at">at
  <p>
-O <prgn>at</prgn> agenda tarefas de forma semelhante ao <prgn>cron</prgn> com uma 
+O <command>at</command> agenda tarefas de forma semelhante ao <command>cron</command> com uma 
 interface que permite a utilização de linguagem natural nos agendamentos. Sua 
 principal aplicação é no uso de tarefas que sejam disparadas somente uma vez. 
 Uma característica deste programa é a execução de aplicativos que tenham passado
 de seu horário de execução, muito útil se o computador é desligado com freqüência 
 ou quando ocorre uma interrupção no fornecimento de energia. 
  <p>
-Para utilizar o <prgn>at</prgn>, instale-o com o comando: 
+Para utilizar o <command>at</command>, instale-o com o comando: 
 <tt>apt-get install at</tt>. O próximo passo é criar os arquivos
 <file>/etc/at.allow</file> e <file>at.deny</file>. Estes arquivos 
 são organizados no formato de um usuário por linha. Durante o 
@@ -743,7 +743,7 @@ agendamento, é verificado primeiro o arquivo <file>at.allow</file>
 (lista de quem NÃO pode executar comandos). Caso eles não existam, 
 o agendamento de comandos é permitido a todos os usuários.
  <p>
-Abaixo seguem exemplos do agendamento através do comando <prgn>at</prgn>:
+Abaixo seguem exemplos do agendamento através do comando <command>at</command>:
 <taglist compact>
  <tag>echo ls | at 10am today</tag>
   <item>
@@ -794,7 +794,7 @@ dia de amanhã. (se agora são 10:00, ela será executada amanhã as 13:00 da ta
 </taglist>
 Todas as tarefas agendadas são armazenadas em arquivos dentro do diretório
 <file>/var/spool/cron/atjobs</file>. A sintaxe de comandos para gerenciar as 
-tarefas é semelhante aos utilitários do <prgn>lpd</prgn>:
+tarefas é semelhante aos utilitários do <command>lpd</command>:
 Para ver as tarefas, digite <tt>atq</tt>. Para remover uma tarefa, use o comando
 <tt>atrm</tt> seguido do número da tarefa obtida pelo <tt>atq</tt>.
 

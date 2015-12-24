@@ -1,6 +1,6 @@
 <chapt id="run">Execução de programas
  <p>
-Este capítulo explica como executar programas no <prgn>GNU/Linux</prgn> e o 
+Este capítulo explica como executar programas no <command>GNU/Linux</command> e o 
 uso das ferramentas de controle de execução dos programas. 
 
 
@@ -8,8 +8,8 @@ uso das ferramentas de controle de execução dos programas.
 <sect id="run-prgn">Executando um comando/programa 
  <p>
 Para executar um comando, é necessário que ele tenha permissões de execução 
-(veja <ref id="perm-tipos"> e <ref id="comando-ls">) e que esteja no 
-caminho de procura de arquivos (veja <ref id="run-path">).
+(veja <xref linkend="perm-tipos"> e <xref linkend="comando-ls">) e que esteja no 
+caminho de procura de arquivos (veja <xref linkend="run-path">).
  <p>
 No aviso de comando <em>#</em>(root) ou <em>$</em>(usuário), digite o nome do 
 comando e tecle Enter. O programa/comando é executado e 
@@ -24,12 +24,12 @@ execução. O programa normalmente usa o UID do usuário que o executou ou o
 usuário configurado pelo bit de permissão de acesso SUID caso estiver 
 definido. Existem também programas que são executados como root e modificam 
 sua identificação de usuário para algum que tenha menos privilégios no 
-sistema (como o <prgn>Apache</prgn>, por exemplo). Para maiores detalhes 
-veja <ref id="perm">. 
+sistema (como o <command>Apache</command>, por exemplo). Para maiores detalhes 
+veja <xref linkend="perm">. 
 ]]>
  <p>
-Todo o programa executado no <prgn>GNU/Linux</prgn> roda sob o controle das 
-permissões de acesso. Recomendo ver mais tarde o <ref id="perm">. 
+Todo o programa executado no <command>GNU/Linux</command> roda sob o controle das 
+permissões de acesso. Recomendo ver mais tarde o <xref linkend="perm">. 
 
 <![ %EXEMPLO [
  <p>
@@ -45,7 +45,7 @@ pode ver o conteúdo desta variável com o comando <tt>echo $PATH</tt>.
  <p>
 Por exemplo, o caminho <tt>/usr/local/bin:/usr/bin:/bin:/usr/bin/X11</tt> 
 significa que se você digitar o comando <tt>ls</tt>, o interpretador de 
-comandos iniciará a procura do programa <prgn>ls</prgn> no diretório 
+comandos iniciará a procura do programa <command>ls</command> no diretório 
 <file>/usr/local/bin</file>, caso não encontre o arquivo no diretório 
 <file>/usr/local/bin</file> ele inicia a procura em <file>/usr/bin</file>, 
 até que encontre o arquivo procurado. ]]>
@@ -68,7 +68,7 @@ arquivo <file>.bash_profile</file> em seu diretório de usuário (home).
 <![ %OBS [
  <p>
 <strong>OBSERVAÇÃO: </strong>
-Por motivos de segurança, não inclua o diretório atual <prgn>$PWD</prgn> no 
+Por motivos de segurança, não inclua o diretório atual <command>$PWD</command> no 
 <tt>path</tt>.]]>
 
     ]]>
@@ -113,7 +113,7 @@ Exemplo:
 <tt>find / -name boot.b &</tt>
  <p>
 O comando será executado em segundo plano e deixará o sistema livre para 
-outras tarefas. Após o comando <prgn>find</prgn> terminar, será mostrada 
+outras tarefas. Após o comando <command>find</command> terminar, será mostrada 
 uma mensagem. ]]>
 
 
@@ -129,7 +129,7 @@ os separarmos com ";". Por exemplo:
 <sect id="run-ps">ps
  <p>
 Algumas vezes é útil ver quais processos estão sendo executados no 
-computador. O comando <prgn>ps</prgn> faz isto, e também nos mostra qual 
+computador. O comando <command>ps</command> faz isto, e também nos mostra qual 
 usuário executou o programa, hora que o processo foi iniciado, etc.
  <p>
 <tt>ps [<em>opções</em>]</tt>
@@ -172,7 +172,7 @@ restante que não couber na tela.
  <![ %INTERMEDIARIO [ 
  <tag>--sort:<em>[coluna]</em></tag>
  <item>
-Organiza a saída do comando <prgn>ps</prgn> de acordo com a coluna escolhida. 
+Organiza a saída do comando <command>ps</command> de acordo com a coluna escolhida. 
 Você pode usar as colunas <tt>pid, utime, ppid, rss, size, user, 
 priority</tt>. 
  <p>
@@ -185,10 +185,10 @@ Para mais detalhes e outras opções, veja a página de manual.
 ]]>
 As opções acima podem ser combinadas para resultar em uma listagem mais 
 completa. Você também pode usar pipes "|" para <tt>filtrar</tt> a saída 
-do comando <prgn>ps</prgn>. 
-<![ %INIC-INTER [ Para detalhes, veja <ref id="redir-pipe">. ]]>
+do comando <command>ps</command>. 
+<![ %INIC-INTER [ Para detalhes, veja <xref linkend="redir-pipe">. ]]>
  <p>
-Ao contrário de outros comandos, o comando <prgn>ps</prgn> não precisa do 
+Ao contrário de outros comandos, o comando <command>ps</command> não precisa do 
 hífen "-" para especificar os comandos. Isto porque ele não utiliza opções 
 longas e não usa parâmetros.
 <![ %EXEMPLO [
@@ -204,9 +204,9 @@ sobre o uso da memória RAM, Swap, disponibilidade para execução de programas
 no sistema, etc.
 <![ %DESCRICAOD [
  <p>
-<prgn>top</prgn> é um programa que continua em execução mostrando  
+<command>top</command> é um programa que continua em execução mostrando  
 continuamente os processos que estão rodando em seu computador e os  
-recursos utilizados por eles. Para sair do <prgn>top</prgn>, pressione  
+recursos utilizados por eles. Para sair do <command>top</command>, pressione  
 a tecla <tt>q</tt>. ]]>
  <p>
 <tt>top [<em>opções</em>]</tt>
@@ -220,18 +220,18 @@ Atualiza a tela após o [tempo] (em segundos).
  
  <tag>-s</tag>
  <item>
-Diz ao <prgn>top</prgn> para ser executado em modo seguro.
+Diz ao <command>top</command> para ser executado em modo seguro.
 
  <tag>-i</tag>
  <item>
-Inicia o <prgn>top</prgn> ignorando o tempo de processos zumbis.
+Inicia o <command>top</command> ignorando o tempo de processos zumbis.
 
  <tag>-c</tag>
  <item>
 Mostra a linha de comando ao invés do nome do programa.
 </taglist>
 ]]>
-A ajuda sobre o <prgn>top</prgn> pode ser obtida dentro do programa  
+A ajuda sobre o <command>top</command> pode ser obtida dentro do programa  
 pressionando a tecla <tt>h</tt> ou pela página de manual (<tt>man top</tt>).
  <p>
 Abaixo algumas teclas úteis:
@@ -244,7 +244,7 @@ Abaixo algumas teclas úteis:
 
  <item>
 <tt>h</tt> - Mostra a tela de ajuda do programa. É mostrado todas as teclas 
-que podem ser usadas com o <prgn>top</prgn>.
+que podem ser usadas com o <command>top</command>.
 
  <item>
 <tt>i</tt> - Ignora o tempo ocioso de processos zumbis.
@@ -253,9 +253,9 @@ que podem ser usadas com o <prgn>top</prgn>.
 <tt>q</tt> - Sai do programa.
 
  <item>
-<tt>k</tt> - Finaliza um processo - semelhante ao comando <prgn>kill</prgn>. 
+<tt>k</tt> - Finaliza um processo - semelhante ao comando <command>kill</command>. 
 Você será perguntado pelo número de identificação do processo (PID). Este 
-comando não estará disponível caso esteja usando o <prgn>top</prgn> com a 
+comando não estará disponível caso esteja usando o <command>top</command> com a 
 opção <tt>-s</tt>.
  
  <item>
@@ -267,7 +267,7 @@ será usada toda a tela para listagem de processos.
 <sect id="run-controle">Controle de execução de processos
  <p>
 Abaixo algumas comandos e métodos úteis para o controle da execução de 
-processos no <prgn>GNU/Linux</prgn>.
+processos no <command>GNU/Linux</command>.
 
 
 <sect1 id="run-break">Interrompendo a execução de um processo
@@ -275,7 +275,7 @@ processos no <prgn>GNU/Linux</prgn>.
 Para cancelar a execução de algum processo <tt>rodando em primeiro plano</tt>, 
 basta pressionar as teclas <tt>CTRL</tt>+<tt>C</tt>. A execução do programa 
 será cancelada e será mostrado o aviso de comando. Você também pode usar o 
-comando <ref id="run-kill"> para interromper um processo sendo executado.
+comando <xref linkend="run-kill"> para interromper um processo sendo executado.
 
 
 <sect1 id="run-pausa">Parando momentaneamente a execução de um processo
@@ -284,8 +284,8 @@ Para parar a execução de um processo rodando em primeiro plano, basta
 pressionar as teclas <tt>CTRL</tt>+<tt>Z</tt>. O programa em execução 
 será pausado e será mostrado o número de seu job e o aviso de comando.
  <p>
-Para retornar a execução de um comando pausado, use <ref id="run-fg"> 
-ou <ref id="run-bg">.
+Para retornar a execução de um comando pausado, use <xref linkend="run-fg"> 
+ou <xref linkend="run-bg">.
  <p>
 O programa permanece na memória no ponto de processamento em que parou 
 quando ele é interrompido. Você pode usar outros comandos ou rodar outros 
@@ -294,35 +294,35 @@ programas enquanto o programa atual está interrompido.
 
 <sect1 id="run-ver-backgrounds">jobs
  <p>
-O comando <prgn>jobs</prgn> mostra os processos que estão parados 
+O comando <command>jobs</command> mostra os processos que estão parados 
 ou rodando em <em>segundo plano</em>. Processos em segundo plano são 
 iniciados usando o símbolo <tt>"&"</tt> no final da linha de comando 
-<![ %INIC-INTER [ (veja <ref id="run-tipos">) ]]> ou através do 
-comando <prgn>bg</prgn>. 
+<![ %INIC-INTER [ (veja <xref linkend="run-tipos">) ]]> ou através do 
+comando <command>bg</command>. 
  <p>
 <tt>jobs</tt>
  <p>
 O número de identificação de cada processo parado ou em segundo plano 
-(job), é usado com os comandos <ref id="run-fg"> e <ref id="run-bg">.
+(job), é usado com os comandos <xref linkend="run-fg"> e <xref linkend="run-bg">.
 Um processo interrompido pode ser finalizado usando-se o comando
 <tt>kill %[num]</tt>, onde <tt>[num]</tt> é o número do processo obtido
-pelo comando <prgn>jobs</prgn>.
+pelo comando <command>jobs</command>.
 
 
 <sect1 id="run-fg">fg
  <p>
 Permite fazer um programa rodando em segundo plano ou parado, rodar em 
 primeiro plano. 
-Você deve usar o comando <prgn>jobs</prgn> para pegar o número do processo 
+Você deve usar o comando <command>jobs</command> para pegar o número do processo 
 rodando em segundo plano ou interrompida, este número será passado ao 
-comando <prgn>fg</prgn> para ativa-lo em primeiro plano.  
+comando <command>fg</command> para ativa-lo em primeiro plano.  
  <p>
 <tt>fg [<em>número</em>]</tt>
  <p>
-Onde <em>número</em> é o número obtido através do comando <prgn>jobs</prgn>. 
+Onde <em>número</em> é o número obtido através do comando <command>jobs</command>. 
  <p>
-Caso seja usado sem parâmetros, o <prgn>fg</prgn> utilizará o último programa 
-interrompido (o maior número obtido com o comando <prgn>jobs</prgn>). 
+Caso seja usado sem parâmetros, o <command>fg</command> utilizará o último programa 
+interrompido (o maior número obtido com o comando <command>jobs</command>). 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>fg 1</tt>. ]]>
@@ -334,19 +334,19 @@ Permite fazer um programa rodando em primeiro plano ou parado, rodar em
 segundo plano. Para fazer um programa em primeiro plano rodar em segundo, é 
 necessário primeiro interromper a execução do comando com <tt>CTRL</tt>+
 <tt>Z</tt>, será mostrado o número da tarefa interrompida, use este número 
-com o comando <prgn>bg</prgn> para iniciar a execução do comando em 
+com o comando <command>bg</command> para iniciar a execução do comando em 
 segundo plano. 
  <p>
 <tt>bg [<em>número</em>]</tt>
  <p>
 Onde: <em>número</em> número do programa obtido com o pressionamento das 
-teclas <tt>CTRL</tt>+<tt>Z</tt> ou através do comando <prgn>jobs</prgn>. 
+teclas <tt>CTRL</tt>+<tt>Z</tt> ou através do comando <command>jobs</command>. 
 
 
 <sect1 id="run-kill">kill
  <p>
 Permite enviar um sinal a um comando/programa. 
-<![ %DESCRICAOD [ Caso seja usado sem parâmetros, o <prgn>kill</prgn> 
+<![ %DESCRICAOD [ Caso seja usado sem parâmetros, o <command>kill</command> 
 enviará um sinal de término ao processo sendo executado. ]]>
  <p>
 <tt>kill [<em>opções</em>] [<em>sinal</em>] [<em>número</em>]</tt>
@@ -357,9 +357,9 @@ Onde:
  <tag><em>número</em></tag>
  <item>
 É o número de identificação do processo obtido com o 
-comando <ref id="run-ps">. Também pode ser o número após o sinal de <tt>%</tt> 
-obtido pelo comando <prgn>jobs</prgn> para matar uma tarefa interrompida. 
-Veja <ref id="run-ver-backgrounds">.
+comando <xref linkend="run-ps">. Também pode ser o número após o sinal de <tt>%</tt> 
+obtido pelo comando <command>jobs</command> para matar uma tarefa interrompida. 
+Veja <xref linkend="run-ver-backgrounds">.
   
  <tag><em>sinal</em></tag>
   <item>
@@ -375,8 +375,8 @@ temporários criados por ele.
 ]]>
 Você precisa ser o dono do processo ou o usuário root para termina-lo ou 
 destruí-lo. Você pode verificar se o processo foi finalizado através do 
-comando <prgn>ps</prgn>. Os tipos de sinais aceitos pelo <prgn>GNU/Linux</prgn> 
-são explicados em detalhes em <ref id="run-sinais">. 
+comando <command>ps</command>. Os tipos de sinais aceitos pelo <command>GNU/Linux</command> 
+são explicados em detalhes em <xref linkend="run-sinais">. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>kill 500</tt>, <tt>kill -9 500</tt>, <tt>kill %1</tt>. ]]>
@@ -419,13 +419,13 @@ Retorna se o sinal foi enviado com sucesso ao processo.
 
  <tag>-w</tag>
   <item>
-Finaliza a execução do <prgn>killall</prgn> somente após finalizar 
+Finaliza a execução do <command>killall</command> somente após finalizar 
 todos os processos. 
     
  </taglist>
 ]]>
-Os tipos de sinais aceitos pelo <prgn>GNU/Linux</prgn> 
-são explicados em detalhes na <ref id="run-sinais">. 
+Os tipos de sinais aceitos pelo <command>GNU/Linux</command> 
+são explicados em detalhes na <xref linkend="run-sinais">. 
 <![ %EXEMPLO [ 
  <p>
 Exemplo: <tt>killall -HUP inetd</tt> ]]>
@@ -440,7 +440,7 @@ Envia um sinal de finalização para todos os processos sendo executados.
 
 <sect1 id="run-sinais">Sinais do Sistema
  <p>
-Retirado da página de manual <tt>signal</tt>. O <prgn>GNU/Linux</prgn> 
+Retirado da página de manual <tt>signal</tt>. O <command>GNU/Linux</command> 
 suporta os sinais listados abaixo. Alguns números de sinais são 
 dependentes de arquitetura. 
  <p>
@@ -532,7 +532,7 @@ plano caso seja feito o logout do sistema. ]]>
  <p>
 <tt>nohup [<em>comando que será executado</em>]</tt>
  <p>
-As mensagens de saída do <prgn>nohup</prgn> são direcionadas para o arquivo  
+As mensagens de saída do <command>nohup</command> são direcionadas para o arquivo  
 <file>$HOME/nohup.out</file>.
 <![ %EXEMPLO [
  <p>
@@ -588,7 +588,7 @@ Especifica um nome de processo, diretório, arquivo, etc.
 Finaliza os processos acessando o arquivo especificado. O sinal desejado 
 deve ser especificado com a opção <tt>-signal [num]</tt>, ou o sinal 
 -9 será enviado como padrão. Não é possível matar o próprio processo 
-<prgn>fuser</prgn>.
+<command>fuser</command>.
 
  <tag>-i</tag>
  <item>
@@ -615,7 +615,7 @@ Acrescenta o nome do dono de cada processo ao PID.
 
  <tag>-v</tag>
  <item>
-Os processos são mostrados em um estilo idêntico ao <prgn>ps</prgn>. 
+Os processos são mostrados em um estilo idêntico ao <command>ps</command>. 
 
 </taglist> ]]>
 
@@ -661,9 +661,9 @@ Número especificado em segundos entre atualizações.
 Número de vezes que será mostrado. 
 
 </taglist> ]]>
-Se não for especificado nenhum parâmetro, o <prgn>vmstat</prgn> mostra o status 
+Se não for especificado nenhum parâmetro, o <command>vmstat</command> mostra o status 
 da memória virtual e volta imediatamente para a linha de comando.
-A descrição dos campos do <prgn>vmstat</prgn> são as seguintes:
+A descrição dos campos do <command>vmstat</command> são as seguintes:
 
 <taglist compact>
 <tag><em>Processos</em></tag>
@@ -768,16 +768,16 @@ Retorna o PID do do shell que está executando o script
  <tag>-o [PID]</tag>
  <item>
 Ignora o processo com aquele PID. O PID especial %PPID pode ser usado 
-para nomear o processo pai do programa <prgn>pidof</prgn>, em outras 
+para nomear o processo pai do programa <command>pidof</command>, em outras 
 palavras
 
 </taglist> ]]>
 <![ %OBS [
  <p>
-OBS: O programa <prgn>pidof</prgn> é um link simbólico ao programa 
-<prgn>killall5</prgn>. Cuidado ao executar o <prgn>killall5</prgn> 
+OBS: O programa <command>pidof</command> é um link simbólico ao programa 
+<command>killall5</command>. Cuidado ao executar o <command>killall5</command> 
 as funções e opções são completamente diferentes dependendo da forma 
-como é chamado na linha de comando! (veja <ref id="run-killall5"> para 
+como é chamado na linha de comando! (veja <xref linkend="run-killall5"> para 
 detalhes.) ]]>
 <![ %EXEMPLO [
  <p>
@@ -848,7 +848,7 @@ Usa o conjunto de caracteres Unicode para o desenho da árvore.
     <![ %INIC-INTER [ 
 <sect id="run-fechando">Fechando um programa quando não se sabe como sair
  <p>
-Muitas vezes quando se esta iniciando no <prgn>GNU/Linux</prgn> você pode 
+Muitas vezes quando se esta iniciando no <command>GNU/Linux</command> você pode 
 executar um programa e talvez não saber como fecha-lo. Este 
 capítulo do guia pretende ajuda-lo a resolver este tipo de problema. 
  <p>
@@ -857,14 +857,14 @@ programas e por algum motivo não implementam uma opção de saída, ou ela
 não funciona! 
  <p>
 Em nosso exemplo vou supor que executamos um programa em desenvolvimento 
-com o nome <prgn>contagem</prgn> que conta o tempo em segundos a partir do 
+com o nome <command>contagem</command> que conta o tempo em segundos a partir do 
 momento que é executado, mas que o programador esqueceu de colocar uma 
 opção de saída. Siga estas dicas para finaliza-lo: 
  <p>
 <enumlist>
  <item>
-Normalmente todos os programas <prgn>UNIX</prgn> (o <prgn>GNU/Linux</prgn> também 
-é um Sistema Operacional baseado no <prgn>UNIX</prgn>) podem ser interrompidos 
+Normalmente todos os programas <command>UNIX</command> (o <command>GNU/Linux</command> também 
+é um Sistema Operacional baseado no <command>UNIX</command>) podem ser interrompidos 
 com o pressionamento das teclas <tt>&lt;CTRL&gt;</tt> e <tt>&lt;C&gt;</tt>. 
 Tente isto primeiro para finalizar um programa. Isto provavelmente não 
 vai funcionar se estiver usando um Editor de Texto (ele vai entender como 
@@ -883,43 +883,43 @@ Localize o PID (número de identificação do processo) usando o comando:
 <tt>ps ax</tt>, aparecerão várias linhas cada uma com o número do processo 
 na primeira coluna, e a linha de comando do programa na última coluna. Caso 
 aparecerem vários processos você pode usar <tt>ps ax|grep contagem</tt>, 
-neste caso o <prgn>grep</prgn> fará uma filtragem da saída do comando 
+neste caso o <command>grep</command> fará uma filtragem da saída do comando 
 <tt>ps ax</tt> mostrando somente as linhas que tem a palavra "contagem". 
-Para maiores detalhes, veja o comando <ref id="cmdv-grep">.
+Para maiores detalhes, veja o comando <xref linkend="cmdv-grep">.
 
  <item>
 Feche o processo usando o comando <tt>kill <em>PID</em></tt>, lembre-se de 
-substituir PID pelo número encontrado pelo comando <prgn>ps ax</prgn> acima.
+substituir PID pelo número encontrado pelo comando <command>ps ax</command> acima.
  <p>
 O comando acima envia um sinal de término de execução para o processo (neste 
-caso o programa <prgn>contagem</prgn>). O sinal de término mantém a chance do 
+caso o programa <command>contagem</command>). O sinal de término mantém a chance do 
 programa salvar seus dados ou apagar os arquivos temporários que criou e 
 então ser finalizado, isto depende do programa. 
  
  <item>
-Alterne para o console onde estava executando o programa <prgn>contagem</prgn>
+Alterne para o console onde estava executando o programa <command>contagem</command>
 e verifique se ele ainda está em execução. Se ele estiver parado mas o aviso 
 de comando não está disponível, pressione a tecla &lt;ENTER&gt;. 
-Freqüentemente acontece isto com o comando <prgn>kill</prgn>, você finaliza 
+Freqüentemente acontece isto com o comando <command>kill</command>, você finaliza 
 um programa mas o aviso de comando não é mostrado até que se 
 pressione &lt;ENTER&gt;. 
 
  <item>
-Caso o programa ainda não foi finalizado, repita o comando <prgn>kill</prgn> 
+Caso o programa ainda não foi finalizado, repita o comando <command>kill</command> 
 usando a opção -9: <tt>kill -9 PID</tt>. Este comando envia um sinal de 
 DESTRUIÇÃO do processo, fazendo ele terminar "na marra"! 
 
 </enumlist>
 Uma última dica: todos os programas estáveis (todos que acompanham as boas 
-distribuições <prgn>GNU/Linux</prgn>) tem sua opção de saída. Lembre-se que 
+distribuições <command>GNU/Linux</command>) tem sua opção de saída. Lembre-se que 
 quando finaliza um processo todos os dados do programa em execução podem 
 ser perdidos (principalmente se estiver em um editor de textos), mesmo 
-usando o <prgn>kill</prgn> sem o parâmetro <tt>-9</tt>. 
+usando o <command>kill</command> sem o parâmetro <tt>-9</tt>. 
  <p>
 Procure a opção de saída de um programa consultando o help on line, as 
 páginas de manual, a documentação que acompanha o programa, info pages. 
 Para detalhes de como encontrar a ajuda dos programas, veja o 
-<ref id="ajuda">
+<xref linkend="ajuda">
 
 
 <sect id="run-reset">Eliminando caracteres estranhos

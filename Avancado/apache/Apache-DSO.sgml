@@ -1,15 +1,15 @@
 <sect id="s-apache-dso">Módulos DSO
  <p>
 Os módulos <em>DSO</em> permitem adicionar/remover características do 
-<prgn>Apache</prgn> sem necessidade de recompilar todo o servidor web, 
+<command>Apache</command> sem necessidade de recompilar todo o servidor web, 
 assim interrompendo o serviço para a atualização dos arquivos. 
 Módulos de programas terceiros também podem ser compilados e adicionado 
 sem problemas através deste recurso. 
  <p>
-Os módulos são carregados para a memória no momento que o <prgn>apache</prgn> é 
+Os módulos são carregados para a memória no momento que o <command>apache</command> é 
 iniciado através da diretiva <em>LoadModule</em> no arquivo de configuração. 
 Dessa forma, toda vez que um novo módulo for adicionado, removido ou alterado, 
-será necessário reiniciar o servidor <prgn>apache</prgn>. A sintaxe da linha 
+será necessário reiniciar o servidor <command>apache</command>. A sintaxe da linha 
 para carregar módulos <file>.so</file> é a seguinte: 
  <p>
 <tt>LoadModule [<em>nome_do_modulo</em>] [<em>caminho_do_arquivo_so</em>]</tt>
@@ -29,12 +29,12 @@ alguns requerem que sejam especificados antes de outros módulos para
 funcionarem corretamente (como o módulo <em>php3_module</em>, que deve ser 
 carregado antes de qualquer módulo de controle de CGI's). Leia a documentação 
 específica sobe o módulo em caso de dúvidas, os módulos que acompanham o 
-<prgn>Apache</prgn> são documentados em detalhes no manual do <prgn>Apache</prgn>.
+<command>Apache</command> são documentados em detalhes no manual do <command>Apache</command>.
  <p>
-Para usar uma característica/diretiva/opção do <prgn>Apache</prgn> que dependa 
+Para usar uma característica/diretiva/opção do <command>Apache</command> que dependa 
 de um certo módulo, obviamente você deverá carregar o módulo correspondente 
 (em caso de dúvidas, leia a documentação sobre o módulo). Veja a 
-<ref id="s-apache-exemplo-httpd"> para exemplos do uso da diretiva 
+<xref linkend="s-apache-exemplo-httpd"> para exemplos do uso da diretiva 
 <em>LoadModule</em>. 
 
 <![ %EXEMPLO [
@@ -42,11 +42,11 @@ de um certo módulo, obviamente você deverá carregar o módulo correspondente
 Por exemplo, se você quiser utilizar as diretivas de autorização 
 (<em>allow, deny, order</em>) deverá ter o módulo <em>mod_access</em> 
 carregado, para usar as diretivas de autorização (<em>authname, authuserfile, authtype, etc</em>) deverá ter o módulo <em>mod_auth</em> carregado. Mais 
-detalhes podem ser encontrados em <ref id="s-apache-acesso-restr-autor">. ]]>
+detalhes podem ser encontrados em <xref linkend="s-apache-acesso-restr-autor">. ]]>
 
 <![ %OBS [ 
 <strong>OBS1</strong>: O suporte a <em>DSO</em> atualmente só está disponível 
-para plataforma <prgn>UNIX</prgn> e seus derivados, como o <prgn>Linux</prgn>. ]]>
+para plataforma <command>UNIX</command> e seus derivados, como o <command>Linux</command>. ]]>
  <p>
 Também é possível ativar certas diretivas verificando se o módulo correspondente 
 estiver ou não carregado através da diretiva <em>IfModule</em>: 
@@ -62,7 +62,7 @@ Nas linhas acima, as diretivas <em>UserDir</em> somente serão executadas
 se o módulo <em>mod_userdir.c</em> estiver carregado através da diretiva 
 <em>LoadModule</em>.
  <p>
-Segue abaixo uma lista de módulos padrões que acompanham do <prgn>Apache</prgn>, 
+Segue abaixo uma lista de módulos padrões que acompanham do <command>Apache</command>, 
 os módulos marcados com "*" são ativados por padrão: 
 <taglist compact>
  <tag>Criação de Ambiente</tag>

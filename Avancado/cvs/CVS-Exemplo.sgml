@@ -1,7 +1,7 @@
 <sect id="s-cvs-exemplo">Exemplo de uma seção CVS
  <p>
 Nota: este exemplo é apenas didático, não foi feita nenhuma modificação
-real no conteúdo do repositório do <prgn>dillo</prgn> :-)
+real no conteúdo do repositório do <command>dillo</command> :-)
 <example>
 # Definir o CVSROOT
 export CVSROOT=:pserver:gleydson@ima.cipsga.org.br:/var/lib/cvs

@@ -1,12 +1,12 @@
 <sect id="fw-iptables-chains">Manipulando chains
  <p>
-O <prgn>iptables</prgn> trabalha com uma tabela de regras que é analisada 
+O <command>iptables</command> trabalha com uma tabela de regras que é analisada 
 uma a uma até que a última seja processada. Por padrão, se uma regra 
 tiver qualquer erro, uma mensagem será mostrada e ela descartada. O 
 pacote não conferirá e a ação final (se ele vai ser aceito ou rejeitado) 
 dependerá das regras seguintes. 
  <p>
-As opções passadas ao <prgn>iptables</prgn> usadas para manipular os chains 
+As opções passadas ao <command>iptables</command> usadas para manipular os chains 
 são <strong>SEMPRE</strong> em maiúsculas. As seguintes operações podem ser 
 realizadas: 
 
@@ -49,7 +49,7 @@ destino 127.0.0.1 (-d 127.0.0.1) são rejeitados (-j DROP). A opção
 <em>-j DROP</em> que serve para rejeitar os pacotes, podemos também usar 
 <em>-j ACCEPT</em> para aceitar pacotes. A opção <tt>-j</tt> é chamada de 
 <em>alvo da regra</em> ou somente <em>alvo</em> pois define o destino do pacote 
-que atravessa a regra (veja <ref id="fw-iptables-outras-alvo">). Bem vindo a base 
+que atravessa a regra (veja <xref linkend="fw-iptables-outras-alvo">). Bem vindo a base 
 de um sistema de firewall :-)
 <![ %OBS [
  <p>
@@ -71,14 +71,14 @@ Onde:
 <taglist compact>
  <tag><em>tabela</em></tag>
  <item>
-É uma das tabelas usadas pelo <prgn>iptables</prgn>. Se a tabela não for 
+É uma das tabelas usadas pelo <command>iptables</command>. Se a tabela não for 
 especificada, a tabela <em>filter</em> será usada como padrão. Veja 
-<ref id="fw-iptables-tabelas"> para detalhes.
+<xref linkend="fw-iptables-tabelas"> para detalhes.
 
  <tag><em>chain</em></tag>
  <item>
-Um dos chains disponíveis na tabela acima (veja <ref id="fw-iptables-tabelas">) ou 
-criado pelo usuário (<ref id="fw-iptables-chains-N">). Caso o chain não seja 
+Um dos chains disponíveis na tabela acima (veja <xref linkend="fw-iptables-tabelas">) ou 
+criado pelo usuário (<xref linkend="fw-iptables-chains-N">). Caso o chain não seja 
 especificado, todos os chains da tabela serão mostrados. 
 
  <tag><em>opções</em></tag>
@@ -132,10 +132,10 @@ Os campos assim possuem o seguinte significado:
  <tag>Chain INPUT</tag>
   <item>Nome do chain listado
  <tag>(policy ACCEPT 78 packets, 5820 bytes)</tag>
-  <item>política padrão do chain (veja <ref id="fw-iptables-chains-P">).
+  <item>política padrão do chain (veja <xref linkend="fw-iptables-chains-P">).
  <tag>pkts</tag>
   <item>Quantidade de pacotes que atravessaram a regra (veja 
-        <ref id="fw-iptables-chains-Z">).
+        <xref linkend="fw-iptables-chains-Z">).
  <tag>bytes</tag> 
   <item>
  Quantidade de bytes que atravessaram a regra. Pode ser referenciado com 
@@ -143,38 +143,38 @@ Os campos assim possuem o seguinte significado:
  <tag>target</tag>
   <item>
  O alvo da regra, o destino do pacote. Pode ser ACCEPT, DROP ou outro chain. 
- Veja <ref id="fw-iptables-outras-alvo"> para detalhes sobre a especificação
+ Veja <xref linkend="fw-iptables-outras-alvo"> para detalhes sobre a especificação
  de um alvo.
  <tag>prot</tag>
   <item>
  Protocolo especificado pela regra. Pode ser udp, tcp, icmp ou all. Veja 
-<ref id="fw-iptables-outras-proto"> para detalhes.
+<xref linkend="fw-iptables-outras-proto"> para detalhes.
  <tag>opt</tag>
   <item>
  Opções extras passadas a regra. Normalmente "!" 
- (veja <ref id="fw-iptables-outras-excessoes">) ou "f" 
- (veja <ref id="fw-iptables-outras-fragmentos">).
+ (veja <xref linkend="fw-iptables-outras-excessoes">) ou "f" 
+ (veja <xref linkend="fw-iptables-outras-fragmentos">).
  <tag>in</tag>
   <item>
  Interface de entrada (de onde os dados chegam). Veja 
- <ref id="fw-iptables-outras-iface">.
+ <xref linkend="fw-iptables-outras-iface">.
  <tag>out</tag>
   <item>
  Interface de saída (para onde os dados vão). Veja 
- <ref id="fw-iptables-outras-iface">.
+ <xref linkend="fw-iptables-outras-iface">.
  <tag>source</tag>
   <item>
- Endereço de origem. Veja <ref id="fw-iptables-outras-endOD">.
+ Endereço de origem. Veja <xref linkend="fw-iptables-outras-endOD">.
  <tag>destination</tag>
   <item>
- Endereço de destino. Veja <ref id="fw-iptables-outras-endOD">.
+ Endereço de destino. Veja <xref linkend="fw-iptables-outras-endOD">.
  <tag>outras opções</tag>
   <item>
 Estas opções normalmente aparecem quando são usadas a opção -x:  
   <list compact>
    <item><tt>dpt ou dpts</tt> - Especifica a porta ou faixa de portas de destino.
    <item><tt>reject-with icmp-port-unreachable</tt> - Significa que foi usado 
-   o alvo REJECT naquela regra (veja <ref id="fw-iptables-outras-alvo-REJECT">).
+   o alvo REJECT naquela regra (veja <xref linkend="fw-iptables-outras-alvo-REJECT">).
   </list>
 </taglist>
 
@@ -205,7 +205,7 @@ regras semelhantes, somente a primeira será apagada.
 <![ %OBS [
  <p>
 <strong>OBS: </strong> Não é possível apagar os chains defaults do 
-<prgn>iptables</prgn> (<em>INPUT</em>, <em>OUTPUT</em>...).
+<command>iptables</command> (<em>INPUT</em>, <em>OUTPUT</em>...).
 ]]>
 </enumlist>
 
@@ -278,7 +278,7 @@ E então criamos um pulo (-j) do chain <em>INPUT</em> para o chain <em>internet<
 maiúsculas como minúsculas. ]]>
  <p>
 Se uma máquina do endereço 200.200.200.200 tentar acessar sua máquina, o 
-<prgn>iptables</prgn> consultará as seguintes regras:
+<command>iptables</command> consultará as seguintes regras:
 <example>
 `INPUT'                         `internet'
  ----------------------------    -----------------------------
@@ -340,12 +340,12 @@ para o chain internet               ______________________________________
  <p>
 Se por algum motivo precisar renomear um chain criado por você na tabela
 <em>filter</em>, <em>nat</em> ou <em>mangle</em>, isto poderá ser feito 
-usando a opção <em>-E</em> do <prgn>iptables</prgn>:
+usando a opção <em>-E</em> do <command>iptables</command>:
 <example>
 iptables -t filter -E chain-antigo novo-chain
 
 </example>
-Note que não é possível renomear os chains defaults do <prgn>iptables</prgn>.
+Note que não é possível renomear os chains defaults do <command>iptables</command>.
 
 
 <sect1>Listando os nomes de todas as tabelas atuais
@@ -400,7 +400,7 @@ chains definidos pelo usuário na tabela especificada serão excluídos.
 <![ %OBS [
  <p>
 <strong>OBS:</strong> - Chains embutidos nas tabelas não podem ser apagados
-pelo usuário. Veja os nomes destes chains em <ref id="fw-iptables-tabelas">. ]]>
+pelo usuário. Veja os nomes destes chains em <xref linkend="fw-iptables-tabelas">. ]]>
 <example>
  iptables -t filter -X internet
  iptables -X
@@ -410,8 +410,8 @@ pelo usuário. Veja os nomes destes chains em <ref id="fw-iptables-tabelas">. ]]
 <sect1 id="fw-iptables-chains-Z">Zerando contador de bytes dos chains - Z
  <p>
 Este comando zera o campo <em>pkts</em> e <em>bytes</em> de uma regra do 
-<prgn>iptables</prgn>. Estes campos podem ser visualizados com o comando
-<prgn>iptables -L -v</prgn>. A seguinte sintaxe é usada:
+<command>iptables</command>. Estes campos podem ser visualizados com o comando
+<command>iptables -L -v</command>. A seguinte sintaxe é usada:
  <p>
 <tt>iptables [<em>-t tabela</em>] [<em>-Z chain</em>] [<em>-L</em>]</tt>
  <p>
@@ -439,7 +439,7 @@ um chain.
  <p>
 A política padrão determina o que acontecerá com um pacote quando ele chegar 
 ao final das regras contidas em um chain. A política padrão do 
-<prgn>iptables</prgn> é "ACCEPT" mas isto pode ser alterado com o comando: 
+<command>iptables</command> é "ACCEPT" mas isto pode ser alterado com o comando: 
  <p>
 <tt>iptables [<em>-t tabela</em>] [<em>-P chain</em>] [<em>ACCEPT/DROP</em>]</tt>
  <p>
@@ -459,7 +459,7 @@ ACCEPT aceita os pacotes caso nenhuma regra do chain conferir (usado em regras
 permissivas). DROP rejeita os pacotes caso nenhuma regra do chain conferir 
 (usado em regras restritivas). 
 </taglist>
-A política padrão de um chain é mostrada com o comando <prgn>iptables -L</prgn>: 
+A política padrão de um chain é mostrada com o comando <command>iptables -L</command>: 
 <example>
 # iptables -L INPUT
 

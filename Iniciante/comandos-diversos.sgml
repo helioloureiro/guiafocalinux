@@ -32,7 +32,7 @@ Opcionalmente você pode especificar o Ano (com 2 ou 4 dígitos) e os Segundos.
 
  <tag>+[FORMATO]</tag>
   <item>
-Define o formato da listagem que será usada pelo comando <prgn>date</prgn>. 
+Define o formato da listagem que será usada pelo comando <command>date</command>. 
 Os seguintes formatos são os mais usados:
  <list compact>
   <item><tt>%d</tt> - Dia do Mês (00-31).
@@ -49,11 +49,11 @@ Os seguintes formatos são os mais usados:
   <item><tt>%w</tt> - Dia da semana (0-6).
  </list> 
 Outros formatos podem ser obtidos através da página de manual do 
-<prgn>date</prgn>. 
+<command>date</command>. 
  
  </taglist>
 ]]>
-Para maiores detalhes, veja a página de manual do comando <prgn>date</prgn>. 
+Para maiores detalhes, veja a página de manual do comando <command>date</command>. 
 <![ %EXEMPLO [
  <p>
 Para ver a data atual digite:
@@ -104,7 +104,7 @@ Lista em Mbytes (equivalente a --block-size=1048576).
 <![ %INTERMEDIARIO [
  <tag>--sync</tag>
  <item>
-Executa o <prgn>sync</prgn> antes de mostrar os dados. 
+Executa o <command>sync</command> antes de mostrar os dados. 
 
  <tag>-T</tag>
  <item>
@@ -130,7 +130,7 @@ Exemplos: <tt>df</tt>, <tt>df -h</tt>, <tt>df -t vfat</tt>. ]]>
 Cria links para arquivos e diretórios no sistema. 
 <![ %DESCRICAOD [ O link é um mecanismo que faz referência a outro arquivo  
 ou diretório em outra localização. O link em sistemas  
-<prgn>GNU/Linux</prgn> faz referência reais ao arquivo/diretório podendo  
+<command>GNU/Linux</command> faz referência reais ao arquivo/diretório podendo  
 ser feita cópia do link (será copiado o arquivo alvo), entrar no  
 diretório (caso o link faça referência a um diretório), etc. ]]>
  <p>
@@ -184,16 +184,16 @@ um diretório ou fazer referência a arquivos que estejam em partições diferen
 Observações:
 <list compact>
  <item>
-Se for usado o comando <prgn>rm</prgn> com um link, somente o link será 
+Se for usado o comando <command>rm</command> com um link, somente o link será 
 removido.
  <item>
-Se for usado o comando <prgn>cp</prgn> com um link, o arquivo original será 
+Se for usado o comando <command>cp</command> com um link, o arquivo original será 
 copiado ao invés do link. 
  <item>
-Se for usado o comando <prgn>mv</prgn> com um link, a modificação será feita 
+Se for usado o comando <command>mv</command> com um link, a modificação será feita 
 no link.
  <item>
-Se for usado um comando de visualização (como o <prgn>cat</prgn>), o 
+Se for usado um comando de visualização (como o <command>cat</command>), o 
 arquivo original será visualizado. 
 </list>
 ]]>
@@ -275,9 +275,9 @@ Exemplo: <tt>du -h</tt>, <tt>du -hc</tt>. ]]>
 <sect id="cmdv-find">find
  <p>
 Procura por arquivos/diretórios no disco. 
-<![ %DESCRICAOD [ <prgn>find</prgn> pode procurar arquivos através de 
-sua data de modificação, tamanho, etc através do uso de opções. <prgn>
-find</prgn>, ao contrário de outros programas, usa opções longas 
+<![ %DESCRICAOD [ <command>find</command> pode procurar arquivos através de 
+sua data de modificação, tamanho, etc através do uso de opções. <command>
+find</command>, ao contrário de outros programas, usa opções longas 
 através de um <tt>"-"</tt>.]]>
  <p>
 <tt>find [<em>diretório</em>] [<em>opções/expressão</em>]</tt> 
@@ -311,7 +311,7 @@ Não faz nenhuma procura em diretórios menores que [num] níveis.
  <tag>-mount, -xdev</tag>
  <item>
 Não faz a pesquisa em sistemas de arquivos diferentes daquele de onde o 
-comando <prgn>find</prgn> foi executado.
+comando <command>find</command> foi executado.
 
 <![ %INTERMEDIARIO [
  <tag>-amin [num]</tag>
@@ -490,7 +490,7 @@ Mostra uma linha contendo o total.
 Mostra a utilização da memória a cada [num] segundos.
 </taglist>
 ]]>
-O <prgn>free</prgn> é uma interface ao arquivo <file>/proc/meminfo</file>.
+O <command>free</command> é uma interface ao arquivo <file>/proc/meminfo</file>.
 
 
 <sect id="cmdv-grep">grep
@@ -506,7 +506,7 @@ Onde:
  <tag><em>expressão</em></tag>
  <item>
 palavra ou frase que será procurada no texto. Se tiver mais de 2 palavras 
-você deve identifica-la com aspas "" caso contrário o <prgn>grep</prgn> 
+você deve identifica-la com aspas "" caso contrário o <command>grep</command> 
 assumirá que a segunda palavra é o arquivo! 
 
  <tag><em>arquivo</em></tag>
@@ -516,11 +516,11 @@ Arquivo onde será feita a procura.
  <tag><em>opções</em></tag>
  <tag>-A [número]</tag>
  <item>
-Mostra o [número] de linhas após a linha encontrada pelo <prgn>grep</prgn>.
+Mostra o [número] de linhas após a linha encontrada pelo <command>grep</command>.
 
  <tag>-B [número]</tag>
  <item>
-Mostra o [número] de linhas antes da linha encontrada pelo <prgn>grep</prgn>.
+Mostra o [número] de linhas antes da linha encontrada pelo <command>grep</command>.
 
  <tag>-f [arquivo]</tag>
  <item>
@@ -536,7 +536,7 @@ Ignora diferença entre maiúsculas e minúsculas no texto procurado e arquivo.
 
  <tag>-n, --line-number</tag>
  <item>
-Mostra o nome de cada linha encontrada pelo <prgn>grep</prgn>.
+Mostra o nome de cada linha encontrada pelo <command>grep</command>.
 
  <tag>-E</tag>
  <item>
@@ -548,10 +548,10 @@ Trata o arquivo que será procurado como binário.
 </taglist>
 ]]>
 Se não for especificado o nome de um arquivo ou se for usado um hífen "-", 
-<prgn>grep</prgn> procurará a string no dispositivo de entrada padrão. O
-<prgn>grep</prgn> faz sua pesquisa em arquivos texto. Use o comando 
-<prgn>zgrep</prgn> para pesquisar diretamente em arquivos compactados 
-com <prgn>gzip</prgn>, os comandos e opções são as mesmas.
+<command>grep</command> procurará a string no dispositivo de entrada padrão. O
+<command>grep</command> faz sua pesquisa em arquivos texto. Use o comando 
+<command>zgrep</command> para pesquisar diretamente em arquivos compactados 
+com <command>gzip</command>, os comandos e opções são as mesmas.
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>grep "capitulo" texto.txt</tt>, <tt>ps ax|grep inetd</tt>, 
@@ -574,7 +574,7 @@ Mostra o [numero] de bytes do inicio do arquivo.
  <tag>-n [numero]</tag>
  <item>
 Mostra o [numero] de linhas do inicio do arquivo. Caso não for especificado, 
-o <prgn>head</prgn> mostra as 10 primeiras linhas.
+o <command>head</command> mostra as 10 primeiras linhas.
 </taglist>
 ]]>
 <![ %EXEMPLO [
@@ -630,18 +630,18 @@ Exemplos: <tt>nl /etc/passwd</tt>, <tt>nl -i 2 /etc/passwd</tt>. ]]>
 <sect id="cmdv-more">more
  <p>
 Permite fazer a paginação de arquivos ou da entrada padrão. 
-<![ %DESCRICAOD [ O comando <prgn>more</prgn> pode ser usado como comando para 
+<![ %DESCRICAOD [ O comando <command>more</command> pode ser usado como comando para 
 leitura de arquivos que ocupem mais de uma tela. Quando toda a tela é  
-ocupada, o <prgn>more</prgn> efetua uma pausa e permite que você pressione  
+ocupada, o <command>more</command> efetua uma pausa e permite que você pressione  
 <tt>Enter</tt> ou <tt>espaço</tt> para continuar avançando no arquivo sendo 
-visualizado. Para sair do <prgn>more</prgn> pressione <tt>q</tt>. ]]>
+visualizado. Para sair do <command>more</command> pressione <tt>q</tt>. ]]>
  <p>
 <tt>more [<em>arquivo</em>]</tt>
  <p>
 Onde: <em>arquivo</em> É o arquivo que será paginado.
  <p>
-Para visualizar diretamente arquivos texto compactados pelo <prgn>gzip</prgn> 
-<file>.gz</file> use o comando <prgn>zmore</prgn>. 
+Para visualizar diretamente arquivos texto compactados pelo <command>gzip</command> 
+<file>.gz</file> use o comando <command>zmore</command>. 
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>more /etc/passwd</tt>, <tt>cat /etc/passwd|more</tt>. ]]>
@@ -650,11 +650,11 @@ Exemplos: <tt>more /etc/passwd</tt>, <tt>cat /etc/passwd|more</tt>. ]]>
 <sect id="cmdv-less">less
  <p>
 Permite fazer a paginação de arquivos ou da entrada padrão. 
-<![ %DESCRICAOD [ O comando <prgn>less</prgn> pode ser usado como comando para 
+<![ %DESCRICAOD [ O comando <command>less</command> pode ser usado como comando para 
 leitura de arquivos que ocupem mais de uma tela. Quando toda a tela é  
-ocupada, o <prgn>less</prgn> efetua uma pausa (semelhante ao <prgn>more</prgn>)
+ocupada, o <command>less</command> efetua uma pausa (semelhante ao <command>more</command>)
 e permite que você pressione Seta para Cima e Seta para Baixo ou PgUP/PgDown 
-para fazer o rolamento da página. Para sair do <prgn>less</prgn> pressione 
+para fazer o rolamento da página. Para sair do <command>less</command> pressione 
 <tt>q</tt>. ]]>
  <p>
 <tt>less [<em>arquivo</em>]</tt>
@@ -662,8 +662,8 @@ para fazer o rolamento da página. Para sair do <prgn>less</prgn> pressione
 Onde: <em>arquivo</em> É o arquivo que será paginado.
  <p>
 <![ %OBS [ Para visualizar diretamente arquivos texto compactados pelo 
-utilitário <prgn>gzip</prgn> (arquivos <file>.gz</file>), use o comando 
-<prgn>zless</prgn>. ]]>
+utilitário <command>gzip</command> (arquivos <file>.gz</file>), use o comando 
+<command>zless</command>. ]]>
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>less /etc/passwd</tt>, <tt>cat /etc/passwd|less</tt> ]]>
@@ -723,7 +723,7 @@ Usando a opção <tt>-n</tt>, o arquivo será organizado desta maneira:
 100
 </example>
 
-Caso esta opção <strong>não</strong> for usada com o <prgn>sort</prgn>, ele 
+Caso esta opção <strong>não</strong> for usada com o <command>sort</command>, ele 
 organizará como uma listagem alfabética (que começam de <tt>a</tt> até 
 <tt>z</tt> e do <tt>0</tt> até <tt>9</tt>)
 <example>
@@ -739,7 +739,7 @@ mensagem "disorder on <em>arquivo</em>".
 
  <tag>-o <em>arquivo</em></tag>
  <item>
-Grava a saída do comando <prgn>sort</prgn> no <em>arquivo</em>. 
+Grava a saída do comando <command>sort</command> no <em>arquivo</em>. 
 
  <![ %INTERMEDIARIO [
  <tag>-m <em>arquivo1</em> <em>arquivo2</em></tag>
@@ -777,7 +777,7 @@ organização. O uso é idêntico, mas o delimitador é iniciado em "1".
 ]]>
 <![ %EXEMPLO [
  <p>
-Abaixo, exemplos de uso do comando <prgn>sort</prgn>:
+Abaixo, exemplos de uso do comando <command>sort</command>:
 <list compact>
  <item>
 <tt>sort <file>texto.txt</file></tt> - Organiza o arquivo <file>texto.txt
@@ -789,8 +789,8 @@ Abaixo, exemplos de uso do comando <prgn>sort</prgn>:
 
  <item>
 <tt>cat <file>texto.txt</file>|sort</tt> - Faz a mesma coisa que o primeiro 
-exemplo, só que neste caso a saída do comando <prgn>cat</prgn> é redirecionado 
-a entrada padrão do comando <prgn>sort</prgn>.
+exemplo, só que neste caso a saída do comando <command>cat</command> é redirecionado 
+a entrada padrão do comando <command>sort</command>.
 
  <item>
 <tt>sort -f <file>texto.txt</file></tt> - Ignora diferenças entre letras 
@@ -859,7 +859,7 @@ Exemplo: <tt>time ls</tt>, <tt>time find / -name crontab</tt>. ]]>
  <p>
 Muda a data e hora que um arquivo foi criado. Também pode ser usado para 
 criar arquivos vazios. 
-<![ %DESCRICAOD [ Caso o <prgn>touch</prgn> seja usado com arquivos 
+<![ %DESCRICAOD [ Caso o <command>touch</command> seja usado com arquivos 
 que não existam, por padrão ele criará estes arquivos. ]]>
  <p>
 <tt>touch [<em>opções</em>] [<em>arquivos</em>]</tt>
@@ -881,7 +881,7 @@ hora atual.
 
  <tag>-a, --time=atime</tag>
  <item>
-Faz o <prgn>touch</prgn> mudar somente a data e hora do acesso ao arquivo.
+Faz o <command>touch</command> mudar somente a data e hora do acesso ao arquivo.
 
  <tag>-c, --no-create</tag>
  <item>
@@ -889,7 +889,7 @@ Não cria arquivos vazios, caso os <em>arquivos</em> não existam.
 
  <tag>-m, --time=mtime</tag>
  <item>
-Faz o <prgn>touch</prgn> mudar somente a data e hora da modificação.
+Faz o <command>touch</command> mudar somente a data e hora da modificação.
 
  <tag>-r [arquivo]</tag>
  <item>
@@ -932,7 +932,7 @@ da última inicialização do sistema.
 
 <sect id="cmdv-mesg">mesg
  <p>
-Permite ou não o recebimentos de requisições de <prgn>talk</prgn> de outros 
+Permite ou não o recebimentos de requisições de <command>talk</command> de outros 
 usuários.
  <p>
 <tt>mesg [<em>y/n</em>]</tt>
@@ -949,7 +949,7 @@ inicialização <file>.bash_profile</file> para permitir o recebimento
 de "talks" toda vez que entrar no sistema.
  <p>
 Para detalhes sobre como se comunicar com outros usuários, veja o comando 
-<ref id="cmdn-talk">.
+<xref linkend="cmdn-talk">.
 
 
 <sect id="cmdv-echo">echo
@@ -990,17 +990,17 @@ rígidos e flexíveis do sistema.
 <![ %DESCRICAOD [ O cache um mecanismo de aceleração que permite que um  
 arquivo seja armazenado na memória ao invés de ser imediatamente gravado  
 no disco, quando o sistema estiver ocioso, o arquivo é gravado para o 
-disco. O <prgn>GNU/Linux</prgn> procura utilizar toda memória RAM disponível 
+disco. O <command>GNU/Linux</command> procura utilizar toda memória RAM disponível 
 para o cache de programas acelerando seu desempenho de 
 leitura/gravação. ]]>
  <p>
 <tt>sync</tt>
  <p>
-O uso do <prgn>sync</prgn> é útil em disquetes quando gravamos um 
+O uso do <command>sync</command> é útil em disquetes quando gravamos um 
 programa e precisamos que os dados sejam gravados imediatamente para
 retirar o disquete da unidade. Mas o método recomendado é especificar 
 a opção <tt>sync</tt> durante a montagem da unidade de disquetes 
-(para detalhes veja <ref id="disc-fstab">. 
+(para detalhes veja <xref linkend="disc-fstab">. 
 
 
 <sect id="cmdv-uname">uname
@@ -1037,9 +1037,9 @@ definir a hora e minuto, <tt>MM</tt> para definir minutos, <tt>+SS</tt> para
 definir após quantos segundos, ou <tt>now</tt> para imediatamente (equivalente 
 a +0). 
  <p>
-O <prgn>shutdown</prgn> criará o arquivo <file>/etc/nologin</file> para não 
+O <command>shutdown</command> criará o arquivo <file>/etc/nologin</file> para não 
 permitir que novos usuários façam login no sistema (com excessão do root).
-Este arquivo é removido caso a execução do <prgn>shutdown</prgn> seja  
+Este arquivo é removido caso a execução do <command>shutdown</command> seja  
 cancelada (opção -c) ou após o sistema ser reiniciado.
 
  <tag><em>mensagem</em></tag>
@@ -1058,18 +1058,18 @@ Reinicia o sistema
 
  <tag>-c</tag>
  <item>
-Cancela a execução do <prgn>shutdown</prgn>. Você pode acrescentar uma 
+Cancela a execução do <command>shutdown</command>. Você pode acrescentar uma 
 mensagem avisando aos usuários sobre o fato. 
 
 <![ %INTERMEDIARIO [
  <tag>-a</tag>
  <item>
 Permite que os nomes de usuários contidos no arquivo <file>/etc/shutdown.allow 
-</file> possam utilizar o <prgn>shutdown</prgn> para reinicializar/desligar o 
+</file> possam utilizar o <command>shutdown</command> para reinicializar/desligar o 
 sistema. Deve ser colocado um nome de usuário por linha. O limite máximo 
 de usuários neste arquivo é de 32. 
  <p>
-Este arquivo é útil quando o <prgn>shutdown</prgn> é usado para controlar o 
+Este arquivo é útil quando o <command>shutdown</command> é usado para controlar o 
 pressionamento das teclas <tt>CTRL+ALT+DEL</tt> no <file>/etc/inittab</file>.
 
  <tag>-k</tag>
@@ -1081,41 +1081,41 @@ Simula o desligamento/reinicio do sistema, enviando mensagem aos usuários.
 Não executa a checagem do sistema de arquivos durante a inicialização do 
 sistema. Este processo é feito gravando-se um arquivo <file>/fastboot</file> 
 que é interpretado pelos scripts responsáveis pela execução do 
-<prgn>fsck</prgn> durante a inicialização do sistema.
+<command>fsck</command> durante a inicialização do sistema.
 
  <tag>-F</tag>
  <item>
 Força a checagem do sistema de arquivos durante a inicialização. É gravado 
 um arquivo chamado <file>/forcefsck</file> que é interpretado pelos 
-scripts responsáveis pela execução do <prgn>fsck</prgn> durante a 
+scripts responsáveis pela execução do <command>fsck</command> durante a 
 inicialização do sistema.
 
  <tag>-n</tag>
  <item>
-Faz com que o <prgn>shutdown</prgn> ignore a execução do <prgn>init</prgn> 
+Faz com que o <command>shutdown</command> ignore a execução do <command>init</command> 
 fechando todos os processos.
 
  <tag>-t [num]</tag>
  <item>
-Faz com que o <prgn>shutdown</prgn> envie um sinal de término aos processos e 
+Faz com que o <command>shutdown</command> envie um sinal de término aos processos e 
 aguarde [num] segundos antes de enviar o sinal KILL.
 ]]>
 </taglist>
 ]]>
-O <prgn>shutdown</prgn> envia uma mensagem a todos os usuários do sistema 
+O <command>shutdown</command> envia uma mensagem a todos os usuários do sistema 
 alertando sobre o desligamento durante os 15 minutos restantes e assim 
-permite que finalizem suas tarefas. Após isto, o <prgn>shutdown</prgn> 
-muda o nível de execução através do comando <prgn>init</prgn> para 0 
+permite que finalizem suas tarefas. Após isto, o <command>shutdown</command> 
+muda o nível de execução através do comando <command>init</command> para 0 
 (desligamento), 1 (modo monousuário), 6 (reinicialização). É recomendado 
 utilizar o símbolo "&" no final da linha de comando para que o 
-<prgn>shutdown</prgn> seja executado em segundo plano. 
+<command>shutdown</command> seja executado em segundo plano. 
 <![ %OBS [
  <p>
 Quando restarem apenas 5 minutos para o reinicio/desligamento do sistema, o 
-programa <prgn>login</prgn> será desativado, impedindo a entrada de novos 
+programa <command>login</command> será desativado, impedindo a entrada de novos 
 usuários no sistema. 
  <p>
-O programa <prgn>shutdown</prgn> pode ser chamado pelo <prgn>init</prgn> 
+O programa <command>shutdown</command> pode ser chamado pelo <command>init</command> 
 através do pressionamento da combinação das teclas de reinicialização 
 <tt>CTRL+ALT+DEL</tt> alterando-se o arquivo <file>/etc/inittab</file>.  
 Isto permite que somente os usuários autorizados (ou o root) possam 
@@ -1141,7 +1141,7 @@ usuários conectados ao sistema.
  <item>
 <tt>shutdown -r 20</tt> - Faz o sistema ser reiniciado após 20 minutos.
  <item>
-<tt>shutdown -c</tt> - Cancela a execução do <prgn>shutdown</prgn>.
+<tt>shutdown -c</tt> - Cancela a execução do <command>shutdown</command>.
 <![ %INTERMEDIARIO [
  <item>
 <tt>shutdown -t 30 -r 20</tt> - Reinicia o sistema após 20 minutos, espera 
@@ -1153,7 +1153,7 @@ programas abertos. ]]>
 <sect id="cmdv-wc">wc
  <p>
 Conta o número de palavras, bytes e linhas em um arquivo ou entrada padrão. 
-<![ %DESCRICAOD [ Se as opções forem omitidas, o <prgn>wc</prgn> 
+<![ %DESCRICAOD [ Se as opções forem omitidas, o <command>wc</command> 
 mostra a quantidade de linhas, palavras, e bytes. ]]>
  <p>
 <tt>wc [<em>opções</em>] [<em>arquivo</em>]</tt>
@@ -1163,7 +1163,7 @@ Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo que será verificado pelo comando <prgn>wc</prgn>.
+Arquivo que será verificado pelo comando <command>wc</command>.
 
  <tag><em>opções</em></tag>
  <tag>-c, --bytes</tag>
@@ -1260,7 +1260,7 @@ Exemplos: <tt>seq 0 2 10</tt>, <tt>seq -w 0 10</tt>, <tt>seq -f%f 0 10</tt>, <tt
 <sect id="cmdv-chattr">chattr
  <p>
 Modifica atributos de arquivos/diretórios. Não confunda atributos de 
-arquivo com permissões de acesso (<ref id="perm">), os atributos são 
+arquivo com permissões de acesso (<xref linkend="perm">), os atributos são 
 diferentes e definem outras características especiais para os arquivos/diretórios 
 especificados. 
  <p>
@@ -1322,7 +1322,7 @@ Este atributo ainda não foi totalmente implementado no código atual do kernel.
 
  <item>
 <tt>d</tt> - Este atributo não é usado pelo kernel, mas faz com que o 
-programa <prgn>dump</prgn> evitar backup dos arquivos marcados com este 
+programa <command>dump</command> evitar backup dos arquivos marcados com este 
 atributo. 
 
  <item>
@@ -1355,7 +1355,7 @@ Este atributo ainda não foi implementado totalmente no código atual do kernel.
  
 </taglist> ]]>
 Os atributos de arquivos/diretórios são visualizados através do 
-utilitário <prgn>lsattr</prgn>. Existem patches para os kernels da 
+utilitário <command>lsattr</command>. Existem patches para os kernels da 
 série 2.2 que adicionam o suporte experimental aos atributos "c" e "u".
 
 <![ %EXEMPLO [
@@ -1372,7 +1372,7 @@ Exemplos:
 <sect id="cmdv-lsattr">lsattr
  <p>
 Lista atributos de um arquivo/diretório. Os atributos podem ser 
-modificados através do comando <prgn>chattr</prgn>. 
+modificados através do comando <command>chattr</command>. 
  <p>
 <tt>lsattr [<em>opções</em>] [<em>arquivos/diretórios</em>]</tt>
  <p>
@@ -1403,9 +1403,9 @@ Faz a listagem em diretórios e subdiretórios.
 Mostra versões dos arquivos.   
 
 </taglist> ]]>
-Caso seja especificado sem parâmetros, o <prgn>lsattr</prgn> listará os 
+Caso seja especificado sem parâmetros, o <command>lsattr</command> listará os 
 atributos de todos os arquivos e diretórios do diretório atual. O 
-<prgn>lsattr</prgn> mostrará mensagens de erro caso seja usado em 
+<command>lsattr</command> mostrará mensagens de erro caso seja usado em 
 um diretório de pontos de montagem ou arquivos que não sejam <em>ext2</em>. 
 <![ %EXEMPLO [ 
  <p>
@@ -1424,7 +1424,7 @@ Onde:
 <taglist compact>
  <tag><em>arquivo</em></tag>
  <item>
-Arquivo que será verificado pelo comando <prgn>cut</prgn>.
+Arquivo que será verificado pelo comando <command>cut</command>.
 
  <tag><em>opções</em></tag>
  <tag>-b, --bytes [bytes]</tag>
@@ -1501,8 +1501,8 @@ para cada diferença.
 Não mostra nenhuma diferença, só retorna o código de saída do programa.
 </taglist>
 ]]>
-Use o comando <prgn>zcmp</prgn> para comparar diretamente arquivos  
-binários/texto compactados com <prgn>gzip</prgn>.
+Use o comando <command>zcmp</command> para comparar diretamente arquivos  
+binários/texto compactados com <command>gzip</command>.
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>cmp teste.txt teste1.txt</tt>. ]]>
@@ -1521,16 +1521,16 @@ Obtém o nome do diretório através do caminho passado ao programa.
 <sect id="cmdv-diff">diff
  <p>
 Compara dois arquivos e mostra as diferenças entre eles. O comando 
-<prgn>diff</prgn> é usado somente para a comparação de arquivos 
+<command>diff</command> é usado somente para a comparação de arquivos 
 em formato texto. 
 <![ %DESCRICAOD [ As diferenças encontradas podem ser redirecionadas para 
-um arquivo que poderá ser usado pelo comando <prgn>patch</prgn> para 
+um arquivo que poderá ser usado pelo comando <command>patch</command> para 
 aplicar as alterações em um arquivo que não contém as diferenças. Isto é 
 útil para grandes textos porque é possível copiar somente as modificações 
 (geradas através do diff, que são muito pequenas) e aplicar no arquivo 
-para atualiza-lo (através do <prgn>patch</prgn>) ao invés de copiar a nova 
+para atualiza-lo (através do <command>patch</command>) ao invés de copiar a nova 
 versão. Este é um sistema de atualização muito usado na atualização dos 
-código fonte do kernel do <prgn>GNU/Linux</prgn>. ]]>
+código fonte do kernel do <command>GNU/Linux</command>. ]]>
  <p>
 <tt>diff [<em>diretório1/arquivo1</em>] [<em>diretório2/arquivo2</em>]  
 [<em>opções</em>]</tt>
@@ -1546,9 +1546,9 @@ primeiro arquivo/diretório o mais antigo e o mais novo como segundo.
  <tag><em>opções</em></tag>
  <tag>-lines [num]</tag>
  <item>
-Gera a diferença com [num] linhas de contexto. Por padrão o <prgn>diff</prgn> 
+Gera a diferença com [num] linhas de contexto. Por padrão o <command>diff</command> 
 gera um arquivo com 2 linhas que é o mínimo necessário para o correto 
-funcionamento do <prgn>patch</prgn>.
+funcionamento do <command>patch</command>.
  
  <tag>-a</tag>
  <item>
@@ -1604,10 +1604,10 @@ Usa o formato de comparação unificado.
  
 </taglist>
 ]]>
-Use o comando <prgn>zdiff</prgn> para comparar diretamente arquivos  
-compactados pelo utilitário <prgn>gzip</prgn>
+Use o comando <command>zdiff</command> para comparar diretamente arquivos  
+compactados pelo utilitário <command>gzip</command>
  <p>
-Use o comando <prgn>sdiff</prgn> para visualizar as linhas diferentes entre 
+Use o comando <command>sdiff</command> para visualizar as linhas diferentes entre 
 os dois arquivos em formato texto simples. 
 <![ %EXEMPLO [
  <p>
@@ -1625,7 +1625,7 @@ branco diferentes entre os dois arquivos e usando o formato unificado.
 <tt>diff texto.txt texto1.txt &gt;texto.diff</tt> - Compara o arquivo 
 <file>texto.txt</file> com <file>texto1.txt</file> e gera um arquivo 
 chamado <file>texto.diff</file> contendo a diferença entre eles. Este 
-arquivo poderá ser usado pelo <prgn>patch</prgn> para aplicar as 
+arquivo poderá ser usado pelo <command>patch</command> para aplicar as 
 diferenças existente entre os dois no arquivo <file>texto.txt</file>.
  <item>
 <tt>diff -r /usr/src/linux-2.2.13 /usr/src/linux-2.2.14 &gt;patch-2.2.14.diff
@@ -1702,7 +1702,7 @@ Exemplo: <tt>pr -l 50 -h "Teste do comando pr" teste.txt</tt>. ]]>
 <sect id="cmdv-patch">patch
  <p>
 Atualiza arquivos texto através das diferenças geradas pelo comando 
-<prgn>diff</prgn>. 
+<command>diff</command>. 
  <p>
 <tt>patch [<em>opções</em>] [<em>arquivo.diff</em>]</tt> ou  
 <tt>patch [<em>opções</em>] &lt; [<em>arquivo.diff</em>]</tt> 
@@ -1711,13 +1711,13 @@ Onde:
 <taglist compact>
  <tag><em>arquivo.diff</em></tag>
  <item>
-Arquivo contendo as diferenças geradas pelo comando <prgn>diff</prgn>.
+Arquivo contendo as diferenças geradas pelo comando <command>diff</command>.
 
  <tag><em>opções</em></tag>
  <tag>-p [num]</tag>
  <item>
-Nível do diretório onde o <prgn>patch</prgn> será aplicado, se igual a 0, 
-o <prgn>patch</prgn> assume que os arquivos que serão atualizados estão no 
+Nível do diretório onde o <command>patch</command> será aplicado, se igual a 0, 
+o <command>patch</command> assume que os arquivos que serão atualizados estão no 
 diretório atual, se 1, assume que os arquivos que serão atualizado estão 
 no diretório acima (..), se 2, 2 diretórios acima ...
 
@@ -1755,8 +1755,8 @@ Interpreta o patch em formato unificado.
 
 </taglist>
 As diferenças são aplicadas em arquivos originais gerados pelo comando 
-<prgn>diff</prgn>. É importante entender os comandos <prgn>patch</prgn> 
-e <prgn>diff</prgn> pois são comandos muito utilizados para desenvolvimento 
+<command>diff</command>. É importante entender os comandos <command>patch</command> 
+e <command>diff</command> pois são comandos muito utilizados para desenvolvimento 
 feito por equipes de pessoas.
 <![ %EXEMPLO [
  <p>
@@ -1790,7 +1790,7 @@ Exemplo: <tt>whereis ls</tt>, <tt>whereis cd</tt>. ]]>
 Mostra a localização de um arquivo executável no sistema.
 <![ %DESCRICAOD [ A pesquisa de arquivos executáveis é feita através do 
 path do sistema. 
-<![ %INICIANTE [ Para maiores detalhes, veja <ref id="run-path">. ]]> ]]>
+<![ %INICIANTE [ Para maiores detalhes, veja <xref linkend="run-path">. ]]> ]]>
  <p>
 <tt>which [<em>comando</em>]</tt>
 <![ %EXEMPLO [
@@ -1804,19 +1804,19 @@ Exemplos: <tt>which ls</tt>, <tt>which shutdown</tt>,
 Renomeia extensão de arquivos para <file>.gz</file>.
 <![ %DESCRICAOD [
 Este comando é útil quando fazemos downloads de arquivos compactados pelo 
-<prgn>gzip</prgn> mas que não estão identificados pela extensão <file>.gz
+<command>gzip</command> mas que não estão identificados pela extensão <file>.gz
 </file>. ]]>
  <p>
 <tt>zforce [<em>arquivos</em>]</tt>
  <p>
-Quando é usado o <prgn>zforce</prgn> verifica se o arquivo é um arquivo 
-compactado pelo <prgn>gzip</prgn>, caso seja, é verificado se já tem a 
+Quando é usado o <command>zforce</command> verifica se o arquivo é um arquivo 
+compactado pelo <command>gzip</command>, caso seja, é verificado se já tem a 
 extensão <file>.gz</file>, caso não tiver, acrescenta a extensão. 
 
 
 <sect id="cmdv-gzexe">gzexe
  <p>
-Cria arquivos compactados <prgn>gzip</prgn> auto-extrácteis.
+Cria arquivos compactados <command>gzip</command> auto-extrácteis.
 <![ %DESCRICAOD [ Este comando é usado para compactar arquivos executáveis 
 que se auto-descompactam assim que são solicitados. É útil 
 para sistemas ou unidades de disco que possuem pouco espaço disponível. ]]>
@@ -1828,7 +1828,7 @@ Este comando deve somente ser usado para arquivos executáveis.
 Onde: <em>arquivo</em> é o arquivo executável que será compactado.
 ]]>
  <p>
-Quando <prgn>gzexe</prgn> é executado, uma cópia do arquivo original é
+Quando <command>gzexe</command> é executado, uma cópia do arquivo original é
 gravada com o formato <file>nome_do_arquivo</file>~.
 <![ %EXEMPLO [
  <p>
@@ -1837,8 +1837,8 @@ Exemplo: <tt>gzexe /tmp/teste</tt>. ]]>
 
 <sect id="cmdv-znew">znew
  <p>
-Recompacta arquivos do formato <prgn>compress</prgn> (<file>.Z</file>) para  
-o formato <prgn>gzip</prgn> (<file>.gz</file>). Após a re-compactação, os 
+Recompacta arquivos do formato <command>compress</command> (<file>.Z</file>) para  
+o formato <command>gzip</command> (<file>.gz</file>). Após a re-compactação, os 
 arquivos de origem <file>.Z</file> são apagados. 
  <p>
 <tt>znew [<em>opções</em>] [<em>arquivo</em>]</tt>
@@ -1847,8 +1847,8 @@ Onde:
 <taglist compact>
  <tag><em>arquivo.Z</em></tag>
  <item>
-Arquivo compactado pelo <prgn>compress</prgn> que será re-compactado para 
-o <prgn>gzip</prgn>. 
+Arquivo compactado pelo <command>compress</command> que será re-compactado para 
+o <command>gzip</command>. 
 
  <tag><em>opções</em></tag>
  <tag>-f</tag>

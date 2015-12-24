@@ -8,7 +8,7 @@ Este capítulo contém considerações sobre o guia Foca GNU/Linux.
 O guia Foca foi criado em 12 de Novembro de 1999. A versão que está lendo
 tem o objetivo de servir como referência a usuários 
 <![ %INICIANTE [ <em>Iniciantes</em> e que estão tendo o primeiro contato 
-com o sistema operacional <prgn>GNU/Linux</prgn>, ]]>
+com o sistema operacional <command>GNU/Linux</command>, ]]>
 <![ %INTERMEDIARIO [ <em>Intermediários</em> que já conhecem o básico sobre 
 o funcionamento deste sistema operacional e já estão acostumados com os 
 comandos, execução de programas e diretórios, ]]>
@@ -55,7 +55,7 @@ modificações que considera importantes.
  <p>
 Versões diferentes deste guia podem ser geradas a partir do código fonte 
 SGML ou obtidas através da home page principal (para detalhes veja 
-<ref id="apend-homepage">). 
+<xref linkend="apend-homepage">). 
 
 
 <sect id="apend-autor">Sobre o Autor
@@ -64,13 +64,13 @@ Gleydson Mazioli da Silva é Capixaba, nascido em Vila Velha.
 Amante de eletrônica desde criança, foi atraido para a informática através da 
 curiosidade em funcionamento e reparo de hardware.
  <p>
-Se dedica ao sistema <prgn>Linux</prgn> desde 1997. determinado na 
+Se dedica ao sistema <command>Linux</command> desde 1997. determinado na 
 realização de testes de ferramentas e sistemas avaliando pontos fortes 
-e fracos de cada uma. Logo que iniciou em <prgn>Linux</prgn> passou a 
+e fracos de cada uma. Logo que iniciou em <command>Linux</command> passou a 
 estudar exaustivamente aspectos técnicos de distribuições e rede 
-em <prgn>Linux</prgn>/<prgn>BSD</prgn>.
+em <command>Linux</command>/<command>BSD</command>.
  <p>
-Entre coisas que gosta de fazer/implementar em <prgn>Linux</prgn>:
+Entre coisas que gosta de fazer/implementar em <command>Linux</command>:
 possibilidade de pesquisa e atualização de conhecimento constante, automatização
 e tomada inteligente de decisões, níveis de segurança da informação (tanto físico e lógico), 
 firewalls, virtualização, redes virtuais, integração de sistemas, forense 

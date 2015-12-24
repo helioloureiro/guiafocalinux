@@ -1,7 +1,7 @@
 <chapt id="cfgrede">Configurações especiais de Rede
  <p>
 Este capítulo descreve alguns tipos de configurações que podem ser feitas em rede 
-utilizando os recursos disponíveis do <prgn>Linux</prgn>. Aqui não estão 
+utilizando os recursos disponíveis do <command>Linux</command>. Aqui não estão 
 todas as aplicações, pois o sistema é bastante flexível e o próprio time de 
 desenvolvimento do kernel não demonstrou limitações quanto as formas de 
 se construir uma rede :-)
@@ -33,8 +33,8 @@ uma interface virtual que atenda pelo IP <em>172.16.0.1</em> (classe B privada)
 e depois seguir os seguintes passos: 
 <enumlist compact>
  <item>
-Ative a interface de rede com <prgn>ifconfig</prgn> ou <prgn>ifup</prgn>
-(caso esteja usando a <prgn>Debian</prgn>).
+Ative a interface de rede com <command>ifconfig</command> ou <command>ifup</command>
+(caso esteja usando a <command>Debian</command>).
 
  <item>
 Crie uma interface virtual usando o comando <tt>ifconfig eth0:0 172.16.0.1</tt>.
@@ -65,21 +65,21 @@ Note que o MAC Address da placa <file>eth0</file> e <file>eth0:0</file> são
 o mesmo, indicando que a mesma interface atende ambos os IPs. 
 
  <item>
-Se necessário ajuste as rotas ou gateway com o comando <prgn>route</prgn> 
-<![ %CAPJUNTOS [(veja <ref id="rede-rota-c">)]]>. 
+Se necessário ajuste as rotas ou gateway com o comando <command>route</command> 
+<![ %CAPJUNTOS [(veja <xref linkend="rede-rota-c">)]]>. 
 
 </enumlist>
 Para desativar uma interface de rede virtual, utilize a sintaxe:
 <tt>ifconfig eth0:0 down</tt> ou <tt>ifdown eth0:0</tt> 
-(caso esteja usando a <prgn>Debian</prgn>).
+(caso esteja usando a <command>Debian</command>).
  <p>
-Se o teste com o <prgn>ping</prgn> não funcionar, verifique se possui o 
+Se o teste com o <command>ping</command> não funcionar, verifique se possui o 
 suporte a <em>IP Alias</em> no kernel, se o módulo precisa ser 
 carregado manualmente (caso seu kernel não esteja compilado com o 
-<prgn>kmod</prgn>) ou se existe um firewall restritivo bloqueando 
+<command>kmod</command>) ou se existe um firewall restritivo bloqueando 
 seu IP. 
  <p>
-Na distribuição <prgn>Debian</prgn> a configuração de uma interface virtual
+Na distribuição <command>Debian</command> a configuração de uma interface virtual
 pode ser feita de forma idêntica a interfaces estáticas padrão:
 <example>
 auto eth0
@@ -110,7 +110,7 @@ seguros em sua máquina e esteja em dúvida sobre as implicações de segurança
 <em>IP Alias</em> em sua máquina, consulte seu administrador de redes. 
  <p>
 <strong>OBS3: </strong> Note que somente os 4 primeiros caracteres serão 
-mostrados na saída do <prgn>ifconfig</prgn>, desta forma procure utilizar no 
+mostrados na saída do <command>ifconfig</command>, desta forma procure utilizar no 
 máximo esta quantidade de caracteres para evitar problemas durante uma futura 
 administração do servidor, no caso de esquecimento do nome completo da interface 
 virtual). ]]>
@@ -121,7 +121,7 @@ virtual). ]]>
 Uma <em>bridge</em> é uma interface de rede lógica composta por uma ou mais 
 interfaces de rede física operando em nível 2 (enviando pacotes 
 através de <em>MAC adresses</em><![ %CAPJUNTOS [, veja 
-<ref id="rede-camadas">]]>). 
+<xref linkend="rede-camadas">]]>). 
  <p>
 Sua operação é transparente na rede, podendo ser usada como 
 um switch/firewall, estação de monitoração, etc. Aqui descreverei 
@@ -171,7 +171,7 @@ que reúne interfaces de rede físicas.
  <p>
 Nos exemplos abaixo, eu assumirei a utilização do nome de dispositivo
 <file>br0</file> para se referir a bridge no sistema. Siga estes passos
-para configurar uma bridge em sistemas <prgn>Debian</prgn>:
+para configurar uma bridge em sistemas <command>Debian</command>:
 <list compact>
  <item>
 Primeiro, desative os blocos no arquivo <file>/etc/network/interfaces</file> 
@@ -258,9 +258,9 @@ fazem parte da bridge <file>br0</file> e as demais (<file>eth2</file>,
 Internamente, o que o <file>ifup</file> faz é interpretar os parâmetros 
 no arquivo de configuração e executar os comandos do pacote 
 <package>bridge-utils</package> para ativar a interface da bridge. O 
-utilitário responsável por este processo é o <prgn>brctl</prgn>. Será 
+utilitário responsável por este processo é o <command>brctl</command>. Será 
 documentado aqui como ativar uma bridge através deste programa (que 
-servirá para fazer uma bridge em qualquer sistema <prgn>Linux</prgn>).
+servirá para fazer uma bridge em qualquer sistema <command>Linux</command>).
 <example>
 brctl addbr br0
 brctl addif br0 eth0
@@ -274,7 +274,7 @@ O comando acima ativa uma bridge simples, como o primeiro
 exemplo. Tenha certeza que as interfaces físicas de rede estão 
 desativadas antes de executar este comando.
  <p>
-Outros parâmetros que podem ser usados com o <prgn>brctl</prgn>:
+Outros parâmetros que podem ser usados com o <command>brctl</command>:
 <taglist compact>
  <tag>setbridgeprio [bridge] [prioridade]</tag>
   <item>
@@ -337,13 +337,13 @@ as interfaces.
 
 <sect1 id="cfgs-bridge-filternoip">Filtrando pacotes não IP na bridge
  <p>
-Para fazer esta tarefa, utilize a ferramenta <prgn>ebtables</prgn> disponível em 
+Para fazer esta tarefa, utilize a ferramenta <command>ebtables</command> disponível em 
 (<url id="&url-ebtables-www;">).
 
 
 <sect id="cfgs-plip">Conectando dois computadores usando a porta paralela
  <p>
-O <prgn>Linux</prgn> é bastante poderoso quando se trata de 
+O <command>Linux</command> é bastante poderoso quando se trata de 
 métodos para se conectar duas ou mais máquinas em rede. Uma 
 brincadeira que é levada a sério é que qualquer coisa que 
 ligue uma máquina a outra possui um controlador desenvolvido 
@@ -364,7 +364,7 @@ situações de problemas. Algumas características deste tipo de rede:
 Pode ser configurado em qualquer máquina, pois sempre haverá uma porta 
 paralela.
  <item>
-É útil para fazer instalação de <prgn>Linux</prgn> em máquinas sem CD-ROM. No 
+É útil para fazer instalação de <command>Linux</command> em máquinas sem CD-ROM. No 
 momento da instalação é preciso somente alternar para um console, executar os 
 passos descritos aqui e continuar com o processo de instalação normal :)
  <item>
@@ -373,14 +373,14 @@ passos descritos aqui e continuar com o processo de instalação normal :)
 O custo para montagem desta rede é extremamente baixo, bastando um cabo 
 Lap Link Paralelo que custa no máximo R$20,00 o de 1,5M ou se gosta de 
 eletrônica, montar seu próprio cabo usando o esquema que descrevo em 
-<ref id="cfgs-plip-cabo">. 
+<xref linkend="cfgs-plip-cabo">. 
  <item>
 Você poderá fazer qualquer coisa que faria em uma rede normal (incluindo
 MASQUERADING, roteamento entre redes, etc) sendo bastante interessante 
 para testes práticos dos exemplos do Foca Linux Avançado ;-)
  <item>
 Ficará admirado com as capacidade de rede existente no 
-<prgn>Linux</prgn> e feliz por ter colocado mais uma configuração em 
+<command>Linux</command> e feliz por ter colocado mais uma configuração em 
 funcionamento :)
 </list>
 
@@ -408,12 +408,12 @@ máquina 192.168.1.2:
  <item>
 Conecte o cabo Lap Link em cada uma das portas de impressora. Caso 
 saiba fazer conexões eletrônicas ou goste do assunto, veja 
-<ref id="cfgs-plip-cabo">.
+<xref linkend="cfgs-plip-cabo">.
 
  <item>
 Verifique se o seu kernel está compilado com o suporte a rede <file>plip</file>. 
 Caso não esteja, a configuração da interface <file>plip</file> falhará no 
-passo do <prgn>ifconfig</prgn>.
+passo do <command>ifconfig</command>.
 
  <item>
 Se o sistema executa algum daemon de impressão, interrompa antes de usar 
@@ -518,10 +518,10 @@ dos terminais. A tabela abaixo mostra a ligação dos fios nos cabos das
  <p>
 Este método permite criar uma rede ponto a ponto usando
 a porta serial da máquina, que funcionará de forma semelhante
-a mostrada em <ref id="cfgs-plip">.
+a mostrada em <xref linkend="cfgs-plip">.
  <p>
 O método que irei descrever é bastante simples e utiliza o 
-<prgn>slattach</prgn> e o protocolo <em>slip</em> para 
+<command>slattach</command> e o protocolo <em>slip</em> para 
 comunicação entre as duas máquinas, mas nada impede que 
 seja usado o <em>ppp</em> para comunicação, apenas acrescentará 
 um pouco mais de complexibilidade para esta configuração para 
@@ -540,7 +540,7 @@ de rede:
 Pode ser configurado em qualquer máquina, pois sempre haverá uma porta 
 serial disponível.
  <item>
-É possível fazer a instalação de <prgn>Linux</prgn> em máquinas sem CD-ROM
+É possível fazer a instalação de <command>Linux</command> em máquinas sem CD-ROM
 e acesso a rede, onde não é possível gerar disquetes para instalar o resto
 dos pacotes necessários, embora seja limitado a 11Kb/s. No momento da 
 instalação é preciso somente alternar para um console, executar os 
@@ -551,13 +551,13 @@ passos descritos aqui e continuar com o processo de instalação normal :)
 O custo para montagem desta rede é extremamente baixo, bastando um cabo 
 Lap Link Serial custa em média R$20,00 o cabo de 4 metros. Se você 
 também é um amante da eletrônica, estou descrevendo o esquema de 
-montagem do cabo em <ref id="cfgs-slattach-cabo">. 
+montagem do cabo em <xref linkend="cfgs-slattach-cabo">. 
  <item>
 Você poderá fazer qualquer coisa que faria em uma rede normal (incluindo
 roteamento entre redes, MASQUERADING, etc) 
  <item>
 É mais uma prova das capacidades de rede que é possível usando o 
-<prgn>Linux</prgn>.
+<command>Linux</command>.
 </list>
 
 Agora, os contras da conexão via porta serial:
@@ -587,24 +587,24 @@ taxa de transferência dependendo dos dados sendo transmitidos).
 Caso não tenha o suporte a <em>slip</em>, você poderá usar o <em>ppp</em>
 nas duas pontas do link fazendo algumas adaptações para usar a interface 
 <file>ppp?</file>, como é simples não será descrito neste guia :) (veja o 
-manual do <prgn>slattach</prgn>)
+manual do <command>slattach</command>)
 
  <item>
 Interrompa qualquer programa que esteja usando a porta serial.
 
  <item>
 Execute o comando <tt>slattach -s 115200 /dev/ttyS1 &</tt>. A 
-função do <prgn>slattach</prgn> é associar uma interface de 
+função do <command>slattach</command> é associar uma interface de 
 rede a um dispositivo, neste caso associamos o dispositivo 
 <file>/dev/ttyS1</file> (segunda porta serial) a interface 
 <file>sl0</file> (verifique se a interface foi criada usando 
 o comando <tt>ifconfig sl0</tt>.
  <p>
 A opção <tt>-p</tt> especifica um protocolo alternativo para o 
-<prgn>slattach</prgn>, o padrão é o <em>cslip</em>. Outros 
+<command>slattach</command>, o padrão é o <em>cslip</em>. Outros 
 tipos disponíveis são <em>slip</em>, <em>adaptive</em> 
 <em>ppp</em> e <em>kiss</em> (usado em conexões de rádio 
-AX.25). Recomendo ver a página de manual do <prgn>slattach</prgn>.
+AX.25). Recomendo ver a página de manual do <command>slattach</command>.
 
  <item>
 Nesse ponto a interface está ativa, mas a nossa máquina não conhece nada 
@@ -628,7 +628,7 @@ os seguintes ítens:
 Se as velocidade e o protocolo especificado em ambos os lados do
 link estão iguais.
  <item>
-Se já existe um processo <prgn>slattach</prgn> rodando em segundo
+Se já existe um processo <command>slattach</command> rodando em segundo
 plano.
  <item>
 Se existe um firewall bloqueando os pacotes da nova interface 
@@ -643,9 +643,9 @@ multi serial para ligar uma quantidade grande de máquinas a baixa
 velocidade).
  <p>
 Para derrubar a conexão, basta derrubar a interface serial com o 
-<tt>ifconfig sl0 down</tt>, dar um kill no daemon do <prgn>slattach</prgn>
+<tt>ifconfig sl0 down</tt>, dar um kill no daemon do <command>slattach</command>
 e remover o módulo <file>slip</file> e <file>cslip</file> com o 
-comando <prgn>rmmod</prgn>.
+comando <command>rmmod</command>.
 Assim sua porta serial será liberada e poderá ser usada por outros aplicativos.
 
 

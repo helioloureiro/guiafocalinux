@@ -1,23 +1,23 @@
 <chapt id="impr">Impressão 
  <p>
-Este capitulo descreve como imprimir em seu sistema <prgn>GNU/Linux</prgn> e as 
+Este capitulo descreve como imprimir em seu sistema <command>GNU/Linux</command> e as 
 formas de impressão via spool, rede, gráfica, etc. 
  <p>
 Antes de seguir os passos descritos neste capítulo, tenha certeza que seu 
 kernel foi compilado com o suporte a impressora USB e/ou paralela ativado, caso 
 contrário até mesmo a impressão direta para a porta de impressora falhará. 
-<![ %INTERMEDIARIO [ Para detalhes veja <ref id="kern-recompilando"> ]]>. 
+<![ %INTERMEDIARIO [ Para detalhes veja <xref linkend="kern-recompilando"> ]]>. 
 
 
 <sect id="impr-portas">Portas de impressora
  <p>
 Uma porta de impressora é o local do sistema usado para se comunicar 
-com a impressora. Em sistemas <prgn>GNU/Linux</prgn>, a porta de impressora 
+com a impressora. Em sistemas <command>GNU/Linux</command>, a porta de impressora 
 paralela é identificada como <file>lp0, lp1, lp2</file> no diretório <file>/dev</file>,
 caso a impressora seja USB, o dispositivo será o mesmo, mas estará disponível
 no diretório <file>/dev/usb</file>. Os dispositivos <file>lp0, lp1 e lp2</file>
 correspondem respectivamente a <file>LPT1</file>, <file>LPT2</file> e 
-<file>LPT3</file> no <prgn>DOS</prgn> e <prgn>Windows</prgn>. Recomendo 
+<file>LPT3</file> no <command>DOS</command> e <command>Windows</command>. Recomendo 
 que o suporte a porta paralela esteja compilado como módulo no kernel. 
 
 
@@ -32,7 +32,7 @@ sistema é <file>/dev/usb/lp0</file>, você pode usar os seguintes comandos:
 <list compact>
  <item>
 <tt>cat trabalho.txt &gt;/dev/usb/lp0</tt> - Direciona a saída do comando 
-<prgn>cat</prgn> para a impressora USB conectada em lp0. 
+<command>cat</command> para a impressora USB conectada em lp0. 
  <item>
 <tt>cat &lt;trabalho.txt &gt;/dev/usb/lp0</tt>. Faz a mesma coisa que o acima.
  <item>
@@ -42,7 +42,7 @@ impressão.
 <tt>head -n 30 trabalho.txt &gt;/dev/usb/lp0</tt> - Imprime as 30 linhas 
 iniciais do arquivo.
  <item>
-<tt>cat trabalho.txt|tee /dev/usb/lp0</tt> - Mostra o conteúdo do <prgn>cat</prgn> 
+<tt>cat trabalho.txt|tee /dev/usb/lp0</tt> - Mostra o conteúdo do <command>cat</command> 
 na tela e envia também para a impressora USB. 
 </list>
 Os métodos acima servem somente para imprimir em modo texto (letras, números 
@@ -65,8 +65,8 @@ o programa do serviço que está fazendo a impressão deixando um outro
 programa especifico tomar conta. 
  <p>
 Este programa é chamado de <em>daemon de impressão</em>, normalmente é 
-o <prgn>lpr</prgn> ou o <prgn>lprng</prgn> (recomendado) em sistemas 
-<prgn>GNU/Linux</prgn>. 
+o <command>lpr</command> ou o <command>lprng</command> (recomendado) em sistemas 
+<command>GNU/Linux</command>. 
  <p>
 Logo após receber o arquivo que será impresso, o programa de spool 
 gera um arquivo temporário (normalmente localizado em 
@@ -99,7 +99,7 @@ uma porta de impressora</tt>, vamos acelerar as coisas:
 <list compact>
  <item>
 <tt>cat trabalho.txt |lpr</tt> - Direciona a saída do comando 
-<prgn>cat</prgn> para o programa de spool <prgn>lpr</prgn>. 
+<command>cat</command> para o programa de spool <command>lpr</command>. 
  <item>
 <tt>cat &lt;trabalho.txt |lpr</tt>. Faz a mesma coisa que o acima.
  <item>
@@ -117,8 +117,8 @@ A fila de impressão pode ser controlada com os comandos:
  <item>
 <tt>lprm</tt> - Remove um trabalho de impressão
 </list>
-Ou usado o programa de administração <prgn>lpc</prgn> para gerenciar 
-a fila de impressão (veja a página de manual do <prgn>lpc</prgn> ou 
+Ou usado o programa de administração <command>lpc</command> para gerenciar 
+a fila de impressão (veja a página de manual do <command>lpc</command> ou 
 digite <tt>?</tt> ao iniciar o programa para detalhes). 
 <![ %INTER-AVANC [ 
  <p>
@@ -129,8 +129,8 @@ carregado e com os valores de irq e I/O corretos (por exemplo,
 <tt>modprobe parport_pc io=0x378 irq=7</tt>). Muitas vezes sua 
 porta paralela pode funcionar sem problemas durante a impressão, mas 
 se ao utilizar plip ocorrerem erros, a causa pode ser essa. 
-<![ %DEBIAN [ Na distribuição <prgn>Debian</prgn>, use o programa 
-<prgn>modconf</prgn> para configurar os valores permanentemente para 
+<![ %DEBIAN [ Na distribuição <command>Debian</command>, use o programa 
+<command>modconf</command> para configurar os valores permanentemente para 
 o módulo parport_pc. ]]>
  <p>
 OBS2: Se tiver mais de uma impressora instalada na máquina, 
@@ -147,25 +147,25 @@ guia abordará somente a segunda recomendação :-)
 
 <sect1 id="impr-ghostscript">Ghost Script
  <p>
-O método mais usados pelos aplicativos do <prgn>GNU/Linux</prgn> para a 
+O método mais usados pelos aplicativos do <command>GNU/Linux</command> para a 
 impressão de gráficos do <em>Ghost Script</em>. O 
 Ghost Script (chamado de <em>gs</em>) é um interpretador do formato <em>Pos 
 Script</em> (arquivos <file>.ps</file>) e pode enviar o resultado de 
 processamento tanto para a tela como impressora. Ele está disponível 
-para diversas plataformas e sistema operacionais além do <prgn>GNU/Linux</prgn>, 
-inclusive o <prgn>DOS</prgn>, <prgn>Windows</prgn>, <prgn>OS/2</prgn>, etc. 
+para diversas plataformas e sistema operacionais além do <command>GNU/Linux</command>, 
+inclusive o <command>DOS</command>, <command>Windows</command>, <command>OS/2</command>, etc. 
  <p>
 O formato <file>.ps</file> esta se tornando uma padronização para a 
-impressão de gráficos em <prgn>GNU/Linux</prgn> devido a boa qualidade da 
+impressão de gráficos em <command>GNU/Linux</command> devido a boa qualidade da 
 impressão, liberdade de configuração, gerenciamento de impressão feito 
 pelo <em>gs</em> e por ser um formato universal, compatíveis com outros 
 sistemas operacionais. 
  <p>
 Para imprimir um documento via Ghost Script, você precisará do pacote 
 <package>gs</package>, <package>gsfonts</package> (para a distribuição 
-<prgn>Debian</prgn> e distribuições baseadas, ou outros de acordo com 
+<command>Debian</command> e distribuições baseadas, ou outros de acordo com 
 sua distribuição Linux) e suas dependências. A distribuição 
-<prgn>Debian</prgn> vem com vários exemplos Pos Script no diretório 
+<command>Debian</command> vem com vários exemplos Pos Script no diretório 
 <file>/usr/share/doc/gs/example</file> que são úteis para o aprendizado e 
 testes com o Ghost Script. 
  <p>
@@ -174,8 +174,8 @@ Hora da diversão:
  <item>
 Copie os arquivos <file>tiger.ps.gz</file> e <file>alphabet.ps.gz</file> do 
 diretório <file>/usr/share/doc/gs/examples</file> (sistemas 
-<prgn>Debian</prgn>) para <file>/tmp</file> e descompacte-os com o 
-comando <prgn>gzip -d tiger.ps.gz e gzip -d alphabet.ps.gz</prgn>. Se 
+<command>Debian</command>) para <file>/tmp</file> e descompacte-os com o 
+comando <command>gzip -d tiger.ps.gz e gzip -d alphabet.ps.gz</command>. Se 
 a sua distribuição não possui arquivos de exemplo ou você não encontra 
 nenhuma referência de onde se localizam, mande um e-mail que os envio os 
 2 arquivos acima (são 32Kb). 
@@ -189,7 +189,7 @@ Para visualizar os arquivos na tela digite:
 gs tiger.ps 
 gs alphabet.ps
 </example>
-Para sair do <prgn>Ghost Script</prgn> pressione <tt>CTRL+C</tt>. Neste ponto 
+Para sair do <command>Ghost Script</command> pressione <tt>CTRL+C</tt>. Neste ponto 
 você deve ter visto um desenho de um tigre e (talvez) letras do alfabeto. 
  <p>
 Se o comando <tt>gs alphabet.ps</tt> mostrou somente uma tela em branco, 
@@ -205,7 +205,7 @@ O arquivo <file>alphabet.ps</file> deve ser impresso. Caso aparecerem
 mensagens como <tt>Error: /invalidfont in findfont</tt> no lugar das 
 letras, você se esqueceu de instalar ou configurar as fontes do 
 Ghost Script. Instale o pacote de fontes (<package>gsfonts</package> na 
-<prgn>Debian</prgn>) ou verifique a documentação sobre como configurar as 
+<command>Debian</command>) ou verifique a documentação sobre como configurar as 
 fontes. 
  <p>
 Cada uma das opções acima descrevem o seguinte: 
@@ -235,7 +235,7 @@ impressora <em>Canon BJC 600</em>, epson para impressoras padrão epson,
 stcolor para <em>Epson Stylus color</em>, etc. 
  <p>
 O Hardware-HOWTO contém referências sobre hardware suportados pelo 
-<prgn>GNU/Linux</prgn>, tal como impressoras e sua leitura pode ser útil. 
+<command>GNU/Linux</command>, tal como impressoras e sua leitura pode ser útil. 
 
  <item>
 <tt>-r&lt;ResH&gt;x&lt;ResV&gt;</tt> - Define a resolução de impressão 
@@ -257,10 +257,10 @@ codificada no formato entendido por impressoras epson e poderá ser
 impresso com o comando <tt>cat arquivo.epson &gt;/dev/lp0</tt>.
  <p>
 Uma curiosidade útil: É possível imprimir este arquivo em outros sistemas 
-operacionais, tal como o <prgn>DOS</prgn> digitando:
-<tt>copy /b arquivo.eps prn</tt> (lembre-se que o <prgn>DOS</prgn> tem 
+operacionais, tal como o <command>DOS</command> digitando:
+<tt>copy /b arquivo.eps prn</tt> (lembre-se que o <command>DOS</command> tem 
 um limite de 8 letras no nome do arquivo e 3 na extensão. Você deve estar 
-compreendendo a flexibilidade que o <prgn>GNU/Linux</prgn> e suas ferramentas 
+compreendendo a flexibilidade que o <command>GNU/Linux</command> e suas ferramentas 
 permitem, isso é só o começo. 
   <item>
 <tt>impressao%d.epson</tt> - Nome do arquivo que receberá o resultado 
@@ -271,14 +271,14 @@ Os arquivos podem ser impressos usando os mesmos métodos acima.
   <item>
 <tt>/dev/lp0</tt> para uma impressora em <file>/dev/lp0</file>
   <item>
-<tt>-</tt> para redirecionar a saída de processamento do <prgn>gs</prgn> 
+<tt>-</tt> para redirecionar a saída de processamento do <command>gs</command> 
 para a saída padrão. É útil para usar o gs com pipes <tt>|</tt>.
    <item>
 <tt>\|lpr</tt> - Envia a saída do Ghost Script para o daemon de impressão. 
 O objetivo é deixar a impressão mais rápida. 
  </list>
 Se você é curioso ou não esta satisfeito com as opções mostradas acima, veja 
-a página de manual do <prgn>gs</prgn>. 
+a página de manual do <command>gs</command>. 
 </list> 
 </list>
  
@@ -297,34 +297,34 @@ e spool.
  <p>
 A maioria dos programas para ambiente gráfico X11, incluindo o 
 Netscape, Word Perfect, Gimp e Star Office trabalham nativamente com 
-o <prgn>magicfilter</prgn>. 
+o <command>magicfilter</command>. 
 
 
 <sect1 id="impr-magicfilter-i">Instalação e configuração do Magic Filter
  <p>
 O Magic Filter é encontrado no pacote <package>magicfilter</package> da 
-distribuição <prgn>Debian</prgn> e baseadas. 
+distribuição <command>Debian</command> e baseadas. 
  <p>
-Sua configuração pode ser feita com o programa <prgn>magicfilterconfig</prgn> 
+Sua configuração pode ser feita com o programa <command>magicfilterconfig</command> 
 que torna o processo de configuração rápido e fácil para quem não conhece a 
 sintaxe do arquivo <file>/etc/printcap</file> ou não tem muitas exigências 
 sobre a configuração detalhada da impressora. 
  <p>
-Após instalar o <prgn>magicfilter</prgn> reinicie o daemon de impressão 
-(se estiver usando a <prgn>Debian</prgn>, entre no diretório 
+Após instalar o <command>magicfilter</command> reinicie o daemon de impressão 
+(se estiver usando a <command>Debian</command>, entre no diretório 
 <file>/etc/init.d</file> e como usuário <tt>root</tt> digite 
 <tt>./lpr restart</tt> ou <tt>./lprng restart</tt>). 
  <p>
-Para testar o funcionamento do <prgn>magicfilter</prgn>, digite 
+Para testar o funcionamento do <command>magicfilter</command>, digite 
 <tt>lpr alphabet.ps</tt> e <tt>lpr tiger.ps</tt>, os arquivos serão 
-enviados para o <prgn>magicfilter</prgn> que identificará o arquivo 
+enviados para o <command>magicfilter</command> que identificará o arquivo 
 como <em>Pos Script</em>, executará o Ghost Script e retornará o 
 resultado do processamento para o daemon de impressão. O resultado 
 será visto na impressora. 
  <p>
 Se tiver problemas, verifique se a configuração feita com o 
-<prgn>magicfilterconfig</prgn> está correta. Caso precise 
-re-configurar o <prgn>magicfilter</prgn>, digite 
+<command>magicfilterconfig</command> está correta. Caso precise 
+re-configurar o <command>magicfilter</command>, digite 
 <tt>magicfilterconfig --force</tt> (lembre-se que a opção 
 --force substitui qualquer configuração personalizada que tenha 
 adicionado ao arquivo <file>/etc/printcap</file>). 
@@ -332,14 +332,14 @@ adicionado ao arquivo <file>/etc/printcap</file>).
 
 <sect1 id="impr-magicfilter-c">Outros detalhes técnicos sobre o Magic Filter
  <p>
-Durante a configuração do <prgn>magicfilter</prgn>, a seguinte linha é 
+Durante a configuração do <command>magicfilter</command>, a seguinte linha é 
 adicionada ao arquivo <file>/etc/printcap</file>:
 <example>
 :if=/etc/magicfilter/epson9-filter
 </example>
 Não tenho nenhum contrato de divulgação com a <em>epson</em> :-) estou usando 
 esta marca de impressora porque é a mais tradicional e facilmente encontrada. 
-A linha que começa com <tt>:if</tt> no <prgn>magicfilter</prgn> identifica um 
+A linha que começa com <tt>:if</tt> no <command>magicfilter</command> identifica um 
 arquivo de filtro de impressão. 
  <p>
 O arquivo <file>/etc/magicfilter/epson9-filter</file> é criado usando 
@@ -398,7 +398,7 @@ arquivos Pos Script (gs), a impressora passará a usar esta resolução.
     <![ %AVANCADO [
 <sect id="impr-remota">Impressão remota
  <p>
-Aqui será explicado como fazer seu sistema <prgn>Linux</prgn> atuar como um 
+Aqui será explicado como fazer seu sistema <command>Linux</command> atuar como um 
 servidor de impressão para outras máquinas de sua rede.
 
 
@@ -407,10 +407,10 @@ lpd/lprng
  <p>
 As máquinas autorizadas a usar a impressora local deverão ter seus 
 nomes incluídos no arquivo <file>/etc/hosts.lpd</file> 
-(para o daemon <prgn>lpd</prgn> padrão) ou <file>/etc/lprng/lpd.perms</file> 
-(para o daemon <prgn>lpd</prgn> do pacote <package>lprng</package>).
+(para o daemon <command>lpd</command> padrão) ou <file>/etc/lprng/lpd.perms</file> 
+(para o daemon <command>lpd</command> do pacote <package>lprng</package>).
  <p>
-O arquivo <file>/etc/lprng/lpd.perms</file> do <prgn>lprng</prgn> é mais 
+O arquivo <file>/etc/lprng/lpd.perms</file> do <command>lprng</command> é mais 
 configurável (e complexo), uma linha como:
 <example>
 ACCEPT HOST=estacao1.dominio.org SERVICE=X,R,P,Q,M,C
@@ -424,13 +424,13 @@ a página de manual do <file>lpd.perms</file>.
  
 <sect1 id="impr-remota-rlpr">Impressão via rlpr
  <p>
-O <prgn>rlpr</prgn> redireciona a impressão diretamente ao servidor de impressão. 
+O <command>rlpr</command> redireciona a impressão diretamente ao servidor de impressão. 
 Sua vantagem é que a impressão é feita diretamente sem a necessidade de 
 configurar um arquivo <file>/etc/printcap</file> e dispensar trabalhos adicionais 
 de administração. 
-Ele envia o trabalho de impressão diretamente ao daemon <prgn>lpd</prgn> na 
+Ele envia o trabalho de impressão diretamente ao daemon <command>lpd</command> na 
 na porta 515 (a máquina deve estar configurada para aceitar conexões, veja 
-<ref id="impr-remota-perm">). 
+<xref linkend="impr-remota-perm">). 
  <p>
 Para enviar o arquivo <file>listagem.txt</file> para a impressora <em>hp</em> no 
 servidor <file>impr.meudominio.org</file>: 
@@ -446,7 +446,7 @@ remota, uma mensagem será mostrada.
 <sect1 id="impr-remota-printacap">Impressão via printcap
  <p>
 Através deste método, a impressão será tratada através do spool remoto 
-(<prgn>lpd</prgn> ou <prgn>lprng</prgn>) e enviada ao servidor de impressão. 
+(<command>lpd</command> ou <command>lprng</command>) e enviada ao servidor de impressão. 
 Para que isto funcione, utilize a seguinte configuração no seu arquivo 
 <file>/etc/printcap</file>:
 <example>
@@ -457,8 +457,8 @@ Para que isto funcione, utilize a seguinte configuração no seu arquivo
  :sh:
 
 </example>
-Então quando for executado o comando <prgn>lpr</prgn> na máquina remota, 
-o <prgn>lprng</prgn> enviará a impressão para a impressora 
+Então quando for executado o comando <command>lpr</command> na máquina remota, 
+o <command>lprng</command> enviará a impressão para a impressora 
 hp (<em>rp=hp</em>) na máquina <file>impr.meudominio.org</file> 
 (<file>rm=impr.meudominio.org</file>). 
  <p>
@@ -485,8 +485,8 @@ hp-r|Impressora Remota:\
 
 </example>
 Para selecionar qual impressora será usada, adicione a opção <em>-Pimpressora</em> 
-na linha de comando dos utilitários <prgn>lpr</prgn>, <prgn>lpq</prgn>, 
-<prgn>lprm</prgn> (por exemplo, <tt>lpr -Php-r relatorio.txt</tt>. Quando 
+na linha de comando dos utilitários <command>lpr</command>, <command>lpq</command>, 
+<command>lprm</command> (por exemplo, <tt>lpr -Php-r relatorio.txt</tt>. Quando 
 a opção <em>-P</em> é especificada, a impressora <em>lp</em> será usada por 
 padrão. 
 <![ %OBS [

@@ -1,7 +1,7 @@
 <sect id="s-ssh-cliente">Usando aplicativos clientes
  <p>
-Esta seção explicará o uso dos utilitários <prgn>ssh</prgn>, <prgn>scp</prgn> e 
-<prgn>sftp</prgn>. 
+Esta seção explicará o uso dos utilitários <command>ssh</command>, <command>scp</command> e 
+<command>sftp</command>. 
 
 
 <sect1 id="s-ssh-cliente-ssh">ssh
@@ -22,21 +22,21 @@ opção <em>-p porta</em> (a 22 é usada por padrão).
  <p>
 Na primeira conexão, a chave pública do servidor remoto será gravada em 
 <file>~/.ssh/know_hosts</file> ou <file>~/.ssh/know_hosts2</file> (dependendo 
-da versão do servidor <prgn>ssh</prgn> remoto, veja 
-<ref id="s-ssh-server-protodiff">), e verificada a cada conexão como 
+da versão do servidor <command>ssh</command> remoto, veja 
+<xref linkend="s-ssh-server-protodiff">), e verificada a cada conexão como 
 checagem de segurança para se certificar que o servidor não foi alvo de 
 qualquer ataque ou modificação não autorizada das chaves. Por padrão, o 
 cliente utilizará o protocolo ssh versão 1, a opção <em>-2</em> permite usar 
 o protocolo versão 2. 
  <p>
-Variáveis de ambiente personalizadas para o <prgn>ssh</prgn> poderão ser definidas 
+Variáveis de ambiente personalizadas para o <command>ssh</command> poderão ser definidas 
 no arquivo <file>~/.ssh/environment</file>. Comandos que serão executados somente 
 na conexão ssh em <file>~/.ssh/rc</file> e <file>/etc/ssh/sshrc</file> caso 
-contrário será executado o <prgn>xauth</prgn> por padrão. 
+contrário será executado o <command>xauth</command> por padrão. 
 <![ %OBS [
  <p>
 <strong>OBS: </strong> Para utilizar autenticação Rhosts/Rhosts+RSA (arquivos 
-<file>~/.rhosts</file>/<file>~/.shosts</file>) o programa <prgn>ssh</prgn> 
+<file>~/.rhosts</file>/<file>~/.shosts</file>) o programa <command>ssh</command> 
 deverá ter permissões SUID root e conectará usando 
 portas baixas (menores que 1024). ]]>
 
@@ -67,15 +67,15 @@ ssh ftp.sshserver.org -C -A -X -l john
  <p>
 O redirecionamento de conexões do X Window poderá ser habilitado em 
 <file>~/.ssh/config</file> ou <file>/etc/ssh/ssh_config</file> ou 
-usando as opções <em>-A -X</em> na linha de comando do <prgn>ssh</prgn> 
+usando as opções <em>-A -X</em> na linha de comando do <command>ssh</command> 
 (as opções <em>-a</em> e <em>-x</em> desativam as opções acima 
-respectivamente). Uma variável <var>$DISPLAY</var> é criada 
+respectivamente). Uma variável <envar>$DISPLAY</envar> é criada 
 automaticamente para fazer o redirecionamento ao servidor X local. 
  <p>
 Ao executar um aplicativo remoto, a conexão é redirecionada a um 
 DISPLAY proxy criado pelo ssh (a partir de <tt>:10</tt>, por padrão) que 
 faz a conexão com o display real do X (:0), ou seja, ele pulará os métodos 
-de autenticação <prgn>xhost</prgn> e cookies. 
+de autenticação <command>xhost</command> e cookies. 
 Por medidas de segurança é recomendável habilitar o redirecionamento 
 individualmente somente se você confia no administrador do sistema remoto. 
  <p>
@@ -129,14 +129,14 @@ Host 192.168.1.5
 
 <sect2 id="s-ssh-cliente-ssh-win">Cliente ssh para Windows
  <p>
-O <prgn>putty</prgn> é um cliente ssh Win32 que possui suporte 
+O <command>putty</command> é um cliente ssh Win32 que possui suporte 
 aos protocolos versão 1 e 2 do ssh, aceita compactação além de 
-funcionar também como cliente <prgn>telnet</prgn>. Seu tamanho é 
+funcionar também como cliente <command>telnet</command>. Seu tamanho é 
 pequeno, apenas um executável e requer 220KB de espaço em disco. 
 Ele pode ser baixado de 
 <url id="&url-putty-www;">. 
  <p>
-Outra alternativa é o <prgn>MindTerm</prgn>, este é baseado em 
+Outra alternativa é o <command>MindTerm</command>, este é baseado em 
 Java e pode inclusive ser executado como um applet em uma página 
 web. Este programa é encontrado em <url id="&url-mindterm-www;">.
 
@@ -149,7 +149,7 @@ este comando é a seguinte:
 <tt>scp [<em>origem</em>] [<em>destino</em>]</tt>
  <p>
 Os parâmetros de <em>origem</em> e <em>destino</em> são semelhantes ao do 
-comando <prgn>cp</prgn> mas possui um formato especial quando é especificado 
+comando <command>cp</command> mas possui um formato especial quando é especificado 
 uma máquina remota: 
 <list compact>
  <item>
@@ -163,7 +163,7 @@ Por exemplo: <tt>gleydson@ftp.debian.org:~/arqs</tt>.
 
 </list>
 A opção <em>-C</em> é recomendável para aumentar a taxa de transferência de dados
-usando compactação. Caso a porta remota do servidor <prgn>sshd</prgn> seja diferente 
+usando compactação. Caso a porta remota do servidor <command>sshd</command> seja diferente 
 de 22, a opção <em>-P porta</em> deverá ser especificada (é "P" maiúscula mesmo, 
 pois a <em>-p</em> é usada para preservar permissões/data/horas dos arquivos 
 transferidos). 
@@ -192,7 +192,7 @@ scp -C gleydson@server1.ssh.org:~/teste.sh gleydson@server2.ssh.org:~/
 
 <sect2 id="s-ssh-cliente-scp-win">Cliente scp para Windows
  <p>
-O <prgn>pscp</prgn> faz a tarefa equivalente ao <prgn>scp</prgn> no 
+O <command>pscp</command> faz a tarefa equivalente ao <command>scp</command> no 
 windows, e pode ser baixado de 
 <url id="&url-putty-www;">. 
 
@@ -207,20 +207,20 @@ para uso deste comando é a seguinte:
 <tt>sftp usuario@host_remoto</tt>
  <p>
 Compactação pode ser especificada através da opção <em>-C</em>. Um 
-arquivo contendo os comandos usados na seção <prgn>sftp</prgn> poderá se 
+arquivo contendo os comandos usados na seção <command>sftp</command> poderá se 
 especificado através da opção <em>-b arquivo</em> para automatizar tarefas. 
 <![ %OBS [
  <p>
-<strong>OBS1:</strong> Para desativar o servidor <prgn>sftp</prgn>, remova a linha 
+<strong>OBS1:</strong> Para desativar o servidor <command>sftp</command>, remova a linha 
 <tt>SubSystem sftp /usr/lib/sftp-server</tt> (que inicializa o sub-sistema 
 ftp) do arquivo <file>/etc/ssh/sshd_config</file> e reinicie o servidor 
-<prgn>sshd</prgn>. 
+<command>sshd</command>. 
  <p>
-<strong>OBS2:</strong> O suporte ao programa <prgn>sftp</prgn> somente 
+<strong>OBS2:</strong> O suporte ao programa <command>sftp</command> somente 
 está disponível ao protocolo ssh versão 2 e superiores.
  <p>
-<strong>OBS3:</strong> Algumas opções comuns do cliente <prgn>ftp</prgn> padrão 
-(como <em>mget</em>) ainda não estão disponíveis ao <prgn>sftp</prgn>. Veja 
+<strong>OBS3:</strong> Algumas opções comuns do cliente <command>ftp</command> padrão 
+(como <em>mget</em>) ainda não estão disponíveis ao <command>sftp</command>. Veja 
 a página de manual para detalhe sobre as opções disponíveis. ]]> 
 
 

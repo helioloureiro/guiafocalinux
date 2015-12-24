@@ -1,7 +1,7 @@
 <chapt id="rede">Rede 
  <p>
 Este capítulo descreve o que é uma rede, os principais dispositivos de 
-rede no <prgn>GNU/Linux</prgn>, a identificação de cada um, como configurar 
+rede no <command>GNU/Linux</command>, a identificação de cada um, como configurar 
 os dispositivos, escolha de endereços IP, roteamento. 
  <p>
 Parte deste capítulo, uns 70% pelo menos, é baseado no documento 
@@ -41,7 +41,7 @@ icq, etc), e registrando/avisando sobre eventuais tentativas de
 violar a segurança do sistema, firewalls, pontes, etc. 
  <p>
 Entre outras ilimitadas possibilidades que dependem do conhecimento 
-do indivíduo no ambiente <prgn>GNU/Linux</prgn>, já que ele permite muita 
+do indivíduo no ambiente <command>GNU/Linux</command>, já que ele permite muita 
 flexibilidade para fazer qualquer coisa funcionar em rede. 
  <p>
 A comunicação entre computadores em uma rede é feita através do 
@@ -181,7 +181,7 @@ número aproximado de redes/máquinas aproximados que deseja.
 <sect1 id="rede-ip-nova">Para instalar uma máquina usando o Linux em uma rede 
 existente
  <p>
-Se você quiser instalar uma máquina <prgn>GNU/Linux</prgn> em uma rede 
+Se você quiser instalar uma máquina <command>GNU/Linux</command> em uma rede 
 TCP/IP existente então você deve contactar qualquer um dos 
 administradores da sua rede e perguntar o seguinte: 
 <list compact>
@@ -192,7 +192,7 @@ administradores da sua rede e perguntar o seguinte:
  <item>Endereço do Roteador 
  <item>Endereço do Servidor de Nomes (DNS) 
 </list>
-Você deve então configurar seu dispositivo de rede <prgn>GNU/Linux</prgn> 
+Você deve então configurar seu dispositivo de rede <command>GNU/Linux</command> 
 com estes detalhes. Você não pode simplesmente escolhe-los e esperar 
 que sua configuração funcione. 
 
@@ -222,7 +222,7 @@ escolher a classe de rede que será usada.
 
 <sect id="rede-interfaces">Interface de rede
  <p>
-As interfaces de rede no <prgn>GNU/Linux</prgn> estão localizadas no 
+As interfaces de rede no <command>GNU/Linux</command> estão localizadas no 
 diretório <file>/dev</file> e a maioria é criada dinamicamente 
 pelos softwares quando são requisitadas. Este é o caso das 
 interfaces <tt>ppp</tt> e <tt>plip</tt> que são criadas dinamicamente 
@@ -275,7 +275,7 @@ ifconfig lo 127.0.0.1
  <p>
 Caso a interface loopback não esteja configurada, você poderá ter 
 problemas quando tentar qualquer tipo de conexão com as interfaces 
-locais, tendo problemas até mesmo com o comando <prgn>ping</prgn>. ]]> 
+locais, tendo problemas até mesmo com o comando <command>ping</command>. ]]> 
 
 
 <sect1 id="rede-interfaces-c">Atribuindo um endereço de rede a uma interface 
@@ -284,7 +284,7 @@ locais, tendo problemas até mesmo com o comando <prgn>ping</prgn>. ]]>
 Após configurada fisicamente, a interface precisa receber um endereço 
 IP para ser identificada na rede e se comunicar com outros computadores, além 
 de outros parâmetros como o endereço de <em>broadcast</em> e a <em>máscara de 
-rede</em>. O comando usado para fazer isso é o <prgn>ifconfig</prgn> 
+rede</em>. O comando usado para fazer isso é o <command>ifconfig</command> 
 (interface configure). 
  <p>
 Para configurar a interface de rede Ethernet (<file>eth0</file>) com o 
@@ -303,11 +303,11 @@ Digitando <tt>ifconfig</tt> são mostradas todas as interfaces ativas
 no momento, pacotes enviados, recebidos e colisões de datagramas. 
 Para mostrar a configuração somente da interface eth0, use o comando: 
 <tt>ifconfig eth0</tt> 
-<![ %DEBIAN [ Em sistemas <prgn>Debian</prgn>, o arquivo correto
+<![ %DEBIAN [ Em sistemas <command>Debian</command>, o arquivo correto
 para especificar os dados das interfaces é o 
-<file>/etc/network/interfaces</file> <![ %INTERMEDIARIO [ (veja <ref id="etc-network-interfaces">)]]>. ]]>
+<file>/etc/network/interfaces</file> <![ %INTERMEDIARIO [ (veja <xref linkend="etc-network-interfaces">)]]>. ]]>
  <p>
-Para mais detalhes, veja a página de manual do <prgn>ifconfig</prgn> ou 
+Para mais detalhes, veja a página de manual do <command>ifconfig</command> ou 
 o <em>NET3-4-HOWTO</em>. 
 
 
@@ -337,7 +337,7 @@ mínimo três campos, o primeiro é o <em>endereço de destino</em>, o
 segundo é o <em>nome da interface</em> que o datagrama deve ser roteado 
 e o terceiro é opcionalmente o <em>endereço IP</em> da outra máquina que 
 levará o datagrama em seu próximo passo através da rede. ]]> 
-No <prgn>GNU/Linux</prgn> você pode ver a tabela de roteamento usando um 
+No <command>GNU/Linux</command> você pode ver a tabela de roteamento usando um 
 dos seguintes comandos: 
 <example>
 cat /proc/net/route
@@ -359,7 +359,7 @@ pela interface.
 <sect1 id="rede-rota-c">Configurando uma rota no Linux
  <p>
 A configuração da rota é feita através da ferramenta 
-<prgn>route</prgn>. 
+<command>route</command>. 
 Para adicionar uma rota para a rede 192.168.1.0 acessível 
 através da interface eth0 basta digitar o comando: 
 <example>
@@ -368,7 +368,7 @@ route add -net 192.168.1.0 eth0
 Para apagar a rota acima da <em>tabela de roteamento</em>, basta 
 substituir a palavra <tt>add</tt> por <tt>del</tt>. A palavra 
 <tt>net</tt> quer dizer que 192.168.1.0 é um endereço de rede 
-(lembra-se das explicações em <ref id="rede-ip">?)) 
+(lembra-se das explicações em <xref linkend="rede-ip">?)) 
 para especificar uma máquina de destino, basta usar a palavra 
 <tt>-host</tt>. Endereços de máquina de destino são muito usadas 
 em conexões de rede apenas entre dois pontos (como ppp, plip, slip). 
@@ -404,7 +404,7 @@ A nossa configuração ficaria assim:
 route add -net 192.168.1.0 eth0
 route add default gw 192.168.1.1 eth0 
 </example> 
-Para mais detalhes, veja a página de manual do <prgn>route</prgn> ou 
+Para mais detalhes, veja a página de manual do <command>route</command> ou 
 o <em>NET3-4-HOWTO</em>. 
 
 
@@ -431,7 +431,7 @@ O <em>resolvedor de nomes</em> pode ser um banco de dados local
 os nomes em endereços IP ou através de <em>servidores DNS</em> que fazem 
 a busca em um banco de dados na Internet e retornam o endereço 
 IP do computador desejado. Um servidor DNS mais difundido na Internet 
-é o <prgn>bind</prgn>. ]]>
+é o <command>bind</command>. ]]>
  <p> 
 Através do DNS é necessário apenas decorar o endereço sem precisar se 
 preocupar com o endereço IP (alguns usuários simplesmente não sabem 
@@ -500,7 +500,7 @@ cadastrar quantos sub-domínios e computadores quiserem (como
 <sect1 id="rede-dns-a">Arquivos de configuração usados na resolução de nomes
  <p>
 Abaixo a descrição dos arquivos usados no processo de resolver um nome 
-no sistema <prgn>GNU/Linux</prgn>. 
+no sistema <command>GNU/Linux</command>. 
 
 
 <sect2 id="rede-dns-a-resolv">/etc/resolv.conf
@@ -563,7 +563,7 @@ spoofalert on
 O parâmetro <em>nospoof on</em> ativa a resolução reversa do nome da 
 biblioteca resolv (para checar se o endereço pertence realmente 
 àquele nome) e o <em>spoofalert on</em> registra falhas desta operação no 
-<prgn>syslog</prgn>. 
+<command>syslog</command>. 
 
 
 <sect2 id="rede-dns-a-hosts">/etc/hosts
@@ -594,14 +594,14 @@ problema com o comportamento de alguns serviços.
  <p>
 <strong>OBS: </strong> Caso encontre problemas de lentidão 
 para resolver nomes e até para executar os  aplicativos 
-(como o <prgn>mc</prgn>, etc), verifique se existem erros 
+(como o <command>mc</command>, etc), verifique se existem erros 
 neste arquivo de configuração. 
   <p>
 Estes sintomas se confundem com erros de memória ou outro 
 erro qualquer de configuração de hardware, e somem quando 
 a interface de rede é desativada (a com o IP não loopback). Isto 
 é causados somente pela má configuração do arquivo <file>/etc/hosts</file>. 
-O bom funcionamento do <prgn>Unix</prgn> depende da boa atenção 
+O bom funcionamento do <command>Unix</command> depende da boa atenção 
 do administrador de sistemas para configurar os detalhes de seu servidor.
 ]]>
 
@@ -656,7 +656,7 @@ Abaixo, alguns exemplos de portas padrões usadas em serviços TCP/IP:
 </list> ]]>
 O arquivo padrão responsável pelo mapeamento do nome dos serviços e das portas 
 mais utilizadas é o <file>/etc/services</file> (para detalhes sobre o 
-seu formato, veja a <ref id="rede-outros-services">). 
+seu formato, veja a <xref linkend="rede-outros-services">). 
 
 
 <sect1 id="rede-servicos-daemon">Serviços iniciados como Daemons de rede
@@ -664,7 +664,7 @@ seu formato, veja a <ref id="rede-outros-services">).
 Serviços de rede iniciados como <em>daemons</em> ficam residente o tempo 
 todo na memória <tt>esperando</tt> que alguém se conecte (também 
 chamado de <em>modo standalone</em>). Um exemplo de <em>daemon</em> é 
-o servidor proxy <prgn>squid</prgn> e o servidor web <prgn>Apache</prgn> 
+o servidor proxy <command>squid</command> e o servidor web <command>Apache</command> 
 operando no modo <em>daemon</em>. 
 <![ %DESCRICAOD [ 
  <p>
@@ -710,7 +710,7 @@ etc).
 <sect2 id="rede-servicos-inetd-c">/etc/inetd.conf
  <p>
 O arquivo <file>/etc/inetd.conf</file> é um arquivo de configuração para 
-o daemon servidor <em>inetd</em>. Sua função é dizer ao <prgn>inetd</prgn> 
+o daemon servidor <em>inetd</em>. Sua função é dizer ao <command>inetd</command> 
 o que fazer quando receber uma requisição de conexão para um serviço em 
 particular. Para cada serviço que deseja aceitar conexões, você precisa 
 dizer ao <em>inetd</em> qual daemon servidor executar e como executa-lo. 
@@ -767,7 +767,7 @@ Se o serviço for executado mais vezes do que este valor, ele será
 automaticamente desativado pelo inetd e uma mensagem será mostrada no 
 log do sistema avisando sobre o fato. 
  <p>
-Para reativar o serviço interrompido, reinicie o <prgn>inetd</prgn> com:
+Para reativar o serviço interrompido, reinicie o <command>inetd</command> com:
 <tt>killall -HUP inetd</tt>. O valor padrão é <tt>40</tt>.
 
 <tag>usuário</tag>
@@ -798,7 +798,7 @@ serão utilizados.
 <![ %EXEMPLO [ 
  <p>
 Abaixo um modelo de arquivo <file>/etc/inetd.conf</file> usado em sistemas 
-<prgn>Debian</prgn>:
+<command>Debian</command>:
 <example>
 # /etc/inetd.conf:  veja inetd(8) para mais detalhes.
 #
@@ -907,7 +907,7 @@ tty4
 
 <sect1 id="rede-seg-tcpd">O mecanismo de controle de acessos tcpd
  <p>
-O programa <prgn>tcpd</prgn> que você deve ter visto listado no mesmo 
+O programa <command>tcpd</command> que você deve ter visto listado no mesmo 
 arquivo <file>/etc/inetd.conf</file>, oferece mecanismos de registro 
 e controle de acesso para os serviços que esta configurado para proteger. 
 Ele é um tipo de firewall simples e fácil de configurar que pode evitar 
@@ -1065,25 +1065,25 @@ necessário, tenha muita atenção na especificação de seus campos.
 Evita também A TODO CUSTO uso de nomes de usuários (a não ser para 
 negar o acesso), pois é fácil forjar o login, entrar no sistema 
 tomar conta de processos (como por exemplo do servidor 
-<prgn>Apache</prgn> rodando sob o usuário <tt>www-data</tt> ou até mesmo 
+<command>Apache</command> rodando sob o usuário <tt>www-data</tt> ou até mesmo 
 o <strong>root</strong>), causando enormes estragos. ]]>
 
 
 <sect2 id="rede-seg-tcpd-v">Verificando a segurança do TCPD e a sintaxe 
 dos arquivos
  <p>
-O utilitário <prgn>tcpdchk</prgn> é útil para verificar problemas nos 
+O utilitário <command>tcpdchk</command> é útil para verificar problemas nos 
 arquivos <file>hosts.allow</file> e <file>hosts.deny</file>. Quando é 
 executado ele verifica a sintaxe destes arquivos e relata problemas, 
 caso eles existam. 
  <p>
-Outro utilitário útil é o <prgn>tcpdmatch</prgn>, o que ele faz é 
+Outro utilitário útil é o <command>tcpdmatch</command>, o que ele faz é 
 permitir que você simule a tentativa de conexões ao seu sistema 
 e observar ser ela será permitida ou bloqueada pelos arquivos 
 <file>hosts.allow</file> e <file>hosts.deny</file>. 
 <![ %EXEMPLO [ 
  <p>
-É importante mostrar na prática como o <prgn>tcpdmatch</prgn> funciona 
+É importante mostrar na prática como o <command>tcpdmatch</command> funciona 
 através de um exemplo simulando um teste simples em um sistema com a 
 configuração padrão de acesso restrito: 
 <list>
@@ -1097,7 +1097,7 @@ in.fingerd: 192.168.1. EXCEPT 192.168.1.30
 A primeira linha permite o loopback (127.0.0.1) acessar qualquer serviço 
 TCP/UDP em nosso computador, a segunda linha permite qualquer um acessar os 
 servidor TALK (nós desejamos que o sistema nos avise quando alguém desejar 
-conversar) e a terceira somente permite enviar dados do <prgn>finger</prgn> 
+conversar) e a terceira somente permite enviar dados do <command>finger</command> 
 para computadores dentro de nossa rede privada (exceto para 192.168.1.30). 
 
  <item>
@@ -1150,7 +1150,7 @@ access:   granted
 </example>
 Ok, na linha 2 qualquer computador pode te chamar para conversar via talk na 
 rede, mas para o endereço DNS conferir com um IP especificado, o 
-<prgn>GNU/Linux</prgn> faz a resolução DNS, convertendo o endereço para IP e 
+<command>GNU/Linux</command> faz a resolução DNS, convertendo o endereço para IP e 
 verificando se ele possui acesso. 
  <p>
 No lugar do endereço também pode ser usado a forma <tt>daemon@computador</tt> 
@@ -1191,9 +1191,9 @@ investimento da empresa em políticas de segurança, que algumas
 simplesmente consideram a segurança de seus dados e sigilo interno 
 como uma <tt>despesa a mais</tt>. 
  <p>
-Um bom firewall que recomendo é o <prgn>ipchains</prgn>, 
-<prgn>Sinus</prgn> e o <prgn>TIS</prgn>. Particularmente gosto 
-muito de usar o <prgn>ipchains</prgn> e o <prgn>Sinus</prgn> e 
+Um bom firewall que recomendo é o <command>ipchains</command>, 
+<command>Sinus</command> e o <command>TIS</command>. Particularmente gosto 
+muito de usar o <command>ipchains</command> e o <command>Sinus</command> e 
 é possível fazer coisas inimagináveis programando scripts para 
 interagirem com estes programas... 
 

@@ -3,9 +3,9 @@
 Este capítulo descreve a função, parâmetros e exemplos de utilização de 
 alguns arquivos/diretórios de configuração em <file>/etc</file>. 
 Estes arquivos estão disponíveis por padrão na instalação 
-básica do <prgn>GNU/Linux</prgn>, o que assegura um máximo de aproveitamento 
+básica do <command>GNU/Linux</command>, o que assegura um máximo de aproveitamento 
 deste capítulo. Não serão descritos aqui arquivos de configuração específicos 
-de servidores ou daemons (com exceção do <prgn>inetd</prgn>). 
+de servidores ou daemons (com exceção do <command>inetd</command>). 
  
 
 <sect id="etc-alternatives">Diretório <file>/etc/alternatives</file>
@@ -14,12 +14,12 @@ Este diretório contém links para diversos aplicativos padrões utilizados pelo
 sistema. Dentre eles são encontrados links para o <file>editor</file> do sistema 
 e o <file>xterm</file> padrão usado pelo sistema. 
  <p>
-Por exemplo, se você quiser usar o editor <prgn>jed</prgn> ao invés do 
-<prgn>ae</prgn> ou <prgn>vi</prgn>, remova o link <file>editor</file> 
+Por exemplo, se você quiser usar o editor <command>jed</command> ao invés do 
+<command>ae</command> ou <command>vi</command>, remova o link <file>editor</file> 
 com o comando <tt>rm editor</tt>, localize o arquivo executável do 
-<prgn>jed</prgn> com <tt>which jed</tt> e crie um link para ele 
+<command>jed</command> com <tt>which jed</tt> e crie um link para ele 
 <tt>ln -s /usr/bin/jed editor</tt>. De agora em diante o editor padrão 
-usado pela maioria dos aplicativos será o <prgn>jed</prgn>. 
+usado pela maioria dos aplicativos será o <command>jed</command>. 
 
 
 <sect id="etc-devpts">Arquivo <file>/etc/default/devpts</file>
@@ -56,7 +56,7 @@ Os arquivos de mapa de teclados estão localizados no diretório
 <sect id="etc-menu-methods">Diretório <file>/etc/menu-methods</file>
  <p>
 Este diretório contém uma lista de arquivos que são executados pelo 
-programa <prgn>update-menu</prgn> para criar os menus dos programas. 
+programa <command>update-menu</command> para criar os menus dos programas. 
 
 
 <sect id="etc-menu-translate">Arquivo <file>/etc/menu-methods/translate_menus
@@ -74,12 +74,12 @@ sistema e outras opções úteis para a configuração/segurança da rede.
 
 <sect id="etc-network-interfaces">Arquivo <file>/etc/network/interfaces</file>
  <p>
-Este é o arquivo de configuração usado pelos programas <prgn>ifup</prgn> e 
-<prgn>ifdown</prgn>, respectivamente para ativar e desativas as 
+Este é o arquivo de configuração usado pelos programas <command>ifup</command> e 
+<command>ifdown</command>, respectivamente para ativar e desativas as 
 interfaces de rede. 
  <p>
 O que estes utilitários fazem na realidade é carregar os utilitários 
-<prgn>ifconfig</prgn> e <prgn>route</prgn> através dos argumentos 
+<command>ifconfig</command> e <command>route</command> através dos argumentos 
 passados do arquivo <file>/etc/network/interfaces</file>, permitindo 
 que o usuário iniciante configure uma interface de rede com mais 
 facilidade. 
@@ -96,8 +96,8 @@ iface eth0 inet static
 As interfaces e roteamentos são configurados na ordem que aparecem neste 
 arquivo. Cada configuração de interface inicia com a palavra chave 
 <tt>iface</tt>. A próxima palavra é o nome da interface que deseja configurar 
-(da mesma forma que é utilizada pelos comandos <prgn>ifconfig</prgn> e 
-<prgn>route</prgn>). Você pode também usar <tt>IP aliases</tt> especificando 
+(da mesma forma que é utilizada pelos comandos <command>ifconfig</command> e 
+<command>route</command>). Você pode também usar <tt>IP aliases</tt> especificando 
 <file>eth0:0</file> mas tenha certeza que a interface real (<file>eth0</file>) 
 é inicializada antes. 
  <p>
@@ -109,7 +109,7 @@ A palavra <tt>static</tt> especifica o método que a interface será
 configurada, neste caso é uma interface com endereço estático (fixo). 
  <p>
 Outros métodos e seus parâmetros são especificados abaixo (traduzido da 
-página do arquivo <prgn>interfaces</prgn>): 
+página do arquivo <command>interfaces</command>): 
 <taglist>
  <tag>O método <em>loopback</em></tag>
  <item>
@@ -149,8 +149,8 @@ somente se for necessário em sua rede.
 <tag>O método <em>dhcp</em></tag>
  <item>
 Este método é usado para obter os parâmetros de configuração através de 
-um servidor DHCP da rede através das ferramentas: <prgn>dhclient</prgn>, 
-<prgn>pump</prgn> (somente Kernels 2.2.x) ou <prgn>dpcpcp</prgn> 
+um servidor DHCP da rede através das ferramentas: <command>dhclient</command>, 
+<command>pump</command> (somente Kernels 2.2.x) ou <command>dpcpcp</command> 
 (somente kernels 2.0.x e 2.2.x)
  
  <taglist compact>
@@ -184,7 +184,7 @@ iface eth0 inet dhcp
 
 <tag>O método <em>bootp</em></tag> 
  <item>
-Este método pode ser usado para obter um endereço via <prgn>bootp</prgn>:
+Este método pode ser usado para obter um endereço via <command>bootp</command>:
 
  <taglist compact>
   <tag>bootfile <file>arquivo</file></tag>
@@ -194,7 +194,7 @@ de inicialização
 
   <tag>server <em>endereço</em></tag>
   <item>
-Especifica o endereço do servidor <prgn>bootp</prgn>. 
+Especifica o endereço do servidor <command>bootp</command>. 
 
   <tag>hwaddr <em>endereço</em></tag>
   <item>
@@ -208,8 +208,8 @@ Algumas opções se aplicam a todas as interfaces e são as seguintes:
 <taglist compact>
  <tag>noauto</tag>
  <item>
-Não configura automaticamente a interface quando o <prgn>ifup</prgn> ou 
-<prgn>ifdown</prgn> são executados com a opção <tt>-a</tt> (normalmente 
+Não configura automaticamente a interface quando o <command>ifup</command> ou 
+<command>ifdown</command> são executados com a opção <tt>-a</tt> (normalmente 
 usada durante a inicialização ou desligamento do sistema).
 
  <tag>pre-up <tt>comando</tt></tag>
@@ -257,7 +257,7 @@ existentes em seu sistema.
  <p>
 Contém arquivos de configuração usados pelo daemon pppd para fazer uma 
 conexão com uma rede PPP externa, criados manualmente ou através do 
-<prgn>pppconfig</prgn>. 
+<command>pppconfig</command>. 
 
 
 <sect id="etc-security">Diretório <file>/etc/security</file>
@@ -362,20 +362,20 @@ ftp             hard    nproc           0
 Arquivo que contém a programação de programas que serão executados em 
 horários/datas programadas. 
  <p>
-Veja <ref id="manut-cron"> para mais detalhes sobre o formato 
+Veja <xref linkend="manut-cron"> para mais detalhes sobre o formato 
 deste arquivo e outras opções. 
 
 
 <sect>Arquivo <file>/etc/fstab</file>
  <p>
 Contém detalhes para a montagem dos sistemas de arquivos do sistema. 
-<![ %INIC-INTER [ Veja <ref id="disc-fstab"> para detalhes 
+<![ %INIC-INTER [ Veja <xref linkend="disc-fstab"> para detalhes 
 sobre o formato deste arquivo. ]]>
 
 
 <sect>Arquivo <file>/etc/group</file>
  <p>
-Lista de grupos existentes no sistema. Veja <ref id="cmdc-incluirgrupo"> 
+Lista de grupos existentes no sistema. Veja <xref linkend="cmdc-incluirgrupo"> 
 para mais detalhes sobre o formato deste arquivo. 
 
 
@@ -383,25 +383,25 @@ para mais detalhes sobre o formato deste arquivo.
  <p>
 Senhas ocultas dos grupos existentes no sistema (somente o usuário 
 <tt>root</tt> pode ter acesso a elas). Use o utilitário 
-<prgn>shadowconfig</prgn> para ativar/desativar o suporte a 
+<command>shadowconfig</command> para ativar/desativar o suporte a 
 senhas ocultas. 
 
 
 <sect>Arquivo <file>/etc/host.conf</file>
  <p>
-Veja <ref id="rede-dns-a-hostconf">. 
+Veja <xref linkend="rede-dns-a-hostconf">. 
 
 
 <sect>Arquivo <file>/etc/hostname</file>
  <p>
-Arquivo lido pelo utilitário <prgn>hostname</prgn> para definir o nome de 
+Arquivo lido pelo utilitário <command>hostname</command> para definir o nome de 
 sua estação de trabalho. 
 
 
 <sect>Arquivo <file>/etc/hosts</file>
  <p>
 Banco de dados DNS estático que mapeia o nome ao endereço IP da estação 
-de trabalho (ou vice versa). Veja <ref id="rede-dns-a-hosts"> para mais 
+de trabalho (ou vice versa). Veja <xref linkend="rede-dns-a-hosts"> para mais 
 detalhes sobre o formato deste arquivo. 
 
 
@@ -409,7 +409,7 @@ detalhes sobre o formato deste arquivo.
  <p>
 Controle de acesso do wrapper TCPD que permite o acesso de determinadas de 
 determinados endereços/grupos aos serviços da rede. Veja 
-<ref id="rede-seg-tcpd-a"> para detalhes sobre o formato deste arquivo. 
+<xref linkend="rede-seg-tcpd-a"> para detalhes sobre o formato deste arquivo. 
 
 
 <sect>Arquivo <file>/etc/hosts.deny</file>
@@ -425,22 +425,22 @@ ALL: ALL
 caso o acesso ao serviço não tenha sido bloqueado no <file>hosts.deny</file>, 
 o acesso ao serviço é permitido. 
  <p>
-Veja <ref id="rede-seg-tcpd-d"> para detalhes sobre o formato deste arquivo. 
+Veja <xref linkend="rede-seg-tcpd-d"> para detalhes sobre o formato deste arquivo. 
 
 
 <sect>Arquivo <file>/etc/hosts.equiv</file>
  <p>
-Veja <ref id="rede-seg-tcpd-e">. 
+Veja <xref linkend="rede-seg-tcpd-e">. 
 
 
 <sect>Arquivo <file>/etc/inetd.conf</file>
  <p>
-Veja <ref id="rede-servicos-inetd-c">. 
+Veja <xref linkend="rede-servicos-inetd-c">. 
 
 
 <sect id="etc-inittab">Arquivo <file>/etc/inittab</file>
  <p> 
-Este é o arquivo de configuração utilizado pelo programa <prgn>init</prgn> 
+Este é o arquivo de configuração utilizado pelo programa <command>init</command> 
 para a inicialização do sistema. Para mais detalhes sobre o formato 
 deste arquivo, consulte a página de manual do <em>inittab</em>. 
 
@@ -448,7 +448,7 @@ deste arquivo, consulte a página de manual do <em>inittab</em>.
 <sect id="etc-inputrc">Arquivo <file>/etc/inputrc</file>
  <p>
 Este arquivo contém parâmetros para a configuração do teclado. 
-<![ %INIC-INTER [ Veja o final da seção <ref id="cfg-acentuacao-t"> 
+<![ %INIC-INTER [ Veja o final da seção <xref linkend="cfg-acentuacao-t"> 
 e a página de manual do <em>inputrc</em> para mais detalhes. ]]>
 
 
@@ -460,7 +460,7 @@ Contém um texto ou mensagem que será mostrada antes do login do sistema.
 <sect id="etc-issue-n">Arquivo <file>/etc/issue.net</file>
  <p>
 Mesma utilidade do <file>/etc/issue</file> mas é mostrado antes do 
-login de uma seção <prgn>telnet</prgn>. Outra diferença é que este 
+login de uma seção <command>telnet</command>. Outra diferença é que este 
 arquivo aceita os seguintes tipos de variáveis: 
 <list compact>
  <item><tt>%t</tt> - Mostra o terminal tty atual. 
@@ -477,8 +477,8 @@ arquivo aceita os seguintes tipos de variáveis:
  
 <sect>Arquivo <file>/etc/lilo.conf</file>
  <p>
-Arquivo de configuração do gerenciador de partida <prgn>lilo</prgn>. Veja 
-<ref id="boot-lilo"> e <ref id="boot-lilo-exemplo">. 
+Arquivo de configuração do gerenciador de partida <command>lilo</command>. Veja 
+<xref linkend="boot-lilo"> e <xref linkend="boot-lilo-exemplo">. 
 
 
 <sect id="etc-login-d">Arquivo <file>/etc/login.defs</file>
@@ -488,12 +488,12 @@ Definições de configuração para o pacote login
 
 <sect>Arquivo <file>/etc/modules</file>
  <p>
-Veja <ref id="kern-arquivos-modules">. 
+Veja <xref linkend="kern-arquivos-modules">. 
 
 
 <sect>Arquivo <file>/etc/modules.conf</file>
  <p>
-Veja <ref id="kern-arquivos-modulesconf">.  
+Veja <xref linkend="kern-arquivos-modulesconf">.  
 
 
 <sect id="etc-motd">Arquivo <file>/etc/motd</file>
@@ -511,7 +511,7 @@ idêntica ao <file>/proc/mounts</file>.
 
 <sect>Arquivo <file>/etc/networks</file>
  <p>
-Veja <ref id="rede-dns-a-networks">. 
+Veja <xref linkend="rede-dns-a-networks">. 
 
 
 <sect id="etc-passwd">Arquivo <file>/etc/passwd</file>
@@ -525,30 +525,30 @@ estarão armazenadas no arquivo <file>/etc/shadow</file>).
 <sect id="etc-printcap">Arquivo <file>/etc/printcap</file>
  <p>
 Banco de dados de configuração da impressora, usado por daemons 
-de impressão como o <prgn>lpr</prgn> e <prgn>lprng</prgn>. 
+de impressão como o <command>lpr</command> e <command>lprng</command>. 
 
 
 <sect>Arquivo <file>/etc/protocols</file>
  <p>
-Veja <ref id="rede-outros-protocols">. 
+Veja <xref linkend="rede-outros-protocols">. 
 
 
 <sect>Arquivo <file>/etc/resolv.conf</file>
  <p>
-Veja <ref id="rede-dns-a-resolv">. 
+Veja <xref linkend="rede-dns-a-resolv">. 
 
 
 <sect id="serial-c">Arquivo <file>/etc/serial.conf</file>
  <p>
 Configurações das portas seriais do sistema. Veja a página de manual do 
 <em>serial.conf</em> e a página de manual do utilitário 
-<prgn>setserial</prgn> para detalhes de como configurar adequadamente a 
+<command>setserial</command> para detalhes de como configurar adequadamente a 
 taxa de transmissão serial conforme seu dispositivo. 
 
 
 <sect>Arquivo <file>/etc/services</file>
  <p>
-Veja <ref id="rede-outros-services">. 
+Veja <xref linkend="rede-outros-services">. 
 
 
 <sect id="etc-shadow">Arquivo <file>/etc/shadow</file>
@@ -567,7 +567,7 @@ Contém uma lista de interpretadores de comando (shells) válidos no sistema.
  <p>
 Contém configurações para definir o que será registrado nos arquivos de 
 log em <file>/var/log</file> do sistema. Veja a página de manual 
-<em>syslog.conf</em> e dos programas <prgn>klog</prgn> e <prgn>syslogd</prgn> 
+<em>syslog.conf</em> e dos programas <command>klog</command> e <command>syslogd</command> 
 para entender o formato usado neste arquivo. 
 
 

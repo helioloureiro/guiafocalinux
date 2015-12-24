@@ -9,13 +9,13 @@ telnet e o suporte a criptografia (ssl).
  <p>
 O serviço telnet é oferece o login remoto em seu computador, que lhe 
 permite trabalhar conectado a distância como se estivesse em frente a ela. 
-Ele substitui o <prgn>rlogin</prgn> e possui muitas melhorias em relação 
+Ele substitui o <command>rlogin</command> e possui muitas melhorias em relação 
 a ele, como o controle de acesso, personalização de seção e controle de 
 terminal. 
 
 <sect1 id="s-telnet-versao">Versão
  <p>
-É assumido que esteja usando a versão 0.17.16 do <prgn>telnet</prgn>. As 
+É assumido que esteja usando a versão 0.17.16 do <command>telnet</command>. As 
 explicações contidas aqui podem funcionar para versões posteriores, mas é 
 recomendável que leia a documentação sobre modificações no programa (changelog) 
 em busca de mudanças que alterem o sentido das explicações fornecidas aqui. 
@@ -103,8 +103,8 @@ de porta definido no <file>/etc/services</file>). A instalação do servidor
 telnet é feita via inetd (no arquivo <file>/etc/inetd.conf</file>) 
 e o controle de acesso ao serviço é feito através dos arquivos 
 <file>/etc/hosts.allow</file> e <file>/etc/hosts.deny</file> 
-<![ %CAPJUNTOS [ (veja <ref id="rede-servicos-inetd"> e 
-<ref id="rede-seg-tcpd">)]]>. 
+<![ %CAPJUNTOS [ (veja <xref linkend="rede-servicos-inetd"> e 
+<xref linkend="rede-seg-tcpd">)]]>. 
  <p>
 O servidor tem o nome <file>in.telnetd</file> e este deverá ser 
 usado para ajustar o controle de acesso nos arquivos acima. 
@@ -113,10 +113,10 @@ usado para ajustar o controle de acesso nos arquivos acima.
 <sect1 id="s-telnet-rodando">Iniciando o servidor/reiniciando/recarregando a 
 configuração
  <p>
-O arquivo que controla o funcionamento do servidor <prgn>telnet</prgn> é 
+O arquivo que controla o funcionamento do servidor <command>telnet</command> é 
 o <file>/etc/inetd.conf</file> e o controle de acesso sendo feito pelos 
 arquivos <file>/etc/hosts.allow</file> e <file>/etc/hosts.deny</file>. 
-Será necessário reiniciar o servidor <prgn>inetd</prgn> caso algum destes 
+Será necessário reiniciar o servidor <command>inetd</command> caso algum destes 
 três arquivos seja modificado: <tt>killall -HUP inetd</tt>. 
 A porta de operação padrão é a 23 e pode ser modificada no 
 arquivo <file>/etc/services</file>. 
@@ -124,7 +124,7 @@ arquivo <file>/etc/services</file>.
 
 <sect1 id="s-telnet-opcoescmd">Opções de linha de comando
  <p>
-Opções de linha de comando do servidor <prgn>telnetd</prgn>:
+Opções de linha de comando do servidor <command>telnetd</command>:
 <list compact>
  <item><tt>-D nível_de_depuração</tt> - Permite especificar o que 
  será registrado pelo servidor durante a conexão dos clientes 
@@ -160,7 +160,7 @@ normalmente.
 
  <item>
 <tt>-S TOS</tt> - Ajusta o tipo de serviço usado na conexão para o valor 
-especificado <![ %CAPJUNTOS [ (veja <ref id="fw-iptables-mangle-TOS"> para 
+especificado <![ %CAPJUNTOS [ (veja <xref linkend="fw-iptables-mangle-TOS"> para 
 maiores detalhes sobre esta opção e os valores aceitos)]]>.
  
 </list>
@@ -171,7 +171,7 @@ arquivo <file>/etc/inetd.conf</file>.
 <sect id="s-telnet-access">Controle de acesso
  <p>
 É feito pelos arquivos <file>hosts.allow</file> e 
-<file>hosts.deny</file>. <![ %CAPJUNTOS [ Veja <ref id="rede-seg-tcpd">. ]]>
+<file>hosts.deny</file>. <![ %CAPJUNTOS [ Veja <xref linkend="rede-seg-tcpd">. ]]>
 
 
 <sect id="s-telnet-recomend">Recomendações 
@@ -180,15 +180,15 @@ O serviço telnet utiliza texto plano para seção (exceto nas versões
 cliente/servidor "-ssl"). 
 Os dados transmitidos por serviços que utilizam texto plano podem ser capturados 
 por sniffers e trazer perigo ao seu sistema 
-<![ %CAPJUNTOS [ (veja <ref id="d-cripto-sniffer">)]]>. 
+<![ %CAPJUNTOS [ (veja <xref linkend="d-cripto-sniffer">)]]>. 
  <p>
 É recomendável somente executar o servidor telnet padrão em ambientes seguros (como 
 em uma rede interna) e a versão com suporte a ssl para fazer conexões 
-via redes inseguras (como a Internet). O serviço <prgn>ssh</prgn> 
-<![ %CAPJUNTOS [(<ref id="s-ssh">) ]]>
+via redes inseguras (como a Internet). O serviço <command>ssh</command> 
+<![ %CAPJUNTOS [(<xref linkend="s-ssh">) ]]>
 é uma excelente alternativa ao telnet, além de possuir outras características 
 adicionais que justifiquem seu uso, além de programas cliente para 
-<prgn>Linux</prgn> e <prgn>Windows</prgn>. 
+<command>Linux</command> e <command>Windows</command>. 
 
 
 <sect id="s-telnet-telnet">Fazendo conexões ao servidor telnet
@@ -200,7 +200,7 @@ Adicionalmente as seguintes opções podem ser usadas:
 <list compact>
  <item>
 <tt>-l [usuario]</tt> - Envia o nome de usuário ao computador remoto. Muito 
-útil com o <prgn>telnet-ssl</prgn>. 
+útil com o <command>telnet-ssl</command>. 
 
  <item>
 <tt>-E</tt> - Desativa o caracter de escape
@@ -208,10 +208,10 @@ Adicionalmente as seguintes opções podem ser usadas:
  <item>
 <tt>-a</tt> - Tenta fazer o login automático usando o nome de usuário 
 local. Se o login falhar, será solicitado o nome de usuário. Esta opção 
-é usada por padrão com o cliente <prgn>telnet-ssl</prgn>. 
+é usada por padrão com o cliente <command>telnet-ssl</command>. 
 
  <item>
-<tt>-r</tt> - Emula o comportamento do programa <prgn>rlogin</prgn>.
+<tt>-r</tt> - Emula o comportamento do programa <command>rlogin</command>.
 
 </list>
 

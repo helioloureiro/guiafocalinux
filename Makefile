@@ -1,5 +1,5 @@
 DOCX := SP_ENCODING=XML docbook2
-DOCXOPTS :=
+DOCXOPTS = -n -c /etc/sgml/catalog -i INICIANTE
 
 PACKAGES := index.html
 PACKAGES += index.en.pdf
@@ -103,6 +103,13 @@ SRC += Avancado/telnet/telnet-INDEX.sgml
 SRC += Avancado/telnet/telnet-Introducao.sgml
 
 all: $(PACKAGES)
+
+#intermediario:
+#DOCXOPTS += -i INTERMEDIARIO
+
+#avancado: intermediario
+#DOCXOPTS += -i AVANCADO
+
 
 index.html: $(SRC)
 	#debiandoc2html -C -l en.UTF-8 -1 index.sgml

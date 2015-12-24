@@ -55,7 +55,7 @@ faça os seguintes passos:
 Mapeamentos no Windows: Adicione a linha <tt>PasswordCaching=no</tt> na 
 seção [NETWORK] do arquivo system.ini. Caso os compartilhamentos sejam 
 mapeados para uma letra de unidade local no DOS usando o comando 
-<prgn>net</prgn>, use a seguinte sintaxe: 
+<command>net</command>, use a seguinte sintaxe: 
 <tt>net use \\servidor\pasta senha \savepw:no</tt>.
 
 

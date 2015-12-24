@@ -1,7 +1,7 @@
 <chapt id="redir">Redirecionamentos e Pipe
  <p>
 Esta seção explica o funcionamento dos recursos de direcionamento de entrada 
-e saída do sistema <prgn>GNU/Linux</prgn>. 
+e saída do sistema <command>GNU/Linux</command>. 
 
 
 <sect id="redir-maior">&gt;
@@ -11,21 +11,21 @@ arquivo ao invés do dispositivo de saída padrão (tela).
 <![ %DESCRICAOD [ Quando é usado com arquivos, este redirecionamento cria ou 
 substitui o conteúdo do arquivo. ]]> 
  <p>
-Por exemplo, você pode usar o comando <prgn>ls</prgn> para listar arquivos 
+Por exemplo, você pode usar o comando <command>ls</command> para listar arquivos 
 e usar <tt>ls &gt;listagem</tt> para enviar a saída do comando para o 
-arquivo <file>listagem</file>. Use o comando <prgn>cat</prgn> para 
+arquivo <file>listagem</file>. Use o comando <command>cat</command> para 
 visualizar o conteúdo do arquivo <file>listagem</file>. 
  <p>
 O mesmo comando pode ser redirecionado para o segundo console 
 <file>/dev/tty2</file> usando: 
-<tt>ls &gt;/dev/tty2</tt>, o resultado do comando <prgn>ls</prgn> será  
+<tt>ls &gt;/dev/tty2</tt>, o resultado do comando <command>ls</command> será  
 mostrado no segundo console (pressione <tt>ALT</tt> e <tt>F2</tt> para 
 mudar para o segundo console e <tt>ALT</tt> e <tt>F1</tt> para retornar 
 ao primeiro). O mesmo resultado pode ser obtido com o comando 
 <tt>ls 1&gt;/dev/tty2</tt>, sendo que o número <tt>1</tt> indica que será 
 capturada a saída padrão do comando.
  <p>
-Para redirecionar somente a saída de erros do comando <prgn>ls</prgn>, use a 
+Para redirecionar somente a saída de erros do comando <command>ls</command>, use a 
 sintaxe: <tt>ls 2&gt;/tmp/erros-do-ls</tt>
 
 <sect id="redir-maior2">&gt;&gt;
@@ -37,9 +37,9 @@ saída padrão (tela).
 simples, é se caso for usado com arquivos, adiciona a saída do comando ao 
 final do arquivo existente ao invés de substituir seu conteúdo. ]]>. 
  <p>
-Por exemplo, você pode acrescentar a saída do comando <prgn>ls</prgn> 
+Por exemplo, você pode acrescentar a saída do comando <command>ls</command> 
 ao arquivo <file>listagem</file> do capítulo anterior usando 
-<tt>ls / &gt;&gt;listagem</tt>. Use o comando <prgn>cat</prgn> para 
+<tt>ls / &gt;&gt;listagem</tt>. Use o comando <command>cat</command> para 
 visualizar o conteúdo do arquivo <file>listagem</file>. 
 
 
@@ -49,7 +49,7 @@ Direciona a entrada padrão de arquivo/dispositivo para um comando.
 Este comando faz o contrário do anterior, ele envia dados ao comando. 
  <p>
 Você pode usar o comando <tt>cat &lt;teste.txt</tt> para enviar o conteúdo 
-do arquivo <file>teste.txt</file> ao comando <prgn>cat</prgn> que mostrará seu 
+do arquivo <file>teste.txt</file> ao comando <command>cat</command> que mostrará seu 
 conteúdo (é claro que o mesmo resultado pode ser obtido com 
 <tt>cat teste.txt</tt> mas este exemplo serviu para mostrar a 
 funcionalidade do &lt;).
@@ -58,7 +58,7 @@ funcionalidade do &lt;).
 <sect id="redir-menor2">&lt;&lt;
  <p>
 Este redirecionamento serve principalmente para marcar o fim de exibição de um 
-bloco. Este é especialmente usado em conjunto com o comando <prgn>cat</prgn>, mas 
+bloco. Este é especialmente usado em conjunto com o comando <command>cat</command>, mas 
 também tem outras aplicações. Por exemplo:
 <example>
  cat &lt;&lt; final
@@ -78,7 +78,7 @@ para continuidade do processamento. Os dados enviados são processados
 pelo próximo comando que mostrará o resultado do processamento.
  <p>
 Por exemplo: <tt>ls -la | more</tt>, este comando faz a listagem longa de 
-arquivos que é enviado ao comando <prgn>more</prgn> (que tem a função 
+arquivos que é enviado ao comando <command>more</command> (que tem a função 
 de efetuar uma pausa a cada 25 linhas do arquivo). 
  <p>
 Outro exemplo é o comando <tt>locate find | grep "bin/"</tt>, neste comando 
@@ -86,7 +86,7 @@ todos os caminhos/arquivos que contém <em>find</em> na listagem serão
 mostrados (inclusive man pages, bibliotecas, etc.), então enviamos 
 a saída deste comando para <tt>grep "bin/"</tt> para mostrar somente os 
 diretórios que contém binários. Mesmo assim a listagem ocupe mais de uma 
-tela, podemos acrescentar o <prgn>more</prgn>: 
+tela, podemos acrescentar o <command>more</command>: 
 <tt>locate find | grep "bin/" | more</tt>.
  <p>
 Podem ser usados mais de um comando de redirecionamento (&lt;, &gt;, |) em 

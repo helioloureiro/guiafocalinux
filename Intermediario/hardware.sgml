@@ -45,11 +45,11 @@ Seria terrível se ao configurar CADA programa que utilize o mouse
 ou o modem precisássemos nos se referir a ele pela IRQ, I/O, etc... 
 para evitar isso são usados os <em>nomes de dispositivos</em>. 
  <p>
-Os <em>nomes de dispositivos</em> no sistema <prgn>GNU/Linux</prgn> são 
+Os <em>nomes de dispositivos</em> no sistema <command>GNU/Linux</command> são 
 acessados através do diretório <file>/dev</file>. Após configurar 
 corretamente o modem, com sua porta I/O 0x2F8 e IRQ 3, ele é 
 identificado automaticamente por <file>/dev/ttyS1</file> (equivalente 
-a <file>COM2</file> no <prgn>DOS</prgn>). Daqui para frente basta se 
+a <file>COM2</file> no <command>DOS</command>). Daqui para frente basta se 
 referir a <file>/dev/ttyS1</file> para fazer alguma coisa com o modem. 
  <p>
 Você também pode fazer um link de <file>/dev/ttyS1</file> para um 
@@ -66,8 +66,8 @@ eles estão usando <file>/dev/modem</file> que está apontando para a
 localização correta. Isto é muito útil para um bom gerenciamento do 
 sistema. 
  <p>
-Abaixo uma tabela com o nome do dispositivo no <prgn>GNU/Linux</prgn>, 
-portas I/O, IRQ, DMA e nome do dispositivo no <prgn>DOS</prgn> 
+Abaixo uma tabela com o nome do dispositivo no <command>GNU/Linux</command>, 
+portas I/O, IRQ, DMA e nome do dispositivo no <command>DOS</command> 
 (os nomes de dispositivos estão localizados no diretório 
 <file>/dev</file>): 
 <example>
@@ -84,8 +84,8 @@ lp1        LPT2       5      3(ECP)  0x278
 /dev/hda2  D: *      14       -      0x1F0,0x3F6
 /dev/hdb1  D: *      15       -      0x170,0x376
 </example>
-* A designação de letras de unidade do <prgn>DOS</prgn> não segue o 
-padrão do <prgn>GNU/Linux</prgn> e depende da existência de outras unidades 
+* A designação de letras de unidade do <command>DOS</command> não segue o 
+padrão do <command>GNU/Linux</command> e depende da existência de outras unidades 
 físicas/lógicas no computador. 
 
 
@@ -416,11 +416,11 @@ Plug-and-Play nativa, registrando suas interrupções, portas e dma na
 tabela de hardwares PCI do sistema. 
  <p>
 A diferença em relação ao modo jumperless é que toda a configuração
-do hardware (IRQ, DMA e I/O) é feita pelo kernel do <prgn>Linux</prgn>,
+do hardware (IRQ, DMA e I/O) é feita pelo kernel do <command>Linux</command>,
 onde ele passa a configuração detectada durante a inicialização do 
 sistema para os módulos carregados, garantindo o perfeito funcionamento
 do dispositivos e evitando conflitos. Na época de hardwares ISA e VESA, o
-programa <prgn>isapnp</prgn> era a preferencia para a configuração de 
+programa <command>isapnp</command> era a preferencia para a configuração de 
 placas ISA Plug and Play.
  <p>
 Veja a próxima seção para entender como funciona o arquivo de 
@@ -437,21 +437,21 @@ ver a necessidade de atualizações de dispositivos atuais.
  <p>
 Dispositivos PCI/AMR/CNR podem ser listados executando o comando
 <tt>cat /proc/pci</tt>. Outra forma de listar tais dispositivos
-é usando o <prgn>lspci</prgn>, se você precisa de mais detalhes
+é usando o <command>lspci</command>, se você precisa de mais detalhes
 como o mapeamento de memória, use <tt>lspci -vv</tt>.
  <p>
 O mapeamento de memória de dispositivos podem ser mostrados 
 com o comando <tt>cat /proc/ioports</tt>, ou usando o 
-comando <prgn>lsdev</prgn>. 
+comando <command>lsdev</command>. 
  <p>
 O barramento USB e dispositivos conectados a ele podem ser 
-listados com o comando <prgn>lsusb</prgn> ou com 
+listados com o comando <command>lsusb</command> ou com 
 <tt>cat /proc/bus/usb/devices</tt>.
  <p>
 Hardwares disponíveis na máquina, como placa mãe, clock 
 multiplicador, discos, placas diversas, versões e números seriais 
 de dispositivos podem ser mostrados através do comando
-<prgn>lshw</prgn>. Use <tt>lshw -html</tt> para produzir a 
+<command>lshw</command>. Use <tt>lshw -html</tt> para produzir a 
 listagem em formato HTML, bem interessante para relatórios :-)
 
 
@@ -574,7 +574,7 @@ tipo 2 e 1.
 para a conexão de placas de som e modem. Placas de som e modem AMR usam 
 o HSP (host signal processor) e são como as Placas on-board e todo o 
 processamento é feito pela CPU do computador (veja detalhes em 
-<ref id="hard-onoffboard"> e <ref id="hard-forwindows">. 
+<xref linkend="hard-onoffboard"> e <xref linkend="hard-forwindows">. 
  <p>
 Sua vantagem é o preço: um modem ou placa de som AMR custa em 
 torno de R$ 25,00. 
@@ -586,7 +586,7 @@ pela Intel para a conexão de placas de som, modens e placas de rede. Este
 é um pequenino slot marrom que é localizado no ponto de fixação das placas 
 no chassis do gabinete. Elas são como as Placas on-board e todo o 
 processamento é feito pela CPU do computador (veja detalhes em 
-<ref id="hard-onoffboard"> e <ref id="hard-forwindows">. 
+<xref linkend="hard-onoffboard"> e <xref linkend="hard-forwindows">. 
 
 </taglist>
 
@@ -638,7 +638,7 @@ de modelo genérico...
 Geralmente dispositivos on-board trazem problemas caso tal dispositivo
 queime e geralmente é colocado um hardware de baixa qualidade para 
 baratear o custo de placas mãe, que na maioria das vezes também
-oferece grande dificuldade para ser configurada no <prgn>Linux</prgn>.
+oferece grande dificuldade para ser configurada no <command>Linux</command>.
  <p>
 Outro periférico que traz problemas e carga para o processador é o 
 fax-modem for Windows, HSP, AMR, micromodem, etc. utilizando o processador
@@ -720,7 +720,7 @@ cada um faz sua função sem carregar a CPU. ]]>
  <p>
 Esta seção foi retirada do manual de instalação da Debian GNU/Linux. 
 Existem diversos vendedores, agora, que vendem sistemas com a 
-<prgn>Debian</prgn> ou outra distribuição do GNU/Linux pré-instaladas. 
+<command>Debian</command> ou outra distribuição do GNU/Linux pré-instaladas. 
 Você pode pagar mais para ter este privilégio, mas compra um nível de 
 paz de mente, desde então você pode ter certeza que seu hardware é bem 
 compatível com GNU/Linux. Praticamente todas as placas que possuem 
@@ -732,43 +732,43 @@ Se você tiver que comprar uma máquina com Windows instalado, leia
 cuidadosamente a licença que acompanha o Windows; você pode rejeitar 
 a licença e obter um desconto de seu vendedor. 
  <p>
-Se não estiver comprando um computador com <prgn>GNU/Linux</prgn> 
+Se não estiver comprando um computador com <command>GNU/Linux</command> 
 instalado, ou até mesmo um computador usado, é importante verificar 
 se os hardwares existentes são suportados pelo kernel do 
-<prgn>GNU/Linux</prgn>. Verifique se seu hardware é listado no 
+<command>GNU/Linux</command>. Verifique se seu hardware é listado no 
 <em>Hardware Compatibility HOWTO</em>, na documentação do código 
 fonte do kernel no diretório <file>Documentation/sound</file> ou 
-consulte um técnico de <prgn>GNU/Linux</prgn> experiente. 
+consulte um técnico de <command>GNU/Linux</command> experiente. 
  <p>
 Deixe seu vendedor (se conhecer) saber que o que está comprando é 
-para um sistema <prgn>GNU/Linux</prgn>. Desta forma isto servirá de 
+para um sistema <command>GNU/Linux</command>. Desta forma isto servirá de 
 experiência para que ele poderá recomendar o mesmo dispositivo a 
 outras pessoas que procuram bons dispositivos para sistemas 
-<prgn>GNU/Linux</prgn>. Apóie vendedores de hardwares amigos 
-do <prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. Apóie vendedores de hardwares amigos 
+do <command>GNU/Linux</command>. 
 
 
 <sect id="hardw-cfgdisp">Configurações de Dispositivos
  <p>
 As seções abaixo explicam como fazer configurações em dispositivos diversos no
-sistema <prgn>Linux</prgn> como placas de rede, som, gravador de CD entre outras. 
+sistema <command>Linux</command> como placas de rede, som, gravador de CD entre outras. 
 
 
 <sect1 id="hardw-cfgdisp-rede">Configurando uma placa de rede
  <p>
-Para configurar sua placa de rede no <prgn>Linux</prgn> siga os passos
+Para configurar sua placa de rede no <command>Linux</command> siga os passos
 a seguir: 
 <enumlist compact>
  <item>
 Identifique se sua placa de rede é ISA ou PCI. Caso seja ISA, pode 
 ser preciso alterar a configuração de jumpers ou plug-and-play, evitando 
 conflitos de hardware ou o não funcionamento da placa (veja como 
-configura-la em <ref id="hardw-metodoscfg">.
+configura-la em <xref linkend="hardw-metodoscfg">.
 
  <item>
-Identifique a marca/modelo de sua placa. O programa <prgn>lshw</prgn> é 
+Identifique a marca/modelo de sua placa. O programa <command>lshw</command> é 
 útil para isto. Caso sua placa seja PCI ou CNR, execute o comando
-<prgn>lspci</prgn> e veja a linha "Ethernet".
+<command>lspci</command> e veja a linha "Ethernet".
  <p>
 Em último caso, abra a máquina e procure a marca na própria placa. Quase 
 todos os fabricantes colocam a marca da placa no próprio circuito impresso
@@ -776,14 +776,14 @@ ou no CI principal da placa (normalmente é o maior).
 
  <item>
 Depois de identificar a placa, será preciso carregar o módulo 
-correspondente para ser usada no <prgn>Linux</prgn>. Em algumas
+correspondente para ser usada no <command>Linux</command>. Em algumas
 instalações padrões o suporte já pode estar embutido no kernel, 
 neste caso, você poderá pular este passo.
  <p>
 Para carregar um módulo, digite o comando <tt>modprobe modulo</tt>
-<![ %INTERMEDIARIO [ (Veja <ref id="kern-modprobe">) ]]>. Em placas ISA, geralmente é 
+<![ %INTERMEDIARIO [ (Veja <xref linkend="kern-modprobe">) ]]>. Em placas ISA, geralmente é 
 preciso passar a IRQ e porta de I/O como argumentos para alocar os 
-recursos corretamente. O <prgn>modprobe</prgn> tentará auto-detectar 
+recursos corretamente. O <command>modprobe</command> tentará auto-detectar 
 a configuração em placas ISA, mas ela poderá falhar por algum motivo. 
 Por exemplo, para uma NE 2000: <tt>modprobe ne io=0x300 irq=10</tt>.
  <p>
@@ -798,7 +798,7 @@ A partir de agora, você pode carregar o módulo de sua placa
 NE 2000 apenas com o comando <tt>modprobe ne</tt>. O parâmetro
 <tt>io=0x300 irq=10</tt> será automaticamente adicionado.
 <![ %DEBIAN [ 
-Em sistemas <prgn>Debian</prgn>, o local correto para colocar
+Em sistemas <command>Debian</command>, o local correto para colocar
 as opções de um módulo é em arquivos separados localizados 
 dentro de <file>/etc/modutils</file>. Crie um arquivo chamado
 <file>/etc/modutils/ne</file> e coloque a linha:
@@ -814,7 +814,7 @@ todos os módulos de <file>/etc/modutils</file> e substituir o anterior.
  <item>
 Após carregar o módulo de sua placa de rede, resta apenas
 configurar seus parâmetros de rede para coloca-la em rede.
-Veja <ref id="rede-interfaces-c">.
+Veja <xref linkend="rede-interfaces-c">.
 
 </enumlist>
 
@@ -826,7 +826,7 @@ carregar o módulo da placa e ajustar o mixer. Atualmente existem 2 padrões
 de som no sistema Linux: OSS (Open Sound System) e ALSA (Advanced Linux 
 Sound Architecture).
  <p>
-O OSS foi o primeiro padrão adotado em sistemas <prgn>Linux</prgn>, que 
+O OSS foi o primeiro padrão adotado em sistemas <command>Linux</command>, que 
 tinha como grande limitação a dificuldade em usar diversas placas e a impossibilidade
 dos programas utilizaram ao mesmo tempo a placa de som. O ALSA é mais novo, suporta 
 full duplex e outros recursos adicionais, além de manter a compatibilidade com OSS. 
@@ -845,23 +845,23 @@ que habilitar a seção "Open Sound System" para ver as opções disponíveis
 cada módulo deve ajuda-lo a identificar quais placas cada opção do 
 kernel suporta.
  <p>
-Caso seu kernel seja o padrão de uma distribuição <prgn>Linux</prgn>, 
+Caso seu kernel seja o padrão de uma distribuição <command>Linux</command>, 
 provavelmente terá o suporte a todas as placas de som possíveis. Siga
 o passo a passo abaixo para configurar sua placa de som no sistema:
 <enumlist compact>
 
  <item>
 Primeiro descubra se sua placa de som é ISA. Caso seja, verifique 
-se os seus recursos estão alocados corretamente (veja <ref id="hardw-conflitos">). 
-Caso seja PCI, AMR, execute o comando <prgn>lspci</prgn>, procure 
+se os seus recursos estão alocados corretamente (veja <xref linkend="hardw-conflitos">). 
+Caso seja PCI, AMR, execute o comando <command>lspci</command>, procure 
 pela linha "Multimedia" e veja o nome da placa. Você também poderá
-executar o comando <prgn>lshw</prgn> para descobrir qual placa
-você possui (veja <ref id="hardw-findhw">) para detalhes.
+executar o comando <command>lshw</command> para descobrir qual placa
+você possui (veja <xref linkend="hardw-findhw">) para detalhes.
 
  <item>
 Carregue o módulo da placa de som com o comando <tt>modprobe módulo</tt>
-<![ %INTERMEDIARIO [ (veja <ref id="kern-modprobe">)]]>. 
-Na <prgn>Debian</prgn>, você pode executar o comando <prgn>modconf</prgn>
+<![ %INTERMEDIARIO [ (veja <xref linkend="kern-modprobe">)]]>. 
+Na <command>Debian</command>, você pode executar o comando <command>modconf</command>
 para navegar visualmente entre os módulos disponíveis e carregar os 
 módulos necessários. 
  <p>
@@ -880,17 +880,17 @@ seguinte forma:
 options sb io=0x220 irq=5 dma=1 dma16=5 mpu_io=0x330
 
 </example>
-Assim, quando der o comando <prgn>modprobe sb</prgn> ele será carregado
-com as opções acima. <![ %DEBIAN [ Na distribuição <prgn>Debian</prgn>, você 
+Assim, quando der o comando <command>modprobe sb</command> ele será carregado
+com as opções acima. <![ %DEBIAN [ Na distribuição <command>Debian</command>, você 
 deverá criar um arquivo chamado <file>/etc/modutils/sb</file> contendo a 
-linha acima, depois execute o <prgn>update-modules</prgn> para 
+linha acima, depois execute o <command>update-modules</command> para 
 "juntar" todos os arquivos do <file>/etc/modutils</file> e criar o 
 <file>/etc/modules.conf</file>. ]]>
 
  <item>
 Após carregar o módulo correto de sua placa de som, seu sistema de 
 som deverá estar funcionando. Se você utiliza uma distribuição 
-<prgn>Linux</prgn>, os dispositivos de som como 
+<command>Linux</command>, os dispositivos de som como 
 <file>/dev/audio</file>, <file>/dev/dsp</file>, <file>/dev/mixer</file>
 estarão criados e então poderá passar para o próximo passo. Caso
 não existam, entre no diretório <file>/dev</file> e execute o 
@@ -899,11 +899,11 @@ comando <tt>MAKEDEV audio</tt>.
  <item>
 O próximo passo consiste em instalar um programa para controle de volume, 
 tonalidade e outros recursos de sua placa de som. O recomendado é o 
-<prgn>aumix</prgn> por ser simples, pequeno e funcional, e permitindo 
+<command>aumix</command> por ser simples, pequeno e funcional, e permitindo 
 restaurar os valores dos níveis de volumes na inicialização (isso 
 evita que tenha que ajustar o volume toda vez que iniciar o sistema).
  <p>
-Caso o <prgn>aumix</prgn> apareça na tela, sua placa de som já está 
+Caso o <command>aumix</command> apareça na tela, sua placa de som já está 
 funcionando! 
 <![ %DEBIAN [ Caso acesse o sistema como usuário, não se esqueça 
 de adicionar seu usuário ao grupo audio para ter permissão de usar
@@ -913,8 +913,8 @@ os dispositivos de som: <tt>adduser usuario audio</tt> ]]>.
 
 <sect1 id="hardw-cfgdisp-cdwritter">Configurando um gravador de CD/DVD no Linux
  <p>
-Caso seu gravador seja IDE, veja <ref id="hardw-cfgdisp-cdwritter-ide"> caso 
-seja um autêntico gravador com barramento SCSI, vá até <ref id="hardw-cfgdisp-cdwritter-scsi">.
+Caso seu gravador seja IDE, veja <xref linkend="hardw-cfgdisp-cdwritter-ide"> caso 
+seja um autêntico gravador com barramento SCSI, vá até <xref linkend="hardw-cfgdisp-cdwritter-scsi">.
 
 
 <sect2 id="hardw-cfgdisp-cdwritter-ide">Configurando o suporte a um gravador IDE
@@ -926,7 +926,7 @@ tradicional (<file>/dev/hdc</file>, <file>/dev/hdd</file>, etc). De qualquer for
 você poderá realizar a configuração da unidade IDE com emulação SCSI, assim como 
 utilizava no kernel 2.4 e inferiores seguindo as instruções abaixo.
  <p>
-Para configurar seu gravador de CD/DVD IDE para ser usado no <prgn>Linux</prgn> usando o 
+Para configurar seu gravador de CD/DVD IDE para ser usado no <command>Linux</command> usando o 
 método para o kernel 2.4 e inferiores, siga os seguintes passos:
 <enumlist compact>
  <item>
@@ -955,7 +955,7 @@ comunicam direito tanto com gravadores SCSI como emulados.
 Você também pode marcar somente a opção "SCSI Emulation" para que 
 sua(s) unidade(s) seja(m) automaticamente emulada(s) como SCSI. 
 Caso tenha usado esta técnica, vá até a seção 
-<ref id="hardw-cfgdisp-cdwritter-teste">.
+<xref linkend="hardw-cfgdisp-cdwritter-teste">.
 
  <item>
 O próximo passo é identificar o dispositivo de CD/DVD. Isto é 
@@ -963,7 +963,7 @@ feito através do comando <tt>dmesg</tt>. Supondo que sua unidade de
 CD é "hdc" (primeiro disco na segunda controladora IDE) e que 
 compilou ambos o suporte a "IDE ATAPI" e "SCSI emulation" no kernel, 
 adicione o argumento "hdc=ide-scsi" no <file>/etc/lilo.conf</file> ou 
-no <prgn>grub</prgn>:
+no <command>grub</command>:
 <example>
 # Lilo
 vmlinuz=/vmlinuz
@@ -973,7 +973,7 @@ append="hdc=ide-scsi"
 </enumlist>
 Isto diz para o kernel que a unidade "hdc" usará emulação "ide-scsi". 
 Caso tenha outras unidades de CD no sistema, estas ainda utilização
-ATAPI como protocolo de comunicação padrão. Execute o <prgn>lilo</prgn> 
+ATAPI como protocolo de comunicação padrão. Execute o <command>lilo</command> 
 para gerar novamente o setor de inicialização com as modificações e 
 reinicie o computador. 
 <![ %OBS [
@@ -983,7 +983,7 @@ reinicie o computador.
 caso contrário, seu disco rígido não será detectado.
 ]]>
  <p>
-Agora, siga até <ref id="hardw-cfgdisp-cdwritter-teste">.
+Agora, siga até <xref linkend="hardw-cfgdisp-cdwritter-teste">.
 
 
 <sect2 id="hardw-cfgdisp-cdwritter-scsi">Configurando o suporte a um gravador SCSI
@@ -1003,7 +1003,7 @@ M SCSI Generic Support
 Além disso, deve ser adicionado o suporte EMBUTIDO no kernel a sua 
 controladora SCSI. Se o seu disco rígido também é SCSI, e seu CD
 está ligado na mesma controladora SCSI, ela já está funcionando e 
-você poderá seguir para o passo <ref id="hardw-cfgdisp-cdwritter-teste">. 
+você poderá seguir para o passo <xref linkend="hardw-cfgdisp-cdwritter-teste">. 
 Caso contrário carregue o suporte da sua placa adaptadora SCSI antes de 
 seguir para este passo.
 
@@ -1024,7 +1024,7 @@ scsibus0:
 </example>
 O que significa que sua unidade foi reconhecida perfeitamente pelo 
 sistema e já pode ser usada para gravação. <![ %INTERMEDIARIO [ Vá até a seção
-<ref id="tasks-cdwriting"> para aprender como gravar CDs no <prgn>Linux</prgn>.]]>
+<xref linkend="tasks-cdwriting"> para aprender como gravar CDs no <command>Linux</command>.]]>
 Note que gravadores IDE nativos, não são listados com esse comando.
 
 
@@ -1039,23 +1039,23 @@ o monitor, etc.).
  <p>
 O uso de advanced power management também permite que computadores com 
 fonte de alimentação ATX sejam desligados automaticamente quando 
-você executa o comando <prgn>halt</prgn>. Caso sua máquina tenha suporte
+você executa o comando <command>halt</command>. Caso sua máquina tenha suporte
 a <em>ACPI</em>, este deverá ser usado como preferência ao invés do 
-APM por ter recursos mais sofisticados  (veja <ref id="hardw-cfgdisp-acpi">).
+APM por ter recursos mais sofisticados  (veja <xref linkend="hardw-cfgdisp-acpi">).
  <p>
-Para ativar o suporte a APM no <prgn>Linux</prgn>, compile seu kernel
+Para ativar o suporte a APM no <command>Linux</command>, compile seu kernel
 com o suporte embutido a APM e também a "Advanced Power Management" 
 (senão sua máquina não desligará sozinha no halt). Caso deseje 
 compilar como módulo, basta depois carregar o módulo <file>apm</file>
 adicionando no arquivo <file>/etc/modules</file>. Depois disso 
-instale o daemon <prgn>apmd</prgn> para gerenciar as características
+instale o daemon <command>apmd</command> para gerenciar as características
 deste recurso no sistema.
  <p>
 Você pode desativar o uso de APM de 3 formas: removendo seu suporte do
 kernel, passando o argumento <tt>apm=off</tt> (quando compilado 
 estaticamente no kernel) ou removendo o nome do módulo do arquivo
 <file>/etc/modules</file> (quando compilado como módulo). Depois disso
-remova o daemon <prgn>apmd</prgn>.
+remova o daemon <command>apmd</command>.
 
 
 <sect1 id="hardw-cfgdisp-acpi">Configurando o gerenciamento de energia usando ACPI
@@ -1071,7 +1071,7 @@ periféricos, temperatura, hardwares, etc.
  <p>
 Desta forma, o ACPI varia de sistema para sistema em questões relacionadas
 com suporte a recursos especiais, estes dados são armazenados em 
-tabelas chamadas DSDT. O <prgn>Linux</prgn> inclui suporte a 
+tabelas chamadas DSDT. O <command>Linux</command> inclui suporte a 
 recursos ACPI genéricos entre placas mãe, recursos específicos devem
 ser extraídos diretamente da BIOS e disassemblados manualmente 
 para a construção de um kernel com suporte específico a tabela DSDT 
@@ -1093,8 +1093,8 @@ e de um <tt>ls</tt> entrando nos diretórios e vendo se existem arquivos
 dentro deles. Remova o módulo correspondente daqueles que não tiver 
 conteúdo. 
  <p>
-Após isto, instale o daemon <prgn>acpid</prgn> e configure-o para monitorar
-algumas características do seu sistema. Por padrão o <prgn>acpid</prgn> 
+Após isto, instale o daemon <command>acpid</command> e configure-o para monitorar
+algumas características do seu sistema. Por padrão o <command>acpid</command> 
 monitora o botão POWER, assim se você pressionar o power, seu sistema 
 entrará automaticamente em run-level 0, fechando todos os processos e 
 desligando sua máquina.
@@ -1103,7 +1103,7 @@ O suporte a ACPI pode ser desativado de 3 formas: Removendo seu suporte do
 kernel, passando o argumento <tt>acpi=off</tt> ao kernel (caso esteja
 compilado estaticamente) ou removendo o módulo de <file>/etc/modules</file>
 (caso tenha compilado como módulo. Após isto, remova o daemon 
-<prgn>acpid</prgn> do seu sistema.
+<command>acpid</command> do seu sistema.
 
 
 <sect1 id="hardw-cfgdisp-wol">Ativando WakeUP on Lan
@@ -1166,7 +1166,7 @@ ser o suficiente para reduzir a carga de um raio que caia nas proximidades.
  <p>
 O sistema de aterramento residencial para PC deve ser feito com uma estaca 
 de cobre com no mínimo 2 metros de altura. O cobre é um ótimo condutor de 
-eletricidade, perdendo somente para a prata (veja <ref id="hard-aterram-condut">). 
+eletricidade, perdendo somente para a prata (veja <xref linkend="hard-aterram-condut">). 
 Cave um buraco no solo com a ajuda de uma cavadeira (hehe, nunca ouviu falar 
 nisso? :-), se estiver com dificuldades para cavar por causa de solo ressecado, 
 molhe a terra para facilitar as coisas. Com a estaca enterrada, prenda um cabo 
@@ -1258,7 +1258,7 @@ Esta energia pode chegar na ordem de 5 mil volts quando acumulada
  <p>
 É por este motivo que caminhões que transportam combustível <tt>arrastam</tt> 
 uma corrente no chão, esta corrente funciona como um aterramento 
-(veja <ref id="hard-aterram">) eliminando descargas estáticas que possam gerar 
+(veja <xref linkend="hard-aterram">) eliminando descargas estáticas que possam gerar 
 faíscas e causar um desastre. Pulseiras, cordões, objetos metálicos podem ser 
 usados para eliminar descargas estáticas de pessoas. O contato freqüente com o 
 solo é um método muito útil. Existem casos em que um colar salvou a vida 
@@ -1336,7 +1336,7 @@ acontece no SCSI).
 
 <sect1 id="hard-perf-hdparm">Fazendo ajustes finos de performance do disco
  <p>
-O <prgn>hdparm</prgn> é um programa que permite modificar características 
+O <command>hdparm</command> é um programa que permite modificar características 
 diversas da unidade de disco rígido e de CD como modo de transferência de 
 dados, leitura adiante, dma, cache, leitura simultânea de setores, hibernação, 
 etc.
@@ -1464,7 +1464,7 @@ valor pequeno (como o padrão) é recomendável. Se a máquina é um servidor de
 arquivos dedicado, um valor maior trará maiores benefícios.  
   
 </taglist>
-Veja mais detalhes sobre o comando <prgn>hdparm</prgn> em sua página de manual. 
+Veja mais detalhes sobre o comando <command>hdparm</command> em sua página de manual. 
 Depois de selecionado o melhor valor de performance, você deverá salvar 
 em um arquivo que será lido na inicialização para ativação destes valores. 
 Para fazer teste de performance de leitura bruta utilize o comando 
@@ -1473,9 +1473,9 @@ o comando <tt>hdparm -T /dev/hd?</tt>.
 
 <![ %OBS [ 
  <p>
-<strong>OBS:</strong> Se o <prgn>Linux</prgn> resetar o disco rígido, a 
+<strong>OBS:</strong> Se o <command>Linux</command> resetar o disco rígido, a 
 maioria das configurações retornarão ao seu valor padrão. Isto ocorre 
-devido a opções mau utilizadas no <prgn>hdparm</prgn>, não suportadas 
+devido a opções mau utilizadas no <command>hdparm</command>, não suportadas 
 pelo disco rígido ou por problemas no HD/controladora. ]]>
 <example>
 Exemplos:
@@ -1496,7 +1496,7 @@ hdparm /dev/hda
 
 <sect1 id="hard-perf-atime">Data de acesso a arquivos/diretórios
  <p>
-Toda vez que acessamos um arquivo ou diretório da máquina <prgn>Linux</prgn> a 
+Toda vez que acessamos um arquivo ou diretório da máquina <command>Linux</command> a 
 data/hora é atualizada. Em máquinas normais isto é OK mas em servidores onde o 
 acesso a arquivos é constante (como no diretório <file>/var/spool</file> em 
 servidores de e-mail ou <file>/usr/</file> em servidores diskless) é recomendável 
@@ -1519,7 +1519,7 @@ opção de montagem <tt>noatime</tt> no seu <file>/etc/fstab</file>:
 
 <![ %OBS [
  <p>
-<strong>OBS:</strong> O <prgn>Linux</prgn> utiliza três atributos de data 
+<strong>OBS:</strong> O <command>Linux</command> utiliza três atributos de data 
 para controle de arquivos: 
 <list compact>
  <item><tt>atime</tt> - Data/Hora de acesso: é atualizado toda vez que o 
@@ -1575,14 +1575,14 @@ transferência não é muito alta se comparado aos outros tipos SCSI.
  <item>
 <tt>SCSI II</tt> - Também chamado de <em>Fast SCSI</em>. Usa um cabo de 50 
 condutores para a ligação de periféricos. Permite que sejam ligados até 7 
-periféricos em uma mesma controladora (veja <ref id="hard-perf-SCSI-IDcfg">). 
+periféricos em uma mesma controladora (veja <xref linkend="hard-perf-SCSI-IDcfg">). 
 É o mais comum encontrado hoje em dia, mas vem perdendo espaço aos poucos 
 para a tecnologia <tt>SCSI III</tt>. 
 
  <item>
 <tt>SCSI III</tt> - Também chamado de <em>Fast SCSI SE</em> ou <em>LVD</em>. Usa 
 um cabo de 68 condutores para ligação de periféricos 
-(veja <ref id="hard-perf-SCSI-IDcfg">). Permite que sejam ligados 
+(veja <xref linkend="hard-perf-SCSI-IDcfg">). Permite que sejam ligados 
 até 16 periféricos em uma mesma controladora. 
 
  <item>

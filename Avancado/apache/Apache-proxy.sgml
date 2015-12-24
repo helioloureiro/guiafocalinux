@@ -1,6 +1,6 @@
 <sect id="s-apache-proxy">Configurando o Apache como servidor proxy
  <p>
-O <prgn>Apache</prgn> pode ser configurado  para funcionar como servidor 
+O <command>Apache</command> pode ser configurado  para funcionar como servidor 
 proxy transparente para sua rede interna, possibilitando inclusive o 
 uso de cache de disco. É possível se fazer conexões HTTP (incluindo SSL) e FTP.
 <![ %DESCRICAOD [ Através desta característica também é possível 
@@ -49,7 +49,7 @@ afeta a diretiva <em>ProxyPass</em>.
  <tag>ProxyRemote [<em>origem</em>] [<em>URL</em>]</tag>
  <item>
 Esta opção é útil para fazer o Apache redirecionar suas requisições
-para outro servidor proxy (como o <prgn>squid</prgn> ou o gateway da 
+para outro servidor proxy (como o <command>squid</command> ou o gateway da 
 rede, caso o Apache estiver sendo executado em uma máquina interna). 
 A <em>origem</em> pode ser uma URL completa (como http://www.debian.org), 
 uma URL parcial (como ftp, http) ou "*" para que o redirecionamento seja 
@@ -59,7 +59,7 @@ sempre usado.
  <item>
 Permite bloquear o acesso a endereços que contenham o <em>padrão</em> especificado. 
 Podem ser especificadas palavras, máquinas, domínios, URLs separados por espaços. 
-O <prgn>Apache</prgn> fará a resolução DNS no caso de endereços IP e fará o 
+O <command>Apache</command> fará a resolução DNS no caso de endereços IP e fará o 
 cache para requisições futuras.
 
 
@@ -76,7 +76,7 @@ requisição que contenha somente um nome de máquina. É útil em redes
 Internas.
 
 </taglist>
-Note que quando o suporte a proxy não está ativado no <prgn>Apache</prgn>, 
+Note que quando o suporte a proxy não está ativado no <command>Apache</command>, 
 qualquer endereço de URL externa levará a página definida pela diretiva
 <em>DocumentRoot</em>. Isto deixará de funcionar após configurar o 
 serviço de proxy.
@@ -108,12 +108,12 @@ só será ativado se esta diretiva for definida.
  <tag>CacheForceCompletion [<em>num</em>]</tag>
  <item>
 Se uma transferência for cancelada e passar de <em>num</em>%, o 
-<prgn>Apache</prgn> continuará a transferência e armazenará o 
+<command>Apache</command> continuará a transferência e armazenará o 
 arquivo no cache. O valor padrão é 90.
 
  <tag>CacheSize [<em>num</em>]</tag>
  <item>
-Define o tamanho máximo do diretório de cache do <prgn>Apache</prgn>, 
+Define o tamanho máximo do diretório de cache do <command>Apache</command>, 
 em KB. Não especifique um valor que tome mais de 70% do espaço em disco. 
 O valor padrão é 5.
  
@@ -138,7 +138,7 @@ documento (caso fornecida). O valor padrão é 24 horas.
  <tag>NoCache [<em>endereços</em>]</tag>
  <item>
 Permite especificar lista de palavras, máquinas, domínios, IP's que não
-serão armazenados no cache do <prgn>Apache</prgn>. Caso seja usado
+serão armazenados no cache do <command>Apache</command>. Caso seja usado
 <tt>NoCache *</tt> o cache será desativado completamente. Note que 
 o cache também pode ser desativado comentando a diretiva
 <em>CacheRoot</em>.
@@ -146,9 +146,9 @@ o cache também pode ser desativado comentando a diretiva
 </taglist>
 Se você desejar um servidor cache mais flexível, rápido, dinâmico, 
 configurável (com possibilidade de uso de restrições baseadas em URL, tempo de 
-acesso, autenticação), instale o <prgn>squid</prgn> e configure o 
-<prgn>apache</prgn> para fazer forward de conexões para ele 
-(<ref id="s-apache-proxy-redir">). 
+acesso, autenticação), instale o <command>squid</command> e configure o 
+<command>apache</command> para fazer forward de conexões para ele 
+(<xref linkend="s-apache-proxy-redir">). 
 
 
 <sect1 id="s-apache-proxy-access">Controlando o acesso ao servidor proxy
@@ -165,12 +165,12 @@ for aberta como padrão isto pode ser opcional):
 &lt;/Directory&gt;
 </example>
 Para explicações sobre o processo de bloqueio acima, veja 
-<ref id="s-apache-acesso-restr-autor">. 
+<xref linkend="s-apache-acesso-restr-autor">. 
 
 
 <sect1 id="s-apache-proxy-redir">Redirecionamento de conexões no Apache
  <p>
-Este recurso do <prgn>Apache</prgn> é interessante para criar clusters 
+Este recurso do <command>Apache</command> é interessante para criar clusters 
 de servidores em sua rede interna. O que ele faz é pegar uma requisição
 a um determinado endereço e redireciona-lo a outra máquina e as respostas
 são repassadas ao servidor web (para o cliente a mesma máquina esta
@@ -200,7 +200,7 @@ Qualquer requisição externa a <file>&url-manual-www;/download/iniciante
  <tag>ProxyPassRemote [<em>diretório_da_url</em> [<em>outro_servidor:/diretório</em>]</tag>
  <item>
 Esta diretiva permite modificar o cabeçalho <tt>Location</tt> nas mensagens 
-de respostas de redirecionamento enviadas pelo <prgn>Apache</prgn>. Isto 
+de respostas de redirecionamento enviadas pelo <command>Apache</command>. Isto 
 permite que o endereço retornado seja o do servidor (que faz a interface 
 externa com o cliente) e não da máquina do redirecionamento. 
 <example>

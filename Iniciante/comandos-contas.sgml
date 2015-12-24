@@ -1,7 +1,7 @@
 <chapt id="cmdc">Comandos para manipulação de contas
  <p>
 Este capítulo traz comandos usados para manipulação de conta de usuários e 
-grupos em sistemas <prgn>GNU/Linux</prgn>. Entre os assuntos descritos aqui  
+grupos em sistemas <command>GNU/Linux</command>. Entre os assuntos descritos aqui  
 estão adicionar usuários ao sistema, adicionar grupos, incluir usuários  
 em grupos existentes, etc.
 
@@ -10,8 +10,8 @@ em grupos existentes, etc.
  <p>
 Adiciona um usuário ou grupo no sistema. Por padrão, quando um novo usuário é 
 adicionado, é criado um grupo com o mesmo nome do usuário. Opcionalmente 
-o <prgn>adduser</prgn> também pode ser usado para adicionar um usuário a 
-um grupo (veja <ref id="cmdc-incluirgrupo">).
+o <command>adduser</command> também pode ser usado para adicionar um usuário a 
+um grupo (veja <xref linkend="cmdc-incluirgrupo">).
 <![ %DESCRICAOD [ Será criado um diretório home com o nome do usuário (a não
 ser que o novo usuário criado seja um usuário do sistema) e este receberá uma  
 identificação. A identificação do usuário (UID) escolhida será a primeira  
@@ -32,18 +32,18 @@ Nome do novo usuário que será adicionado ao sistema.
  <tag><em>opções</em></tag>
  <tag>-disable-passwd</tag>
  <item>
-Não executa o programa <prgn>passwd</prgn> para escolher a senha e somente 
+Não executa o programa <command>passwd</command> para escolher a senha e somente 
 permite o uso da conta após o usuário escolher uma senha.
 
  <tag>--force-badname</tag>
  <item>
 Desativa a checagem de senhas ruins durante a adição do novo usuário. Por 
-padrão o <prgn>adduser</prgn> checa se a senha pode ser facilmente adivinhada. 
+padrão o <command>adduser</command> checa se a senha pode ser facilmente adivinhada. 
 
  <tag>--group</tag>
  <item>
 Cria um novo grupo ao invés de um novo usuário. A criação de grupos também 
-pode ser feita pelo comando <prgn>addgroup</prgn>.
+pode ser feita pelo comando <command>addgroup</command>.
 
  <tag>-uid [num]</tag>
  <item>
@@ -56,7 +56,7 @@ Faz com que o usuário seja parte do grupo [gid] ao invés de pertencer a um
 novo grupo que será criado com seu nome. Isto é útil caso deseje permitir 
 que grupos de usuários possam ter acesso a arquivos comuns.
  <p>
-Caso estiver criando um novo grupo com <prgn>adduser</prgn>, a identificação 
+Caso estiver criando um novo grupo com <command>adduser</command>, a identificação 
 do novo grupo será [num].
 
  <tag>--home [dir]</tag>
@@ -95,7 +95,7 @@ os dados de usuários e devem ser lidos por todos. ]]>
 <sect id="cmdc-addgroup">addgroup
  <p>
 Adiciona um novo grupo de usuários no sistema. As opções usadas são as mesmas 
-do <ref id="cmdc-adduser">.
+do <xref linkend="cmdc-adduser">.
  <p>
 <tt>addgroup [<em>usuário/grupo</em>] [<em>opções</em>]</tt>
 
@@ -207,7 +207,7 @@ Remove a senha de grupo.
 
  <tag>-R <em>usuario</em> <em>grupo</em></tag>
  <item>
-Desativa o acesso do grupo usando o comando <prgn>newgrp</prgn>.
+Desativa o acesso do grupo usando o comando <command>newgrp</command>.
 
  <tag>-a <em>usuario</em> <em>grupo</em></tag>
  <item>
@@ -247,7 +247,7 @@ Exemplo: <tt>gpasswd grupo</tt>, <tt>gpasswd -a gleydson grupo</tt>. ]]>
 Altera a identificação de grupo do usuário. 
 <![ %DESCRICAOD [ Para retornar a identificação anterior, digite <tt>exit</tt>
 e tecle <tt>Enter</tt>. Para executar um comando com outra identificação de 
-grupo de usuário, use o comando <ref id="cmdc-sg">. ]]>
+grupo de usuário, use o comando <xref linkend="cmdc-sg">. ]]>
  <p>
 <tt>newgrp <em>-</em> [<em>grupo</em>]</tt>
  <p>
@@ -255,7 +255,7 @@ Onde:
 <taglist compact>
  <tag><em>-</em></tag>
  <item>
-Se usado, inicia um novo ambiente após o uso do comando <prgn>newgrp</prgn> 
+Se usado, inicia um novo ambiente após o uso do comando <command>newgrp</command> 
 (semelhante a um novo login no sistema), caso contrário, o ambiente atual 
 do usuário é mantido.
 
@@ -267,7 +267,7 @@ Nome do grupo ou número do grupo que será incluído.
 Quando este comando é usado, é pedida a senha do grupo que deseja acessar. 
 Caso a senha do grupo esteja incorreta ou não exista senha definida, a 
 execução do comando é negada. A listagem dos grupos que pertence atualmente 
-pode ser feita usando o comando <ref id="cmdc-id">.
+pode ser feita usando o comando <xref linkend="cmdc-id">.
 
 
 <sect id="cmdc-userdel">userdel
@@ -299,7 +299,7 @@ do grupo especificado dos arquivos de contas do sistema. ]]>
 <tt>groupdel [<em>grupo</em>]</tt>
  <p>
 Tenha certeza que não existem arquivos/diretórios criados com o grupo 
-apagado através do comando <prgn>find</prgn>. 
+apagado através do comando <command>find</command>. 
 <![ %OBS [
  <p>
 OBS: Você não pode remover o grupo primário de um usuário. Remova o usuário 
@@ -357,7 +357,7 @@ still logged in se ainda estiver usando o sistema
 Tempo (em Horas:Minutos) que esteve conectado ao sistema.
 </list>
 A listagem é mostrada em ordem inversa, ou seja, da data mais atual para a 
-mais antiga. A listagem feita pelo <prgn>last</prgn> é obtida de 
+mais antiga. A listagem feita pelo <command>last</command> é obtida de 
 <file>/var/log/wtmp</file>. ]]>
  <p>
 <tt>last [<em>opções</em>]</tt>
@@ -391,11 +391,11 @@ execução do sistema.
 </taglist>
 ]]>
  <p>
-O comando <prgn>last</prgn> pode ser seguido de um argumento que será 
+O comando <command>last</command> pode ser seguido de um argumento que será 
 pesquisado como uma expressão regular durante a listagem. 
 <![ %OBS [
  <p>
-O comando <prgn>last</prgn> usa o arquivo <file>/var/log/wtmp</file> para 
+O comando <command>last</command> usa o arquivo <file>/var/log/wtmp</file> para 
 gerar sua listagem, mas alguns sistemas podem não possuir este arquivo. 
 O arquivo <file>/var/log/wtmp</file> somente é usado caso existir. Você 
 pode cria-lo com o comando <tt>"echo -n >/var/log/wtmp"</tt> ou 
@@ -419,7 +419,7 @@ Executa um comando com outra identificação de grupo.
 <![ %DESCRICAOD [ A identificação do grupo de usuário é modificada 
 somente durante a execução do comando. 
 Para alterar a identificação de grupo durante sua seção shell, use o comando 
-<ref id="cmdc-newgrp">. ]]> 
+<xref linkend="cmdc-newgrp">. ]]> 
  <p>
 <tt>sg [<em>-</em>] [<em>grupo</em>] [<em>comando</em>]</tt>
  <p>
@@ -454,7 +454,7 @@ Exemplo: <tt>sg root ls /root</tt> ]]>
  <p>
 Para adicionar um usuário em um novo grupo e assim permitir que ele acesse 
 os arquivos/diretórios que pertencem àquele grupo, você deve estar como 
-root e editar o arquivo <file>/etc/group</file> com o comando <prgn>vigr</prgn>. 
+root e editar o arquivo <file>/etc/group</file> com o comando <command>vigr</command>. 
 Este arquivo possui o seguinte formato:
  <p>
 NomedoGrupo:senha:GID:usuários
@@ -488,7 +488,7 @@ grupo <tt>audio</tt> (confira digitando <tt>groups</tt> ou <tt>id</tt>).
  <p>
 Outros nomes de usuários podem ser acrescentados ao grupo <tt>audio</tt> 
 bastando separar os nomes com vírgula. Você também pode usar o 
-comando <prgn>adduser</prgn> da seguinte forma para adicionar 
+comando <command>adduser</command> da seguinte forma para adicionar 
 automaticamente um usuário a um grupo:
 <example>
 adduser joao audio
@@ -500,7 +500,7 @@ que fazendo-se a edição manualmente.
 
 <sect id="cmdc-chfn">chfn
  <p>
-Muda os dados usados pelo comando <ref id="cmdn-finger">.
+Muda os dados usados pelo comando <xref linkend="cmdn-finger">.
  <p>
 <tt>chfn [<em>usuário</em>] [<em>opções</em>]</tt>
  <p>
@@ -576,7 +576,7 @@ Mostra a identificação real de usuário e grupo, ao invés da efetiva. Esta
 opção deve ser usada junto com uma das opções: -u, -g, ou -G.
 </taglist>
 ]]>
-Caso não sejam especificadas opções, <prgn>id</prgn> mostrará todos os dados 
+Caso não sejam especificadas opções, <command>id</command> mostrará todos os dados 
 do usuário.
 <![ %EXEMPLO [ 
  <p>
@@ -595,7 +595,7 @@ Mostra seu login (username).
 Mostra os nomes de usuários usando atualmente o sistema. 
 <![ %DESCRICAOD [ Os nomes de usuários são mostrados através de espaços 
 sem detalhes adicionais, para ver maiores detalhes sobre os usuários, 
-veja os comandos <ref id="cmdc-id"> e <ref id="cmdn-who">.  ]]>
+veja os comandos <xref linkend="cmdc-id"> e <xref linkend="cmdn-who">.  ]]>
  <p>
 <tt>users</tt>
  <p>

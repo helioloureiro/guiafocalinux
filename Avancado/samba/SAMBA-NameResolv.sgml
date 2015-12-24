@@ -1,12 +1,12 @@
 <sect id="s-samba-s-nameresolv">Resolução de nomes de máquinas no samba
  <p>
 O Samba pode utiliza os seguintes métodos para resolução de nomes de 
-máquinas na rede (<ref id="s-samba-nome">). Eles estão listados em 
+máquinas na rede (<xref linkend="s-samba-nome">). Eles estão listados em 
 ordem de prioridade do mais para o menos recomendável:
 <list compact> 
  <item>
 <tt>lmhosts</tt> - Pesquisa primeiro o arquivo <file>/etc/samba/lmhosts</file> 
-(veja <ref id="s-samba-s-nameresolv-lmhosts"> para detalhes sobre este arquivo). 
+(veja <xref linkend="s-samba-s-nameresolv-lmhosts"> para detalhes sobre este arquivo). 
 
  <item>
 <tt>host</tt> - Faz a pesquisa no arquivo <file>/etc/hosts</file> e no DNS em 
@@ -14,7 +14,7 @@ busca do nome da máquina.
 
  <item>
 <tt>wins</tt> - Pesquisa no servidor WINS especificado pelo parâmetro <em>
-wins server</em> do <file>smb.conf</file> (veja <ref id="s-samba-s-nameresolv-wins">).
+wins server</em> do <file>smb.conf</file> (veja <xref linkend="s-samba-s-nameresolv-wins">).
 
  <item>
 <tt>bcast</tt> - Envia um pacote para o endereço de broadcast de sua 
@@ -36,27 +36,27 @@ pontos para resolução de nomes, para definir máquinas WINS que serão acessad
 pela internet, etc. Para ter certeza da localização do arquivo 
 <file>lmhosts</file> em sua máquina, digite <tt>smbclient -d 3 -L localhost</tt> 
 e veja o diretório de pesquisa deste arquivo. Veja um exemplo de arquivo 
-<file>lmhosts</file> em <ref id="s-samba-s-nameresolv-lmhosts-unix-ex">.
+<file>lmhosts</file> em <xref linkend="s-samba-s-nameresolv-lmhosts-unix-ex">.
  <p>
 O uso do arquivo <file>lmhosts</file> evita o excesso de broadcasting na 
-rede, pois a ordem padrão usada para a resolução de nomes do <prgn>samba</prgn>, 
+rede, pois a ordem padrão usada para a resolução de nomes do <command>samba</command>, 
 procura primeiro resolver o nome procurando em arquivos lmhosts, depois 
 usando <em>dns</em>, <em>wins</em> e <em>broadcast</em>. Dependendo do 
 projeto de sua rede e como as máquinas resolvem os nomes, ele pode ser uma 
 camada a mais de segurança contra um simples hijacking de servidor através 
 de NetBEUI ou WINS (isso é evitado com o uso de domínios, veja 
-<ref id="s-samba-dom-config">).
+<xref linkend="s-samba-dom-config">).
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Note que em clientes <prgn>Windows</prgn> que 
+<strong>OBS:</strong> Note que em clientes <command>Windows</command> que 
 estejam em outra subrede, é necessário o arquivo <file>\windows\lmhosts</file> 
 apontando para um servidor PDC mesmo que ele esteja apontando para o 
 servidor WINS, caso contrário, a máquina não efetuará o logon.
  <p>
-O formato do arquivo <file>lmhosts</file> do <prgn>Windows</prgn> é mais 
-complexo do que o do <prgn>Linux</prgn> pois o sistema precisa de mais 
+O formato do arquivo <file>lmhosts</file> do <command>Windows</command> é mais 
+complexo do que o do <command>Linux</command> pois o sistema precisa de mais 
 detalhes para resolver os nomes e tipos de máquinas no domínio. Veja o 
-modelo <file>lmhosts.sam</file> em seu sistema <prgn>Windows</prgn> para
+modelo <file>lmhosts.sam</file> em seu sistema <command>Windows</command> para
 compreender seu funcionamento.
 ]]>
 
@@ -76,7 +76,7 @@ respectivo nome de máquina (segunda coluna):
 <sect2 id="s-samba-s-nameresolve-lmhosts-windows-ex">Exemplo de <file>lmhosts</file> do Windows
  <p>
 O arquivo possui uma sintaxe idêntica a do <file>lmhosts</file> do UNIX, mas 
-alguns parâmetros especiais são especificados para ajudar o <prgn>Windows</prgn>
+alguns parâmetros especiais são especificados para ajudar o <command>Windows</command>
 resolver algumas coisas que não consegue fazer sozinho (principalmente com relação
 a identificação de função de máquinas em redes segmentadas):
 <example>
@@ -108,12 +108,12 @@ arquivo de configuração.
 Para a especificação de ID de serviço manual, é necessário manter os 15
 caracteres no nome da máquina (preenchendo os restantes com espaços, 
 caso seja preciso). O último caracter é o código hexadecimal que 
-identifica o serviço de rede (veja <ref id="s-samba-c-workgroup-linux-nmblookup"> 
+identifica o serviço de rede (veja <xref linkend="s-samba-c-workgroup-linux-nmblookup"> 
 para ver a lista de serviços e sua respectiva função).
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Caso crie este arquivo em um editor de textos do 
-<prgn>Linux</prgn>, não se esqueça de converter o arquivo para que contenha
+<command>Linux</command>, não se esqueça de converter o arquivo para que contenha
 o CR+LF no final das linhas.
 ]]>
 
@@ -138,7 +138,7 @@ WINS ao invés de broadcasting (que geram um tráfego alto na rede).
 
 <sect2 id="s-samba-s-nameresolv-wins-s">Configurando o servidor WINS
  <p>
-Para ativar o servidor WINS no <prgn>samba</prgn>, inclua as seguinte linha
+Para ativar o servidor WINS no <command>samba</command>, inclua as seguinte linha
 na seção <tt>[global]</tt> do seu arquivo <file>/etc/samba/smb.conf</file>:
 <example>
 [global]
@@ -159,7 +159,7 @@ Pronto, seu servidor samba agora suporta WINS. Fácil, prático e rápido :-)
 Se estiver configurando uma subrede com masquerade para acesso a um PDC ou
 um servidor WINS, você terá que mexer no gateway central para apontar uma 
 rota para o gateway masquerade. O motivo disto é porque o masquerade do 
-<prgn>Linux</prgn> atua somente nos cabeçalhos, mas o IP da estação é 
+<command>Linux</command> atua somente nos cabeçalhos, mas o IP da estação é 
 enviada e processada pelo PDC para retornar uma resposta. 
 Da mesma forma, este IP é registrado no servidor WINS para uso das estações 
 de trabalho. Isto só vai ser resolvido quando for escrito um módulo de 
@@ -177,7 +177,7 @@ esteja usando o suporte a WINS.
 
 <sect2 id="s-samba-s-nameresolv-wins-c">Configurando o Cliente WINS
  <p>
-Para os clientes da rede (<prgn>Linux, Windows, OS/2, etc. </prgn>) fazer 
+Para os clientes da rede (<command>Linux, Windows, OS/2, etc. </command>) fazer 
 uso das vantagens da resolução de nomes usando o WINS, é necessário configurar
 para que eles o utilizem para resolver os nomes de máquinas. Isto é feito da 
 seguinte forma em cada um dos sistemas operacionais:
@@ -191,7 +191,7 @@ na seção global do arquivo <file>/etc/samba/smb.conf</file>:
 wins server = 192.168.1.1
 
 </example>
-Após isto, reinicie o servidor <prgn>samba</prgn>. Caso esteja executando
+Após isto, reinicie o servidor <command>samba</command>. Caso esteja executando
 o servidor via <tt>inetd</tt>, digite: <tt>killall -HUP nmbd</tt>. Se 
 estiver rodando através de daemons: <tt>/etc/init.d/samba restart</tt>.
 Não é necessário reiniciar o computador!

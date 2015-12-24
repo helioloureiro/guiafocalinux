@@ -98,7 +98,7 @@ Usa a listagem longa sem os donos dos arquivos (mesma coisa que -lG).
  <tag>-p</tag>
  <item>
 Mesma coisa que -F, mas não inclui o símbolo '*' em arquivos executáveis. Esta 
-opção é típica de sistemas <prgn>Linux</prgn>.
+opção é típica de sistemas <command>Linux</command>.
 
  <tag>-R</tag>
  <item>
@@ -158,7 +158,7 @@ São as permissões de acesso ao arquivo teste. A primeira letra
 é um diretório, se tiver um "-" é um arquivo normal. 
  <p>
 As permissões de acesso é explicada em detalhes em 
-<ref id="perm">. 
+<xref linkend="perm">. 
 
  <tag><tt>1</tt></tag>
  <item>
@@ -198,7 +198,7 @@ Nome do arquivo.
 
 <![ %EXEMPLO [
  <p>
-Exemplos do uso do comando <prgn>ls</prgn>:
+Exemplos do uso do comando <command>ls</command>:
 <list compact>
  <item>
 <tt>ls</tt>            - Lista os arquivos do diretório atual.
@@ -243,7 +243,7 @@ retornará ao seu diretório de usuário (diretório home).
  <item>
 <tt>cd ../[<em>diretório</em>]</tt>, sobe um diretório e entra 
 imediatamente no próximo (por exemplo, quando você está em <file>/usr/sbin 
-</file>, você digita <tt>cd ../bin</tt>, o comando <prgn>cd</prgn>  
+</file>, você digita <tt>cd ../bin</tt>, o comando <command>cd</command>  
 retorna um diretório (<file>/usr</file>) e entra imediatamente no  
 diretório <file>bin</file> (<file>/usr/bin</file>).
 </list> ]]>
@@ -306,7 +306,7 @@ Podem ser criados mais de um diretório com um único comando (<tt>mkdir
  <p>
 Remove um diretório do sistema. 
 <![ %DESCRICAOD [ Este comando faz exatamente o contrário do  
-<prgn>mkdir</prgn>. O diretório a ser removido deve estar vazio e  
+<command>mkdir</command>. O diretório a ser removido deve estar vazio e  
 você deve ter permissão de gravação para remove-lo. ]]>
  <p>
 <tt>rmdir [<em>caminho/diretório</em>] [<em>caminho1/diretório1</em>]</tt>
@@ -324,8 +324,8 @@ Nome do diretório que será removido.
 ]]>
 É necessário que esteja um nível acima do diretório(s) que será(ão) 
 removido(s). Para remover diretórios que contenham arquivos, use o comando 
-<prgn>rm</prgn> com a opção <tt>-r</tt> (para maiores detalhes, veja 
-<ref id="comando-rm">).
+<command>rm</command> com a opção <tt>-r</tt> (para maiores detalhes, veja 
+<xref linkend="comando-rm">).
 <![ %EXEMPLO [
  <p>
 Por exemplo, para remover o diretório <file>/tmp/teste</file> você deve 

@@ -1,16 +1,16 @@
 <sect id="s-apache-bindaddress">Configurando as interfaces que o Apache atenderá
  <p>
 A diretiva <em>BindAddress</em> é usada para especificar endereços IP 
-das interfaces ou endereços FQDN que o <prgn>Apache</prgn> responderá 
+das interfaces ou endereços FQDN que o <command>Apache</command> responderá 
 requisições. Mais de um endereço podem ser especificados separados por 
-espaços. Caso não seja definido, o <prgn>Apache</prgn> assumirá o 
+espaços. Caso não seja definido, o <command>Apache</command> assumirá o 
 valor "*" (atenderá requisições vindas de qualquer interface). 
 <![ %OBS [
  <p>
 <strong>OBS1:</strong> - É permitido usar somente uma diretiva 
 <em>BindAddress</em>. A diretiva <em>Listen</em> deverá ser 
 usada se desejar mais controle sobre as portas do servidor web. 
-Veja <ref id="s-apache-listen"> para detalhes.
+Veja <xref linkend="s-apache-listen"> para detalhes.
  <p>
 <strong>OBS2:</strong> - As interfaces especificadas pela 
 diretiva <em>Listen</em> substituirá as especificadas em 
@@ -21,7 +21,7 @@ Exemplo:
 <list compact>
 <item><tt>BindAddress 192.168.1.1</tt> - Especifica que os 
 usuários da faixa de rede <file>192.168.1.*</file> terão acesso
-ao servidor <prgn>httpd</prgn>. Isto assume que a máquina 
+ao servidor <command>httpd</command>. Isto assume que a máquina 
 possui o endereço <file>192.168.1.1</file> em sua interface de 
 rede interna. 
 <item><tt>BindAddress *</tt> - Atenderá requisições vindas 
@@ -45,7 +45,7 @@ Listen 60000
 </example>
 O endereço que deverá ser usado é o da interface de rede (assim como 
 na diretiva <em>BindAddress</em>). No exemplo acima, o servidor 
-<prgn>httpd</prgn> esperará por requisições vindas de 
+<command>httpd</command> esperará por requisições vindas de 
 <file>192.168.1.*</file> na porta 80 e também 60000, e requisições
 vindas de 192.168.7.1 na porta 81 e também 60000.
 
@@ -56,9 +56,9 @@ As opções de restrição podem tanto ser especificadas nas diretivas
 &lt;Directory&gt;, &lt;Location&gt; ou &lt;Files&gt; quanto nos arquivos 
 <file>.htaccess</file> (ou outro nome de arquivo de controle de acesso 
 especificado pela opção <em>AccessFileName</em> do arquivo de configuração 
-do <prgn>Apache</prgn>). Cada diretiva de acesso é especificada entre 
+do <command>Apache</command>). Cada diretiva de acesso é especificada entre 
 &lt;tags&gt; e devem ser fechadas com &lt;/tag&gt; (como na linguagem HTML). 
-As seguintes diretivas de acesso são válidas no <prgn>Apache</prgn>: 
+As seguintes diretivas de acesso são válidas no <command>Apache</command>: 
 <taglist>
  <tag>Directory</tag>
  <item>
@@ -134,7 +134,7 @@ sub-diretórios. Por exemplo:
 </example>
 Bloqueia o acesso de todos os usuários ao diretório <file>/security</file> 
 da URL (a explicação porque o acesso é bloqueado neste caso será explicado 
-em <ref id="s-apache-acesso-restr-autor">).
+em <xref linkend="s-apache-acesso-restr-autor">).
 
  <tag>LocationMatch</tag>
  <item>
@@ -217,7 +217,7 @@ de espaços.
 <strong>OBS1</strong>: A opção Options não tem efeito dentro da diretiva FILES.
  <p>
 <strong>OBS2</strong>: Tanto faz usar maiúsculas quanto minúsculas nas diretivas de 
-configuração, opções e parâmetros de configuração do <prgn>Apache</prgn>, 
+configuração, opções e parâmetros de configuração do <command>Apache</command>, 
 a capitalização apenas ajuda a leitura e interpretação: 
 SymLinksIfOwnerMatch (LinksSimbólicosSeDonoConferir). ]]>
  <p>
@@ -283,7 +283,7 @@ excelente método para proteger os arquivos de acesso, senhas e grupos,
 conforme será explicado mais adiante. 
  <p>
 Qualquer outro tipo de aninhamento de diretivas resultará em um erro 
-de configuração ao se tentar carregar/recarregar o <prgn>Apache</prgn>. 
+de configuração ao se tentar carregar/recarregar o <command>Apache</command>. 
 Um exemplo de diretiva incorreta: 
 <example>
 &lt;Directory /var/www&gt;
@@ -329,9 +329,9 @@ arquivos, o acesso será automaticamente negado. ]]>
 
 <sect id="s-apache-acesso-restr">Restrições de Acesso
  <p>
-A restrição de acesso do <prgn>Apache</prgn> é feita através de 
-<em>Autorização</em> (<ref id="s-apache-acesso-restr-autor">) e 
-<em>Autenticação</em> (<ref id="s-apache-acesso-restr-auth">). 
+A restrição de acesso do <command>Apache</command> é feita através de 
+<em>Autorização</em> (<xref linkend="s-apache-acesso-restr-autor">) e 
+<em>Autenticação</em> (<xref linkend="s-apache-acesso-restr-auth">). 
 Através da <em>autorização</em>, é checado se o endereço/rede 
 especificada tem ou não permissão para acessar a página. 
 A <em>autenticação</em> requer que seja passado nome e senha para 
@@ -437,7 +437,7 @@ através deste método.
 
 <![ %OBS [
  <p>
-<strong>OBS1</strong>: É necessário reiniciar o <prgn>Apache</prgn> depois de 
+<strong>OBS1</strong>: É necessário reiniciar o <command>Apache</command> depois de 
 qualquer modificação em seu arquivo de configuração 
 (executando <tt>apachectl restart</tt>), ou recarregar os arquivos de 
 configuração (<tt>apachectl graceful</tt>). 
@@ -476,7 +476,7 @@ pode ser a causa:
  <item>
 O servidor Web não tem permissões para acessar/abrir o diretório da página. 
 Certifique-se que o <em>dono</em> e <em>grupo</em> do processo 
-<prgn>Apache</prgn> (especificado pela diretiva <em>User</em> e <em>Group</em>) 
+<command>Apache</command> (especificado pela diretiva <em>User</em> e <em>Group</em>) 
 possuem permissões de acesso àquele diretório. 
  <item>
 Quando quer fazer uma listagem de arquivos do diretório e não especifica a 
@@ -636,18 +636,18 @@ diretório ou até mesmo por arquivo acessado.
 <sect2 id="s-apache-acesso-restr-auth-arqsenha">Criando um arquivo de Senhas
  <p>
 O arquivo de senhas pode ser criado e mantido através do uso de 3 utilitários:
-<prgn>htpasswd</prgn>, <prgn>htdigest</prgn> e <prgn>dbmmanage</prgn>:
+<command>htpasswd</command>, <command>htdigest</command> e <command>dbmmanage</command>:
 
 
 <sect3 id="s-apache-acesso-restr-auth-arqsenha-htpasswd">htpasswd
  <p>
 Este é usado para criar o arquivo de senhas. Para criar um 
 banco de dados com o nome <file>senhas</file> para o usuário 
-<var>convidado</var>, é usada a seguinte sintaxe:
+<envar>convidado</envar>, é usada a seguinte sintaxe:
  <p>
 <tt>htpasswd -c -m senhas convidado</tt>
  <p>
-Você será perguntado por uma senha para o usuário <var>convidado</var> e para 
+Você será perguntado por uma senha para o usuário <envar>convidado</envar> e para 
 redigita-la. A opção "-c" indica que deverá ser criado um arquivo, a opção "-m" 
 indica a utilização de senhas criptografadas usando o algoritmo <em>MD5</em>, que 
 garante maior segurança que o método <em>Crypto</em>. 
@@ -684,9 +684,9 @@ com alguns scripts/programas que compartilhem o arquivo de senhas.
 
 <sect3 id="s-apache-acesso-restr-auth-arqsenha-htdigest">htdigest e dbmmanage
  <p>
-Estes são idênticos ao <prgn>htpasswd</prgn>, a diferença é que o 
-<prgn>htdigest</prgn> permite criar/manter um arquivo de senhas 
-usando a autenticação Digest, enquanto o <prgn>dbmmanage</prgn> 
+Estes são idênticos ao <command>htpasswd</command>, a diferença é que o 
+<command>htdigest</command> permite criar/manter um arquivo de senhas 
+usando a autenticação Digest, enquanto o <command>dbmmanage</command> 
 permite manter o banco de dados de senhas em um arquivo 
 <file>DB, DBM, GDBM</file> e <file>NDBM</file>, formatos conhecidos 
 pelo Perl. 
@@ -744,7 +744,7 @@ Este método de autenticação pode ser <em>Basic</em> ou <em>Digest</em>
 
  <tag>AuthUserFile</tag>
  <item>
-É o arquivo gerado pelo utilitário <prgn>htpasswd</prgn> que contém a senha 
+É o arquivo gerado pelo utilitário <command>htpasswd</command> que contém a senha 
 correspondente ao usuário
 
  <tag>AuthGroupFile</tag>
@@ -783,11 +783,11 @@ usadas uma das 3 sintaxes:
 
 <![ %OBS [
  <p>
-<strong>OBS</strong>: É necessário reiniciar o <prgn>Apache</prgn> depois de 
+<strong>OBS</strong>: É necessário reiniciar o <command>Apache</command> depois de 
 qualquer modificação em seu arquivo de configuração (<tt>apachectl restart</tt>), 
 ou recarregar os arquivos de configuração (<tt>apachectl graceful</tt>). Note que 
-o <prgn>apachectl</prgn> é somente um shell script para interação mais amigável 
-com o servidor web <prgn>apache</prgn>, retornando mensagens indicando o 
+o <command>apachectl</command> é somente um shell script para interação mais amigável 
+com o servidor web <command>apache</command>, retornando mensagens indicando o 
 sucesso/falha no comando ao invés de códigos de saída. ]]>
 
 <![ %EXEMPLO [
@@ -888,7 +888,7 @@ evitando possíveis riscos de segurança com usuários acessando os arquivos
 de senha e grupo. ]]>
 
  <p>
-Na distribuição <prgn>Debian</prgn>, qualquer arquivo iniciando com 
+Na distribuição <command>Debian</command>, qualquer arquivo iniciando com 
 <file>.ht*</file> será automaticamente ocultado pelo sistema, pois 
 já existe uma diretiva &lt;Files ~ "\.ht"&gt;. Tal diretiva pode 
 também ser especificada no arquivo de acesso <file>.htaccess</file>. 
@@ -1030,15 +1030,15 @@ seu sistema.
 O arquivo <file>.htaccess</file> deve ser colocado no diretório da página 
 que deverá ter suas permissões de acesso/listagem controladas. A vantagem 
 em relação a inclusão direta de diretivas de acesso dentro do arquivo de 
-configuração do <prgn>Apache</prgn>, é que o controle de 
+configuração do <command>Apache</command>, é que o controle de 
 acesso poderá ser definido pelo próprio webmaster da página, sem precisar 
-ter acesso direto a configuração do <prgn>Apache</prgn>, que requerem 
+ter acesso direto a configuração do <command>Apache</command>, que requerem 
 privilégios de root. 
  <p>
 Outro ponto fundamental é que não há necessidade de reiniciar o servidor 
 Web, pois este arquivo é lido no momento de cada acesso ao diretório que 
 controla. O nome do arquivo OverRide pode ser definido através da diretiva
-<em>AccessFileName</em> no arquivo de configuração do <prgn>Apache</prgn>, 
+<em>AccessFileName</em> no arquivo de configuração do <command>Apache</command>, 
 <file>.htaccess</file> é usado como padrão. 
  <p>
 O controle de que opções estarão disponíveis no <file>.htaccess</file> 
@@ -1073,7 +1073,7 @@ parâmetros:
 da diretiva &lt;Location&gt;, ela será simplesmente ignorada. ]]>
  <p>
 Para acesso ao arquivo <file>.htaccess</file> do diretório 
-<file>/var/www/focalinux</file>, o <prgn>Apache</prgn> 
+<file>/var/www/focalinux</file>, o <command>Apache</command> 
 buscará os arquivos <file>.htaccess</file> na seqüencia: <file>/.htaccess</file>, 
 <file>/var/.htaccess</file>, <file>/var/www/.htaccess</file>, 
 <file>/var/www/focalinux/.htaccess</file>, qualquer diretiva que não 
@@ -1085,7 +1085,7 @@ ao documento é permitido (ou negado).
 Por este motivo, muitos administradores decidem desativar completamente o uso 
 de arquivos <file>.htaccess</file> no diretório raíz e habilitar somente nos 
 diretórios especificados pela diretiva &lt;Directory&gt; no arquivo de 
-configuração do <prgn>Apache</prgn>, evitando brechas de segurança na 
+configuração do <command>Apache</command>, evitando brechas de segurança na 
 manipulação destes arquivos (esta é uma boa idéia a não ser que se dedique 24 
 horas somente na administração do seu servidor Web e conheça toda sua estrutura 
 hierárquica de segurança: 
@@ -1158,12 +1158,12 @@ SetEnvIf User-Agent ".*MSIE*." EXPLODER
 
 Se o Navegador (campo <em>User-Agent</em> do cabeçalho http) usado 
 para acessar a página for o <tt>Internet Explorer</tt>, a variável 
-<var>EXPLODER</var> será criada e terá o valor verdadeiro (porque a 
+<envar>EXPLODER</envar> será criada e terá o valor verdadeiro (porque a 
 expressão de <em>SetEnvIf</em> conferiu com a expressão).
  <p>
 Note o uso de "deny from env=VARIÁVEL". Neste caso se o navegador for 
 o <tt>Internet Explorer</tt>, o acesso será bloqueado (pois o navegador 
-conferiu, assim a variável <var>EXPLODER</var> recebeu o valor verdadeiro).
+conferiu, assim a variável <envar>EXPLODER</envar> recebeu o valor verdadeiro).
  <p>
 É permitido especificar as diretivas de acesso normais junto com 
 especificação de variáveis de ambiente, basta separa-los com espaços.
@@ -1205,7 +1205,7 @@ na diretiva &lt;Location&gt; se for especificada no arquivo de configuração do
 servidor web. A diretiva &lt;Location&gt; simplesmente é ignorada nos arquivos 
 <file>.htaccess</file>... ]]>
  <p>
-Este abaixo é usado por padrão na distribuição <prgn>Debian</prgn> para 
+Este abaixo é usado por padrão na distribuição <command>Debian</command> para 
 restringir para somente leitura o acesso aos diretórios de usuários 
 acessados via módulo <file>mod_userdir</file>: 
 

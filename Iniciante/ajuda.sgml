@@ -1,8 +1,8 @@
 <chapt id="ajuda">Como obter ajuda no sistema
  <p>
-Dúvidas são comuns durante o uso do <prgn>GNU/Linux</prgn> e existem várias 
+Dúvidas são comuns durante o uso do <command>GNU/Linux</command> e existem várias 
 maneiras de se obter ajuda e encontrar a resposta para algum problema. 
-O <prgn>GNU/Linux</prgn> é um sistema bem documentado, provavelmente tudo 
+O <command>GNU/Linux</command> é um sistema bem documentado, provavelmente tudo 
 o que imaginar fazer ou aprender já esta disponível para leitura e 
 aprendizado. Abaixo segue algumas formas úteis para encontrar a solução 
 de sua dúvida, vale a pena conhece-las. 
@@ -11,7 +11,7 @@ de sua dúvida, vale a pena conhece-las.
 <sect id="ajuda-man">Páginas de Manual
  <p>
 As <em>páginas de manual</em> acompanham quase todos os programas 
-<prgn>GNU/Linux</prgn>. Elas trazem uma descrição básica do comando/programa 
+<command>GNU/Linux</command>. Elas trazem uma descrição básica do comando/programa 
 e detalhes sobre o funcionamento de opção. 
 <![ %DESCRICAOD [ Uma página de manual é visualizada na forma de texto  
 único com rolagem vertical. Também documenta parâmetros usados em alguns 
@@ -77,7 +77,7 @@ Os programas/arquivos são classificados nas seguintes seções:
  <item>
  Jogos
  <item>
- Pacotes de macros e convenções (por exemplo <prgn>man</prgn>)
+ Pacotes de macros e convenções (por exemplo <command>man</command>)
  <item>
  Comandos de Administração do sistema (normalmente usados pelo root)
  <item>
@@ -88,8 +88,8 @@ categorias, como é o caso do arquivo <file>host_access</file> que é
 documentado na seção 3 (bibliotecas) e 5 (formatos de arquivo). Por 
 este motivo é necessário digitar <tt>man 5 hosts_access</tt> para 
 ler a página sobre o formato do arquivo, porque o comando 
-<prgn>man</prgn> procura a página de manual nas seções em ordem crescente 
-e a digitação do comando <prgn>man hosts_access</prgn> abriria a seção 3. 
+<command>man</command> procura a página de manual nas seções em ordem crescente 
+e a digitação do comando <command>man hosts_access</command> abriria a seção 3. 
  <p>
 As páginas de manual contém algumas regras para facilitar a compreensão 
 do comando:
@@ -108,8 +108,8 @@ Exemplo, <tt>man ls</tt>, <tt>man 5 hosts_access</tt>. ]]>
 <sect id="ajuda-info">Info Pages
  <p>
 Idêntico as páginas de manual, mas é usada navegação entre as páginas. Se 
-pressionarmos &lt;Enter&gt; em cima de uma palavra destacada, a <prgn>info 
-pages</prgn> nos levará a seção correspondente. 
+pressionarmos &lt;Enter&gt; em cima de uma palavra destacada, a <command>info 
+pages</command> nos levará a seção correspondente. 
 <![ %DESCRICAOD [ A <em>info pages</em> é útil quando sabemos o nome do  
 comando e queremos saber para o que ele serve. Também traz explicações  
 detalhadas sobre uso, opções e comandos. ]]>
@@ -136,14 +136,14 @@ correspondente. A <em>info pages</em> possui algumas teclas de navegação útei
  <item>
   u - Sobre um nível do conteúdo (até checar ao índice de documentos)
  <item>
-  m - Permite usar a localização para encontrar uma página do <prgn>info</prgn>. 
+  m - Permite usar a localização para encontrar uma página do <command>info</command>. 
       Pressione <tt>m</tt>, digite o comando e tecle &lt;Enter&gt; que 
       será levado automaticamente a página correspondente. 
  <item>
   d - Volta ao índice de documentos.
 </list>
 Existem muitos outras teclas de navegação úteis na info pages, mas estas são 
-as mais usadas. Para mais detalhes, entre no programa <prgn>info</prgn> e 
+as mais usadas. Para mais detalhes, entre no programa <command>info</command> e 
 pressione <tt>?</tt>. 
 <![ %EXEMPLO [
  <p>
@@ -154,7 +154,7 @@ Exemplo, <tt>info cvs</tt>. ]]>
  <p>
 Ajuda rápida, é útil para sabermos quais opções podem ser usadas com o 
 comando/programa. 
-<![ %DESCRICAOD [ Quase todos os comandos/programas <prgn>GNU/Linux</prgn>  
+<![ %DESCRICAOD [ Quase todos os comandos/programas <command>GNU/Linux</command>  
 oferecem este recurso que é útil para consultas rápidas (e quando não  
 precisamos dos detalhes das páginas de manual). É útil quando se 
 sabe o nome do programa mas deseja saber quais são as opções 
@@ -170,7 +170,7 @@ rápida. ]]>
  <p>
 O Help on Line não funciona com comandos internos (embutidos no 
 Bash), para ter uma ajuda rápida sobre os comandos internos, veja  
-<ref id="ajuda-help">. ]]>
+<xref linkend="ajuda-help">. ]]>
 <![ %EXEMPLO [
  <p>
 Por exemplo, <tt>ls --help</tt>. ]]>
@@ -180,10 +180,10 @@ Por exemplo, <tt>ls --help</tt>. ]]>
  <p>
 Ajuda rápida, útil para saber que opções podem ser usadas com 
 os <em>comandos internos</em> do interpretador de comandos. 
-<![ %DESCRICAOD [ O comando <prgn>help</prgn> somente mostra a ajuda 
+<![ %DESCRICAOD [ O comando <command>help</command> somente mostra a ajuda 
 para comandos internos, para ter uma ajuda similar para comandos 
-externos, veja <ref id="ajuda-helponline">. ]]> 
-Para usar o <prgn>help</prgn> digite: 
+externos, veja <xref linkend="ajuda-helponline">. ]]> 
+Para usar o <command>help</command> digite: 
  <p>
 <tt>help [<em>comando</em>]</tt>
 <![ %EXEMPLO [
@@ -198,7 +198,7 @@ Apropos procura por <em>programas/comandos</em> através da descrição.
 sabemos qual comando usar. Ele faz sua pesquisa nas páginas de manual  
 existentes no sistema e lista os comandos/programas que atendem a 
 consulta. ]]>
-Para usar o comando <prgn>apropos</prgn> digite:
+Para usar o comando <command>apropos</command> digite:
  <p>
 <tt>apropos [<em>descrição</em>]</tt>
 <![ %EXEMPLO [
@@ -213,9 +213,9 @@ programas que copiam arquivos, mas podem ser mostrados outros também). ]]>
 Localiza uma palavra na estrutura de arquivos/diretórios do sistema. 
 <![ %DESCRICAOD [ É útil quando queremos localizar onde um comando ou  
 programa se encontra (para copia-lo, curiosidade, etc). A pesquisa é  
-feita em um banco de dados construído com o comando <prgn>updatedb</prgn> 
+feita em um banco de dados construído com o comando <command>updatedb</command> 
 sendo feita a partir do diretório raíz <tt>/</tt> e sub-diretórios. ]]> 
-Para fazer uma consulta com o <prgn>locate</prgn> usamos: 
+Para fazer uma consulta com o <command>locate</command> usamos: 
  <p>
 <tt>locate [<em>expressão</em>]</tt>
  <p>
@@ -223,7 +223,7 @@ A <em>expressão</em> deve ser o nome de um arquivo diretório ou ambos que
 serão procurados na estrutura de diretórios do sistema. Como a consulta por 
 um programa costuma localizar também sua página de manual, é recomendável 
 usar <em>"pipes"</em> para filtrar a saída do comando 
-<![ %INIC-INTER [ (para detalhes veja <ref id="redir-pipe"> ]]>.
+<![ %INIC-INTER [ (para detalhes veja <xref linkend="redir-pipe"> ]]>.
 <![ %EXEMPLO [
  <p>
 Por exemplo, para listar os diretórios que contém o nome "<em>cp</em>": 
@@ -234,7 +234,7 @@ Por exemplo, para listar os diretórios que contém o nome "<em>cp</em>":
 <sect id="ajuda-which">which
  <p>
 Localiza um programa na estrutura de diretórios do path. 
-<![ %DESCRICAOD [ É muito semelhante ao <prgn>locate</prgn>, mas a busca 
+<![ %DESCRICAOD [ É muito semelhante ao <command>locate</command>, mas a busca 
 é feita no <tt>path</tt> do sistema e somente são mostrados arquivos 
 executáveis ]]>. 
  <p>
@@ -245,17 +245,17 @@ executáveis ]]>.
  <p>
 São documentos em formato <em>texto</em>, <em>html</em>, etc, que explicam 
 como fazer determinada tarefa ou como um programa funciona. 
-<![ %DESCRICAOD [ Normalmente são feitos na linguagem <prgn>SGML</prgn>  
+<![ %DESCRICAOD [ Normalmente são feitos na linguagem <command>SGML</command>  
 e convertidos para outros formatos (como o texto, HTML, Pos Script) depois 
 de prontos. 
  <p>
-Estes trazem explicações detalhadas desde como usar o <prgn>bash</prgn> até 
+Estes trazem explicações detalhadas desde como usar o <command>bash</command> até 
 sobre como funciona o modem ou como montar um <em>servidor internet 
 completo</em>. ]]> Os HOWTOŽs podem ser encontrados no diretório do projeto 
-de documentação do <prgn>GNU/Linux</prgn> (LDP) em <url id="&url-ldp-ftp;"> ou 
+de documentação do <command>GNU/Linux</command> (LDP) em <url id="&url-ldp-ftp;"> ou 
 traduzidos para o Português pelo LDP-BR em 
 <url id="&url-ldpbr-www;projetos/howto/traduzidos.php">. Caso tenha optado por instalar o 
-pacote de HOWTO's de sua distribuição <prgn>GNU/Linux</prgn>, eles podem ser 
+pacote de HOWTO's de sua distribuição <command>GNU/Linux</command>, eles podem ser 
 encontrados em: <![ %DEBIAN [ <file>/usr/doc/how-to</file> ]]>
 
 
@@ -274,8 +274,8 @@ sub-seções com a descrição do assunto que cada um deles aborda.
 <taglist>
 <tag>Access-HOWTO</tag>
  <item>
-O HOWTO de Acesso ao <prgn>GNU/Linux</prgn> cobre o uso de tecnologia 
-adaptada para tornar o <prgn>GNU/Linux</prgn> acessível àqueles que não 
+O HOWTO de Acesso ao <command>GNU/Linux</command> cobre o uso de tecnologia 
+adaptada para tornar o <command>GNU/Linux</command> acessível àqueles que não 
 o utilizam. Ele cobre áreas onde ele pode usar soluções tecnológicas 
 adaptadas. 
 
@@ -288,12 +288,12 @@ usuário, diretório atual, hora, uso de cores ANSI, etc.
 <tag>Bootdisk-HOWTO</tag>
  <item>
 Explica como criar seu próprio disco de inicialização/raíz para o 
-<prgn>GNU/Linux</prgn>.    
+<command>GNU/Linux</command>.    
 
 <tag>BootPrompt-HOWTO</tag>
  <item>
 Este documento reúne a maioria dos parâmetros de inicialização que 
-podem ser passados ao kernel do <prgn>GNU/Linux</prgn> durante a 
+podem ser passados ao kernel do <command>GNU/Linux</command> durante a 
 inicialização do sistema. Também explica como o kernel classifica os 
 argumentos de inicialização e também os softwares usados para inicialização 
 do kernel do GNU/Linux.
@@ -305,16 +305,16 @@ Descreve como instalar o Linux no servidor Compaq ProLiant.
 <tag>Config-HOWTO</tag>
  <item>
 Este documento ensina como fazer um ajuste fino em sua máquina 
-<prgn>GNU/Linux</prgn> recém instalada rápido e fácil. Neste documento 
+<command>GNU/Linux</command> recém instalada rápido e fácil. Neste documento 
 você encontrará um conjunto de configurações para as aplicações e 
 serviços mais populares. 
 
 <tag>Distribution-HOWTO</tag>
  <item>
 Este documento tem a intenção de ajudar novos usuários escolherem uma 
-distribuição <prgn>GNU/Linux</prgn> e ajudar usuários experientes a 
-avaliar o estado do marketing no <prgn>GNU/Linux</prgn> Ele não planeja 
-ser uma lista completa de distribuições <prgn>GNU/Linux</prgn> para todas 
+distribuição <command>GNU/Linux</command> e ajudar usuários experientes a 
+avaliar o estado do marketing no <command>GNU/Linux</command> Ele não planeja 
+ser uma lista completa de distribuições <command>GNU/Linux</command> para todas 
 as plataformas, mas ao invés disso se focaliza nas distribuições em 
 Inglês baseadas no processador Intel, disponíveis em CD-ROM e acessíveis 
 a usuários novatos no sistema. 
@@ -322,7 +322,7 @@ a usuários novatos no sistema.
 <tag>From-PowerUp-To-Bash-Prompt-HOWTO</tag>
  <item>
 Contém uma breve descrição sobre o que acontece no sistema 
-<prgn>GNU/Linux</prgn>, do momento que liga o seu computador até o login no 
+<command>GNU/Linux</command>, do momento que liga o seu computador até o login no 
 aviso do bash. Ele é organizado por pacotes para torna-lo 
 fácil para pessoas que desejam construir um sistema através do código 
 fonte. Entendendo isto será útil quando precisar resolver problemas ou 
@@ -330,14 +330,14 @@ configurar o seu sistema.
 
 <tag>Installation-HOWTO</tag>
  <item>
-Este documento descreve como obter e instalar o software <prgn>GNU/Linux</prgn>. 
-Ele é o primeiro documento que um novo usuário <prgn>GNU/Linux</prgn> dev ler 
+Este documento descreve como obter e instalar o software <command>GNU/Linux</command>. 
+Ele é o primeiro documento que um novo usuário <command>GNU/Linux</command> dev ler 
 para iniciar no sistema. 
 
 <tag>INFO-SHEET</tag>
  <item>
 Este documento oferece informações básicas sobre o sistema operacional 
-<prgn>GNU/Linux</prgn>, incluindo uma explicação sobre o sistema, uma lista 
+<command>GNU/Linux</command>, incluindo uma explicação sobre o sistema, uma lista 
 de características, alguns requerimentos e alguns recursos.  
 
 <tag>Kernel-HOWTO</tag>
@@ -354,12 +354,12 @@ local e um servidor NFS remoto conectado via um cabo paralelo.
 <tag>Reading-List-HOWTO</tag>
  <item>
 Lista os livros mais valiosos para uma pessoa que deseja aprender o 
-sistema operacional Unix (especialmente o <prgn>GNU/Linux</prgn>). 
+sistema operacional Unix (especialmente o <command>GNU/Linux</command>). 
 
 <tag>Software-Building-HOWTO</tag>
  <item>
 Guia compreensivo de como construir e instalar distribuições 
-de softwares "genéricas" UNIX sob o <prgn>GNU/Linux</prgn>. Adicionalmente 
+de softwares "genéricas" UNIX sob o <command>GNU/Linux</command>. Adicionalmente 
 existe alguma cobertura dos binários pré-empacotados "rpm" e "deb".  
 
 <tag>Tips-HOWTO</tag>
@@ -376,13 +376,13 @@ não técnica.
 <tag>User-Authentication-HOWTO</tag>
  <item>   
 Explica como as informações de usuário e grupo são armazenadas e como 
-os usuários são autenticados no sistema <prgn>GNU/Linux</prgn> (PAM) e 
+os usuários são autenticados no sistema <command>GNU/Linux</command> (PAM) e 
 como melhorar a autenticação de seu sistema. 
 
 </taglist>
 
 
-<sect2>Adaptação do <prgn>GNU/Linux</prgn> para idiomas específicos
+<sect2>Adaptação do <command>GNU/Linux</command> para idiomas específicos
  <p>
 <taglist>
 <tag>Belarusian-HOWTO</tag>
@@ -391,21 +391,21 @@ Adicionando o suporte ao idioma Belarusian no Linux.
 
 <tag>Belgian-HOWTO</tag>
  <item>
-Este documento ensina a configuração do sistema <prgn>GNU/Linux</prgn> para o 
+Este documento ensina a configuração do sistema <command>GNU/Linux</command> para o 
 idioma Belgo.  
 
 <tag>Chinese-HOWTO</tag>
  <item>
-Este documento explica como configurar o idioma Chinês no <prgn>GNU/Linux</prgn>.  
+Este documento explica como configurar o idioma Chinês no <command>GNU/Linux</command>.  
 
 <tag>Cyrillic-HOWTO</tag>
  <item>
-Explica como utilizar o <prgn>GNU/Linux</prgn> com o idioma Russo.
+Explica como utilizar o <command>GNU/Linux</command> com o idioma Russo.
 
 <tag>Danish-HOWTO</tag>
  <item>
-Descreve como configurar o <prgn>GNU/Linux</prgn> e vários aplicativos 
-<prgn>GNU/Linux</prgn> para este idioma. 
+Descreve como configurar o <command>GNU/Linux</command> e vários aplicativos 
+<command>GNU/Linux</command> para este idioma. 
 
 <tag>Esperanto-HOWTO</tag>
  <item>
@@ -413,11 +413,11 @@ Configuração do GNU/Linux para o idioma Esperanto.
 
 <tag>Finnish-HOWTO</tag>
  <item>
-Descreve como usar o sistema <prgn>GNU/Linux</prgn> no idioma Finlandês.  
+Descreve como usar o sistema <command>GNU/Linux</command> no idioma Finlandês.  
 
 <tag>Francophones-HOWTO</tag>
  <item>
-Descreve como usar o <prgn>GNU/Linux</prgn> no idioma Francês. 
+Descreve como usar o <command>GNU/Linux</command> no idioma Francês. 
 
 <tag>German-HOWTO</tag>
  <item>
@@ -458,7 +458,7 @@ Configurando o sistema GNU/Linux para o idioma Espanhol.
 
 <tag>Thai-HOWTO</tag>
  <item>
-Descreve como usar o idioma Tailandês com o <prgn>GNU/Linux</prgn>. 
+Descreve como usar o idioma Tailandês com o <command>GNU/Linux</command>. 
 
 <tag>Turkish-HOWTO</tag>
  <item>
@@ -494,7 +494,7 @@ um alto nível de segurança dos dados armazenados.
 <tag>Multi-Disk-HOWTO</tag>
  <item>
 Este documento descreve como utilizar da melhor maneira múltiplos discos 
-e partições em um sistema <prgn>GNU/Linux</prgn>. Muitos dos detalhes 
+e partições em um sistema <command>GNU/Linux</command>. Muitos dos detalhes 
 descritos aqui podem também ser aplicados a outros sistemas operacionais 
 multi-tarefas. 
  
@@ -510,7 +510,7 @@ sistema operacional primário.
 <tag>Optical-Disk-HOWTO</tag>
  <item>
 Este documento descreve a instalação e configuração de unidades de disco 
-óticos para <prgn>GNU/Linux</prgn>. 
+óticos para <command>GNU/Linux</command>. 
 
 <tag>Root-RAID-HOWTO</tag>
  <item>
@@ -522,11 +522,11 @@ acompanhadas do patch nos kernels das séries 2.0.37, 2.2x e 2.3x.
 <tag>SCSI-Programming-HOWTO</tag>
  <item>
 Este documento fala sobre a programação da interface SCSI genérica no 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 <tag>UMSDOS-HOWTO</tag>
  <item>
-O UMSDOS é um sistema de arquivos <prgn>GNU/Linux</prgn>. Ele oferece uma 
+O UMSDOS é um sistema de arquivos <command>GNU/Linux</command>. Ele oferece uma 
 alternativa do sistema de arquivos EXT2. Sua maior característica é a 
 coexistência com os dados DOS existentes, compartilhando a mesma 
 partição. 
@@ -540,19 +540,19 @@ partição.
 <tag>C-editing-with-VIM-HOWTO</tag>
  <item>
 Oferece dicas para editar arquivos desta linguagem e com sintaxe similar como 
-<prgn>C++</prgn> e <prgn>Java</prgn>.
+<command>C++</command> e <command>Java</command>.
 
 <tag>Emacs-Beginner-HOWTO</tag>
  <item>
-Este documento introduz os usuários <prgn>GNU/Linux</prgn> no editor 
+Este documento introduz os usuários <command>GNU/Linux</command> no editor 
 Emacs. Ele assume o mínimo de conhecimento com o editor de 
-texto <prgn>vi</prgn> ou similar. 
+texto <command>vi</command> ou similar. 
  
 <tag>Emacspeak-HOWTO</tag>
  <item>
 Este documento descreve como um usuário pode usar o sistema com um 
 sintetizador de voz  no lugar do monitor de vídeo. Ele descreve  como 
-ter o <prgn>GNU/Linux</prgn> rodando em seu PC e como configura-lo para 
+ter o <command>GNU/Linux</command> rodando em seu PC e como configura-lo para 
 falar. Ele também sugere como aprender sobre o Unix. 
 
 <tag>HOWTO-HOWTO</tag>
@@ -563,14 +563,14 @@ aumentarem sua produtividade.
 <tag>LinuxDoc+Emacs+Ispell-HOWTO</tag>
  <item>
 Este documento é de interesse de escritores e tradutores dos HOWTO's do 
-<prgn>GNU/Linux</prgn> ou qualquer outro papel para o Projeto de Documentação 
+<command>GNU/Linux</command> ou qualquer outro papel para o Projeto de Documentação 
 do GNU/Linux. Ele oferece dicas sobre o uso de ferramentas incluindo o Emacs 
 e Ispell.
 
 <tag>TeTeX-HOWTO</tag>
  <item>
 Este documento cobre a instalação básico e uso das implementações 
-TeTeX, TeX e LaTeX sob as maiores distribuições de <prgn>GNU/Linux</prgn> 
+TeTeX, TeX e LaTeX sob as maiores distribuições de <command>GNU/Linux</command> 
 Inglesas e pacotes auxiliares como o GhostScript. 
 
 <tag>Vim-HOWTO</tag>
@@ -590,7 +590,7 @@ do código do programa. A produtividade do programador aumenta de
 <taglist>
 <tag>3Dfx-HOWTO</tag>
  <item>
-Este documento descreve o suporte do <prgn>GNU/Linux</prgn> aos chips 
+Este documento descreve o suporte do <command>GNU/Linux</command> aos chips 
 aceleradores 3Dfx. Também lista alguns hardwares suportados, 
 descreve como configurar os drivers e responde perguntas freqüêntes. 
 
@@ -605,13 +605,13 @@ Descreve como instalar o Linux em notebooks Acer.
 <tag>Busmouse-HOWTO</tag>
  <item>
 Descreve como instalar, configurar e usar um barramento de mouse sob o 
-<prgn>GNU/Linux</prgn>. Ele contém uma lista de barramentos suportados e 
+<command>GNU/Linux</command>. Ele contém uma lista de barramentos suportados e 
 tenta responder as questões mais freqüêntes relacionadas ao assunto. 
 
 <tag>CDServer-HOWTO</tag>
  <item>
-Oferece as dicas e passos para criar um servidor de CD no <prgn>Linux</prgn> 
-para serem compartilhados via rede com <prgn>Windows</prgn> e outros sistemas 
+Oferece as dicas e passos para criar um servidor de CD no <command>Linux</command> 
+para serem compartilhados via rede com <command>Windows</command> e outros sistemas 
 operacionais. 
 
 <tag>CPU-Design-HOWTO</tag>
@@ -621,24 +621,24 @@ interessante para estudantes de computação e outros profissionais da área.
 
 <tag>Ftape-HOWTO</tag>
  <item>
-Este HOWTO discute o controlador de unidades tape para <prgn>GNU/Linux</prgn>. 
+Este HOWTO discute o controlador de unidades tape para <command>GNU/Linux</command>. 
 
 <tag>HP-HOWTO</tag>
  <item>
 Este documento descreve o uso dos produtos disponíveis no catálogo 
-Hewlett-Packard (HP) com o <prgn>GNU/Linux</prgn> e alguns programas 
+Hewlett-Packard (HP) com o <command>GNU/Linux</command> e alguns programas 
 free software. Ele explica o estado do suporte para hardwares, softwares 
 utilizados e respostas para alguns questões freqüêntes. 
  
 <tag>Hardware-HOWTO</tag>
  <item>
 Este documento lista a maioria dos hardware suportados pelo 
-<prgn>GNU/Linux</prgn> e lhe ajuda a localizar os controladores necessários. 
+<command>GNU/Linux</command> e lhe ajuda a localizar os controladores necessários. 
  
 <tag>Jaz-Drive-HOWTO</tag>
  <item>
 Este HOWTO cobre a configuração e uso dos drivers Iomega 1Gb e 2Gb sob o 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
  
 <tag>Kodak-Digitalcam-HOWTO</tag>
  <item>
@@ -652,7 +652,7 @@ estações de encaixe. Freqüentemente seus hardwares são mais limitados
 (i.e. espaço em disco, velocidade da CPU) então sua performance se 
 torna menor. Em algumas instâncias, os notebooks podem se tornar uma 
 substituição ao sistema desktop. O suporte de hardware para o 
-<prgn>GNU/Linux</prgn> (e outros sistemas operacionais) é algumas vezes 
+<command>GNU/Linux</command> (e outros sistemas operacionais) é algumas vezes 
 mais limitado (i.e. chips gráficos, modens internos). Os Notebooks 
 freqüentemente utilizam hardware especializado, no qual a localização 
 de um controlador adequado pode se tornar uma dificuldade. Os Notebooks 
@@ -667,13 +667,13 @@ sobre múltiplas placas seriais.
 
 <tag>PCI-HOWTO</tag>
  <item>
-Informações sobre o que funciona com o <prgn>GNU/Linux</prgn> e placas 
-<prgn>PCI</prgn> e que o não funciona. 
+Informações sobre o que funciona com o <command>GNU/Linux</command> e placas 
+<command>PCI</command> e que o não funciona. 
 
 <tag>Plug-and-Play-HOWTO</tag>
  <item>
 Este documento ajuda a compreensão e operação do Plug-and-Play e 
-como incluir o suporte do seu sistema <prgn>GNU/Linux</prgn> ao Plug-and-Play. 
+como incluir o suporte do seu sistema <command>GNU/Linux</command> ao Plug-and-Play. 
 
 <tag>Serial-HOWTO</tag>
  <item>
@@ -691,27 +691,27 @@ texto, seus respectivos HOWTO's devem ser primeiramente consultados.
 <tag>Serial-Programming-HOWTO</tag>
  <item>
 Explica como programar comunicações com dispositivos através de uma 
-porta serial em um computador com o <prgn>GNU/Linux</prgn>. 
+porta serial em um computador com o <command>GNU/Linux</command>. 
 
 <tag>UPS-HOWTO</tag>
  <item>
 Este documento te ajudará a conectar um uninterruptable power supply 
-(No Break) em seu computador <prgn>GNU/Linux</prgn>... se tiver a sorte de 
+(No Break) em seu computador <command>GNU/Linux</command>... se tiver a sorte de 
 possuir um...
 
 <tag>Wacom-Tablet-HOWTO</tag>
  <item>
-Instalação do (não somente) Wacom graphic tablets sob o <prgn>GNU/Linux</prgn> 
+Instalação do (não somente) Wacom graphic tablets sob o <command>GNU/Linux</command> 
 e  / ou xfree86. 
  
 <tag>Wearable-HOWTO</tag>
  <item>
-Computação móvel com <prgn>GNU/Linux</prgn>. 
+Computação móvel com <command>GNU/Linux</command>. 
  
 <tag>Winmodems-and-Linux-HOWTO</tag>
  <item>
 Este documento contém detalhes sobre a configuração de Winmodems no 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -733,7 +733,7 @@ Oferece uma visão do servidor Web Apache e projetos relacionados.
 <tag>Commercial-HOWTO</tag>
  <item>
 Este documento contém uma listagem de programas comerciais e aplicações 
-que são oferecidas para o <prgn>GNU/Linux</prgn> 
+que são oferecidas para o <command>GNU/Linux</command> 
 
 <tag>Glibc2-HOWTO</tag>
  <item>
@@ -747,7 +747,7 @@ Explica como utilizar o sistema de gerenciamento de pacotes RPM.
 <tag>Program-Library-HOWTO</tag>
  <item>
 Este documento para programadores discute como criar e usar bibliotecas 
-no <prgn>GNU/Linux</prgn>. Estas incluem bibliotecas estáticas, bibliotecas 
+no <command>GNU/Linux</command>. Estas incluem bibliotecas estáticas, bibliotecas 
 compartilhadas e bibliotecas carregadas dinamicamente. 
 
 <tag>Secure-Programs-HOWTO</tag>
@@ -778,15 +778,15 @@ Este documento descreve como usar o software RAID sob o GNU/Linux.
 Ele endereça uma versão específica da camada de software do RAID, 
 nomeada camada RAID 0.90, feita por Ingo Molnar e outros. Esta é a 
 camada RAID que será padronizada no Linux-2.4, e também é a versão 
-usada por kernels 2.2 do <prgn>GNU/Linux</prgn> vendidos por alguns 
+usada por kernels 2.2 do <command>GNU/Linux</command> vendidos por alguns 
 vendedores. O suporte RAID 0.90 está disponível com patches para os 
-kernels do 2.0 e 2.2 do <prgn>GNU/Linux</prgn> e também é considerado 
+kernels do 2.0 e 2.2 do <command>GNU/Linux</command> e também é considerado 
 ser mais estável que o antigo suporte RAID já incluído nestes kernels. 
  
 <tag>Software-Release-Practice-HOWTO</tag>
  <item>
 Este documento descreve boas práticas de lançamento para o projeto 
-de código-aberto <prgn>GNU/Linux</prgn>. Seguindo estas práticas, será 
+de código-aberto <command>GNU/Linux</command>. Seguindo estas práticas, será 
 fácil e possível para os usuários construir seu código e usa-lo, e 
 para outros desenvolvedores entender seu código e cooperar com você 
 para melhora-lo. Este documento deve ser lido por desenvolvedores 
@@ -809,7 +809,7 @@ existentes.
  <item>
 Este documento descreve o MIniLOader, um programa para sistemas baseados 
 na arquitetura Alpha que pode ser usado para inicializar a máquina e 
-carregar o <prgn>GNU/Linux</prgn>. O Linux Miniloader do Alpha (seu nome 
+carregar o <command>GNU/Linux</command>. O Linux Miniloader do Alpha (seu nome 
 completo) é também conhecido como MILO.
  
 <tag>MIPS-HOWTO</tag>
@@ -822,7 +822,7 @@ outro lugar.
  
 <tag>SRM-HOWTO</tag>
  <item>
-Este documento descreve como inicializar no <prgn>Linux/Alpha</prgn> 
+Este documento descreve como inicializar no <command>Linux/Alpha</command> 
 usando o console SRM, que é a firmware de console também usada para 
 inicializar o Unix Compaq Tru64 (também conhecido com Digital Unix e 
 OSF/1) e OpenVMS. 
@@ -837,7 +837,7 @@ OSF/1) e OpenVMS.
  <item>
 Este documento descreve como programar em linguagem Assembler usando 
 ferramentas de programação livres, focalizando-se no desenvolvimento 
-para ou do Sistema Operacional <prgn>GNU/Linux</prgn>, mais na plataforma 
+para ou do Sistema Operacional <command>GNU/Linux</command>, mais na plataforma 
 IA-32 (i386). 
 
 <tag>Bash-Prog-Intro-HOWTO</tag>
@@ -850,10 +850,10 @@ shell scripts. Ele não tem a intenção de ser uma documento avançado.
 Discute os métodos para evitar problemas de memória no C++ e também 
 te ajudará a programar corretamente na linguagem C++. As informações 
 contidas neste documento se aplicam a todos os sistemas operacionais 
-que são <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, <prgn>BeOS</prgn>, 
-<prgn>Apple Macintosh OS</prgn>, <prgn>Windows 95/98/NT/2000</prgn>, 
-<prgn>OS/2</prgn>, <prgn>Sistemas IBM</prgn> (MVS, AS/400, etc...), 
-<prgn>VAX VMS</prgn>, <prgn>Novell Netware</prgn>, todos os tipos de 
+que são <command>GNU/Linux</command>, <command>DOS</command>, <command>BeOS</command>, 
+<command>Apple Macintosh OS</command>, <command>Windows 95/98/NT/2000</command>, 
+<command>OS/2</command>, <command>Sistemas IBM</command> (MVS, AS/400, etc...), 
+<command>VAX VMS</command>, <command>Novell Netware</command>, todos os tipos de 
 Unix como o Solaris, HPUX, AIX, SCO,  Sinix, BSD, etc., e todos os 
 outros sistemas operacionais que suportam o compilador "C++" 
 (quase todos os sistemas operacionais deste planeta!).
@@ -868,7 +868,7 @@ sistemas operacionais do planeta!
 <tag>DB2-HOWTO</tag>
  <item>
 Este documento explica como instalar o DB2 Universal Database versão 7.1 
-para <prgn>GNU/Linux</prgn> nas seguintes distribuições baseadas no 
+para <command>GNU/Linux</command> nas seguintes distribuições baseadas no 
 Intel x86: Caldera Caldera OpenLinux 2.4, Debian, Red Hat Linux 6.2, SuSE 
 Linux 6.2 e 6.3, e TurboLinux 6.0. Após instalar o DB2, você pode usar um 
 banco de dados de exemplo, conectar-se ao servidor DB2 de uma máquina 
@@ -876,7 +876,7 @@ remota e administrar o DB2 usando o DB2 Control Center.
 
 <tag>Enterprise-Java-for-Linux-HOWTO</tag>
  <item>
-Como configurar um ambiente Java Enterprise no <prgn>GNU/Linux</prgn> 
+Como configurar um ambiente Java Enterprise no <command>GNU/Linux</command> 
 incluindo o Java Development Kit, um servidor Web, suportando 
 Java servlets, acessando um banco de dados via JDBC e suportado 
 Enterprise Java Beans (EJBs). 
@@ -884,20 +884,20 @@ Enterprise Java Beans (EJBs).
 <tag>GCC-HOWTO</tag>
  <item>
 Este documento explica como configurar o compilador GNU C e bibliotecas 
-de desenvolvimento sob o <prgn>GNU/Linux</prgn> e te dá uma visão de compilação, 
+de desenvolvimento sob o <command>GNU/Linux</command> e te dá uma visão de compilação, 
 linkagem, execução e programas de depuração.  
 
 <tag>IngresII-HOWTO</tag>
  <item>
 Este documento cobre a instalação do Ingres II Relational Database 
-management System no <prgn>GNU/Linux</prgn>. Ele cobre a configuração 
+management System no <command>GNU/Linux</command>. Ele cobre a configuração 
 de ambos o Kit de desenvolvimento e versão completa do Ingres. 
 Algumas seções explicam como iniciar o uso do Ingres. 
 
 <tag>Oracle-7-HOWTO</tag>
  <item>
 Um guia para instalar e configurar o Servidor do Banco de Dados Oracle em 
-um sistema <prgn>GNU/Linux</prgn>.
+um sistema <command>GNU/Linux</command>.
  
 <tag>Oracle-8-HOWTO</tag>
  <item>
@@ -932,7 +932,7 @@ Servidor de banco de dados Web.
 
 <tag>TclTk-HOWTO</tag>
  <item>
-Este documento descreve o uso do Tcl no <prgn>GNU/Linux</prgn>, uma linguagem 
+Este documento descreve o uso do Tcl no <command>GNU/Linux</command>, uma linguagem 
 de scripting. Ela é uma linguagem interpretada fácil de aprender que usa 
 pouca digitação para obter um alto nível de programação e desenvolvimento 
 rápido de aplicativos (RAD). O Tk toolkit é um ambiente de programação 
@@ -973,12 +973,12 @@ quatro métodos para realizar processamento paralelo que estão disponíveis
 aos usuários do sistema operacional GNU/Linux: Sistemas Linux SMP, 
 Sistemas Linux em Clusters de rede, execução paralela usando as 
 instruções multimídia do processador (i.e. MMX) e processadores 
-(paralelos) conectados no sistema <prgn>GNU/Linux</prgn>. 
+(paralelos) conectados no sistema <command>GNU/Linux</command>. 
 
 <tag>SMP-HOWTO</tag>
  <item>
 Este HOWTO revisa principais assuntos (e eu espero que soluções) 
-relacionadas com as configurações SMP sob o <prgn>GNU/Linux</prgn>.  
+relacionadas com as configurações SMP sob o <command>GNU/Linux</command>.  
 
 </taglist>
 
@@ -992,28 +992,28 @@ Como usar e configurar corretamente tipos de fontes no ambiente GNU/Linux.
 
 <tag>Framebuffer-HOWTO</tag>
  <item>
-Descreve como utilizar dispositivos framebuffer no <prgn>GNU/Linux</prgn> 
+Descreve como utilizar dispositivos framebuffer no <command>GNU/Linux</command> 
 com uma variedade de plataformas. Isto também inclui como ajustar 
 telas multi-headed. 
 
 <tag>Keyboard-and-Console-HOWTO</tag>
  <item>
 Este documento contém algumas informações sobre o teclado e console no 
-<prgn>GNU/Linux</prgn>, e o uso de caracteres não-ASCII. Ele descreve o 
-<prgn>GNU/Linux</prgn> 2.0. 
+<command>GNU/Linux</command>, e o uso de caracteres não-ASCII. Ele descreve o 
+<command>GNU/Linux</command> 2.0. 
 
 <tag>Text-Terminal-HOWTO</tag>
  <item>
 Explica o que são os terminais texto, como funcionam, como instalar e 
 configura-los e oferece muitos detalhes de como conserta-los. Se não tiver 
 um manual do terminal, poderá ser de grande ajuda. Enquanto é escrito 
-para terminais reais no sistema <prgn>GNU/Linux</prgn> alguns deles também 
+para terminais reais no sistema <command>GNU/Linux</command> alguns deles também 
 são aplicáveis a emulação de terminal e pode ser útil para sistemas 
 não Linux. 
 
 <tag>Unicode-HOWTO</tag>
  <item>
-Explica como alterar seu sistema <prgn>GNU/Linux</prgn> para utilizar a 
+Explica como alterar seu sistema <command>GNU/Linux</command> para utilizar a 
 codificação de texto baseada no UTF-8. - 
 
 </taglist>
@@ -1033,7 +1033,7 @@ pseudo-terminais pelo software cliente.
 <tag>XFree86-HOWTO</tag>
  <item>
 Este documento descreve como obter, instalar e configurar a versão 
-4.0 do XFree86 do X Window System (X11R6) para sistemas <prgn>GNU/Linux</prgn>. 
+4.0 do XFree86 do X Window System (X11R6) para sistemas <command>GNU/Linux</command>. 
 Ele é um guia passo a passo para configurar o XFree86 em seu sistema.  
  
 <tag>XFree86-Touch-Screen-HOWTO</tag>
@@ -1049,7 +1049,7 @@ XFree86.
 <tag>XWindow-User-HOWTO</tag>
  <item>
 Este documento contém detalhes sobre a configuração do ambiente 
-X Windows para o usuário <prgn>GNU/Linux</prgn>, também como o 
+X Windows para o usuário <command>GNU/Linux</command>, também como o 
 administrador de sistemas iniciantes tentando aprender os mais 
 diversos tipos de opções de configuração e detalhes do X Window. 
 É assumido um conhecimento básico de configurações de software e 
@@ -1069,18 +1069,18 @@ monitores multimídia com as extensões Xinerama.
 <tag>Consultants-HOWTO</tag>
  <item>
 Contém uma lista de empresas e consultores oferecendo suporte comercial 
-relacionado ao sistema <prgn>GNU/Linux</prgn>. 
+relacionado ao sistema <command>GNU/Linux</command>. 
 
 <tag>Online-Troubleshooting-HOWTO</tag>
  <item>
-Este documento direciona usuários <prgn>GNU/Linux</prgn> a lugares 
+Este documento direciona usuários <command>GNU/Linux</command> a lugares 
 disponíveis na Internet que oferecem acesso a uma vasta quantidade de 
 documentos úteis relacionados ao sistema em situações de problema. 
 
 <tag>User-Group-HOWTO</tag>
  <item>
 Este documento descreve como fundar, manter e organizar um grupo de 
-usuários <prgn>GNU/Linux</prgn>. 
+usuários <command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -1091,15 +1091,15 @@ usuários <prgn>GNU/Linux</prgn>.
 <tag>DOS-Win-to-Linux-HOWTO</tag>
  <item>
 Este documento tem a intenção de ajudar o leitor traduzir seu conhecimento 
-do DOS e Windows para o ambiente <prgn>GNU/Linux</prgn>, também 
+do DOS e Windows para o ambiente <command>GNU/Linux</command>, também 
 como oferecer dicas de manipulação de arquivos e utilização de recursos 
 entre os dois sistemas. 
 
 <tag>VMS-to-Linux-HOWTO</tag>
  <item>
 Este documento é escrito para todos aqueles que tem usado o VMS e agora 
-precisam migrar para o <prgn>GNU/Linux</prgn> um clone gratuito do 
-<prgn>UNIX</prgn>. A transição é feita (felizmente) através de uma 
+precisam migrar para o <command>GNU/Linux</command> um clone gratuito do 
+<command>UNIX</command>. A transição é feita (felizmente) através de uma 
 comparação passo a passo de comandos e ferramentas existentes. 
 
 </taglist>
@@ -1111,16 +1111,16 @@ comparação passo a passo de comandos e ferramentas existentes.
 <tag>Astronomy-HOWTO</tag>
  <item>
 Este documento compartilha dicas e recursos para utilizar soluções do 
-<prgn>GNU/Linux</prgn> no mundo da Astronomia. 
+<command>GNU/Linux</command> no mundo da Astronomia. 
 
 <tag>CD-Writing-HOWTO</tag>
  <item>
-Este documento explica como gravar CD-ROMs sob o <prgn>GNU/Linux</prgn>.
+Este documento explica como gravar CD-ROMs sob o <command>GNU/Linux</command>.
  
 <tag>CDROM-HOWTO</tag>
  <item>
 Este documento descreve como instalar, configurar e usar uma unidade de 
-CD-ROM sob o <prgn>GNU/Linux</prgn>. Ele lista hardwares suportados e 
+CD-ROM sob o <command>GNU/Linux</command>. Ele lista hardwares suportados e 
 responde a um número de questões freqüêntes. 
  
 <tag>CVS-RCS-HOWTO</tag>
@@ -1134,12 +1134,12 @@ CVS.
 <tag>DVD-Playing-HOWTO</tag>
  <item>
 Uma explicação fácil de seguir de como obter seu DVD funcionando no 
-<prgn>GNU/Linux</prgn>.  
+<command>GNU/Linux</command>.  
 
 <tag>Diskless-HOWTO</tag>
  <item>
 Este documento descreve como configurar uma máquina sem disco rígido no 
-<prgn>GNU/Linux</prgn>.
+<command>GNU/Linux</command>.
 
 <tag>Java-Decompiler-HOWTO</tag>
  <item>
@@ -1156,25 +1156,25 @@ Este HOWTO descreve como ativar o SO GNU/Linux no NC Sun Java Station.
  <item>
 Este documento descreve como usar o sistema Linux RedHat para 
 instalar rapidamente o sistema em um grande número de máquinas 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
  
 <tag>Kiosk-HOWTO</tag>
  <item>
 Este documento oferece um guia para ajustar um kiosk baseado em WWW 
-usando o <prgn>GNU/Linux</prgn>, X11R6, FVWM2, Netscape Navigator 4.X e um 
+usando o <command>GNU/Linux</command>, X11R6, FVWM2, Netscape Navigator 4.X e um 
 trackball customizado. 
 
 <tag>Linux-From-Scratch-HOWTO</tag>
  <item>
 Este documento descreve o processo de criar seu próprio sistema 
-<prgn>GNU/Linux</prgn> do nada através de uma distribuição já instalada, 
+<command>GNU/Linux</command> do nada através de uma distribuição já instalada, 
 usando nada mais que o código fonte dos softwares que precisamos. 
 
 <tag>MP3-HOWTO</tag>
  <item>
 Este documento descreve o hardware, software e processos necessários, 
 para encodificar, tocar, mixar e decodificar arquivos de som MP3 sob 
-o <prgn>GNU/Linux</prgn>.
+o <command>GNU/Linux</command>.
 
 <tag>Majordomo-MajorCool-HOWTO</tag>
  <item>
@@ -1196,42 +1196,42 @@ PGP/MIME como definido na RFC 2015 e em outros sistemas operacionais.
 <tag>NC-HOWTO</tag>
  <item>
 Este documento tenta descrever como colocar uma Netstation da IBM em 
-sua rede local usando um computador <prgn>GNU/Linux</prgn> como servidor. 
+sua rede local usando um computador <command>GNU/Linux</command> como servidor. 
  
 <tag>NCD-HOWTO</tag>
  <item>
 Este documento tenta descreve como colocar uma ThinSTAR NCD em sua 
-rede local usando um computador <prgn>GNU/Linux</prgn> como servidor.  
+rede local usando um computador <command>GNU/Linux</command> como servidor.  
 
 <tag>PalmOS-HOWTO</tag>
  <item>
 Este documento explica como usar seu dispositivo Palm OS com um 
-sistema <prgn>GNU/Linux</prgn>. Este HOWTO não aborda somente o 
-sistema operacional <prgn>GNU/Linux</prgn>.  
+sistema <command>GNU/Linux</command>. Este HOWTO não aborda somente o 
+sistema operacional <command>GNU/Linux</command>.  
 
 <tag>Printing-HOWTO</tag>
  <item>
-Este é o Printing HOWTO do <prgn>GNU/Linux</prgn>, uma coleção de informações 
+Este é o Printing HOWTO do <command>GNU/Linux</command>, uma coleção de informações 
 sobre como gerar, ver, imprimir e enviar fax de tudo sob o 
-<prgn>GNU/Linux</prgn> (e outros UNIXes em geral). 
+<command>GNU/Linux</command> (e outros UNIXes em geral). 
 
 <tag>Printing-Usage-HOWTO</tag>
  <item>
 Descreve como usar o sistema de spooling oferecido pelo sistema 
-operacional <prgn>GNU/Linux</prgn>. Este HOWTO é um documento 
+operacional <command>GNU/Linux</command>. Este HOWTO é um documento 
 suplementar ao Linux Printing Setup, que discute a instalação 
-e configuração do sistema de impressão do <prgn>GNU/Linux</prgn>. 
+e configuração do sistema de impressão do <command>GNU/Linux</command>. 
 
 <tag>Psion-HOWTO</tag>
  <item>
-Este documento descreve como  usar Palmtops Psion com o <prgn>GNU/Linux</prgn>, 
+Este documento descreve como  usar Palmtops Psion com o <command>GNU/Linux</command>, 
 mas não cobre a execução do Linux no Palmtop Psion. Veja o projeto 
 <em>Linux 7k</em> em <url id="http://www.calcaria.net">.  
 
 <tag>Quake-HOWTO</tag>
  <item>
 Este documento explica como instalar, executar e corrigir problemas no 
-Quake, QuakeWorld e Quake II em um sistema <prgn>GNU/Linux</prgn> Intel.  
+Quake, QuakeWorld e Quake II em um sistema <command>GNU/Linux</command> Intel.  
  
 <tag>RedHat-CD-HOWTO</tag>
  <item>
@@ -1241,19 +1241,19 @@ na distribuição.
 
 <tag>Sound-HOWTO</tag>
  <item>
-Este documento descreve o suporte ao som no <prgn>GNU/Linux</prgn>, 
+Este documento descreve o suporte ao som no <command>GNU/Linux</command>, 
 arquiteturas de som suportadas e como incluir o suporte ao som no 
 kernel. Este documento também responde algumas questões freqüêntes 
-sobre o suporte ao som no <prgn>GNU/Linux</prgn>. 
+sobre o suporte ao som no <command>GNU/Linux</command>. 
  
 <tag>Sound-Playing-HOWTO</tag>
  <item>
 Este documento lista aplicativos que podem tocar vários formatos de 
-sons no <prgn>GNU/Linux</prgn>. 
+sons no <command>GNU/Linux</command>. 
 
 <tag>VME-HOWTO</tag>
  <item>
-Este documento mostra como executar o <prgn>GNU/Linux</prgn> em seu 
+Este documento mostra como executar o <command>GNU/Linux</command> em seu 
 Pentium VMEbus e outros barramentos PCI baseados no design de 
 processador VMEbus. 
 
@@ -1265,15 +1265,15 @@ processador VMEbus.
 <taglist>
 <tag>AX25-HOWTO</tag>
  <item>
-Talvez o <prgn>GNU/Linux</prgn> seja o único sistema operacional no mundo 
+Talvez o <command>GNU/Linux</command> seja o único sistema operacional no mundo 
 que possui suporte nativo e padrão ao protocolo de pacotes de rádio 
 AX.25 usado por Operadores de Rádio Amador ao redor do mundo. Este 
 documento explica como instalar e configurar este suporte. 
  
 <tag>Adv-Routing-HOWTO</tag>
  <item>
-Roteamento avançado. Explicações sobre o <prgn>iproute2</prgn>, <prgn>traffic 
-shaper</prgn> e <prgn>netfilter</prgn>. 
+Roteamento avançado. Explicações sobre o <command>iproute2</command>, <command>traffic 
+shaper</command> e <command>netfilter</command>. 
 
 <tag>Bandwidth-Limiting-HOWTO</tag>
  <item>
@@ -1302,7 +1302,7 @@ comprometer a segurança.
 <tag>Cyrus-IMAP</tag>
  <item>
 Um guia compreensivo para a instalação, configuração e execução do 
-<prgn>Cyrus Imap</prgn> e <prgn>Cyrus SASL</prgn>.
+<command>Cyrus Imap</command> e <command>Cyrus SASL</command>.
 
 
 <tag>DNS-HOWTO</tag>
@@ -1312,7 +1312,7 @@ Como configurar seu servidor DNS em pouco tempo.
 <tag>Diald-HOWTO</tag>
  <item>
 Este documento mostra alguns cenários típicos para iniciar o uso do 
-<prgn>Diald</prgn> facilmente. Este cenários incluem uma conexão de um 
+<command>Diald</command> facilmente. Este cenários incluem uma conexão de um 
 computador local a um provedor usando o PPP através de um modem sem usar 
 o pon/poff ou ppp-pon/ppp-off para um servidor proxy/firewall com 
 diferentes conexões Internet através de vários provedores. 
@@ -1331,46 +1331,46 @@ velocidade. Descreve como instalar, configurar depurar.
 <tag>Ethernet-HOWTO</tag>
  <item>
 Este documento é uma coleção de dados sobre dispositivos Ethernet que podem 
-ser usados no <prgn>GNU/Linux</prgn> e como configura-los. Note que este 
+ser usados no <command>GNU/Linux</command> e como configura-los. Note que este 
 HOWTO está focalizado no hardware e aspectos de baixo nível de controladores 
 das placas ethernet e não cobre assuntos de software como os programas 
-<prgn>ifconfig</prgn> e <prgn>route</prgn> (veja o Network-HOWTO se 
+<command>ifconfig</command> e <command>route</command> (veja o Network-HOWTO se 
 procura por estes materiais). 
 
 <tag>Firewall-HOWTO</tag>
  <item>
 Descreve os sistemas básicos de firewall e alguns detalhes de como 
 ajustar firewalls proxy e de filtragem de pacotes em sistemas baseados 
-no <prgn>GNU/Linux</prgn>. 
+no <command>GNU/Linux</command>. 
 
 <tag>IP-Masquerade-HOWTO</tag>
  <item>
 Este documento descreve como ativar a característica IP Masquerade no 
-<prgn>GNU/Linux</prgn>. O IP Masquerade é uma forma do Network Address 
+<command>GNU/Linux</command>. O IP Masquerade é uma forma do Network Address 
 Translation ou NAT que permite que computadores conectados internamente 
 que não tem um ou mais endereços Internet registrados ter a habilidade 
-de se comunicar com a Internet via uma única máquina <prgn>GNU/Linux</prgn> 
+de se comunicar com a Internet via uma única máquina <command>GNU/Linux</command> 
 com um único endereço IP. 
  
 <tag>IPCHAINS-HOWTO</tag>
  <item>
 Descreve como obter, instalar e configurar o programa avançado de firewall 
-para o <prgn>GNU/Linux</prgn> e algumas idéia de como usa-lo. 
+para o <command>GNU/Linux</command> e algumas idéia de como usa-lo. 
  
 <tag>IPX-HOWTO</tag>
  <item>
 Descreve como obter, instalar e configurar as várias ferramentas disponíveis 
-para o sistema operacional <prgn>GNU/Linux</prgn> para utilizar o suporte 
-do protocolo IPX no kernel do <prgn>GNU/Linux</prgn>. 
+para o sistema operacional <command>GNU/Linux</command> para utilizar o suporte 
+do protocolo IPX no kernel do <command>GNU/Linux</command>. 
  
 <tag>Infrared-HOWTO</tag>
  <item>
-Uma introdução ao <prgn>GNU/Linux</prgn> e dispositivos infra-vermelho 
+Uma introdução ao <command>GNU/Linux</command> e dispositivos infra-vermelho 
 e como usar programas oferecidos pelo projeto Linux/IrDA. 
  
 <tag>ISP-Hookup-HOWTO</tag>
  <item>
-Descreve como usar o <prgn>GNU/Linux</prgn> para conectar a um Provedor 
+Descreve como usar o <command>GNU/Linux</command> para conectar a um Provedor 
 Internet via modem dial-up via conexão TCP/IP. Também como 
 o procedimento de discagem inicial e estabelecimento de IP, 
 recebimento de email e news. 
@@ -1383,7 +1383,7 @@ pop3 e emails.
 <tag>Intranet-Server-HOWTO</tag>
  <item>
 Este documento descreve como configurar uma Intranet usando o 
-<prgn>GNU/Linux</prgn> como um servidor que se comunica com 
+<command>GNU/Linux</command> como um servidor que se comunica com 
 Unix, Netware, NT e Windows. 
 
 <tag>Java-CGI-HOWTO</tag>
@@ -1396,7 +1396,7 @@ CGI.
  <item>
 Informações sobre a instalação, configuração, execução e manutenção de um 
 Servidor LDAP (Lightweight Directory Access Protocol) em uma máquina 
-<prgn>GNU/Linux</prgn> é descrita neste documento. Existe também detalhes sobre 
+<command>GNU/Linux</command> é descrita neste documento. Existe também detalhes sobre 
 como criar bancos de dados LDAP, como atualizar e apagar informações no 
 banco de dados, como implementar roaming access e como usar o Livro de 
 Endereços do Netscape. 
@@ -1409,13 +1409,13 @@ servidor LDAP.
 <tag>Mail-Administrator-HOWTO</tag>
  <item>
 Este documento descreve a configuração e uso do Correio Eletrônico 
-(E-mail) sob o <prgn>GNU/Linux</prgn>. É primariamente mais indicado para 
+(E-mail) sob o <command>GNU/Linux</command>. É primariamente mais indicado para 
 administradores do que usuários. 
 
 <tag>Mail-User-HOWTO</tag>
  <item>
 Este documento é uma introdução ao mundo do Correio Eletrônico sob o 
-<prgn>GNU/Linux</prgn>
+<command>GNU/Linux</command>
 
 
 <tag>Masquerading-Simple-HOWTO</tag>
@@ -1444,7 +1444,7 @@ Descreve como fazer o Microsoft NetMeeting se integrar com o Linux.
 
 <tag>NIS-HOWTO</tag>
  <item>
-Este documento descreve como configurar o <prgn>GNU/Linux</prgn> como um 
+Este documento descreve como configurar o <command>GNU/Linux</command> como um 
 cliente NIS (YS) ou NIS+ e como instala-lo como um servidor NIS. 
 
 <tag>Network-boot-HOWTO</tag>
@@ -1456,19 +1456,19 @@ parcial do Diskless-howto).
 <tag>Net-HOWTO</tag>
  <item>
 Este documento cobre as área de software e tecnologias de rede no 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
     
 <tag>Networking-Overview-HOWTO</tag>
  <item>
 O propósito deste documento é lhe oferecer uma visão das capacidades de rede 
-do sistema operacional <prgn>GNU/Linux</prgn> e oferecer ponteiros para outros 
+do sistema operacional <command>GNU/Linux</command> e oferecer ponteiros para outros 
 documentos e detalhes de implementação. 
 
 <tag>PPP-HOWTO</tag>
  <item>
-Este documento mostra como conectar seu PC <prgn>GNU/Linux</prgn> a um servidor 
+Este documento mostra como conectar seu PC <command>GNU/Linux</command> a um servidor 
 PPP (Protocolo Ponto a Ponto), como usar o PPP para ligar duas redes e 
-oferece um método de configurar seu computador <prgn>GNU/Linux</prgn> como um 
+oferece um método de configurar seu computador <command>GNU/Linux</command> como um 
 servidor PPP. Este documento também oferece ajuda na solução de problemas 
 relacionados com o PPP. 
 
@@ -1500,7 +1500,7 @@ sistemas operacionais como Windows 9X, NT.
  <item>
 Este é o HOWTO SMB. Ele descreve como usar o protocolo Server 
 Message Block (SMB), também chamado de Session Message Block, 
-NetBIOS ou protocolo LanManager, com o <prgn>GNU/Linux</prgn> e 
+NetBIOS ou protocolo LanManager, com o <command>GNU/Linux</command> e 
 usando o Samba. 
 
 <tag>Securing-Domain-HOWTO</tag>
@@ -1513,9 +1513,9 @@ rede e configurações de segurança.
 <tag>Security-HOWTO</tag>
  <item>
 Este documento é uma visão geral dos assuntos de segurança que enfrente o 
-administrador de sistemas <prgn>GNU/Linux</prgn> Ele cobre a filosofia 
+administrador de sistemas <command>GNU/Linux</command> Ele cobre a filosofia 
 geral de segurança e um número de exemplos específicos de como 
-melhorar a segurança de seu sistema <prgn>GNU/Linux</prgn> Também estão 
+melhorar a segurança de seu sistema <command>GNU/Linux</command> Também estão 
 incluídos ponteiros para materiais relacionados com programas e 
 segurança. 
 
@@ -1534,21 +1534,21 @@ Fornece referências sobre como o PKI e SSL funcionam juntos
  <item>
 Descreve a instalação, configuração e correção de problemas básicos do 
 Pervasive Software's Tango Application Server no Sun Solaris e vários 
-sabores de <prgn>GNU/Linux</prgn>. 
+sabores de <command>GNU/Linux</command>. 
 
 <tag>Thinclient-HOWTO</tag>
  <item>
 Como converter computadores comuns em rápidos terminais usando o 
 poder de seu computador principal, você precisará de: Um computador 
 rápido para atuar como servidor, um computador cliente (antigo e não 
-desejado). Placas de rede compatíveis com o <prgn>GNU/Linux</prgn>. Uma 
+desejado). Placas de rede compatíveis com o <command>GNU/Linux</command>. Uma 
 conexão entre os computadores. Como centralizar a administração do 
 sistema usando o NFS (i.e. colocando todo o sistema de arquivos 
 de um cliente rápido no servidor). 
 
 <tag>UUCP-HOWTO</tag>
  <item>
-Este documento descreve a configuração do UUCP sob o <prgn>GNU/Linux</prgn>. 
+Este documento descreve a configuração do UUCP sob o <command>GNU/Linux</command>. 
 Você deve ler este documento se planejar conectar a sites remotos via 
 UUCP via modem, conexão direta ou via Internet. Provavelmente não 
 precisará ler este documento se não souber o que é UUCP ou se seu 
@@ -1568,15 +1568,15 @@ recursos de redes de baixa velocidade.
 <tag>VPN-HOWTO</tag>
  <item>
 Descreve como configurar uma Virtual Private Network com o 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 <tag>VPN-Masquerade-HOWTO</tag>
  <item>
-Descreve como configurar um Firewall <prgn>GNU/Linux</prgn> para o 
+Descreve como configurar um Firewall <command>GNU/Linux</command> para o 
 masquerade em tráfego baseado no IPsec- e PPTP Virtual Private 
 Network Traffic, permitindo estabelecer uma conexão VPN sem perder a
 segurança e flexibilidade de sua conexão Internet com o firewall 
-<prgn>GNU/Linux</prgn> e permitindo fazer um servidor VPN disponível 
+<command>GNU/Linux</command> e permitindo fazer um servidor VPN disponível 
 que não possui um endereço IP registrado na Internet. Também 
 estão incluídos detalhes de como configurar um cliente e servidor 
 VPN.  
@@ -1598,7 +1598,7 @@ requerimentos, etc.
 
 <tag>WWW-HOWTO</tag>
  <item>
-Explica como configurar serviços WWW sob o <prgn>GNU/Linux</prgn> (ambos 
+Explica como configurar serviços WWW sob o <command>GNU/Linux</command> (ambos 
 cliente e servidor). Ele não tenta ser um manual detalhada mas uma 
 visão e um bom ponto de referência. 
  
@@ -1634,9 +1634,9 @@ sistema.
 <tag>Ecology-HOWTO</tag>
  <item>
 Este documento discute métodos de como os computadores com o 
-<prgn>GNU/Linux</prgn> podem ser usados para proteger nosso ambiente, usando 
+<command>GNU/Linux</command> podem ser usados para proteger nosso ambiente, usando 
 características como economia de energia ou papel. Como ele não requer 
-grandes requerimentos de hardware, o <prgn>GNU/Linux</prgn> pode ser usado 
+grandes requerimentos de hardware, o <command>GNU/Linux</command> pode ser usado 
 com computadores antigos e tornar seu ciclo de vida longo. Os jogos podem 
 ser usados em ambientes educativos e estão disponíveis programas para 
 simular os processos ecológicos. 
@@ -1644,7 +1644,7 @@ simular os processos ecológicos.
 <tag>Process-Monitor-HOWTO</tag>
  <item>
 Este documento descreve como monitorar os processos (programas) no 
-<prgn>Linux/Unix</prgn> e como reinicia-los automaticamente se eles 
+<command>Linux/Unix</command> e como reinicia-los automaticamente se eles 
 são destruídos sem intervenção manual. Este documento também tem 
 URLs para FAQs sobre "Processos no Unix". 
 
@@ -1676,9 +1676,9 @@ de com regular, como são totalmente compatíveis.
 
 <tag>Install-From-ZIP</tag>
  <item>
-Descreve como instalar o <prgn>GNU/Linux</prgn> através de um zip drive 
+Descreve como instalar o <command>GNU/Linux</command> através de um zip drive 
 conectado a porta paralela usando a distribuição Slackware do 
-<prgn>GNU/Linux</prgn>.
+<command>GNU/Linux</command>.
 
 <tag>Install-Strategies</tag>
  <item>
@@ -1697,25 +1697,25 @@ Explica como configurar e utilizar o daemon kerneld.
 <tag>Loadlin+Win95</tag>
  <item>
 Este documento descreve como usar o Loadlin com o Windows 95 para 
-inicializar o <prgn>GNU/Linux</prgn>. 
+inicializar o <command>GNU/Linux</command>. 
 
 <tag>Modules</tag>
  <item>
 Explica como incluir seu suporte no kernel, configurar e utilizar módulos no 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 <tag>Path</tag>
  <item>
 Descreve truques comuns e problemas com as variáveis de ambiente 
-no <prgn>GNU/Linux</prgn>/<prgn>Unix</prgn>, especialmente a variável 
+no <command>GNU/Linux</command>/<command>Unix</command>, especialmente a variável 
 PATH. PATH é uma lista de diretórios onde os comandos são pesquisados. 
-Os detalhes se aplicam a distribuição <prgn>Debian</prgn> 1.3. 
+Os detalhes se aplicam a distribuição <command>Debian</command> 1.3. 
 
 <tag>Pre-Installation-Checklist</tag>
  <item>
 Você é um novato no Linux? Você é um guru no Linux? Em ambos os casos esta 
 checklist será de grande ajuda para você. Quantas vezes você se encontrou 
-com problemas no meio de um processo de instalação do <prgn>GNU/Linux</prgn> 
+com problemas no meio de um processo de instalação do <command>GNU/Linux</command> 
 porque algum detalhe vital sobre o hardware alvo não é conhecido? 
 
 <tag>Post-Installation-Checklist</tag>
@@ -1731,16 +1731,16 @@ sob o Slackware.
 <tag>Update</tag>
  <item>
 Descreve como se manter atualizado sobre o desenvolvimento no mundo 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
  
 <tag>Upgrade</tag>
  <item>
-Dicas e truques de como atualizar de uma distribuição <prgn>GNU/Linux</prgn> 
+Dicas e truques de como atualizar de uma distribuição <command>GNU/Linux</command> 
 para outra. 
 
 <tag>VAIO+Linux</tag>
  <item>
-Explica a instalação do <prgn>GNU/Linux</prgn> em computadores Sony VAIO. 
+Explica a instalação do <command>GNU/Linux</command> em computadores Sony VAIO. 
 
 </taglist>
 
@@ -1773,7 +1773,7 @@ estrutura de diretórios de forma segura.
 
 <tag>Hard-Disk-Upgrade</tag>
  <item>
-Como copiar um sistema <prgn>GNU/Linux</prgn> de um disco para outro. 
+Como copiar um sistema <command>GNU/Linux</command> de um disco para outro. 
 
 <tag>Loopback-Root-FS</tag>
  <item>
@@ -1783,27 +1783,27 @@ através de uma partição DOS sem reparticionamento.
 
 <tag>Partition-Rescue-mini-HOWTO</tag>
  <item>
-Como recuperar uma partição pelo <prgn>GNU/Linux</prgn>. 
+Como recuperar uma partição pelo <command>GNU/Linux</command>. 
 
 <tag>Quota</tag>
  <item>
 Descreve como ativar a quota nos sistemas de arquivos para usuários 
-e grupos de uma máquina <prgn>GNU/Linux</prgn>. 
+e grupos de uma máquina <command>GNU/Linux</command>. 
 
 <tag>Swap-Space</tag>
  <item>
-Descreve como compartilhar sua partição swap do <prgn>GNU/Linux</prgn> com 
+Descreve como compartilhar sua partição swap do <command>GNU/Linux</command> com 
 o Windows. 
 
 <tag>Ultra-DMA</tag>
  <item>
 Explica como usar Ultra-DMA como discos rígidos e interfaces Ultra ATA, 
-Ultra 33 e Ultra66 com o <prgn>GNU/Linux</prgn>. 
+Ultra 33 e Ultra66 com o <command>GNU/Linux</command>. 
 
 <tag>ZIP-Drive</tag>
  <item>
 Este documente oferece uma referência rápida para a configuração e 
-uso da unidade de ZIP drive Iomega com o <prgn>GNU/Linux</prgn>. 
+uso da unidade de ZIP drive Iomega com o <command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -1835,7 +1835,7 @@ on-line -- também chamada de página de manual (man page).
 <taglist>
 <tag>3-Button-Mouse</tag>
  <item>
-Como ter um mouse serial de 3 botões funcionando no <prgn>GNU/Linux</prgn>.
+Como ter um mouse serial de 3 botões funcionando no <command>GNU/Linux</command>.
 
 <tag>ACP-Modem</tag>
  <item>
@@ -1846,22 +1846,22 @@ máquinas IBM, como o IBM Thinkpad.
  <item>
 Este documento descreve o hardware, software e procedimentos necessários 
 para se usar um chipset baseado no bt8x8 frame grabber ou placa 
-sintonizadora de TV sob o <prgn>GNU/Linux</prgn>. 
+sintonizadora de TV sob o <command>GNU/Linux</command>. 
 
 <tag>Boca</tag>
  <item>
-Instalando uma placa serial Boca 16-portas (Boca 2016) no <prgn>GNU/Linux</prgn>. 
+Instalando uma placa serial Boca 16-portas (Boca 2016) no <command>GNU/Linux</command>. 
 
 <tag>GTEK-BBS-550</tag>
  <item>
 Ensina como configurar a placa serial de 8 portas GTEK's BBS-550 com 
 16C550 UARTS. Somente uma IRQ pode ser usada para todas 8 portas. Ele 
-não requer qualquer controlador no <prgn>GNU/Linux</prgn> no entanto o 
+não requer qualquer controlador no <command>GNU/Linux</command> no entanto o 
 kernel precisa ter o suporte a portas seriais. 
  
 <tag>Handspring-Visor</tag>
  <item>
-Usando o Visor com o <prgn>GNU/Linux</prgn> e sua porta USB.  
+Usando o Visor com o <command>GNU/Linux</command> e sua porta USB.  
 
 <tag>IO-Port-Programming</tag>
  <item>
@@ -1880,7 +1880,7 @@ ADSM para Linux Intel.
 
 <tag>Bzip2</tag>
  <item>
-Explica como usar o programa de compactação <prgn>bzip2</prgn>. 
+Explica como usar o programa de compactação <command>bzip2</command>. 
 
 <tag>GIS-GRASS</tag>
  <item>
@@ -1891,7 +1891,7 @@ domínio público (GIS): o Geographic Resources Analysis Support System
 
 <tag>LILO</tag>
  <item>
-O <prgn>LILO</prgn> é o gerenciador de inicialização mais usado na 
+O <command>LILO</command> é o gerenciador de inicialização mais usado na 
 plataforma Intel do Linux. Este documento descreve alguns tipos de 
 instalações do LILO. 
 
@@ -1904,7 +1904,7 @@ instalações do LILO.
 <tag>Mac-Terminal</tag>
  <item>
 Descreve o 1,002nd uso para um Macintosh (grin) morto: como configurar o 
-Mac para uso como um terminal <prgn>GNU/Linux</prgn>. 
+Mac para uso como um terminal <command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -1915,8 +1915,8 @@ Mac para uso como um terminal <prgn>GNU/Linux</prgn>.
 <tag>Programming-Languages</tag>
  <item>
 Uma breve comparação das maiores linguagens de programação para o 
-<prgn>GNU/Linux</prgn> e maiores bibliotecas para para criação de interfaces 
-gráficas com o usuário (GUIs) sob o <prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command> e maiores bibliotecas para para criação de interfaces 
+gráficas com o usuário (GUIs) sob o <command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -1926,7 +1926,7 @@ gráficas com o usuário (GUIs) sob o <prgn>GNU/Linux</prgn>.
 <taglist>
 <tag>Intkeyb</tag>
  <item>
-Mini-Howto experimental para o <prgn>GNU/Linux</prgn> para a configuração 
+Mini-Howto experimental para o <command>GNU/Linux</command> para a configuração 
 de teclados. 
 
 </taglist>
@@ -2004,7 +2004,7 @@ Descreve como usar o Linux e FreeBSD no mesmo sistema.
 <tag>Linux+NT-Loader</tag>
  <item>
 Descreve como usar o gerenciador de inicialização do Windows NT para 
-iniciar o <prgn>GNU/Linux</prgn>. Este processo foi testado com o 
+iniciar o <command>GNU/Linux</command>. Este processo foi testado com o 
 Windows NT 4.0 WorkStation. 
  
 <tag>Linux+Solaris</tag>
@@ -2037,17 +2037,17 @@ Linux.
 <taglist>
 <tag>Backup-With-MSDOS</tag>
  <item>
-Descreve como usar uma unidade de tape compatível com o <prgn>GNU/Linux</prgn> 
+Descreve como usar uma unidade de tape compatível com o <command>GNU/Linux</command> 
 instalado em uma máquina DOS para fazer o backup do sistema de arquivos 
-de uma máquina <prgn>GNU/Linux</prgn>.  
+de uma máquina <command>GNU/Linux</command>.  
  
 <tag>Battery-Powered</tag>
  <item>
-Descreve como reduzir o consumo de energia do sistema <prgn>GNU/Linux</prgn> 
+Descreve como reduzir o consumo de energia do sistema <command>GNU/Linux</command> 
 através de alguns ajustes de configuração. Isto será útil para qualquer 
-um quer executar o <prgn>GNU/Linux</prgn> em um sistema de computador 
+um quer executar o <command>GNU/Linux</command> em um sistema de computador 
 portátil. Também contém dicas de uso da bateria. Se estiver usando o 
-<prgn>GNU/Linux</prgn> em um sistema desktop, você provavelmente não 
+<command>GNU/Linux</command> em um sistema desktop, você provavelmente não 
 precisará ler todo este documento. 
 
 <tag>Clock</tag>
@@ -2057,8 +2057,8 @@ Como manter o relógio de seu computador na hora.
 <tag>Coffee</tag>
  <item>
 Uma dos mais extremos dos documentos. Eu já pensei se era possível 
-usar o <prgn>GNU/Linux</prgn> para fazer café... e descobri que o 
-<prgn>GNU/Linux</prgn> faz café! 
+usar o <command>GNU/Linux</command> para fazer café... e descobri que o 
+<command>GNU/Linux</command> faz café! 
  <p>
 Por um longo tempo a humanidade estava se perguntando se um computador 
 podia fazer café... As pessoas precisam de café para não dormirem na 
@@ -2067,7 +2067,7 @@ frente do computador. Todo mundo sabe que é melhor programar de noite...
 <tag>Divert-Sockets-mini-HOWTO</tag>
  <item>
 Descreve como obter, compilar e usar os soquetes divert FreeBSD 
-sob o <prgn>GNU/Linux</prgn> 2.2.12.  
+sob o <command>GNU/Linux</command> 2.2.12.  
 
 <tag>Home-Electrical-Control</tag>
  <item>
@@ -2080,7 +2080,7 @@ Configurando seu modem e pppd para usar 2 pares de cabos leased line.
   
 <tag>Linux-Modem-Sharing</tag>
  <item>
-Descreve como configurar o sistema <prgn>GNU/Linux</prgn> para compartilhar 
+Descreve como configurar o sistema <command>GNU/Linux</command> para compartilhar 
 um modem conectado a este sistema com outros através de uma rede 
 TCP/IP. 
 
@@ -2107,7 +2107,7 @@ Descreve como conectar um terminal NCD X a um computador UNIX.
 <tag>NFS-Root</tag>
  <item>
 Este documento tenta explicar como configurar uma estação de trabalho 
-"sem disco" no <prgn>GNU/Linux</prgn>, que monta seu sistema de 
+"sem disco" no <command>GNU/Linux</command>, que monta seu sistema de 
 arquivos raíz via NFS. 
  
 <tag>NFS-Root-Client-mini-HOWTO</tag>
@@ -2129,7 +2129,7 @@ Usenet News usando o Leadnode do pacote free software.
  
 <tag>Offline-Mailing</tag>
  <item>
-Explica como usar o sistema de mensagens do <prgn>GNU/Linux</prgn> off-line, 
+Explica como usar o sistema de mensagens do <command>GNU/Linux</command> off-line, 
 receber emails para múltiplos usuários somente com uma conta de e-mail, 
 e sem estar 24-24 horas on-line na Internet. Se você não pode pagar uma 
 linha para estar conectado por 24-24 horas e ainda deseja que seus usuários 
@@ -2161,17 +2161,17 @@ Descreve formas para recuperar uma partição de disco apagada.
 
 <tag>Process-Accounting</tag>
  <item>
-Descreve como ativar a conta de processos em uma máquina <prgn>GNU/Linux</prgn>, 
+Descreve como ativar a conta de processos em uma máquina <command>GNU/Linux</command>, 
 o uso de vários comandos de contabilização de processos. 
 
 <tag>RCS</tag>
  <item>
 Este documento cobre a instalação e uso básicos do RCS, o GNU 
-Revision Control System sob o <prgn>GNU/Linux</prgn>. 
+Revision Control System sob o <command>GNU/Linux</command>. 
 
 <tag>Saving-Space</tag>
  <item>
-Este documento mostra maneiras de diminuir sua instalação <prgn>GNU/Linux</prgn> 
+Este documento mostra maneiras de diminuir sua instalação <command>GNU/Linux</command> 
 consumindo o mínimo possível de espaço. 
  
 <tag>Secure-POP+SSH</tag>
@@ -2180,7 +2180,7 @@ Este documento explica como usar conexões POP seguras via ssh.
 
 <tag>Small-Memory</tag>
  <item>
-O propósito deste documento é descrever como executar o <prgn>GNU/Linux</prgn> 
+O propósito deste documento é descrever como executar o <command>GNU/Linux</command> 
 em um sistema com pequena quantidade de memória. Assumindo que a compra 
 de memória esta fora de questão aqui. 
  
@@ -2192,18 +2192,18 @@ usando a extensão do driver de som AWE escrito por Takashi Iwai.
  
 <tag>StarOffice</tag>
  <item>
-Instalando o StarOffice 3.1 da StarDivision no <prgn>GNU/Linux</prgn>. 
+Instalando o StarOffice 3.1 da StarDivision no <command>GNU/Linux</command>. 
  
  
 <tag>TT-Debian</tag>
  <item>
 Descreve como configurar o suporte das fontes True Type na 
-<prgn>Debian</prgn>. 
+<command>Debian</command>. 
 
 <tag>TkRat</tag>
  <item>
 Este documento foi escrito para qualquer um que tem interesse em usar seu 
-computador <prgn>GNU/Linux</prgn> para enviar e receber E-mails pela 
+computador <command>GNU/Linux</command> para enviar e receber E-mails pela 
 Internet. 
 
 <tag>Visual-Bell</tag>
@@ -2214,23 +2214,23 @@ ao invés do beep e como desativar o sinal de audio.
 <tag>Wacom-USB-mini-HOWTO</tag>
  <item>
 Descreve como configurar um Wacom Graphire USB tablet para uso no 
-<prgn>GNU/Linux</prgn> (console e X), iniciando com a configuração do 
+<command>GNU/Linux</command> (console e X), iniciando com a configuração do 
 kernel para o nível da aplicação. 
  
 <tag>WordPerfect</tag>
  <item>
-Discute a execução do WordPerfect no <prgn>GNU/Linux</prgn> incluindo uma 
+Discute a execução do WordPerfect no <command>GNU/Linux</command> incluindo uma 
 breve discussão sobre o WordPerfect 7.0.  
 
 <tag>ZIP-Install</tag>
  <item>
 Este documento somente é útil para aqueles que possuem a versão em porta 
 paralela de um ZIP drive e que deseja fazer o backup do sistema 
-<prgn>GNU/Linux</prgn> em um disco ZIP. 
+<command>GNU/Linux</command> em um disco ZIP. 
  
 <tag>call-back-mini-HOWTO</tag>
  <item>
-Descreve como configurar um call-back usando um sistema <prgn>GNU/Linux</prgn> 
+Descreve como configurar um call-back usando um sistema <command>GNU/Linux</command> 
 e um modem. 
 
 </taglist>
@@ -2241,7 +2241,7 @@ e um modem.
 <taglist>
 <tag>ADSL</tag>
  <item>
-Configurando o <prgn>GNU/Linux</prgn> para funcionar com Asymmetric Digital 
+Configurando o <command>GNU/Linux</command> para funcionar com Asymmetric Digital 
 Subscriber Loop (ADSL), uma nova tecnologia de acesso digital de alta 
 velocidade através de linhas disponível através da Telcos. O ADSL é uma 
 das tecnologias disponíveis da família da digital subscriber line 
@@ -2285,12 +2285,12 @@ Como configurar uma ponte com um firewall.
  
 <tag>Bridge+Firewall+DSL</tag>
  <item>
-Configurando um sistema <prgn>GNU/Linux</prgn> para funcionar como um 
+Configurando um sistema <command>GNU/Linux</command> para funcionar como um 
 firewall e ponte com uma conexão de rede DSL. 
  
 <tag>Cipe+Masq</tag>
  <item>
-Como configurar uma VPN usando o Cipe em um firewall <prgn>GNU/Linux</prgn> 
+Como configurar uma VPN usando o Cipe em um firewall <command>GNU/Linux</command> 
 masquerading. 
 
 <tag>Compressed-TCP</tag>
@@ -2300,11 +2300,11 @@ Seções TCP/IP compactadas usando ferramentas como SSH.
 <tag>DHCP</tag>
  <item>
 Este documento tenta responder questões básicas de como configurar seu 
-computador <prgn>GNU/Linux</prgn> para servir de cliente ou servidor DHCP. 
+computador <command>GNU/Linux</command> para servir de cliente ou servidor DHCP. 
 
 <tag>DPT-Hardware-RAID</tag>
  <item>
-Como ajustar o hardware RAID sob o <prgn>GNU/Linux</prgn>. 
+Como ajustar o hardware RAID sob o <command>GNU/Linux</command>. 
 
 <tag>Domain</tag>
  <item>
@@ -2320,7 +2320,7 @@ Como usar clientes e servidores FTP.
 <tag>Fax-Server</tag>
  <item>
 Descreve os métodos mais simples de configurar um servidor de 
-fax em seu sistema <prgn>GNU/Linux</prgn>. O fax está disponível aos 
+fax em seu sistema <command>GNU/Linux</command>. O fax está disponível aos 
 usuários do seu sistema local e rede de usuários. 
 
 <tag>Firewall-Piercing</tag>
@@ -2433,17 +2433,17 @@ através de um firewall TCP que parece não ser capaz.
 
 <tag>Token-Ring</tag>
  <item>
-Fazendo o Token Ring funcionar no <prgn>GNU/Linux</prgn>. 
+Fazendo o Token Ring funcionar no <command>GNU/Linux</command>. 
 
 <tag>TransparentProxy</tag>
  <item>
 Como configurar um servidor proxy transparente de cache HTTP usando 
-somente o <prgn>GNU/Linux</prgn> e o Squid. 
+somente o <command>GNU/Linux</command> e o Squid. 
 
 <tag>VPN</tag>
  <item>
 Ensina como configurar uma Virtual Protected Network no 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -2459,13 +2459,13 @@ defender efetivamente o uso do Linux.
 <tag>BogoMips</tag>
  <item>
 Detalhes sobre BogoMips. Este texto foi criado a partir de vários 
-arquivos <prgn>GNU/Linux</prgn> no arquivo <file>HOWTO/mini/BogoMips</file>. 
+arquivos <command>GNU/Linux</command> no arquivo <file>HOWTO/mini/BogoMips</file>. 
 
 <tag>Commercial-Port-Advocacy</tag>
  <item>
 Este documento discute métodos que podem ser usados como aproximação 
 de empresas comerciais para convence-las a portar seus programas para 
-o <prgn>GNU/Linux</prgn>. 
+o <command>GNU/Linux</command>. 
 
 </taglist>
 
@@ -2483,7 +2483,7 @@ junto com a documentação normal. ]]>
 Seu princípio é o mesmo do How-to; documentar o programa. Estes arquivos 
 estão localizados em:
  <p>
-<![ %DEBIAN [ <file>/usr/share/doc/<prgn>[<em>programa</em>]</prgn></file>. ]]>
+<![ %DEBIAN [ <file>/usr/share/doc/<command>[<em>programa</em>]</command></file>. ]]>
  <p>
 <em>Programa</em> é o nome do programa ou comando procurado. 
 
@@ -2493,7 +2493,7 @@ estão localizados em:
 <em>FAQ</em> é um arquivo de perguntas e respostas mais freqüêntes sobre o 
 programa. Normalmente os arquivos de FAQ estão localizados junto com a 
 documentação principal do programa em 
-<![ %DEBIAN [ <file>/usr/share/doc/<prgn>[<em>programa</em>]</prgn></file>. ]]>
+<![ %DEBIAN [ <file>/usr/share/doc/<command>[<em>programa</em>]</command></file>. ]]>
 
 
     <![ %INTER-AVANC [ 
@@ -2514,7 +2514,7 @@ número de identificação, como o documento <file>RFC1939</file> que
 documenta o funcionamento e comandos do protocolo POP3. Os arquivos 
 de RFC's podem ser encontrados 
 <![ %DEBIAN [ no pacote <package>doc-rfc</package> da distribuição 
-<prgn>Debian</prgn> e baseadas ]]>. ]]>
+<command>Debian</command> e baseadas ]]>. ]]>
  <p>
 Segue abaixo o índice principal do diretório de RFC's que poderá ser usado 
 para localizar RFC's específicas de um determinado serviço/assunto: 
@@ -2842,14 +2842,14 @@ para localizar RFC's específicas de um determinado serviço/assunto:
 
 <sect id="ajuda-internet">Internet
  <p>
-Certamente o melhor suporte ao <prgn>GNU/Linux</prgn> é via Internet, 
+Certamente o melhor suporte ao <command>GNU/Linux</command> é via Internet, 
 veja abaixo alguns locais úteis de onde pode obter ajuda ou se atualizar. 
 
 
 <sect1 id="ajuda-paginas">Páginas Internet de Referência
  <p>
 Existem boas páginas Internet Nacionais e Internacionais sobre o 
-<prgn>GNU/Linux</prgn> e assuntos relacionados com este sistema. 
+<command>GNU/Linux</command> e assuntos relacionados com este sistema. 
 A maioria trazem documentos e explicações sobre configuração, 
 instalação, manutenção, documentação, suporte, etc.
  <p>
@@ -2857,16 +2857,16 @@ Estas páginas podem ser encontradas através de ferramentas de busca. Entre
 outras páginas, posso citar as seguintes:
 <list>
  <item>
-<tt><url id="&url-debianbr-www;"></tt> Projeto Debian-Br. A <prgn>Debian</prgn> 
-é uma distribuição de <prgn>Linux</prgn> conhecida por sua qualidade, grande 
+<tt><url id="&url-debianbr-www;"></tt> Projeto Debian-Br. A <command>Debian</command> 
+é uma distribuição de <command>Linux</command> conhecida por sua qualidade, grande 
 número de pacotes, estabilidade, facilidade de atualização, desenvolvimento 
 aberto, segurança, ferramentas de gerenciamento de servidores e comprometimento 
 com o software livre. 
  <p>
 A Debian é feita originalmente em inglês e traduzida por grupos em vários lugares 
 do mundo. O projeto <strong>Debian-br</strong> destina-se a colaborar na tradução 
-da <prgn>Debian</prgn> para o Português (nossa língua-mãe). Através desse projeto, 
-todos poderão, da forma colaborativa como na <prgn>Debian</prgn>, trazer essa 
+da <command>Debian</command> para o Português (nossa língua-mãe). Através desse projeto, 
+todos poderão, da forma colaborativa como na <command>Debian</command>, trazer essa 
 excelente distribuição em nosso idioma! 
  <p>
 Participe:
@@ -2886,7 +2886,7 @@ estão convidados a participar do projeto!
 
  <item>
 <tt><url id="&url-linuxtrix-www;"></tt> - Boletim diário com as noticias mais 
-recentes sobre <prgn>GNU/Linux</prgn>, testes, redes, descrição/configuração/
+recentes sobre <command>GNU/Linux</command>, testes, redes, descrição/configuração/
 avaliação de programas,  entrevistas, downloads, dica do dia, mecanismo de 
 busca no site, links, etc. Em Português. 
  <p>
@@ -2894,11 +2894,11 @@ Responsável pela página: Augusto Campos <email>&email-linuxtrix-resp;</email>
 endereço: <url id="&url-linuxtrix-www;">.
 
  <item>
-<tt><url id="&url-olinux-www;"></tt> - Trata o <prgn>GNU/Linux</prgn> com 
+<tt><url id="&url-olinux-www;"></tt> - Trata o <command>GNU/Linux</command> com 
 o foco jornalístico e tem a intenção de prover informações eficazes e 
 esclarecedoras capazes de instruir, reciclar e tornar acessível aos 
 usuários o conhecimento e aprofundamento de temas relacionados a 
-plataforma <prgn>GNU/Linux</prgn>. 
+plataforma <command>GNU/Linux</command>. 
  <p>
 Publicação diária de Artigos que são feitos para que o usuário possa 
 resolver problemas e tirar dúvidas deste sistema. Assuntos diversos 
@@ -2913,14 +2913,14 @@ Responsável pela página: Linux Solutions <email>
 <tt><url id="&url-linuxsecuritybr-www;"></tt> - Boletins de segurança, 
 publicações de textos nacionais, traduções de sites especializados 
 em segurança, programas relacionados com criptografia e segurança no 
-ambiente <prgn>Linux</prgn>. A página requer um navegador com suporte 
+ambiente <command>Linux</command>. A página requer um navegador com suporte 
 a Java. 
  <p>
 Endereço: <url id="&url-linuxsecuritybr-www;">.
 
 <item>
 <tt><url id="&url-ldpbr-www;"></tt> - Projeto de documentação do 
-<prgn>GNU/Linux</prgn> no Brasil. Toda a documentação traduzida para o 
+<command>GNU/Linux</command> no Brasil. Toda a documentação traduzida para o 
 Português do Brasil pode ser encontrada lá. 
  <p>
 Responsável pela página: <email>&email-ldpbr-resp;</email> 
@@ -2936,9 +2936,9 @@ endereço: <url id="&url-noticiaslinux-www;">
 
 <!-- Sites em Inglês -->
  <item>
-<tt><url id="&url-linux-www;"></tt> - Página oficial do <prgn>GNU/Linux</prgn> 
+<tt><url id="&url-linux-www;"></tt> - Página oficial do <command>GNU/Linux</command> 
 mantida pela <em>Transmeta</em> (a empresa que Linus Torvalds vem trabalhando 
-atualmente). Muita referência sobre <prgn>GNU/Linux</prgn>, distribuições, 
+atualmente). Muita referência sobre <command>GNU/Linux</command>, distribuições, 
 hardwares, softwares, downloads, etc.
  <p>
 Responsável pela página: <email>&email-linux-resp;</email> 
@@ -2946,8 +2946,8 @@ endereço: <url id="&url-linux-www;">.
 
  <item>
 <tt><url id="&url-linuxcounter-www;"></tt> - Este é um serviço que tem 
-o objetivo de contar os usuários, máquinas, grupos de usuários <prgn>
-Linux</prgn> existentes ao redor do mundo. Te encorajo a se registrar 
+o objetivo de contar os usuários, máquinas, grupos de usuários <command>
+Linux</command> existentes ao redor do mundo. Te encorajo a se registrar 
 neste site e indica-lo aos seus amigos, é de <strong>graça</strong>, 
 você estará contribuindo para o aumento das estatísticas do número 
 de usuários no mundo, país, sua cidade, etc.
@@ -2961,9 +2961,9 @@ Responsável pela página: Harald T. Alvestrand <email>&email-linuxcounter-resp;
 
  <item>
 <tt><url id="&url-metalab-www;"></tt> - O ponto de referência mais 
-tradicional de softwares <prgn>GNU/Linux</prgn> do mundo. Você pode encontrar 
+tradicional de softwares <command>GNU/Linux</command> do mundo. Você pode encontrar 
 desde dicas, documentação (todos os How-Tos) até diversas distribuições 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
  <p>
 Responsável pelo site: <email>&email-sunsite-resp;</email> 
 endereço: <url id="&url-metalab-www;">. 
@@ -2971,7 +2971,7 @@ endereço: <url id="&url-metalab-www;">.
  <item>
 <tt><url id="&url-themes-www;"></tt> - Neste site você encontra milhares 
 de temas divididos em categorias para os mais diversos gerenciadores de 
-janelas no <prgn>GNU/Linux</prgn>. O site é muito pesado, por causa das 
+janelas no <command>GNU/Linux</command>. O site é muito pesado, por causa das 
 fotos, é recomendável um bom fax-modem ou muita paciência. 
  <p>
 Responsável pela página: <email>&email-themes-resp;</email> 
@@ -2989,7 +2989,7 @@ Endereço: <url id="&url-oreillsafari-www;">.
 
 </list>
 Caso conhecer uma página de Internet que contenha materiais úteis a comunidade 
-<prgn>GNU/Linux</prgn> ou desejar incluir a sua, entre em contato para sua 
+<command>GNU/Linux</command> ou desejar incluir a sua, entre em contato para sua 
 inclusão na próxima versão do guia junto com uma descrição da página.
 
 <sect1 id="ajuda-redes-sociais">Redes sociais
@@ -3005,9 +3005,9 @@ inclusão na próxima versão do guia junto com uma descrição da página.
  <p>
 São grupos de usuários que trocam mensagens entre si, resolvem dúvidas, 
 ajudam na configuração de programas, instalação, etc. É considerado o melhor 
-suporte ao <prgn>GNU/Linux</prgn> pois qualquer participante pode ser beneficiar 
+suporte ao <command>GNU/Linux</command> pois qualquer participante pode ser beneficiar 
 das soluções discutidas. Existem milhares de listas de discussões sobre o 
-<prgn>GNU/Linux</prgn> espalhadas pelo mundo, em Português existem 
+<command>GNU/Linux</command> espalhadas pelo mundo, em Português existem 
 algumas dezenas.
  <p>
 Algumas listas são específicas a um determinado assunto do sistema, algumas 
@@ -3015,7 +3015,7 @@ são feitas para usuários iniciantes ou avançados, outras falam praticamente
 de tudo. Existem desde usuários iniciantes, hackers, consultores, 
 administradores de redes experientes e gurus participando de listas 
 e oferecendo suporte de graça a quem se aventurar em instalar e usar 
-o sistema <prgn>GNU/Linux</prgn>. 
+o sistema <command>GNU/Linux</command>. 
 <![ %DESCRICAOD [
  <p>
 A lista de discussão funciona da seguinte forma: você se inscreve na lista 
@@ -3036,7 +3036,7 @@ inscrição, e o que você deve fazer para ser cadastrado:
 <taglist>
  <tag><email>debian-user-portuguese@lists.debian.org</email></tag>
  <item>
-Lista de discussão para usuários Portugueses da <prgn>Debian</prgn>. Também 
+Lista de discussão para usuários Portugueses da <command>Debian</command>. Também 
 são discutidos assuntos relacionados ao Linux em geral. A inscrição é 
 aberta a todos os interessados. 
  <p>
@@ -3050,11 +3050,11 @@ e receber mensagens dos participantes.
 
  <tag><email>debian-news-portuguese@lists.debian.org</email></tag>
  <item>
-A <prgn>Debian</prgn> é extremamente bem estruturada quanto a divulgações e 
+A <command>Debian</command> é extremamente bem estruturada quanto a divulgações e 
 notícias, várias listas de email e várias páginas compõe essa base. A 
 <em>Debian Weekly News</em> é especialmente importante pois dá uma visão geral 
-do que se passou na <prgn>Debian</prgn> durante a semana. E não traz apenas 
-traduções mas também adições dos acontecimentos atuais da <prgn>Debian</prgn> 
+do que se passou na <command>Debian</command> durante a semana. E não traz apenas 
+traduções mas também adições dos acontecimentos atuais da <command>Debian</command> 
 no Brasil, ou projetos concluídos ou lançados pela equipe <em>Debian-br</em> 
 (<url id="&url-debianbr-www;">). 
  <p>
@@ -3071,7 +3071,7 @@ a Debian em Português.
 
 <tag><email>dicas-l@unicamp.br</email></tag>
  <item>
-Esta lista envia diariamente uma dica de <prgn>Unix</prgn>, sistemas da 
+Esta lista envia diariamente uma dica de <command>Unix</command>, sistemas da 
 Microsoft ou novidades da Internet. 
  <p>
 Para se inscreve nesta lista de discussão, envie uma mensagem para:
@@ -3083,7 +3083,7 @@ mensagem para o mesmo endereço mas use a palavra <tt>unsubscribe</tt>.
 
 </taglist>
 Esta listagem deveria estar mais completa, mas eu não lembro de todas as 
-listas!. Também recomendo dar uma olhada em <ref id="ajuda-netiqueta-listas">
+listas!. Também recomendo dar uma olhada em <xref linkend="ajuda-netiqueta-listas">
 que descreve recomendações de comportamento em listas de discussão.
 
 
@@ -3156,7 +3156,7 @@ Se você troca mensagens com pessoas do mundo todo, não espere que
 um japonês responda logo seu e-mail que enviou as 15:00 da tarde. 
 A essa hora no país dele, ele está roncando forte na cama e sonhando 
 com a placa 3D que vai ganhar para melhorar o desempenho de seus jogos
-de <prgn>GNU/Linux</prgn>.
+de <command>GNU/Linux</command>.
 
  <item>
 Durante a comunicação com pessoas de diferentes regiões (ou países), 
@@ -3246,7 +3246,7 @@ terá trabalho para avisar a todos de sua lista de contato.
 Sempre que enviar uma URL, procure do que se trata na mensagem.
 
  <item>
-No modo de chat, use as recomendações descritas sobre o talk (em <ref id="ajuda-netiqueta-talk">). 
+No modo de chat, use as recomendações descritas sobre o talk (em <xref linkend="ajuda-netiqueta-talk">). 
 
  <item>
 Como em toda comunicação on-line, seja cauteloso quando a pessoa que conversa. 
@@ -3327,7 +3327,7 @@ Nova versão do guia Foca Linux"</em> ;-).
  <item>
 Procure enviar mensagens em formato <tt>texto</tt> ao invés de <tt>HTML</tt> 
 para as listas de discussão pois isto faz com que a mensagem seja vista por 
-todos os participantes (muitos dos usuários <prgn>GNU/Linux</prgn> usam leitores 
+todos os participantes (muitos dos usuários <command>GNU/Linux</command> usam leitores 
 de e-mail que não suportam formato html) e diminui drásticamente o tamanho da 
 mensagem porque o formato texto não usa tags e outros elementos que a 
 linguagem HTML contém (muitos dos usuários costumam participar de várias 
@@ -3398,8 +3398,8 @@ local separado. No final da filtragem, todas as mensagens de listas de
 discussão estarão em locais separados e as mensagens enviadas diretamente 
 a você entrarão na caixa de correio principal, por exemplo. 
  <p>
-Um filtro de mensagens muito usado no <prgn>GNU/Linux</prgn> é o 
-<prgn>procmail</prgn>, para maiores detalhes consulte a 
+Um filtro de mensagens muito usado no <command>GNU/Linux</command> é o 
+<command>procmail</command>, para maiores detalhes consulte a 
 documentação deste programa. 
  <p>
 O Mozilla Thunderbrid também tem recursos de filtros de mensagem que podem ser 

@@ -9,12 +9,12 @@ navegar, enviar/receber mensagens, etc.
 
 <sect1 id="inter-conectando-adsl">Conectando através de ADSL
  <p>
-A conexão através de banda larga em sistemas <prgn>Debian</prgn> 
-é realizada através do programa <prgn>pppoeconf</prgn> ou 
+A conexão através de banda larga em sistemas <command>Debian</command> 
+é realizada através do programa <command>pppoeconf</command> ou 
 modificando manualmente os arquivos de configuração em <file>/etc/ppp</file>.
 Esta seção explicará como configurar a conexão em modo bridge e assume
 que você já tem o modem conectado e sua placa de rede configurada. Para criar 
-uma conexão internet através do <prgn>pppoeconf</prgn> entre como 
+uma conexão internet através do <command>pppoeconf</command> entre como 
 usuário root no sistema, digite <tt>pppoeconf</tt> e siga os passos de 
 configuração:
 <enumlist>
@@ -42,11 +42,11 @@ selecione "Sim".
 <sect1 id="inter-conectando-ppp">Conectando através de Internet Discada
  <p>
 Para conectar usando internet discada é utilizada a placa de Fax-Modem.
-A conexão através de sistemas <prgn>Debian</prgn> é fácil, e todo 
+A conexão através de sistemas <command>Debian</command> é fácil, e todo 
 o trabalho de configuração pode ser feito através do 
-programa <prgn>pppconfig</prgn> ou modificando manualmente os arquivos 
+programa <command>pppconfig</command> ou modificando manualmente os arquivos 
 em <file>/etc/ppp</file>. Para criar uma conexão internet através do 
-<prgn>pppconfig</prgn>, entre como usuário root no sistema, digite 
+<command>pppconfig</command>, entre como usuário root no sistema, digite 
 <tt>pppconfig</tt> e siga os passos de configuração (esta configuração 
 serve para usuários domésticos e assume que você possui o kernel com 
 suporte a PPP): 
@@ -104,7 +104,7 @@ mais recentes.
 
  <p>
 Uma configuração serial DTE detalhada pode ser feita com a ferramenta 
-<prgn>setserial</prgn>.
+<command>setserial</command>.
 
  <item>
 Agora será necessário selecionar o modo de discagem usado pelo seu 
@@ -136,58 +136,58 @@ Pronto! todos os passos para você se conectar a Internet estão concluídos,
 basta digitar <tt>pon</tt> para se conectar e <tt>poff</tt> para se 
 desconectar da Internet. Caso tenha criado uma conexão com o nome diferente 
 de <tt>provider</tt> você terá que especifica-la no comando 
-<prgn>pon</prgn> (por exemplo, <tt>pon provedor2</tt>). 
+<command>pon</command> (por exemplo, <tt>pon provedor2</tt>). 
  <p>
-A conexão pode ser monitorada através do comando <prgn>plog</prgn> e 
-os pacotes enviados/recebidos através do <prgn>pppconfig</prgn>. 
+A conexão pode ser monitorada através do comando <command>plog</command> e 
+os pacotes enviados/recebidos através do <command>pppconfig</command>. 
  <p>
 Para uma navegação mais segura, é recomendável que leia e compreenda alguns 
 ítens que podem aumentar consideravelmente a segurança do seu sistema em 
-<ref id="rede-seg">, <ref id="rede-seg-tcpd-a">, <ref id="rede-seg-tcpd-d">. 
-A seção <ref id="rede-dns-a-resolv"> pode ser também útil. 
+<xref linkend="rede-seg">, <xref linkend="rede-seg-tcpd-a">, <xref linkend="rede-seg-tcpd-d">. 
+A seção <xref linkend="rede-dns-a-resolv"> pode ser também útil. 
 
     ]]>
 
 
 <sect id="inter-navegando">Navegando na Internet
  <p>
-Existem diversos tipos de navegadores web para <prgn>GNU/Linux</prgn> e 
+Existem diversos tipos de navegadores web para <command>GNU/Linux</command> e 
 a escolha depende dos recursos que pretende utilizar (e do poder de 
 processamento de seu computador). 
  <p>
 Para navegar na Internet com muitos recursos, você pode usar o 
-navegador <prgn>Firefox</prgn>, ele suporta plug-ins, extensões
+navegador <command>Firefox</command>, ele suporta plug-ins, extensões
 adicionais, java, flash, etc. Você também tem a escolha do 
-<prgn>Mozilla</prgn> que inspirou a criação do <prgn>Netscape</prgn> 
+<command>Mozilla</command> que inspirou a criação do <command>Netscape</command> 
 e outros navegadores derivados. 
  <p>
-O <prgn>dillo</prgn> é uma boa alternativa 
+O <command>dillo</command> é uma boa alternativa 
 para aqueles que desejam um navegador em modo gráfico, mas eles 
 não tem suporte a Java e Frames. 
  <p>
 Os usuários e administradores de servidores que operam em modo 
 texto e precisam de navegadores para testes, podem optar pelo 
-<prgn>Lynx</prgn> ou o <prgn>links</prgn>. Uma listagem mais 
+<command>Lynx</command> ou o <command>links</command>. Uma listagem mais 
 detalhada e recursos requeridos por cada navegador podem ser 
-encontrados em <ref id="aplic-b-internet">. 
+encontrados em <xref linkend="aplic-b-internet">. 
 
 
-<sect id="inter-emails-r">Recebimento de E-Mails através do <prgn>fetchmail</prgn>
+<sect id="inter-emails-r">Recebimento de E-Mails através do <command>fetchmail</command>
  <p>
 É o programa mais tradicional no recebimento de mensagens através dos 
 serviços <em>pop3</em>, <em>imap</em>, <em>pop2</em>, etc. no 
-<prgn>GNU/Linux</prgn>. Ele pega as mensagens de seu servidor <em>pop3</em> 
+<command>GNU/Linux</command>. Ele pega as mensagens de seu servidor <em>pop3</em> 
 e as entrega ao MDA local ou nos arquivos de e-mails dos usuários do 
 sistema em <file>/var/mail</file>
  <p>
-Todo o funcionamento do <prgn>fetchmail</prgn> é controlado pelo arquivo 
+Todo o funcionamento do <command>fetchmail</command> é controlado pelo arquivo 
 <file>~/.fetchmailrc</file>. Segue abaixo um modelo padrão deste arquivo: 
 <example>
  poll pop3.seuprovedor.com.br protocol pop3
    user gleydson password sua_senha keep fetchall is gleydson here
  
 </example>
-Este arquivo é lido pelo <prgn>fetchmail</prgn> na ordem que foi 
+Este arquivo é lido pelo <command>fetchmail</command> na ordem que foi 
 escrito. Veja a explicação abaixo sobre o arquivo exemplo: 
 <list compact> 
  <item>
@@ -196,11 +196,11 @@ serão baixadas, o servidor especificado no exemplo é
 <tt>pop3.seuprovedor.com.bt</tt>. A palavra <tt>skip</tt> pode ser 
 especificada, mas as mensagens no servidor especificado por <tt>skip</tt> 
 somente serão baixadas caso o nome do servidor de mensagens for 
-especificado através da linha de comando do <prgn>fetchmail</prgn>. 
+especificado através da linha de comando do <command>fetchmail</command>. 
 
  <item>
 <tt>protocol</tt> é o protocolo que será usado para a transferência de 
-mensagens do servidor. O <prgn>fetchmail</prgn> utilizará a auto-detecção 
+mensagens do servidor. O <command>fetchmail</command> utilizará a auto-detecção 
 de protocolo caso este não seja especificado. 
 
  <item>
@@ -228,7 +228,7 @@ obtidas de <tt>pop3.seuprovedor.com.br</tt> do usuário
 o usuário local <tt>gleydson</tt> no diretório <file>/var/mail/gleydson</file>.  
  <p>
 As palavras <tt>is</tt> e <tt>here</tt> são completamente ignoradas pelo 
-<prgn>fetchmail</prgn>, servem somente para dar um tom de linguagem natural 
+<command>fetchmail</command>, servem somente para dar um tom de linguagem natural 
 na configuração do programa e da mesma forma facilitar a compreensão da 
 configuração. 
 
@@ -248,22 +248,22 @@ Note que todos os e-mails das contas <tt>gleydson</tt>, <tt>conta2</tt> e
 são entregues ao usuário local <tt>gleydson</tt> (arquivo 
 <file>/var/mail/gleydson</file>). 
  <p>
-Agora você pode usar um programa MUA como o <prgn>mutt</prgn> ou <prgn>pine
-</prgn> para ler localmente as mensagens. O armazenamento de mensagens 
+Agora você pode usar um programa MUA como o <command>mutt</command> ou <command>pine
+</command> para ler localmente as mensagens. O armazenamento de mensagens 
 no diretório <file>/var/mail</file> é preferido pois permite a utilização 
 de programas de notificação de novos e-mais como o 
-<prgn>comsat</prgn>, <prgn>mailleds</prgn>, <prgn>biff</prgn>, etc. 
+<command>comsat</command>, <command>mailleds</command>, <command>biff</command>, etc. 
  <p> 
 Também é possível utilizar um processador de mensagens ao invés do MTA para 
-a entrega de mensagens. O programa <prgn>procmail</prgn> é um exemplo de 
+a entrega de mensagens. O programa <command>procmail</command> é um exemplo de 
 processador de mensagens rápido e funcional que pode separar as mensagens em 
 arquivos de acordo com sua origem, destino, assunto, enviar respostas 
 automáticas, listas de discussão, envio de arquivos através de requisição, 
-etc. Veja <ref id="inter-procmail"> para detalhes. 
+etc. Veja <xref linkend="inter-procmail"> para detalhes. 
  <p>
 Para mais detalhes sobre outras opções específicas de outros protocolos, 
 checagem de mensagens, criptografia, etc, veja a página de manual do 
-<prgn>fetchmail</prgn>. 
+<command>fetchmail</command>. 
 
 
 <sect1 id="inter-procmail">Processamento de mensagens através do procmail
@@ -274,10 +274,10 @@ sua origem, prioridade, assuntos, destinatário, conteúdo, etc.,
 programar auto-respostas, programa de férias, servidor de arquivos, 
 listas de discussão, etc. 
  <p>
-O <prgn>procmail</prgn> é um programa que reúne estas funções e permitem 
+O <command>procmail</command> é um programa que reúne estas funções e permitem 
 muito mais, dependendo da habilidades e conhecimento das ferramentas 
-<prgn>GNU/Linux</prgn> para saber integra-las corretamente. Toda a operação 
-do <prgn>procmail</prgn> é controlada pelo arquivo 
+<command>GNU/Linux</command> para saber integra-las corretamente. Toda a operação 
+do <command>procmail</command> é controlada pelo arquivo 
 <file>/etc/procmailrc</file> e <file>~/.procmailrc</file>. Abaixo um 
 modelo do arquivo <file>~/.procmailrc</file> usado para enviar todas 
 as mensagens contendo a palavra <tt>GNU/Linux</tt> no assunto para o 
@@ -295,33 +295,33 @@ mensagens-linux
 </example>
 A variável de ambiente <file>MAILDIR</file> especifica o diretório que 
 serão armazenadas as mensagens e logs das operações do 
-<prgn>procmail</prgn>. A variável <file>DEFAULT</file> especifica a 
+<command>procmail</command>. A variável <file>DEFAULT</file> especifica a 
 caixa de correio padrão onde todas as mensagens que não se encaixam nas 
 descrições do filtro do <file>procmailrc</file> serão enviadas. 
 A variável <file>LOGFILE</file> especifica o arquivo que registrará todas 
 as operações realizadas durante o processamento de mensagens do 
-<prgn>procmail</prgn>. 
+<command>procmail</command>. 
  <p>
 O arquivo <file>mensagens-linux</file> é criado dentro do diretório 
 especificado por <file>MAILDIR</file>.
  <p>
-Para que o <prgn>procmail</prgn> entre em ação toda vez que as mensagens 
-forem baixadas via <prgn>fetchmail</prgn>, é preciso modificar o arquivo 
+Para que o <command>procmail</command> entre em ação toda vez que as mensagens 
+forem baixadas via <command>fetchmail</command>, é preciso modificar o arquivo 
 <file>.fechmailrc</file> e incluir a linha 
 <tt>mda /usr/bin/procmail -d %T</tt> no final do arquivo e retirar as 
 linhas <tt>is [usuáriolocal] here</tt> para que o processamento das 
-mensagens seja feita pelo MDA local (neste caso, o <prgn>procmail</prgn>). 
+mensagens seja feita pelo MDA local (neste caso, o <command>procmail</command>). 
  <p>
-Se quiser que o <prgn>procmail</prgn> seja executado pelo MDA local, basta 
+Se quiser que o <command>procmail</command> seja executado pelo MDA local, basta 
 criar um arquivo <file>~/.forward</file> no diretório do usuário e incluir 
 a linha <tt>exec /usr/bin/procmail</tt> (note que em algumas implementações 
-do <prgn>exim</prgn>, o <prgn>procmail</prgn> é executado automaticamente 
+do <command>exim</command>, o <command>procmail</command> é executado automaticamente 
 caso um arquivo <file>~/.procmailrc</file> seja encontrado,  caso contrário 
 será necessário adicionar a linha "/usr/bin/procmail" ao arquivo 
-<file>~/.forward</file> (somente <prgn>exim</prgn>).  
+<file>~/.forward</file> (somente <command>exim</command>).  
  <p>
-Para mais detalhes, veja a página de manual do <prgn>procmail</prgn>, 
-<prgn>procmailrc</prgn> e HOWTOs relacionados com e-mails no 
-<prgn>GNU/Linux</prgn>. 
+Para mais detalhes, veja a página de manual do <command>procmail</command>, 
+<command>procmailrc</command> e HOWTOs relacionados com e-mails no 
+<command>GNU/Linux</command>. 
 
 

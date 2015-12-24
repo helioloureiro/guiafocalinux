@@ -1,7 +1,7 @@
 <chapt id="cpctd">Compactadores
  <p>
 Esta seção explica o que são e como usar programas compactadores 
-no <prgn>GNU/Linux</prgn>, as características de cada um, como 
+no <command>GNU/Linux</command>, as características de cada um, como 
 identificar um arquivo compactado e como descompactar um 
 arquivo compactado usando o programa correspondente. 
  <p>
@@ -114,66 +114,66 @@ o programa necessário para trabalhar com aquele tipo de arquivo. Existem
 dezenas de extensões que identificam arquivos compactados. 
 <![ %DESCRICAOD [ Quando um arquivo (ou arquivos) é compactado, uma 
 extensão correspondente ao programa usado é adicionada ao nome do arquivo 
-(caso o arquivo seja compactado pelo <prgn>gzip</prgn> receberá a extensão 
+(caso o arquivo seja compactado pelo <command>gzip</command> receberá a extensão 
 <file>.gz</file>, por exemplo). Ao descompactar acontece o contrário: 
 a extensão é retirada do arquivo. ]]>
 Abaixo segue uma listagem de extensões mais usadas e os programas 
 correspondentes: 
 <list>
  <item>
-<file>.gz</file> - Arquivo compactado pelo <prgn>gzip</prgn>. Use o 
-programa <prgn>gzip</prgn> para descompacta-lo (para detalhes veja 
-<ref id="cpctd-gzip">). 
+<file>.gz</file> - Arquivo compactado pelo <command>gzip</command>. Use o 
+programa <command>gzip</command> para descompacta-lo (para detalhes veja 
+<xref linkend="cpctd-gzip">). 
 
-<file>.bz2</file> - Arquivo compactado pelo <prgn>bzip2</prgn>. Use o 
-programa <prgn>bzip2</prgn> para descompacta-lo (para detalhes veja 
-<ref id="cpctd-bzip2">). 
+<file>.bz2</file> - Arquivo compactado pelo <command>bzip2</command>. Use o 
+programa <command>bzip2</command> para descompacta-lo (para detalhes veja 
+<xref linkend="cpctd-bzip2">). 
  <item>
-<file>.Z</file> - Arquivo compactado pelo programa <prgn>compress</prgn>. 
-Use o programa <prgn>uncompress</prgn> para descompacta-lo.
-
- <item>
-<file>.zip</file> - Arquivo compactado pelo programa <prgn>zip</prgn>. 
-Use o programa <prgn>unzip</prgn> para descompacta-lo.
+<file>.Z</file> - Arquivo compactado pelo programa <command>compress</command>. 
+Use o programa <command>uncompress</command> para descompacta-lo.
 
  <item>
-<file>.rar</file> - Arquivo compactado pelo programa <prgn>rar</prgn>. 
-Use o programa <prgn>rar</prgn> para descompacta-lo.
+<file>.zip</file> - Arquivo compactado pelo programa <command>zip</command>. 
+Use o programa <command>unzip</command> para descompacta-lo.
 
  <item>
-<file>.tar.gz</file> - Arquivo compactado pelo programa <prgn>gzip</prgn> 
-no utilitário de arquivamento <prgn>tar</prgn>. Para descompacta-lo, 
-você pode usar o <prgn>gzip</prgn> e depois o <prgn>tar</prgn> ou 
-somente o programa <prgn>tar</prgn> usando a opção <tt>-z</tt>. Para 
-detalhes veja <ref id="cpctd-gzip"> e <ref id="cpctd-tar">. 
+<file>.rar</file> - Arquivo compactado pelo programa <command>rar</command>. 
+Use o programa <command>rar</command> para descompacta-lo.
+
+ <item>
+<file>.tar.gz</file> - Arquivo compactado pelo programa <command>gzip</command> 
+no utilitário de arquivamento <command>tar</command>. Para descompacta-lo, 
+você pode usar o <command>gzip</command> e depois o <command>tar</command> ou 
+somente o programa <command>tar</command> usando a opção <tt>-z</tt>. Para 
+detalhes veja <xref linkend="cpctd-gzip"> e <xref linkend="cpctd-tar">. 
 
  <item>
 <file>.tgz</file> - Abreviação de <file>.tar.gz</file>.
 
  <item>
 <file>.tar.bz2</file> - Arquivo compactado pelo programa 
-<prgn>bzip2</prgn> no utilitário de arquivamento <prgn>tar</prgn>. Para 
-descompacta-lo, você pode usar o <prgn>bzip2</prgn> e depois o 
-<prgn>tar</prgn> ou somente o programa <prgn>tar</prgn> usando a opção 
-<tt>-j</tt>. Para detalhes veja <ref id="cpctd-bzip2"> e <ref id="cpctd-tar">. 
+<command>bzip2</command> no utilitário de arquivamento <command>tar</command>. Para 
+descompacta-lo, você pode usar o <command>bzip2</command> e depois o 
+<command>tar</command> ou somente o programa <command>tar</command> usando a opção 
+<tt>-j</tt>. Para detalhes veja <xref linkend="cpctd-bzip2"> e <xref linkend="cpctd-tar">. 
 
  <item>
 <file>.tar.Z</file> - Arquivo compactado pelo programa 
-<prgn>compress</prgn> no utilitário de arquivamento <prgn>tar</prgn>. 
-Para descompacta-lo, você pode usar o <prgn>uncompress</prgn> e 
-depois o <prgn>tar</prgn> ou somente o programa <prgn>tar</prgn> 
-usando a opção <tt>-Z</tt>. Para detalhes veja <ref id="cpctd-tar">. 
+<command>compress</command> no utilitário de arquivamento <command>tar</command>. 
+Para descompacta-lo, você pode usar o <command>uncompress</command> e 
+depois o <command>tar</command> ou somente o programa <command>tar</command> 
+usando a opção <tt>-Z</tt>. Para detalhes veja <xref linkend="cpctd-tar">. 
 
 </list>
 
 
 <sect id="cpctd-gzip">gzip
  <p>
-É praticamente o compactador padrão do <prgn>GNU/Linux</prgn>, possui uma 
+É praticamente o compactador padrão do <command>GNU/Linux</command>, possui uma 
 ótima taxa de compactação e velocidade. 
 <![ %DESCRICAOD [ A extensão dos arquivos compactados pelo 
-<prgn>gzip</prgn> é a <file>.gz</file>, na versão para 
-<prgn>DOS</prgn>, <prgn>Windows NT</prgn> é usada a extensão 
+<command>gzip</command> é a <file>.gz</file>, na versão para 
+<command>DOS</command>, <command>Windows NT</command> é usada a extensão 
 <file>.z</file>. ]]>
  <p>
 <tt>gzip [<em>opções</em>] [<em>arquivos</em>]</tt>
@@ -183,10 +183,10 @@ Onde:
 <taglist compact>
  <tag>arquivos</tag> 
  <item>
-Especifica quais arquivos serão compactados pelo <prgn>gzip</prgn>. Caso 
+Especifica quais arquivos serão compactados pelo <command>gzip</command>. Caso 
 seja usado um <tt>-</tt>, será assumido a entrada padrão. Curingas podem 
 ser usados para especificar vários arquivos de uma só vez 
-(veja <ref id="basico-curingas">). 
+(veja <xref linkend="basico-curingas">). 
 
  <tag>Opções</tag>
  <tag>-d, --decompress [arquivo]</tag>  
@@ -199,7 +199,7 @@ Força a compactação, compactando até mesmo links.
 
  <tag>-l [arquivo]</tag>
  <item>
-Lista o conteúdo de um arquivo compactado pelo <prgn>gzip</prgn>.
+Lista o conteúdo de um arquivo compactado pelo <command>gzip</command>.
 
  <tag>-r</tag>
  <item>
@@ -211,7 +211,7 @@ Descompacta o arquivo para a saída padrão.
 
  <tag>-t [arquivo]</tag>
  <item>
-Testa o arquivo compactado pelo <prgn>gzip</prgn>.
+Testa o arquivo compactado pelo <command>gzip</command>.
 
  <tag>-[num], --fast, --best</tag>
  <item>
@@ -228,12 +228,12 @@ compactação/velocidade (especialmente em computadores muito lentos).
 
 </taglist>
 ]]>
-Quando um arquivo é compactado pelo <prgn>gzip</prgn>, é automaticamente 
+Quando um arquivo é compactado pelo <command>gzip</command>, é automaticamente 
 acrescentada a extensão <file>.gz</file> ao seu nome.
  <p>
-O <prgn>gzip</prgn> também reconhece arquivos compactados pelos 
-programas <prgn>zip</prgn>, <prgn>compress</prgn>, <prgn>compress -H</prgn> 
-e <prgn>pack</prgn>. As permissões de acesso dos arquivos são também 
+O <command>gzip</command> também reconhece arquivos compactados pelos 
+programas <command>zip</command>, <command>compress</command>, <command>compress -H</command> 
+e <command>pack</command>. As permissões de acesso dos arquivos são também 
 armazenadas no arquivo compactado. 
 <![ %EXEMPLO [
  <p>
@@ -259,12 +259,12 @@ para a tela
 
 <sect id="cpctd-zip">zip
  <p>
-Utilitário de compactação compatível com <prgn>pkzip</prgn> 
-(do <prgn>DOS</prgn>) e trabalha com arquivos de extensão 
+Utilitário de compactação compatível com <command>pkzip</command> 
+(do <command>DOS</command>) e trabalha com arquivos de extensão 
 <file>.zip</file>. 
 <![ %DESCRICAOD [ 
 Possui uma ótima taxa de compactação e velocidade no processamento 
-dos arquivos compactados (comparando-se ao <prgn>gzip</prgn>). 
+dos arquivos compactados (comparando-se ao <command>gzip</command>). 
 ]]>
  <p>
 <tt>zip [<em>opções</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
@@ -281,7 +281,7 @@ Nome do arquivo compactado que será gerado.
  <item>
 Arquivos/Diretórios que serão compactados. Podem ser usados curingas para 
 especificar mais de um arquivo de uma só vez (veja 
-<ref id="basico-curingas">). 
+<xref linkend="basico-curingas">). 
 
  <tag>opções</tag>
 
@@ -299,7 +299,7 @@ de senha. A senha será pedida no momento da compactação.
 Somente substitui um arquivo compactado existente dentro do arquivo 
 <file>.zip</file> somente se a versão é mais nova que a atual. Não 
 acrescenta arquivos ao arquivo compactado. Deve ser executado no 
-mesmo diretório onde o programa <prgn>zip</prgn> foi executado 
+mesmo diretório onde o programa <command>zip</command> foi executado 
 anteriormente. 
 
  <tag>-F</tag>
@@ -336,19 +336,19 @@ links simbólicos são ignorados durante a compactação.
 
  <tag>-k [arquivo]</tag>
  <item>
-Modifica o [arquivo] para ter compatibilidade total com o <prgn>pkzip</prgn> 
-do <prgn>DOS</prgn>.
+Modifica o [arquivo] para ter compatibilidade total com o <command>pkzip</command> 
+do <command>DOS</command>.
 
  <tag>-l</tag>
  <item>
-Converte saltos de linha <prgn>UNIX</prgn> (LF) para o 
-formato CR+LF (usados pelo <prgn>DOS</prgn>). Use esta 
+Converte saltos de linha <command>UNIX</command> (LF) para o 
+formato CR+LF (usados pelo <command>DOS</command>). Use esta 
 opção com arquivos Texto.
 
  <tag>-ll</tag>
  <item>
-Converte saltos de linha <prgn>DOS</prgn> (CR+LF) para o 
-formato <prgn>UNIX</prgn> (LF). Use esta opção com 
+Converte saltos de linha <command>DOS</command> (CR+LF) para o 
+formato <command>UNIX</command> (LF). Use esta opção com 
 arquivos texto. 
 
  <tag>-n [extensão]</tag>
@@ -381,8 +381,8 @@ Permite incluir um comentário no arquivo <file>.zip</file>.
 ]]>
 Caso o nome de arquivo de destino não termine com <file>.zip</file>, esta 
 extensão será automaticamente adicionada. Para a descompactação de 
-arquivos <file>.zip</file> no <prgn>GNU/Linux</prgn>, é necessário o uso do 
-utilitário <prgn>unzip</prgn>. 
+arquivos <file>.zip</file> no <command>GNU/Linux</command>, é necessário o uso do 
+utilitário <command>unzip</command>. 
 <![ %EXEMPLO [
 Exemplos: 
  <p>
@@ -408,9 +408,9 @@ contém erros.
 <sect id="cpctd-unzip">unzip
  <p>
 Descompacta arquivos <file>.zip</file> criados com o programa 
-<prgn>zip</prgn>. 
+<command>zip</command>. 
 <![ %DESCRICAOD [ Este programa também é compatível com arquivos 
-compactados pelo <prgn>pkzip</prgn> do <prgn>DOS</prgn>. ]]>
+compactados pelo <command>pkzip</command> do <command>DOS</command>. ]]>
  <p>
 <tt>unzip [<em>opções</em>] [<em>arquivo.zip</em>] 
 [<em>arquivos-extrair</em>] [<em>-d diretório</em>]
@@ -457,7 +457,7 @@ Lista os arquivos existentes dentro do arquivo <file>.zip</file>.
  <tag>-M</tag>
  <item>
 Efetua uma pausa a cada tela de dados durante o processamento (a mesma 
-função do comando <prgn>more</prgn>). 
+função do comando <command>more</command>). 
 
  <tag>-n</tag>
  <item>
@@ -495,15 +495,15 @@ no diretório.
 
  <tag>-v</tag> 
  <item>
-Mostra mais detalhes sobre o processamento do <prgn>unzip</prgn>.
+Mostra mais detalhes sobre o processamento do <command>unzip</command>.
 
  <tag>-z</tag>
  <item>
 Mostra somente o comentário existente no arquivo.
 </taglist>
 ]]>
-Por padrão o <prgn>unzip</prgn> também descompacta sub-diretórios 
-caso o arquivo <file>.zip</file> tenha sido gerado com <prgn>zip -r</prgn>. 
+Por padrão o <command>unzip</command> também descompacta sub-diretórios 
+caso o arquivo <file>.zip</file> tenha sido gerado com <command>zip -r</command>. 
 <![ %EXEMPLO [
  <p>
 Exemplos:
@@ -528,19 +528,19 @@ arquivo <file>texto.zip</file> para o diretório <file>/tmp/texto</file>.
 
 <sect id="cpctd-tar">tar
  <p>
-Na verdade o <prgn>tar</prgn> não é um compactador e sim um "arquivador"
+Na verdade o <command>tar</command> não é um compactador e sim um "arquivador"
 (ele junta vários arquivos em um só), mas pode ser usado em conjunto com 
-um compactar (como o <prgn>gzip</prgn> ou <prgn>zip</prgn>) para 
-armazena-los compactados. O <prgn>tar</prgn> também é muito usado para 
+um compactar (como o <command>gzip</command> ou <command>zip</command>) para 
+armazena-los compactados. O <command>tar</command> também é muito usado para 
 cópias de arquivos especiais ou dispositivos do sistema. 
 <![ %DESCRICAOD [ 
 É comum encontrar arquivos com a extensão <file>.tar</file>, 
 <file>.tar.gz</file>, <file>.tgz</file>, <file>.tar.bz2</file>, 
 <file>.tar.Z</file>, <file>.tgZ</file>, o primeiro é um arquivo normal 
-gerado pelo <prgn>tar</prgn> e todos os outros são arquivos gerados através 
-<prgn>tar</prgn> junto com um programa de compactação 
-(<prgn>gzip</prgn> (<file>.gz</file>), <prgn>bzip2</prgn> (<file>.bz2</file>) 
-e <prgn>compress</prgn> (<file>.Z</file>). ]]> 
+gerado pelo <command>tar</command> e todos os outros são arquivos gerados através 
+<command>tar</command> junto com um programa de compactação 
+(<command>gzip</command> (<file>.gz</file>), <command>bzip2</command> (<file>.bz2</file>) 
+e <command>compress</command> (<file>.Z</file>). ]]> 
  <p>
 <tt>tar [<em>opções</em>] [<em>arquivo-destino</em>] [<em>arquivos-origem</em>]
 </tt> 
@@ -579,13 +579,13 @@ Usa o arquivo especificado para gravação ou o dispositivo <file>/dev/rmt0
 
  <tag>-j, --bzip2</tag>
  <item>
-Usa o programa <prgn>bzip2</prgn> para processar os arquivos do 
-<prgn>tar</prgn>
+Usa o programa <command>bzip2</command> para processar os arquivos do 
+<command>tar</command>
 
  <tag>-l, --one-file-system</tag>
  <item>
 Não processa arquivos em um sistema de arquivos diferentes de onde o 
-<prgn>tar</prgn> foi executado.
+<command>tar</command> foi executado.
 
  <tag>-M, --multi-volume</tag>
  <item>
@@ -604,7 +604,7 @@ arquivo.
 
  <tag>--remove-files</tag>
  <item>
-Apaga os arquivos de origem após serem processados pelo <prgn>tar</prgn>. 
+Apaga os arquivos de origem após serem processados pelo <command>tar</command>. 
 
  <tag>-R, --record-number</tag>
  <item>
@@ -621,15 +621,15 @@ Mostra os nomes dos arquivos enquanto são processados.
 
  <tag>-V [NOME]</tag>
  <item>
-Inclui um [NOME] no arquivo <prgn>tar</prgn>.
+Inclui um [NOME] no arquivo <command>tar</command>.
 
  <tag>-W, --verify</tag>
  <item>
-Tenta verificar o arquivo gerado pelo <prgn>tar</prgn> após grava-lo. 
+Tenta verificar o arquivo gerado pelo <command>tar</command> após grava-lo. 
 
  <tag>x</tag>
  <item>
-Extrai arquivos gerados pelo <prgn>tar</prgn>
+Extrai arquivos gerados pelo <command>tar</command>
 
  <tag>-X [ARQUIVO]</tag>
  <item>
@@ -637,11 +637,11 @@ Tenta apagar o [ARQUIVO] dentro de um arquivo compactado <file>.tar</file>.
 
  <tag>-Z</tag>
  <item>
-Usa o programa <prgn>compress</prgn> durante o processamento dos arquivos.
+Usa o programa <command>compress</command> durante o processamento dos arquivos.
 
  <tag>-z</tag>
  <item>
-Usa o programa <prgn>gzip</prgn> durante o processamento dos arquivos. 
+Usa o programa <command>gzip</command> durante o processamento dos arquivos. 
 
  <tag>--use-compress-program [PROGRAMA]</tag>
  <item>
@@ -658,7 +658,7 @@ A extensão precisa ser especificada no arquivo de destino
 para a identificação correta:
 <list compact>
  <item>
-Arquivos gerados pelo <prgn>tar</prgn> precisam ter a extensão 
+Arquivos gerados pelo <command>tar</command> precisam ter a extensão 
 <file>.tar</file>
  <item>
 Caso seja usada a opção <tt>-j</tt> para compactação, a extensão deverá ser 
@@ -673,7 +673,7 @@ Caso seja usada a opção <tt>-Z</tt> para a compactação, a extensão deverá 
 É importante saber qual qual o tipo de compactador usado durante a geração 
 do arquivo <file>.tar</file> pois será necessário 
 especificar a opção apropriada para descompacta-lo (para detalhes veja 
-<ref id="cpctd-extensoes">). 
+<xref linkend="cpctd-extensoes">). 
 <![ %EXEMPLO [
  <p>
 Exemplos:
@@ -690,11 +690,11 @@ criado pelo comando acima.
  <item>
 <tt>tar -czf index.txt.tar.gz index.txt</tt> - O mesmo que o exemplo de 
 arquivamento anterior, só que agora é usado a opção <tt>-z</tt> 
-(compactação através do programa <prgn>gzip</prgn>). Você agora pode 
+(compactação através do programa <command>gzip</command>). Você agora pode 
 notar digitando <tt>ls -la</tt> que o arquivo <file>index.txt</file> 
 foi compactado e depois arquivado no arquivo <file>index.txt.tar.gz</file> 
 (você também pode chama-lo de <file>index.txt.tgz</file> que também identifica 
-um arquivo <file>.tar</file> compactado pelo <prgn>gzip</prgn>)
+um arquivo <file>.tar</file> compactado pelo <command>gzip</command>)
  <item>
 <tt>tar -xzf index.txt.tar.gz</tt> - Descompacta e desarquiva o 
 arquivo <file>index.txt.tar.gz</file> criado com o comando acima. 
@@ -702,11 +702,11 @@ arquivo <file>index.txt.tar.gz</file> criado com o comando acima.
 <tt>gzip -dc index.tar.gz | tar -xf -</tt> - Faz o mesmo que o comando acima 
 só que de uma forma diferente: Primeiro descompacta o arquivo 
 <file>index.txt.tar.gz</file> e envia a saída do arquivo descompactado para 
-o <prgn>tar</prgn> que desarquivará o arquivo <file>index.txt</file>.
+o <command>tar</command> que desarquivará o arquivo <file>index.txt</file>.
  <item>
 <tt>tar -cjf index.txt.tar.bz2 index.txt</tt> - Arquiva o arquivo 
 <file>index.txt</file> em <file>index.txt.tar.bz2</file> compactando 
-através do <prgn>bzip2</prgn> (opção -j). 
+através do <command>bzip2</command> (opção -j). 
  <item>
 <tt>tar -xjf index.txt.tar.bz2</tt> - Descompacta e desarquiva o 
 arquivo <file>index.txt.tar.bz2</file> criado com o comando acima. 
@@ -714,7 +714,7 @@ arquivo <file>index.txt.tar.bz2</file> criado com o comando acima.
 <tt>bzip2 -dc index.txt.tar.bz2 | tar -xf -</tt> - Faz o mesmo que o 
 comando acima só que de uma forma diferente: Primeiro descompacta o arquivo 
 <file>index.txt.tar.bz2</file> e envia a saída do arquivo descompactado para 
-o <prgn>tar</prgn> que desarquivará o arquivo <file>index.txt</file>.
+o <command>tar</command> que desarquivará o arquivo <file>index.txt</file>.
  <item>
 <tt>tar -t index.txt.tar</tt> - Lista o conteúdo de um arquivo 
 <file>.tar</file>. 
@@ -731,11 +731,11 @@ o <prgn>tar</prgn> que desarquivará o arquivo <file>index.txt</file>.
 É um novo compactador que vem sendo cada vez mais usado porque consegue 
 atingir a melhor compactação em arquivos texto se comparado aos já 
 existentes (em conseqüência sua velocidade de compactação também é menor; 
-quase duas vezes mais lento que o <prgn>gzip</prgn>). Suas opções são 
-praticamente as mesmas usadas no <prgn>gzip</prgn> e você também pode 
+quase duas vezes mais lento que o <command>gzip</command>). Suas opções são 
+praticamente as mesmas usadas no <command>gzip</command> e você também pode 
 usa-lo da mesma forma. 
 <![ %DESCRICAOD [ A extensão dos arquivos compactados pelo 
-<prgn>bzip2</prgn> é a <file>.bz2</file> ]]>
+<command>bzip2</command> é a <file>.bz2</file> ]]>
  <p>
 <tt>bzip2 [<em>opções</em>] [<em>arquivos</em>]</tt>
  <p>
@@ -744,10 +744,10 @@ Onde:
 <taglist compact>
  <tag>arquivos</tag> 
  <item>
-Especifica quais arquivos serão compactados pelo <prgn>bzip2</prgn>. Caso 
+Especifica quais arquivos serão compactados pelo <command>bzip2</command>. Caso 
 seja usado um <tt>-</tt>, será assumido a entrada padrão. Curingas podem 
 ser usados para especificar vários arquivos de uma só vez 
-(veja <ref id="basico-curingas">). 
+(veja <xref linkend="basico-curingas">). 
 
  <tag>Opções</tag>
  <tag>-d, --decompress [arquivo]</tag>  
@@ -760,7 +760,7 @@ Força a compactação, compactando até mesmo links.
 
  <tag>-l [arquivo]</tag>
  <item>
-Lista o conteúdo de um arquivo compactado pelo <prgn>bzip2</prgn>.
+Lista o conteúdo de um arquivo compactado pelo <command>bzip2</command>.
 
  <tag>-r</tag>
  <item>
@@ -772,7 +772,7 @@ Descompacta o arquivo para a saída padrão.
 
  <tag>-t [arquivo]</tag>
  <item>
-Testa o arquivo compactado pelo <prgn>bzip2</prgn>.
+Testa o arquivo compactado pelo <command>bzip2</command>.
 
  <tag>-[num], --fast, --best</tag>
  <item>
@@ -789,7 +789,7 @@ compactação/velocidade (especialmente em computadores muito lentos).
 
 </taglist>
 ]]>
-Quando um arquivo é compactado pelo <prgn>bzip2</prgn>, é automaticamente 
+Quando um arquivo é compactado pelo <command>bzip2</command>, é automaticamente 
 acrescentada a extensão <file>.bz2</file> ao seu nome. As permissões de 
 acesso dos arquivos são também armazenadas no arquivo compactado. 
 <![ %EXEMPLO [
@@ -815,9 +815,9 @@ para a saída padrão (tela)
 
 <sect id="cpctd-rar">rar
  <p>
-<prgn>rar</prgn> é um compactador desenvolvido por <tt>Eugene Roshal</tt> 
-e possui versões para <prgn>GNU/Linux</prgn>, <prgn>DOS</prgn>, 
-<prgn>Windows</prgn>, <prgn>OS/2</prgn> e  <prgn>Macintosh</prgn>. 
+<command>rar</command> é um compactador desenvolvido por <tt>Eugene Roshal</tt> 
+e possui versões para <command>GNU/Linux</command>, <command>DOS</command>, 
+<command>Windows</command>, <command>OS/2</command> e  <command>Macintosh</command>. 
 <![ %DESCRICAOD [ Trabalha com arquivos de extensão <file>.rar</file> e 
 permite armazenar arquivos compactados em vários disquetes (múltiplos 
 volumes). Se trata de um produto comercial, mas decidi coloca-lo aqui porque 
@@ -891,10 +891,10 @@ Adiciona um registro de verificação no arquivo
  <item>
 Converte um arquivo <file>.rar</file> normal em arquivo auto-extráctil. 
 Arquivos auto-extrácteis são úteis para enviar arquivos a pessoas que 
-não tem o programa <prgn>rar</prgn>. Basta executar o arquivo e ele será 
+não tem o programa <command>rar</command>. Basta executar o arquivo e ele será 
 automaticamente descompactado (usando o sistema operacional que foi criado). 
 Note que esta opção requer que o arquivo <file>default.sfx</file> esteja 
-presente no diretório home do usuário. Use o comando <prgn>find</prgn> para 
+presente no diretório home do usuário. Use o comando <command>find</command> para 
 localiza-lo em seu sistema. 
 
 
@@ -910,10 +910,10 @@ Não substitui arquivos existentes
  <tag>sfx</tag>
  <item>
 Cria arquivos auto-extrácteis. Arquivos auto-extrácteis são úteis para 
-enviar arquivos a pessoas que não tem o programa <prgn>rar</prgn>. Basta 
+enviar arquivos a pessoas que não tem o programa <command>rar</command>. Basta 
 executar o arquivo e ele será automaticamente descompactado. 
 Note que este processo requer que o arquivo <file>default.sfx</file> esteja 
-presente no diretório home do usuário. Use o comando <prgn>find</prgn> para 
+presente no diretório home do usuário. Use o comando <command>find</command> para 
 localiza-lo em seu sistema. 
 
  <tag>y</tag>
@@ -979,8 +979,8 @@ etc). Caso for usado <tt>mmf</tt>, força o uso do método multimídia mesmo
 que o arquivo compactado não seja deste tipo. 
 </taglist>
 ]]>
-Os arquivos gerados pelo <prgn>rar</prgn> do <prgn>GNU/Linux</prgn> podem ser 
-usados em outros sistemas operacionais, basta ter o <prgn>rar</prgn> 
+Os arquivos gerados pelo <command>rar</command> do <command>GNU/Linux</command> podem ser 
+usados em outros sistemas operacionais, basta ter o <command>rar</command> 
 instalado. Quando é usada a opção <tt>-v</tt> para a criação de 
 múltiplos volumes, a numeração dos arquivos é feita na forma: 
 <file>arquivo.rar</file>, <file>arquivo.r00</file>, <file>arquivo.r01</file>, 
@@ -1008,7 +1008,7 @@ grava-lo em partes para disquetes.
 criados com o processo anterior. Todos os arquivos devem ter sido 
 copiados dos disquetes para o diretório atual antes de prosseguir. A 
 opção <tt>-y</tt> é útil para não precisar-mos responder <tt>yes</tt> a 
-toda pergunta que o <prgn>rar</prgn> fizer. 
+toda pergunta que o <command>rar</command> fizer. 
  <item>
 <tt>rar t textos.rar</tt> - Verifica se o arquivo <file>textos.rar</file> 
 possui erros.

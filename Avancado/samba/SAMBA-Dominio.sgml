@@ -15,28 +15,28 @@ quais usuários ou grupos terão acesso de leitura/gravação.
  <p>
 É permitido criar scripts de logon, assim comandos programados pelo 
 administrador serão executados nas máquinas clientes durante o logon
-no domínio (veja <ref id="s-samba-dom-logonscripts">).
+no domínio (veja <xref linkend="s-samba-dom-logonscripts">).
  <p>
 O nome da máquina é protegido contra hijacking através de contas de máquinas 
-que fazem parte do domínio (veja <ref id="s-samba-dom-contasmac">). Isto só 
-é possível em clientes <prgn>Linux</prgn>, <prgn>Windows NT</prgn>, 
-<prgn>Windows 2000</prgn> e <prgn>Windows XP</prgn>. 
+que fazem parte do domínio (veja <xref linkend="s-samba-dom-contasmac">). Isto só 
+é possível em clientes <command>Linux</command>, <command>Windows NT</command>, 
+<command>Windows 2000</command> e <command>Windows XP</command>. 
  <p>
 Você poderá usar perfis móveis, copiando todas as personalizações do seu 
 desktop para qualquer máquina na rede que você faça o logon. Para o 
-administrador, ele poderá definir políticas com o <prgn>Poledit</prgn> e 
+administrador, ele poderá definir políticas com o <command>Poledit</command> e 
 outros programas que serão salvas junto com o perfil do usuário, valendo 
 para qualquer máquina que ele se autentique na rede (veja 
-<ref id="s-samba-dom-logonscripts">).
+<xref linkend="s-samba-dom-logonscripts">).
  <p>
 Se você deseja iniciar logo a configuração do seu domínio, siga até 
-<ref id="s-samba-dom-config">.
+<xref linkend="s-samba-dom-config">.
 
 
 <sect1 id="s-samba-dom-lmbrowser">Local Master Browser
  <p>
 É a máquina que ganhou a eleição no segmento local de rede (veja 
-<ref id="s-samba-s-oslevel">). Logo que é declarada o <em>local master 
+<xref linkend="s-samba-s-oslevel">). Logo que é declarada o <em>local master 
 browser</em>, ela começa a receber via broadcasting a lista de recursos 
 compartilhados por cada máquina para montar a lista principal que será 
 retornada para outras máquinas do grupo de trabalho ou outras subredes 
@@ -66,7 +66,7 @@ seu próprio domínio, mas não é possível ter 2 domain master browsers em
 um mesmo domínio. Caso utilize um servidor <tt>WINS</tt> em sua rede, o PDC 
 fará consultas constantes em sua base de dados para obter a lista de 
 domínios registrados. O domínio é identificado pelo caracter <em>1b</em> 
-na rede (veja <ref id="s-samba-c-workgroup-linux-nmblookup">).
+na rede (veja <xref linkend="s-samba-c-workgroup-linux-nmblookup">).
 <![ %OBS [
   <p>
 <strong>OBS:</strong> O Windows NT configurado como PDC sempre tenta se 
@@ -92,7 +92,7 @@ Domínio</em> ou <em>Primary Domain Control</em>), siga esta seqüência:
 <list compact>
  <item>
 Habilite o suporte a senhas criptografadas. Caso ainda não tenha feito isso,
-leia a seção <ref id="s-samba-senhas-crypto">.
+leia a seção <xref linkend="s-samba-senhas-crypto">.
  
  <item>
 Na seção <em>[global]</em>, insira/modifique os seguintes parâmetros:
@@ -123,7 +123,7 @@ de domínio</em>).
 que pertencerem a este domínio, terão o nível de acesso definido pelo PDC. 
 Note que o parâmetro <tt>workgroup</tt> também é usado ao especificar o 
 nome do grupo de trabalho quando se é usado a configuração <em>grupo de 
-trabalho</em> (<ref id="s-samba-wrkgrp">).
+trabalho</em> (<xref linkend="s-samba-wrkgrp">).
  <item>
 <tt>security = user</tt> - Requerido para controle de acesso por domínio, já que 
 é utilizado o controle de acesso local usando usuários e grupos locais.
@@ -133,12 +133,12 @@ para ser o PDC da rede.
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Por favor, certifique-se que não existe outro PDC no 
-domínio. Veja <ref id="s-samba-dom-dmbrowser">.
+domínio. Veja <xref linkend="s-samba-dom-dmbrowser">.
 ]]>
  <tt>prefered master = yes</tt> - Força uma eleição com algumas vantagens para
 seu servidor ser eleito sempre como o controlador de domínio. Isto garante que 
-a máquina <prgn>SAMBA</prgn> sempre seja o PDC. Veja 
-<ref id="s-samba-s-global-browsing">.
+a máquina <command>SAMBA</command> sempre seja o PDC. Veja 
+<xref linkend="s-samba-s-global-browsing">.
 
  <tt>local master = yes</tt> - Define se a máquina será o controlador 
 principal do grupo de trabalho local que ela pertence.
@@ -147,18 +147,18 @@ principal do grupo de trabalho local que ela pertence.
 
 </list>
 Pronto, agora teste se existem erros em sua configuração executando o comando
-<prgn>testparm</prgn> (<ref id="s-samba-s-testparm">) e corrija-os se existir. 
-Resta agora reiniciar o servidor <prgn>nmbd</prgn> para que todas as suas 
+<command>testparm</command> (<xref linkend="s-samba-s-testparm">) e corrija-os se existir. 
+Resta agora reiniciar o servidor <command>nmbd</command> para que todas as suas 
 alterações tenham efeito. Para adicionar seus clientes a um domínio, veja
-<ref id="s-samba-dom-contasmac"> e <ref id="s-samba-c-dominio">.
+<xref linkend="s-samba-dom-contasmac"> e <xref linkend="s-samba-c-dominio">.
 
 
 <sect1 id="s-samba-dom-contasmac">Contas de máquinas de domínio
  <p>
 Uma conta de máquina de domínio garante que nenhum outro computador possa 
 utilizar o mesmo nome de uma máquina confiável e assim utilizar os compartilhamentos
-que ela tem permissão. Os clientes <prgn>Windows NT</prgn>, 
-<prgn>Windows XP</prgn> e <prgn>Windows 2000</prgn> precisam de uma conta de 
+que ela tem permissão. Os clientes <command>Windows NT</command>, 
+<command>Windows XP</command> e <command>Windows 2000</command> precisam de uma conta de 
 máquina para ter acesso ao domínio e seus recursos. A criação de uma conta de 
 máquina é bastante semelhante a criação da conta de um usuário normal no domínio.
  <p>
@@ -198,17 +198,17 @@ Isto cria uma conta de máquina para o computador <tt>master</tt> no
 arquivo <file>/etc/samba/smbpasswd</file>. Note que a criação de uma 
 conta de máquina é muito semelhante a criação de um usuário apenas 
 precisa adicionar a opção <tt>-m</tt>. Quando for criar uma conta 
-com o <prgn>smbpasswd</prgn> Não é necessário especificar <tt>$</tt> 
+com o <command>smbpasswd</command> Não é necessário especificar <tt>$</tt> 
 no final do nome da máquina. 
  <p>
 O mais importante: Entre <strong>IMEDIATAMENTE</strong> no domínio 
 após criar a conta de máquina usando a conta de administrador de 
-domínio criada no SAMBA (veja <ref id="s-samba-dom-admin">)! como a 
+domínio criada no SAMBA (veja <xref linkend="s-samba-dom-admin">)! como a 
 máquina ainda não se autenticou pela primeira vez, qualquer máquina 
 que tenha o mesmo nome e entre no domínio, poderá alocar o nome recém 
 criado. A única forma de resolver este problema, é apagando a conta de 
 máquina e criando-a novamente no domínio. Siga os passos de acordo com 
-o sistema operacional em <ref id="s-samba-c-dominio"> para colocar 
+o sistema operacional em <xref linkend="s-samba-c-dominio"> para colocar 
 seus clientes em domínio.
 
 </enumlist>
@@ -245,7 +245,7 @@ add user script = useradd -g domainmac -c "Maquina de Dominio" -s /bin/false -d 
 
 </example>
 Assim, a conta de máquina será automaticamente criada quando o administrador fizer 
-sua configuração no domínio (veja <ref id="s-samba-dom-admin">). No 
+sua configuração no domínio (veja <xref linkend="s-samba-dom-admin">). No 
 SAMBA 3.0, a opção <tt>add machine script</tt> deverá ser usada no 
 lugar de <tt>add user script</tt> para adicionar uma máquina no domínio.
 
@@ -278,7 +278,7 @@ domain admin group = @admins gleydson
 
 </example>
 Isto permite que o usuário <tt>gleydson</tt> possa adicionar/remover 
-máquinas do domínio NT (veja <ref id="s-samba-c-dominio">) entre outras tarefas. 
+máquinas do domínio NT (veja <xref linkend="s-samba-c-dominio">) entre outras tarefas. 
 Por segurança, recomendo que coloque esta conta no <tt>invalid users</tt> de 
 cada compartilhamento para que seja utilizada somente para fins de gerenciamento
 de máquinas no domínio, a menos que deseje ter acesso total aos compartilhamentos
@@ -310,7 +310,7 @@ A programação de scripts de logon é feita usando a linguagem em lote
 do DOS, com possibilidades de usar variáveis de ambiente, cópia de 
 arquivos entre servidores, etc. O guia não irá abordar a programação 
 em linguagem de lote, mas isto é simples de se encontrar na internet e 
-mesmo a documentação que acompanha o próprio <prgn>Windows</prgn> é útil.
+mesmo a documentação que acompanha o próprio <command>Windows</command> é útil.
  <p>
 Para habilitar o recurso de scripts de logon na máquina, adicione os seguintes
 parâmetros no arquivo <file>smb.conf</file>:
@@ -341,14 +341,14 @@ pela opção <tt>path</tt> do compartilhamento <tt>[netlogon]</tt>
 (<file>/pub/samba/netlogon</file> no exemplo). Os scripts de logon podem 
 ser tanto em formato <file>.bat</file> ou <file>.cmd</file>. Se for 
 programar um script universal, é recomendável o uso do formato <file>.bat</file> 
-por ser compatível tanto com <prgn>Win9X</prgn> e <prgn>WinNT</prgn>.
+por ser compatível tanto com <command>Win9X</command> e <command>WinNT</command>.
 
 </list>
 Um detalhe que deve ser lembrado durante a programação do script de logon é 
 que ele <strong>DEVE</strong> seguir o formato DOS, ou seja, ter os 
 caracteres <tt>CR+LF</tt> como finalizador de linhas. Para utilizar editores
 do UNIX para escrever este script, será necessário executar o programa 
-<prgn>flip</prgn> (<tt>flip -m -b arquivo</tt>) ou <prgn>unix2dos</prgn> no 
+<command>flip</command> (<tt>flip -m -b arquivo</tt>) ou <command>unix2dos</command> no 
 arquivo para converte-lo em formato compatível com o DOS.
  <p>
 Segue abaixo um exemplo de script de logon que detecta quando o cliente é 
@@ -402,9 +402,9 @@ rem
 
 </example>
 Note no exemplo acima que não podem haver linhas em branco, você deverá 
-utilizar a palavra <var>rem</var> (comentário em arquivos em lote) em 
+utilizar a palavra <envar>rem</envar> (comentário em arquivos em lote) em 
 seu lugar. Note que existem diferenças entre o comando 
-<prgn>net</prgn> do Windows 9x/ME e do NT, as variáveis também possuem 
+<command>net</command> do Windows 9x/ME e do NT, as variáveis também possuem 
 um significado diferente entre estes 2 sistemas, isto explica a necessidade 
 de se incluir um bloco separado detectando a existência de qual sistema 
 está sendo efetuado o logon. 
@@ -417,8 +417,8 @@ máquina cliente.
  <p>
 <strong>OBS:</strong> Caso especifique um computador que contém o 
 script de login, lembre-se de faze-lo sempre com <tt>\</tt> ao 
-invés de <tt>/</tt> para não ter incompatibilidade com o <prgn>Windows 95/3.11
-</prgn>.
+invés de <tt>/</tt> para não ter incompatibilidade com o <command>Windows 95/3.11
+</command>.
 <p>
 <strong>ATENÇÃO:</strong> Lembre-se que copiar e colar pode não funcionar para 
 este script. Leia novamente esta seção do guia se estiver em dúvidas.
@@ -469,8 +469,8 @@ usado para fazer logons no domínio. Quando este parâmetro é definido para
  <item>
 <tt>logon path</tt> e <tt>logon home</tt> definem (respectivamente) o 
 diretório de logon do <file>/pub/profilesNT/usuario</file> 
-(<prgn>NT</prgn>) e <file>/pub/profiles/usuario</file> 
-(<prgn>Win95</prgn>) respectivamente.
+(<command>NT</command>) e <file>/pub/profiles/usuario</file> 
+(<command>Win95</command>) respectivamente.
 Durante o logon, a variável <tt>%N</tt> será substituída pelo nome do servidor 
 (ou servidor de diretórios, se for o caso) e a variável <tt>%u</tt> pelo nome
 do usuário. 

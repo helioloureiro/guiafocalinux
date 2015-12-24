@@ -14,7 +14,7 @@ Quando Linux começou a surgir como sistema operacional, foi adotado um sistema
 de init compatível com padrão SYSV, que basicamente lia os scripts colocados em 
 <file>/etc/init.d/rc<strong>&lt;n&gt;</strong>.d</file> no padrão de RedHat/Suse, ou em 
 <file>/etc/rc<strong>&lt;n&gt;</strong>.d</file> no padrão Debian, e inicializava como shell 
-script, rodando <prgn>/bin/sh</prgn> todos os scripts que começassem com 
+script, rodando <command>/bin/sh</command> todos os scripts que começassem com 
 <strong>S</strong>.  Cada diretório de inicialização tinha um <strong>&lt;n&gt;</strong> referente ao 
 corrente runlevel.  Então um boot em initlevel 5, todos os scripts em 
 <file>/etc/rc5.d/S*</file> seriam lidos.  Não somente lidos, mas executados como 

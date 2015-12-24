@@ -10,7 +10,7 @@ segurança, ou um sistema de firewall totalmente confuso e sem lógica.
 Nos exemplos abaixo assumirei a seguinte configuração: 
 <list compact>
  <item>
-A máquina do firewall com <prgn>iptables</prgn> possui o endereço IP
+A máquina do firewall com <command>iptables</command> possui o endereço IP
 <file>192.168.1.1</file>  e conecta a rede interna ligada via interface 
 <file>eth0</file> a internet via a interface <file>ppp0</file>.
 
@@ -32,7 +32,7 @@ e tabelas dos blocos ASCII: <em>INPUT-filter</em> - chain <em>INPUT</em> da tabe
 
 <![ %OBS [ 
  <p>
-<strong>ATENÇÃO:</strong> A ordem de processamento das regras do <prgn>iptables</prgn>, é diferente do <prgn>ipchains</prgn> devido a inclusão do novo sistema de 
+<strong>ATENÇÃO:</strong> A ordem de processamento das regras do <command>iptables</command>, é diferente do <command>ipchains</command> devido a inclusão do novo sistema de 
 nat e da tabela mangle. ]]>
 
 
@@ -443,7 +443,7 @@ Este gráfico foi retirado do documento
 estrutura geral de passagem dos pacotes nas tabelas/chains. 
 Os exemplos de passagem de pacotes acima poderão ser facilmente 
 comparados com as etapas abaixo para compreender a estrutura 
-do <prgn>iptables</prgn>.
+do <command>iptables</command>.
 <example>
 E ---> PREROUTING ------> (ROTEAM.) ---> FORWARD ----------> POSTROUTING --> S
        Mangle e              |           Mangle       ^      Mangle

@@ -1,9 +1,9 @@
 <chapt id="s-apache">Apache
  <p>
 Esta capítulo documenta a configuração, personalização, introdução aos 
-mecanismos de autenticação e controle de acesso do <prgn>Apache</prgn>, 
+mecanismos de autenticação e controle de acesso do <command>Apache</command>, 
 sistema proxy, virtual hosting, e exemplos de configuração do 
-servidor <prgn>httpd</prgn>. Ele não tem como objetivo ser uma referência 
+servidor <command>httpd</command>. Ele não tem como objetivo ser uma referência 
 completa de configuração, mas sim abordar didaticamente o assunto. 
 
 
@@ -15,27 +15,27 @@ operar recebendo dados do cliente, processando e enviando o resultado
 para que o cliente possa tomar a ação desejada (como em aplicações 
 CGI's, banco de dados web, preenchimento de formulários, etc). 
  <p>
-O <prgn>Apache</prgn> é um servidor Web extremamente configurável, robusto e 
+O <command>Apache</command> é um servidor Web extremamente configurável, robusto e 
 de alta performance desenvolvido por uma equipe de voluntários 
 (conhecida como <tt>Apache Group</tt>) buscando criar um servidor web com muitas 
 características e com código fonte disponível gratuitamente via Internet. 
 Segundo a Netcraft (<url id="&url-netcraft-www;">), o 
-<prgn>Apache</prgn> é mais usado que todos os outros servidores web do mundo 
+<command>Apache</command> é mais usado que todos os outros servidores web do mundo 
 juntos. 
  <p>
-Este capítulo não tenta ser um guia completo ao <prgn>Apache</prgn>, mas 
+Este capítulo não tenta ser um guia completo ao <command>Apache</command>, mas 
 tentará mostrar como sua estrutura é organizada, as diretivas principais de 
 configuração, diretivas de segurança, virtual hosting, proxy, o uso de 
 utilitários de gerenciamento do servidor, como personalizar algumas partes 
 do servidor e programas úteis de terceiros para análise e diagnóstico do 
-servidor web. Não deixe também de ver <ref id="s-apache-exemplo"> pois 
+servidor web. Não deixe também de ver <xref linkend="s-apache-exemplo"> pois 
 contém diretivas básicas de configuração comentadas e explicações 
 interessante e faz parte do aprendizado. 
   
 
 <sect1 id="s-apache-versao">Versão
  <p>
-É assumido que esteja usando a versão 1.3.22 do <prgn>apache</prgn>. As explicações 
+É assumido que esteja usando a versão 1.3.22 do <command>apache</command>. As explicações 
 contidas aqui podem funcionar para versões posteriores, mas é recomendável que 
 leia a documentação sobre modificações no programa (changelog) em busca de 
 mudanças que alterem o sentido das explicações fornecidas aqui. 
@@ -43,27 +43,27 @@ mudanças que alterem o sentido das explicações fornecidas aqui.
 
 <sect1 id="s-apache-historia">Um resumo da História do Apache
  <p>
-O <prgn>Apache</prgn> tem como base o servidor web <prgn>NCSA 1.3</prgn> 
+O <command>Apache</command> tem como base o servidor web <command>NCSA 1.3</command> 
 (<em>National Center of Supercomputing Applications</em>), que foi 
 desenvolvido por Rob McCool. 
 Quando Rob deixou o NCSA, o desenvolvimento foi interrompido, assim 
 muitos desenvolvedores buscaram personalizar sua própria versão do NCSA ou 
 adicionar mais características para atender as suas necessidades. Neste 
-momento começa a história do <prgn>Apache</prgn> com <em>Brian Behlendorf</em> 
+momento começa a história do <command>Apache</command> com <em>Brian Behlendorf</em> 
 e <em>Cliff Skolnick</em> abrindo uma lista de discussão para interessados 
 no desenvolvimento, conseguindo espaço em um servidor doado pela 
 <em>HotWired</em> e trocando patches corrigindo problemas, adicionando 
 recursos e discutindo idéias com outros desenvolvedores e hackers 
 interessados neste projeto. 
  <p>
-A primeira versão oficial do <prgn>Apache</prgn> foi a 0.6.2, lançada em 
+A primeira versão oficial do <command>Apache</command> foi a 0.6.2, lançada em 
 Abril de 1995 (neste período a NCSA retomava o desenvolvimento de seu 
 servidor web, tendo como desenvolvedores <em>Brandon Long</em> e 
 <em>Beth Frank</em> que também se tornaram membros especiais do grupo 
-<prgn>Apache</prgn>, compartilhando idéias sobre seus projetos).
+<command>Apache</command>, compartilhando idéias sobre seus projetos).
  <p>
 Nas versões 2.x do Apache, a escalabilidade do servidor foi ampliada suportando
-as plataformas <prgn>Win32</prgn> (não obtendo o mesmo desempenho que em 
+as plataformas <command>Win32</command> (não obtendo o mesmo desempenho que em 
 plataformas UNIX mas sendo melhorado gradativamente). 
 
   
@@ -71,7 +71,7 @@ plataformas UNIX mas sendo melhorado gradativamente).
  <p>
 Um formulário está disponível na Web para o envio de correções/sugestões
 em <tt><url id="&url-apache-bug-report;"></tt>. Uma lista de 
-anuncio sobre o <prgn>Apache</prgn> está disponível em 
+anuncio sobre o <command>Apache</command> está disponível em 
 <email>apache-announce@apache.org</email> que divulgam correções, novas 
 versões e realização de eventos. 
  <p>
@@ -131,11 +131,11 @@ Utilitários:
  <item>
 <tt>apache</tt> - Servidor Web Principal
  <item>
-<tt>apachectl</tt> - Shell script que faz interface com o <prgn>apache</prgn> 
+<tt>apachectl</tt> - Shell script que faz interface com o <command>apache</command> 
 de forma mais amigável
  <item>
 <tt>apacheconfig</tt> - Script em Perl para configuração interativa básica 
-do <prgn>Apache</prgn>
+do <command>Apache</command>
  <item>
 <tt>htpasswd</tt> - Cria/Gerencia senhas criptografadas Crypto/MD5
  <item>
@@ -144,18 +144,18 @@ do <prgn>Apache</prgn>
 <tt>dbmmanage</tt> - Cria/Gerencia senhas em formato DBM (Perl)
  <item>
 <tt>logresolve</tt> - Faz um DNS reverso dos arquivos de log do 
-<prgn>Apache</prgn> para obter o endereço de hosts com base nos endereços IP's.
+<command>Apache</command> para obter o endereço de hosts com base nos endereços IP's.
  <item>
 <tt>ab</tt> - Apache Benchmarcking - Ferramenta de medida de desempenho do 
 servidor Web Apache.
 </list>
 
-Por padrão, os arquivos de configuração do <prgn>Apache</prgn> residem no diretório 
+Por padrão, os arquivos de configuração do <command>Apache</command> residem no diretório 
 <file>/etc/apache</file>: 
 <taglist compact>
  <tag>httpd.conf</tag>
  <item>
-Arquivo de configuração principal do <prgn>Apache</prgn>, possui diretivas 
+Arquivo de configuração principal do <command>Apache</command>, possui diretivas 
 que controlam a operação do daemon servidor. Um arquivo de configuração
 alternativo pode ser especificado através da opção "-f" da linha de 
 comando.
@@ -180,12 +180,12 @@ As configurações também podem ser especificadas diretamente no arquivo
 <file>srm.conf</file> e <file>access.conf</file>, mas isto proporciona 
 uma melhor organização das diretivas do servidor, principalmente quando 
 se tem um grande conjunto de diretivas. Um exemplo comentado destes 
-três arquivos de configuração é encontrado em <ref id="s-apache-exemplo">.
+três arquivos de configuração é encontrado em <xref linkend="s-apache-exemplo">.
 
 
 <sect1 id="s-apache-hwreq">Requerimentos
  <p>
-A máquina mínima para se rodar um servidor <prgn>Apache</prgn> para 
+A máquina mínima para se rodar um servidor <command>Apache</command> para 
 atender a uma rede padrão 10MB/s é um Pentium 90, 24MB de RAM, um HD 
 com um bom desempenho e espaço em disco considerável de acordo com o 
 tamanho projetado de seu servidor web (considerando seu crescimento). 
@@ -200,25 +200,25 @@ uma boa placa controladora (Adaptec 19160 ou superior) com
 
 <sect1 id="s-apache-logs">Arquivos de log criados pelo Apache
  <p>
-O servidor <prgn>httpd</prgn> grava seus arquivos de log geralmente 
+O servidor <command>httpd</command> grava seus arquivos de log geralmente 
 em <file>/var/log/apache</file>, não é possível descrever os arquivos 
 de logs usados porque tanto seus nomes como conteúdo podem ser personalizados
 no arquivo <file>httpd.conf</file>. Mesmo assim, os arquivos de logs 
-encontrados na instalação padrão do <prgn>Apache</prgn> são os seguintes:
+encontrados na instalação padrão do <command>Apache</command> são os seguintes:
 <list compact>
  <item>
 <file>access.log</file> - Registra detalhes sobre o acesso as páginas do servidor 
-<prgn>httpd</prgn>.
+<command>httpd</command>.
  <item>
 <file>error.log</file> - Registra detalhes saber erros de acesso as páginas ou 
 erros internos do servidor. 
  <item>
 <file>agent.log</file> - Registra o nome do navegador do cliente (campo 
-<var>UserAgent</var> do cabeçalho http). 
+<envar>UserAgent</envar> do cabeçalho http). 
 </list>
-Mais referências podem ser encontradas em <ref id="s-apache-log">. Um 
+Mais referências podem ser encontradas em <xref linkend="s-apache-log">. Um 
 bom programa para geração de estatísticas de acesso com gráficos é o 
-<ref id="s-apache-log-webalizer">. 
+<xref linkend="s-apache-log-webalizer">. 
 
 
 <sect1 id="s-apache-install">Instalação
@@ -226,32 +226,32 @@ bom programa para geração de estatísticas de acesso com gráficos é o
 <tt>apt-get install apache apache-doc</tt>
  <p>
 (o pacote <package>apache-doc</package> contém a documentação de referencia do 
-<prgn>Apache</prgn>, é recomendável instala-lo se estiver curioso e deseja 
+<command>Apache</command>, é recomendável instala-lo se estiver curioso e deseja 
 entender melhor seu funcionamento ou consultar diretivas). 
 
 
 <sect1 id="s-apache-rodando">Iniciando o servidor/reiniciando/recarregando a 
 configuração
  <p>
-O <prgn>Apache</prgn> pode ser executado tanto como um servidor 
+O <command>Apache</command> pode ser executado tanto como um servidor 
 <em>Inetd</em> ou como um <em>Daemon</em>. 
 A inicialização de programas pelo <em>Inetd</em> é uma boa estratégia quando 
-você precisa de um controle de acesso básico (o fornecido pelo <prgn>tcpd</prgn>), 
+você precisa de um controle de acesso básico (o fornecido pelo <command>tcpd</command>), 
 e o serviço é pouco usado na máquina. 
  <p>
-A segurança de um serviço iniciado pelo <prgn>inetd</prgn> pode ser 
+A segurança de um serviço iniciado pelo <command>inetd</command> pode ser 
 substituída e melhorada por um firewall bem configurado, garantindo 
 facilidades extras como um relatório de tráfego para a porta do servidor 
-web, por exemplo. Mesmo assim se o servidor <prgn>Apache</prgn> estiver 
+web, por exemplo. Mesmo assim se o servidor <command>Apache</command> estiver 
 rodando como daemon e estiver ocioso, ele será movido para swap liberando 
 a memória RAM para a execução de outros programas. 
  <p>
-Neste capítulo será assumido seu funcionamento do <prgn>Apache</prgn> 
+Neste capítulo será assumido seu funcionamento do <command>Apache</command> 
 como Daemon, que é o método de funcionamento recomendado para sites de 
 grande tráfego onde ele é freqüentemente requisitado e considerado um 
 serviço crítico. 
  <p>
-O método padrão para iniciar programas como daemons na <prgn>Debian</prgn> 
+O método padrão para iniciar programas como daemons na <command>Debian</command> 
 é através dos diretórios <file>/etc/rc?.d</file>. Cada diretório deste contém 
 os programas que serão executados/interrompidos no nível de execução "?" 
 (<file>rc1.d/</file>, <file>rc2.d/</file> ...). 
@@ -261,9 +261,9 @@ O conteúdo destes diretórios são links para os scripts originais em
 <file>/etc/init.d/apache</file>. 
 O <file>/etc/init.d/apache</file> aceita os seguintes parâmetros: 
 <list compact>
- <item><tt>start</tt> - Inicia o <prgn>Apache</prgn>
- <item><tt>stop</tt> - Finaliza o <prgn>Apache</prgn>
- <item><tt>restart</tt> - Reinicia o <prgn>Apache</prgn>, efetuando uma pausa 
+ <item><tt>start</tt> - Inicia o <command>Apache</command>
+ <item><tt>stop</tt> - Finaliza o <command>Apache</command>
+ <item><tt>restart</tt> - Reinicia o <command>Apache</command>, efetuando uma pausa 
 de 5 segundos entre a interrupção do seu funcionamento e reinicio.
  <item><tt>reload</tt> - Recarrega os arquivos de configuração do <tt>Apache</tt>, 
 as alterações entram em funcionamento imediatamente.
@@ -272,7 +272,7 @@ restart no servidor.
  <item><tt>force-reload</tt> - Faz a mesma função que o reload         
 </list>
 
-Para reiniciar o <prgn>Apache</prgn> usando o <file>/etc/init.d/apache</file>, 
+Para reiniciar o <command>Apache</command> usando o <file>/etc/init.d/apache</file>, 
 digite:
  <p>
 ./etc/init.d/apache restart
@@ -282,26 +282,26 @@ ou
 <tt>cd /etc/init.d;./apache restart</tt>
  <p>
 Na realidade, o que o <file>/etc/init.d/apache</file> faz é interagir 
-diretamente com o shell script <prgn>apachectl</prgn>.
+diretamente com o shell script <command>apachectl</command>.
  <p>
-O <prgn>apachectl</prgn> recebe os parâmetros enviados pelo usuário e 
-converte para sinais que serão enviados para o binário <prgn>apache</prgn>. Da 
-mesma forma ele verifica os códigos de saída do <prgn>apache</prgn> e os 
+O <command>apachectl</command> recebe os parâmetros enviados pelo usuário e 
+converte para sinais que serão enviados para o binário <command>apache</command>. Da 
+mesma forma ele verifica os códigos de saída do <command>apache</command> e os 
 transforma em mensagens de erro legíveis para o usuário comum.
  
 
-Os seguintes comandos são aceitos pelo <prgn>apachectl</prgn>: 
+Os seguintes comandos são aceitos pelo <command>apachectl</command>: 
 <list compact>
- <item><tt>httpd-server/start</tt> - Inicia o <prgn>Apache</prgn>
- <item><tt>stop</tt> - Finaliza o <prgn>Apache</prgn> (enviando um sinal TERM)
- <item><tt>restart</tt> - Reinicia o <prgn>Apache</prgn> (enviando um sinal HUP)
+ <item><tt>httpd-server/start</tt> - Inicia o <command>Apache</command>
+ <item><tt>stop</tt> - Finaliza o <command>Apache</command> (enviando um sinal TERM)
+ <item><tt>restart</tt> - Reinicia o <command>Apache</command> (enviando um sinal HUP)
  <item><tt>graceful</tt> - Recarrega os arquivos de configuração do 
- <prgn>Apache</prgn> (enviando um sinal USR1)
+ <command>Apache</command> (enviando um sinal USR1)
  <item><tt>fullstatus</tt> - Mostra o status completo do servidor 
-<prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o módulo <em>mod_status</em> 
+<command>Apache</command> (requer o <command>lynx</command> e o módulo <em>mod_status</em> 
 carregado).
  <item><tt>status</tt> - Mostra o status do processo do servidor 
- <prgn>Apache</prgn> (requer o <prgn>lynx</prgn> e o módulo <em>mod_status</em> 
+ <command>Apache</command> (requer o <command>lynx</command> e o módulo <em>mod_status</em> 
  carregado).
  <item><tt>configtest</tt> - Verifica se a sintaxe dos arquivos de 
 configuração está OK (executa um <tt>apache -t</tt>).
@@ -326,7 +326,7 @@ configuração.
  <item>
 <tt>-v</tt> - mostra a versão do programa.
 <item>
-<tt>-V</tt> - mostra opções usadas na compilação do <prgn>Apache</prgn>.
+<tt>-V</tt> - mostra opções usadas na compilação do <command>Apache</command>.
  <item>
 <tt>-h</tt> - Mostra o help on-line do programa
  <item>
@@ -340,17 +340,17 @@ configuração.
 do Apache (incluindo a checagem da diretiva <em>DocRoot</em>). 
  <item>
 <tt>-T</tt> - executa a checagem de sintaxe nos arquivos de configuração 
-do <prgn>Apache</prgn> (menos da diretiva <em>DocRoot</em>).
+do <command>Apache</command> (menos da diretiva <em>DocRoot</em>).
 </list>
 
 
 <sect id="s-apache-port">Configurando a porta padrão do Apache
  <p>
 Use a diretiva <em>Port</em> para configurar a porta padrão que o 
-<prgn>Apache</prgn> receberá requisições por padrão. A diretiva 
+<command>Apache</command> receberá requisições por padrão. A diretiva 
 <em>Listen</em> também é usada para ajustar o endereço/portas 
 alternativas (usadas também em <tt>Virtual Hosts</tt>) e substituirá 
-as definições de <em>Port</em>(veja <ref id="s-apache-listen"> para 
+as definições de <em>Port</em>(veja <xref linkend="s-apache-listen"> para 
 detalhes).
 <![ %OBS [
  <p>
@@ -362,7 +362,7 @@ use a diretiva <em>Listen</em>. ]]>
 <sect id="s-apache-adicpagina">Adicionando uma página no Apache
  <p>
 Existem dois tipos de páginas que podem ser 
-adicionadas ao <prgn>Apache</prgn>: a página raíz e 
+adicionadas ao <command>Apache</command>: a página raíz e 
 sub-páginas. 
 <taglist>
  <tag><em>Página Raíz</em></tag>
@@ -370,7 +370,7 @@ sub-páginas.
 A página raíz é especificada através da diretiva <em>DocumentRoot</em> e será 
 mostrada quando se entrar no domínio principal, como 
 <file>&url-manual-www;</file>. Na configuração padrão do 
-<prgn>Apache</prgn>, <em>DocumentRoot</em> aponta para o diretório 
+<command>Apache</command>, <em>DocumentRoot</em> aponta para o diretório 
 <file>/var/www</file>. Este diretório será assumido como 
 <strong>raíz</strong> caso os diretórios não sejam iniciados por 
 uma <file>/</file>:
@@ -382,7 +382,7 @@ Este diretório deve conter um arquivo de
 índice válido (especificado pela diretiva <em>DocumentIndex</em> no 
 <file>srm.conf</file>) e permissões de acesso válidas no arquivo
 <file>access.conf</file> para autorizar o acesso as páginas 
-em <file>/var/www</file> (veja <ref id="s-apache-acesso-restr"> 
+em <file>/var/www</file> (veja <xref linkend="s-apache-acesso-restr"> 
 para detalhes). 
 
  
@@ -408,8 +408,8 @@ Alias /iniciante /home/focalinux/download/iniciante
 </example>
 Pode ser necessário permitir o acesso a nova página caso o servidor 
 tenha uma configuração restritiva por padrão (veja 
-<ref id="s-apache-acesso-restr"> para detalhes). 
-Após isto, faça o servidor <prgn>httpd</prgn> re-ler os arquivos de configuração 
+<xref linkend="s-apache-acesso-restr"> para detalhes). 
+Após isto, faça o servidor <command>httpd</command> re-ler os arquivos de configuração 
 ou reinicia-lo. Após isto, a página <file>/home/focalinux/download/iniciante
 </file> estará acessível via <file>&url-manual-www;/iniciante</file>.
 <![ %OBS [

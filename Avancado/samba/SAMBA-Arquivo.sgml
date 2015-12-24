@@ -6,7 +6,7 @@ modo que os dados serão disponibilizados e ítens de performance. A maior
 parte destes parâmetros são empregados em serviços do SAMBA, mas nada impede 
 que também sejam colocado na seção <em>[global]</em> do arquivo de configuração, 
 principalmente quando isto é válido para diversos serviços compartilhados
-(veja <ref id="s-samba-s-global">).
+(veja <xref linkend="s-samba-s-global">).
 
 
 <sect1 id="s-samba-s-a-param">Descrição de parâmetros usados em compartilhamento
@@ -21,7 +21,7 @@ controlar o comportamento do compartilhamento de arquivos por
 Indica o diretório que será compartilhado. Lembre-se que o usuário 
 terá as permissões de acesso que ele teria caso estivesse logado no sistema como 
 um usuário UNIX normal, exceto se estiver fazendo mapeamento para outros nomes de 
-usuários (veja <ref id="s-samba-a-usernamemap">).
+usuários (veja <xref linkend="s-samba-a-usernamemap">).
  <p>
 Ex: <tt>path=/pub</tt> - Compartilha o diretório local <file>/pub</file>.
 <![ %OBS [
@@ -41,7 +41,7 @@ Ex: <tt>comment=Pasta de conteúdo público do sistema</tt>.
   <item>
 Define se o compartilhamento será ou não exibido na janela de procura de rede.
 Mesmo não sendo exibido, o compartilhamento poderá ser acessado. Veja 
-<ref id="s-samba-a-invisivel"> para uma explicação mais detalhada.
+<xref linkend="s-samba-a-invisivel"> para uma explicação mais detalhada.
  <p>
 Ex: <tt>browseable=yes</tt> - Lista o compartilhamento na janela de pesquisa
 de servidores.
@@ -69,7 +69,7 @@ pela opção <tt>public</tt>.
 Permitem aos usuários usuários se conectarem ao compartilhamento sem fornecer uma 
 senha usando o usuário guest. O UID que o usuário guest será mapeado é 
 especificado pelo parâmetro <tt>guest account</tt>). Veja 
-<ref id="s-samba-a-publico">.
+<xref linkend="s-samba-a-publico">.
 O parâmetro <tt>guest ok</tt> é equivalente a <tt>public</tt>.
  <p>
 Ex: <tt>public = no</tt> - Não permite
@@ -88,7 +88,7 @@ no compartilhamento.
 Caso o nome for iniciado por "@", o nome especificado será tratado como um 
 grupo UNIX (<file>/etc/group</file>) e todos os usuários daquele grupo 
 terão acesso de gravação. O uso deste parâmetro ignora o <tt>read only = yes</tt>.
-Veja <ref id="s-samba-a-restr"> para mais detalhes.
+Veja <xref linkend="s-samba-a-restr"> para mais detalhes.
  <p>
 Ex: <tt>write list = gleydson, @usuarios</tt> - Permite acesso gravação 
 somente do usuário <tt>gleydson</tt> e todos os usuários pertencentes ao 
@@ -106,7 +106,7 @@ Lista de usuários separados por espaço ou vírgula que poderão apenas
 ler o compartilhamento. 
 O caracter "@" pode ser especificado para fazer referência a grupos, como 
 no <tt>write list</tt>. O uso deste parâmetro ignora o <tt>read only = no</tt>.
-Veja <ref id="s-samba-a-restr"> para mais detalhes.
+Veja <xref linkend="s-samba-a-restr"> para mais detalhes.
  <p>
 Ex: <tt>read list = nobody, system, operador, @usuarios</tt> - Permite acesso 
 de leitura somente do usuário <tt>nobody, system, operador</tt> e todos os 
@@ -117,8 +117,8 @@ usuários pertencentes ao grupo <tt>@usuarios</tt>.
  Especifica um ou mais nomes de usuários ou grupos (caso o 
  nome seja seguido de "@")  para checagem de senha.
  Quando o cliente somente fornece uma senha (especialmente na rede 
- <prgn>Lan Manager</prgn>, <prgn>Windows for Workgroups</prgn> e 
- primeira versão do <prgn>Windows 95</prgn>) ela será validada no 
+ <command>Lan Manager</command>, <command>Windows for Workgroups</command> e 
+ primeira versão do <command>Windows 95</command>) ela será validada no 
  banco de dados de senhas  usando o usuário especificado nesta opção.
   <p>
  Ex: <tt>user = john @usuariosrede</tt>
@@ -129,7 +129,7 @@ Especifica se somente serão permitidas conexões vindas de usuários
 da diretiva <tt>user</tt>. O padrão é <tt>no</tt>. Caso deseje 
 restringir o acesso a determinados usuários, o certo é faze-lo 
 usando <tt>valid users</tt> e <tt>invalid users</tt> (veja 
-<ref id="s-samba-a-restrusu">).
+<xref linkend="s-samba-a-restrusu">).
 O uso de <tt>only user</tt> é apropriado quando é necessário um controle 
 específico de acesso sobre a diretiva <tt>user</tt>.
  <p>
@@ -195,7 +195,7 @@ de arquivo/diretório (no). O padrão é "no".
 Especifica se o compartilhamento é somente para leitura (yes) ou não (no) para todos 
 os usuários. O parâmetro <tt>writable</tt> é um antônimo equivalente a este 
 parâmetro, só que utiliza as opções invertidas. Por segurança, o valor padrão é 
-somente leitura. Veja uma explicação mais detalhada em <ref id="s-samba-a-ro">.
+somente leitura. Veja uma explicação mais detalhada em <xref linkend="s-samba-a-ro">.
  <p>
 Ex: <tt>read only = yes</tt>.
 
@@ -203,7 +203,7 @@ Ex: <tt>read only = yes</tt>.
   <item>
 Modo padrão para criação de arquivos no compartilhamento. O parâmetro 
 "create mode" é um sinônimo para este. O modo de arquivos deve ser 
-especificado em formato octal. <![ %INIC-INTER [ Veja <ref id="perm-octal">). ]]>
+especificado em formato octal. <![ %INIC-INTER [ Veja <xref linkend="perm-octal">). ]]>
 <p>
 Ex: <tt>create mask = 0600</tt>.
 
@@ -224,7 +224,7 @@ padrão é "Yes".
  <tag>write cache size</tag>
   <item>
 Tamanho do cache de leitura/gravação do compartilhamento. Este valor é 
-especificado em bytes e o padrão é "0". Veja <ref id="s-samba-perf"> 
+especificado em bytes e o padrão é "0". Veja <xref linkend="s-samba-perf"> 
 para detalhes sobre seu uso.
  <p>
 Ex: <tt>write cache size = 384000</tt>.
@@ -242,19 +242,19 @@ Ex: <tt>inherit permissions</tt>.
  <tag>preexec</tag>
   <item>
 Executa um comando antes a abertura de um compartilhamento. O parâmetro 
-<tt>exec</tt> é um sinônimo para este. Veja <ref id="s-samba-a-comandos">.
+<tt>exec</tt> é um sinônimo para este. Veja <xref linkend="s-samba-a-comandos">.
 
  <tag>postexec</tag>
   <item>
 Executa um comando depois da utilização do compartilhamento. Veja 
-<ref id="s-samba-a-comandos">.
+<xref linkend="s-samba-a-comandos">.
 
  <tag>preexec close</tag>
   <item>
 Fecha imediatamente o compartilhamento caso o valor do comando executado
 pela opção <tt>preexec</tt> seja diferente de 0. O uso desta opção só 
 faz sentido em conjunto com <tt>preexec</tt>. O valor padrão é "no". 
-Veja <ref id="s-samba-a-comandos">.
+Veja <xref linkend="s-samba-a-comandos">.
  <p>
 Exemplo: <tt>preexec close = yes</tt>.
 

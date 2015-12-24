@@ -2,7 +2,7 @@
  <p>
 Este capítulo traz explicações e comandos úteis para o 
 gerenciamento de contas e proteção de senhas de usuários em sistemas 
-<prgn>Linux</prgn>. Também explica os principais métodos usados para 
+<command>Linux</command>. Também explica os principais métodos usados para 
 quebra de senha usando diversos métodos como engenharia social, brute 
 force, etc., bem como dicas de como escolher boas senhas para você e seus 
 usuários e métodos automatizados de checagem de senhas vulneráveis. 
@@ -13,7 +13,7 @@ de ataques além de entender a importância de políticas de proteção de senha
 
 <sect id="d-contas-intro">Introdução
  <p>
-A criação de uma conta em uma máquina <prgn>Linux</prgn> pode expor seu sistema 
+A criação de uma conta em uma máquina <command>Linux</command> pode expor seu sistema 
 (ou todas suas redes) a crackers simplesmente com a falta de treinamento e 
 políticas de segurança. 
 Uma invasor com um simples acesso a uma conta de usuário pode conseguir acesso 
@@ -22,7 +22,7 @@ roubo de dados.
  <p>
 Um firewall não pode fazer muito em uma situação dessas, um acesso através
 de uma conta de sistema válida é difícil de ser auditado e descoberto, a 
-não ser que o usuário monitore seus acesso via <prgn>lastlog</prgn> e 
+não ser que o usuário monitore seus acesso via <command>lastlog</command> e 
 o administrador conheça os hábitos de seus usuários para notar o uso 
 estranho de contas em determinados dias/horários. Evitar situações como esta 
 depende mais de conscientização e treinamento tanto do administrador 
@@ -61,7 +61,7 @@ senhas iniciais, pois é fácil de lembrar. Senhas deste tipo são as
 primeiras a ser tentadas por crackers e programas específicos para 
 este fim. Mas se o o usuário esquecer de trocar sua senha provisória? 
  <p>
-O programa <prgn>chage</prgn> e <prgn>passwd</prgn> possui recursos que 
+O programa <command>chage</command> e <command>passwd</command> possui recursos que 
 permitem definir limites mínimos e máximo do tempo para troca de senha de 
 acesso, número máximo de dias após expirar o tempo de troca da senha em 
 que a conta será permanentemente desabilitada (até que o administrador a 
@@ -113,16 +113,16 @@ desde a última troca de senha (-n 60).
  <p>
 Em sistemas onde precisa adicionar restrições a muitos usuários na 
 criação da conta, é recomendável seguir os métodos descritos em 
-<ref id="d-contas-cms-padroes">. 
+<xref linkend="d-contas-cms-padroes">. 
 
 <![ %OBS [ 
  <p>
 <strong>OBS1:</strong> Em sistemas com senhas ocultas ativadas (veja 
-<ref id="d-contas-segsenhas-shadow">) as restrições acima serão especificadas 
+<xref linkend="d-contas-segsenhas-shadow">) as restrições acima serão especificadas 
 no arquivo <file>/etc/shadow</file>, isto garante que só o usuário <tt>root</tt> 
 tenha acesso aos detalhes fornecidos neste arquivo.
  <p>
-<strong>OBS2: </strong> A <em>-d</em> do <prgn>passwd</prgn> serve para 
+<strong>OBS2: </strong> A <em>-d</em> do <command>passwd</command> serve para 
 remover a senha do usuário especificado ou seja somente será necessário
 fornecer o nome de usuário para ter acesso ao sistema. 
  <p>
@@ -130,10 +130,10 @@ fornecer o nome de usuário para ter acesso ao sistema.
 senhas de grupo é um risco de segurança, pois a mesma senha será compartilhada 
 entre diversas pessoas. 
  <p>
-<strong>OBS4: </strong> O programa <prgn>useradd</prgn> combina as funções do
-<prgn>adduser</prgn> e <prgn>passwd</prgn> para garantir que a conta seja 
+<strong>OBS4: </strong> O programa <command>useradd</command> combina as funções do
+<command>adduser</command> e <command>passwd</command> para garantir que a conta seja 
 criada com as restrições apropriadas. O único inconveniente é que o 
-<prgn>useradd</prgn> quebra o <em>Debian Policy</em> e precisa de todos todos 
+<command>useradd</command> quebra o <em>Debian Policy</em> e precisa de todos todos 
 os parâmetros para a criação correta da conta (como o diretório home, senha 
 criptografada, e UID numérico). Seu uso é indicado em shell scripts que 
 cuidam automaticamente da tarefa de adicionar usuários ao sistema. ]]>
@@ -145,10 +145,10 @@ Isto é muito útil quando precisa criar diversos usuários com as mesmas
 restrições de contas, isto tornará o gerenciamento do sistema muito mais 
 prático (tudo em Unix é feito para ser mais prático, só devemos saber onde 
 mexer). O arquivo <file>/etc/defaults/useradd</file> contém valores 
-padrões que serão usados pelo <prgn>useradd</prgn> e <prgn>adduser</prgn> 
+padrões que serão usados pelo <command>useradd</command> e <command>adduser</command> 
 para definir valores de restrições de contas. Estes valores são gerados 
 usando a opção <em>-D</em> em combinação com as seguintes opções do 
-<prgn>useradd</prgn>:
+<command>useradd</command>:
 <list compact>
  <item><tt>-b [home]</tt> - Especificar o diretório home de usuário. O padrão é 
  <file>/home</file>.
@@ -163,7 +163,7 @@ usando a opção <em>-D</em> em combinação com as seguintes opções do
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Note que nem todas as opções acima terão efeito com o 
-<prgn>adduser</prgn> (principalmente as opções <em>-f</em>, <em>-g</em> e 
+<command>adduser</command> (principalmente as opções <em>-f</em>, <em>-g</em> e 
 <em>-s</em> que são especificadas no seu arquivo de configuração 
 <file>/etc/adduser.conf</file>). ]]>
 
@@ -178,10 +178,10 @@ escolher uma senha.
  <p>
 Senhas fáceis de adivinhar são o primeiro motivo de sucesso de 
 crackers no acesso a sistemas de computadores 
-(veja <ref id="d-contas-ataques-deducao"> 
-e <ref id="d-contas-ataques-engsocial">), o administrador pode forçar o usuário 
+(veja <xref linkend="d-contas-ataques-deducao"> 
+e <xref linkend="d-contas-ataques-engsocial">), o administrador pode forçar o usuário 
 a fazer trocas periódicas de senhas através dos recursos citados em 
-<ref id="d-contas-cms">, mas quem vai garantir que ele esteja 
+<xref linkend="d-contas-cms">, mas quem vai garantir que ele esteja 
 escolhendo boas senhas para que ninguém as descubra com facilidade? 
 Abaixo uma lista de senhas ruins (que deverá evitar a todo custo 
 usa-las) e boas: 
@@ -222,15 +222,15 @@ ser modificada para "msopeol1"
   <item>Conter letras maiúsculas e minúsculas. "msopeoL1".
   <item>Conter 8 caracteres sempre que possível. Isto aumenta bastante o 
 número de combinações necessárias para se quebrar uma senha em um ataque 
-brute force (veja <ref id="d-contas-ataques-bruteforce">). Mesmo que a senha
+brute force (veja <xref linkend="d-contas-ataques-bruteforce">). Mesmo que a senha
 escolhida não chegue a 8 caracteres mínimos, você poderá combina-la com 
 números. 
  </list>
  
 Com as dicas acima, a possibilidade de alguém conseguir quebrar uma senha 
 criptografada em seu sistema usando os ataques descritos em 
-<ref id="d-contas-ataques"> é praticamente nula! Para os paranóicos de 
-plantão, o utilitário <prgn>makepasswd</prgn> pode criar uma senha 
+<xref linkend="d-contas-ataques"> é praticamente nula! Para os paranóicos de 
+plantão, o utilitário <command>makepasswd</command> pode criar uma senha 
 com caracteres completamente aleatórios: 
 <example>
 makepasswd --chars 8
@@ -250,7 +250,7 @@ não se esqueça que muita gente é especializada neste tipo de dedução. ]]>
 
 <sect1 id="d-contas-cms-multipasswd">Atualização de senhas de múltiplas contas
  <p>
-O programa <prgn>chpasswd</prgn> é usado para tal operação. Deve ser especificado 
+O programa <command>chpasswd</command> é usado para tal operação. Deve ser especificado 
 um arquivo que contém os campos <tt>usuário:senha</tt> por linha. Caso as senhas
 estejam encriptadas deverá ser especificada a opção <em>-e</em> ao 
 programa. 
@@ -319,11 +319,11 @@ sobre os hábitos, gostos, etc. Mas existem outros
 tipos de ataque baseados em engenharia social, inclusive com o 
 cracker passando-se pelo usuário. Para diminuir as possibilidades 
 deste tipo de ataque entenda e siga os procedimentos da parte "Senhas Boas" 
-na <ref id="d-contas-cms-senhas"> e continue lendo esta seção. 
+na <xref linkend="d-contas-cms-senhas"> e continue lendo esta seção. 
  <p>
 Outro detalhe importante para diminuir as possibilidades de um 
 ataque deste tipo bem sucedido é permitir somente o acesso do 
-serviço de <prgn>finger</prgn> a redes confiáveis (locais onde 
+serviço de <command>finger</command> a redes confiáveis (locais onde 
 uns conhecem os outros).
 Os detalhes fornecidos pelo finger podem ser suficientes para 
 garantir sucesso deste tipo de ataque: 
@@ -386,7 +386,7 @@ uma alternativa antes de entregar uma senha a um desconhecido.
 Para casos externos (principalmente para empresas que mantém determinados 
 serviços em funcionamento em nosso servidor, como servidores de páginas), 
 o procedimento correto seria passar uma nova senha por e-mail 
-(de preferência criptografado com <prgn>pgp</prgn>) ao invés de telefone. 
+(de preferência criptografado com <command>pgp</command>) ao invés de telefone. 
 Isto garantirá que a senha não caia nas mãos erradas. 
 
 <![ %OBS [
@@ -418,8 +418,8 @@ de usuários existentes no arquivo de senha.
  <p>
 Note que o uso de criptografia <em>md5</em> e <em>senhas ocultas</em> 
 dificultam bastante ao arquivo de senhas e o sucesso de um ataque bem 
-sucedido (veja <ref id="d-contas-segsenhas-shadow"> e 
-<ref id="d-contas-segsenhas-md5">). 
+sucedido (veja <xref linkend="d-contas-segsenhas-shadow"> e 
+<xref linkend="d-contas-segsenhas-md5">). 
 
 
 <sect1 id="d-contas-ataques-bruteforce">Brute Force
@@ -434,8 +434,8 @@ Dependendo se uma senha conter caracteres aleatórios, combinação de letras
 maiúsculas/minúsculas, números, a senha será praticamente impossível de 
 ser descoberta. 
 Note que o uso de criptografia <em>md5</em> e <em>senhas ocultas</em> 
-aumentam bastante a proteção das senhas (veja <ref id="d-contas-segsenhas-shadow"> e 
-<ref id="d-contas-segsenhas-md5">).
+aumentam bastante a proteção das senhas (veja <xref linkend="d-contas-segsenhas-shadow"> e 
+<xref linkend="d-contas-segsenhas-md5">).
 
 
 <sect1 id="d-contas-ataques-monteclad">Monitoramento de toques do teclado
@@ -487,18 +487,18 @@ armazenamento de senhas no arquivo <file>/etc/passwd</file> e
 os usuários porque muitos programas mapeiam a UID do usuário com seu nome e vice 
 versa. 
  <p>
-O utilitário <prgn>shadowconfig</prgn> é usado para ativar/desativar o suporte 
+O utilitário <command>shadowconfig</command> é usado para ativar/desativar o suporte 
 a senhas ocultas (de usuários e grupos) em seu sistema. Adicionalmente os 
-utilitários <prgn>pwconv</prgn>/<prgn>grpconv</prgn> podem ser usados 
+utilitários <command>pwconv</command>/<command>grpconv</command> podem ser usados 
 separadamente para ativar o suporte a senhas ocultas de usuários/grupos e 
-<prgn>pwunconv</prgn>/<prgn>grpunconv</prgn> para desativar este suporte. 
+<command>pwunconv</command>/<command>grpunconv</command> para desativar este suporte. 
 <![ %OBS [
  <p>
 <strong>ATENÇÃO:</strong> Caso você inclua usuários em grupos manualmente no 
 arquivo <file>/etc/passwd</file>, também precisará fazer isto no arquivo 
 <file>/etc/shadow</file> para que não tenha problemas. Esta tarefa é feita 
 automaticamente com o comando <tt>adduser usuário grupo</tt>. O programa 
-<prgn>vipw</prgn> e <prgn>vigr</prgn> também podem ser usados com a opção 
+<command>vipw</command> e <command>vigr</command> também podem ser usados com a opção 
 <em>-s</em> para editar os arquivos <file>/etc/shadow</file> e 
 <file>/etc/gshadow</file> respectivamente. ]]>
 

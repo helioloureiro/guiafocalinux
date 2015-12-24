@@ -10,19 +10,19 @@ repositório.
 
 <sect1 id="s-cvs-c-cvs">cvs
  <p>
-Este é o cliente <prgn>Unix</prgn> padrão, bastante poderoso e que opera em 
+Este é o cliente <command>Unix</command> padrão, bastante poderoso e que opera em 
 modo texto. As explicações neste capítulo do guia assumem este cliente de 
-<prgn>cvs</prgn>, então as explicações sobre sua utilização se encontra em 
-<ref id="s-cvs-p"> e os parâmetros de linha de comando em <ref id="s-cvs-opcoescmd">
+<command>cvs</command>, então as explicações sobre sua utilização se encontra em 
+<xref linkend="s-cvs-p"> e os parâmetros de linha de comando em <xref linkend="s-cvs-opcoescmd">
  <p>
 É <strong>altamente</strong> recomendável a leitura caso deseje utilizar um 
-cliente de <prgn>cvs</prgn> gráfico, pois os conceitos são os mesmos. 
+cliente de <command>cvs</command> gráfico, pois os conceitos são os mesmos. 
 
 
 <sect1 id="s-cvs-c-gcvs">gcvs - Linux
  <p>
-Este é um cliente CVS em GTK+Python para <prgn>Linux</prgn> que interage externamente 
-com o cliente <prgn>cvs</prgn> externo, todas as opções do cvs estão disponíveis 
+Este é um cliente CVS em GTK+Python para <command>Linux</command> que interage externamente 
+com o cliente <command>cvs</command> externo, todas as opções do cvs estão disponíveis 
 através de checkboxes nas telas de comando, incluindo suporte a compactação, 
 visualizador gráfico da árvore de releases, histórico, diffs, etc. 
  <p>
@@ -32,7 +32,7 @@ do terminal. Utilize os seguintes procedimentos para configurar e
 utilizar o programa: 
 <enumlist compact>
  <item>
-Defina o repositório <var>CVSROOT</var> através do menu 
+Defina o repositório <envar>CVSROOT</envar> através do menu 
 <em>Admin</em>/<em>Preferences</em>. Selecione o método de 
 acesso, entre com o login, servidor e repositório.
  <example>
@@ -40,12 +40,12 @@ Exemplo: :pserver:anonymous@servidor:/var/lib/cvs
  </example>
 O formato deve ser <em>EXATAMENTE</em> como o usado na 
 variável CVSROOT no shell, incluindo os ":". Caso tenha 
-erros de login, verifique o valor de <var>CVSROOT</var>
+erros de login, verifique o valor de <envar>CVSROOT</envar>
 cuidadosamente antes de contactar o administrador de sistemas!
 
  <item>
 Agora faça o login no sistema em: <em>Admin</em>, <em>Login</em>. Note 
-que o status de todas as operações do <prgn>cvs</prgn> são mostradas
+que o status de todas as operações do <command>cvs</command> são mostradas
 na janela de status que fica na parte inferior da tela.
 
  <item>
@@ -62,14 +62,14 @@ anterior.
 <![ %OBS [ 
  <p>
 <strong>OBS: </strong> Não utilize o nome <file>"cvs"</file> para 
-o diretório local, pois o <prgn>gcvs</prgn> oculta automaticamente
+o diretório local, pois o <command>gcvs</command> oculta automaticamente
 pois os arquivos administrativos de controle ficam neste local. ]]>
 
 
  <item>
-Altere o diretório padrão do <prgn>gcvs</prgn> para o diretório 
+Altere o diretório padrão do <command>gcvs</command> para o diretório 
 onde baixou o projeto (<file>~/projetos</file>)clicando no botão 
-"set" no topo da coluna esquerda do <prgn>gcvs</prgn>.
+"set" no topo da coluna esquerda do <command>gcvs</command>.
 
  <item>
 Para enviar um arquivo modificado de volta ao servidor, selecione os arquivos, 
@@ -93,7 +93,7 @@ especifique o nome do projeto e sua versão logo abaixo. Clique
 em "OK" e aguarde a transferência dos arquivos para o servidor. 
  <p>
 Para maiores detalhes sobre a criação de novos projetos no 
-servidor de CVS, veja <ref id="s-cvs-p-import">.
+servidor de CVS, veja <xref linkend="s-cvs-p-import">.
 <![ %OBS [
  <p>
 <strong>OBS: </strong> Você deverá ter permissão de gravação para 
@@ -108,24 +108,24 @@ acostumar com sua utilização.
 </enumlist>
 Após isto, explore bastante as opções do programa. Todas as funcionalidades 
 do CVS estão organizadas entre os menus do programa. Caso não entenda bem 
-as funções do programa, leia atentamente <ref id="s-cvs-p"> e também não 
+as funções do programa, leia atentamente <xref linkend="s-cvs-p"> e também não 
 deixe de consultar detalhes na info page do cvs. 
 
 <sect1 id="s-cvs-c-wincvs">WinCVS - Windows
  <p>
-Este é um cliente CVS em Python para <prgn>Windows</prgn> equivalente ao 
-<prgn>gcvs</prgn> para <prgn>Linux</prgn>. Suas funcionalidades e 
-recomendações são idênticas aos do <prgn>gcvs</prgn>. Este cliente pode 
+Este é um cliente CVS em Python para <command>Windows</command> equivalente ao 
+<command>gcvs</command> para <command>Linux</command>. Suas funcionalidades e 
+recomendações são idênticas aos do <command>gcvs</command>. Este cliente pode 
 ser baixado de: <url id="&url-wincvs-down;"> 
 e o Python para Windows de <url id="&url-python-win-down;">.
  <p>
-Para sua utilização, as explicações em <ref id="s-cvs-c-gcvs"> são totalmente
+Para sua utilização, as explicações em <xref linkend="s-cvs-c-gcvs"> são totalmente
 válidas. 
 
 
 <sect1 id="s-cvs-c-maccvs">MacCVS - Macintosh (PPC)
  <p>
-Idêntico ao <prgn>gcvs</prgn>, pode ser baixado de
+Idêntico ao <command>gcvs</command>, pode ser baixado de
 <url id="&url-maccvs-down;">.
 
 
@@ -134,10 +134,10 @@ Idêntico ao <prgn>gcvs</prgn>, pode ser baixado de
 Este é um visualizador de repositórios CVS via web, ele precisa apenas de um 
 servidor web instalado com suporte a CGI. Para instalar, execute o comando 
 <tt>apt-get install <package>viewcvs</package></tt> e siga os passos para 
-configurar programa. Para adequar melhor o <prgn>viewcvs</prgn> ao seu sistema, 
+configurar programa. Para adequar melhor o <command>viewcvs</command> ao seu sistema, 
 edite o arquivo <file>/etc/viewcvs/viewcvs.conf</file>. 
  <p>
-O <prgn>viewcvs</prgn> possui uma interface que se parece com a navegação de 
+O <command>viewcvs</command> possui uma interface que se parece com a navegação de 
 um diretório de ftp, recursos como a extração de diffs coloridos entre versões 
 de um arquivo selecionado, visualização de commits (com data, log do commit, 
 usuário, etc.), classificação da listagem exibida. 
@@ -146,7 +146,7 @@ usuário, etc.), classificação da listagem exibida.
  <p>
 <strong>OBS: </strong>Leve em consideração as implicações de segurança impostas 
 por aplicativos cgi sendo executados em seu sistema. <![ %CAPJUNTOS [ 
-Veja <ref id="s-apache"> para entender melhor o assunto. ]]> ]]>
+Veja <xref linkend="s-apache"> para entender melhor o assunto. ]]> ]]>
 
 
 

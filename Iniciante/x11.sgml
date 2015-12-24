@@ -31,10 +31,10 @@ atuam entre o servidor X e a aplicação. Você pode alternar de um gerenciador
 para outro sem fechar seus aplicativos. 
  <p>
 Existem vários tipos de gerenciadores de janelas disponíveis no mercado 
-entre os mais conhecidos posso citar o <prgn>Window Maker (feito por 
-um Brasileiro)</prgn>, o <prgn>After Step</prgn>, <prgn>Gnome</prgn>, 
-<prgn>KDE</prgn>, <prgn>twm</prgn> (este vem por padrão quando o 
-servidor X é instalado), <prgn>Enlightenment</prgn>, <prgn>IceWm</prgn>, etc.
+entre os mais conhecidos posso citar o <command>Window Maker (feito por 
+um Brasileiro)</command>, o <command>After Step</command>, <command>Gnome</command>, 
+<command>KDE</command>, <command>twm</command> (este vem por padrão quando o 
+servidor X é instalado), <command>Enlightenment</command>, <command>IceWm</command>, etc.
  <p>
 A escolha do seu gerenciador de janelas é pessoal, depende muito do gosto de 
 cada pessoa e dos recursos que deseja utilizar. 
@@ -54,18 +54,18 @@ janelas), etc.
 O sistema gráfico X pode ser iniciado de duas maneiras: 
 <list>
  <item>
-<tt>Automática</tt> - Usando um gerenciador de seção como <prgn>xdm</prgn>,
-<prgn>gdm</prgn> ou <prgn>wdm</prgn> que apresenta uma tela pedindo nome e 
+<tt>Automática</tt> - Usando um gerenciador de seção como <command>xdm</command>,
+<command>gdm</command> ou <command>wdm</command> que apresenta uma tela pedindo nome e 
 senha para entrar no sistema (login). Após entrar no sistema, o X executará 
 um dos gerenciadores de janelas configurados. 
 
  <item>
-<tt>Manual</tt> - Através do comando <prgn>startx</prgn>, ou 
-<prgn>xinit</prgn> 
-<![ %INTERMEDIARIO [ (note que o <prgn>startx</prgn> e <prgn>xstart</prgn> 
+<tt>Manual</tt> - Através do comando <command>startx</command>, ou 
+<command>xinit</command> 
+<![ %INTERMEDIARIO [ (note que o <command>startx</command> e <command>xstart</command> 
 são scripts que fazem uma configuração completa do ambiente e em algumas 
 distribuições também o procedimento de configuração de autenticação do 
-ambiente antes de executar o <prgn>xinit</prgn>) ]]>. 
+ambiente antes de executar o <command>xinit</command>) ]]>. 
 
 Neste caso o usuário deve entrar com seu nome e senha para entrar 
 no modo texto e então executar um dos comandos acima. 
@@ -80,7 +80,7 @@ Como dito acima, o servidor X controla o teclado, mouse e a exibição dos
 gráficos em sua tela. Para ser executado, precisa ser configurado através 
 do arquivo 
 <![ %DEBIAN [ <file>/etc/X11/xorg.conf</file>, usando <tt>dpkg-reconfigure xserver-xorg</tt>, ]]>
-ou usando o utilitário <prgn>xf86cfg</prgn> (modo texto).
+ou usando o utilitário <command>xf86cfg</command> (modo texto).
  <p>
 A finalização do servidor X é feita através do pressionamento simultâneo 
 das teclas <tt>CTRL</tt>, <tt>ALT</tt>, <tt>Back Space</tt>. O servidor X é 
@@ -94,7 +94,7 @@ deve ser feita em caso de emergência quando não se sabe o que fazer
 para sair de um gerenciador de janelas ou de um programa mal comportado. 
 <![ %INIC-INTER [ 
  <p>
-Recomendo fazer a leitura de <ref id="run-fechando"> caso estiver 
+Recomendo fazer a leitura de <xref linkend="run-fechando"> caso estiver 
 em dúvidas de como finalizar um programa mal comportado ou que não sabe 
 como sair. ]]> 
 

@@ -6,7 +6,7 @@ se possui uma rede pequena (até 30 máquinas) pois o gerenciamento
 não é tão complicado. Acima deste número, é recomendada a utilização 
 da configuração de domínio para definição de políticas de acesso mais 
 precisas pelo administrador e para manter o controle sobre os recursos 
-da rede (veja <ref id="s-samba-dom-config">).
+da rede (veja <xref linkend="s-samba-dom-config">).
  <p>
 A configuração do nível de acesso por grupo de trabalho tem como 
 características principais essa simplicidade na configuração e o 
@@ -14,10 +14,10 @@ controle de acesso aos recursos sendo feito pela máquina local
 através de senhas e controle de IP.
  <p>
 Quanto ao método de senhas, você pode optar tanto por usar senhas 
-criptografadas (<ref id="s-samba-senhas-crypto">) ou senhas 
-em texto limpo (<ref id="s-samba-senhas-plano">).
+criptografadas (<xref linkend="s-samba-senhas-crypto">) ou senhas 
+em texto limpo (<xref linkend="s-samba-senhas-plano">).
  <p>
-Veja abaixo um exemplo explicado de configuração do <prgn>SAMBA</prgn> 
+Veja abaixo um exemplo explicado de configuração do <command>SAMBA</command> 
 para grupo de trabalho:
 <example>
  [global]
@@ -47,15 +47,15 @@ para grupo de trabalho:
   
 </example>
 Agora, verifique se existem erros na configuração com o comando
-<prgn>testparm</prgn> (<ref id="s-samba-s-testparm">) e reinicie o 
-<prgn>SAMBA</prgn> (<ref id="s-samba-rodando">).
+<command>testparm</command> (<xref linkend="s-samba-s-testparm">) e reinicie o 
+<command>SAMBA</command> (<xref linkend="s-samba-rodando">).
 O nome do grupo de trabalho que a máquina pertencerá é <tt>focalinux</tt> 
 (<tt>workgroup = focalinux</tt>). O nível de acesso usado neste exemplo 
 é de usuário (<tt>security = user</tt>), para mais detalhes sobre este 
-método, veja <ref id="s-samba-s-global-nivelauth">. O parâmetro 
-<tt>local master</tt> foi definido para <tt>yes</tt> para o <prgn>SAMBA</prgn> 
+método, veja <xref linkend="s-samba-s-global-nivelauth">. O parâmetro 
+<tt>local master</tt> foi definido para <tt>yes</tt> para o <command>SAMBA</command> 
 tentar ser o navegador local do grupo de trabalho (veja 
-<ref id="s-samba-dom-lmbrowser">). 
+<xref linkend="s-samba-dom-lmbrowser">). 
  <p>
 Para testar se o servidor está funcionando, digite o seguinte comando:
 <example>
@@ -65,6 +65,6 @@ smbclient -L servidor -U usuario
 Digite a senha de usuário quando solicitado. O comando deverá listar os 
 recuros da máquina, indicando que a configuração está funcionando 
 corretamente. Se você é paranóico e está preocupado com a segurança 
-da máquina, recomendo ler a <ref id="s-samba-a">.
+da máquina, recomendo ler a <xref linkend="s-samba-a">.
 
 

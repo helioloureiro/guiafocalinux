@@ -26,12 +26,12 @@ domésticos e de empresas.
 <tag>vi</tag> 
  <item>
 Modo Texto - (existem algumas versões adaptadas para o modo gráfico). É um dos 
-editores padrões dos sistemas <prgn>GNU/Linux</prgn> e sua interface é complexa 
-e possui muitas funções (usuários <prgn>GNU/Linux</prgn> avançados adoram a 
+editores padrões dos sistemas <command>GNU/Linux</command> e sua interface é complexa 
+e possui muitas funções (usuários <command>GNU/Linux</command> avançados adoram a 
 quantidade de funções deste programa). Recomendo que aprenda o básico sobre 
 ele, pois sempre estará disponível caso ocorra algum problema no sistema. 
  <p>
-Para sair do editor <prgn>vi</prgn> sem salvar pressione <tt>ESC</tt> e digite 
+Para sair do editor <command>vi</command> sem salvar pressione <tt>ESC</tt> e digite 
 <tt>:q!</tt>. Para sair do editor e salvar pressione <tt>ESC</tt> e digite 
 <tt>:wq</tt>. 
 
@@ -42,22 +42,22 @@ HTML e Metacaracteres.
  
 <tag>ae</tag> 
  <item>
-Modo Texto - é um dos editores padrões dos sistemas <prgn>GNU/Linux</prgn> 
-(encontrado nas distribuições <prgn>Debian</prgn> e baseadas). Sua interface 
-é mais fácil que o <prgn>vi</prgn>. Também recomendo que aprenda o básico 
+Modo Texto - é um dos editores padrões dos sistemas <command>GNU/Linux</command> 
+(encontrado nas distribuições <command>Debian</command> e baseadas). Sua interface 
+é mais fácil que o <command>vi</command>. Também recomendo que aprenda o básico 
 sobre ele, pois é requerido para a manutenção do sistema. 
  <p>
-Para sair do <prgn>ae</prgn> sem salvar pressione <tt>CTRL+Q</tt>, para salvar 
+Para sair do <command>ae</command> sem salvar pressione <tt>CTRL+Q</tt>, para salvar 
 o texto pressione <tt>CTRL+X</tt> e <tt>CTRL+W</tt> (após isto se quiser sair 
 do editor, pressione <tt>CTRL+Q</tt>). 
 
 <tag>jed</tag>
  <item>
 Modo Texto - Recomendável para aqueles que estão acostumados com o EDIT do 
-<prgn>DOS</prgn> e gostam de menus suspensos. Sua interface é de fácil 
+<command>DOS</command> e gostam de menus suspensos. Sua interface é de fácil 
 operação. 
  <p>
-O <prgn>jed</prgn> possui recursos poderosos para programadores de C e 
+O <command>jed</command> possui recursos poderosos para programadores de C e 
 outras linguagens que faz auto-tabulação, auto-identação e delimitação 
 de blocos de código através de cores. 
 
@@ -66,7 +66,7 @@ de blocos de código através de cores.
  Modo Texto - Muito fácil de utilizar e possui interface em Português do 
  Brasil, em geral não requer um tutorial para aprendizado. Este programa 
  faz parte do pacote <em>Midnight Commander</em> (conhecido também como 
- <prgn>mc</prgn>).  
+ <command>mc</command>).  
   <p>
  Você utiliza as teclas de função (F1 a F10) para salvar o texto, procurar 
  palavras no texto, pedir ajuda, sair, etc. Ele possui recursos para colorir 
@@ -86,7 +86,7 @@ tabulações, browser, diff de documentos, etc.
 
 <tag>gxedit</tag>
  <item>
-Modo Gráfico - Editor no estilo do <prgn>gedit</prgn>, sua interface de 
+Modo Gráfico - Editor no estilo do <command>gedit</command>, sua interface de 
 comunicação com o usuário é ótima, possui suporte a e-mail, mede o número de 
 toques por minuto do usuário (digitação), suporte a tags HTML, audio, rede, 
 correção ortográfica, etc. 
@@ -102,21 +102,21 @@ Modo Gráfico - Pacote de Escritório contendo editor de texto, planilha de
 cálculo, banco de dados, digitalizador de imagens, editor gráfico, 
 calculadora, navegador, e-mail, abre todos os arquivos do MS Office 2000 e 
 sua interface é idêntica aos programas do Office, não requerendo novo 
-treinamento dos usuários. Todos os programas do <prgn>Open Office</prgn> 
+treinamento dos usuários. Todos os programas do <command>Open Office</command> 
 são iniciados através de uma interface virtual idêntica ao Windows (com 
 menu iniciar e tudo mais). 
  <p>
 Possui versão em Português e sua versão atual é a 1.0. Além da 
 impressionante integração entre os programas que compõem o conjunto, o 
-<prgn>Open Office</prgn> possui um frame de navegação com centenas de 
+<command>Open Office</command> possui um frame de navegação com centenas de 
 modelos, barra de desktop, localização fácil de arquivos e abertura 
 instantânea. 
  <p>
-O <prgn>Open Office</prgn> possui mais recursos que o Office e não custa nada! 
+O <command>Open Office</command> possui mais recursos que o Office e não custa nada! 
 Seu tamanho para download é de 80MB e não requer o pagamento de licenças 
 para a instalação em computadores de empresas ou domésticos. 
  <p>
-O equipamento mínimo que recomendo para a execução do <prgn>Open Office</prgn> 
+O equipamento mínimo que recomendo para a execução do <command>Open Office</command> 
 é um 586 com 64 MB de memória RAM e 200 MB Livres no disco rígido. Sua 
 instalação é feita em modo gráfico e o tamanho ocupado no disco depende dos 
 componentes selecionados. 
@@ -125,10 +125,10 @@ componentes selecionados.
 <tag>Abiword</tag> 
  <item>
 Modo Gráfico - é um editor de Textos mais simples que o 
-<prgn>Star Office</prgn> e uma boa interface de operação que 
+<command>Star Office</command> e uma boa interface de operação que 
 possui suporte a arquivos do Office 2000. 
  <p>
-O equipamento mínimo que recomendo para a execução do <prgn>Abiword</prgn> é 
+O equipamento mínimo que recomendo para a execução do <command>Abiword</command> é 
 um 486 com 8 MB de memória RAM e 7 MB de espaço livre no disco rígido (ele 
 pode ocupar menos espaço caso as bibliotecas compartilhados que utiliza 
 já estiverem instaladas). 
@@ -136,7 +136,7 @@ já estiverem instaladas).
 <tag>Corel Word Perfect</tag> 
  <item>
 Modo Gráfico - Pacote de escritório da Corel. Uma alternativa ao 
-<prgn>Open Office</prgn>. Ele requer o pagamento de licenças para seu uso. 
+<command>Open Office</command>. Ele requer o pagamento de licenças para seu uso. 
 </taglist>
 
 
@@ -145,7 +145,7 @@ Modo Gráfico - Pacote de escritório da Corel. Uma alternativa ao
 <taglist>
  <tag>Netscape 4.73</tag> 
   <item>
-Modo Gráfico - Versão do Netscape Communicator para <prgn>GNU/Linux</prgn>, com 
+Modo Gráfico - Versão do Netscape Communicator para <command>GNU/Linux</command>, com 
 criptografia forte, programa de e-mail, news, editor interativo de páginas 
 HTML, catálogo de endereços. Também possui suporte a rede proxy e conexão 
 via firewall. 
@@ -167,14 +167,14 @@ disco livre.
 <tag>Arena</tag> 
  <item>
 Modo Gráfico - navegador pequeno, sem suporte a Java e Frames, ideal para 
-computadores menos potentes. Recomendo o <prgn>Lynx</prgn>!
+computadores menos potentes. Recomendo o <command>Lynx</command>!
  <p>
 Equipamento mínimo recomendado: 386 com 8 MB de RAM e 12 MB de disco
 
 <tag>Opera</tag>
  <item>
 Modo Gráfico - Navegador pequeno, sem suporte a Java e Frames, ideal para 
-computadores menos potentes. Ainda recomendo o <prgn>Lynx</prgn>!
+computadores menos potentes. Ainda recomendo o <command>Lynx</command>!
  
 <tag>Lynx</tag>
  <item>
@@ -189,13 +189,13 @@ Equipamento mínimo recomendado: 386 com 2 MB de RAM e 2 MB de disco.
 <tag>Pine</tag>
  <item>
 Modo Texto - Programa de E-Mail muito usado entre os usuários 
-<prgn>GNU/Linux</prgn>, mas não é gratuito... Possui suporte a criptografia 
+<command>GNU/Linux</command>, mas não é gratuito... Possui suporte a criptografia 
 PGP e HTML em sua nova versão. 
 
 <tag>Mutt</tag>
  <item>
 Modo Texto - Outro programa de E-mail muito usado pelos usuários do 
-<prgn>GNU/Linux</prgn>. Possui suporte a criptografia PGP, cores de destaque nas 
+<command>GNU/Linux</command>. Possui suporte a criptografia PGP, cores de destaque nas 
 mensagens e processamento de links HTML. É muito personalizável (veja a 
 quantidade de opções no arquivo de configuração <file>/etc/Muttrc</file>). 
 Sua interface é em Português. 
@@ -206,7 +206,7 @@ Equipamento mínimo recomendado: 386 com 2 MB de RAM e 2 MB de disco.
  <item>
 Modo Texto - O próprio! faz cópias de arquivos de um site remoto para seu 
 disco local ou vice versa. <![ %INIC-INTER [ Veja 
-<ref id="cmdn-ftp"> para mais detalhes. ]]>
+<xref linkend="cmdn-ftp"> para mais detalhes. ]]>
  <p>
 Equipamento mínimo recomendado: 386 com 2 MB de RAM e 1 MB de disco. 
 
@@ -214,15 +214,15 @@ Equipamento mínimo recomendado: 386 com 2 MB de RAM e 1 MB de disco.
  <item>
 Modo Texto - Conexão ao terminal virtual remotamente. Permite controlar seu 
 terminal remotamente através de uma conexão via rede TCP/IP. 
-<![ %INIC-INTER [ Veja <ref id="cmdn-telnet"> para mais detalhes. ]]>
+<![ %INIC-INTER [ Veja <xref linkend="cmdn-telnet"> para mais detalhes. ]]>
  <p>
 Equipamento mínimo recomendado: 386 com 2 MB de RAM e 1 MB de disco. 
  
 <tag>talk</tag>
  <item>
-Modo Texto - Permite conversar com outros usuários <prgn>GNU/Linux</prgn> 
+Modo Texto - Permite conversar com outros usuários <command>GNU/Linux</command> 
 conectados através de uma rede TCP/IP no estilo do Bate Papo ou do Chat 
-do ICQ. <![ %INIC-INTER [ Veja <ref id="cmdn-talk"> para mais detalhes. ]]>
+do ICQ. <![ %INIC-INTER [ Veja <xref linkend="cmdn-talk"> para mais detalhes. ]]>
  <p>
 Equipamento mínimo recomendado: 386 com 2 MB de RAM e 1 MB de disco. 
 
@@ -237,7 +237,7 @@ Equipamento mínimo recomendado: 386 com 2 MB de RAM e 1 MB de disco.
  <item>
 Modo Texto - Organiza mensagens em arquivos separados de acordo com a 
 origem/assunto/conteúdo. 
-O <prgn>procmail</prgn> é muito flexível e também permite resposta automática 
+O <command>procmail</command> é muito flexível e também permite resposta automática 
 de acordo com alguns tipos de mensagens e a criação de filtros de mensagens 
 muito poderosos caso você conheça e saiba integrar as ferramentas do sistema. 
 
@@ -261,7 +261,7 @@ Equipamento mínimo recomendado: 386 com 8 MB de RAM e 3 MB de disco.
 
 <tag>licq</tag>
  <item>
-Modo gráfico - Programa de ICQ gráfico para <prgn>GNU/Linux</prgn>. Apesar de ter 
+Modo gráfico - Programa de ICQ gráfico para <command>GNU/Linux</command>. Apesar de ter 
 muitos recursos, sua interface é muito organizada e possui suporte a seleção 
 de sua aparência (<em>Skins</em>). Emite avisos sonoros e levanta-se 
 sobre as outras janelas durante o recebimento de mensagens. Também funciona 
@@ -297,14 +297,14 @@ Equipamento mínimo recomendado: 486 com 16 MB de RAM e 8 MB de disco.
 <tag>DosEmu</tag>
  <item>
 Emulador do DOS. Permite executar aplicativos e jogos de DOS no 
-<prgn>GNU/Linux</prgn>
+<command>GNU/Linux</command>
  <p>
 Equipamento mínimo recomendado: 486 com 8 MB de RAM e 4 MB de disco. 
 
 <tag>Wine</tag>
  <item>
 Emulador de Windows. Permite executar aplicativos desenvolvidos para Windows 
-3.1X, 9X, NT e 200x no <prgn>GNU/Linux</prgn>. 
+3.1X, 9X, NT e 200x no <command>GNU/Linux</command>. 
  <p>
 Equipamento mínimo recomendado: 486 com 16 MB de RAM e 12 MB de disco. 
 </taglist>
@@ -327,11 +327,11 @@ Equipamento mínimo recomendado: 386 com 4 MB de RAM e 2 MB de disco.
 Modo Texto - Permite a cópia completa de sites remotos e também pode ser 
 usado como mirror. Com o simples comando <tt>wget &url-manual-www;</tt>, 
 todo o site do guia <em>Foca Linux</em> será gravado em seu disco. O 
-<prgn>wget</prgn> também tem a característica de resumir downloads 
+<command>wget</command> também tem a característica de resumir downloads 
 interrompidos e copiar somente arquivos mais novos. 
  <p>
 Gostou da idéia? Isto é só o começo! existem ferramentas mais poderosas no 
-<prgn>GNU/Linux</prgn> :-)
+<command>GNU/Linux</command> :-)
  <p>
 Equipamento mínimo recomendado: 386 com 4 MB de RAM e disco dependendo do 
 tamanho do site que deseja copiar (um disco maior que 540 MB exige uma placa 
@@ -351,11 +351,11 @@ dispositivos, mensagens dos daemons, inetd, etc.
 </taglist>
 
 
-<sect>Listagem de Aplicativos para <prgn>GNU/Linux</prgn>
+<sect>Listagem de Aplicativos para <command>GNU/Linux</command>
  <p>
 Esta seção contém uma listagem dos mais diversos tipos de 
 aplicativos/ferramentas/scripts/suites/servidores, etc. para 
-<prgn>GNU/Linux</prgn> com sua respectiva descrição. A listagem 
+<command>GNU/Linux</command> com sua respectiva descrição. A listagem 
 está organizada em ordem alfabética e subseções para facilitar 
 a sua navegação e localização do aplicativo desejado. 
  <p>

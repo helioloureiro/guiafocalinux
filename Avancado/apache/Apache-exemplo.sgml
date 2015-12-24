@@ -1,11 +1,11 @@
 <sect id="s-apache-exemplo">Exemplo comentado de um arquivo de configuração do Apache
  <p>
-O exemplo abaixo foi retirado da distribuição <prgn>Debian GNU/Linux</prgn>, 
+O exemplo abaixo foi retirado da distribuição <command>Debian GNU/Linux</command>, 
 fiz sua tradução, modificações e inclui alguns comentários sobre as 
 diretivas para deixa-lo mais de acordo com o conteúdo abordado pelo guia e 
 mais auto-explicativo. 
  <p>
-A configuração do <prgn>Apache</prgn> está distribuída nos arquivos 
+A configuração do <command>Apache</command> está distribuída nos arquivos 
 <file>httpd.conf</file>, <file>srm.conf</file> e <file>access.conf</file> e 
 podem ser usados como modelo para a construção da configuração de seu servidor. 
 

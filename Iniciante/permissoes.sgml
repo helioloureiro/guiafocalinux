@@ -3,10 +3,10 @@
 As permissões de acesso protegem o sistema de 
 arquivos Linux do acesso indevido de pessoas ou programas não autorizados. 
  <p>
-A permissão de acesso do <prgn>GNU/Linux</prgn> também impede que um programa 
+A permissão de acesso do <command>GNU/Linux</command> também impede que um programa 
 mal intencionado, por exemplo, apague um arquivo que não deve, envie arquivos 
 especiais para outra pessoa ou forneça acesso da rede para que outros usuários 
-invadam o sistema. O sistema <prgn>GNU/Linux</prgn> é muito seguro e como 
+invadam o sistema. O sistema <command>GNU/Linux</command> é muito seguro e como 
 qualquer outro sistema seguro e confiável impede que usuários mal 
 intencionados (ou iniciantes que foram enganados) instalem programas enviados 
 por terceiros sem saber para que eles realmente servem e causem danos 
@@ -16,19 +16,19 @@ Esta seção do guia, de inicio, pode ser um pouco dificil de se entender,
 então recomendo ler e ao mesmo tempo prática-la para uma ótima 
 compreensão. Não se preocupe, também coloquei exemplos para 
 ajuda-lo a entender o sistema de permissões de acesso do ambiente 
-<prgn>GNU/Linux</prgn>. 
+<command>GNU/Linux</command>. 
 
 
 <sect id="perm-user-group">Donos, Grupos e outros usuários
  <p>
-A idéia básica da segurança no sistema <prgn>GNU/Linux</prgn> é 
+A idéia básica da segurança no sistema <command>GNU/Linux</command> é 
 definir o acesso aos arquivos por donos, grupos e outros usuários: 
 <taglist compact>
  <tag><em>dono</em></tag>
  <item>
 É a pessoa que criou o arquivo ou o diretório. O nome do dono do 
 arquivo/diretório é o mesmo do usuário usado para entrar 
-no sistema <prgn>GNU/Linux</prgn>. Somente o dono pode modificar as 
+no sistema <command>GNU/Linux</command>. Somente o dono pode modificar as 
 permissões de acesso do arquivo. 
  <p>
 As permissões de acesso do dono de um arquivo somente se aplicam ao 
@@ -39,7 +39,7 @@ A identificação de usuário ao qual o arquivo pertence
 é armazenada no arquivo <file>/etc/passwd</file> e do grupo no 
 arquivo <file>/etc/group</file>. Estes são arquivos textos comuns e podem 
 ser editados em qualquer editor de texto, mas utilize preferencialmente os 
-comandos <prgn>vipw</prgn> e <prgn>vigr</prgn> que executa procedimentos 
+comandos <command>vipw</command> e <command>vigr</command> que executa procedimentos 
 adicionais de checagem de uids e grupos após a alteração. Tenha cuidado 
 para não modificar o campo que contém a senha do usuário encriptada (que pode 
 estar armazenada no arquivo <file>/etc/passwd</file> caso não estiver usando 
@@ -57,11 +57,11 @@ arquivos tenham outro <em>dono</em>).
 Por padrão, quando um novo usuário é criado e não especificar nenhum grupo, 
 ele pertencerá ao grupo de mesmo nome do seu grupo primário (este comportamento
 é controlado pelo parametro <tt>USERGROUPS=yes</tt> do arquivo 
-<file>/etc/adduser.conf</file>, veja <ref id="cmdc-id">). 
+<file>/etc/adduser.conf</file>, veja <xref linkend="cmdc-id">). 
 A identificação do grupo é chamada de <tt>GID (<em>group id</em>)</tt>.
  <p>
 Um usuário pode pertencer a um ou mais grupos. Para detalhes de como 
-incluir o usuário em mais grupos veja <ref id="cmdc-incluirgrupo">.
+incluir o usuário em mais grupos veja <xref linkend="cmdc-incluirgrupo">.
 
  <tag><em>outros</em></tag>
  <item>
@@ -79,7 +79,7 @@ Quanto aos tipos de permissões que se aplicam ao <em>dono</em>,
 <list compact>
  <item>
 <tt>r</tt> - Permissão de leitura para arquivos. Caso for um diretório, 
-permite listar seu conteúdo (através do comando <prgn>ls</prgn>, por 
+permite listar seu conteúdo (através do comando <command>ls</command>, por 
 exemplo).
  
  <item>
@@ -92,12 +92,12 @@ acesso a gravação.
  <item>
 <tt>x</tt> - Permite executar um arquivo (caso seja um programa 
 executável). Caso seja um diretório, permite que seja acessado 
-através do comando <prgn>cd</prgn> 
-<![ %INIC-INTER [ (veja <ref id="comando-cd"> para detalhes). ]]>
+através do comando <command>cd</command> 
+<![ %INIC-INTER [ (veja <xref linkend="comando-cd"> para detalhes). ]]>
 </list>
 As permissões de acesso a um arquivo/diretório podem ser visualizadas com 
 o uso do comando <tt>ls -la</tt>. 
-<![ %INIC-INTER [ Para maiores detalhes veja <ref id="comando-ls">. ]]>
+<![ %INIC-INTER [ Para maiores detalhes veja <xref linkend="comando-ls">. ]]>
 As 3 letras (rwx) são agrupadas da seguinte forma:
 <example>
 -rwxr-xr--   gleydson   users  teste
@@ -108,7 +108,7 @@ dizer as 10 letras acima (da esquerda para a direita):
  <item>
 A primeira letra diz qual é o tipo do arquivo. Caso tiver um "d" é um 
 diretório, um "l" um link a um arquivo no sistema 
-<![ %INIC-INTER [ (veja <ref id="cmdv-ln"> para detalhes) ]]>, 
+<![ %INIC-INTER [ (veja <xref linkend="cmdv-ln"> para detalhes) ]]>, 
 um "-" quer dizer que é um arquivo comum, etc.
  
  <item>
@@ -129,7 +129,7 @@ os <em>outros usuários</em>. Neste caso todos os usuários que não
 são donos do arquivo <file>teste</file> tem a permissão somente para ler 
 o programa.
 </list>
-Veja o comando <ref id="perm-chmod"> para detalhes sobre 
+Veja o comando <xref linkend="perm-chmod"> para detalhes sobre 
 a mudança das permissões de acesso de arquivos/diretórios.
 
 
@@ -152,25 +152,25 @@ deseja fazer (ler, gravar ou executar o arquivo), caso não tenha, o acesso
 negada). 
  <p>
 O que isto que dizer é que mesmo que você seja o dono do arquivo e 
-definir o acesso do <em>dono</em> (através do comando <prgn>chmod</prgn>) 
+definir o acesso do <em>dono</em> (através do comando <command>chmod</command>) 
 como somente leitura (r) mas o acesso dos <em>outros usuários</em> como 
 leitura e gravação, você somente poderá ler este arquivo mas os outros 
 usuários poderão ler/grava-lo. 
  <p>
 As permissões de acesso (leitura, gravação, execução) para donos, grupos 
 e outros usuários são independentes, permitindo assim um nível de acesso 
-diferenciado. Para maiores detalhes veja <ref id="perm-tipos">. 
+diferenciado. Para maiores detalhes veja <xref linkend="perm-tipos">. 
 <![ %OBS [
  <p>
 Lembre-se: Somente o dono pode modificar as permissões de um arquivo/diretório! ]]>
  <p>
-Para mais detalhes veja os comandos <ref id="perm-chown"> e <ref id="perm-chgrp">. 
+Para mais detalhes veja os comandos <xref linkend="perm-chown"> e <xref linkend="perm-chgrp">. 
 
 
 <sect id="perm-exemplo">Exemplos práticos de permissões de acesso 
  <p>
 Abaixo dois exemplos práticos de permissão de acesso: 
-<ref id="perm-exemplo-a"> e a <ref id="perm-exemplo-d">. 
+<xref linkend="perm-exemplo-a"> e a <xref linkend="perm-exemplo-d">. 
 Os dois exemplos são explicados passo a passo para uma 
 perfeita compreensão do assunto. Vamos a prática!
 
@@ -178,7 +178,7 @@ perfeita compreensão do assunto. Vamos a prática!
 <sect1 id="perm-exemplo-a">Exemplo de acesso a um arquivo
  <p>
 Abaixo um exemplo e explicação das permissões de acesso a um arquivo no 
-<prgn>GNU/Linux</prgn> (obtido com o comando <tt>ls -la</tt>, explicarei 
+<command>GNU/Linux</command> (obtido com o comando <tt>ls -la</tt>, explicarei 
 passo a passo cada parte: 
  <p>
 -rwxr-xr--  1  gleydson user    8192 nov 4 16:00 teste
@@ -194,9 +194,9 @@ detalhada sobre cada uma abaixo:
   <item>
 A primeira letra (do conjunto das 10 letras) determina o tipo do arquivos.  
 Se a letra for um <strong>d</strong> é um diretório, e você poderá 
-acessa-lo usando o comando <prgn>cd</prgn>. Caso for um <strong>l</strong>  
+acessa-lo usando o comando <command>cd</command>. Caso for um <strong>l</strong>  
 é um link simbólico para algum arquivo ou diretório no sistema 
-<![ %INIC-INTER [ (para detalhes veja o comando <ref id="cmdv-ln"> ]]>. 
+<![ %INIC-INTER [ (para detalhes veja o comando <xref linkend="cmdv-ln"> ]]>. 
 Um <strong>-</strong> significa que é um arquivo normal.
 
   <tag>-<strong>rwx</strong>r-xr--</tag>
@@ -240,7 +240,7 @@ Nome do arquivo.
 <sect1 id="perm-exemplo-d">Exemplo de acesso a um diretório
  <p>
 Abaixo um exemplo com explicações das permissões de acesso a um diretório no 
-<prgn>GNU/Linux</prgn>:
+<command>GNU/Linux</command>:
  <p>
 drwxr-x---  2  gleydson user    1024 nov 4 17:55 exemplo
 <taglist compact>
@@ -294,8 +294,8 @@ Nome do grupo que diretório <file>exemplo</file> pertence.
 Nome do diretório.
 </taglist>
 Para detalhes de como alterar o dono/grupo de um arquivo/diretório, veja 
-os comandos <ref id="perm-chmod">, <ref id="perm-chgrp"> e  
-<ref id="perm-chown">.
+os comandos <xref linkend="perm-chmod">, <xref linkend="perm-chgrp"> e  
+<xref linkend="perm-chown">.
 
 <![ %OBS [ 
  <p>
@@ -309,7 +309,7 @@ que você não tem permissão de gravação, o sistema perguntará se você
 confirma a exclusão do arquivo apesar do modo leitura. Caso você tenha 
 permissões de gravação no arquivo, o arquivo será apagado por padrão sem 
 mostrar nenhuma mensagem de erro (a não ser que seja especificada a opção 
--i com o comando <prgn>rm</prgn>).
+-i com o comando <command>rm</command>).
  <item>
 Por outro lado, mesmo que você tenha permissões de gravação em um arquivo 
 mas não tenha permissões de gravação em um diretório, a exclusão do arquivo 
@@ -497,10 +497,10 @@ de gravação. <em>x</em> permissão de execução (ou acesso a diretórios).
 
 </taglist>
 ]]>
-<prgn>chmod</prgn> não muda permissões de links simbólicos, as permissões 
+<command>chmod</command> não muda permissões de links simbólicos, as permissões 
 devem ser mudadas no arquivo alvo do link. Também podem ser usados 
 códigos numéricos octais para a mudança das permissões de acesso a 
-arquivos/diretórios. Para detalhes veja <ref id="perm-octal">. 
+arquivos/diretórios. Para detalhes veja <xref linkend="perm-octal">. 
 <![ %OBS [
  <p>
 DICA: É possível copiar permissões de acesso do arquivo/diretório, 
@@ -756,7 +756,7 @@ receberá quando for criado ou copiado para um novo local. Digite
  <p>
 A umask tem efeitos diferentes caso o arquivo que estiver sendo 
 criado for <em>binário</em> (um programa executável) ou <em>texto</em> 
-<![ %INICIANTE [ (<ref id="basico-arquivo-bintext">) ]]>. 
+<![ %INICIANTE [ (<xref linkend="basico-arquivo-bintext">) ]]>. 
 Veja a tabela a seguir para ver qual é a mais adequada a sua situação: 
 <example>
 ---------------------------------------------
@@ -789,5 +789,5 @@ A umask padrão no sistema <![ %DEBIAN [ Debian ]]> é a <![ %DEBIAN [ 022 ]]>.
  <p>
 A umask é de grande utilidade para programas que criam arquivos/diretórios 
 temporários, desta forma pode-se bloquear o acesso de outros usuários desde 
-a criação do arquivo, evitando recorrer ao <prgn>chmod</prgn>. 
+a criação do arquivo, evitando recorrer ao <command>chmod</command>. 
 

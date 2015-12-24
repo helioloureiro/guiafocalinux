@@ -8,18 +8,18 @@ servidor qpopper da Qualcomm.
 <sect id="s-pop3-intro">Introdução
  <p>
 É o servidor para recebimento de mensagens eletrônicas (e-mails) para o 
-cliente de e-mails. O servidor pop3 documentado é o <prgn>qpopper</prgn> 
-(da Qualcomm), é um dos mais usados em ambiente <prgn>Linux</prgn>, simples 
+cliente de e-mails. O servidor pop3 documentado é o <command>qpopper</command> 
+(da Qualcomm), é um dos mais usados em ambiente <command>Linux</command>, simples 
 de configurar e distribuído livremente. 
 O que este programa faz é ler os e-mails de usuários em <file>/var/mail</file> 
-e os envia via porta 110 ao programa cliente (<prgn>Netscape</prgn>, 
-<prgn>sylpheed</prgn>, <prgn>mutt</prgn>, <prgn>balsa</prgn>, <prgn>Pegasus</prgn>, 
-<prgn>Outlook</prgn>, ou qualquer outro que suporte o protocolo pop3). 
+e os envia via porta 110 ao programa cliente (<command>Netscape</command>, 
+<command>sylpheed</command>, <command>mutt</command>, <command>balsa</command>, <command>Pegasus</command>, 
+<command>Outlook</command>, ou qualquer outro que suporte o protocolo pop3). 
 
 
 <sect1 id="s-pop3-versao">Versão
  <p>
-É assumido que esteja usando a versão 4.0.3 do <prgn>qpopper</prgn>. As explicações 
+É assumido que esteja usando a versão 4.0.3 do <command>qpopper</command>. As explicações 
 contidas aqui podem funcionar para versões posteriores, mas é recomendável que 
 leia a documentação sobre modificações no programa (changelog) em busca de 
 mudanças que alterem o sentido das explicações fornecidas aqui. 
@@ -27,7 +27,7 @@ mudanças que alterem o sentido das explicações fornecidas aqui.
 
 <sect1 id="s-pop3-contribuindo">Contribuindo
  <p>
-O site do <prgn>qpopper</prgn> é <url id="&url-qpopper-www;">, 
+O site do <command>qpopper</command> é <url id="&url-qpopper-www;">, 
 anúncios de novas versões, bugs e correções são enviados para 
 <email>qpopper-announce@rohan.qualcomm.com</email> (inscreva-se enviando 
 uma mensagem com o assunto "subscribe" para o nome da lista acrescentando 
@@ -75,20 +75,20 @@ o serviço pop3.
 usar o serviço pop3.
  <item>
 <file>/etc/pop.auth</file> - Contém dados de autenticação criados pelo 
-programa <prgn>popauth</prgn>. 
+programa <command>popauth</command>. 
 
 </list>
 
 
 <sect1 id="s-pop3-hwreq">Requerimentos de Hardware
  <p>
-O servidor <prgn>qpopper</prgn> requer no mínimo 6MB de memória para 
+O servidor <command>qpopper</command> requer no mínimo 6MB de memória para 
 rodar e espaço em disco suficiente para acomodar os e-mails de usuários. 
 
 
 <sect1 id="s-pop3-logs">Arquivos de log criados pelo qpopper
  <p>
-Mensagens sobre a execução do <prgn>qpopper</prgn> são enviadas aos 
+Mensagens sobre a execução do <command>qpopper</command> são enviadas aos 
 seguintes arquivos em <file>/var/log</file>:
 <list compact>
  <item>
@@ -114,17 +114,17 @@ pop-3		stream	tcp	nowait.60	root	/usr/sbin/tcpd	/usr/sbin/in.qpopper -s
 </example>
 Se estiver configurando um servidor pop3 com um grande número de conexões, é 
 recomendável aumentar o número de execuções do serviço pop3 por minuto 
-(no <file>inetd.conf</file>) ou rodar o servidor <prgn>qpopper</prgn> como daemon 
-(preferido). Para fazer isto, remova a linha que inicia o <prgn>qpopper</prgn> no 
+(no <file>inetd.conf</file>) ou rodar o servidor <command>qpopper</command> como daemon 
+(preferido). Para fazer isto, remova a linha que inicia o <command>qpopper</command> no 
 <file>inetd.conf</file> e construa um script que inicie o serviço como daemon 
-usando a opção <em>-S</em> (veja outras opções em <ref id="s-pop3-opcoescmd">). 
+usando a opção <em>-S</em> (veja outras opções em <xref linkend="s-pop3-opcoescmd">). 
 
 
 <sect1 id="s-pop3-rodando">Iniciando o servidor/reiniciando/recarregando a 
 configuração
  <p>
 O serviço é executado por padrão via inetd e utiliza o controle de 
-acesso <prgn>tcpd</prgn> <![ %CAPJUNTOS [ (veja <ref id="rede-seg-tcpd">)]]>. 
+acesso <command>tcpd</command> <![ %CAPJUNTOS [ (veja <xref linkend="rede-seg-tcpd">)]]>. 
 Adicionalmente você pode definir que usuários terão/não acesso ao serviço pop3 
 nos arquivos <file>/etc/popper.allow</file> e <file>popper.deny</file>. Por padrão, 
 o acesso é garantido para qualquer usuário. 
@@ -136,7 +136,7 @@ arquivo <file>/etc/passwd</file>.
 
 <sect1 id="s-pop3-testando">Teste de acesso no pop3
  <p>
-Um simples teste consiste em usar o <prgn>telnet</prgn> conectando 
+Um simples teste consiste em usar o <command>telnet</command> conectando 
 a porta pop3 (110): <tt>telnet 127.0.0.1 110</tt>: 
 <example>
 Connected to 127.0.0.1.
@@ -149,7 +149,7 @@ A resposta acima indica que o servidor pop3 está funcionando corretamente.
 
 <sect1 id="s-pop3-opcoescmd">Opções de linha de comando
  <p>
-Opções de linha de comando do servidor <prgn>in.qpopper</prgn>: 
+Opções de linha de comando do servidor <command>in.qpopper</command>: 
 <taglist compact>
  <tag>endereço:porta</tag>
   <item>
@@ -157,14 +157,14 @@ Quando está operando em modo daemon (iniciado com <em>-S</em>), espera por
 conexões no <em>endereço</em> e opcionalmente na <em>porta</em> especificada. 
 O endereço deverá ser o da interface de rede local do servidor (como 
 <file>192.168.1.1</file>) caso não seja especificado, o servidor 
-<prgn>qpopper</prgn> monitorará todos os endereços. A porta padrão é 110 
+<command>qpopper</command> monitorará todos os endereços. A porta padrão é 110 
 caso não seja especificada. 
 
  <tag>-b [diretório]</tag>
   <item>
 Ativa o sistema de envio de boletins. O diretório especificado é o que 
-contém os boletins que serão enviados (na distribuição <prgn>Debian</prgn>, o 
-<file>/var/spool/popbull</file> é o indicado). Veja <ref id="s-pop3-boletins"> 
+contém os boletins que serão enviados (na distribuição <command>Debian</command>, o 
+<file>/var/spool/popbull</file> é o indicado). Veja <xref linkend="s-pop3-boletins"> 
 para instruções de utilização deste recurso. 
 
  <tag>-c</tag>
@@ -203,7 +203,7 @@ ao invés de texto plano. As seguintes opções são suportadas.
   <item>
  <tt>0</tt> - Senhas em texto plano podem ser usadas para usuários não 
  cadastrados no arquivo <file>/etc/pop.auth</file> (gerenciado pelo 
- <prgn>popauth</prgn>. Este é o padrão. 
+ <command>popauth</command>. Este é o padrão. 
   <item>
  <tt>1</tt> - Somente permite acesso de usuários cadastrados no arquivo 
  <file>/etc/pop.auth</file>. Qualquer acesso usando texto plano é negado. 
@@ -227,7 +227,7 @@ Desativa a resolução reversa de endereços IP de clientes.
  <item>
 Registra dados de inicio da seção, nome de usuário, número 
 de bytes/mensagens apagadas, número de mensagens deixadas no servidor e 
-fim da seção. Estes detalhes são registrados pelo <prgn>syslogd</prgn>. 
+fim da seção. Estes detalhes são registrados pelo <command>syslogd</command>. 
 Seu uso é recomendável para ter controle sobre o que está acontecendo em 
 seu servidor. 
 
@@ -268,8 +268,8 @@ não terá acesso ou desativar opções específicas.
  <tag>-y [facilidade]</tag>
   <item>
 Permite modificar o nível <em>facilidade</em> que as mensagens são 
-registradas no <prgn>syslogd</prgn> <![ %CAPJUNTOS [(veja 
-<ref id="log-syslogd-exemplo">)]]>. 
+registradas no <command>syslogd</command> <![ %CAPJUNTOS [(veja 
+<xref linkend="log-syslogd-exemplo">)]]>. 
 </taglist>
 
 
@@ -323,19 +323,19 @@ Deve haver uma linha em branco para separar o cabeçalho da mensagem.
 <sect1 id="s-pop3-quotas">Especificando quotas para as caixas de correio
  <p>
 Crie o diretório de spool <file>/var/mail</file> em uma partição 
-separada e ative o sistema de quota do <prgn>Linux</prgn> nela. 
-<![ %CAPJUNTOS [ Leia as instruções em <ref id="d-restr-quotas">. ]]>
+separada e ative o sistema de quota do <command>Linux</command> nela. 
+<![ %CAPJUNTOS [ Leia as instruções em <xref linkend="d-restr-quotas">. ]]>
 
 
 <sect1 id="s-pop3-restricao">Restringindo acesso ao servidor pop3
  <p>
 O controle de acesso de conexões é feito via método 
-<prgn>tcpd</prgn> usando o daemon <prgn>in.qpopper</prgn> 
-<![ %CAPJUNTOS [ (veja <ref id="rede-seg-tcpd">)]]>. O controle de 
+<command>tcpd</command> usando o daemon <command>in.qpopper</command> 
+<![ %CAPJUNTOS [ (veja <xref linkend="rede-seg-tcpd">)]]>. O controle de 
 acesso dos usuários é feito através do arquivos 
 <file>/etc/popper.allow</file> e <file>/etc/popper.deny</file>, 
 respectivamente contém os nomes de usuários que podem e não 
-podem ter acesso ao servidor <prgn>qpopper</prgn>. Por motivos 
+podem ter acesso ao servidor <command>qpopper</command>. Por motivos 
 de segurança é recomendável redirecionar os e-mails do 
 usuário <tt>root</tt> para outra conta (no arquivo 
 <file>/etc/aliases</file> e bloquear o acesso do usuário root ao 
@@ -343,7 +343,7 @@ pop3 no arquivo <file>/etc/popper.deny</file>.
  <p>
 Se a máquina servidora pop3 não for utilizada para acesso remoto, 
 é recomendável desativar os serviços de login <![ %CAPJUNTOS [ (veja 
-<ref id="d-restr-bash-desshell">)]]>. 
+<xref linkend="d-restr-bash-desshell">)]]>. 
 
 
 

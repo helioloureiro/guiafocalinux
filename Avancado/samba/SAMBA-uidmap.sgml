@@ -2,9 +2,9 @@
  <p>
 O mapeamento de usuários do servidor remoto com a máquina local é usado quando
 você deseja controlar o acesso aos arquivos/diretórios a nível de usuário. 
-No <prgn>Windows</prgn> isto permite que cada arquivo/diretório tenha 
+No <command>Windows</command> isto permite que cada arquivo/diretório tenha 
 o acesso leitura/gravação somente para os usuários definidos e autenticados 
-no controlador de domínio. No <prgn>Linux</prgn> as permissões de 
+no controlador de domínio. No <command>Linux</command> as permissões de 
 arquivos e diretórios podem ser definidas para o usuário do PDC, garantindo
 o mesmo nível de controle de acesso.
  <p>
@@ -14,7 +14,7 @@ PDC SAMBA e seus clientes NetBIOS Windows e Linux.
 
 <sect1 id="s-samba-usermap-w">Mapeamento de usuários/grupos domínio em Windows
  <p>
-Para o <prgn>Windows</prgn> utilizar os usuários remotos do servidor para 
+Para o <command>Windows</command> utilizar os usuários remotos do servidor para 
 fazer seu controle de acesso por nível de usuário, siga os seguintes passos:
 <taglist compact>
  <tag>Windows 9X</tag>
@@ -35,14 +35,14 @@ uma busca pelo PDC ou outra máquina de onde pode obter os nomes de usuários/gr
 <sect1 id="s-samba-usermap-l">Mapeamento de usuários/grupos domínio em Linux
  <p>
 A associação de UIDs de usuários de um domínio com usuários locais no 
-<prgn>Linux</prgn> é feita pelo programa <prgn>winbind</prgn>. Ele 
-utiliza o mecanismo <prgn>nsswitch</prgn> para obter outras fontes 
+<command>Linux</command> é feita pelo programa <command>winbind</command>. Ele 
+utiliza o mecanismo <command>nsswitch</command> para obter outras fontes 
 de dados de usuários e os associa nas ferramentas de gerenciamento de 
 contas existentes no sistema. Siga estes passos para fazer sua instalação 
-e configuração do <prgn>Winbind</prgn> em um servidor <prgn>Linux</prgn>:
+e configuração do <command>Winbind</command> em um servidor <command>Linux</command>:
 <list compact>
  <item>
-Instale o programa <prgn>winbind</prgn>: <tt>apt-get install winbind</tt>.
+Instale o programa <command>winbind</command>: <tt>apt-get install winbind</tt>.
 
  <item>
 Modifique o arquivo <file>smb.conf</file> adicionando as seguintes linhas na 
@@ -89,10 +89,10 @@ você deverá ter certeza que esta faixa de GIDs não está sendo usada em
 seu sistema.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Atualmente <prgn>SAMBA</prgn> não possui suporte a 
+<strong>OBS:</strong> Atualmente <command>SAMBA</command> não possui suporte a 
 grupos globais, apenas para usuários globais, desta forma os grupos da 
 máquina remota não serão trazidos para o sistema. Uma forma de contornar isto, 
-é utilizando o LDAP ou o NIS no PDC e nos clientes <prgn>Linux</prgn>.
+é utilizando o LDAP ou o NIS no PDC e nos clientes <command>Linux</command>.
 ]]>
 
  <tag>winbind enum users</tag>
@@ -118,13 +118,13 @@ substituído pelo nome do domínio e %U pelo nome de usuário durante a conexão
 Este será o shell enviado para máquinas NT ou baseadas nele como shell usado 
 para login. O valor usado foi <file>/bin/false</file> pois desabilita os 
 logons, mas você poderá usar <file>/bin/sh</file> (ou algum outro shell) para 
-efetuar conexões do comando <prgn>net</prgn> ou outras ferramentas NetBEUI ao 
+efetuar conexões do comando <command>net</command> ou outras ferramentas NetBEUI ao 
 servidor.
 
 </taglist>
 
 <item>
-Reinicie o servidor <prgn>SAMBA</prgn>
+Reinicie o servidor <command>SAMBA</command>
 
 <item>
 Edite o arquivo <file>/etc/nsswitch.conf</file> alterando a ordem de pesquisa de 
@@ -137,11 +137,11 @@ shadow:         compat
 </example>
 
 <item>
-Agora, inicie o daemon <prgn>winbind</prgn> local com o comando: 
+Agora, inicie o daemon <command>winbind</command> local com o comando: 
 <tt>/etc/init.d/winbind restart</tt>. 
 
  <item>
-Entre no domínio com o comando: <tt>smbpasswd -j domínio -r nome_do_PDC -U usuario</tt> (veja <ref id="s-samba-c-dominio-linux"> para aprender como entrar no 
+Entre no domínio com o comando: <tt>smbpasswd -j domínio -r nome_do_PDC -U usuario</tt> (veja <xref linkend="s-samba-c-dominio-linux"> para aprender como entrar no 
 domínio em caso de dúvidas).
  <item>
 Agora faça o teste para obter a listagem dos grupos e usuários do domínio do 
@@ -154,19 +154,19 @@ getent group
 
 </example>
 Caso isto não aconteça, revise suas configurações e veja os logs procurando por 
-erros quando o <prgn>winbind</prgn> tenta obter a lista de usuários/grupos do 
+erros quando o <command>winbind</command> tenta obter a lista de usuários/grupos do 
 domínio.
 
 </list>
 Agora você deve ser capaz de criar diretórios/arquivos locais usando os 
 nomes de usuários/grupos do domínio. Lembre-se de reiniciar sempre o 
-<prgn>winbind</prgn> quando reiniciar o SAMBA por alguma modificação for
-feita (ao mesmo que saiba que não afeta o <prgn>winbind</prgn>), assim 
+<command>winbind</command> quando reiniciar o SAMBA por alguma modificação for
+feita (ao mesmo que saiba que não afeta o <command>winbind</command>), assim 
 como entrar novamente no domínio, caso contrário o mapeamento deixará 
 de funcionar.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Atualmente, o <prgn>winbind</prgn> não oferece suporte
+<strong>OBS:</strong> Atualmente, o <command>winbind</command> não oferece suporte
 a restrições por data/hora de logon para estações de trabalho. Isto deverá 
 ser implementado em uma futura versão
 ]]>

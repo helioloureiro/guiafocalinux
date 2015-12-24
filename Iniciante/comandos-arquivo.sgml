@@ -30,9 +30,9 @@ Não mostra mais que uma linha em branco entre um parágrafo e outro.
 Lê a entrada padrão.
 </taglist>
 ]]>
-O comando <prgn>cat</prgn> trabalha com arquivos texto. Use o comando  
-<prgn>zcat</prgn> para ver diretamente arquivos compactados com 
-<prgn>gzip</prgn>. 
+O comando <command>cat</command> trabalha com arquivos texto. Use o comando  
+<command>zcat</command> para ver diretamente arquivos compactados com 
+<command>gzip</command>. 
 <![ %EXEMPLO [
  <p>
 Exemplo: <tt>cat /usr/doc/copyright/GPL</tt> ]]>
@@ -40,7 +40,7 @@ Exemplo: <tt>cat /usr/doc/copyright/GPL</tt> ]]>
 
 <sect id="comando-tac">tac
  <p>
-Mostra o conteúdo de um arquivo binário ou texto (como o <prgn>cat</prgn>) só 
+Mostra o conteúdo de um arquivo binário ou texto (como o <command>cat</command>) só 
 que em ordem inversa.
  <p>
 <tt>tac [opções] [<em>diretório/arquivo</em>] [<em>diretório1/arquivo1</em>]</tt>
@@ -115,7 +115,7 @@ comuns.
 
 </taglist>
 ]]>
-Use com atenção o comando <prgn>rm</prgn>, uma vez que os arquivos e  
+Use com atenção o comando <command>rm</command>, uma vez que os arquivos e  
 diretórios forem apagados, eles não poderão ser mais recuperados.
 <![ %EXEMPLO [
  <p>
@@ -154,7 +154,7 @@ onde:
  <tag><em>origem</em></tag>
  <item>
 Arquivo que será copiado. Podem ser especificados mais de um arquivo para 
-ser copiado usando "Coringas" (veja <ref id="basico-coringas">).
+ser copiado usando "Coringas" (veja <xref linkend="basico-coringas">).
 
  <tag><em>destino</em></tag>
  <item>
@@ -210,7 +210,7 @@ de onde a cópia iniciou.
 ]]>
 </taglist>
 ]]>
-O comando <prgn>cp</prgn> copia arquivos da ORIGEM para o DESTINO. Ambos  
+O comando <command>cp</command> copia arquivos da ORIGEM para o DESTINO. Ambos  
 origem e destino terão o mesmo conteúdo após a cópia. 
 
 <![ %EXEMPLO [
@@ -256,7 +256,7 @@ Copia todos os arquivos e o diretório <file>/bin</file> para <file>/tmp</file>.
 <sect id="comando-mv">mv
  <p>
 Move ou renomeia arquivos e diretórios. 
-<![ %DESCRICAOD [ O processo é semelhante ao do comando <prgn>cp</prgn> mas 
+<![ %DESCRICAOD [ O processo é semelhante ao do comando <command>cp</command> mas 
 o arquivo de origem é apagado após o término da cópia. ]]>
  <p>
 <tt>mv [<em>opções</em>] [<em>origem</em>] [<em>destino</em>]</tt>
@@ -292,8 +292,8 @@ Move somente arquivos antigos, ou novos arquivos.
 ]]>
 </taglist>
 ]]>
-O comando <prgn>mv</prgn> copia um arquivo da <em>ORIGEM</em> para o  
-<em>DESTINO</em> (semelhante ao <prgn>cp</prgn>), mas após a cópia, o  
+O comando <command>mv</command> copia um arquivo da <em>ORIGEM</em> para o  
+<em>DESTINO</em> (semelhante ao <command>cp</command>), mas após a cópia, o  
 arquivo de <em>ORIGEM</em> é apagado.
 
 <![ %EXEMPLO [

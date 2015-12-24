@@ -8,11 +8,11 @@ Este capítulo documenta o controle de acesso ao servidor samba e restrições.
 Quando acessa um compartilhamento, o usuário do samba é mapeado com o 
 UID respectivo de usuário do sistema ou o usuário guest (especificado 
 pela opção "guest account") no caso de um acesso público. Quando isto 
-ocorre, um processo filho do <prgn>smbd</prgn> é executado sobre o UID 
+ocorre, um processo filho do <command>smbd</command> é executado sobre o UID 
 e GID deste usuário. Isto significa que em nenhuma ocasião o 
-<prgn>SAMBA</prgn> dará mais permissões que as necessárias para o 
+<command>SAMBA</command> dará mais permissões que as necessárias para o 
 usuário (com excessão de quando é usado o parâmetro <tt>admin users</tt>, 
-veja <ref id="s-samba-dom-admin">).
+veja <xref linkend="s-samba-dom-admin">).
 
 
 <sect1 id="s-samba-a-restrip">Restringindo o acesso por IP/rede
@@ -59,25 +59,25 @@ conseqüências disto para o SAMBA. ]]>
 Se você está executando o SAMBA via <em>inetd</em>, os arquivos
 <file>hosts.allow</file> e <file>hosts.deny</file> são verificados
 antes do controle e acesso <em>allow hosts</em> e <em>deny hosts</em> 
-para controle de acesso ao <prgn>smbd</prgn>. Caso estiver usando o 
+para controle de acesso ao <command>smbd</command>. Caso estiver usando o 
 SAMBA via<em>inetd</em> e deseja restringir o acesso usando 
-TCP Wrappers<![ %CAPJUNTOS [, veja <ref id="rede-seg-tcpd">]]>.
+TCP Wrappers<![ %CAPJUNTOS [, veja <xref linkend="rede-seg-tcpd">]]>.
 <![ %OBS [
  <p>
-<strong>OBS:</strong> Lembre-se de usar o <prgn>testparm</prgn> para 
+<strong>OBS:</strong> Lembre-se de usar o <command>testparm</command> para 
 verificar a sintaxe do arquivo <file>smb.conf</file> sempre que 
-desconfiar de problemas (veja <ref id="s-samba-s-testparm">). ]]>
+desconfiar de problemas (veja <xref linkend="s-samba-s-testparm">). ]]>
 
 
 <sect2 id="s-samba-a-restrip-test">Testando a restrição de Acesso por IP/Redes
  <p>
 Um método interessante e útil para testar se a nossa configuração vai bloquear 
-o acesso a serviços é usando o <prgn>testparm</prgn> da seguinte forma:
+o acesso a serviços é usando o <command>testparm</command> da seguinte forma:
 <example>
 testparm /etc/samba/smb.conf IP/host
 
 </example>
-Você precisará dizer para o <prgn>testparm</prgn> qual é o arquivo de 
+Você precisará dizer para o <command>testparm</command> qual é o arquivo de 
 configuração que está usando e o endereço IP/nome de host que fará 
 a <tt>simulação</tt> de acesso. Este método não falsifica o endereço IP
 para testes, apenas usa os valores em <em>allow hosts</em> e 
@@ -103,7 +103,7 @@ Allow connection from /etc/samba/smb.conf (focalinux) to cdrom
  <p>
 Esta restrição de acesso permite que façamos o SAMBA responder requisições 
 somente para a interfaces indicadas. O método de segurança descrito
-em <ref id="s-samba-a-restrip"> serão analisadas logo após esta checagem. 
+em <xref linkend="s-samba-a-restrip"> serão analisadas logo após esta checagem. 
  <p>
 Para restringir o serviço SAMBA a interfaces, primeiro será necessário 
 ativar o parâmetro <tt>bind interfaces only</tt> usando <tt>1</tt>, 
@@ -135,7 +135,7 @@ bind interfaces only = 1
 interfaces = loopback eth0
 
 </example>
-Permite o recebimento de requisições de acesso ao <prgn>SAMBA</prgn>
+Permite o recebimento de requisições de acesso ao <command>SAMBA</command>
 somente da interface <file>loopback</file> (desnecessário, pois como 
 notou durante a leitura, sempre é permitida a conexão) e 
 <file>eth0</file>.
@@ -209,8 +209,8 @@ Se realmente deseja fazer isto, tenha em mente os dados que poderão ser
 acessados daquela máquina, se realmente não existe nenhuma outra forma 
 de disponibilizar o acesso de forma que mantenha o controle de restrições 
 (usando todos os outros métodos), restrinja o acesso usando MAC Address 
-com o <prgn>iptables</prgn> ou o <prgn>arp</prgn> 
-<![ %CAPJUNTOS [ (veja <ref id="d-restr-ipmac">)]]>. 
+com o <command>iptables</command> ou o <command>arp</command> 
+<![ %CAPJUNTOS [ (veja <xref linkend="d-restr-ipmac">)]]>. 
 O padrão é não usar nenhum arquivo <file>hosts.equiv</file>.
 
 
@@ -245,7 +245,7 @@ opção <tt>guest only</tt> para o serviço, desta forma, mesmo que o usuário
 tenha acesso, ele será mapeado para o usuário guest.
  <p>
 Uma boa medida de segurança é usar o usuário <tt>nobody</tt> pois a maioria das 
-distribuições de <prgn>Linux</prgn> seguras adotam-o como padrão como usuário 
+distribuições de <command>Linux</command> seguras adotam-o como padrão como usuário 
 que não é dono de quaisquer arquivos/diretórios no sistema, não possui login, 
 senha ou sequer um diretório home.
  <p>
@@ -282,7 +282,7 @@ recursivo, ou seja, todos os arquivos e subdiretórios dentro do diretório
 que compartilhou serão disponibilizados, portanto tenha certeza da 
 importância dos dados que existem no diretório, verifique se existem links 
 simbólicos que apontam para ele, etc. Recomendo dar uma olhada rápida em 
-<ref id="s-samba-a-public-access">.
+<xref linkend="s-samba-a-public-access">.
 ]]>
 
 <sect1 id="s-samba-a-ro">Criando um compartilhamento com acesso somente leitura
@@ -320,7 +320,7 @@ do grupo <em>@users</em> e o usuário <em>gleydson</em>
 terão sempre acesso leitura (<em>read list = @users, gleydson</em>). Adicionalmente 
 foi colocada uma proteção para que o superusuário não tenha acesso a ele 
 (<em>invalid users = root</em>). Esta forma de restrição é explicada melhor em 
-<ref id="s-samba-a-restr">).
+<xref linkend="s-samba-a-restr">).
 
 
 <sect1 id="s-samba-a-rw">Criando um compartilhamento com acesso leitura/gravação
@@ -355,7 +355,7 @@ Neste, o mesmo compartilhamento <tt>teste</tt> (<em>[teste]</em>) foi definido
 como acesso de leitura para todos (<em>writable = no</em>), mas os usuários do 
 grupo <em>@users</em> e o usuário <em>gleydson</em> serão os únicos que terão 
 também acesso a gravação (<em>write list = @users, gleydson</em>). Esta forma
-de restrição é explicada melhor em <ref id="s-samba-a-restr">).
+de restrição é explicada melhor em <xref linkend="s-samba-a-restr">).
 
 
 <sect1 id="s-samba-a-restr">Excessão de acesso na permissão padrão de compartilhamento
@@ -381,7 +381,7 @@ como compartilhamento de nome <tt>temporario</tt> (<em>[temporario]</em>),
 seu acesso padrão é leitura/gravação para todos (<em>writable = yes</em>), 
 exceto para os usuários <tt>root</tt> e <tt>gleydson</tt> 
 (<em>read list = root, gleydson</em>). Em adição, tornamos o compartilhamento
-<em>invisível</em> (veja <ref id="s-samba-a-invisivel">) no "Ambiente de Rede" 
+<em>invisível</em> (veja <xref linkend="s-samba-a-invisivel">) no "Ambiente de Rede" 
 do Windows (<em>browseable = no</em>) e ele será lido e disponibilizado pelo 
 SAMBA (<em>available = yes</em>).
 <example>
@@ -477,11 +477,11 @@ compartilhamento do exemplo acima:
 \\nome_do_servidor_samba\teste
 
 </example>
-Ao contrário das máquinas <prgn>Windows</prgn> onde é necessário 
+Ao contrário das máquinas <command>Windows</command> onde é necessário 
 adicionar um "$" do nome de compartilhamento para criar um 
 compartilhamento oculto (como <tt>teste$</tt>) o SAMBA cria um compartilhamento
 <strong>realmente</strong> oculto, não aparecendo mesmo na listagem do 
-<prgn>smbclient</prgn>.
+<command>smbclient</command>.
 
 
 <sect1 id="s-samba-a-comandos">Executando comandos antes e após o acesso ao compartilhamento
@@ -508,7 +508,7 @@ Na configuração acima, o CD-ROM será compartilhado como <tt>cdrom</tt>
 usuário acessar o compartilhamento ele "fechará" a gaveta do CD 
 (<em>preexec = /bin/mount /cdrom</em>) e desmontará o drive de CD assim 
 que o compartilhamento for fechado (<em>postexec = /bin/umount /cdrom</em>). 
-Adicionalmente, caso o comando <prgn>mount</prgn> da opção <tt>preexec</tt> 
+Adicionalmente, caso o comando <command>mount</command> da opção <tt>preexec</tt> 
 tenha retornado um valor diferente de 0, a conexão do compartilhamento é fechada 
 (<em>preexec close = yes</em>). 
  <p>
@@ -576,7 +576,7 @@ da máquina.
 Todas as versões de Windows NT 4 a partir SP3 e Windows 95 OSR/2 utilizam 
 senhas criptografadas como padrão. É possível faze-lo utilizar senhas em 
 texto plano modificando chaves no registro das máquinas clientes 
-(veja <ref id="s-samba-senhas-plano"> para detalhes). 
+(veja <xref linkend="s-samba-senhas-plano"> para detalhes). 
 </list>
 
 As vantagens da utilização da autenticação usando texto plano:
@@ -601,7 +601,7 @@ mais graves para você.
 <strong>OBS</strong>: Caso seu NT ou versão derivada não navegue no ambiente 
 de rede (só aceitando conexões especificando diretamente o 
 "\\servidor\compartilhamento") modifique sua configuração do SAMBA para 
-autenticar usando senhas criptografadas (veja <ref id="s-samba-senhas-crypto">) para detalhes de como fazer isto.
+autenticar usando senhas criptografadas (veja <xref linkend="s-samba-senhas-crypto">) para detalhes de como fazer isto.
 ]]>
 
 
@@ -610,8 +610,8 @@ autenticar usando senhas criptografadas (veja <ref id="s-samba-senhas-crypto">) 
 Este recurso faz a mapeamento (tradução) de nomes de usuários usados no 
 momento do acesso para contas de acesso locais, bastante útil quando o 
 nome de usuário enviado pela máquina não confere com NENHUMA conta local 
-do sistema (um exemplo é quando o login do usuário no <prgn>Windows</prgn> 
-é diferente de seu Login no <prgn>Linux</prgn>). Outro vantagem de seu uso 
+do sistema (um exemplo é quando o login do usuário no <command>Windows</command> 
+é diferente de seu Login no <command>Linux</command>). Outro vantagem de seu uso 
 é permitir que uma categoria de usuários utilizem um mesmo nível de acesso 
 no sistema.
  <p>

@@ -4,10 +4,10 @@
  <p>
 Este é o daemon de controle da conexão encriptada via 
 protocolo ssh, transferência de arquivos e shell interativo. As 
-opções de linha de comando estão disponíveis em <ref id="s-ssh-opcoescmd">. 
+opções de linha de comando estão disponíveis em <xref linkend="s-ssh-opcoescmd">. 
 Seu arquivo de configuração principal é <file>/etc/ssh/sshd_config</file>, 
 um exemplo e descrição das opções deste arquivo é encontrada em 
-<ref id="s-ssh-server-sshd_config">. 
+<xref linkend="s-ssh-server-sshd_config">. 
 
 <![ %OBS [
  <p>
@@ -17,7 +17,7 @@ e intervalo entre a geração de chave de seção.
  <p>
 <strong>OBS2:</strong> Se estiver ocorrendo falhas no acesso ao servidor ssh, 
 verifique as permissões nos arquivos <file>/etc/hosts.allow</file> e 
-<file>/etc/hosts.deny</file> (o nome do serviço é <prgn>sshd</prgn>). Mesmo 
+<file>/etc/hosts.deny</file> (o nome do serviço é <command>sshd</command>). Mesmo 
 operando como daemon, o servidor utiliza estes arquivos para fazer um 
 controle de acesso adicional. ]]>
 
@@ -27,9 +27,9 @@ controle de acesso adicional. ]]>
 É definido pelas opções <tt>ListenAddress</tt>, <tt>AllowUsers</tt>, 
 <tt>DenyUsers</tt>, <tt>AllowGroups</tt>, <tt>DenyGroups</tt> e 
 <tt>PermitRootLogin</tt> do arquivo de configuração <file>sshd_config</file> 
-(veja <ref id="s-ssh-server-sshd_config">) e via tcpd (arquivos 
+(veja <xref linkend="s-ssh-server-sshd_config">) e via tcpd (arquivos 
 <file>hosts.allow</file> e <file>hosts.deny</file>). 
-<![ %CAPJUNTOS [ Veja <ref id="rede-seg-tcpd">. ]]>
+<![ %CAPJUNTOS [ Veja <xref linkend="rede-seg-tcpd">. ]]>
 
 
 <sect1 id="s-ssh-server-rsaauth">Usando autenticação RSA/DSA - chave pública/privada
@@ -45,7 +45,7 @@ execução de comandos remotos
 <file>~/.shosts</file>). 
  <p>
 Siga os seguintes passos para se autenticar usando RSA 1 - usada na versão 
-1 do <prgn>ssh</prgn>: 
+1 do <command>ssh</command>: 
 <enumlist compact>
  <item>
 Gere um par de chaves pública/privada usando o comando: 
@@ -56,7 +56,7 @@ Um par de chaves RSA versão 1 será gerado com o tamanho de 1024 bits por padr�
 garantindo uma boa segurança/performance, e salvas no diretório <file>~/.ssh</file> 
 com o nome <file>idENTITY</file> e <file>idENTITY.pub</file>. Para alterar o 
 tamanho da chave use a opção <em>-b tamanho</em>. Depois de gerar a chave, o 
-<prgn>ssh-keygen</prgn> pedirá uma <tt>frase-senha</tt> (é recomendável ter um 
+<command>ssh-keygen</command> pedirá uma <tt>frase-senha</tt> (é recomendável ter um 
 tamanho maior que 10 caracteres e podem ser incluídos espaços). Se não quiser 
 digitar uma senha para acesso ao sistema remoto, tecle &lt;Enter&gt; quando 
 perguntado. Mude as permissões do diretório <file>~/.ssh</file> para 750. 
@@ -81,20 +81,20 @@ A função do utilitário acima é entrar no sistema remoto e adicionar a chave
 pública local <file>~/.ssh/idENTITY.pub</file> no arquivo 
 <file>/home/gleydson/.ssh/authorized_keys</file> do sistema remoto 
 <file>www.sshserver.org</file>. O mesmo processo poderá ser feito manualmente 
-usando os métodos tradicionais (<prgn>ssh</prgn>/<prgn>scp</prgn>). Caso o 
+usando os métodos tradicionais (<command>ssh</command>/<command>scp</command>). Caso o 
 arquivo remoto <file>/home/gleydson/.ssh/authorized_keys</file> não existe, 
 ele será criado. Seu formato é idêntico ao <file>~/.ssh/know_hosts</file> e 
 contém uma chave pública por linha. 
 
  <item>
-Agora utilize o <prgn>ssh</prgn> para entrar no sistema remoto usando o 
+Agora utilize o <command>ssh</command> para entrar no sistema remoto usando o 
 método de chave pública/privada. Entre com a senha que usou para 
 gerar o par de chaves público/privado (ele entrará diretamente caso não 
 tenha digitado uma senha). 
 
 </enumlist>
 
-Para autenticar em uma versão 2 do <prgn>ssh</prgn> (usando chave RSA 2 ou 
+Para autenticar em uma versão 2 do <command>ssh</command> (usando chave RSA 2 ou 
 DSA):
 <enumlist compact>
  <item>
@@ -108,7 +108,7 @@ ssh-keygen -t dsa -f ~/.ssh/id_rsa
 
 </example>
 Um par de chaves RSA 2/DSA será gerado. Para alterar o tamanho da chave use 
-a opção <em>-b tamanho</em>. Depois de gerar a chave, o <prgn>ssh-keygen</prgn> 
+a opção <em>-b tamanho</em>. Depois de gerar a chave, o <command>ssh-keygen</command> 
 pedirá uma <tt>frase-senha</tt> (é recomendável ter um tamanho maior que 10 
 caracteres e podem ser incluídos espaços). Se não quiser digitar uma senha
 para acesso ao sistema remoto, tecle &lt;Enter&gt; quando perguntado. Mude 
@@ -135,7 +135,7 @@ existe, ele será criado. Seu formato é idêntico ao <file>~/.ssh/know_hosts2</
 e contém uma chave pública por linha. 
 
  <item>
-Agora utilize o <prgn>ssh</prgn> para entrar no sistema remoto usando o 
+Agora utilize o <command>ssh</command> para entrar no sistema remoto usando o 
 método de chave pública/privada. Entre com a senha que usou para 
 gerar o par de chaves público/privado (ele entrará diretamente caso não 
 tenha digitado uma senha). 
@@ -153,33 +153,33 @@ para selecionar o método de criptografia:
 <list compact>
  <item>
 <tt>rsa1</tt> - Cria uma chave rsa compatível com a versão 1 e 2 do 
-<prgn>ssh</prgn> (esta é a padrão). 
+<command>ssh</command> (esta é a padrão). 
 
  <item>
 <em>rsa</em> - Cria uma chave rsa compatível somente com a versão 2 do 
-<prgn>ssh</prgn>. 
+<command>ssh</command>. 
 
  <item>
 <em>dsa</em> - Cria uma chave dsa compatível somente com a versão 2 do 
-<prgn>ssh</prgn>. 
+<command>ssh</command>. 
 
 </list> 
  <p>
 Para trocar a senha utilize o comando: 
 <tt>ssh-keygen -p -t tipo_chave -f ~/.ssh/idENTITY</tt> - será pedida sua senha antiga e 
-a nova senha (no mesmo estilo do <prgn>passwd</prgn>). 
+a nova senha (no mesmo estilo do <command>passwd</command>). 
 Opcionalmente você pode utilizar a sintaxe: <tt>ssh-keygen -p -f ~/.ssh/idENTITY 
 -P senha_antiga -N senha_nova</tt>, que troca a senha em um único comando 
 (útil para ser usado em scripts junto com a opção <em>-q</em> para evitar a 
-exibição de mensagens de saída do <prgn>ssh-keygen</prgn>). 
+exibição de mensagens de saída do <command>ssh-keygen</command>). 
 
 
 <sect1 id="s-ssh-server-cmdkey">Execução de comandos específicos usando chaves
  <p>
-Com o uso de chaves também é possível o uso do <prgn>ssh</prgn> para execução
+Com o uso de chaves também é possível o uso do <command>ssh</command> para execução
 de comandos específicos em máquinas remotas, isto é possível com os novos
-recursos da versão 3 do <prgn>ssh</prgn>. Para fazer isto, siga os passos
-<ref id="s-ssh-server-rsaauth"> para gerar um par de chaves <em>DSA</em> 
+recursos da versão 3 do <command>ssh</command>. Para fazer isto, siga os passos
+<xref linkend="s-ssh-server-rsaauth"> para gerar um par de chaves <em>DSA</em> 
 (o par <em>RSA</em> não aceita execução de comandos específicos) e 
 copiar para <file>authorized_keys2</file>. Após isto, entre no servidor
 remoto e edite a chave, inserindo o comando que deverá ser executado antes 
@@ -200,7 +200,7 @@ no-port-forwarding,no-X11-forwarding,no-agent-forwarding,command="ls / -la" ssh-
  <p>
 Imagine quando você deseja ter acesso a uma máquina de sua rede 
 interna que esteja atrás de um gateway, isto é possível 
-usando os recursos explicados em <ref id="s-ssh-server-cmdkey"> 
+usando os recursos explicados em <xref linkend="s-ssh-server-cmdkey"> 
 fazendo um redirecionamento de acesso para seu usuário da seguinte 
 forma: 
 <example>
@@ -241,18 +241,18 @@ Agora, entre no seu navegador local e acesse a porta <em>2003</em>:
 http://localhost:2003
 
 </example>
-A opção <em>-C</em> também pode ser especificada junto ao <prgn>ssh</prgn>
+A opção <em>-C</em> também pode ser especificada junto ao <command>ssh</command>
 para usar compactação dos dados da conexão. 
 Como notou, este recurso também é útil para fazer a administração remota 
 de máquinas, porque o que está realizando a conexão será o IP do 
 servidor remoto, não o seu. Da mesma forma, você poderá ter problemas
 caso não tenha uma boa política de distribuição de contas de máquinas
-em sua rede. <![ %CAPJUNTOS [ Veja <ref id="d-contas"> para detalhes ]]>.
+em sua rede. <![ %CAPJUNTOS [ Veja <xref linkend="d-contas"> para detalhes ]]>.
 
 
 <sect1 id="s-ssh-server-protodiff">Diferenças nas versões do protocolo
  <p>
-Retirada da página de manual do <prgn>sshd</prgn>: 
+Retirada da página de manual do <command>sshd</command>: 
 <taglist>
  <tag>Protocolo SSH versão 1</tag>
  <item>
@@ -291,9 +291,9 @@ Autenticação baseada em senha.
 A autenticação usando Rhosts normalmente é desativada por ser muito 
 insegura mas pode ser ativada no arquivo de configuração do servidor 
 se realmente necessário. A segurança do sistema não é melhorada a não 
-ser que os serviços <prgn>rshd</prgn>, <prgn>rlogind</prgn>, 
-<prgn>rexecd</prgn> e <prgn>rexd</prgn> estejam desativados (assim, 
-o <prgn>rlogin</prgn> e <prgn>rsh</prgn> serão completamente 
+ser que os serviços <command>rshd</command>, <command>rlogind</command>, 
+<command>rexecd</command> e <command>rexd</command> estejam desativados (assim, 
+o <command>rlogin</command> e <command>rsh</command> serão completamente 
 desativados na máquina). 
  
 
@@ -301,7 +301,7 @@ desativados na máquina).
  <item>
 A versão 2 funciona de forma parecida com a 1:
 Cada máquina possui uma chave RSA/DSA específica usada para se identificar. 
-A diferença é que quando o <prgn>sshd</prgn> inicia, ele não gera uma 
+A diferença é que quando o <command>sshd</command> inicia, ele não gera uma 
 chave de servidor. A segurança de redirecionamento é oferecida através 
 da concordância do uso de uma chave Diffie-Hellman. Esta concordância de 
 chave resulta em uma seção com chave compartilhada. O resto da seção é 

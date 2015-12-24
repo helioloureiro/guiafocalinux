@@ -1,7 +1,7 @@
 <sect id="s-apache-ssl">Uso de criptografia SSL
  <p>
 Esta seção é uma referência rápida para configuração e uso do módulo 
-<file>apache-ssl</file> com o servidor <prgn>Apache</prgn>. Este módulo 
+<file>apache-ssl</file> com o servidor <command>Apache</command>. Este módulo 
 realiza a comunicação segura de dados (criptografada) via porta 443 (que 
 é usada como padrão quando especificamos uma url iniciando com <em>https://</em>). 
 A transmissão criptografada de dados é importante quanto temos dados 
@@ -11,7 +11,7 @@ SSL significa <em>Secure Sockets Layer</em> (camada segura de transferência) e
 TLS <em>Transport Layer Security</em> (camada segura de Transporte). 
  <p>
 A intenção aqui é fornecer explicações práticas para colocar um servidor 
-<prgn>Apache</prgn> com suporte a SSL funcionando no menor tempo possível. 
+<command>Apache</command> com suporte a SSL funcionando no menor tempo possível. 
 Detalhes sobre funcionamento de certificados, métodos de criptografia, 
 assinatura, etc. deverão ser buscados na documentação deste módulo ou 
 em sites especializados (é um assunto muito longo). 
@@ -21,8 +21,8 @@ em sites especializados (é um assunto muito longo).
  <p>
 Ao invés de utilizar o módulo <file>mod_ssl</file>, você poderá usar o 
 pacote <package>apache-ssl</package>, ele nada mais é que um 
-servidor <prgn>Apache</prgn> com o suporte SSL já incluso e 
-não interfere no servidor <prgn>Apache</prgn> padrão, porque 
+servidor <command>Apache</command> com o suporte SSL já incluso e 
+não interfere no servidor <command>Apache</command> padrão, porque 
 é executado somente na porta 443. 
  <p>
 Se você tem um grande site com configurações de acesso personalizadas, ele 
@@ -32,7 +32,7 @@ entanto, ele é indicado para máquinas que serão servidores SSL dedicados
 ou quando não possui configurações especiais em seu servidor web principal. 
  <p>
 Esta seção tem por objetivo a instalação do suporte ao módulo 
-SSL (<file>mod_ssl</file>) no servidor <prgn>Apache</prgn> padrão. 
+SSL (<file>mod_ssl</file>) no servidor <command>Apache</command> padrão. 
 
 
 <sect1 id="s-apache-ssl-instal">Instalando o suporte a módulo SSL no Apache
@@ -44,7 +44,7 @@ linha:
 LoadModule ssl_module /usr/lib/apache/1.3/mod_ssl.so
 </example>
 Depois, gere um certificado digital ssl com o programa 
-<prgn>mod-ssl-makecert</prgn>. Ele será armazenado por padrão nos 
+<command>mod-ssl-makecert</command>. Ele será armazenado por padrão nos 
 diretórios em <file>/etc/apache/ssl.???</file> e seu uso explicado
 no resto desta seção. 
 
@@ -57,7 +57,7 @@ gerar ou modificar um certificado digital, execute o comando
 <tt>mod-ssl-makecert</tt> e siga as instruções. O método de criptografia 
 usado pelo certificado digital é baseado no conceito de chave 
 pública/privada<![ %CAPJUNTOS [, a descrição sobre o funcionamento deste 
-sistema de criptografia é feito em <ref id="d-cripto-gpg">]]>.
+sistema de criptografia é feito em <xref linkend="d-cripto-gpg">]]>.
 <![ %OBS [ 
  <p>
 <strong>OBS</strong> Não utilize acentos nos dados de seu certificado. ]]>
@@ -68,7 +68,7 @@ sistema de criptografia é feito em <ref id="d-cripto-gpg">]]>.
 Abaixo uma configuração rápida para quem deseja ter um servidor com suporte 
 a SSL funcionando em menor tempo possível (ela é feita para operar em todas as 
 instalações e não leva em consideração o projeto de segurança de sua configuração 
-atual do <prgn>Apache</prgn>). Note que todas as diretivas relacionadas 
+atual do <command>Apache</command>). Note que todas as diretivas relacionadas 
 com o módulo <file>mod_ssl</file> começam com o nome "SSL": 
 <example>
 # Somente processa as diretivas relacionadas a SSL caso o módulo mod_ssl estiver
@@ -190,9 +190,9 @@ funcionamento do servidor web caso ocorra algum problema com o
 
 <sect1 id="s-apache-ssl-inic">Iniciando o servidor Web com suporte a SSL
  <p>
-Verifique se a configuração do <prgn>Apache</prgn> está ok com <tt>apache -t</tt>. 
+Verifique se a configuração do <command>Apache</command> está ok com <tt>apache -t</tt>. 
 Caso positivo, reinicie o servidor usando um dos métodos descritos em 
-<ref id="s-apache-rodando">. O servidor web lhe pedirá a FraseSenha para 
+<xref linkend="s-apache-rodando">. O servidor web lhe pedirá a FraseSenha para 
 descriptografar a chave privada SSL (esta senha foi escolhida durante o processo 
 de criação do certificado). 
  <p>
@@ -217,7 +217,7 @@ openssl rsa -in server.key-Csenha -out server.key
 </example>
 Digite a senha quando pedido. A chave original (com senha) estará 
 gravada no arquivo <file>server.key-Csenha</file> e poderá ser 
-restaurada se necessário. Reinicie o servidor <prgn>Apache</prgn>, desta 
+restaurada se necessário. Reinicie o servidor <command>Apache</command>, desta 
 vez ele não pedirá a senha. 
 <![ %OBS [
  <p>

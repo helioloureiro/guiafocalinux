@@ -1,34 +1,34 @@
 <sect id="fw-iptables-nat">A tabela nat (Network Address Translation) - fazendo nat
  <p>
 A tabela <em>nat</em> serve para controlar a tradução dos endereços que 
-atravessam o código de roteamento da máquina <prgn>Linux</prgn>. Existem 
+atravessam o código de roteamento da máquina <command>Linux</command>. Existem 
 3 chains na tabela <em>nat</em>: <em>PREROUTING</em>, <em>OUTPUT</em> e 
-<em>POSTROUTING</em> (veja <ref id="fw-iptables-tabelas"> para maiores detalhes).
+<em>POSTROUTING</em> (veja <xref linkend="fw-iptables-tabelas"> para maiores detalhes).
  <p>
 A tradução de endereços tem inúmeras utilidades, uma delas é o Masquerading, 
 onde máquinas de uma rede interna podem acessar a Internet através de uma 
-máquina <prgn>Linux</prgn>, redirecionamento de porta, proxy 
+máquina <command>Linux</command>, redirecionamento de porta, proxy 
 transparente, etc. Esta seção abordará os tipos de NAT, exemplos de 
 como criar rapidamente uma conexão IP masquerading e entender como a 
-tradução de endereços funciona no <prgn>iptables</prgn>.
+tradução de endereços funciona no <command>iptables</command>.
  <p>
 Se sua intenção é ligar sua rede a Internet existem duas opções: 
 <list compact>
  <item>
 Você possui uma conexão que lhe oferece um endereço IP dinâmico (a cada 
 conexão é dado um endereço IP - como uma conexão PPP) então o IP masquerading é o 
-que precisa (veja <ref id="fw-iptables-nat-fastmasquerade"> ou 
-<ref id="fw-iptables-nat-snat-masquerade">).
+que precisa (veja <xref linkend="fw-iptables-nat-fastmasquerade"> ou 
+<xref linkend="fw-iptables-nat-snat-masquerade">).
  <item>
 Você tem uma conexão que lhe oferece um endereço IP permanente (ADSL, por exemplo) 
-então o SNAT é o que precisa (veja <ref id="fw-iptables-nat-snat">).
+então o SNAT é o que precisa (veja <xref linkend="fw-iptables-nat-snat">).
 </list>
 
 
 <sect1 id="fw-iptables-nat-N">Criando um novo chain na tabela NAT
  <p>
 O procedimento para criação de um novo chain nesta tabela é o mesmo
-descrito em <ref id="fw-iptables-chains-N"> será necessário somente
+descrito em <xref linkend="fw-iptables-chains-N"> será necessário somente
 especificar a tabela nat (-t nat) para que o novo chain não seja 
 criado na tabela padrão (-t filter).
 <example>
@@ -41,8 +41,8 @@ inserir regras neste chain será necessário especificar a opção "-t nat".
 
 <sect1 id="fw-iptables-nat-fastmasquerade">Fazendo IP masquerading (para os apressados)
  <p>
-Você precisará de um kernel com suporte ao <prgn>iptables</prgn> (veja 
-<ref id="fw-iptables-supkernel"> e <prgn>ip_forward</prgn> e então digitar 
+Você precisará de um kernel com suporte ao <command>iptables</command> (veja 
+<xref linkend="fw-iptables-supkernel"> e <command>ip_forward</command> e então digitar 
 os dois comandos abaixo para habilitar o masquerading para todas as 
 máquinas da rede 192.168.1.*: 
 <example>
@@ -50,13 +50,13 @@ iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE
 echo "1" >/proc/sys/net/ipv4/ip_forward
 
 </example>
-A configuração do servidor <prgn>Linux</prgn> está completa, agora os 
+A configuração do servidor <command>Linux</command> está completa, agora os 
 clientes da rede precisarão ser configurados para usar o endereço IP 
-do servidor <prgn>Linux</prgn> como gateway. É recomendável instalar 
-um servidor proxy e DNS na máquina <prgn>Linux</prgn> para acelerar o 
+do servidor <command>Linux</command> como gateway. É recomendável instalar 
+um servidor proxy e DNS na máquina <command>Linux</command> para acelerar o 
 desempenho das requisições/resolução de nomes das máquinas em rede. A 
 utilização de bits TOS também pode trazer um grande aumento 
-de velocidade para os diferentes serviços da rede (veja <ref id="fw-iptables-mangle-TOS">).
+de velocidade para os diferentes serviços da rede (veja <xref linkend="fw-iptables-mangle-TOS">).
 
 
 <sect1 id="fw-iptables-nat-snat">Fazendo SNAT
@@ -75,19 +75,19 @@ eles serão remontados antes de entrar no código de roteamento.
  <p>
 O SNAT é a solução quando você tem acesso a internet através de um único 
 IP e deseja fazer que sua rede tenha acesso a Internet através da máquina
-<prgn>Linux</prgn>. Nenhuma máquina da Internet poderá ter acesso direto 
+<command>Linux</command>. Nenhuma máquina da Internet poderá ter acesso direto 
 as máquinas de sua rede interna via SNAT.
 <![ %OBS [ 
  <p>
 <strong>OBS:</strong> A observação acima não leva em conta o controle de 
 acesso externo configurado na máquina que estiver configurando o 
-<prgn>iptables</prgn>, uma configuração mau realizada pode expor sua máquina
+<command>iptables</command>, uma configuração mau realizada pode expor sua máquina
 a acessos externos indesejados e comprometer sua rede interna caso alguém 
 consiga acesso direto ao servidor. ]]>
  <p>
 É necessário especificar SNAT como alvo (-j SNAT) quando desejar que as máquinas 
-de sua rede interna tenha acesso a Internet através do IP fixo da máquina <prgn>Linux</prgn> (para conexões intermitentes como PPP, veja 
-<ref id="fw-iptables-nat-snat-masquerade">). 
+de sua rede interna tenha acesso a Internet através do IP fixo da máquina <command>Linux</command> (para conexões intermitentes como PPP, veja 
+<xref linkend="fw-iptables-nat-snat-masquerade">). 
 O parâmetro <tt>--to IP:portas</tt> deve ser usado após o alvo SNAT. Ele serve 
 para especificar um endereço IP, faixa de endereços e opcionalmente uma 
 porta ou faixa de portas que será substituída. 
@@ -103,7 +103,7 @@ iptables -t nat -A POSTROUTING -s 192.168.1.2 -o eth1 -j SNAT --to 200.200.217.4
 Os pacotes indo para a Internet (nossa conexão é feita via eth1, nossa interface 
 externa) vindo do endereço 192.168.1.2, são substituídos por 200.241.200.40 e 
 enviados para fora. Quando a resposta a requisição é retornada, a máquina com 
-<prgn>iptables</prgn> recebe os pacotes e faz a operação inversa, modificando o 
+<command>iptables</command> recebe os pacotes e faz a operação inversa, modificando o 
 endereço 200.241.200.40 novamente para 192.168.1.2 e enviando a resposta a 
 máquina de nossa rede interna. Após definir suas regras de NAT, execute o 
 comando <tt>echo "1" >/proc/sys/net/ipv4/ip_forward</tt> para habilitar o 
@@ -159,7 +159,7 @@ O IP Masquerading é um tipo especial de SNAT usado para conectar a sua rede
 interna a internet quando você recebe um IP dinâmico de seu provedor (como em 
 conexões ppp). Todas as operações de IP Masquerading são realizadas no chain 
 <em>POSTROUTING</em>. Se você tem um IP fixo, deve ler 
-<ref id="fw-iptables-nat-snat">.
+<xref linkend="fw-iptables-nat-snat">.
  <p>
 Para fazer IP Masquerading de uma máquina com o IP 192.168.1.2 para ter acesso 
 a Internet, use o comando: 
@@ -217,7 +217,7 @@ iptables -t nat -A PREROUTING -i eth0 -s 192.168.1.0/24 -j DNAT --to 200.200.217
 </example>
 Idêntico ao anterior, mas faz somente substituições na faixa de portas 
 de destino de 1024 a 5000. A operação acima é a mesma realizada pelo 
-<prgn>ipmasqadm</prgn> dos kernels da série 2.2. 
+<command>ipmasqadm</command> dos kernels da série 2.2. 
 
 <![ %OBS [
  <p>
@@ -236,7 +236,7 @@ a uma porta para outra porta na mesma máquina. O alvo <em>REDIRECT</em> é
 usado para fazer esta operação, junto com o argumento <em>--to-port</em> 
 especificando a porta que será redirecionada. Este é o método DNAT 
 específico para se para fazer proxy transparente (para redirecionamento de 
-endereços/portas, veja <ref id="fw-iptables-nat-dnat">). Todas 
+endereços/portas, veja <xref linkend="fw-iptables-nat-dnat">). Todas 
 as operações de redirecionamento de portas é realizada no chain <em>PREROUTING</em>
 e <em>OUTPUT</em> da tabela <em>nat</em>.
 <example>
@@ -244,10 +244,10 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 81
 
 </example>
 Redireciona as conexões indo para a porta 80 para a porta 81 (rodando 
-<prgn>squid</prgn>) no firewall. 
+<command>squid</command>) no firewall. 
 <![ %OBS [
  <p>
-<strong>ATENÇÃO:</strong> O <prgn>squid</prgn> possui suporte a proxy transparente, 
+<strong>ATENÇÃO:</strong> O <command>squid</command> possui suporte a proxy transparente, 
 e poderá atender as requisições acima da regra acima. ]]>
 
 

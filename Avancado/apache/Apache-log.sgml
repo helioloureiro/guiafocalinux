@@ -1,6 +1,6 @@
 <sect id="s-apache-log">Sistema de Log do Apache
  <p>
-O <prgn>Apache</prgn> é bem flexível na especificação do que será registrado em 
+O <command>Apache</command> é bem flexível na especificação do que será registrado em 
 seus arquivos de log, possibilitando utilizar um arquivo de log único, diversos 
 arquivos de logs registrando cada evento ocorrido no sistema (conexão, navegador, 
 bloqueio de acesso, erros, etc) incluindo os campos que deseja em cada arquivo e 
@@ -19,7 +19,7 @@ um programa de formatação ou processamento.
 
 <![ %OBS [
 <strong>ATENÇÃO</strong>: Se um programa for usado como pipe, ele será executado 
-sob o usuário que iniciou o <prgn>apache</prgn>. Revise o código fonte do 
+sob o usuário que iniciou o <command>apache</command>. Revise o código fonte do 
 programa para ter certeza que não contém falhas que possam comprometer a 
 segurança de seu sistema. ]]>
 <![ %EXEMPLO [
@@ -30,7 +30,7 @@ Exemplo: <tt>AgentLog /var/log/apache/agent.log</tt><p> ]]>
 <sect1 id="s-apache-log-errorlog">ErrorLog
  <p>
 <tt>ErrorLog arquivo/pipe</tt> - Especifica o arquivo que registrará as 
-mensagens de erro do servidor <prgn>Apache</prgn>. É possível usar o pipe 
+mensagens de erro do servidor <command>Apache</command>. É possível usar o pipe 
 "|" para direcionar os erros para um programa de formatação ou processamento.
 <![ %EXEMPLO [
  <p>
@@ -57,10 +57,10 @@ Arquivo de log personalizado ou pipe.
   <item>
 Especifica o formato do arquivo de log (da mesma forma que o especificado 
 na opção <em>LogFormat</em>). Deverá ser especificado entre "aspas" caso 
-tiver espaços. Veja <ref id="s-apache-log-logformat"> para detalhes. 
+tiver espaços. Veja <xref linkend="s-apache-log-logformat"> para detalhes. 
  </taglist> ]]>
 Ao invés de especificar o formato, também é possível usar um apelido definido 
-pela opção <em>LogFormat</em> (<ref id="s-apache-log-logformat">), neste caso 
+pela opção <em>LogFormat</em> (<xref linkend="s-apache-log-logformat">), neste caso 
 os parâmetros definidos pelo <em>LogFormat</em> para "nome" serão atribuídos 
 a diretiva <em>CustomLog</em>. 
 <![ %EXEMPLO [
@@ -78,7 +78,7 @@ Exemplos:
 Referer do cabeçalho HTTP. Esta diretiva é mantida por compatibilidade com 
 o servidor web NCSA 1.4.
  <p>
-A configuração padrão do <prgn>Apache</prgn> usa uma diretiva alternativa 
+A configuração padrão do <command>Apache</command> usa uma diretiva alternativa 
 para a especificação do <em>referer</em> que é a seguinte:
 <example>
 LogFormat "%{Referer}i -> %U" referer
@@ -93,7 +93,7 @@ Exemplo: <tt>RefererLog /var/log/apache/referer.log</tt> ]]>
 <sect1 id="s-apache-log-rewritelog">RewriteLog
  <p>
 <tt>RewriteLog: [arquivo/pipe]</tt>: Indica o arquivo/pipe que registrará qualquer 
-regravação de URL feita pelo <prgn>Apache</prgn>. 
+regravação de URL feita pelo <command>Apache</command>. 
 
 <![ %OBS [
  <p>
@@ -220,7 +220,7 @@ Exemplos:
 transferências entre o servidor http e o cliente. Ela cria o arquivo de log 
 com o formato definido pela opção <em>LogFormat</em> mais recente (sem 
 a especificação do nome associado a diretiva) ou o formato 
-padrão CLF do log do <prgn>Apache</prgn>. 
+padrão CLF do log do <command>Apache</command>. 
 <![ %DESCRICAOD [ <p> Se omitido, o arquivo não será gerado ]]>
 <![ %EXEMPLO [
  <p>
@@ -229,7 +229,7 @@ Exemplo: <tt>TransferLog /var/log/apache/transferências.log</tt> ]]>
  <p>
 <strong>OBS:</strong> Se esta não é uma opção muito utilizada 
 na administração de seus sistemas, é recomendável o uso da 
-diretiva <em>CustomLog</em> (veja <ref id="s-apache-log-customlog">) para 
+diretiva <em>CustomLog</em> (veja <xref linkend="s-apache-log-customlog">) para 
 evitar confusões futuras.
 ]]>
 
@@ -252,7 +252,7 @@ respectiva ordem de importância:
 
 <![ %OBS [
  <p>
-Note que os níveis são os mesmos usados pelo <prgn>syslog</prgn>. ]]>
+Note que os níveis são os mesmos usados pelo <command>syslog</command>. ]]>
 Quando um nível particular é especificado, as mensagens de todos os níveis de 
 maior importância também serão registrados. Por exemplo, se o nível "info" for 
 especificado, as mensagens com os níveis de "notice" e "warn" também serão 
@@ -288,15 +288,15 @@ Exemplo: <tt>CookieLog /var/log/apache/cookies.log</tt> ]]>
 
 <sect1 id="s-apache-log-webalizer">Relatório gráfico de acesso ao sistema
  <p>
-O programa <prgn>webalizer</prgn> poderá ser instalado para gerar 
+O programa <command>webalizer</command> poderá ser instalado para gerar 
 um relatório gráfico com a estatísticas de visitas por ano/mes/dia/hora usando 
 os dados do <file>access.log</file>. Outra interessante característica são as
-estatísticas de códigos http (veja <ref id="s-apache-httpcodes">), onde é 
+estatísticas de códigos http (veja <xref linkend="s-apache-httpcodes">), onde é 
 possível saber a quantidade de links quebrados existentes em nosso servidor 
 (estes poderão ser detectados usando o pacote de análise de sites 
-<package>linbot</package>). O <prgn>webalizer</prgn> também é compatível com os 
-formatos de log do <prgn>squid</prgn> e <prgn>proftpd</prgn>. Na distribuição 
-<prgn>Debian</prgn> ele pode ser instalado a partir do pacote 
+<package>linbot</package>). O <command>webalizer</command> também é compatível com os 
+formatos de log do <command>squid</command> e <command>proftpd</command>. Na distribuição 
+<command>Debian</command> ele pode ser instalado a partir do pacote 
 <package>webalizer</package> e gera um relatório geral quando é executado sem 
 opções. 
 

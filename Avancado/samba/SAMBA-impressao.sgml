@@ -20,7 +20,7 @@ as seguintes linhas no seu arquivo <file>/etc/samba/smb.conf</file>:
 </example>
 O compartilhamento acima tornará disponível a impressora local "lp" as máquinas 
 Windows com o nome "HP DeskJet 690C". Uma impressora alternativa pode ser 
-especificada modificando a opção <em>-P</em> da linha de comando do <prgn>lpr</prgn>. 
+especificada modificando a opção <em>-P</em> da linha de comando do <command>lpr</command>. 
 Note que somente os usuários "winuser" e "winuser2" poderão usar esta impressora. 
 Os arquivos de spool (para gerenciar a fila de impressão) serão gravador em 
 <file>/tmp</file> (<tt>path = /tmp</tt>) e o compartilhamento <tt>[hp-printer]</tt>

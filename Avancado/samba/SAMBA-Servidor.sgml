@@ -1,6 +1,6 @@
 <sect id="s-samba-s">Conceitos gerais para a configuração do SAMBA
  <p>
-Este capítulo documenta como configurar o seu servidor <prgn>SAMBA</prgn> 
+Este capítulo documenta como configurar o seu servidor <command>SAMBA</command> 
 permitindo o acesso a compartilhamento de arquivos e impressão no sistema.
 
 
@@ -15,7 +15,7 @@ com o nome da máquina e registrado em servidores de nomes confirme a
 configuração da máquina (você verá isto mais adiante).
  <p>
 O nome de máquina é especificado nas diretivas <em>netbios name</em> e 
-<em>netbios aliases</em> (veja <ref id="s-samba-s-global-nome">) para detalhes. 
+<em>netbios aliases</em> (veja <xref linkend="s-samba-s-global-nome">) para detalhes. 
 
 
 <sect1 id="s-samba-workgroup">Grupo de trabalho
@@ -51,16 +51,16 @@ A segurança no acesso a arquivos e diretórios na configuração de
 <em>grupo de trabalho</em> é controlada pela própria máquina, normalmente 
 usando segurança a nível de compartilhamento. Esta segurança funciona 
 definindo um usuário/senha para acessar cada compartilhamento que a máquina 
-possui. O <prgn>Lan Manager</prgn>, <prgn>Windows for Workgroups</prgn>, 
-<prgn>Windows 95</prgn>, <prgn>Windows 98</prgn>, 
-<prgn>XP Home Edition</prgn> usam este nível de acesso por padrão. Se 
+possui. O <command>Lan Manager</command>, <command>Windows for Workgroups</command>, 
+<command>Windows 95</command>, <command>Windows 98</command>, 
+<command>XP Home Edition</command> usam este nível de acesso por padrão. Se 
 deseja configurar uma rede usando o nível de grupo de trabalho, veja
-<ref id="s-samba-wrkgrp"> para detalhes passo a passo e exemplos práticos.
+<xref linkend="s-samba-wrkgrp"> para detalhes passo a passo e exemplos práticos.
  <p>
 Os programas para navegação na rede NetBIOS são mostrados em 
-<ref id="s-samba-c-workgroup-linux-smbclient">, 
-<ref id="s-samba-c-workgroup-linux-nmblookup"> e 
-<ref id="s-samba-c-graficos">. 
+<xref linkend="s-samba-c-workgroup-linux-smbclient">, 
+<xref linkend="s-samba-c-workgroup-linux-nmblookup"> e 
+<xref linkend="s-samba-c-graficos">. 
 
 
 <sect1 id="s-samba-dominio">Domínio
@@ -74,20 +74,20 @@ cada máquina para fazer ajustes, sincronismo, manutenção ou qualquer outra
 tarefa programada pelo administrador do sistema. 
  <p>
 Estas características para configuração de máquinas em domínio são documentadas
-passo a passo em <ref id="s-samba-dom-intro">.
+passo a passo em <xref linkend="s-samba-dom-intro">.
 
 
 <sect1 id="s-samba-compart">Compartilhamento
  <p>
 Um compartilhamento é um recurso da máquina local que é disponibilizado para 
 acesso via rede, que poderá ser <em>mapeada</em> 
-(veja <ref id="s-samba-mapeamento">) por outra máquina. O compartilhamento 
+(veja <xref linkend="s-samba-mapeamento">) por outra máquina. O compartilhamento 
 pode ser um diretório, arquivo, impressora. Além de 
 permitir o acesso do usuário, o compartilhamento pode ser protegido por 
 senha, e ter controle de acesso de leitura/gravação, monitoração de acessos, 
 diretórios ocultos, autenticação via PDC (domínio) e outras formas para 
 restringir e garantir segurança na disponibilização dos dados (veja 
-<ref id="s-samba-a"> para aprender os métodos de como fazer isto).
+<xref linkend="s-samba-a"> para aprender os métodos de como fazer isto).
  <p>
 Um compartilhamento no SAMBA pode ser acessível publicamente (sem senha) ou 
 estar rigidamente protegido tendo que passar por diversas barreiras 
@@ -104,29 +104,29 @@ controle de acesso a seus compartilhamentos.
 Mapear significa pegar um diretório/arquivo/impressora compartilhado 
 por alguma máquina da rede para ser acessada pela máquina local. Para 
 mapear algum recurso de rede, é necessário que ele seja compartilhado 
-na outra máquina (veja <ref id="s-samba-compart">). Por 
+na outra máquina (veja <xref linkend="s-samba-compart">). Por 
 exemplo, o diretório <file>/usr</file> <tt>compartilhado</tt> com o nome 
-<tt>usr</tt>, pode ser mapeado por uma máquina <prgn>Windows</prgn> como 
-a unidade <em>F:</em>, ou mapeado por uma máquina <prgn>Linux</prgn> 
+<tt>usr</tt>, pode ser mapeado por uma máquina <command>Windows</command> como 
+a unidade <em>F:</em>, ou mapeado por uma máquina <command>Linux</command> 
 no diretório <file>/mnt/samba</file>.
  <p>
-O programa responsável por mapear unidades compartilhadas no <prgn>Linux</prgn> 
-é o <prgn>smbmount</prgn> e <prgn>smbclient</prgn> (veja 
-<ref id="s-samba-c-workgroup-linux">). 
+O programa responsável por mapear unidades compartilhadas no <command>Linux</command> 
+é o <command>smbmount</command> e <command>smbclient</command> (veja 
+<xref linkend="s-samba-c-workgroup-linux">). 
 
 
 <sect1 id="s-samba-nmbd">Navegação na Rede e controle de domínio
  <p>
-Esta função é controlada pelo <prgn>nmbd</prgn> que fica ativo o tempo todo
+Esta função é controlada pelo <command>nmbd</command> que fica ativo o tempo todo
 disponibilizando os recursos da máquina na rede, participando de eleições 
-NetBIOS (<ref id="s-samba-s-oslevel">), fazer logon de máquinas no domínio 
-(<ref id="s-samba-dom-intro">), etc.
+NetBIOS (<xref linkend="s-samba-s-oslevel">), fazer logon de máquinas no domínio 
+(<xref linkend="s-samba-dom-intro">), etc.
  <p>
 A função de navegação na rede é feita utilizando o compartilhamento <file>IPC$</file>. 
 Este compartilhamento possui acesso público somente leitura e utiliza o usuário 
 "guest" para disponibilização de seus. Como deve ter percebido, é necessário 
 especificar esta ID de usuário através do parâmetro <tt>guest account</tt> 
-(<ref id="s-samba-s-a-param">), ou a navegação de recursos no sistema (ou na
+(<xref linkend="s-samba-s-a-param">), ou a navegação de recursos no sistema (ou na
 rede, dependendo da configuração do SAMBA) não funcionará.
 <![ %OBS [
  <p>
@@ -138,43 +138,43 @@ para endereços IP.
 <sect1 id="s-samba-arquivocfg">Arquivo de configuração do samba
  <p>
 Toda a configuração relacionada com nomes, grupo de trabalho, tipo de servidor, 
-log, compartilhamento de arquivos e impressão do <prgn>samba</prgn> é colocada
+log, compartilhamento de arquivos e impressão do <command>samba</command> é colocada
 no arquivo de configuração <file>/etc/samba/smb.conf</file>. Este arquivo é 
 dividido em <em>seções</em> e <em>parâmetros</em>. 
   <p>
-Uma seção no arquivo de configuração do <prgn>samba</prgn> (<file>smb.conf</file>) 
+Uma seção no arquivo de configuração do <command>samba</command> (<file>smb.conf</file>) 
 é definido por um nome entre "[ ]". As seções tem o objetivo de organizar os 
 parâmetros pra que tenham efeito somente em algumas configurações de 
 compartilhamento do servidor (exceto os da seção <tt>[global]</tt> que não 
 especificam compartilhamentos, mas suas diretivas podem ser válidas para 
 todas os compartilhamentos do arquivo de configuração). 
 Alguns nomes de seções foram reservados para configurações específicas do 
-<prgn>samba</prgn>, eles são os seguintes: 
+<command>samba</command>, eles são os seguintes: 
 <taglist compact>
  <tag><tt>[global]</tt></tag>
   <item>
 Define configurações que afetam o servidor samba como um todo, fazendo efeito 
 em todos os compartilhamentos existentes na máquina. Por exemplo, o grupo de 
 trabalho, nome do servidor, página de código, restrições de acesso por nome, etc.
-Veja <ref id="s-samba-s-global">.
+Veja <xref linkend="s-samba-s-global">.
 
  <tag><tt>[homes]</tt></tag>
   <item>
 Especifica opções de acesso a diretórios homes de usuários. O diretório 
 home é disponibilizado somente para seu dono, após se autenticar no sistema.
-Veja <ref id="s-samba-s-homes">.
+Veja <xref linkend="s-samba-s-homes">.
 
  <tag><tt>[printers]</tt></tag>
   <item>
 Define opções gerais para controle das impressoras do sistema. Este 
 compartilhamento mapeia os nomes de todas as impressoras encontradas 
 no <file>/etc/printcap</file>. Configurações especiais podem ser feitas 
-separadamente. Veja <ref id="s-samba-s-printers">.
+separadamente. Veja <xref linkend="s-samba-s-printers">.
 
 <tag><tt>[profile]</tt></tag>
  <item>
-Define um perfil quando o servidor <prgn>samba</prgn> é usado como PDC de 
-domínio. Veja <ref id="s-samba-dom-profiles">.
+Define um perfil quando o servidor <command>samba</command> é usado como PDC de 
+domínio. Veja <xref linkend="s-samba-dom-profiles">.
 
 </taglist>
 Qualquer outro nome de [seção] no arquivo <file>smb.conf</file> que não 
@@ -182,7 +182,7 @@ sejam as acima, são tratadas como um compartilhamento ou impressora.
  <p>
 Um <em>parâmetro</em> é definido no formato <em>nome = valor</em>. Para um 
 exemplo prático, veja um exemplo de arquivo <file>smb.conf</file> em 
-<ref id="s-samba-exemplos">. Na configuração de booleanos, a seguinte sintaxe 
+<xref linkend="s-samba-exemplos">. Na configuração de booleanos, a seguinte sintaxe 
 pode ser usada:
 <list compact>
  <item><tt>0</tt> ou <tt>1</tt>
@@ -207,7 +207,7 @@ Quebras de linha pode ser especificadas com uma <tt>\</tt> no final da linha.
 <sect1 id="s-samba-s-global">Seção <tt>[global]</tt>
  <p>
 Os parâmetros especificados nesta seção tem efeito em todo o servidor 
-<prgn>samba</prgn> incluindo os compartilhamentos. Caso o parâmetro 
+<command>samba</command> incluindo os compartilhamentos. Caso o parâmetro 
 seja novamente especificado para o compartilhamento, o valor que 
 valerá é o do compartilhamento. 
  <p>
@@ -216,7 +216,7 @@ Por exemplo, se <tt>guest user = nobody</tt> for usado na seção
 <tt>[focalinux]</tt>, o usuário que fará acesso público a todos os 
 compartilhamentos do servidor será o <tt>nobody</tt>, exceto para o 
 compartilhamento <tt>[focalinux]</tt>, que será feito pelo usuário 
-<tt>foca</tt>. Veja <ref id="s-samba-s-a"> para obter uma lista e 
+<tt>foca</tt>. Veja <xref linkend="s-samba-s-a"> para obter uma lista e 
 descrição dos principais parâmetros de compartilhamentos existentes. 
 Uma lista completa pode ser obtida na página de manual do 
 <file>smb.conf</file>.
@@ -253,7 +253,7 @@ Ex.: <tt>teste1 teste2</tt>.
   <item>
 Identificação enviada do servidor samba para o ambiente de rede. 
 A string padrão é <tt>Samba %v</tt> (%v é substituída pela versão 
-do samba, para maiores detalhes, veja <ref id="s-samba-s-varsubst">).
+do samba, para maiores detalhes, veja <xref linkend="s-samba-s-varsubst">).
  <p>
 Ex: <tt>server string = Servidor Samba versão %v</tt>.
 
@@ -262,14 +262,14 @@ Ex: <tt>server string = Servidor Samba versão %v</tt>.
 Define a ordem de pesquisa para a resolução de nomes no 
 samba. A ordem padrão é: <tt>lmhosts host wins bcast</tt>, 
 que é a melhor para resolução rápida e que tente gerar 
-menos tráfego broadcast possível. Veja <ref id="s-samba-s-nameresolv"> 
+menos tráfego broadcast possível. Veja <xref linkend="s-samba-s-nameresolv"> 
 para uma explicação mais detalhada. 
 </taglist>
 
 
 <sect2 id="s-samba-s-global-carac">Caracteres e página de código
  <p>
-Uma das partes essenciais após colocar o <prgn>SAMBA</prgn> em funcionamento, 
+Uma das partes essenciais após colocar o <command>SAMBA</command> em funcionamento, 
 é configurar a página de código para que os caracteres sejam gravados 
 e exibidos corretamente no cliente. A primeira coisa que precisa 
 verificar é se seu kernel possui o suporte a página de código local. Caso 
@@ -279,7 +279,7 @@ configuração:
  <item>
 Dentro da opção "File Systems", "Network File Systems" defina como 
 "Default Remote NLS Option" a iso8859-1. Esta opção permite ao 
-<prgn>smbmount</prgn> montar os volumes locais usando os caracteres 
+<command>smbmount</command> montar os volumes locais usando os caracteres 
 corretos.
 
  <item>
@@ -291,7 +291,7 @@ caracteres iso8859-1 e UTF8.
 Note que esta ordem pode variar dependendo da versão do seu kernel, basta 
 que as entenda para fazer as modificações apropriadas. 
 <![ %INIC-INTER [ Em caso de dúvidas sobre a compilação do kernel, 
-veja <ref id="kern-recompilando">. ]]>
+veja <xref linkend="kern-recompilando">. ]]>
 <taglist compact>
 
  <tag>character set = [conjunto_caracteres]</tag>
@@ -343,20 +343,20 @@ por estes.
    <item>
 Define a conta local de usuário que será mapeada quando um usuário 
 se conectar sem senha (usuário guest). Veja mais detalhes em 
-<ref id="s-samba-s-a-param">.
+<xref linkend="s-samba-s-a-param">.
 
 <tag><tt>invalid users</tt></tag>
  <item>
 Define uma lista de usuários que não terão acesso aos recursos do servidor 
 ou compartilhamento. É seguro restringir o acesso samba a usuários com grande 
 poder no sistema (como o <tt>root</tt>). Veja mais detalhes em 
-<ref id="s-samba-a-restrusu">.
+<xref linkend="s-samba-a-restrusu">.
 
 <tag><tt>valid users</tt></tag>
  <item>
 Semelhante a opção <tt>invalid users</tt> mas permite que somente os usuários
 especificados tenham acesso ao sistema. Veja mais detalhes em 
-<ref id="s-samba-a-restrusu">.
+<xref linkend="s-samba-a-restrusu">.
 
 <tag><tt>default service = nome</tt></tag>
  <item>
@@ -372,7 +372,7 @@ poderá ser derrubada sem dificuldades.
 <tag><tt>username map = [arquivo]</tt></tag>
  <item>
 Especifica um arquivo que faz o mapeamento entre nomes fornecidos por clientes
-e nomes de contas Unix locais. Veja <ref id="s-samba-a-usernamemap"> para mais 
+e nomes de contas Unix locais. Veja <xref linkend="s-samba-a-usernamemap"> para mais 
 detalhes de como configurar este recurso.
 
 <tag>obey pam restrictions = yes</tag>
@@ -397,7 +397,7 @@ válidos:
  <item>
 <tt>share</tt> - Usada principalmente quando apenas a senha é enviada por 
 compartilhamento acessado para o servidor, caso muito típico em sistemas 
-<prgn>Lan Manager</prgn> e <prgn>Windows for Workgroups</prgn>.
+<command>Lan Manager</command> e <command>Windows for Workgroups</command>.
  <p>
 Mesmo assim o samba tenta mapear para um UID de usuário local do 
 sistema usando os seguintes métodos (retirado da página de 
@@ -412,23 +412,23 @@ Caso um nome de usuário seja enviado junto com a senha, ele é utilizado
 para mapear o UID e aplicar as permissões deste usuário (como acontece
 no nível de segurança <em>user</em>).
  <item>
-Se ele usou um nome para fazer o logon no <prgn>Windows</prgn> este nome
+Se ele usou um nome para fazer o logon no <command>Windows</command> este nome
 será usado como usuário local do SAMBA. Caso ele seja diferente, você 
 deverá usar o mapeamento de nomes para associar o nome remoto do 
-nome local (veja <ref id="s-samba-a-usernamemap">)
+nome local (veja <xref linkend="s-samba-a-usernamemap">)
  <item>
 O nome do serviço é tentado como nome de usuário.
  <item>
 O nome da máquina NetBios é tentada como nome de usuário
  <item>
 Os usuários especificados na opção <tt>user</tt> do compartilhamentos
-são utilizados (veja <ref id="s-samba-s-a-param">).
+são utilizados (veja <xref linkend="s-samba-s-a-param">).
 
  <item>
 Caso nenhum destes métodos acima for satisfeito, o acesso é NEGADO.
 </enumlist>
 Hoje em dia, o uso do nível de acesso <tt>share</tt> é raramente
-usado, porque todos os sistemas a partir do <prgn>Windows 95</prgn> 
+usado, porque todos os sistemas a partir do <command>Windows 95</command> 
 e acima enviam o nome de usuário ao acessar um compartilhamento 
 (caindo na segunda checagem do nível <em>share</em>), sendo equivalente 
 a usar o nível <em>user</em>. Entretanto, o nível de segurança 
@@ -442,10 +442,10 @@ funcionarão no nível <em>share</em>, lembre-se deste detalhe.
 
  <item>
 <tt>user</tt> - Este é o padrão. O usuário precisa ter uma conta de usuário 
-no <prgn>Linux</prgn> para acessar seus compartilhamentos. A mesma conta de 
-usuário/senha deverá ser usada no <prgn>Windows</prgn> para acessar seus 
+no <command>Linux</command> para acessar seus compartilhamentos. A mesma conta de 
+usuário/senha deverá ser usada no <command>Windows</command> para acessar seus 
 recursos ou realizado um mapeamento de nomes de usuários (veja 
-<ref id="s-samba-a-usernamemap">). Este é o padrão do SAMBA.
+<xref linkend="s-samba-a-usernamemap">). Este é o padrão do SAMBA.
 No nível de acesso <em>user</em> o usuário precisa ser autenticado de 
 qualquer forma, inclusive se for usado o parâmetro <tt>guest only</tt> ou 
 <tt>user</tt>. Os seguintes passos são usados para autorizar uma conexão
@@ -467,27 +467,27 @@ enviou novamente o token de validação, este nome de usuário é
 usado.
  <item>
 É tentada a checagem com o parâmetro <em>user</em> no compartilhamento
-(veja <ref id="s-samba-s-a-param">.
+(veja <xref linkend="s-samba-s-a-param">.
  <item>
 É verificado se o serviço é público, então a conexão é feita usando 
 o usuário <tt>guest account</tt> e ignorando a senha (veja 
-<ref id="s-samba-a-publico">).
+<xref linkend="s-samba-a-publico">).
 </list>
 
  <item>
 <tt>domain</tt> - Neste nível, o acesso só será permitido quando a máquina
-for adicionada ao domínio com o <prgn>smbpasswd</prgn> 
-(<ref id="s-samba-c-dominio-linux">). Neste nível de acesso, a conta de 
+for adicionada ao domínio com o <command>smbpasswd</command> 
+(<xref linkend="s-samba-c-dominio-linux">). Neste nível de acesso, a conta de 
 usuário será validada em um servidor PDC (controlador de domínio) e o 
 acesso aos recursos das máquinas que fazem parte do domínio será feito 
-a partir do PDC. Veja <ref id="s-samba-c-dominio-linux"> para detalhes.
+a partir do PDC. Veja <xref linkend="s-samba-c-dominio-linux"> para detalhes.
 
  <item>
 <tt>server</tt> - A máquina samba tentara autenticar o usuário em outro 
 servidor NT (ou samba). No caso da autenticação falhar, será usado o nível de 
 acesso <em>user</em> na base de usuários local (será necessário o 
 arquivo de senhas criptografado do samba para que a autenticação local
-funcione, veja <ref id="s-samba-senhas-crypto">). Este nível é bastante 
+funcione, veja <xref linkend="s-samba-senhas-crypto">). Este nível é bastante 
 usado quando configuramos um servidor de perfis de usuários ou 
 logon separado do PDC. 
 
@@ -502,14 +502,14 @@ logon separado do PDC.
   <item>
 Define a localização e nome do arquivo de log gerado pelo samba. As variáveis de 
 expansão podem ser usadas caso o administrador queira ter um melhor controle dos
-logs gerados (veja <ref id="s-samba-s-varsubst">).
+logs gerados (veja <xref linkend="s-samba-s-varsubst">).
  <p>
 Ex.: <tt>/var/log/samba/samba-log-%m</tt>.
 <![ %OBS [
  <p>
 <strong>OBS:</strong> Se possível coloque uma extensão no arquivo de 
-log gerado pelo <prgn>SAMBA</prgn> (como <file>.log</file>). O motivo 
-disto é porque se estes logs forem rotacionados pelo <prgn>logrotate</prgn> 
+log gerado pelo <command>SAMBA</command> (como <file>.log</file>). O motivo 
+disto é porque se estes logs forem rotacionados pelo <command>logrotate</command> 
 você terá problemas de recompactação múltiplas caso utilize um coringa
 <file>samba-log-*</file>, gerando arquivos como <file>.gz.gz.gz..</file>,
 lotando a tabela de arquivos do diretório e deixando sua máquina em
@@ -522,7 +522,7 @@ valor padrão é 5000Kb (5MB).
 
  <tag>debug pid = [valor]</tag>
   <item>
-Este processo adiciona a pid aos logs gerados pelo processo <prgn>smbd</prgn>
+Este processo adiciona a pid aos logs gerados pelo processo <command>smbd</command>
 Isto é útil para depuração caso existam múltiplos processos rodando. O valor
 padrão é <em>no</em> e a opção <em>debug timestamp</em> deve ser <tt>yes</tt> para 
 esta opção ter efeito.
@@ -536,7 +536,7 @@ O valor padrão é <tt>yes</tt>.
   <item>
 Aumenta o nível de depuração dos daemons do SAMBA de <tt>0</tt> a <tt>9</tt>. 
 Um nível de depuração interessante e que produz uma quantidade razoável 
-de dados para configuração de um <prgn>logrotate</prgn> só para o SAMBA é o 
+de dados para configuração de um <command>logrotate</command> só para o SAMBA é o 
 <tt>2</tt>, produzindo a lista de todos os compartilhamentos acessados, quem 
 acessou, data/hora (dependendo das outras opções de depuração). Isto permite 
 ao administrador saber exatamente o que está sendo acessado e por quem, 
@@ -562,12 +562,12 @@ Define onde serão gravados os arquivos de lock gerados pelo samba.
   <item>
 Especifica o nível do sistema operacional. Este número é usado para as 
 eleições netbios para definir o navegador de grupo local e controlador 
-de domínio (veja <ref id="s-samba-s-oslevel"> para detalhes). O valor pode 
+de domínio (veja <xref linkend="s-samba-s-oslevel"> para detalhes). O valor pode 
 ser de 0 a 255, o padrão é 32. 
 
  <tag>announce as = [sistema]</tag>
   <item>
-Selecione o nome que o <prgn>samba</prgn> (<prgn>nmbd</prgn>) se anunciará na 
+Selecione o nome que o <command>samba</command> (<command>nmbd</command>) se anunciará na 
 lista de pesquisa de rede. Os seguintes nomes podem ser usados:
 <list compact>
  <item><tt>NT Server (ou NT)</tt> - Anuncia como <em>Windows NT Server</em>. Este é
@@ -581,7 +581,7 @@ Workstation</em> de uma só vez.
   <item>
 Diz se o servidor tentará se tornar o navegador principal de domínio. Os 
 valores que podem ser especificados são: <tt>yes, no e auto</tt>. O valor 
-padrão é <tt>auto</tt>. Veja <ref id="s-samba-dom-dmbrowser">.
+padrão é <tt>auto</tt>. Veja <xref linkend="s-samba-dom-dmbrowser">.
 
  <tag>local master = [valor]</tag>
   <item>
@@ -593,7 +593,7 @@ o samba precisa ter o valor de <tt>os level</tt> maior que os demais.
 Note também que o Windows NT não aceita perder as eleições e convoca uma nova 
 eleição caso ele perca. Como esta eleição é feita via broadcasting, isso gera 
 um tráfego grande na rede. Desta forma, se tiver um computador NT na rede configure 
-este valor para "no". Veja <ref id="s-samba-dom-lmbrowser">.
+este valor para "no". Veja <xref linkend="s-samba-dom-lmbrowser">.
 
  <tag>preferred master = [valor]</tag>
   <item>
@@ -619,7 +619,7 @@ eleições solicitadas pelas outras máquinas.
   <item>
 Inclui um outro arquivo de configuração na porção atual do arquivo de 
 configuração. Você pode utilizar variáveis de substituição, exceto 
-<tt>%u</tt>, <tt>%P</tt> e <tt>%S</tt> (veja <ref id="s-samba-s-varsubst">).
+<tt>%u</tt>, <tt>%P</tt> e <tt>%S</tt> (veja <xref linkend="s-samba-s-varsubst">).
 
 </taglist>
 
@@ -634,7 +634,7 @@ por um nome de usuário correspondente no arquivo <file>/etc/passwd</file>,
 se um nome conferir e a senha enviada também, o diretório de usuário 
 é disponibilizado como um compartilhamento com o mesmo nome do usuário local. 
 O diretório home do usuário poderá ser modificado com o uso de 
-mapeamento de nomes, veja <ref id="s-samba-a-usernamemap">.
+mapeamento de nomes, veja <xref linkend="s-samba-a-usernamemap">.
 Quando o caminho do compartilhamento não for especificado, o SAMBA 
 utilizará o diretório home do usuário (no <file>/etc/passwd</file>). 
  <p>
@@ -655,11 +655,11 @@ programar um shell script simples que verifique os nomes de contas em
 <file>/etc/passwd</file> e crie os diretórios com as permissões/grupos 
 adequados (isso não será abordado por este capítulo do guia, embora 
 não seja complicado). Se deseja, existem exemplos em 
-<ref id="s-samba-exemplos"> sobre a seção <em>[homes]</em> no arquivo
+<xref linkend="s-samba-exemplos"> sobre a seção <em>[homes]</em> no arquivo
 de configuração.
  <p>
 Os parâmetros aceitos em <em>[homes]</em> aqui são os mesmos usados para 
-compartilhamentos normais (veja <ref id="s-samba-s-a-param">). Abaixo segue mais
+compartilhamentos normais (veja <xref linkend="s-samba-s-a-param">). Abaixo segue mais
 um exemplo de seção <em>[homes]</em>:
 <example>
 [homes] 
@@ -673,7 +673,7 @@ directory mode = 0750
 
 </example>
 A explicação de cada um dos parâmetros podem ser encontradas em 
-<ref id="s-samba-s-a-param">. O guia está com os parâmetros bem 
+<xref linkend="s-samba-s-a-param">. O guia está com os parâmetros bem 
 organizados em seções específicas, apenas de uma olhada para entender 
 com o capítulo do SAMBA foi organizado e não terá dificuldades de se 
 localizar. 
@@ -684,7 +684,7 @@ utilizado, o diretório home do usuário será compartilhado.
  <p>
 <strong>OBS2: </strong>Não utilize o parâmetro <em>public yes</em> na 
 seção guest, caso contrário todos os diretórios de usuários serão lidos 
-por todos. Veja <ref id="s-samba-a-public-access"> para maiores detalhes.
+por todos. Veja <xref linkend="s-samba-a-public-access"> para maiores detalhes.
 ]]>
 
 
@@ -703,17 +703,17 @@ a seção <em>[printers]</em>.
 Para utilizar a impressora compartilhada, é preciso que seu driver 
 correspondente seja instalado no Windows ou que sejam utilizados os 
 filtros apropriados para tratar e enviar a impressão no 
-<prgn>Linux</prgn> (veja **************). ]]>
+<command>Linux</command> (veja **************). ]]>
  <p>
 Ao invés de usar este recurso, se preferir você poderá compartilhar as 
-impressoras individualmente. Para detalhes, veja <ref id="s-samba-i-win-linux">. 
+impressoras individualmente. Para detalhes, veja <xref linkend="s-samba-i-win-linux">. 
 <![ %OBS [
  <p>
 <strong>OBS:</strong>É importante lembrar que a seção <em>[printers]</em> 
 <strong>DEVE</strong> ser definida como <tt>printable</tt> usando o 
 parâmetro <em>printable = yes</em> para funcionar. O utilitário
-<prgn>testparm</prgn> poderá ser usado para verificar problemas no 
-arquivo cd configuração do SAMBA (veja <ref id="s-samba-s-testparm">).
+<command>testparm</command> poderá ser usado para verificar problemas no 
+arquivo cd configuração do SAMBA (veja <xref linkend="s-samba-s-testparm">).
 ]]>
 
 
@@ -721,11 +721,11 @@ arquivo cd configuração do SAMBA (veja <ref id="s-samba-s-testparm">).
  <p>
 Durante o processo de configuração do SAMBA, é comum cometer erros 
 de digitação, usar parâmetros em lugares indevidos, etc. É recomendável 
-o uso do <prgn>testparm</prgn> para checar a configuração do SAMBA sempre 
+o uso do <command>testparm</command> para checar a configuração do SAMBA sempre 
 que houver modificações para ter certeza nada comprometa o funcionamento que 
 planejou para sua máquina.
  <p>
-Para usar o <prgn>testparm</prgn> é só digitar <tt>testparm</tt>. 
+Para usar o <command>testparm</command> é só digitar <tt>testparm</tt>. 
 Logo após executa-lo, analise se existem erros nas seções de 
 configuração e te pedirá para pressionar &lt;ENTER&gt; para ver 
 um dump do arquivo:
@@ -744,7 +744,7 @@ que foram realizadas no servidor. É possível especificar um outro
 arquivo de configuração do SAMBA usando <tt>testparm /etc/samba/smb2.conf</tt>. 
  <p>
 Também é permitido simular o nome NetBIOS que fará acesso a máquina usando o 
-parâmetro <tt>-L nome</tt> (que será substituído na variável <var>%L</var>). 
+parâmetro <tt>-L nome</tt> (que será substituído na variável <envar>%L</envar>). 
 
 
 <sect1 id="s-samba-s-oslevel">Níveis de sistema para eleição de rede
@@ -795,7 +795,7 @@ SAMBA                                          32
 
 O valor padrão do OS Level do SAMBA é 32, entretanto ele é bastante flexível
 para permitir sua mudança através do parâmetro "os level" (veja 
-<ref id="s-samba-s-global-browsing">), isto garante que o SAMBA sempre vença 
+<xref linkend="s-samba-s-global-browsing">), isto garante que o SAMBA sempre vença 
 as eleições da rede sobre qualquer outro sistema operacional. 
  <p>
 No caso de um servidor que estiver configurado para ser o navegador de 
@@ -803,7 +803,7 @@ rede, assim que for iniciado ele solicitará uma eleição de rede. As
 regras são as mesmas, vence o que tiver o *maior* número. Este número
 pode ser configurado facilmente no SAMBA para que ele sempre vença as 
 eleições de rede, tomando conta da lista de máquinas. Isto é especialmente 
-interessante por causa da estabilidade do servidor <prgn>Linux</prgn>, quando 
+interessante por causa da estabilidade do servidor <command>Linux</command>, quando 
 migramos de servidor NT ou para fornecer mais serviços de navegação, como 
 servidor WINS. 
 <![ %OBS [
@@ -910,7 +910,7 @@ A identificação de processo do processo atual do servidor.
  <tag>%a</tag>
   <item>
 A arquitetura da máquina remota. Somente algumas são reconhecidas e a resposta
-pode não ser totalmente confiável. O <prgn>samba</prgn> atualmente reconhece 
+pode não ser totalmente confiável. O <command>samba</command> atualmente reconhece 
 <em>Samba</em>, <em>Windows for Workgroups</em>, <em>Windows 95</em>, 
 <em>Windows NT</em> e <em>Windows 2000</em>. Qualquer outra coisa será 
 mostrado como "UNKNOWN" (<em>desconhecido</em>). 

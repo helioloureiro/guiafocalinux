@@ -47,7 +47,7 @@ Mostra o nível de execução atual do sistema e desde quando ele está ativo.
 
  <tag>-T, -w, --mesg</tag>
  <item>
-Mostra se o usuário pode receber mensagens via <prgn>talk</prgn> (conversação).
+Mostra se o usuário pode receber mensagens via <command>talk</command> (conversação).
  <list>
   <item>
   + O usuário recebe mensagens via talk
@@ -68,7 +68,7 @@ Permite acesso a um computador remoto.
 computador local onde deve ser feita a autenticação do usuário para  
 entrar no sistema. Muito útil, mas deve ser tomado cuidados ao  
 disponibilizar este serviço para evitar riscos de segurança e 
-usado o <prgn>ssh</prgn> sempre que possível por ser um protocolo 
+usado o <command>ssh</command> sempre que possível por ser um protocolo 
 criptografado e com recursos avançados de segurança. ]]>
  <p>
 <tt>telnet [<em>opções</em>] [<em>ip/dns</em>] [<em>porta</em>]</tt>
@@ -92,7 +92,7 @@ Porta onde será feita a conexão. Por padrão, a conexão é feita na porta <em
   <tag>-8</tag>
   <item>
 Requisita uma operação binária de 8 bits. Isto força a operação em modo 
-binário para envio e recebimento. Por padrão, <prgn>telnet</prgn> não usa 
+binário para envio e recebimento. Por padrão, <command>telnet</command> não usa 
 8 bits.
 
   <tag>-a</tag>
@@ -123,7 +123,7 @@ Exemplo: <tt>telnet 192.168.1.1</tt>, <tt>telnet 192.168.1.1 23</tt>. ]]>
 <sect id="cmdn-finger">finger
  <p>
 Mostra detalhes sobre os usuários de um sistema. 
-<![ %DESCRICAOD [ Algumas versões do <prgn>finger</prgn> possuem bugs  
+<![ %DESCRICAOD [ Algumas versões do <command>finger</command> possuem bugs  
 e podem significar um risco para a segurança do sistema. É recomendado  
 desativar este serviço na máquina local. ]]>
  <p>
@@ -172,8 +172,8 @@ de arquivos mais usado na Internet. É requerida a autenticação do
 usuário para que seja permitida a conexão. Muitos servidores ftp 
 disponibilizam acesso anônimo aos usuários, com acesso restrito. ]]>
  <p>
-Uma vez conectado a um servidor <prgn>ftp</prgn>, você pode usar a  
-maioria dos comandos do <prgn>GNU/Linux</prgn> para operá-lo.
+Uma vez conectado a um servidor <command>ftp</command>, você pode usar a  
+maioria dos comandos do <command>GNU/Linux</command> para operá-lo.
  <p>
 <tt>ftp [<em>ip/dns</em>]</tt>
  <p>
@@ -254,7 +254,7 @@ Onde:
  <tag><em>usuário</em></tag>
  <item>
 Nome de login do usuário que deseja iniciar a conversação. Este nome pode 
-ser obtido com o comando <prgn>who</prgn> (veja <ref id="cmdn-who">).
+ser obtido com o comando <command>who</command> (veja <xref linkend="cmdn-who">).
 
  <tag><em>tty</em></tag>
  <item>
@@ -268,22 +268,22 @@ você deve usar o nome do usuário@hosname do computador.
 
 </taglist>
 ]]>
-Após o <prgn>talk</prgn> ser iniciado, ele verificará se o usuário pode 
+Após o <command>talk</command> ser iniciado, ele verificará se o usuário pode 
 receber mensagens, em caso positivo, ele enviará uma mensagem ao usuário 
-dizendo como responder ao seu pedido de conversa. Veja <ref id="cmdn-who">. 
+dizendo como responder ao seu pedido de conversa. Veja <xref linkend="cmdn-who">. 
  <p>
-Para poder fazer a rolagem para cima e para baixo no <prgn>talk</prgn>, 
+Para poder fazer a rolagem para cima e para baixo no <command>talk</command>, 
 pressione <tt>CTRL+P</tt>(Previous - Tela anterior) e <tt>CTRL+N</tt> 
 (Next - Próxima tela).
 
 <![ %INTER-AVANC [ 
-Você deve ter o daemon do <prgn>talk</prgn> instalado (<tt>talkd</tt>) para  
+Você deve ter o daemon do <command>talk</command> instalado (<tt>talkd</tt>) para  
 receber requisições de conversa.
 ]]>
  <p>
 Você deve autorizar o recebimento de talks de outros usuários para que eles 
 possam se comunicar com você
-<![ %INIC-INTER [, para detalhes veja o comando <ref id="cmdv-mesg">]]>.
+<![ %INIC-INTER [, para detalhes veja o comando <xref linkend="cmdv-mesg">]]>.
 
 
   <![ %INTER-AVANC [ 
@@ -293,7 +293,7 @@ Verifica se um computador está disponível na rede.
 <![ %DESCRICAOD [ Este comando é muito utilizado por alguns programas de  
 conexão e administradores para verificar se uma determinada máquina está  
 conectada na rede e também para verificar o tempo de resposta de cada 
-máquina da rede. O <prgn>ping</prgn> envia pacotes ICMS ECHO_REQUEST para 
+máquina da rede. O <command>ping</command> envia pacotes ICMS ECHO_REQUEST para 
 um computador, este quando recebe o pacote envia uma resposta ao endereço 
 de origem avisando que está disponível na rede. ]]>
  <p>
@@ -361,10 +361,10 @@ Endereço IP ou DNS do computador que será acessado.
 Entra com o user id [nome] no sistema. 
 </taglist>
 ]]>
-<prgn>rlogin</prgn> é usado para executar comandos interativamente no 
+<command>rlogin</command> é usado para executar comandos interativamente no 
 computador de destino (como se você estivesse sentado diante dele, muito 
 semelhante ao telnet). Para executar comandos não interativamente veja  
-<ref id="cmdn-rsh">.
+<xref linkend="cmdn-rsh">.
 
 
 <sect id="cmdn-rsh">rsh
@@ -390,9 +390,9 @@ Comando que será executado no computador local/remoto.
 Entra no sistema usando o login [nome].
 </taglist>
 ]]>
-<prgn>rsh</prgn> é usado somente para executar comandos. Para 
-usar um shell interativo veja <ref id="cmdn-telnet"> e 
-<ref id="cmdn-rlogin">. 
+<command>rsh</command> é usado somente para executar comandos. Para 
+usar um shell interativo veja <xref linkend="cmdn-telnet"> e 
+<xref linkend="cmdn-rlogin">. 
 
 
 <sect id="cmdn-w">w
@@ -407,7 +407,7 @@ onde:
  <tag><em>usuário</em></tag>
  <item>
 Nome do usuário que deseja ver os detalhes. Se o usuário não for digitado, 
-o comando <prgn>w</prgn> mostra detalhes de todos os usuários conectados 
+o comando <command>w</command> mostra detalhes de todos os usuários conectados 
 no sistema.
 
  <tag><em>opções</em></tag>
@@ -475,7 +475,7 @@ múltiplos endereços IPs ou nomes.
 
  <tag>-v</tag>
  <item>
-Mostra mais detalhes sobre o resultado do <prgn>traceroute</prgn>.
+Mostra mais detalhes sobre o resultado do <command>traceroute</command>.
 
  <tag>-w [num]</tag>
  <item>

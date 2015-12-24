@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.5//EN"
-    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
 
 <!-- importando definições do debiandoc pra manter compatibilidade -->
 <!ENTITY % guialinuxdebiandoc   SYSTEM "guialinuxdebiandoc.dtd"> %guialinuxdebiandoc;
@@ -75,113 +75,62 @@
 Guia Foca GNU/Linux
 
 Estilo de tags adotadas neste documento:
-- Nome de Programa, nome de comando - <prgn>
+- Nome de Programa, nome de comando - <command>
 - Nome de pacote                    - <package>
 - Saída de comando, entrada no 
-  teclado, parâmetros e comandos    - <tt>
+teclado, parâmetros e comandos    - <tt>
 - Nome de arquivo, diretório        - <file>
-- Parte em destaque no texto        - <em>
+- Parte em destaque no texto        - <emphasis>
 - Aviso de observação, atenção, etc - <strong>
 - Nome de variável                  - <var>
-  
+
 Copyleft 1999-2015, Gleydson Mazioli da Silva <gleydson@guiafoca.org>
 -->
 ]>
- <book>
+<book lang="pt">
     <bookinfo>
         <title>Guia Foca GNU/Linux</title>
+        <subtitle>
+            <inlinemediaobject>
+                <imageobject> 
+                    <imagedata fileref="images/keep_calm_leia_guia_foca_linux.png" format="PNG" />
+                </imageobject>
+            </inlinemediaobject>
+        </subtitle>
+
         <author>
             <firstname>Gleydson</firstname>
             <surname>Mazioli da Silva</surname>
             <email>gleydson@guiafoca.org</email>
         </author>
-   <releaseinfo>Versão &VERSAO; - &DATADOC;</releaseinfo>
-
-  <legalnotice>
-Este documento tem por objetivo ser uma referência ao aprendizado do 
-usuário e um guia de consulta, operação e configuração de sistemas Linux 
-(e outros tipos de *ix). A última versão deste guia pode ser encontrada 
-na <url id="&url-manual-www;" name="Página Oficial do Foca GNU/Linux">. 
-Novas versões são lançadas com uma freqüência mensal e você pode receber 
-avisos de novos lançamentos deste guia preenchendo um formulário na página 
-Web. 
-  </legalnotice>
-   <copyright>
-    <copyrightsummary>
-     Copyright &copy; 1999-&ULTIMOANO; - Gleydson Mazioli da Silva.
-    </copyrightsummary>
-    <p>
-Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.2
-published by the Free Software Foundation;
-A copy of the license is included in the section entitled "GNU
-Free Documentation License".
-   </copyright>
-  </bookinfo>
-
-<!-- A ordem dos capítulos abaixo pode ser modificada, desta forma, a ordem 
-     que eles aparecem no guia também será modificada --> 
-<toc sect2>
-  &introducao;
-  &basico;
-  <![ %INTER-AVANC [ &hardware; ]]>
-  <![ %INIC-INTER [ &migrando; ]]>
-  <![ %INIC-INTER [ &discos; ]]>
-  <![ %INTERMEDIARIO [ &bootloaders; ]]>
-  <![ %INIC-INTER [ &run; ]]>
-  <![ %INIC-INTER [ &comandos-diretorio; ]]>
-  <![ %INIC-INTER [ &comandos-arquivo; ]]>
-  <![ %INIC-INTER [ &comandos-diversos; ]]>
-  <![ %INIC-INTER [ &comandos-rede; ]]>
-  <![ %INIC-INTER [ &comandos-contas; ]]>
-  <![ %INIC-INTER [ &permissoes; ]]>
-  <![ %INIC-INTER [ &redir; ]]>
-  <![ %INTER-AVANC [ &rede; ]]>
-  <![ %AVANCADO [ &d-cfgrede1; ]]>
-  <![ %INTERMEDIARIO [ &kernel; ]]>
-  <![ %INTER-AVANC [ &log; ]]>
-  <![ %INTERMEDIARIO [ &compactadores; ]]>
-  <![ %INTER-AVANC [ <![ %DEBIAN [ &debian; ]]> ]]>
-  <![ %INTERMEDIARIO [ <![ %DEBIAN [ &dpkg; ]]> ]]>
-  <![ %INTER-AVANC [ &personalizacao; ]]>
-  &impressao;
-  <![ %INTERMEDIARIO [ &configurando; ]]>
-  <![ %INTERMEDIARIO [ &tasks; ]]>
-  <![ %INTERMEDIARIO [ &compilacao; ]]>
-  <![ %INTERMEDIARIO [ &manutencao; ]]>
-  <![ %INTERMEDIARIO [ &etc; ]]>
-  <![ %INTERMEDIARIO [ &internet; ]]>
-  <![ %INIC-INTER [ &x11; ]]>
-
-  <![ %AVANCADO [
- &fw-iptables1; &fw-iptables2; &fw-iptables3; &fw-iptables4; &fw-iptables5; \
-              &fw-iptables6; &fw-iptables7; &fw-iptables8;
- &d-contas1; 
- &s-apache1; &s-apache2; &s-apache3; &s-apache4; &s-apache5; &s-apache6; \
-              &s-apache7; &s-apache8; &s-apache9; &s-apache10;
-<![ %CONSTRUCAO [ 
-  &s-bind1; 
-  &s-dhcp1; 
- ]]>
- &s-ident1; 
- &s-telnet1;
- &s-ssh1; &s-ssh2; &s-ssh3;
- &s-pop3-1; 
- &s-cvs1; &s-cvs2; &s-cvs3; &s-cvs4; &s-cvs5; &s-cvs6;
- &s-samba1; &s-samba2; &s-samba3; &s-samba4; &s-samba5; &s-samba6; &s-samba7; \
- &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
- &d-restricoes1;
- &d-cripto1;
-  ]]>
-  <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
-       de aplicativos de rede que ele contém -->
-  <![ %INTERMEDIARIO [ &aplicativos; ]]>
-  <![ %INIC-INTER [ &ajuda; ]]>
-  &s-systemd;
-  &s-git;
-  &s-nginx1; &s-nginx2; &s-nginx3; &s-nginx4; &s-nginx5;
-  &s-haproxy1; &s-haproxy2;
-  &s-nftables1; &s-nftables2; &s-nftables3; &s-nftables4; &s-nftables5;
-  &s-virtualizacao1; &s-virtualizacao2; &s-virtualizacao3;
-  &apendice;
- </book>
+        <releaseinfo>Versão &VERSAO; - &DATADOC;</releaseinfo>
+        
+        <abstract>
+            <para>
+                Este documento tem por objetivo ser uma referência ao aprendizado do 
+                usuário e um guia de consulta, operação e configuração de sistemas Linux 
+                (e outros tipos de *ix). A última versão deste guia pode ser encontrada 
+                na <ulink url="&url-manual-www;">Página Oficial do Foca GNU/Linux"</ulink>. 
+                Novas versões são lançadas com uma freqüência mensal e você pode receber 
+                avisos de novos lançamentos deste guia preenchendo um formulário na página 
+                Web. 
+            </para>
+        </abstract>
+        <copyright>
+            <year>1999-&ULTIMOANO;</year>
+            <holder>Gleydson Mazioli da Silva.</holder>
+        </copyright>
+        <legalnotice>
+            <para>
+                Permission is granted to copy, distribute and/or modify this document
+                under the terms of the GNU Free Documentation License, Version 1.2
+                published by the Free Software Foundation;
+                A copy of the license is included in the section entitled "GNU
+                Free Documentation License".
+            </para>
+        </legalnotice>        
+    </bookinfo>
+    
+    &introducao;
+</book>
+    

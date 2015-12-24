@@ -9,10 +9,10 @@ conjunto de caracteres <tt>ISO-8859-1</tt>.
     <![ %INIC-INTER [ 
 <sect id="cfg-acentuacao">Acentuação
  <p>
-Permite que o <prgn>GNU/Linux</prgn> use a acentuação. A 
+Permite que o <command>GNU/Linux</command> use a acentuação. A 
 acentuação do modo texto é independente do modo gráfico; você pode configurar  
 tanto um como o outro ou ambos. Para maiores detalhes veja  
-<ref id="cfg-acentuacao-t"> e/ou <ref id="cfg-acentuacao-g">. 
+<xref linkend="cfg-acentuacao-t"> e/ou <xref linkend="cfg-acentuacao-g">. 
 <![ %OBS [
  <p>
 Note que os mapas de teclado usados em modo texto são diferentes dos usados 
@@ -23,7 +23,7 @@ letra <tt>X</tt> no nome. ]]>
 <sect1 id="cfg-acentuacao-t">Acentuação em modo Texto
  <p>
 <![ %DEBIAN [
-Caso sua distribuição <prgn>Debian</prgn> esteja acentuando corretamente no 
+Caso sua distribuição <command>Debian</command> esteja acentuando corretamente no 
 modo texto você não precisará ler esta seção. 
 Antes de prosseguir, verifique se você possui o pacote 
 <package>console-data</package> instalado em seu sistema com o comando: 
@@ -31,7 +31,7 @@ Antes de prosseguir, verifique se você possui o pacote
 configuração e arquivos de fontes não estarão disponíveis. 
  <p>
 Siga os passos abaixo para colocar e acentuação em funcionamento para o modo 
-Texto na <prgn>Debian</prgn>: 
+Texto na <command>Debian</command>: 
 <taglist>
  <tag><em>Mapa de Teclados</em></tag>
  <item>
@@ -62,7 +62,7 @@ arquivo <file>arquivo.kmap</file> para
 <file>/usr/share/keymaps/i386/qwerty</file> (em sistemas Debian) ou 
 algum outro local apropriado. 
 <![ %INTERMEDIARIO [ Note que o arquivo pode ser compactado pelo 
-<prgn>gzip</prgn> e copiado para <file>/usr/share/keymaps/i386/qwerty</file> 
+<command>gzip</command> e copiado para <file>/usr/share/keymaps/i386/qwerty</file> 
 que será lido sem problemas pelo sistema encarregado de configurar o teclado 
 e acentuação. 
 ]]>
@@ -81,14 +81,14 @@ tamanho da fonte. As fontes de tela estão disponíveis no diretório
 <file>/usr/share/consolefonts</file>. 
  <p>
 Neste ponto você pode verificar se o seu sistema esta reconhecendo 
-corretamente a acentuação entrando no editor de textos <prgn>ae</prgn> e 
+corretamente a acentuação entrando no editor de textos <command>ae</command> e 
 digitando: <tt>áãâà</tt>. Se todos os acentos apareceram corretamente, 
 parabéns! você já passou pela parte mais difícil. Agora o próximo passo é 
-a acentuação no <prgn>Bash</prgn>.
+a acentuação no <command>Bash</command>.
 
-<tag><em>Acentuação no aviso de comando (<prgn>bash</prgn>)</em></tag>
+<tag><em>Acentuação no aviso de comando (<command>bash</command>)</em></tag>
  <item>
-Para acentuar no <prgn>Bash</prgn> (interpretador de comandos) é necessário 
+Para acentuar no <command>Bash</command> (interpretador de comandos) é necessário 
 alterar o arquivo <file>/etc/inputrc</file> e fazer as seguintes modificações:
 
 <enumlist>
@@ -98,7 +98,7 @@ o símbolo "#" antes do nome.
  <p>
 Um comentário faz com que o programa ignore linha(s) de comando. É muito 
 útil para descrever o funcionamento de comandos/programas (você vai encontrar 
-muito isso no sistema <prgn>GNU/Linux</prgn>, tudo é muito bem documentado).
+muito isso no sistema <command>GNU/Linux</command>, tudo é muito bem documentado).
 
  <item>
 Inclua a seguinte linha no final do arquivo:
@@ -125,12 +125,12 @@ faça alguma alteração em arquivos de configuração de outros programas para
 que possa acentuar corretamente (veja se existe algum arquivo com o nome 
 correspondente ao programa no diretório <file>/etc</file>).
  <p>
-A distribuição <prgn>Debian</prgn> também traz o utilitário <prgn>kbdconfig
-</prgn> que também faz a configuração do mapa de teclados de forma 
+A distribuição <command>Debian</command> também traz o utilitário <command>kbdconfig
+</command> que também faz a configuração do mapa de teclados de forma 
 interativa e gravando automaticamente o mapa de teclados em 
 <file>/etc/kbd/default.map.gz</file>. Se preferir usar o 
-<prgn>kbdconfig</prgn> ainda será necessário executar os passos acima para 
-habilitação da fonte <file>lat1u-16</file> e acentuação no <prgn>bash</prgn>. 
+<command>kbdconfig</command> ainda será necessário executar os passos acima para 
+habilitação da fonte <file>lat1u-16</file> e acentuação no <command>bash</command>. 
 
 ]]>
 
@@ -169,7 +169,7 @@ procedimento de configuração da distribuição usando o comando
  <p>
 Por exemplo, para configurar minha placa de vídeo Intel 810, é necessário
 selecionar o driver i810 na tela de seleção do driver de video do 
-<tt>dpkg-reconfigure xserver-xorg</tt>. O programa <prgn>xresprobe</prgn>
+<tt>dpkg-reconfigure xserver-xorg</tt>. O programa <command>xresprobe</command>
 pode ser útil caso deseja fazer manualmente ajustes finos na configuração do 
 <file>/etc/X11/xorg.conf</file>. O monitor também poderá ser configurado
 de acordo com o tamanho da tela (em polegadas). 
@@ -213,7 +213,7 @@ Uma boa escolha para uma melhor qualidade e maior velocidade é
 resolução, mais tempo será levado para os pixels serem atualizados no monitor. 
  
 Veja abaixo como configurar o número de cores para quem esta iniciando o 
-X-Window pelo modo texto e <prgn>XDM</prgn>.
+X-Window pelo modo texto e <command>XDM</command>.
 
 
 <sect1 id="cfg-cores-t">Configurando o número de cores para quem inicia pelo 
@@ -227,7 +227,7 @@ usar mais cores e sua placa de vídeo tiver memória suficiente, use
 16, 24 ou 32. 
  <p>
 Uma maneira mais prática de iniciar sempre com uma mesma resolução é incluir um 
-<prgn>alias</prgn> no arquivo <file>.bashrc</file> em seu diretório: 
+<command>alias</command> no arquivo <file>.bashrc</file> em seu diretório: 
 <tt>alias startx='startx -- -bpp 8'</tt>
 <p>
 Desta forma toda a vez que se digitar <tt>startx</tt>, será executado o 
@@ -272,16 +272,16 @@ Após você ter criado o arquivo de configuração do X com o
 de um ajuste fino para o alinhamento correto da imagem no monitor. Muitos 
 monitores modernos possuem teclas para esta função, mas desde que monitor esteja 
 com sua imagem aparecendo corretamente em modo texto, o ajuste deverá ser feito 
-no servidor X. Este ajuste é feito através do utilitário <prgn>xvidtune</prgn>. 
+no servidor X. Este ajuste é feito através do utilitário <command>xvidtune</command>. 
  <p>
-Entre no modo gráfico como usuário <tt>root</tt>, abra o <prgn>xterm</prgn> e 
+Entre no modo gráfico como usuário <tt>root</tt>, abra o <command>xterm</command> e 
 digite <tt>xvidtune</tt> uma tela aparecerá com um aviso sobre o uso do 
-programa, clique em <prgn>OK</prgn>. Recomendo que ative o botão <tt>AUTO</tt> 
+programa, clique em <command>OK</command>. Recomendo que ative o botão <tt>AUTO</tt> 
 para que a tela vá se ajustando na medida que você mexe nos ajustes. 
  <p>
 Para restaurar a configuração anterior, pressione o botão <tt>Restore</tt> 
 (não faz efeito caso o botão <tt>Apply</tt> tenha sido pressionado). 
-Clicando em <tt>Quit</tt>, você sai do <prgn>xvidtune</prgn> sem salvar a 
+Clicando em <tt>Quit</tt>, você sai do <command>xvidtune</command> sem salvar a 
 configuração. Quando estiver satisfeito com a sua configuração/alinhamento 
 da imagem, clique em <tt>Apply</tt>, a configuração escolhida estará salva. 
 

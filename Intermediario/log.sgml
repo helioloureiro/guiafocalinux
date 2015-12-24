@@ -8,8 +8,8 @@ entre outros campos. Enfim, muitos detalhes úteis ao administrador tanto
 para acompanhar o funcionamento do seu sistema, comportamento dos programas 
 ou ajudar na solução e prevenção de problemas. 
  <p>
-Alguns programas como o <prgn>Apache</prgn>, <prgn>exim</prgn>, 
-<prgn>ircd</prgn> e <prgn>squid</prgn> criam diversos arquivos 
+Alguns programas como o <command>Apache</command>, <command>exim</command>, 
+<command>ircd</command> e <command>squid</command> criam diversos arquivos 
 de log e por este motivo estes são organizados em 
 sub-diretórios (a mesma técnica é usada nos arquivos 
 de configuração em <file>/etc</file>, conforme a padrão 
@@ -30,27 +30,27 @@ qual programa gravou a <em>mensagem</em>.
  <p>
 O uso dos utilitários do console pode ajudar muito na pesquisa e monitoração 
 dos logs, por exemplo, para obter todas as mensagens do daemon 
-<prgn>kernel</prgn> da estação de trabalho <tt>wrk1</tt>, eliminando 
+<command>kernel</command> da estação de trabalho <tt>wrk1</tt>, eliminando 
 os campos "wrk1" e "kernel": 
 <example>
 cat /var/log/*|grep 'wrk1'|grep 'kernel'|awk '{print $1 $2 $3 $6 $7 $8 $9 $10 $11 $12}'
 </example>
-Os parâmetros "$1", "$2" do comando <prgn>awk</prgn> indica que campos serão 
+Os parâmetros "$1", "$2" do comando <command>awk</command> indica que campos serão 
 listados, (omitimos $4 e $5 que são respectivamente "wrk1" e "kernel"). 
 <![ %AVANCADO [ Um bom utilitário para monitoração de logs está documentado em 
-<ref id="log-uteis-logcheck">. ]]>
+<xref linkend="log-uteis-logcheck">. ]]>
 
 
 <sect>Daemons de log do sistema
  <p>
 Os daemons de log do sistema registram as mensagens de 
-saída do kernel (<prgn>klogd</prgn>) e sistema (<prgn>syslogd</prgn>) nos 
+saída do kernel (<command>klogd</command>) e sistema (<command>syslogd</command>) nos 
 arquivos em <![ %DEBIAN[ <file>/var/log</file> ]]>. 
  <p>
 A classificação de qual arquivo em <![ %DEBIAN [ <file>/var/log</file> ]]> 
 receberá qual tipo de mensagem é controlado pelo arquivo de configuração 
 <![ %DEBIAN [ <file>/etc/syslog.conf</file> ]]> através de 
-<em>facilidades</em> e <em>níveis</em> (veja <ref id="log-syslogd-exemplo"> 
+<em>facilidades</em> e <em>níveis</em> (veja <xref linkend="log-syslogd-exemplo"> 
 para detalhes).
 
 
@@ -86,7 +86,7 @@ O valor padrão padrão é 20 minutos, 0 desativa.
  <tag>-n</tag>
  <item>
 Evita que o processo caia automaticamente em background. Necessário principalmente
-se o <prgn>syslogd</prgn> for controlado pelo <prgn>init</prgn>.
+se o <command>syslogd</command> for controlado pelo <command>init</command>.
 
  <tag>-p [soquete]</tag>
  <item>
@@ -97,7 +97,7 @@ Especifica um soquete UNIX alternativo ao invés de usar o padrão
  <item>
 Permite o recebimento de mensagens através da rede através da porta UDP 514. 
 Esta opção é útil para criar um servidor de logs centralizado na rede.  
-Por padrão, o servidor <prgn>syslog</prgn> rejeitará conexões externas. 
+Por padrão, o servidor <command>syslog</command> rejeitará conexões externas. 
 
  <tag>-s [domínios]</tag>
  <item>
@@ -108,17 +108,17 @@ antes de enviados ao log.
  <tag>-a [soquetes]</tag>
  <item>
 Especifica soquetes adicionais que serão monitorados. Esta opção será necessária 
-se estiver usando um ambiente <prgn>chroot</prgn>. É possível usar até 19 soquetes 
+se estiver usando um ambiente <command>chroot</command>. É possível usar até 19 soquetes 
 adicionais 
 
  <tag>-d</tag>
  <item>
-Ativa o modo de depuração do <prgn>syslog</prgn>. O syslog permanecerá operando 
+Ativa o modo de depuração do <command>syslog</command>. O syslog permanecerá operando 
 em primeiro plano e mostrará as mensagens no terminal atual. ]]> 
 
 </taglist> ]]>
 Na distribuição 
-<![ %DEBIAN[ <prgn>Debian</prgn>, o daemon <prgn>syslogd</prgn> é iniciado 
+<![ %DEBIAN[ <command>Debian</command>, o daemon <command>syslogd</command> é iniciado 
 através do script <file>/etc/init.d/sysklogd</file>. ]]>
 
 
@@ -141,8 +141,8 @@ enviando a mensagem. Os seguintes níveis são permitidos (em ordem alfabética)
   <item><tt>auth</tt> - Mensagens de segurança/autorização (é recomendável usar 
 authpriv ao invés deste).
   <item><tt>authpriv</tt> - Mensagens de segurança/autorização (privativas).
-  <item><tt>cron</tt> - Daemons de agendamento (<prgn>cron</prgn> e 
-  <prgn>at</prgn>).
+  <item><tt>cron</tt> - Daemons de agendamento (<command>cron</command> e 
+  <command>at</command>).
   <item><tt>daemon</tt> - Outros daemons do sistema que não possuem facilidades 
 específicas.
   <item><tt>ftp</tt> - Daemon de ftp do sistema.
@@ -152,7 +152,7 @@ específicas.
   <item><tt>mail</tt> - Subsistema de e-mail.
   <item><tt>news</tt> - Subsistema de notícias da USENET.
   <item><tt>security</tt> - Sinônimo para a facilidade <tt>auth</tt> (evite usa-la).
-  <item><tt>syslog</tt> - Mensagens internas geradas pelo <prgn>syslogd</prgn>.
+  <item><tt>syslog</tt> - Mensagens internas geradas pelo <command>syslogd</command>.
   <item><tt>user</tt> - Mensagens genéricas de nível do usuário.
   <item><tt>uucp</tt> - Subsistema de UUCP.
   <item><tt>*</tt> - Confere com todas as facilidades.
@@ -188,10 +188,10 @@ Além destes níveis os seguintes sinônimos estão disponíveis:
 (se iniciado por um "|"), um computador remoto (se iniciado 
 por uma "@"), determinados usuários do sistema (especificando 
 os logins separados por vírgula) ou para todos os usuários logados 
-via <prgn>wall</prgn> (usando "*").
+via <command>wall</command> (usando "*").
 </list>
 Todas as mensagens com o nível especificado e superiores a esta especificadas
-no <prgn>syslog.conf</prgn> serão registradas, de acordo com as opções 
+no <command>syslog.conf</command> serão registradas, de acordo com as opções 
 usadas. Conjuntos de <em>facilidades</em> e <em>níveis</em> podem ser 
 agrupadas separando-as por ";". 
 <![ %OBS [
@@ -219,7 +219,7 @@ regra.
 <![ %EXEMPLO [
  <p>
 Exemplo: Veja abaixo um exemplo de um arquivo <file>/etc/syslog.conf</file> 
-padrão de sistemas <prgn>Debian</prgn>
+padrão de sistemas <command>Debian</command>
 <example>
 #
 # Primeiro alguns arquivos de log padrões. Registrados por facilidade
@@ -305,7 +305,7 @@ daemon.*;mail.*;\
  <p>
 Este daemon controla o registro de mensagens do kernel. 
 <![ %DESCRICAOD [ Ele monitora as mensagens do kernel e as envia para o 
-daemon de monitoramento <prgn>syslogd</prgn>, por padrão. ]]>
+daemon de monitoramento <command>syslogd</command>, por padrão. ]]>
  <p>
 <tt>klogd [<em>opções</em>]</tt>
  <p>
@@ -319,7 +319,7 @@ daemon de monitoramento <prgn>syslogd</prgn>, por padrão. ]]>
  <tag>-f [arquivo]</tag>
  <item>
 Envia as mensagens do kernel para o arquivo especificado ao invés de enviar 
-ao daemon do <prgn>syslog</prgn>
+ao daemon do <command>syslog</command>
 
  <tag>-i</tag>
  <item>
@@ -332,7 +332,7 @@ do kernel.
 
  <tag>-n</tag>
  <item>
-Evita a operação em segundo plano. Útil se iniciado pelo <prgn>init</prgn>
+Evita a operação em segundo plano. Útil se iniciado pelo <command>init</command>
 
  <tag>-k [arquivo]</tag>
  <item>
@@ -347,7 +347,7 @@ do kernel, após isto o daemon é encerrado.
  
  <tag>-p</tag>
  <item>
-Ativa o modo paranóia. Isto fará o <prgn>klogd</prgn> somente carregar detalhes 
+Ativa o modo paranóia. Isto fará o <command>klogd</command> somente carregar detalhes 
 sobre os módulos quando os caracteres <tt>Oops</tt> forem detectados nas 
 mensagens do kernel. É recomendável ter sempre a última versão do klogd e evitar 
 a utilização desta opção em ambientes críticos. 
@@ -373,7 +373,7 @@ do kernel.
  <p>
 Este comando permite enviar uma mensagem nos log do sistema. 
 <![ %DESCRICAOD [ A mensagem é enviada aos logs via daemon 
-<prgn>syslogd</prgn> ou via soquete do sistema, é possível 
+<command>syslogd</command> ou via soquete do sistema, é possível 
 especificar a prioridade, nível, um nome identificando o 
 processo, etc. Seu uso é muito útil em shell scripts ou em 
 outros eventos do sistema. ]]>
@@ -409,7 +409,7 @@ Onde:
  <item>
 Especifica a prioridade da mensagem do syslog, especificada como 
 <tt>facilidade.nível</tt>. Veja os tipos de prioridade/níveis em 
-<ref id="log-syslogd-exemplo">. O valor padrão <em>prioridade.nível</em> 
+<xref linkend="log-syslogd-exemplo">. O valor padrão <em>prioridade.nível</em> 
 é <em>user.notice</em>
 
 <![ %AVANCADO [
@@ -419,7 +419,7 @@ Envia a mensagem para o [soquete] especificado ao invés do syslog ]]>
 
 </taglist> ]]>
 Mais detalhes sobre o funcionamento sobre o daemon de log do sistema 
-<prgn>syslogd</prgn>, pode ser encontrado em <ref id="log-syslogd">
+<command>syslogd</command>, pode ser encontrado em <xref linkend="log-syslogd">
 <![ %EXEMPLO [
  <p>
 Exemplos: <tt>logger -i -t focalinux Teste teste teste</tt>, 
@@ -433,9 +433,9 @@ de logs
 <sect1 id="log-uteis-logcheck">logcheck
  <p>
 É um programa usado para enviar um e-mail periodicamente ao administrador do 
-sistema (através do <prgn>cron</prgn> ou outro daemon com a mesma função) 
+sistema (através do <command>cron</command> ou outro daemon com a mesma função) 
 alertando sobre os eventos que ocorreram desde a última execução do programa. As 
-mensagens do <prgn>logcheck</prgn> são tratadas por arquivos em 
+mensagens do <command>logcheck</command> são tratadas por arquivos em 
 <file>/etc/logcheck</file> e organizadas em categorias antes de ser enviada por 
 e-mail, isto garante muita praticidade na interpretação dos eventos ocorridos no 
 sistema. 
@@ -449,15 +449,15 @@ O tipo de mensagem que será incluída/ignorada nos logs enviados podem
 ser personalizadas pelo administrador do sistema através dos arquivos/diretórios 
 dentro de <file>/etc/logcheck</file>. Nomes de arquivos/diretórios contendo 
 a palavra "ignore" são usados para armazenar expressões regulares que NÃO 
-serão enviadas pelo <prgn>logcheck</prgn>. É permitido o uso de expressões 
-regulares <prgn>perl/sed</prgn> para especificar as mensagens nos 
+serão enviadas pelo <command>logcheck</command>. É permitido o uso de expressões 
+regulares <command>perl/sed</command> para especificar as mensagens nos 
 arquivos de log. 
 
 
 <sect1 id="log-uteis-logrotate">logrotate
  <p>
 Usado para fazer backups dos logs atuais do sistema 
-(programado via <prgn>cron</prgn>, ou outro daemon com a mesma função) e 
+(programado via <command>cron</command>, ou outro daemon com a mesma função) e 
 criando novos arquivos de logs que serão usados pelo sistema. Opcionalmente 
 os arquivos de logs antigos serão compactados para diminuir a utilização de 
 espaço em disco ou enviados por e-mail ao administrador. A rotação dos arquivos de 
@@ -466,7 +466,7 @@ logs proporciona maior agilidade quando precisamos encontrar algum detalhe útil
  <p>
 A rotação de logs é feita de acordo com o tamanho do arquivo de logs especificado, 
 mas a opção <em>-f</em> pode ser usada para "forçar" a rotação de logs. A opção 
-<em>-d</em> fornece mais detalhes sobre o que o <prgn>logrotate</prgn> está 
+<em>-d</em> fornece mais detalhes sobre o que o <command>logrotate</command> está 
 fazendo. 
 Seu arquivo principal de configuração é o <file>/etc/logrotate.conf</file>. 
 Um modelo deste tipo de arquivo é o seguinte: 
@@ -603,21 +603,21 @@ apagada posteriormente pelo invasor, isso é comum).
 <taglist compact>
  <tag>Configurando o servidor de logs</tag> 
  <item>
-Adicione a opção <em>-r</em> ao iniciar o daemon <prgn>syslogd</prgn> para 
-aceitar logs enviados das máquinas clientes. Na distribuição <prgn>Debian</prgn> 
+Adicione a opção <em>-r</em> ao iniciar o daemon <command>syslogd</command> para 
+aceitar logs enviados das máquinas clientes. Na distribuição <command>Debian</command> 
 modifique o arquivo <file>/etc/init.d/sysklogd</file> colocando a opção 
-<em>-r</em> na variável <var>SYSLOGD</var> e reinicie o serviço usando 
+<em>-r</em> na variável <envar>SYSLOGD</envar> e reinicie o serviço usando 
 <tt>./sysklogd restart</tt>. 
  <p>
 Adicionalmente poderão ser usadas as opções <em>-l máquina</em> (é um "L" 
 minúsculo não uma letra "I") para registrar o nome FQDN da máquina e <em>-h</em> 
 para redirecionar conexões a outros servidores de logs 
-(veja <ref id="log-syslogd">). 
+(veja <xref linkend="log-syslogd">). 
 
  <tag>Configurando máquinas cliente</tag>
  <item>
 Modifique o arquivo <file>/etc/syslogd.conf</file> 
-(veja <ref id="log-syslogd-exemplo"> colocando o nome do computador seguido 
+(veja <xref linkend="log-syslogd-exemplo"> colocando o nome do computador seguido 
 de "@" para redirecionar as mensagens dos logs:
 <example>
 auth,authpriv.*                 @servlog
@@ -633,7 +633,7 @@ user.*						@servlog
 uucp.*                          -/var/log/uucp.log
 
 </example>
-E reinicie o daemon <prgn>syslogd</prgn> da máquina cliente para re-ler o 
+E reinicie o daemon <command>syslogd</command> da máquina cliente para re-ler o 
 arquivo de configuração: <tt>killall -HUP syslogd</tt> ou 
 <tt>/etc/init.d/sysklogd restart</tt>. 
 
@@ -642,10 +642,10 @@ arquivo de configuração: <tt>killall -HUP syslogd</tt> ou
 <![ %OBS [
  <p>
 <strong>OBS1:</strong> Mantenha o relógio do servidor de logs sempre 
-atualizado (use o <prgn>chrony</prgn> ou outro daemon de sincronismo NTP 
+atualizado (use o <command>chrony</command> ou outro daemon de sincronismo NTP 
 para automatizar esta tarefa). 
  <p>
-<strong>OBS2:</strong> É interessante compilar um daemon <prgn>syslogd</prgn> 
+<strong>OBS2:</strong> É interessante compilar um daemon <command>syslogd</command> 
 personalizado modificando o nome e localização do arquivo 
 <file>/etc/syslog.conf</file> para enganar possíveis invasores. Isto pode 
 ser modificado no arquivo <file>syslogd.c</file> na linha:
@@ -658,7 +658,7 @@ a localização deste arquivo.
  <p>
 <strong>OBS3:</strong> Em uma grande rede, é recomendável configurar um 
 computador dedicado como servidor de log (desativando qualquer outro 
-serviço) e configurar o <prgn>iptables</prgn> para aceitar somente o tráfego 
+serviço) e configurar o <command>iptables</command> para aceitar somente o tráfego 
 indo para a porta UDP 514 (syslogd):
 <example>
 iptables -P INPUT DROP
@@ -667,9 +667,9 @@ iptables -A INPUT -p udp --dport 514 -j ACCEPT
 </example>
 <![ %CONSTRUCAO [
 Esta é uma configuração simples, para fazer algo mais completo 
-veja <ref id="fw-iptables">.  Adicionalmente configure o serviço 
-<prgn>ssh</prgn> para ter acesso a máquina de log quando não tiver 
-acesso físico facilitado a máquina (veja <ref id="s-ssh">). ]]> ]]>
+veja <xref linkend="fw-iptables">.  Adicionalmente configure o serviço 
+<command>ssh</command> para ter acesso a máquina de log quando não tiver 
+acesso físico facilitado a máquina (veja <xref linkend="s-ssh">). ]]> ]]>
 
   ]]>
   

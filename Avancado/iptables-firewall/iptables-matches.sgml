@@ -83,7 +83,7 @@ iptables -t filter -A ping-chain -j DROP
 
 </example>
 A regra acima limita em 1 vez por segundo (--limit 1/s) a passagem de pings 
-(echo requests) para a máquina <prgn>Linux</prgn>. 
+(echo requests) para a máquina <command>Linux</command>. 
 
 <example>
 iptables -t filter -A ping-chain -i ppp0 -p icmp --icmp-type echo-reply -m limit --limit 1/s -j RETURN
@@ -144,8 +144,8 @@ A primeira regra diz para bloquear todos os endereços da faixa de
 rede 192.168.1.* que NÃO vem da interface eth0, a segunda regra diz para 
 bloquear todos os endereços que não sejam 192.168.1.* vindos da 
 interface eth0. O símbolo "!" serve para especificar exceções 
-(veja <ref id="fw-iptables-outras-excessoes">.
-O kernel do <prgn>Linux</prgn> automaticamente bloqueia a passagem de pacotes
+(veja <xref linkend="fw-iptables-outras-excessoes">.
+O kernel do <command>Linux</command> automaticamente bloqueia a passagem de pacotes
 que dizem ser de 127.0.0.1 e não está vindo da interface loopback. 
  <p>
 O método preferido para controlar o ip spoofing é através do código de roteamento
@@ -160,7 +160,7 @@ done
 Desta forma qualquer endereço dizendo ser 192.168.1.5 vindo de <file>ppp0</file> será 
 imediatamente rejeitado. Uma checagem adicional contra IP spoofing pode 
 ser feita no arquivo <file>/etc/host.conf</file> <![ %CAPJUNTOS [ (veja 
-<ref id="rede-dns-a-hostconf">)]]>. 
+<xref linkend="rede-dns-a-hostconf">)]]>. 
 
 
 <sect1 id="fw-iptables-mod-multiport">Especificando múltiplas portas de origem/destino
@@ -242,7 +242,7 @@ pertencentes ao grupo 100.
 
 <sect1 id="fw-iptables-mod-string">Conferindo com o conteúdo do pacote
  <p>
-O módulo <file>string</file> do <prgn>iptables</prgn> permite a 
+O módulo <file>string</file> do <command>iptables</command> permite a 
 inspeção de conteúdo de um pacote e tomar uma ação se determinado tipo de 
 tráfego for encontrado em um pacote. Esta técnica pode ser usada tanto para 
 segurança como para economia de banda dentro da rede. Esta opção *NÃO* torna 
@@ -263,7 +263,7 @@ baseada neste método sob o risco de afetar tráfego legítimo.
  <p>
 Outra utilidade eficiente é a diminuição de tráfego, pois podemos barrar programas 
 que sobrecarregam o link em uma rede com muitos usuários como, por exemplo, usando 
-o <prgn>Kazaa</prgn> ou qualquer outro programa para cópia de arquivos via 
+o <command>Kazaa</command> ou qualquer outro programa para cópia de arquivos via 
 Internet. Veja alguns exemplos:
 <example>
 # Bloqueia qualquer tentativa de acesso ao programa Kazaa
@@ -367,7 +367,7 @@ iptables -A FORWARD -i eth0 -o eth0 -m pkttype --pkt-type broadcast -m limit --l
 O tamanho do pacote pode ser usado como condição de filtragem através do 
 módulo <file>length</file>. O tamanho do pacote é especificado através da 
 opção <em>--length</em> e o argumento segue a mesma sintaxe da especificação 
-de portas no <prgn>iptables</prgn> sendo separados por <em>:</em>. Veja 
+de portas no <command>iptables</command> sendo separados por <em>:</em>. Veja 
 alguns exemplos:
 <example>
 # Bloqueia qualquer pacote ICMP maior que 30Kb
