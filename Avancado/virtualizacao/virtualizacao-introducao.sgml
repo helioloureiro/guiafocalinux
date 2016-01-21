@@ -1,0 +1,52 @@
+<chapt id="virt-intro">Virtualização em sistemas GNU/Linux
+ <p>
+Este capítulo descreve sobre virtualização e suas formas de se fazer isso em 
+sistemas GNU/Linux.
+
+<sect id="virt-motivos">Por que usar virtualização
+ <p>
+ Virtualização é o meio pelo qual se criam servidores "virtuais".  Existem 
+vários motivos para se querer usar esse tipo de servidores como:
+<list>
+<item>Segurança, rodando uma um servidor completamente isolado do resto do 
+sistema.
+<item>Alta disponibilidade, fazendo com que o serviço seja migrado de uma 
+máquina 
+virtual para outrao, minimizando o tempo fora de serviço durante um atividade 
+como upgrade.
+<item>Testes, pois virtualização pode ser na forma de uma máquina virtual.  
+Isso 
+torna possível testar e usar diferentes versões de GNU/Linux, diferentes 
+distros e até mesmo diferentes sistemas operacionais (inclusive em hardware que 
+não seja basedo em Intel, como virtualização de plataforma ARM, do Rapsberrypi).
+<item>Aprendizado, pois com o uso de servidores virtuais fica muito mais fácil 
+ter um sistema GNU/Linux disponível e configurado para testes e aprendizado.
+<item>Disponibilizar um ambiente completo por usuário.  Isso permite o uso de 
+venda de servidores virtuais, os chamados VPS, Virtual Private Server.
+<item>E qualquer outra coisa que você quiser.  Não há limites para uso de 
+virtualização.
+</list>
+
+<sect id="virt-tipos">Tipos de virtualização
+<p>
+Existem basicamente dois tipos de virtualização usadas em geral e também em 
+GNU/Linux.
+<list>
+<item>Paravirtualização: essa é uma forma de virtualização onde a máquina 
+virtual 
+não contém uma emulação completa do hardware, apenas uma parte.  Em geral 
+funciona com tipo de ambiente chroot dentro do próprio sistema, compartilhando 
+algumas informações do sistema original (mas não permitindo ilimitado acesso a 
+ele).  Os sistemas paravirtualizados usam menos memória e se tornam disponíveis 
+para uso quase que imediatamente.
+<item>Virtualização completa: esse tipo de virtualização contém o sistema todo 
+emulado/virtualizado, criando os dispositivos que serão usado de forma virtual. 
+ São sistemas que usam mais memória e necessitam um "boot" completo do sistema, 
+sendo mais lentos para iniciar os serviços se commparados com a 
+paravirtualização.  Em contrapartida a virtualização completa permite rodar 
+diferentes sistemas operacionais e até mesmo emular hardwares diferentes que do 
+sistema original, como Sparc, Mips e ARM.  Essas plataformas emuladas rodam de 
+forma limitada se comparadas com os sistemas em hardware nativo, tendo seu uso 
+em geral para testes e desenvolvimento somente.  Em sistemas que usam o mesmo 
+tipo de processador que da máquina original, não existem essas limitações.
+</list>
