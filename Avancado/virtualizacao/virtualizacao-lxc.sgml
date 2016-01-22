@@ -1,0 +1,14 @@
+<sect id="virt-lxc">LXC - Linux Container
+<p>
+LXC foi uma tecnologia baseada no princípio de segmentação de privilégios do 
+kernel Linux através do uso de cgroups.  A idéia por trás desse tipo de 
+paravirtualização já era usada de forma ampla em sistemas Solaris, com seu 
+*adicionar nome*, e em sistemas FreeBSD, com jails.
+<p>
+LXC permite criar máquinas virtuais por paravirtualização do sistema do 
+<i>host</i>.  Em geral os <i>guests</i> seguem o tipo de distro do <i>host</i>, 
+sendo então possível rodar Ubuntu e Debian em sistemas baseados em DEB, e 
+RedHat, Suse, OpenSuse e Fedora em sistemas baseados em RPM.  Mas LXC não 
+contém uma forma de criar um guest DEB num host RPM, nem vice-versa.
+
+<sect1 id="virt-lxc-creation">Creating a LXC guest

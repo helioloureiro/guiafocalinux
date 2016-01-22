@@ -50,3 +50,20 @@ forma limitada se comparadas com os sistemas em hardware nativo, tendo seu uso
 em geral para testes e desenvolvimento somente.  Em sistemas que usam o mesmo 
 tipo de processador que da máquina original, não existem essas limitações.
 </list>
+
+<sect id="virt-nomenclatura">Nomenclaturas de virtualização
+<p>
+Alguns termos são comuns em ambientes de virtualização para referenciar sobre a 
+máquina que roda os ambientes virtuais, ou a máquina virtual em si.  São eles:
+<list>
+<item><i>host</i>: refere-se à máquina que rodará um ou mais máquinas virtuais. 
+ Em algumas literaturas é encontrado com o nome de <i>sistema anfitrião</i>.
+<item><i>guest</i>: refere-se à máquina virtual rodando.  Então é comum ter 
+vários <i>guests</i> em um servidor <i>host</i>.  Os <i>guests</i> podem ter 
+uma identificação por nome, uuid ou até mesmo por número.  Em algumas 
+literaturas é encontrado com o nome <i>sistema convidado</i>.
+<item><i>dom</i>: essa referência é típica de ambientes que roda com 
+virtualização xen.  Ao invés de dominar <i>host</i>, é chamado de <i>dom-0</i>. 
+ As máquinas <i>guest</i> recebem o nome <i>dom-1</i>, <i>dom-2</i>, e assim 
+sucessivamente.
+</list>
