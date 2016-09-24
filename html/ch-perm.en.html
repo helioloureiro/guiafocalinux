@@ -1,0 +1,1511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Permissões de acesso a arquivos e diretórios</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-cmdc.en.html" rel="prev">
+<link href="ch-redir.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-perm"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-cmdc.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ 11 ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-redir.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 11 - Permissões de acesso a arquivos e diretórios
+</h1>
+
+<hr>
+
+<p>
+As permissões de acesso protegem o sistema de arquivos Linux do acesso
+indevido de pessoas ou programas não autorizados.
+</p>
+
+<p>
+A permissão de acesso do <code>GNU/Linux</code> também impede que um programa
+mal intencionado, por exemplo, apague um arquivo que não deve, envie arquivos
+especiais para outra pessoa ou forneça acesso da rede para que outros
+usuários invadam o sistema.  O sistema <code>GNU/Linux</code> é muito seguro
+e como qualquer outro sistema seguro e confiável impede que usuários mal
+intencionados (ou iniciantes que foram enganados) instalem programas enviados
+por terceiros sem saber para que eles realmente servem e causem danos
+irreversíveis em seus arquivos, seu micro ou sua empresa.
+</p>
+
+<p>
+Esta seção do guia, de inicio, pode ser um pouco dificil de se entender,
+então recomendo ler e ao mesmo tempo prática-la para uma ótima compreensão.
+Não se preocupe, também coloquei exemplos para ajuda-lo a entender o sistema
+de permissões de acesso do ambiente <code>GNU/Linux</code>.
+</p>
+
+<hr>
+
+<h2 id="s-perm-user-group">11.1 Donos, Grupos e outros usuários</h2>
+
+<p>
+A idéia básica da segurança no sistema <code>GNU/Linux</code> é definir o
+acesso aos arquivos por donos, grupos e outros usuários:
+</p>
+<dl>
+<dt><em>dono</em></dt>
+<dd>
+<p>
+É a pessoa que criou o arquivo ou o diretório.  O nome do dono do
+arquivo/diretório é o mesmo do usuário usado para entrar no sistema
+<code>GNU/Linux</code>.  Somente o dono pode modificar as permissões de acesso
+do arquivo.
+</p>
+<p>
+As permissões de acesso do dono de um arquivo somente se aplicam ao dono do
+arquivo/diretório.  A identificação do dono também é chamada de <samp>user
+id</samp> (UID).
+</p>
+<p>
+A identificação de usuário ao qual o arquivo pertence é armazenada no
+arquivo <code>/etc/passwd</code> e do grupo no arquivo <code>/etc/group</code>.
+Estes são arquivos textos comuns e podem ser editados em qualquer editor de
+texto, mas utilize preferencialmente os comandos <code>vipw</code> e
+<code>vigr</code> que executa procedimentos adicionais de checagem de uids e
+grupos após a alteração.  Tenha cuidado para não modificar o campo que
+contém a senha do usuário encriptada (que pode estar armazenada no arquivo
+<code>/etc/passwd</code> caso não estiver usando senhas ocultas).
+</p>
+</dd>
+<dt><em>grupo</em></dt>
+<dd>
+<p>
+Permite que vários usuários diferentes tenham acesso a um mesmo arquivo (já
+que somente o dono poderia ter acesso ao arquivo).  Cada usuário pode fazer
+parte de um ou mais grupos e então acessar arquivos que pertençam ao mesmo
+grupo que o seu (mesmo que estes arquivos tenham outro <em>dono</em>).
+</p>
+<p>
+Por padrão, quando um novo usuário é criado e não especificar nenhum grupo,
+ele pertencerá ao grupo de mesmo nome do seu grupo primário (este
+comportamento é controlado pelo parametro <samp>USERGROUPS=yes</samp> do
+arquivo <code>/etc/adduser.conf</code>, veja <a
+href="ch-cmdc.en.html#s-cmdc-id">id, Section 10.11</a>).  A identificação do
+grupo é chamada de <samp>GID (<em>group id</em>)</samp>.
+</p>
+<p>
+Um usuário pode pertencer a um ou mais grupos.  Para detalhes de como incluir
+o usuário em mais grupos veja <a
+href="ch-cmdc.en.html#s-cmdc-incluirgrupo">Adicionando o usuário a um grupo
+extra, Section 10.9</a>.
+</p>
+</dd>
+<dt><em>outros</em></dt>
+<dd>
+<p>
+É a categoria de usuários que não são donos ou não pertencem ao grupo do
+arquivo.
+</p>
+</dd>
+</dl>
+
+<p>
+Cada um dos tipos acima possuem três tipos básicos de permissões de acesso
+que serão vistas na próxima seção.
+</p>
+
+<hr>
+
+<h2 id="s-perm-tipos">11.2 Tipos de Permissões de Acesso</h2>
+
+<p>
+Quanto aos tipos de permissões que se aplicam ao <em>dono</em>, <em>grupo</em>
+e <em>outros usuários</em>, temos 3 permissões básicas:
+</p>
+<ul>
+<li>
+<p>
+<samp>r</samp> - Permissão de leitura para arquivos.  Caso for um diretório,
+permite listar seu conteúdo (através do comando <code>ls</code>, por
+exemplo).
+</p>
+</li>
+<li>
+<p>
+<samp>w</samp> - Permissão de gravação para arquivos.  Caso for um
+diretório, permite a gravação de arquivos ou outros diretórios dentro dele.
+</p>
+<p>
+Para que um arquivo/diretório possa ser apagado, é necessário o acesso a
+gravação.
+</p>
+</li>
+<li>
+<p>
+<samp>x</samp> - Permite executar um arquivo (caso seja um programa
+executável).  Caso seja um diretório, permite que seja acessado através do
+comando <code>cd</code> (veja <a href="ch-cmdd.en.html#s-comando-cd">cd,
+Section 6.2</a> para detalhes).
+</p>
+</li>
+</ul>
+
+<p>
+As permissões de acesso a um arquivo/diretório podem ser visualizadas com o
+uso do comando <samp>ls -la</samp>.  Para maiores detalhes veja <a
+href="ch-cmdd.en.html#s-comando-ls">ls, Section 6.1</a>.  As 3 letras (rwx)
+são agrupadas da seguinte forma:
+</p>
+
+<pre>
+     -rwxr-xr--   gleydson   users  teste
+</pre>
+
+<p>
+Virou uma bagunça não?  Vou explicar cada parte para entender o que quer
+dizer as 10 letras acima (da esquerda para a direita):
+</p>
+<ul>
+<li>
+<p>
+A primeira letra diz qual é o tipo do arquivo.  Caso tiver um &quot;d&quot; é
+um diretório, um &quot;l&quot; um link a um arquivo no sistema (veja <a
+href="ch-cmdv.en.html#s-cmdv-ln">ln, Section 8.4</a> para detalhes) , um
+&quot;-&quot; quer dizer que é um arquivo comum, etc.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Da segunda a quarta letra (rwx) dizem qual é a permissão de acesso ao
+<em>dono</em> do arquivo.  Neste caso <em>gleydson</em> ele tem a permissão de
+ler (r - read), gravar (w - write) e executar (x - execute) o arquivo
+<code>teste</code>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Da quinta a sétima letra (r-x) diz qual é a permissão de acesso ao
+<em>grupo</em> do arquivo.  Neste caso todos os usuários que pertencem ao
+grupo <em>users</em> tem a permissão de ler (r), e também executar (x) o
+arquivo <code>teste</code>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Da oitava a décima letra (r--) diz qual é a permissão de acesso para os
+<em>outros usuários</em>.  Neste caso todos os usuários que não são donos
+do arquivo <code>teste</code> tem a permissão somente para ler o programa.
+</p>
+</li>
+</ul>
+
+<p>
+Veja o comando <a href="#s-perm-chmod">chmod, Section 11.7</a> para detalhes
+sobre a mudança das permissões de acesso de arquivos/diretórios.
+</p>
+
+<hr>
+
+<h2 id="s-perm-acessando">11.3 Etapas para acesso a um arquivo/diretório</h2>
+
+<p>
+O acesso a um arquivo/diretório é feito verificando primeiro se o usuário
+que acessará o arquivo é o seu <em>dono</em>, caso seja, as permissões de
+dono do arquivo são aplicadas.  Caso não seja o <em>dono</em> do
+arquivo/diretório, é verificado se ele pertence ao grupo correspondente, caso
+pertença, as permissões do <em>grupo</em> são aplicadas.  Caso não
+pertença ao <em>grupo</em>, são verificadas as permissões de acesso para os
+outros usuários que não são <em>donos</em> e não pertencem ao
+<em>grupo</em> correspondente ao arquivo/diretório.
+</p>
+
+<p>
+Após verificar aonde o usuário se encaixa nas permissões de acesso do
+arquivo (se ele é o <em>dono</em>, pertence ao <em>grupo</em>, ou <em>outros
+usuários</em>), é verificado se ele terá permissão acesso para o que deseja
+fazer (ler, gravar ou executar o arquivo), caso não tenha, o acesso é negado,
+mostrando uma mensagem do tipo: &quot;Permission denied&quot; (permissão
+negada).
+</p>
+
+<p>
+O que isto que dizer é que mesmo que você seja o dono do arquivo e definir o
+acesso do <em>dono</em> (através do comando <code>chmod</code>) como somente
+leitura (r) mas o acesso dos <em>outros usuários</em> como leitura e
+gravação, você somente poderá ler este arquivo mas os outros usuários
+poderão ler/grava-lo.
+</p>
+
+<p>
+As permissões de acesso (leitura, gravação, execução) para donos, grupos e
+outros usuários são independentes, permitindo assim um nível de acesso
+diferenciado.  Para maiores detalhes veja <a href="#s-perm-tipos">Tipos de
+Permissões de Acesso, Section 11.2</a>.
+</p>
+
+<p>
+Lembre-se: Somente o dono pode modificar as permissões de um
+arquivo/diretório!
+</p>
+
+<p>
+Para mais detalhes veja os comandos <a href="#s-perm-chown">chown, Section
+11.9</a> e <a href="#s-perm-chgrp">chgrp, Section 11.8</a>.
+</p>
+
+<hr>
+
+<h2 id="s-perm-exemplo">11.4 Exemplos práticos de permissões de acesso</h2>
+
+<p>
+Abaixo dois exemplos práticos de permissão de acesso: <a
+href="#s-perm-exemplo-a">Exemplo de acesso a um arquivo, Section 11.4.1</a> e a
+<a href="#s-perm-exemplo-d">Exemplo de acesso a um diretório, Section
+11.4.2</a>.  Os dois exemplos são explicados passo a passo para uma perfeita
+compreensão do assunto.  Vamos a prática!
+</p>
+
+<hr>
+
+<h3 id="s-perm-exemplo-a">11.4.1 Exemplo de acesso a um arquivo</h3>
+
+<p>
+Abaixo um exemplo e explicação das permissões de acesso a um arquivo no
+<code>GNU/Linux</code> (obtido com o comando <samp>ls -la</samp>, explicarei
+passo a passo cada parte:
+</p>
+
+<p>
+-rwxr-xr-- 1 gleydson user 8192 nov 4 16:00 teste
+</p>
+<dl>
+<dt><samp>-rwxr-xr--</samp></dt>
+<dd>
+<p>
+Estas são as permissões de acesso ao arquivo <code>teste</code>.  Um conjunto
+de 10 letras que especificam o tipo do arquivo, permissão do dono do arquivo,
+grupo do arquivo e outros usuários.  Veja a explicação detalhada sobre cada
+uma abaixo:
+</p>
+<dl>
+<dt><strong>-</strong>rwxr-xr--</dt>
+<dd>
+<p>
+A primeira letra (do conjunto das 10 letras) determina o tipo do arquivos.  Se
+a letra for um <strong>d</strong> é um diretório, e você poderá acessa-lo
+usando o comando <code>cd</code>.  Caso for um <strong>l</strong> é um link
+simbólico para algum arquivo ou diretório no sistema (para detalhes veja o
+comando <a href="ch-cmdv.en.html#s-cmdv-ln">ln, Section 8.4</a> .  Um
+<strong>-</strong> significa que é um arquivo normal.
+</p>
+</dd>
+<dt>-<strong>rwx</strong>r-xr--</dt>
+<dd>
+<p>
+Estas 3 letras (da segunda a quarta do conjunto das 10 letras) são as
+permissões de acesso do <em>dono</em> do arquivo <code>teste</code>.  O dono
+(neste caso <em>gleydson</em>) tem a permissão para ler (r), gravar (w) e
+executar (x) o arquivo <code>teste</code>.
+</p>
+</dd>
+<dt>-rwx<strong>r-x</strong>r--</dt>
+<dd>
+<p>
+Estes 3 simbolos (do quinto ao sétimo do conjunto de 10) são as permissões
+de acesso dos usuários que pertencem ao <em>grupo user</em> do arquivo
+<code>teste</code>.  Os usuários que pertencem ao grupo <em>user</em> tem a
+permissão somente para ler (r) e executar (x) o arquivo <code>teste</code>
+não podendo modifica-lo ou apaga-lo.
+</p>
+</dd>
+<dt>-rwxr-x<strong>r--</strong></dt>
+<dd>
+<p>
+Estes 3 simbolos (do oitavo ao décimo) são as permissões de acesso para
+usuários que <strong>não</strong> são <em>donos</em> do arquivo
+<code>teste</code> e que <strong>não</strong> pertencem ao grupo
+<em>user</em>.  Neste caso, estas pessoas somente terão a permissão para ver
+o conteúdo do arquivo <code>teste</code>.
+</p>
+</dd>
+</dl>
+</dd>
+<dt><em>gleydson</em></dt>
+<dd>
+<p>
+Nome do dono do arquivo <code>teste</code>.
+</p>
+</dd>
+<dt><em>user</em></dt>
+<dd>
+<p>
+Nome do grupo que o arquivo <code>teste</code> pertence.
+</p>
+</dd>
+<dt><code>teste</code></dt>
+<dd>
+<p>
+Nome do arquivo.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h3 id="s-perm-exemplo-d">11.4.2 Exemplo de acesso a um diretório</h3>
+
+<p>
+Abaixo um exemplo com explicações das permissões de acesso a um diretório
+no <code>GNU/Linux</code>:
+</p>
+
+<p>
+drwxr-x--- 2 gleydson user 1024 nov 4 17:55 exemplo
+</p>
+<dl>
+<dt><samp>drwxr-x---</samp></dt>
+<dd>
+<p>
+Permissões de acesso ao diretório <code>exemplo</code>.  É um conjunto de 10
+letras que especificam o tipo de arquivo, permissão do dono do diretório,
+grupo que o diretório pertence e permissão de acesso a outros usuários.
+Veja as explicações abaixo:
+</p>
+<dl>
+<dt><strong>d</strong>rwxr-x---</dt>
+<dd>
+<p>
+A primeira letra (do conjunto das 10) determina o tipo do arquivo.  Neste caso
+é um diretório porque tem a letra <strong>d</strong>.
+</p>
+</dd>
+<dt>d<strong>rwx</strong>r-x---</dt>
+<dd>
+<p>
+Estas 3 letras (da segunda a quarta) são as permissões de acesso do
+<em>dono</em> do diretório <code>exemplo</code>.  O dono do diretório (neste
+caso <em>gleydson</em>) tem a permissão para listar arquivos do diretório
+(r), gravar arquivos no diretório (w) e entrar no diretório (x).
+</p>
+</dd>
+<dt>drwx<strong>r-x</strong>---</dt>
+<dd>
+<p>
+Estas 3 letras (da quinta a sétima) são as permissões de acesso dos
+usuários que pertencem ao <em>grupo user</em>.  Os usuários que pertencem ao
+grupo <em>user</em> tem a permissão somente para listar arquivos do diretório
+(r) e entrar no diretório (x) <code>exemplo</code>.
+</p>
+</dd>
+<dt>drwxr-x<strong>---</strong></dt>
+<dd>
+<p>
+Estes 3 simbolos (do oitavo ao décimo) são as permissões de acesso para
+usuários que <strong>não</strong> são <em>donos</em> do diretório
+<code>exemplo</code> e que <strong>não</strong> pertencem ao grupo
+<em>user</em>.  Com as permissões acima, nenhum usuário que se encaixe nas
+condições de <em>dono</em> e <em>grupo</em> do diretório tem a permissão de
+acessa-lo.
+</p>
+</dd>
+</dl>
+</dd>
+<dt><em>gleydson</em></dt>
+<dd>
+<p>
+Nome do dono do diretório <code>exemplo</code>.
+</p>
+</dd>
+<dt><em>user</em></dt>
+<dd>
+<p>
+Nome do grupo que diretório <code>exemplo</code> pertence.
+</p>
+</dd>
+<dt><code>exemplo</code></dt>
+<dd>
+<p>
+Nome do diretório.
+</p>
+</dd>
+</dl>
+
+<p>
+Para detalhes de como alterar o dono/grupo de um arquivo/diretório, veja os
+comandos <a href="#s-perm-chmod">chmod, Section 11.7</a>, <a
+href="#s-perm-chgrp">chgrp, Section 11.8</a> e <a href="#s-perm-chown">chown,
+Section 11.9</a>.
+</p>
+
+<p>
+<strong>OBSERVAÇÕES</strong>:
+</p>
+<ul>
+<li>
+<p>
+O usuário <samp>root</samp> não tem nenhuma restrição de acesso ao sistema.
+</p>
+</li>
+<li>
+<p>
+Se você tem permissões de gravação no diretório e tentar apagar um arquivo
+que você não tem permissão de gravação, o sistema perguntará se você
+confirma a exclusão do arquivo apesar do modo leitura.  Caso você tenha
+permissões de gravação no arquivo, o arquivo será apagado por padrão sem
+mostrar nenhuma mensagem de erro (a não ser que seja especificada a opção -i
+com o comando <code>rm</code>).
+</p>
+</li>
+<li>
+<p>
+Por outro lado, mesmo que você tenha permissões de gravação em um arquivo
+mas não tenha permissões de gravação em um diretório, a exclusão do
+arquivo será negada.
+</p>
+</li>
+</ul>
+
+<p>
+Isto mostra que é levado mais em consideração a permissão de acesso do
+diretório do que as permissões dos arquivos e sub-diretórios que ele
+contém.  Este ponto é muitas vezes ignorado por muitas pessoas e expõem seu
+sistema a riscos de segurança.  Imagine o problema que algum usuário que não
+tenha permissão de gravação em um arquivo mas que a tenha no diretório pode
+causar em um sistema mal administrado.
+</p>
+
+<hr>
+
+<h2 id="s-perm-especiais">11.5 Permissões de Acesso Especiais</h2>
+
+<p>
+Em adição as três permissões básicas (rwx), existem permissões de acesso
+especiais (stX) que afetam os arquivos e diretórios:
+</p>
+<ul>
+<li>
+<p>
+<samp>s</samp> - Quando é usado na permissão de acesso do <em>Dono</em>,
+ajusta a identificação efetiva do usuário do processo durante a execução
+de um programa, também chamado de <em>bit setuid</em>.  Não tem efeito em
+diretórios.
+</p>
+<p>
+Quando <samp>s</samp> é usado na permissão de acesso do <em>Grupo</em>,
+ajusta a identificação efetiva do grupo do processo durante a execução de
+um programa, chamado de <em>bit setgid</em>.  É identificado pela letra
+<samp>s</samp> no lugar da permissão de execução do grupo do
+arquivo/diretório.  Em diretórios, força que os arquivos criados dentro dele
+pertençam ao mesmo grupo do diretório, ao invés do grupo primário que o
+usuário pertence.
+</p>
+<p>
+Ambos <em>setgid</em> e <em>setuid</em> podem aparecer ao mesmo tempo no mesmo
+arquivo/diretório.  A permissão de acesso especial <samp>s</samp> somente
+pode aparecer no campo <em>Dono</em> e <em>Grupo</em>.
+</p>
+</li>
+<li>
+<p>
+<samp>S</samp> - Idêntico a &quot;s&quot;.  Significa que não existe a
+permissão &quot;x&quot; (execução ou entrar no diretório) naquela
+posição.  Um exemplo é o chmod 2760 em um diretório.
+</p>
+</li>
+<li>
+<p>
+<samp>t</samp> - Salva a imagem do texto do programa no dispositivo swap, assim
+ele será carregado mais rapidamente quando executado, também chamado de
+<em>stick bit</em>.
+</p>
+<p>
+Em diretórios, impede que outros usuários removam arquivos dos quais não
+são donos.  Isto é chamado de colocar o diretório em modo
+<samp>append-only</samp>.  Um exemplo de diretório que se encaixa
+perfeitamente nesta condição é o <code>/tmp</code>, todos os usuários devem
+ter acesso para que seus programas possam criar os arquivos temporários lá,
+mas nenhum pode apagar arquivos dos outros.  A permissão especial
+<samp>t</samp>, pode ser especificada somente no campo outros usuários das
+permissões de acesso.
+</p>
+</li>
+<li>
+<p>
+<samp>T</samp> - Idêntico a &quot;t&quot;.  Significa que não existe a
+permissão &quot;x&quot; naquela posição (por exemplo, em um chmod 1776 em um
+diretório).
+</p>
+</li>
+<li>
+<p>
+<samp>X</samp> - Se você usar <samp>X</samp> ao invés de <samp>x</samp>, a
+permissão de execução somente é aplicada se o arquivo já tiver permissões
+de execução.  Em diretórios ela tem o mesmo efeito que a permissão de
+execução <samp>x</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Exemplo da permissão de acesso especial <samp>X</samp>:
+</p>
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+Crie um arquivo <code>teste</code> (digitando <samp>touch teste</samp>) e
+defina sua permissão para <samp>rw-rw-r--</samp> (<samp>chmod ug=rw,o=r
+teste</samp> ou <samp>chmod 664 teste</samp>).
+</p>
+</li>
+<li>
+<p>
+Agora use o comando <samp>chmod a+X teste</samp>
+</p>
+</li>
+<li>
+<p>
+digite <samp>ls -l</samp>
+</p>
+</li>
+<li>
+<p>
+Veja que as permissões do arquivo não foram afetadas.
+</p>
+</li>
+<li>
+<p>
+agora digite <samp>chmod o+x teste</samp>
+</p>
+</li>
+<li>
+<p>
+digite <samp>ls -l</samp>, você colocou a permissão de execução para os
+outros usuários.
+</p>
+</li>
+<li>
+<p>
+Agora use novamente o comando <samp>chmod a+X teste</samp>
+</p>
+</li>
+<li>
+<p>
+digite <samp>ls -l</samp>
+</p>
+</li>
+<li>
+<p>
+Veja que agora a permissão de execução foi concedida a todos os usuários,
+pois foi verificado que o arquivo era executável (tinha permissão de
+execução para outros usuários).
+</p>
+</li>
+<li>
+<p>
+Agora use o comando <samp>chmod a-X teste</samp>
+</p>
+</li>
+<li>
+<p>
+Ele também funcionará e removerá as permissões de execução de todos os
+usuários, porque o arquivo <code>teste</code> tem permissão de execução
+(confira digitando <samp>ls -l</samp>).
+</p>
+</li>
+<li>
+<p>
+Agora tente novamente o <samp>chmod a+X teste</samp>
+</p>
+</li>
+<li>
+<p>
+Você deve ter reparado que a permissão de acesso especial <samp>X</samp> é
+semelhante a <samp>x</samp>, mas somente faz efeito quanto o arquivo já tem
+permissão de execução para o dono, grupo ou outros usuários.
+</p>
+</li>
+</ol>
+
+<p>
+Em diretórios, a permissão de acesso especial <samp>X</samp> funciona da
+mesma forma que <samp>x</samp>, até mesmo se o diretório não tiver nenhuma
+permissão de acesso (<samp>x</samp>).
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-perm-root">11.6 A conta root</h2>
+
+<p>
+<em>Esta seção foi retirada do Manual de Instalação da Debian</em>.
+</p>
+
+<p>
+A conta root é também chamada de <em>super usuário</em>, este é um login
+que não possui restrições de segurança.  A conta root somente deve ser
+usada para fazer a administração do sistema, e usada o menor tempo possível.
+</p>
+
+<p>
+Qualquer senha que criar deverá conter de 6 a 8 caracteres (em sistemas usando
+crypto) ou até frases inteiras (caso esteja usando MD5, que garante maior
+segurança), e também poderá conter letras maiúsculas e minúsculas, e
+também caracteres de pontuação.  Tenha um cuidado especial quando escolher
+sua senha root, porque ela é a conta mais poderosa.  Evite palavras de
+dicionário ou o uso de qualquer outros dados pessoais que podem ser
+adivinhados.
+</p>
+
+<p>
+Se qualquer um lhe pedir senha root, seja extremamente cuidadoso.  Você
+normalmente nunca deve distribuir sua conta root, a não ser que esteja
+administrando um computador com mais de um administrador do sistema.
+</p>
+
+<p>
+Utilize uma conta de usuário normal ao invés da conta root para operar seu
+sistema.  Porque não usar a conta root?  Bem, uma razão para evitar usar
+privilégios root é por causa da facilidade de se cometer danos irreparáveis
+como root.  Outra razão é que você pode ser enganado e rodar um programa
+<em>Cavalo de Tróia</em> -- que é um programa que obtém poderes do <em>super
+usuário</em> para comprometer a segurança do seu sistema sem que você saiba.
+</p>
+
+<hr>
+
+<h2 id="s-perm-chmod">11.7 chmod</h2>
+
+<p>
+Muda a permissão de acesso a um arquivo ou diretório.  Com este comando você
+pode escolher se usuário ou grupo terá permissões para ler, gravar, executar
+um arquivo ou arquivos.  Sempre que um arquivo é criado, seu dono é o
+usuário que o criou e seu grupo é o grupo do usuário (exceto para
+diretórios configurados com a permissão de grupo <samp>&quot;s&quot;</samp>,
+será visto adiante).
+</p>
+
+<p>
+<samp>chmod [<em>opções</em>] [<em>permissões</em>]
+[<em>diretório/arquivo</em>]</samp>
+</p>
+
+<p>
+Onde:
+</p>
+<dl>
+<dt><em>diretório/arquivo</em></dt>
+<dd>
+<p>
+Diretório ou arquivo que terá sua permissão mudada.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra todos os arquivos que estão sendo processados.
+</p>
+</dd>
+<dt>-f, --silent</dt>
+<dd>
+<p>
+Não mostra a maior parte das mensagens de erro.
+</p>
+</dd>
+<dt>-c, --change</dt>
+<dd>
+<p>
+Semelhante a opção -v, mas só mostra os arquivos que tiveram as permissões
+alteradas.
+</p>
+</dd>
+<dt>-R, --recursive</dt>
+<dd>
+<p>
+Muda permissões de acesso do <em>diretório/arquivo</em> no diretório atual e
+sub-diretórios.
+</p>
+</dd>
+<dt>ugoa+-=rwxXst</dt>
+<dd>
+<ul>
+<li>
+<p>
+<em>ugoa</em> - Controla que nível de acesso será mudado.  Especificam, em
+ordem, usuário (u), grupo (g), outros (o), todos (a).
+</p>
+</li>
+<li>
+<p>
+<em>+-=</em> - <em>+</em> coloca a permissão, <em>-</em> retira a permissão
+do arquivo e <em>=</em> define a permissão exatamente como especificado.
+</p>
+</li>
+<li>
+<p>
+rwx - <em>r</em> permissão de leitura do arquivo.  <em>w</em> permissão de
+gravação.  <em>x</em> permissão de execução (ou acesso a diretórios).
+</p>
+</li>
+</ul>
+</dd>
+</dl>
+
+<p>
+<code>chmod</code> não muda permissões de links simbólicos, as permissões
+devem ser mudadas no arquivo alvo do link.  Também podem ser usados códigos
+numéricos octais para a mudança das permissões de acesso a
+arquivos/diretórios.  Para detalhes veja <a href="#s-perm-octal">Modo de
+permissão octal, Section 11.10</a>.
+</p>
+
+<p>
+DICA: É possível copiar permissões de acesso do arquivo/diretório, por
+exemplo, se o arquivo <code>teste.txt</code> tiver a permissão de acesso
+<samp>r-xr-----</samp> e você digitar <samp>chmod o=u</samp>, as permissões
+de acesso dos outros usuários (o) serão idênticas ao do dono (u).  Então a
+nova permissão de acesso do arquivo <code>teste.txt</code> será
+<samp>r-xr--r-x</samp>
+</p>
+
+<p>
+Exemplos de permissões de acesso:
+</p>
+<dl>
+<dt><samp>chmod g+r *</samp></dt>
+<dd>
+<p>
+Permite que todos os usuários que pertençam ao grupo dos arquivos (g) tenham
+(+) permissões de leitura (r) em todos os arquivos do diretório atual.
+</p>
+</dd>
+<dt><samp>chmod o-r teste.txt</samp></dt>
+<dd>
+<p>
+Retira (-) a permissão de leitura (r) do arquivo <code>teste.txt</code> para
+os outros usuários (usuários que não são donos e não pertencem ao grupo do
+arquivo <code>teste.txt</code>).
+</p>
+</dd>
+<dt><samp>chmod uo+x teste.txt</samp></dt>
+<dd>
+<p>
+Inclui (+) a permissão de execução do arquivo <code>teste.txt</code> para o
+dono e outros usuários do arquivo.
+</p>
+</dd>
+<dt><samp>chmod a+x teste.txt</samp></dt>
+<dd>
+<p>
+Inclui (+) a permissão de execução do arquivo <code>teste.txt</code> para o
+dono, grupo e outros usuários.
+</p>
+</dd>
+<dt><samp>chmod a=rw teste.txt</samp></dt>
+<dd>
+<p>
+Define a permissão de todos os usuários exatamente (=) para leitura e
+gravação do arquivo <code>teste.txt</code>.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-perm-chgrp">11.8 chgrp</h2>
+
+<p>
+Muda o grupo de um arquivo/diretório.
+</p>
+
+<p>
+<samp>chgrp [<em>opções</em>] [grupo] [arquivo/diretório]</samp>
+</p>
+
+<p>
+Onde:
+</p>
+<dl>
+<dt><em>grupo</em></dt>
+<dd>
+<p>
+Novo grupo do <em>arquivo/diretório</em>.
+</p>
+</dd>
+<dt><em>arquivo/diretório</em></dt>
+<dd>
+<p>
+Arquivo/diretório que terá o grupo alterado.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-c, --changes</dt>
+<dd>
+<p>
+Somente mostra os arquivos/grupos que forem alterados.
+</p>
+</dd>
+<dt>-f, --silent</dt>
+<dd>
+<p>
+Não mostra mensagens de erro para arquivos/diretórios que não puderam ser
+alterados.
+</p>
+</dd>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra todas as mensagens e arquivos sendo modificados.
+</p>
+</dd>
+<dt>-R, --recursive</dt>
+<dd>
+<p>
+Altera os grupos de arquivos/sub-diretórios do diretório atual.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-perm-chown">11.9 chown</h2>
+
+<p>
+Muda dono de um arquivo/diretório.  Opcionalmente pode também ser usado para
+mudar o grupo.
+</p>
+
+<p>
+<samp>chown [<em>opções</em>] [dono.grupo] [diretório/arquivo]</samp>
+</p>
+
+<p>
+onde:
+</p>
+<dl>
+<dt><em>dono.grupo</em></dt>
+<dd>
+<p>
+Nome do <em>dono.grupo</em> que será atribuído ao
+<em>diretório/arquivo</em>.  O grupo é opcional.
+</p>
+</dd>
+<dt><em>diretório/arquivo</em></dt>
+<dd>
+<p>
+Diretório/arquivo que o dono.grupo será modificado.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra os arquivos enquanto são alterados.
+</p>
+</dd>
+<dt>-f, --supress</dt>
+<dd>
+<p>
+Não mostra mensagens de erro durante a execução do programa.
+</p>
+</dd>
+<dt>-c, --changes</dt>
+<dd>
+<p>
+Mostra somente arquivos que forem alterados.
+</p>
+</dd>
+<dt>-R, --recursive</dt>
+<dd>
+<p>
+Altera dono e grupo de arquivos no diretório atual e sub-diretórios.
+</p>
+</dd>
+</dl>
+
+<p>
+O <em>dono.grupo</em> pode ser especificado usando o nome de grupo ou o código
+numérico correspondente ao grupo (GID).
+</p>
+
+<p>
+Você deve ter permissões de gravação no diretório/arquivo para alterar seu
+dono/grupo.
+</p>
+
+<ul>
+<li>
+<p>
+<samp>chown gleydson teste.txt</samp> - Muda o dono do arquivo
+<code>teste.txt</code> para <samp>gleydson</samp>.
+</p>
+</li>
+<li>
+<p>
+<samp>chown gleydson.foca teste.txt</samp> - Muda o dono do arquivo
+<code>teste.txt</code> para <samp>gleydson</samp> e seu grupo para
+<samp>foca</samp>.
+</p>
+</li>
+<li>
+<p>
+<samp>chown -R gleydson.focalinux *</samp> - Muda o dono/grupo dos arquivos do
+diretório atual e sub-diretórios para <samp>gleydson/focalinux</samp> (desde
+que você tenha permissões de gravação no diretórios e sub-diretórios).
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-perm-octal">11.10 Modo de permissão octal</h2>
+
+<p>
+Ao invés de utilizar os modos de permissão <samp>+r</samp>, <samp>-r</samp>,
+etc, pode ser usado o modo octal para se alterar a permissão de acesso a um
+arquivo.  O modo octal é um conjunto de oito números onde cada número define
+um tipo de acesso diferente.
+</p>
+
+<p>
+É mais flexível gerenciar permissões de acesso usando o modo octal ao invés
+do comum, pois você especifica diretamente a permissão do dono, grupo, outros
+ao invés de gerenciar as permissões de cada um separadamente.  Abaixo a lista
+de permissões de acesso octal:
+</p>
+<ul>
+<li>
+<p>
+<samp>0</samp> - Nenhuma permissão de acesso.  Equivalente a -rwx.
+</p>
+</li>
+<li>
+<p>
+<samp>1</samp> - Permissão de execução (x).
+</p>
+</li>
+<li>
+<p>
+<samp>2</samp> - Permissão de gravação (w).
+</p>
+</li>
+<li>
+<p>
+<samp>3</samp> - Permissão de gravação e execução (wx).  Equivalente a
+permissão 2+1
+</p>
+</li>
+<li>
+<p>
+<samp>4</samp> - Permissão de leitura (r).
+</p>
+</li>
+<li>
+<p>
+<samp>5</samp> - Permissão de leitura e execução (rx).  Equivalente a
+permissão 4+1
+</p>
+</li>
+<li>
+<p>
+<samp>6</samp> - Permissão de leitura e gravação (rw).  Equivalente a
+permissão 4+2
+</p>
+</li>
+<li>
+<p>
+<samp>7</samp> - Permissão de leitura, gravação e execução.  Equivalente a
++rwx (4+2+1).
+</p>
+</li>
+</ul>
+
+<p>
+O uso de um deste números define a permissão de acesso do <em>dono</em>,
+<em>grupo</em> ou <em>outros usuários</em>.  Um modo fácil de entender como
+as permissões de acesso octais funcionam, é através da seguinte tabela:
+</p>
+
+<pre>
+     1 = Executar
+     2 = Gravar
+     4 = Ler
+     
+     * Para Dono e Grupo, multiplique as permissões acima por x100 e x10.
+</pre>
+
+<p>
+Basta agora fazer o seguinte:
+</p>
+<ul>
+<li>
+<p>
+Somente permissão de execução, use 1.
+</p>
+</li>
+<li>
+<p>
+Somente a permissão de leitura, use 4.
+</p>
+</li>
+<li>
+<p>
+Somente permissão de gravação, use 2.
+</p>
+</li>
+<li>
+<p>
+Permissão de leitura/gravação, use 6 (equivale a 2+4 / Gravar+Ler).
+</p>
+</li>
+<li>
+<p>
+Permissão de leitura/execução, use 5 (equivale a 1+4 / Executar+Ler).
+</p>
+</li>
+<li>
+<p>
+Permissão de execução/gravação, use 3 (equivale a 1+2 / Executar+Gravar).
+</p>
+</li>
+<li>
+<p>
+Permissão de leitura/gravação/execução, use 7 (equivale a 1+2+4 /
+Executar+Gravar+Ler).
+</p>
+</li>
+</ul>
+
+<p>
+Vamos a prática com alguns exemplos:
+</p>
+
+<pre>
+     &quot;chmod 764 teste&quot;
+</pre>
+
+<p>
+Os números são interpretados da <strong>direita para a esquerda</strong> como
+permissão de acesso aos <em>outros usuários</em> (4), <em>grupo</em> (6), e
+<em>dono</em> (7).  O exemplo acima faz os <em>outros usuários</em> (4) terem
+acesso somente leitura (r) ao arquivo <code>teste</code>, o <em>grupo</em> (6)
+ter a permissão de leitura e gravação (w), e o <em>dono</em> (7) ter
+permissão de leitura, gravação e execução (rwx) ao arquivo
+<code>teste</code>.
+</p>
+
+<p>
+Outro exemplo:
+</p>
+
+<pre>
+     &quot;chmod 40 teste&quot;
+</pre>
+
+<p>
+O exemplo acima define a permissão de acesso dos <em>outros usuários</em> (0)
+como nenhuma, e define a permissão de acesso do <em>grupo</em> (4) como
+somente leitura (r).  Note usei somente dois números e então a permissão de
+acesso do <em>dono</em> do arquivo <samp>não</samp> é modificada (leia as
+permissões de acesso da direita para a esquerda!).  Para detalhes veja a lista
+de permissões de acesso em modo octal no inicio desta seção.
+</p>
+
+<pre>
+     &quot;chmod 751 teste&quot;
+</pre>
+
+<p>
+O exemplo acima define a permissão de acesso dos <em>outros usuários</em> (1)
+para somente execução (x), o acesso do <em>grupo</em> (5) como leitura e
+execução (rx) e o acesso do <em>dono</em> (7) como leitura, gravação e
+execução (rwx).
+</p>
+
+<hr>
+
+<h2 id="s-perm-umask">11.11 umask</h2>
+
+<p>
+A umask (<em>user mask</em>) são 3 números que definem as permissões
+iniciais do <samp>dono</samp>, <samp>grupo</samp> e <samp>outros
+usuários</samp> que o arquivo/diretório receberá quando for criado ou
+copiado para um novo local.  Digite <samp>umask</samp> sem parâmetros para
+retornar o valor de sua umask atual.
+</p>
+
+<p>
+A umask tem efeitos diferentes caso o arquivo que estiver sendo criado for
+<em>binário</em> (um programa executável) ou <em>texto</em> (<a
+href="ch-bas.en.html#s-basico-arquivo-bintext">Arquivo texto e binário,
+Section 2.2.3</a>) .  Veja a tabela a seguir para ver qual é a mais adequada a
+sua situação:
+</p>
+
+<pre>
+     ---------------------------------------------
+     |       |        ARQUIVO       | DIRETÓRIO  |
+     | UMASK |----------------------|            |
+     |       |   Binário  |  Texto  |            |
+     |------------------------------|------------|
+     |   0   |    r-x     |   rw-   |    rwx     |
+     |   1   |    r--     |   rw-   |    rw-     |
+     |   2   |    r-x     |   r--   |    r-x     |
+     |   3   |    r--     |   r--   |    r--     |
+     |   4   |    --x     |   -w-   |    -wx     |
+     |   5   |    ---     |   -w-   |    -w-     |
+     |   6   |    --x     |   ---   |    --x     |
+     |   7   |    ---     |   ---   |    ---     |
+     ---------------------------------------------
+</pre>
+
+<p>
+Um <em>arquivo texto</em> criado com o comando <samp>umask 012;touch
+texto.txt</samp> receberá as permissões <samp>-rw-rw-r--</samp>, pois 0
+(dono) terá permissões <samp>rw-</samp>, 1 (grupo), terá permissões
+<samp>rw-</samp> e 2 (outros usuários) terão permissões <samp>r--</samp>.
+Um <em>arquivo binário</em> copiado com o comando <samp>umask 012;cp /bin/ls
+/tmp/ls</samp> receberá as permissões <samp>-r-xr--r-x</samp> (confira com a
+tabela acima).
+</p>
+
+<p>
+Por este motivo é preciso atenção antes de escolher a umask, um valor mal
+escolhido poderia causar problemas de acesso a arquivos, diretórios ou
+programas não sendo executados.  O valor padrão da umask na maioria das
+distribuições atuais é 022.  A umask padrão no sistema Debian é a 022 .
+</p>
+
+<p>
+A umask é de grande utilidade para programas que criam arquivos/diretórios
+temporários, desta forma pode-se bloquear o acesso de outros usuários desde a
+criação do arquivo, evitando recorrer ao <code>chmod</code>.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-cmdc.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ 11 ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-redir.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

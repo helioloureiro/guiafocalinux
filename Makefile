@@ -101,8 +101,11 @@ SRC += Avancado/telnet/telnet-Introducao.sgml
 
 all: $(PACKAGES)
 
-index.html: $(SRC)
-	debiandoc2html -C -l en.UTF-8 -1 index.sgml
+index.html: html 
+
+html: $(SRC)
+	debiandoc2html -C -l en.UTF-8 -b html index.sgml
+	mv html.html html
 
 index.en.pdf: $(SRC)
 	debiandoc2pdf -C -l en.UTF-8 index.sgml

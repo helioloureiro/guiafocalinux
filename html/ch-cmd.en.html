@@ -1,0 +1,760 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Comandos para manipulação de Arquivos</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-cmdd.en.html" rel="prev">
+<link href="ch-cmdv.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-cmd"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-cmdd.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ 7 ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-cmdv.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 7 - Comandos para manipulação de Arquivos
+</h1>
+
+<hr>
+
+<p>
+Abaixo, comandos utilizados para manipulação de arquivos.
+</p>
+
+<hr>
+
+<h2 id="s-comandos-cat">7.1 cat</h2>
+
+<p>
+Mostra o conteúdo de um arquivo binário ou texto.
+</p>
+
+<p>
+<samp>cat [opções] [<em>diretório/arquivo</em>]
+[<em>diretório1/arquivo1</em>]</samp>
+</p>
+
+<dl>
+<dt><em>diretório/arquivo</em></dt>
+<dd>
+<p>
+Localização do arquivo que deseja visualizar o conteúdo.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-n, --number</dt>
+<dd>
+<p>
+Mostra o número das linhas enquanto o conteúdo do arquivo é mostrado.
+</p>
+</dd>
+<dt>-s, --squeeze-blank</dt>
+<dd>
+<p>
+Não mostra mais que uma linha em branco entre um parágrafo e outro.
+</p>
+</dd>
+<dt>-</dt>
+<dd>
+<p>
+Lê a entrada padrão.
+</p>
+</dd>
+</dl>
+
+<p>
+O comando <code>cat</code> trabalha com arquivos texto.  Use o comando
+<code>zcat</code> para ver diretamente arquivos compactados com
+<code>gzip</code>.
+</p>
+
+<p>
+Exemplo: <samp>cat /usr/doc/copyright/GPL</samp>
+</p>
+
+<hr>
+
+<h2 id="s-comando-tac">7.2 tac</h2>
+
+<p>
+Mostra o conteúdo de um arquivo binário ou texto (como o <code>cat</code>)
+só que em ordem inversa.
+</p>
+
+<p>
+<samp>tac [opções] [<em>diretório/arquivo</em>]
+[<em>diretório1/arquivo1</em>]</samp>
+</p>
+
+<dl>
+<dt><em>diretório/arquivo</em></dt>
+<dd>
+<p>
+Localização do arquivo que deseja visualizar o conteúdo
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-s [string]</dt>
+<dd>
+<p>
+Usa o [string] como separador de registros.
+</p>
+</dd>
+<dt>-</dt>
+<dd>
+<p>
+Lê a entrada padrão.
+</p>
+</dd>
+</dl>
+
+<p>
+Exemplo: <samp>tac /usr/doc/copyright/GPL</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-comando-rm">7.3 rm</h2>
+
+<p>
+Apaga arquivos.  Também pode ser usado para apagar diretórios e
+sub-diretórios vazios ou que contenham arquivos.
+</p>
+
+<p>
+<samp>rm [<em>opções</em>][<em>caminho</em>][<em>arquivo/diretório</em>]
+[<em>caminho1</em>][<em>arquivo1/diretório1</em>]</samp>
+</p>
+
+<p>
+onde:
+</p>
+<dl>
+<dt><em>caminho</em></dt>
+<dd>
+<p>
+Localização do arquivo que deseja apagar.  Se omitido, assume que o arquivo
+esteja no diretório atual.
+</p>
+</dd>
+<dt><em>arquivo/diretório</em></dt>
+<dd>
+<p>
+Arquivo que será apagado.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-i, --interactive</dt>
+<dd>
+<p>
+Pergunta antes de remover, esta é ativada por padrão.
+</p>
+</dd>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra os arquivos na medida que são removidos.
+</p>
+</dd>
+<dt>-r, --recursive</dt>
+<dd>
+<p>
+Usado para remover arquivos em sub-diretórios.  Esta opção também pode ser
+usada para remover sub-diretórios.
+</p>
+</dd>
+<dt>-f, --force</dt>
+<dd>
+<p>
+Remove os arquivos sem perguntar.
+</p>
+</dd>
+<dt>-- arquivo</dt>
+<dd>
+<p>
+Remove arquivos/diretórios que contém caracteres especiais.  O separador
+&quot;--&quot; funciona com todos os comandos do shell e permite que os
+caracteres especiais como &quot;*&quot;, &quot;?&quot;, &quot;-&quot;, etc.
+sejam interpretados como caracteres comuns.
+</p>
+</dd>
+</dl>
+
+<p>
+Use com atenção o comando <code>rm</code>, uma vez que os arquivos e
+diretórios forem apagados, eles não poderão ser mais recuperados.
+</p>
+
+<p>
+Exemplos:
+</p>
+<ul>
+<li>
+<p>
+<samp>rm teste.txt</samp> - Apaga o arquivo <code>teste.txt</code> no
+diretório atual.
+</p>
+</li>
+<li>
+<p>
+<samp>rm *.txt</samp> - Apaga todos os arquivos do diretório atual que
+terminam com <code>.txt</code>.
+</p>
+</li>
+<li>
+<p>
+<samp>rm *.txt teste.novo</samp> - Apaga todos os arquivos do diretório atual
+que terminam com <code>.txt</code> e também o arquivo <code>teste.novo</code>.
+</p>
+</li>
+<li>
+<p>
+<samp>rm -rf /tmp/teste/*</samp> - Apaga todos os arquivos e sub-diretórios do
+diretório <code>/tmp/teste</code> mas mantém o sub-diretório
+<code>/tmp/teste</code>.
+</p>
+</li>
+<li>
+<p>
+<samp>rm -rf /tmp/teste</samp> - Apaga todos os arquivos e sub-diretórios do
+diretório <code>/tmp/teste</code>, inclusive <code>/tmp/teste</code>.
+</p>
+</li>
+<li>
+<p>
+<samp>rm -f -- --arquivo--</samp> - Remove o arquivo de nome
+<code>--arquivo--</code>.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-comando-cp">7.4 cp</h2>
+
+<p>
+Copia arquivos.
+</p>
+
+<p>
+<samp>cp [<em>opções</em>] [<em>origem</em>] [<em>destino</em>]</samp>
+</p>
+
+<p>
+onde:
+</p>
+<dl>
+<dt><em>origem</em></dt>
+<dd>
+<p>
+Arquivo que será copiado.  Podem ser especificados mais de um arquivo para ser
+copiado usando &quot;Coringas&quot; (veja <a
+href="ch-bas.en.html#s-basico-coringas">Coringas, Section 2.12</a>).
+</p>
+</dd>
+<dt><em>destino</em></dt>
+<dd>
+<p>
+O caminho ou nome de arquivo onde será copiado.  Se o destino for um
+diretório, os arquivos de origem serão copiados para dentro do diretório.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>i, --interactive</dt>
+<dd>
+<p>
+Pergunta antes de substituir um arquivo existente.
+</p>
+</dd>
+<dt>-f, --force</dt>
+<dd>
+<p>
+Não pergunta, substitui todos os arquivos caso já exista.
+</p>
+</dd>
+<dt>-r</dt>
+<dd>
+<p>
+Copia arquivos dos diretórios e subdiretórios da origem para o destino.  É
+recomendável usar -R ao invés de -r.
+</p>
+</dd>
+<dt>-R, --recursive</dt>
+<dd>
+<p>
+Copia arquivos e sub-diretórios (como a opção -r) e também os arquivos
+especiais FIFO e dispositivos.
+</p>
+</dd>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra os arquivos enquanto estão sendo copiados.
+</p>
+</dd>
+</dl>
+
+<p>
+O comando <code>cp</code> copia arquivos da ORIGEM para o DESTINO.  Ambos
+origem e destino terão o mesmo conteúdo após a cópia.
+</p>
+
+<p>
+Exemplos:
+</p>
+<dl>
+<dt><samp>cp teste.txt teste1.txt</samp></dt>
+<dd>
+<p>
+Copia o arquivo <code>teste.txt</code> para <code>teste1.txt</code>.
+</p>
+</dd>
+<dt><samp>cp teste.txt /tmp</samp></dt>
+<dd>
+<p>
+Copia o arquivo <code>teste.txt</code> para dentro do diretório
+<code>/tmp</code>.
+</p>
+</dd>
+<dt><samp>cp * /tmp</samp></dt>
+<dd>
+<p>
+Copia todos os arquivos do diretório atual para <code>/tmp</code>.
+</p>
+</dd>
+<dt><samp>cp /bin/* .</samp></dt>
+<dd>
+<p>
+Copia todos os arquivos do diretório <code>/bin</code> para o diretório em
+que nos encontramos no momento.
+</p>
+</dd>
+<dt><samp>cp -R /bin /tmp</samp></dt>
+<dd>
+<p>
+Copia o diretório <code>/bin</code> e todos os arquivos/sub-diretórios
+existentes para o diretório <code>/tmp</code>.
+</p>
+</dd>
+<dt><samp>cp -R /bin/* /tmp</samp></dt>
+<dd>
+<p>
+Copia todos os arquivos do diretório <code>/bin</code> (exceto o diretório
+<code>/bin</code>) e todos os arquivos/sub-diretórios existentes dentro dele
+para <code>/tmp</code>.
+</p>
+</dd>
+<dt><samp>cp -R /bin /tmp</samp></dt>
+<dd>
+<p>
+Copia todos os arquivos e o diretório <code>/bin</code> para
+<code>/tmp</code>.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-comando-mv">7.5 mv</h2>
+
+<p>
+Move ou renomeia arquivos e diretórios.  O processo é semelhante ao do
+comando <code>cp</code> mas o arquivo de origem é apagado após o término da
+cópia.
+</p>
+
+<p>
+<samp>mv [<em>opções</em>] [<em>origem</em>] [<em>destino</em>]</samp>
+</p>
+
+<p>
+Onde:
+</p>
+<dl>
+<dt><em>origem</em></dt>
+<dd>
+<p>
+Arquivo/diretório de origem.
+</p>
+</dd>
+<dt><em>destino</em></dt>
+<dd>
+<p>
+Local onde será movido ou novo nome do arquivo/diretório.
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-f, --force</dt>
+<dd>
+<p>
+Substitui o arquivo de destino sem perguntar.
+</p>
+</dd>
+<dt>-i, --interactive</dt>
+<dd>
+<p>
+Pergunta antes de substituir.  É o padrão.
+</p>
+</dd>
+<dt>-v, --verbose</dt>
+<dd>
+<p>
+Mostra os arquivos que estão sendo movidos.
+</p>
+</dd>
+</dl>
+
+<p>
+O comando <code>mv</code> copia um arquivo da <em>ORIGEM</em> para o
+<em>DESTINO</em> (semelhante ao <code>cp</code>), mas após a cópia, o arquivo
+de <em>ORIGEM</em> é apagado.
+</p>
+
+<p>
+Exemplos:
+</p>
+<dl>
+<dt><samp>mv teste.txt teste1.txt</samp></dt>
+<dd>
+<p>
+Muda o nome do arquivo <code>teste.txt</code> para <code>teste1.txt</code>.
+</p>
+</dd>
+<dt><samp>mv teste.txt /tmp</samp></dt>
+<dd>
+<p>
+Move o arquivo teste.txt para <code>/tmp</code>.  Lembre-se que o arquivo de
+origem é apagado após ser movido.
+</p>
+</dd>
+<dt><samp>mv teste.txt teste.new</samp> (supondo que <code>teste.new</code> já exista)</dt>
+<dd>
+<p>
+Copia o arquivo <code>teste.txt</code> por cima de <code>teste.new</code> e
+apaga <code>teste.txt</code> após terminar a cópia.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<p>
+[ <a href="ch-cmdd.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ 7 ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-cmdv.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

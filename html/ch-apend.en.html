@@ -1,0 +1,825 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Apêndice</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-virt-intro.en.html" rel="prev">
+<link href="index.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-apend"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-virt-intro.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ 19 ]
+[ <a href="index.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 19 - Apêndice
+</h1>
+
+<hr>
+
+<p>
+Este capítulo contém considerações sobre o guia Foca GNU/Linux.
+</p>
+
+<hr>
+
+<h2 id="s-apend-sobre">19.1 Sobre este guia</h2>
+
+<p>
+O guia Foca foi criado em 12 de Novembro de 1999.  A versão que está lendo
+tem o objetivo de servir como referência a usuários <em>Iniciantes</em> e que
+estão tendo o primeiro contato com o sistema operacional
+<code>GNU/Linux</code>, ou com referência de consulta rápida.  Uma versão
+que abrange um diferente nível de aprendizado ou mais completa pode ser
+baixada de <code><a href="http://www.guiafoca.org">Página Oficial do guia Foca
+GNU/Linux</a></code>.
+</p>
+
+<p>
+A versão que esta lendo agora foi gerada com as seguintes opções:
+</p>
+<ul>
+<li>
+<p>
+Descrição detalhada de comandos
+</p>
+</li>
+<li>
+<p>
+Opções usadas em comandos e programas
+</p>
+</li>
+<li>
+<p>
+Observações sobre comandos e configurações
+</p>
+</li>
+<li>
+<p>
+Exemplos para a melhor compreensão do assunto discutido.
+</p>
+</li>
+</ul>
+
+<p>
+e contém o(s) nível(is) de aprendizado (Iniciante, Intermediário e
+Avançado):
+</p>
+<ul>
+<li>
+<p>
+Iniciante
+</p>
+</li>
+</ul>
+
+<p>
+O <em>Foca GNU/Linux</em> é atualizado frequentemente, por este motivo
+recomendo que assine um dos canais de comunicação para ser informado de novas
+versões:
+</p>
+<ul>
+<li>
+<p>
+Assinar o Twitter do focalinux <code><a
+href="mailto:@focalinux">mailto:@focalinux</a></code>
+</p>
+</li>
+<li>
+<p>
+Assinar o RSS presente na página do guia e atualizações.
+</p>
+</li>
+<li>
+<p>
+A ficha do aviso de atualizações na página web em <code><a
+href="http://www.guiafoca.org">Página Oficial do guia Foca
+GNU/Linux</a></code> no fim da página principal.  Após preencher a ficha do
+aviso de atualizações, eu te enviarei um e-mail sobre o lançamento de novas
+versões do guia e o que foi modificado, desta forma você poderá decidir em
+copia-la caso a nova versão contém modificações que considera importantes.
+</p>
+</li>
+</ul>
+
+<p>
+Versões diferentes deste guia podem ser geradas a partir do código fonte SGML
+ou obtidas através da home page principal (para detalhes veja <a
+href="#s-apend-homepage">Onde encontrar a versão mais nova do guia?, Section
+19.4</a>).
+</p>
+
+<hr>
+
+<h2 id="s-apend-autor">19.2 Sobre o Autor</h2>
+
+<p>
+Gleydson Mazioli da Silva é Capixaba, nascido em Vila Velha.  Amante de
+eletrônica desde criança, foi atraido para a informática através da
+curiosidade em funcionamento e reparo de hardware.
+</p>
+
+<p>
+Se dedica ao sistema <code>Linux</code> desde 1997.  determinado na
+realização de testes de ferramentas e sistemas avaliando pontos fortes e
+fracos de cada uma.  Logo que iniciou em <code>Linux</code> passou a estudar
+exaustivamente aspectos técnicos de distribuições e rede em
+<code>Linux</code>/<code>BSD</code>.
+</p>
+
+<p>
+Entre coisas que gosta de fazer/implementar em <code>Linux</code>:
+possibilidade de pesquisa e atualização de conhecimento constante,
+automatização e tomada inteligente de decisões, níveis de segurança da
+informação (tanto físico e lógico), firewalls, virtualização, redes
+virtuais, integração de sistemas, forense computacional, documentação de
+processos, desenvolvimento de ferramentas GPL para a comunidade, depuração,
+desenvolvimento de documentações, etc.
+</p>
+
+<p>
+Um dos desenvolvedores da distribuição <em>Liberdade</em>, <em>CAETECT</em>,
+<em>Debian-BR</em> e desenvolvedor oficial da distribuição <em>Debian</em>.
+Atuou como tradutor do LDP-BR, traduzindo vários HOW-TOs importantes para a
+comunidade Linux Brasileira.  É um dos administradores do projeto CIPSGA,
+cuidando de uma infinidade de serviços que o projeto oferece a comunidade que
+deseja estrutura para hospedar, fortalecer e manter projetos em software livre.
+</p>
+
+<p>
+Trabalhou para algumas empresas do Espírito Santo, no Governo Federal e de
+estados na implantação de sistemas em software livre.  Atualmente atua como
+gerente de tecnologia da Spirit Linux, uma empresa focada na inovação,
+avaliação e integração de ferramentas de código aberto junto a seus
+clientes.
+</p>
+
+<p>
+Concorda com certificações, mas destaca que o mais importante é aproveitar a
+oportunidade dada pela certificação para estudo e auto avaliação de seus
+pontos fracos e assim procurar melhora-los.  Possui certificação LPI nível 3
+e um ISO9001 internacional em Administração Linux, como primeiro no ranking
+Brasileiro.
+</p>
+
+<p>
+E-mail: E-mail: <code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>,
+Twitter: <code><a
+href="mailto:@gleydsonmazioli">mailto:@gleydsonmazioli</a></code>.
+</p>
+
+<hr>
+
+<h2 id="s-apend-ref">19.3 Referências de auxílio ao desenvolvimento do guia</h2>
+
+<ul>
+<li>
+<p>
+As seções sobre comandos/programas foram construídas após uso, teste e
+observação do comportamento das opções dos comandos/programas, help on
+line, páginas de manual, info pages e documentação técnica do sistema.
+</p>
+</li>
+<li>
+<p>
+How-tos do Linux (principalmente o <em>Networking Howto</em>,
+<em>Security-Howto</em>) ajudaram a formar a base de desenvolvimento do guia e
+desenvolver algumas seções (versões <em>Intermediário</em> e
+<em>Avançado</em> somente).
+</p>
+</li>
+<li>
+<p>
+Todos os exemplos e seções descritivas do guia são de minha autoria.
+</p>
+</li>
+<li>
+<p>
+Manual de Instalação da <em>Debian GNU/Linux</em> - Os capítulos contendo
+materiais extraídos do manual de instalação da Debian são muito úteis e
+explicativos, seria desnecessário reescrever um material como este.  O texto
+é claro e didaticamente organizado, o documento aborda detalhes técnicos
+úteis sobre hardwares em geral e o Linux ausentes nos manuais de outras
+distribuições Linux.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-apend-homepage">19.4 Onde encontrar a versão mais nova do guia?</h2>
+
+<p>
+Novas versões deste guia, avisos de lançamento, outros níveis de aprendizado
+(Iniciante, Intermediário e Avançado), versões para outras distribuições
+Linux podem ser encontradas em: <code><a href="http://www.guiafoca.org">Página
+Oficial do guia Foca GNU/Linux</a></code>.
+</p>
+
+<p>
+Se quiser receber notificações de novas versões, use uma das formas a
+seguir:
+</p>
+<ul>
+<li>
+<p>
+por E-Mail: envie uma mensagem para <code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>
+pedindo para ser incluído na lista de atualizações do guia ou preencha o
+formulário encontrado no final da Home Page do guia.
+</p>
+</li>
+<li>
+<p>
+Twitter: Assine o Twitter do guia Foca: @focalinux
+</p>
+</li>
+<li>
+<p>
+RSS: Assine o RSS na página oficial do guia (citado acima) para receber
+atualizações e novidades.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-apend-colaboradores">19.5 Colaboradores do Guia</h2>
+
+<p>
+Entre as principais colaborações até a versão atual, posso citar as
+seguintes:
+</p>
+<ul>
+<li>
+<p>
+<samp>Djalma Valois <code><a
+href="mailto:djalma@cipsga.org.br">mailto:djalma@cipsga.org.br</a></code></samp>
+- Pela atual hospedagem do Foca GNU/Linux.  Estou muito feliz vendo o Foca
+GNU/Linux fazendo parte de um projeto tão positivo como o CIPSGA é para o
+crescimento e desenvolvimento do software livre nacional.  [<a
+href="footnotes.en.html#f5" name="fr5">5</a>]
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Bakurih <code><a
+href="mailto:bakurih@yahoo.com">mailto:bakurih@yahoo.com</a></code></samp> -
+Revisão inicial do guia, após suas primeiras versões.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Eduardo Marcel Maçan <code><a
+href="mailto:macan@debian.org">mailto:macan@debian.org</a></code></samp> - Pela
+antiga hospedagem, na época do site metainfo.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Michelle Ribeiro <code><a
+href="mailto:michelle@cipsga.org.br">mailto:michelle@cipsga.org.br</a></code></samp>
+- Por dispensar parte de seu atencioso tempo enviando revisões e sugestões
+que estão melhorando bastante a qualidade do guia.  Entre eles detalhes que
+passaram despercebidos durante muito tempo no guia e página principal.
+</p>
+
+<p>
+E também por cuidar do fonte do guia ;-)
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Augusto Campos <code><a
+href="mailto:brain@matrix.com.br">mailto:brain@matrix.com.br</a></code></samp>
+- Descrição sobre a distribuição <code>Suse</code> em <a
+href="ch-intro.en.html#s-introducao-distrib">Distribuições do Linux, Section
+1.5</a> .
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Paulo Henrique Baptista de Oliveira <code><a
+href="mailto:baptista@linuxsolutions.com.br">mailto:baptista@linuxsolutions.com.br</a></code></samp>
+- Pelo apoio moral oferecido durante os frequentes lançamentos do guia,
+acompanhamento e divulgação.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Diego Abadan <code><a
+href="mailto:diego@hipernet.ufsc.br">mailto:diego@hipernet.ufsc.br</a></code></samp>
+- Envio de correções significativas, novos endereços de listas de
+discussão.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Alexandre Costa <code><a
+href="mailto:alebyte@bol.com.br">mailto:alebyte@bol.com.br</a></code></samp> -
+Envio de centenas de patches ortográficos nas versões Iniciante e
+Intermediário do guia que passaram desapercebidas durante várias versões do
+guia...
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Christoph Simon <code><a
+href="mailto:ciccio@prestonet.com.br">mailto:ciccio@prestonet.com.br</a></code></samp>
+- Pela pesquisa e a gigantesca coletânea de textos sobre o Linux enviada.
+Eles estão sendo muito úteis tanto para mim quanto no desenvolvimento do
+guia.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Gustavo Noronha <code><a
+href="mailto:dockov@zaz.com.br">mailto:dockov@zaz.com.br</a></code></samp> -
+Vem enviando freqüentes correções, contribuições construtivas ao
+desenvolvimento além de apoio ao desenvolvimento do guia .  Vale a pena
+destacá-lo por sua atual dedicação junto a distribuição Debian/GNU, sua
+tradução e a comunidade Open Source.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Pedro Zorzenon Neto <code><a
+href="mailto:pzn@debian.org">mailto:pzn@debian.org</a></code></samp> - Envio de
+diversas atualizações para o nível Avançado, principalmente sobre o
+firewall iptables.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Helio Loureiro <code><a
+href="mailto:helio@loureiro.eng.br">mailto:helio@loureiro.eng.br</a></code></samp>
+- Migração do guia pro GitHub pra facilitar edição e contribuições,
+systemd e revisão geral.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Gustavo Soares <code><a
+href="mailto:slot.mg@gmail.com">mailto:slot.mg@gmail.com</a></code></samp> -
+nginx, nftables, haproxy.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Sergio Clemente <code><a
+href="mailto:sergiotucano@yahoo.com.br">mailto:sergiotucano@yahoo.com.br</a></code></samp>
+- git e correções.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-apend-mr">19.6 Marcas Registradas</h2>
+
+<p>
+Todas as marcas registradas citadas neste guia são propriedades de seus
+respectivos autores.
+</p>
+
+<hr>
+
+<h2 id="s-apend-new">19.7 Futuras versões</h2>
+
+<p>
+Estes são os materiais que pretendo adicionar em futuras versões do guia:
+</p>
+<ul>
+<li>
+<p>
+Acrescentar mais detalhes sobre o sistema gráfico X-Window.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Entre outros ítens que venho estudando para verificar se encaixam no perfil do
+guia.
+</p>
+</li>
+</ul>
+
+<p>
+Esta é uma futura implementação que venho estudando para acompanhar o
+crescimento do guia.  Sugestões são bem vindas e podem ser enviadas para
+<code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>.
+</p>
+
+<hr>
+
+<h2 id="s-apend-pgp">19.8 Chave Pública PGP</h2>
+
+<p>
+Chaves PGP são usadas para criptografar arquivos, e-mails ou qualquer outra
+coisa que desejamos que somente uma pessoa tenha acesso.  O PGP segue o padrão
+de chave pública/privada; a chave pública é distribuída a todos e a chave
+privada permanece na posse do criador para que ele seja o único a ter acesso
+aos dados criptografados após digitar a &quot;frase de acesso&quot; correta.
+</p>
+
+<p>
+Minha chave PGP segue abaixo, ela também pode ser encontrada em <code><a
+href="http://pgp.ai.mit.edu">http://pgp.ai.mit.edu</a></code>.  Se você deseja
+saber mais sobre o PGP, recomendo um excelente documento encontrado na seção
+<samp>Apostilas</samp> em <code><a
+href="http://www.cipsga.org.br/">http://www.cipsga.org.br/</a></code>
+</p>
+
+<pre>
+     -----BEGIN PGP PUBLIC KEY BLOCK-----
+     Version: GnuPG v1.0.6 (GNU/Linux)
+     Comment: For info see http://www.gnupg.org
+     
+     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
+     =bvnT
+     -----END PGP PUBLIC KEY BLOCK-----
+</pre>
+
+<hr>
+
+<p>
+[ <a href="ch-virt-intro.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ 19 ]
+[ <a href="index.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

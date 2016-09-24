@@ -1,0 +1,1568 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Explicações Básicas</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-intro.en.html" rel="prev">
+<link href="ch-d-l.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-bas"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-intro.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ 2 ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-d-l.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 2 - Explicações Básicas
+</h1>
+
+<hr>
+
+<p>
+Este capítulo traz explicações sobre os principais componentes existentes no
+computador e do sistema operacional <code>Linux</code>.
+</p>
+
+<hr>
+
+<h2 id="s-basico-hardsoft">2.1 Hardware e Software</h2>
+
+<p>
+<em>Hardware</em> - Significa parte física do computador (disquete, pen-drive,
+impressoras, monitores, placa mãe, placa de fax, discos rígidos, etc).
+</p>
+
+<p>
+<em>Software</em> - São os programas usados no computador (sistema
+operacional, processador de textos, planilha, banco de dados, scripts,
+comandos, etc).
+</p>
+
+<hr>
+
+<h2 id="s-basico-arquivo">2.2 Arquivos</h2>
+
+<p>
+É onde gravamos nossos dados.  Um arquivo pode conter um texto feito por nós,
+uma música, programa, planilha, etc.
+</p>
+
+<p>
+Cada arquivo deve ser identificado por um <samp>nome</samp>, assim ele pode ser
+encontrado facilmente quando desejar usa-lo.  Se estiver fazendo um trabalho de
+história, nada melhor que salva-lo com o nome <code>historia</code>.  Um
+arquivo pode ser binário ou texto (para detalhes veja <a
+href="#s-basico-arquivo-bintext">Arquivo texto e binário, Section 2.2.3</a>).
+</p>
+
+<p>
+O <code>GNU/Linux</code> é <em>Case Sensitive</em> ou seja, ele diferencia
+letras <em>maiúsculas</em> e <em>minúsculas</em> nos arquivos.  O arquivo
+<code>historia</code> é completamente diferente de <code>Historia</code>.
+Esta regra também é válido para os <em>comandos</em> e <em>diretórios</em>.
+Prefira, sempre que possível, usar letras minúsculas para identificar seus
+arquivos, pois quase todos os comandos do sistema estão em
+<em>minúsculas</em>.
+</p>
+
+<p>
+Um arquivo oculto no <code>GNU/Linux</code> é identificado por um
+&quot;.&quot; no inicio do nome (por exemplo, <code>.bashrc</code>).  Arquivos
+ocultos não aparecem em listagens normais de diretórios, deve ser usado o
+comando <samp>ls -a</samp> para também listar arquivos ocultos.
+</p>
+
+<hr>
+
+<h3 id="s-basico-arquivo-tipos">2.2.1 Extensão de arquivos</h3>
+
+<p>
+A extensão serve para identificar o tipo do arquivo.  A extensão são as
+letras após um &quot;.&quot; no nome de um arquivo, explicando melhor:
+</p>
+<ul>
+<li>
+<p>
+<code>relatório<strong>.txt</strong></code> - O <samp>.txt</samp> indica que o
+conteúdo é um arquivo texto.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<code>script<strong>.sh</strong></code> - Arquivo de Script (interpretado por
+<code>/bin/sh</code>).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<code>system<strong>.log</strong></code> - Registro de algum programa no
+sistema.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<code>arquivo<strong>.gz</strong></code> - Arquivo compactado pelo utilitário
+<code>gzip</code>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<code>index<strong>.html</strong></code> - Página de Internet (formato
+Hypertexto).
+</p>
+</li>
+</ul>
+
+<p>
+A extensão de um arquivo também ajuda a saber o que precisamos fazer para
+abri-lo.  Por exemplo, o arquivo <code>relatório.txt</code> é um texto
+simples e podemos ver seu conteúdo através do comando <a
+href="ch-cmd.en.html#s-comandos-cat">cat, Section 7.1</a>, já o arquivo
+<code>index.html</code> contém uma página de Internet e precisaremos de um
+navegador para poder visualiza-lo (como o <code>lynx</code>,
+<code>Firefox</code> ou o <code>Konqueror</code>).
+</p>
+
+<p>
+A extensão (na maioria dos casos) não é requerida pelo sistema operacional
+<code>GNU/Linux</code>, mas é conveniente o seu uso para determinarmos
+facilmente o tipo de arquivo e que programa precisaremos usar para abri-lo.
+</p>
+
+<hr>
+
+<h3 id="s-basico-arquivo-tamanho">2.2.2 Tamanho de arquivos</h3>
+
+<p>
+A unidade de medida padrão nos computadores é o <samp>bit</samp>.  A um
+conjunto de 8 bits nós chamamos de <samp>byte</samp>.  Cada arquivo/diretório
+possui um tamanho, que indica o espaço que ele ocupa no disco e isto é medido
+em <samp>bytes</samp>.  O byte representa uma letra.  Assim, se você criar um
+arquivo vazio e escrever o nome <samp>Linux</samp> e salvar o arquivo, este
+terá o tamanho de 5 bytes.  Espaços em branco e novas linhas também ocupam
+bytes.
+</p>
+
+<p>
+Além do byte existem as medidas Kbytes, Mbytes, Gbytes.  Os prefixos K
+(quilo), M (mega), G (giga), T (tera) etc.  vêem da matemática.  O
+&quot;K&quot; significa multiplicar por 10^3, o &quot;M&quot; por 10^6, e assim
+por diante.  Esta letras servem para facilitar a leitura em arquivos de grande
+tamanho.  Um arquivo de 1K é a mesma coisa de um arquivo de 1024 bytes.  Uma
+forma que pode inicialmente lhe ajudar a lembrar: K vem de Kilo que é igual a
+1000 - 1Kilo é igual a 1000 gramas certo?.
+</p>
+
+<p>
+Da mesma forma 1Mb (ou 1M) é igual a um arquivo de 1024K ou 1.048.576 bytes
+</p>
+
+<p>
+1Gb (ou 1G) é igual a um arquivo de 1024Mb ou 1048576Kb ou 1.073.741.824 bytes
+(1 Gb é igual a 1.073.741.824 bytes, são muitos números!).  Deu pra notar
+que é mais fácil escrever e entender como 1Gb do que 1.073.741.824 bytes :-)
+</p>
+
+<p>
+A lista completa em ordem progressiva das unidades de medida é a seguinte:
+</p>
+
+<pre>
+     Símbolo	10^	2^	Nome
+     
+     K	 3	10	Quilo
+     M	 6	20	Mega
+     G	 9	30	Giga
+     T	12	40	Tera
+     P	15	50	Peta
+     E	18	60	Eta
+     Z	21	70	Zetta
+     Y	24	80	Yotta
+</pre>
+
+<hr>
+
+<h3 id="s-basico-arquivo-bintext">2.2.3 Arquivo texto e binário</h3>
+
+<p>
+Quanto ao tipo, um arquivo pode ser de texto ou binário:
+</p>
+<dl>
+<dt><samp>texto</samp></dt>
+<dd>
+<p>
+Seu conteúdo é compreendido pelas pessoas.  Um arquivo texto pode ser uma
+carta, um script, um programa de computador escrito pelo programador, arquivo
+de configuração, etc.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><samp>binário</samp></dt>
+<dd>
+<p>
+Seu conteúdo somente pode ser entendido por computadores.  Contém caracteres
+incompreensíveis para pessoas normais.  Um arquivo binário é gerado através
+de um arquivo de programa (digitado pela pessoa que o criou, o programador)
+através de um processo chamado de <samp>compilação</samp>.  Compilação é
+basicamente a conversão de um programa em linguagem humana para a linguagem de
+máquina.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-basico-diretorio">2.3 Diretório</h2>
+
+<p>
+Diretório é o local utilizado para armazenar conjuntos arquivos para melhor
+organização e localização.  O diretório, como o arquivo, também é
+&quot;<em>Case Sensitive</em>&quot; (diretório <code>/teste</code> é
+completamente diferente do diretório <code>/Teste</code>).
+</p>
+
+<p>
+Não podem existir dois arquivos com o <samp>mesmo</samp> nome em um
+diretório, ou um sub-diretório com um mesmo nome de um arquivo em um mesmo
+diretório.
+</p>
+
+<p>
+Um diretório nos sistemas <code>Linux/UNIX</code> são especificados por uma
+&quot;<em>/</em>&quot; e não uma &quot;<em>\</em>&quot; como é feito no
+<code>DOS</code>.  Para detalhes sobre como criar um diretório, veja o comando
+<code>mkdir</code> (<a href="ch-cmdd.en.html#s-comando-mkdir">mkdir, Section
+6.4</a>).
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-raiz">2.3.1 Diretório Raíz</h3>
+
+<p>
+Este é o diretório principal do sistema.  Dentro dele estão todos os
+diretórios do sistema.  O diretório Raíz é representado por uma
+&quot;<em>/</em>&quot;, assim se você digitar o comando <samp>cd /</samp>
+você estará acessando este diretório.
+</p>
+
+<p>
+Nele estão localizados outros diretórios como o <code>/bin, /sbin, /usr,
+/usr/local, /mnt, /tmp, /var, /home,</code> etc.  Estes são chamados de
+<em>sub-diretórios</em> pois estão dentro do diretório
+&quot;<code>/</code>&quot;.  A estrutura de <em>diretórios</em> e
+<em>sub-diretórios</em> pode ser identificada da seguinte maneira:
+</p>
+<ul>
+<li>
+<p>
+/
+</p>
+</li>
+<li>
+<p>
+/bin
+</p>
+</li>
+<li>
+<p>
+/sbin
+</p>
+</li>
+<li>
+<p>
+/usr
+</p>
+</li>
+<li>
+<p>
+/usr/local
+</p>
+</li>
+<li>
+<p>
+/mnt
+</p>
+</li>
+<li>
+<p>
+/tmp
+</p>
+</li>
+<li>
+<p>
+/var
+</p>
+</li>
+<li>
+<p>
+/home
+</p>
+</li>
+</ul>
+
+<p>
+A estrutura de diretórios também é chamada de <samp>Árvore de
+Diretórios</samp> porque é parecida com uma <em>árvore</em> de cabeça para
+baixo.  Cada diretório do sistema tem seus respectivos arquivos que são
+armazenados conforme regras definidas pela <em>FHS</em> (<em>FileSystem
+Hierarchy Standard - Hierarquia Padrão do Sistema de Arquivos</em>) versão
+2.0, definindo que tipo de arquivo deve ser armazenado em cada diretório.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-atual">2.3.2 Diretório atual</h3>
+
+<p>
+É o diretório em que nos encontramos no momento.  Você pode digitar
+<samp>pwd</samp> (veja <a href="ch-cmdd.en.html#s-comando-pwd">pwd, Section
+6.3</a>) para verificar qual é seu diretório atual.
+</p>
+
+<p>
+O diretório atual também é identificado por um &quot;.&quot; (ponto).  O
+comando comando <samp>ls .</samp> pode ser usado para listar seus arquivos (é
+claro que isto é desnecessário porque se não digitar nenhum diretório, o
+comando <code>ls</code> listará o conteúdo do diretório atual).
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-home">2.3.3 Diretório home</h3>
+
+<p>
+Também chamado de diretório de usuário.  Em sistemas <code>GNU/Linux</code>
+cada usuário (inclusive o root) possui seu próprio diretório onde poderá
+armazenar seus programas e arquivos pessoais.
+</p>
+
+<p>
+Este diretório está localizado em <code>/home/[login]</code>, neste caso se o
+seu login for &quot;joao&quot; o seu diretório home será
+<code>/home/joao</code>.  O diretório home também é identificado por um
+<samp>~</samp>(til), você pode digitar tanto o comando <samp>ls
+/home/joao</samp> como <samp>ls ~</samp> para listar os arquivos de seu
+diretório home.
+</p>
+
+<p>
+O diretório home do usuário root (na maioria das distribuições
+<code>GNU/Linux</code>) está localizado em <code>/root</code>.
+</p>
+
+<p>
+Dependendo de sua configuração e do número de usuários em seu sistema, o
+diretório de usuário pode ter a seguinte forma:
+<code>/home/[1letra_do_nome]/[login]</code>, neste caso se o seu login for
+&quot;joao&quot; o seu diretório home será <code>/home/j/joao</code>.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-superior">2.3.4 Diretório Superior</h3>
+
+<p>
+O diretório superior (Upper Directory) é identificado por <samp>..</samp> (2
+pontos).
+</p>
+
+<p>
+Caso estiver no diretório <code>/usr/local</code> e quiser listar os arquivos
+do diretório <code>/usr</code> você pode digitar, <samp>ls ..</samp> Este
+recurso também pode ser usado para copiar, mover arquivos/diretórios, etc.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-anterior">2.3.5 Diretório Anterior</h3>
+
+<p>
+O diretório anterior é identificado por &quot;-&quot;.  É útil para
+retornar ao último diretório usado.
+</p>
+
+<p>
+Se estive no diretório <code>/usr/local</code> e digitar <samp>cd /lib</samp>,
+você pode retornar facilmente para o diretório <code>/usr/local</code> usando
+<samp>cd -</samp>.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-caminho">2.3.6 Caminho na estrutura de diretórios</h3>
+
+<p>
+São os diretórios que teremos que percorrer até chegar no arquivo ou
+diretório que que procuramos.  Se desejar ver o arquivo
+<code>/etc/hosts</code> você tem duas opções:
+</p>
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+Mudar o diretório padrão para <code>/etc</code> com o comando <samp>cd
+/etc</samp> e usar o comando <samp>cat hosts</samp>
+</p>
+</li>
+<li>
+<p>
+Usar o comando <code>&quot;cat&quot;</code> especificando o caminho completo na
+estrutura de diretórios e o nome de arquivo: <samp>cat /etc/hosts</samp>.
+</p>
+</li>
+</ol>
+
+<p>
+As duas soluções acima permitem que você veja o arquivo <code>GPL</code>.  A
+diferença entre as duas é a seguinte:
+</p>
+<ul>
+<li>
+<p>
+Na primeira, você muda o diretório padrão para
+<code>/usr/doc/copyright</code> (confira digitando <samp>pwd</samp>) e depois o
+comando <samp>cat GPL</samp>.  Você pode ver os arquivos de
+<code>/usr/doc/copyright</code> com o comando <code>&quot;ls&quot;</code>.
+</p>
+<p>
+<code>/usr/doc/copyright</code> é o caminho de diretório que devemos
+percorrer para chegar até o arquivo <code>GPL</code>.
+</p>
+</li>
+<li>
+<p>
+Na segunda, é digitado o caminho completo para o <code>&quot;cat&quot;</code>
+localizar o arquivo <code>GPL</code>: <samp>cat /usr/doc/copyright/GPL</samp>.
+Neste caso, você continuará no diretório padrão (confira digitando
+<samp>pwd</samp>).  Digitando <samp>ls</samp>, os arquivos do diretório atual
+serão listados.
+</p>
+</li>
+</ul>
+
+<p>
+O <em>caminho de diretórios</em> é necessário para dizer ao sistema
+operacional onde encontrar um arquivo na &quot;árvore&quot; de diretórios.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-exemplo">2.3.7 Exemplo de diretório</h3>
+
+<p>
+Um exemplo de diretório é o seu diretório de usuário, todos seus arquivos
+essenciais devem ser colocadas neste diretório.  Um diretório pode conter
+outro diretório, isto é útil quando temos muitos arquivos e queremos
+melhorar sua organização.  Abaixo um exemplo de uma empresa que precisa
+controlar os arquivos de Pedidos que emite para as fábricas:
+</p>
+
+<p>
+/pub/vendas - diretório principal de vendas /pub/vendas/mes01-1999 -
+diretório contendo vendas do mês 01/1999 /pub/vendas/mes02-2009 - diretório
+contendo vendas do mês 02/2009 /pub/vendas/mes01-2010 - diretório contendo
+vendas do mês 03/2010
+</p>
+
+<p>
+<code>mes01-99, mes02-2009, mes01-2010</code> são diretórios usados para
+armazenar os arquivos de pedidos do mês e ano correspondente.  Isto é
+essencial para organização, pois se todos os pedidos fossem colocados
+diretamente no diretório vendas, seria muito difícil encontrar o arquivo do
+cliente &quot;João&quot; do mês 01/2009.
+</p>
+
+<p>
+Você deve ter reparado que usei a palavra <em>sub-diretório</em> para
+mes01-1999, mes02-2009 e mes01-2010, porque que eles estão dentro do
+diretório vendas.  Da mesma forma, <code>vendas</code> é um sub-diretório de
+<code>pub</code>.
+</p>
+
+<hr>
+
+<h3 id="s-basico-diretorio-estrutura">2.3.8 Estrutura básica de diretórios do Sistema Linux</h3>
+
+<p>
+O sistema <code>GNU/Linux</code> possui a seguinte estrutura básica de
+diretórios organizados segundo o FHS (Filesystem Hierarchy Standard):
+</p>
+<dl>
+<dt><code>/bin</code></dt>
+<dd>
+<p>
+Contém arquivos programas do sistema que são usados com freqüência pelos
+usuários.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/boot</code></dt>
+<dd>
+<p>
+Contém arquivos necessários para a inicialização do sistema.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/cdrom</code></dt>
+<dd>
+<p>
+Ponto de montagem da unidade de CD-ROM.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/media</code></dt>
+<dd>
+<p>
+Ponto de montagem de dispositivos diversos do sistema (rede, pen-drives, CD-ROM
+em distribuições mais novas).
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/dev</code></dt>
+<dd>
+<p>
+Contém arquivos usados para acessar dispositivos (periféricos) existentes no
+computador.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/etc</code></dt>
+<dd>
+<p>
+Arquivos de configuração de seu computador local.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/floppy</code></dt>
+<dd>
+<p>
+Ponto de montagem de unidade de disquetes
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/home</code></dt>
+<dd>
+<p>
+Diretórios contendo os arquivos dos usuários.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/lib</code></dt>
+<dd>
+<p>
+Bibliotecas compartilhadas pelos programas do sistema e módulos do kernel.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/lost+found</code></dt>
+<dd>
+<p>
+Local para a gravação de arquivos/diretórios recuperados pelo utilitário
+<code>fsck.ext2</code>.  Cada partição possui seu próprio diretório
+<code>lost+found</code>.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/mnt</code></dt>
+<dd>
+<p>
+Ponto de montagem temporário.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/proc</code></dt>
+<dd>
+<p>
+Sistema de arquivos do kernel.  Este diretório não existe em seu disco
+rígido, ele é colocado lá pelo kernel e usado por diversos programas que
+fazem sua leitura, verificam configurações do sistema ou modificar o
+funcionamento de dispositivos do sistema através da alteração em seus
+arquivos.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/sys</code></dt>
+<dd>
+<p>
+Sistema de arquivos do kernel.  Este diretório não existe em seu disco
+rígido, ele é colocado lá pelo kernel e usado por diversos programas que
+fazem sua leitura, verificam configurações do sistema ou modificar o
+funcionamento de dispositivos do sistema através da alteração em seus
+arquivos.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/root</code></dt>
+<dd>
+<p>
+Diretório do usuário <samp>root</samp>.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/sbin</code></dt>
+<dd>
+<p>
+Diretório de programas usados pelo superusuário (root) para administração e
+controle do funcionamento do sistema.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/tmp</code></dt>
+<dd>
+<p>
+Diretório para armazenamento de arquivos temporários criados por programas.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/usr</code></dt>
+<dd>
+<p>
+Contém maior parte de seus programas.  Normalmente acessível somente como
+leitura.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><code>/var</code></dt>
+<dd>
+<p>
+Contém maior parte dos arquivos que são gravados com freqüência pelos
+programas do sistema, e-mails, spool de impressora, cache, etc.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-basico-nomeando">2.4 Nomeando Arquivos e Diretórios</h2>
+
+<p>
+No <code>GNU/Linux</code>, os arquivos e diretórios pode ter o tamanho de até
+<em>255</em> letras.  Você pode identifica-lo com uma extensão (um conjunto
+de letras separadas do nome do arquivo por um &quot;.&quot;).
+</p>
+
+<p>
+Os programas executáveis do <code>GNU/Linux</code>, ao contrário dos
+programas de <code>DOS</code> e <code>Windows</code>, não são executados a
+partir de extensões <code>.exe, .com</code> ou <code>.bat</code>.  O
+<code>GNU/Linux</code> (como todos os sistemas POSIX) usa a <em>permissão de
+execução</em> de arquivo para identificar se um arquivo pode ou não ser
+executado.
+</p>
+
+<p>
+No exemplo anterior, nosso trabalho de história pode ser identificado mais
+facilmente caso fosse gravado com o nome <code>trabalho.text</code> ou
+<code>trabalho.txt</code>.  Também é permitido gravar o arquivo com o nome
+<code>Trabalho de Historia.txt</code> mas não é recomendado gravar nomes de
+arquivos e diretórios com espaços.  Porque será necessário colocar o nome
+do arquivo entre &quot;aspas&quot; para acessa-lo (por exemplo, <samp>cat
+&quot;Trabalho de Historia.txt&quot;</samp>).  Ao invés de usar espaços,
+prefira <em>capitalizar</em> o arquivo (usar letras maiúsculas e minúsculas
+para identifica-lo): <code>TrabalhodeHistoria.txt</code>.
+</p>
+
+<hr>
+
+<h2 id="s-basico-comandos">2.5 Comandos</h2>
+
+<p>
+Comandos são ordens que passamos ao sistema operacional para executar uma
+determinada tarefa.
+</p>
+
+<p>
+Cada comando tem uma função específica, devemos saber a função de cada
+comando e escolher o mais adequado para fazer o que desejamos, por exemplo:
+</p>
+<ul>
+<li>
+<p>
+<code>ls</code> - Mostra arquivos de diretórios
+</p>
+</li>
+<li>
+<p>
+<code>cd</code> - Para mudar de diretório
+</p>
+</li>
+</ul>
+
+<p>
+Este guia tem uma lista de vários comandos organizados por categoria com a
+explicação sobre o seu funcionamento e as opções aceitas (incluindo alguns
+exemplos).
+</p>
+
+<p>
+É sempre usado um espaço depois do comando para separá-lo de uma opção ou
+parâmetro que será passado para o processamento.  Um comando pode receber
+opções e parâmetros:
+</p>
+<dl>
+<dt><em>opções</em></dt>
+<dd>
+<p>
+As <em>opções</em> são usadas para controlar como o comando será executado,
+por exemplo, para fazer uma listagem mostrando o <em>dono, grupo, tamanho dos
+arquivos</em> você deve digitar <samp>ls -l</samp>.
+</p>
+<p>
+Opções podem ser passadas ao comando através de um &quot;-&quot; ou
+&quot;--&quot;:
+</p>
+<dl>
+<dt>-</dt>
+<dd>
+<p>
+Opção identificada por uma letra.  Podem ser usadas mais de uma opção com
+um único hífen.  O comando <samp>ls -l -a</samp> é a mesma coisa de <samp>ls
+-la</samp>
+</p>
+</dd>
+<dt>--</dt>
+<dd>
+<p>
+Opção identificada por um nome.  Também chamado de opção extensa.  O
+comando <samp>ls --all</samp> é equivalente a <samp>ls -a</samp>.
+</p>
+</dd>
+</dl>
+<p>
+Pode ser usado tanto &quot;-&quot; como &quot;--&quot;, mas há casos em que
+somente &quot;-&quot; ou &quot;--&quot; esta disponível.
+</p>
+</dd>
+<dt>parâmetros</dt>
+<dd>
+<p>
+Um parâmetro identifica o <em>caminho, origem, destino, entrada padrão</em>
+ou <em>saída padrão</em> que será passada ao comando.
+</p>
+<p>
+Se você digitar: <samp>ls /usr/share/doc/copyright</samp>,
+<code>/usr/share/doc/copyright</code> será o parâmetro passado ao comando
+<code>ls</code>, neste caso queremos que ele liste os arquivos do diretório
+<em>/usr/share/doc/copyright</em>.
+</p>
+<p>
+É normal errar o nome de comandos, mas não se preocupe, quando isto acontecer
+o sistema mostrará a mensagem <samp>command not found</samp> (comando não
+encontrado) e voltará ao aviso de comando.  As mensagens de erro não fazem
+nenhum mal ao seu sistema, somente dizem que algo deu errado para que você
+possa corrigir e entender o que aconteceu.  No <code>GNU/Linux</code>, você
+tem a possibilidade de criar comandos personalizados usando outros comandos
+mais simples (isto será visto mais adiante).  Os comandos se encaixam em duas
+categorias: <em>Comandos Internos</em> e <em>Comandos Externos</em>.
+</p>
+</dd>
+</dl>
+
+<p>
+Por exemplo: <samp>&quot;ls -la /usr/share/doc&quot;</samp>, <samp>ls</samp> é
+o comando, <samp>-la</samp> é a opção passada ao comando, e
+<samp><code>/usr/share/doc</code></samp> é o diretório passado como
+parâmetro ao comando <samp>ls</samp>.
+</p>
+
+<hr>
+
+<h3 id="s-basico-comandos-internos">2.5.1 Comandos Internos</h3>
+
+<p>
+São comandos que estão localizados dentro do interpretador de comandos
+(normalmente o <code>Bash</code>) e não no disco.  Eles são carregados na
+memória RAM do computador junto com o interpretador de comandos.
+</p>
+
+<p>
+Quando executa um comando, o interpretador de comandos verifica primeiro se ele
+é um <em>Comando Interno</em> caso não seja é verificado se é um
+<em>Comando Externo</em>.
+</p>
+
+<p>
+Exemplos de comandos internos são: <samp>cd, exit, echo, bg, fg, source,
+help</samp>
+</p>
+
+<hr>
+
+<h2 id="s-basico-comandos-externos">2.6 Comandos Externos</h2>
+
+<p>
+São comandos que estão localizados no disco.  Os comandos são procurados no
+disco usando o ordem do <samp>PATH</samp> e executados assim que encontrados.
+</p>
+
+<p>
+Para detalhes veja <a href="ch-run.en.html#s-run-path">path, Section 5.2</a>.
+</p>
+
+<hr>
+
+<h2 id="s-basico-avisocmd">2.7 Aviso de comando (Prompt)</h2>
+
+<p>
+Aviso de comando (ou Prompt), é a linha mostrada na tela para <em>digitação
+de comandos</em> que serão passados ao <samp>interpretador de comandos</samp>
+para sua execução.
+</p>
+
+<p>
+A posição onde o comando será digitado é marcado um &quot;traço&quot;
+piscante na tela chamado de <em>cursor</em>.  Tanto em shells texto como em
+gráficos é necessário o uso do cursor para sabermos onde iniciar a
+digitação de textos e nos orientarmos quanto a posição na tela.
+</p>
+
+<p>
+O aviso de comando do usuário <samp>root</samp> é identificado por uma
+&quot;#&quot; (tralha), e o aviso de comando de usuários é identificado pelo
+símbolo &quot;$&quot;.  Isto é padrão em sistemas <code>UNIX</code>.
+</p>
+
+<p>
+Você pode retornar comandos já digitados pressionando as teclas <samp>Seta
+para cima</samp> / <samp>Seta para baixo</samp>.
+</p>
+
+<p>
+A tela pode ser rolada para baixo ou para cima segurando a tecla
+<samp>SHIFT</samp> e pressionando <samp>PGUP</samp> ou <samp>PGDOWN</samp>.
+Isto é útil para ver textos que rolaram rapidamente para cima.
+</p>
+
+<p>
+Abaixo algumas dicas sobre a edição da linha de comandos (não é necessário
+se preocupar em decora-los):
+</p>
+<ul>
+<li>
+<p>
+Pressione a tecla <samp>Back Space</samp> (&quot;<strong>&lt;--</strong>&quot;)
+para apagar um caracter à esquerda do cursor.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione a tecla <samp>Del</samp> para apagar o caracter acima do cursor.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>A</samp> para mover o cursor para o inicio da
+linha de comandos.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>E</samp> para mover o cursor para o fim da
+linha de comandos.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>U</samp> para apagar o que estiver à
+esquerda do cursor.  O conteúdo apagado é copiado para uso com
+<samp>CTRL</samp>+<samp>y</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>K</samp> para apagar o que estiver à direita
+do cursor.  O conteúdo apagado é copiado para uso com
+<samp>CTRL</samp>+<samp>y</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>L</samp> para limpar a tela e manter o texto
+que estiver sendo digitado na linha de comando (parecido com o comando
+<code>clear</code>).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Pressione <samp>CTRL</samp>+<samp>Y</samp> para colocar o texto que foi apagado
+na posição atual do cursor.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-basico-interpcmd">2.8 Interpretador de comandos</h2>
+
+<p>
+Também conhecido como &quot;shell&quot;.  É o programa responsável em
+interpretar as instruções enviadas pelo usuário e seus programas ao sistema
+operacional (o kernel).  Ele que executa comandos lidos do dispositivo de
+entrada padrão (teclado) ou de um arquivo executável.  É a principal
+ligação entre o usuário, os programas e o kernel.  O <code>GNU/Linux</code>
+possui diversos tipos de interpretadores de comandos, entre eles posso destacar
+o <code>bash, ash, csh, tcsh, sh,</code> etc.  Entre eles o mais usado é o
+<code>bash</code>.  O interpretador de comandos do DOS, por exemplo, é o
+<code>command.com</code>.
+</p>
+
+<p>
+Os comandos podem ser enviados de duas maneiras para o interpretador:
+<samp>interativa</samp> e <samp>não-interativa</samp>:
+</p>
+<dl>
+<dt><samp>Interativa</samp></dt>
+<dd>
+<p>
+Os comandos são digitados no aviso de comando e passados ao interpretador de
+comandos um a um.  Neste modo, o computador depende do usuário para executar
+uma tarefa, ou próximo comando.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><samp>Não-interativa</samp></dt>
+<dd>
+<p>
+São usados arquivos de comandos criados pelo usuário (scripts) para o
+computador executar os comandos na ordem encontrada no arquivo.  Neste modo, o
+computador executa os comandos do arquivo um por um e dependendo do término do
+comando, o script pode checar qual será o próximo comando que será executado
+e dar continuidade ao processamento.
+</p>
+
+<p>
+Este sistema é útil quando temos que digitar por várias vezes seguidas um
+mesmo comando ou para compilar algum programa complexo.
+</p>
+</dd>
+</dl>
+
+<p>
+O shell <code>Bash</code> possui ainda outra característica interessante: A
+completação dos nomes.  Isto é feito pressionando-se a tecla
+<samp>TAB</samp>.  Por exemplo, se digitar &quot;ls tes&quot; e pressionar
+&lt;tab&gt;, o <code>Bash</code> localizará todos os arquivos que iniciam com
+&quot;tes&quot; e completará o restante do nome.  Caso a completação de
+nomes encontre mais do que uma expressão que satisfaça a pesquisa, ou
+nenhuma, é emitido um beep.  Se você apertar novamente a tecla TAB
+imediatamente depois do beep, o interpretador de comandos irá listar as
+diversas possibilidades que satisfazem a pesquisa, para que você possa
+escolher a que lhe interessa.  A completação de nomes funciona sem problemas
+para comandos internos.
+</p>
+
+<p>
+Exemplo: <samp>ech</samp> (pressione <samp>TAB</samp>).  <samp>ls
+/vm</samp>(pressione <samp>TAB</samp>)
+</p>
+
+<hr>
+
+<h2 id="s-basico-terminal">2.9 Terminal Virtual (console)</h2>
+
+<p>
+Terminal (ou console) é o teclado e tela conectados em seu computador.  O
+<code>GNU/Linux</code> faz uso de sua característica <em>multi-usuária</em>
+usando os &quot;terminais virtuais&quot;.  Um terminal virtual é uma segunda
+seção de trabalho completamente independente de outras, que pode ser acessada
+no computador local ou remotamente via <code>telnet, rsh, rlogin,</code> etc.
+</p>
+
+<p>
+No <code>GNU/Linux</code>, em modo texto, você pode acessar outros terminais
+virtuais segurando a tecla <samp>ALT</samp> e pressionando <samp>F1 a
+F6</samp>.  Cada tecla de função corresponde a um número de terminal do 1 ao
+6 (o sétimo é usado por padrão pelo ambiente gráfico X).  O
+<code>GNU/Linux</code> possui mais de 63 terminais virtuais, mas apenas 6
+estão disponíveis inicialmente por motivos de economia de memória RAM .
+</p>
+
+<p>
+Se estiver usando o modo gráfico, você deve segurar <samp>CTRL</samp>+
+<samp>ALT</samp> enquanto pressiona uma tela de &lt;F1&gt; a &lt;F6&gt;.  Para
+voltar ao modo gráfico, pressione <samp>CTRL</samp>+<samp>ALT</samp>+
+&lt;F7&gt;.
+</p>
+
+<p>
+Um exemplo prático: Se você estiver usando o sistema no Terminal 1 com o nome
+&quot;joao&quot; e desejar entrar como &quot;root&quot; para instalar algum
+programa, segure <samp>ALT</samp> enquanto pressiona &lt;F2&gt; para abrir o
+segundo terminal virtual e faça o login como &quot;root&quot;.  Será aberta
+uma nova seção para o usuário &quot;root&quot; e você poderá retornar a
+hora que quiser para o primeiro terminal pressionando
+<samp>ALT</samp>+&lt;F1&gt;.
+</p>
+
+<hr>
+
+<h2 id="s-basico-login">2.10 Login</h2>
+
+<p>
+Login é a entrada no sistema quando você digita seu <em>nome</em> e
+<em>senha</em>.  Por enquanto vou manter o seu suspense sobre o que é o
+<em>logout</em>.
+</p>
+
+<hr>
+
+<h2 id="s-basico-logout">2.11 Logout</h2>
+
+<p>
+Logout é a saída do sistema.  A saída do sistema é feita pelos comandos
+<code>logout</code>, <code>exit</code>, <samp>CTRL</samp>+<samp>D</samp>, ou
+quando o sistema é reiniciado ou desligado.
+</p>
+
+<hr>
+
+<h2 id="s-basico-coringas">2.12 Coringas</h2>
+
+<p>
+Coringas (ou referência global) é um recurso usado para especificar um ou
+mais arquivos ou diretórios do sistema de uma só vez.  Este é um recurso
+permite que você faça a filtragem do que será listado, copiado, apagado,
+etc.  São usados 4 tipos de coringas no <code>GNU/Linux</code>:
+</p>
+<ul>
+<li>
+<p>
+&quot;*&quot; - Faz referência a um nome completo/restante de um
+arquivo/diretório.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+&quot;?&quot; - Faz referência a uma letra naquela posição.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>[padrão]</samp> - Faz referência a uma faixa de caracteres de um
+arquivo/diretório.  Padrão pode ser:
+</p>
+<ul>
+<li>
+<p>
+<samp>[a-z][0-9]</samp> - Faz referência a caracteres de <samp>a</samp> até
+<samp>z</samp> seguido de um caracter de <samp>0</samp> até <samp>9</samp>.
+</p>
+</li>
+<li>
+<p>
+<samp>[a,z][1,0]</samp> - Faz a referência aos caracteres <samp>a</samp> e
+<samp>z</samp> seguido de um caracter <samp>1</samp> ou <samp>0</samp> naquela
+posição.
+</p>
+</li>
+<li>
+<p>
+<samp>[a-z,1,0]</samp> - Faz referência a intervalo de caracteres de
+<samp>a</samp> até <samp>z</samp> ou <samp>1</samp> ou <samp>0</samp> naquela
+posição.
+</p>
+</li>
+</ul>
+
+<p>
+A procura de caracteres é &quot;Case Sensitive&quot; assim se você deseja que
+sejam localizados todos os caracteres alfabéticos você deve usar
+<samp>[a-zA-Z]</samp>.
+</p>
+
+<p>
+Caso a expressão seja precedida por um <samp>^</samp>, faz referência a
+qualquer caracter exceto o da expressão.  Por exemplo <samp>[^abc]</samp> faz
+referência a qualquer caracter exceto <samp>a</samp>, <samp>b</samp> e
+<samp>c</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>{padrões}</samp> - Expande e gera strings para pesquisa de padrões de
+um arquivo/diretório.
+</p>
+<ul>
+<li>
+<p>
+<samp>X{ab,01}</samp> - Faz referência a seqüencia de caracteres
+<samp>Xab</samp> ou <samp>X01</samp>
+</p>
+</li>
+<li>
+<p>
+<samp>X{a-z,10}</samp> Faz referencia a seqüencia de caracteres
+X<samp>a-z</samp> e <samp>X10</samp>.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+O que diferencia este método de expansão dos demais é que a existência do
+arquivo/diretório é opcional para geração do resultado.  Isto é útil para
+a criação de diretórios.  Lembrando que os 4 tipos de coringas
+(&quot;*&quot;, &quot;?&quot;, &quot;[]&quot;, &quot;{}&quot;) podem ser usados
+juntos.  Para entender melhor vamos a prática:
+</p>
+
+<p>
+Vamos dizer que tenha 5 arquivo no diretório <code>/usr/teste</code>:
+<code>teste1.txt, teste2.txt, teste3.txt, teste4.new, teste5.new</code>.
+</p>
+
+<p>
+Caso deseje listar <strong>todos</strong> os arquivos do diretório
+<code>/usr/teste</code> você pode usar o coringa &quot;*&quot; para
+especificar todos os arquivos do diretório:
+</p>
+
+<p>
+<samp>cd /usr/teste</samp> e <samp>ls *</samp> ou <samp>ls /usr/teste/*</samp>.
+</p>
+
+<p>
+Não tem muito sentido usar o comando <code>ls</code> com &quot;*&quot; porque
+todos os arquivos serão listados se o <code>ls</code> for usado sem nenhum
+Coringa.
+</p>
+
+<p>
+Agora para listar todos os arquivos <code>teste1.txt, teste2.txt,
+teste3.txt</code> com excessão de <code>teste4.new</code>,
+<code>teste5.new</code>, podemos usar inicialmente 3 métodos:
+</p>
+
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+Usando o comando <samp>ls *.txt</samp> que pega todos os arquivos que começam
+com qualquer nome e terminam com <code>.txt</code>.
+</p>
+</li>
+<li>
+<p>
+Usando o comando <samp>ls teste?.txt</samp>, que pega todos os arquivos que
+começam com o nome <code>teste</code>, tenham qualquer caracter no lugar do
+coringa <samp>?</samp> e terminem com <code>.txt</code>.  Com o exemplo acima
+<samp>teste*.txt</samp> também faria a mesma coisa, mas se também tivéssemos
+um arquivo chamado <code>teste10.txt</code> este também seria listado.
+</p>
+</li>
+<li>
+<p>
+Usando o comando <samp>ls teste[1-3].txt</samp>, que pega todos os arquivos que
+começam com o nome <code>teste</code>, tenham qualquer caracter entre o
+número 1-3 no lugar da 6a letra e terminem com <code>.txt</code>.  Neste caso
+se obtém uma filtragem mais exata, pois o coringa <em>?</em> especifica
+qualquer caracter naquela posição e [] especifica números, letras ou
+intervalo que será usado.
+</p>
+</li>
+</ol>
+
+<p>
+Agora para listar somente <code>teste4.new</code> e <code>teste5.new</code>
+podemos usar os seguintes métodos:
+</p>
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+<samp>ls *.new</samp> que lista todos os arquivos que terminam com
+<code>.new</code>
+</p>
+</li>
+<li>
+<p>
+<samp>ls teste?.new</samp> que lista todos os arquivos que começam com
+<code>teste</code>, contenham qualquer caracter na posição do coringa
+<em>?</em> e terminem com <code>.new</code>.
+</p>
+</li>
+<li>
+<p>
+<samp>ls teste[4,5].*</samp> que lista todos os arquivos que começam com
+<code>teste</code> contenham números de 4 e 5 naquela posição e terminem com
+qualquer extensão.
+</p>
+</li>
+</ol>
+
+<p>
+Existem muitas outras formas de se fazer a mesma coisa, isto depende do gosto
+de cada um.  O que pretendi fazer aqui foi mostrar como especificar mais de um
+arquivo de uma só vez.  O uso de coringas será útil ao copiar arquivos,
+apagar, mover, renomear, e nas mais diversas partes do sistema.  Alias esta é
+uma característica do <code>GNU/Linux</code>: permitir que a mesma coisa possa
+ser feita com liberdade de várias maneiras diferentes.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-intro.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ 2 ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-d-l.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

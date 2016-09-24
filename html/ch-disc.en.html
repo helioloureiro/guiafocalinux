@@ -1,0 +1,989 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Discos e Partições</title>
+
+<link href="index.en.html" rel="start">
+<link href="ch-d-l.en.html" rel="prev">
+<link href="ch-run.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-disc"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-d-l.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ 4 ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-run.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 4 - Discos e Partições
+</h1>
+
+<hr>
+
+<p>
+Este capítulo traz explicações de como manipular discos rígidos e
+partições no sistema <code>GNU/Linux</code> e como acessar seus discos de
+CD-ROM e partições <code>DOS</code>, <code>Windows 9X/XP/Vista/Seven</code>
+no <code>GNU/Linux</code>.
+</p>
+
+<hr>
+
+<h2 id="s-disc-particoes">4.1 Partições</h2>
+
+<p>
+São divisões existentes no disco rígido que marcam onde começa onde termina
+um sistema de arquivos.  As partições nos permitem usar mais de um sistema
+operacional no mesmo computador (como o <code>GNU/Linux</code>,
+<code>Windows</code> e <code>DOS</code>), ou dividir o disco rígido em uma ou
+mais partes para ser usado por um único sistema operacional ou até mesmo por
+diferentes arquiteturas (32 e 64 bits).
+</p>
+
+<hr>
+
+<h2 id="s-disc-formatando">4.2 Formatando Pen-drives/Disquetes</h2>
+
+<p>
+As subseções seguintes explicarão maneiras de formatar seu pen-drive,
+memória flash, e outras tecnologias (incluindo disquetes) para serem usados no
+<code>GNU/Linux</code> e <code>DOS/Windows</code>.
+</p>
+
+<hr>
+
+<h3 id="s-disc-formatando-l">4.2.1 Formatando pen-drives para serem usados no Linux</h3>
+
+<p>
+Para formatar pen-drives para serem usados no <code>GNU/Linux</code> use o
+comando:
+</p>
+
+<p>
+<samp>mkfs.ext2 [<em>-c</em>] [<em>/dev/sde1</em>]</samp>
+</p>
+
+<p>
+Em alguns sistemas você deve usar <code>mke2fs</code> no lugar de
+<code>mkfs.ext2</code>.  A opção <samp>-c</samp> faz com que o
+<code>mkfs.ext2</code> procure por blocos danificados no pen-drive.  Caso
+deseje formatar um disquete, especifique o dispositivo <code>/dev/fd0</code> ao
+inves de <code>/dev/sdb1</code>.
+</p>
+
+<p>
+Note que o nome de dispositivo que é conectado varia de acordo com o sistema e
+quantidade de discos rígidos que sua máquina possui portanto tenha
+<em>ATENCÃO</em> para não formatar o dispositivo incorreto (que pode ser
+justamente seu disco disco rígido principal).  Para maior segurança, ao
+identificar o pen-drive, digite <samp>dmesg</samp> ao conectar o pen-drive para
+visualizar o dispositivo correto ou fique atento as mensagens do console que
+mostrará o dispositivo que foi associado ao pen-drive.
+</p>
+
+<p>
+OBS: Este comando cria um sistema de arquivos <em>ext2</em> no pen-drive e
+permite usar características como permissões de acesso e outras.  Isto
+também faz com que o pen-drive NÃO possa ser lido pelo
+<code>DOS/Windows</code>.  Para formatar um pen-drive no <code>GNU/Linux</code>
+usando o <em>FAT16</em> ou <em>FAT32</em> (compatível com o DOS/Windows) veja
+próxima seção.
+</p>
+
+<p>
+Exemplo: <samp>mkfs.ext2 -c /dev/sde1</samp>
+</p>
+
+<hr>
+
+<h3 id="s-disc-formatando-d">4.2.2 Formatando pen-drives compatíveis com o Windows</h3>
+
+<p>
+A formatação de pen-drives para serem usados no <code>Windows</code> é feita
+usando o comando <code>mkfs.msdos</code> que é geralmente incluído no pacote
+<code>dosfstools</code>.  O <code>mkfs.msdos</code> permite tanto a criação
+de sistemas de arquivos FAT16 ou FAT32.
+</p>
+
+<p>
+<samp>mkfs.msdos [opções] [<em>dispositivo</em>]</samp>
+</p>
+
+<dl>
+<dt><em>dispositivo</em></dt>
+<dd>
+<p>
+Pen-drive que será formatado.  Normalmente <code>/dev/sdb1</code> (dependendo
+do dispositivo detectado via comando <samp>dmesg</samp>).
+</p>
+</dd>
+<dt><em>opções</em></dt>
+<dt>-F [num]</dt>
+<dd>
+<p>
+Especifica o tipo de FAT que será usado na formatação.  Podem ser usados os
+valores 12 (para formatação usando FAT12, limitado a 12MB), 16 (para
+formatação usando FAT16, limitado a 2Gb) e 32 (para formatação FAT32,
+limitado a 128Gb).
+</p>
+</dd>
+<dt>-n [nome]</dt>
+<dd>
+<p>
+Atribui o <samp>[nome]</samp> de volume ao dispositivo.
+</p>
+</dd>
+<dt>-c</dt>
+<dd>
+<p>
+Faz uma pesquisa por bad blocks antes da criação do sistema de arquivos no
+dispositivo.  Os setores defeituosos encontrados serão automaticamente
+marcados para não serem utilizadas.
+</p>
+</dd>
+</dl>
+
+<p>
+Note que não se deve montar o pen-driv / disquete para formata-lo.
+</p>
+
+<p>
+Segue abaixo exemplos de como formatar seu pen-drive <code>mkfs.msdos</code>:
+</p>
+<ul>
+<li>
+<p>
+<samp>mkfs.msdos /dev/sdc1</samp> - Formata o pen-drive no terceiro dispositivo
+SCSI Genérico, como FAT32 e usando os valores padrões.
+</p>
+</li>
+<li>
+<p>
+<samp>mkfs.msdos -F 16 /dev/sdc1</samp> - Faz a mesma coisa que o acima, mas
+formata o pen-drive como FAT16.
+</p>
+</li>
+<li>
+<p>
+<samp>mkfs.msdos -n teste -F 16 /dev/sdc1</samp> - Formata o pen-drive no
+terceiro dispositivo SCSI genérico, como FAT16 e cria o nome de volume
+<samp>teste</samp>.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h3 id="s-disc-formatando-g">4.2.3 Programas de Formatação Gráficos</h3>
+
+<p>
+Além de programas de formatação em modo texto, existem outros para ambiente
+gráfico (X11) que permitem fazer a mesma tarefa.
+</p>
+
+<p>
+Entre os diversos programas destaco o <code>gfloppy</code> que além de
+permitir selecionar se o disquete será formatado para o <code>GNU/Linux</code>
+(ext2), <code>DOS</code> (FAT12) e permite selecionar a capacidade e
+formatação rápida do disco.
+</p>
+
+<hr>
+
+<h2 id="s-disc-pontomontagem">4.3 Pontos de Montagem</h2>
+
+<p>
+O <code>GNU/Linux</code> acessa as partições existente em seus discos
+rígidos e disquetes através de diretórios.  Os diretórios que são usados
+para acessar (montar) partições são chamados de <em>Pontos de Montagem</em>.
+Para detalhes sobre montagem de partições, veja <a
+href="#s-disc-montagem">Montando (acessando) uma partição de disco, Section
+4.5</a>.
+</p>
+
+<p>
+No <code>DOS</code> cada letra de unidade (C:, D:, E:) identifica uma
+partição de disco, no <code>GNU/Linux</code> os pontos de montagem fazem
+parte da grande estrutura do sistema de arquivos raiz.
+</p>
+
+<hr>
+
+<h2 id="s-disc-id">4.4 Identificação de discos e partições em sistemas Linux</h2>
+
+<p>
+No <code>GNU/Linux</code>, os dispositivos existentes em seu computador (como
+discos rígidos, pen-drives, flash, disquetes,, tela, portas de impressora,
+modem, etc) são identificados por um arquivo referente a este dispositivo no
+diretório <code>/dev</code>.
+</p>
+
+<p>
+A identificação de discos rígidos no <code>GNU/Linux</code> é feita da
+seguinte forma:
+</p>
+
+<pre>
+     /dev/sda1
+     |    | ||
+     |    | ||_Número que identifica o número da partição no disco rígido.
+     |    | |
+     |    | |_Letra que identifica o disco rígido (a=primeiro, b=segundo, etc...).
+     |    |
+     |    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, sd=IDE, xt=MFM).
+     |
+     |_Diretório onde são armazenados os dispositivos existentes no sistema.
+</pre>
+
+<p>
+Abaixo algumas identificações de discos e partições em sistemas Linux:
+</p>
+<ul>
+<li>
+<p>
+<em>/dev/fd0</em> - <samp>Primeira unidade de disquetes</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/fd1</em> - <samp>Segunda unidade de disquetes</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sda</em> - <samp>Primeiro disco rígido na primeira controladora SATA
+ou SCSI</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sda1</em> - <samp>Primeira partição do primeiro disco rígido SATA
+ou</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sdb</em> - <samp>Segundo disco rígido na primeira controladora SATA
+ou SCSI</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sdb1</em> - <samp>Primeira partição do segundo disco rígido SATA ou
+SCSI</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sr0</em> - <samp>Primeiro CD-ROM SATA ou SCSI</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/sr1</em> - <samp>Segundo CD-ROM SATA ou SCSI</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/hda</em> - <samp>Primeiro disco rígido na primeira controladora IDE
+do micro (primary master)</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/hda1</em> - <samp>Primeira partição do primeiro disco rígido
+IDE</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/hdb</em> - <samp>Segundo disco rígido na primeira controladora IDE do
+micro (primary slave)</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/hdb1</em> - <samp>Primeira partição do segundo disco rígido
+IDE</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/xda</em> - <samp>Primeiro disco rígido XT</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<em>/dev/xdb</em> - <samp>Segundo disco rígido XT</samp>.
+</p>
+</li>
+</ul>
+
+<p>
+As letras de identificação de discos rígidos podem ir além de
+<samp>sdb</samp>, por exemplo, caso utilize pen-drives, memória flash, as
+unidades serão detectadas como <samp>sdc</samp>, <samp>sdd</samp> e assim por
+diante.
+</p>
+
+<p>
+É importante entender como os discos e partições são identificados no
+sistema, pois será necessário usar os parâmetros corretos para monta-los.
+</p>
+
+<hr>
+
+<h2 id="s-disc-montagem">4.5 Montando (acessando) uma partição de disco</h2>
+
+<p>
+Você pode acessar uma partição de disco usando o comando <code>mount</code>.
+</p>
+
+<p>
+<samp>mount [<em>dispositivo</em>] [<em>ponto de montagem</em>]
+[<em>opções</em>]</samp>
+</p>
+
+<p>
+Onde:
+</p>
+<dl>
+<dt><em>dispositivo</em></dt>
+<dd>
+<p>
+Identificação da unidade de disco/partição que deseja acessar (como
+<samp>/dev/hda1</samp> (disco rígido) ou <samp>/dev/fd0</samp> (primeira
+unidade de disquetes).
+</p>
+</dd>
+<dt><em>ponto de montagem</em></dt>
+<dd>
+<p>
+Diretório de onde a <em>unidade de disco/partição</em> será acessado.  O
+diretório deve estar vazio para montagem de um sistema de arquivo.
+Normalmente é usado o diretório <code>/mnt</code> para armazenamento de
+pontos de montagem temporários.
+</p>
+</dd>
+<dt>-t [tipo]</dt>
+<dd>
+<p>
+Tipo do sistema de arquivos usado pelo <em>dispositivo</em>.  São aceitos os
+sistemas de arquivos:
+</p>
+<ul>
+<li>
+<p>
+<em>ext2</em> - Para partições <code>GNU/Linux</code> usando o Extended File
+System versão 2 (a mais comum).
+</p>
+</li>
+<li>
+<p>
+<em>ext3</em> - Para partições <code>GNU/Linux</code> usando o Extended File
+System versão 3, com suporte a journaling.
+</p>
+</li>
+<li>
+<p>
+<em>ext4</em> - Para partições <code>GNU/Linux</code> usando o Extended File
+System versão 4, com suporte a journaling.
+</p>
+</li>
+<li>
+<p>
+<em>reiserfs</em> - Para partições reiserfs, com suporte a journaling.
+</p>
+</li>
+<li>
+<p>
+<em>xfs</em> - Para partições xfs, com suporte a journaling.
+</p>
+</li>
+<li>
+<p>
+<em>vfat</em> - Para partições <code>Windows 95</code> que utilizam nomes
+extensos de arquivos e diretórios.
+</p>
+</li>
+<li>
+<p>
+<em>msdos</em> - Para partições <code>DOS</code> normais.
+</p>
+</li>
+<li>
+<p>
+<em>iso9660</em> - Para montar unidades de <code>CD-ROM</code>.  É o padrão.
+</p>
+</li>
+</ul>
+<p>
+Na maioria das vezes, caso o sistema de arquivos não seja especificado, o
+<code>mount</code> utilizará a auto-detecção e montará a partição usando
+o sistema de arquivos correto.  Para mais detalhes sobre opções usadas com
+cada sistema de arquivos, veja a página de manual <em>mount</em>.
+</p>
+</dd>
+<dt>-r</dt>
+<dd>
+<p>
+Caso for especificada, monta a partição somente para leitura.
+</p>
+</dd>
+<dt>-w</dt>
+<dd>
+<p>
+Caso for especificada, monta a partição como leitura/gravação.  É o
+padrão.
+</p>
+</dd>
+</dl>
+
+<p>
+Existem muitas outras opções que podem ser usadas com o comando
+<code>mount</code>, mas aqui procurei somente mostrar o básico para
+&quot;montar&quot; seus discos e partições no <code>GNU/Linux</code> (para
+mais opções, veja a página de manual do <samp>mount</samp>).  Caso você
+digitar <samp>mount</samp> sem parâmetros, serão mostrados os sistemas de
+arquivos atualmente montados no sistema.  Esta mesma listagem pode ser vista em
+<code>/etc/mtab</code>.  A remontagem de partição também é muito útil,
+especialmente após reparos nos sistema de arquivos do disco rígido.  Veja
+alguns exemplos de remontagem abaixo.
+</p>
+
+<p>
+É necessário permissões de root para montar partições, a não ser que
+tenha especificado a opção <samp>user</samp> no arquivo
+<code>/etc/fstab</code> (veja <a href="#s-disc-fstab">fstab, Section
+4.5.1</a>).
+</p>
+
+<p>
+Exemplo de Montagem:
+</p>
+<ul>
+<li>
+<p>
+Montar uma partição Windows (vfat) de <code>/dev/sda1</code> em
+<code>/mnt</code> somente para leitura: <samp>mount /dev/sda1 /mnt -r -t
+vfat</samp>
+</p>
+</li>
+<li>
+<p>
+Montar um pen-drive detectado em <code>/dev/sdc1</code> em <code>/mnt</code>:
+<samp>mount /dev/sdc1 /mnt -t vfat</samp>
+</p>
+</li>
+<li>
+<p>
+Montar uma partição DOS localizada em um segundo disco rígido
+<code>/dev/hdb1</code> em <code>/mnt</code>: <samp>mount /dev/hdb1 /mnt -t
+msdos</samp>.
+</p>
+</li>
+<li>
+<p>
+Remontar a partição raíz como somente leitura: <samp>mount -o remount,ro
+/</samp>
+</p>
+</li>
+<li>
+<p>
+Remontar a partição raíz como <em>leitura/gravação</em> (a opção -n é
+usada porque o <code>mount</code> não conseguirá atualizar o arquivo
+<code>/etc/mtab</code> devido ao sistema de arquivos <code>/</code> estar
+montado como somente leitura atualmente: <samp>mount -n -o remount,rw /</samp>.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h3 id="s-disc-fstab">4.5.1 fstab</h3>
+
+<p>
+O arquivo <code>/etc/fstab</code> permite que as partições do sistema sejam
+montadas facilmente especificando somente o dispositivo ou o ponto de montagem.
+Este arquivo contém parâmetros sobre as partições que são lidos pelo
+comando <code>mount</code>.  Cada linha deste arquivo contém a partição que
+desejamos montar, o ponto de montagem, o sistema de arquivos usado pela
+partição e outras opções.  <code>fstab</code> tem a seguinte forma:
+</p>
+
+<pre>
+     Sistema_de_arquivos Ponto_de_Montagem Tipo    Opções           dump ordem
+     /dev/sda1           /                 ext3    defaults           0    1
+     /dev/sda2           /boot             ext3    defaults           0    2
+     /dev/sda3           /dos              msdos   defaults,noauto,rw 0    0
+     /dev/hdg            /cdrom            iso9660 defaults,noauto    0    0
+</pre>
+
+<p>
+Onde:
+</p>
+<dl>
+<dt>Sistema de Arquivos</dt>
+<dd>
+<p>
+Partição que deseja montar.
+</p>
+</dd>
+<dt>Ponto de montagem</dt>
+<dd>
+<p>
+Diretório do <code>GNU/Linux</code> onde a partição montada será acessada.
+</p>
+</dd>
+<dt>Tipo</dt>
+<dd>
+<p>
+Tipo de sistema de arquivos usado na partição que será montada.  Para
+partições <code>GNU/Linux</code> use <em>ext3</em>, <em>reiserfs</em>,
+<em>xfs</em> (de acordo com o tipo de partição selecionada durante a
+formatação), para partições <code>DOS</code> (sem nomes extensos de
+arquivos) use <em>msdos</em>, para partições <code>Win 95</code> (com suporte
+a nomes extensos de arquivos) use <em>vfat</em>, para unidades de CD-ROM use
+<em>iso9660</em>.
+</p>
+</dd>
+<dt>Opções</dt>
+<dd>
+<p>
+Especifica as opções usadas com o sistema de arquivos.  Abaixo, algumas
+opções de montagem para ext2/3/4 (a lista completa pode ser encontrada na
+página de manual do <code>mount</code>):
+</p>
+<ul>
+<li>
+<p>
+<samp>defaults</samp> - Utiliza valores padrões de montagem.
+</p>
+</li>
+<li>
+<p>
+<samp>noauto</samp> - Não monta os sistemas de arquivos durante a
+inicialização (útil para CD-ROMS e disquetes).
+</p>
+</li>
+<li>
+<p>
+<samp>ro</samp> - Monta como somente leitura.
+</p>
+</li>
+<li>
+<p>
+<samp>user</samp> - Permite que usuários montem o sistema de arquivos (não
+recomendado por motivos de segurança).
+</p>
+</li>
+<li>
+<p>
+<samp>sync</samp> é recomendado para uso com discos removíveis (disquetes,
+zip drives, nfs, etc) para que os dados sejam gravados imediatamente na unidade
+(caso não seja usada, você deve usar o comando <a
+href="ch-cmdv.en.html#s-cmdv-sync">sync, Section 8.22</a> antes de retirar o
+disquete da unidade.
+</p>
+</li>
+</ul>
+</dd>
+<dt>dump</dt>
+<dd>
+<p>
+Especifica a frequência de backup feita com o programa <code>dump</code> no
+sistema de arquivos.  0 desativa o backup.
+</p>
+</dd>
+<dt>Ordem</dt>
+<dd>
+<p>
+Define a ordem que os sistemas de arquivos serão verificados na
+inicialização do sistema.  Se usar 0, o sistema de arquivos não é
+verificado.  O sistema de arquivos raíz que deverá ser verificado primeiro é
+o raíz &quot;/&quot; .
+</p>
+</dd>
+</dl>
+
+<p>
+Após configurar o <code>/etc/fstab</code>, basta digitar o comando <samp>mount
+/dev/hdg</samp> ou <samp>mount /cdrom</samp> para que a unidade de CD-ROM seja
+montada.  Você deve ter notado que não é necessário especificar o sistema
+de arquivos da partição pois o <code>mount</code> verificará se ele já
+existe no <code>/etc/fstab</code> e caso existir, usará as opções
+especificadas neste arquivo.  Para maiores detalhes veja as páginas de manual
+<code>fstab</code> e <code>mount</code>.
+</p>
+
+<hr>
+
+<h2 id="s-disc-desmontagem">4.6 Desmontando uma partição de disco</h2>
+
+<p>
+Utilize o comando <code>umount</code> para desmontar um sistema de arquivos que
+foi montado com o <code>mount</code>.  Você deve ter permissões de root para
+desmontar uma partição.
+</p>
+
+<p>
+<samp>umount [<em>dispositivo</em>/<em>ponto de montagem</em>]</samp>
+</p>
+
+<p>
+Você pode tanto usar <samp>umount /dev/sda1</samp> como <samp>umount
+/mnt</samp> para desmontar um sistema de arquivos <code>/dev/sda1</code>
+montado em <code>/mnt</code>.
+</p>
+
+<p>
+<em>Observação:</em> O comando <code>umount</code> executa o
+<code>sync</code> automaticamente no momento da desmontagem, para garantir que
+todos os dados ainda em memória RAM sejam salvos.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-d-l.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ <a href="ch-intro.en.html">1</a> ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ 4 ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-run.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

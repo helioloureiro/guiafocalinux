@@ -1,0 +1,2297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Introdução</title>
+
+<link href="index.en.html" rel="start">
+<link href="index.en.html" rel="prev">
+<link href="ch-bas.en.html" rel="next">
+<link href="index.en.html#contents" rel="contents">
+<link href="index.en.html#copyright" rel="copyright">
+<link href="ch-intro.en.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.en.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-d-l.en.html" rel="chapter" title="3 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.en.html" rel="chapter" title="4 Discos e Partições">
+<link href="ch-run.en.html" rel="chapter" title="5 Execução de programas">
+<link href="ch-cmdd.en.html" rel="chapter" title="6 Comandos para manipulação de diretório">
+<link href="ch-cmd.en.html" rel="chapter" title="7 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.en.html" rel="chapter" title="8 Comandos Diversos">
+<link href="ch-cmdn.en.html" rel="chapter" title="9 Comandos de rede">
+<link href="ch-cmdc.en.html" rel="chapter" title="10 Comandos para manipulação de contas">
+<link href="ch-perm.en.html" rel="chapter" title="11 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.en.html" rel="chapter" title="12 Redirecionamentos e Pipe">
+<link href="ch-impr.en.html" rel="chapter" title="13 Impressão">
+<link href="ch-x11.en.html" rel="chapter" title="14 X Window (ambiente gráfico)">
+<link href="ch-ajuda.en.html" rel="chapter" title="15 Como obter ajuda no sistema">
+<link href="ch-systemd.en.html" rel="chapter" title="16 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.en.html" rel="chapter" title="17 Git, controle de versões">
+<link href="ch-virt-intro.en.html" rel="chapter" title="18 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.en.html" rel="chapter" title="19 Apêndice">
+<link href="ch-intro.en.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.en.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.en.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.en.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.en.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.en.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.en.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.en.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.en.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.en.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.en.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.en.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.en.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.en.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.en.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.en.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.en.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.en.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.en.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.en.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.en.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.en.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.en.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.en.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.en.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.en.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.en.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.en.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.en.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-d-l.en.html#s-d-l-compar" rel="section" title="3.1 Quais as diferenças iniciais">
+<link href="ch-d-l.en.html#s-d-l-comandos" rel="section" title="3.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.en.html#s-d-l-mtools" rel="section" title="3.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.en.html#s-d-l-programas" rel="section" title="3.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.en.html#s-disc-particoes" rel="section" title="4.1 Partições">
+<link href="ch-disc.en.html#s-disc-formatando" rel="section" title="4.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.en.html#s-disc-pontomontagem" rel="section" title="4.3 Pontos de Montagem">
+<link href="ch-disc.en.html#s-disc-id" rel="section" title="4.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.en.html#s-disc-montagem" rel="section" title="4.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.en.html#s-disc-desmontagem" rel="section" title="4.6 Desmontando uma partição de disco">
+<link href="ch-run.en.html#s-run-prgn" rel="section" title="5.1 Executando um comando/programa">
+<link href="ch-run.en.html#s-run-path" rel="section" title="5.2 path">
+<link href="ch-run.en.html#s-run-tipos" rel="section" title="5.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.en.html#s-run-seq" rel="section" title="5.4 Executando programas em seqüência">
+<link href="ch-run.en.html#s-run-ps" rel="section" title="5.5 ps">
+<link href="ch-run.en.html#s-run-top" rel="section" title="5.6 top">
+<link href="ch-run.en.html#s-run-controle" rel="section" title="5.7 Controle de execução de processos">
+<link href="ch-run.en.html#s-run-fechando" rel="section" title="5.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.en.html#s-run-reset" rel="section" title="5.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.en.html#s-comando-ls" rel="section" title="6.1 ls">
+<link href="ch-cmdd.en.html#s-comando-cd" rel="section" title="6.2 cd">
+<link href="ch-cmdd.en.html#s-comando-pwd" rel="section" title="6.3 pwd">
+<link href="ch-cmdd.en.html#s-comando-mkdir" rel="section" title="6.4 mkdir">
+<link href="ch-cmdd.en.html#s-comando-rmdir" rel="section" title="6.5 rmdir">
+<link href="ch-cmd.en.html#s-comandos-cat" rel="section" title="7.1 cat">
+<link href="ch-cmd.en.html#s-comando-tac" rel="section" title="7.2 tac">
+<link href="ch-cmd.en.html#s-comando-rm" rel="section" title="7.3 rm">
+<link href="ch-cmd.en.html#s-comando-cp" rel="section" title="7.4 cp">
+<link href="ch-cmd.en.html#s-comando-mv" rel="section" title="7.5 mv">
+<link href="ch-cmdv.en.html#s-cmdv-clear" rel="section" title="8.1 clear">
+<link href="ch-cmdv.en.html#s-cmdv-date" rel="section" title="8.2 date">
+<link href="ch-cmdv.en.html#s-cmdv-df" rel="section" title="8.3 df">
+<link href="ch-cmdv.en.html#s-cmdv-ln" rel="section" title="8.4 ln">
+<link href="ch-cmdv.en.html#s-cmdv-du" rel="section" title="8.5 du">
+<link href="ch-cmdv.en.html#s-cmdv-find" rel="section" title="8.6 find">
+<link href="ch-cmdv.en.html#s-cmdv-free" rel="section" title="8.7 free">
+<link href="ch-cmdv.en.html#s-cmdv-grep" rel="section" title="8.8 grep">
+<link href="ch-cmdv.en.html#s-cmdv-head" rel="section" title="8.9 head">
+<link href="ch-cmdv.en.html#s-cmdv-nl" rel="section" title="8.10 nl">
+<link href="ch-cmdv.en.html#s-cmdv-more" rel="section" title="8.11 more">
+<link href="ch-cmdv.en.html#s-cmdv-less" rel="section" title="8.12 less">
+<link href="ch-cmdv.en.html#s-cmdv-sort" rel="section" title="8.13 sort">
+<link href="ch-cmdv.en.html#s-cmdv-tail" rel="section" title="8.14 tail">
+<link href="ch-cmdv.en.html#s-cmdv-time" rel="section" title="8.15 time">
+<link href="ch-cmdv.en.html#s-cmdv-touch" rel="section" title="8.16 touch">
+<link href="ch-cmdv.en.html#s-cmdv-uptime" rel="section" title="8.17 uptime">
+<link href="ch-cmdv.en.html#s-cmdv-dmesg" rel="section" title="8.18 dmesg">
+<link href="ch-cmdv.en.html#s-cmdv-mesg" rel="section" title="8.19 mesg">
+<link href="ch-cmdv.en.html#s-cmdv-echo" rel="section" title="8.20 echo">
+<link href="ch-cmdv.en.html#s-cmdv-su" rel="section" title="8.21 su">
+<link href="ch-cmdv.en.html#s-cmdv-sync" rel="section" title="8.22 sync">
+<link href="ch-cmdv.en.html#s-cmdv-uname" rel="section" title="8.23 uname">
+<link href="ch-cmdv.en.html#s-cmdv-reboot" rel="section" title="8.24 reboot">
+<link href="ch-cmdv.en.html#s-cmdv-shutdown" rel="section" title="8.25 shutdown">
+<link href="ch-cmdv.en.html#s-cmdv-wc" rel="section" title="8.26 wc">
+<link href="ch-cmdv.en.html#s-cmdv-seq" rel="section" title="8.27 seq">
+<link href="ch-cmdn.en.html#s-cmdn-who" rel="section" title="9.1 who">
+<link href="ch-cmdn.en.html#s-cmdn-telnet" rel="section" title="9.2 telnet">
+<link href="ch-cmdn.en.html#s-cmdn-finger" rel="section" title="9.3 finger">
+<link href="ch-cmdn.en.html#s-cmdn-ftp" rel="section" title="9.4 ftp">
+<link href="ch-cmdn.en.html#s-cmdn-whoami" rel="section" title="9.5 whoami">
+<link href="ch-cmdn.en.html#s-cmdn-dnsdomainname" rel="section" title="9.6 dnsdomainname">
+<link href="ch-cmdn.en.html#s-cmdn-hostname" rel="section" title="9.7 hostname">
+<link href="ch-cmdn.en.html#s-cmdn-talk" rel="section" title="9.8 talk">
+<link href="ch-cmdc.en.html#s-cmdc-adduser" rel="section" title="10.1 adduser">
+<link href="ch-cmdc.en.html#s-cmdc-addgroup" rel="section" title="10.2 addgroup">
+<link href="ch-cmdc.en.html#s-cmdc-passwd" rel="section" title="10.3 passwd">
+<link href="ch-cmdc.en.html#s-cmdc-gpasswd" rel="section" title="10.4 gpasswd">
+<link href="ch-cmdc.en.html#s-cmdc-newgrp" rel="section" title="10.5 newgrp">
+<link href="ch-cmdc.en.html#s-cmdc-userdel" rel="section" title="10.6 userdel">
+<link href="ch-cmdc.en.html#s-cmdc-groupdel" rel="section" title="10.7 groupdel">
+<link href="ch-cmdc.en.html#s-cmdc-sg" rel="section" title="10.8 sg">
+<link href="ch-cmdc.en.html#s-cmdc-incluirgrupo" rel="section" title="10.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.en.html#s-cmdc-chfn" rel="section" title="10.10 chfn">
+<link href="ch-cmdc.en.html#s-cmdc-id" rel="section" title="10.11 id">
+<link href="ch-cmdc.en.html#s-cmdc-logname" rel="section" title="10.12 logname">
+<link href="ch-cmdc.en.html#s-cmdc-users" rel="section" title="10.13 users">
+<link href="ch-cmdc.en.html#s-cmdc-groups" rel="section" title="10.14 groups">
+<link href="ch-perm.en.html#s-perm-user-group" rel="section" title="11.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.en.html#s-perm-tipos" rel="section" title="11.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.en.html#s-perm-acessando" rel="section" title="11.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.en.html#s-perm-exemplo" rel="section" title="11.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.en.html#s-perm-especiais" rel="section" title="11.5 Permissões de Acesso Especiais">
+<link href="ch-perm.en.html#s-perm-root" rel="section" title="11.6 A conta root">
+<link href="ch-perm.en.html#s-perm-chmod" rel="section" title="11.7 chmod">
+<link href="ch-perm.en.html#s-perm-chgrp" rel="section" title="11.8 chgrp">
+<link href="ch-perm.en.html#s-perm-chown" rel="section" title="11.9 chown">
+<link href="ch-perm.en.html#s-perm-octal" rel="section" title="11.10 Modo de permissão octal">
+<link href="ch-perm.en.html#s-perm-umask" rel="section" title="11.11 umask">
+<link href="ch-redir.en.html#s-redir-maior" rel="section" title="12.1 &gt;">
+<link href="ch-redir.en.html#s-redir-maior2" rel="section" title="12.2 &gt;&gt;">
+<link href="ch-redir.en.html#s-redir-menor" rel="section" title="12.3 &lt;">
+<link href="ch-redir.en.html#s-redir-menor2" rel="section" title="12.4 &lt;&lt;">
+<link href="ch-redir.en.html#s-redir-pipe" rel="section" title="12.5 | (pipe)">
+<link href="ch-redir.en.html#s12.6" rel="section" title="12.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.en.html#s-redir-tee" rel="section" title="12.7 tee">
+<link href="ch-impr.en.html#s-impr-portas" rel="section" title="13.1 Portas de impressora">
+<link href="ch-impr.en.html#s-impr-direta" rel="section" title="13.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.en.html#s-impr-spool" rel="section" title="13.3 Imprimindo via spool">
+<link href="ch-impr.en.html#s-impr-graficos" rel="section" title="13.4 Impressão em modo gráfico">
+<link href="ch-impr.en.html#s-impr-magicfilter" rel="section" title="13.5 Magic Filter">
+<link href="ch-x11.en.html#s-x11-descricao" rel="section" title="14.1 O que é X Window?">
+<link href="ch-x11.en.html#s-x11-estrutura" rel="section" title="14.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.en.html#s-x11-iniciando" rel="section" title="14.3 Iniciando o X">
+<link href="ch-x11.en.html#s-x11-servidor" rel="section" title="14.4 Servidor X">
+<link href="ch-ajuda.en.html#s-ajuda-man" rel="section" title="15.1 Páginas de Manual">
+<link href="ch-ajuda.en.html#s-ajuda-info" rel="section" title="15.2 Info Pages">
+<link href="ch-ajuda.en.html#s-ajuda-helponline" rel="section" title="15.3 Help on line">
+<link href="ch-ajuda.en.html#s-ajuda-help" rel="section" title="15.4 help">
+<link href="ch-ajuda.en.html#s-ajuda-apropos" rel="section" title="15.5 apropos/whatis">
+<link href="ch-ajuda.en.html#s-ajuda-locate" rel="section" title="15.6 locate">
+<link href="ch-ajuda.en.html#s-ajuda-which" rel="section" title="15.7 which">
+<link href="ch-ajuda.en.html#s-ajuda-howto" rel="section" title="15.8 Documentos HOWTO's">
+<link href="ch-ajuda.en.html#s-ajuda-docs" rel="section" title="15.9 Documentação de Programas">
+<link href="ch-ajuda.en.html#s-ajuda-faq" rel="section" title="15.10 FAQ">
+<link href="ch-ajuda.en.html#s-ajuda-internet" rel="section" title="15.11 Internet">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta" rel="section" title="15.12 Netiqueta">
+<link href="ch-systemd.en.html#s-s-systemd-historia" rel="section" title="16.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.en.html#s-s-systemd-uso" rel="section" title="16.2 Usando o systemd">
+<link href="ch-git.en.html#s-s-git-historia" rel="section" title="17.1 Sobre o Git">
+<link href="ch-git.en.html#s-s-git-caracteristicas" rel="section" title="17.2 Características e critérios">
+<link href="ch-git.en.html#s-s-git-comandos" rel="section" title="17.3 Comandos do Git">
+<link href="ch-virt-intro.en.html#s-virt-motivos" rel="section" title="18.1 Por que usar virtualização">
+<link href="ch-virt-intro.en.html#s-virt-tipos" rel="section" title="18.2 Tipos de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-nomenclatura" rel="section" title="18.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.en.html#s-virt-lxc" rel="section" title="18.4 LXC - Linux Container">
+<link href="ch-apend.en.html#s-apend-sobre" rel="section" title="19.1 Sobre este guia">
+<link href="ch-apend.en.html#s-apend-autor" rel="section" title="19.2 Sobre o Autor">
+<link href="ch-apend.en.html#s-apend-ref" rel="section" title="19.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.en.html#s-apend-homepage" rel="section" title="19.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.en.html#s-apend-colaboradores" rel="section" title="19.5 Colaboradores do Guia">
+<link href="ch-apend.en.html#s-apend-mr" rel="section" title="19.6 Marcas Registradas">
+<link href="ch-apend.en.html#s-apend-new" rel="section" title="19.7 Futuras versões">
+<link href="ch-apend.en.html#s-apend-pgp" rel="section" title="19.8 Chave Pública PGP">
+<link href="ch-intro.en.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.en.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.en.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.en.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.en.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.en.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.en.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.en.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.en.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.en.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.en.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.en.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.en.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.en.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.en.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.en.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.en.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.en.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.en.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.en.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.en.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-d-l.en.html#s3.2.1" rel="subsection" title="3.2.1 Arquivos de configuração">
+<link href="ch-disc.en.html#s-disc-formatando-l" rel="subsection" title="4.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.en.html#s-disc-formatando-d" rel="subsection" title="4.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.en.html#s-disc-formatando-g" rel="subsection" title="4.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.en.html#s-disc-fstab" rel="subsection" title="4.5.1 fstab">
+<link href="ch-run.en.html#s-run-break" rel="subsection" title="5.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.en.html#s-run-pausa" rel="subsection" title="5.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.en.html#s-run-ver-backgrounds" rel="subsection" title="5.7.3 jobs">
+<link href="ch-run.en.html#s-run-fg" rel="subsection" title="5.7.4 fg">
+<link href="ch-run.en.html#s-run-bg" rel="subsection" title="5.7.5 bg">
+<link href="ch-run.en.html#s-run-kill" rel="subsection" title="5.7.6 kill">
+<link href="ch-run.en.html#s-run-killall" rel="subsection" title="5.7.7 killall">
+<link href="ch-run.en.html#s-run-killall5" rel="subsection" title="5.7.8 killall5">
+<link href="ch-run.en.html#s-run-sinais" rel="subsection" title="5.7.9 Sinais do Sistema">
+<link href="ch-perm.en.html#s-perm-exemplo-a" rel="subsection" title="11.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.en.html#s-perm-exemplo-d" rel="subsection" title="11.4.2 Exemplo de acesso a um diretório">
+<link href="ch-impr.en.html#s-impr-ghostscript" rel="subsection" title="13.4.1 Ghost Script">
+<link href="ch-impr.en.html#s-impr-magicfilter-i" rel="subsection" title="13.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.en.html#s-impr-magicfilter-c" rel="subsection" title="13.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-ajuda.en.html#s-ajuda-paginas" rel="subsection" title="15.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.en.html#s-ajuda-redes-sociais" rel="subsection" title="15.11.2 Redes sociais">
+<link href="ch-ajuda.en.html#s-ajuda-listas" rel="subsection" title="15.11.3 Listas de discussão">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-geral" rel="subsection" title="15.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-email" rel="subsection" title="15.12.2 Email">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-icq" rel="subsection" title="15.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-talk" rel="subsection" title="15.12.4 Talk">
+<link href="ch-ajuda.en.html#s-ajuda-netiqueta-listas" rel="subsection" title="15.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.en.html#s-s-systemd-sysvinit" rel="subsection" title="16.1.1 sysvinit">
+<link href="ch-systemd.en.html#s-s-systemd-upstart" rel="subsection" title="16.1.2 upstart">
+<link href="ch-systemd.en.html#s-s-systemd-systemd" rel="subsection" title="16.1.3 systemd">
+<link href="ch-systemd.en.html#s-s-systemd-polemicas" rel="subsection" title="16.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.en.html#s-s-systemd-systemctl" rel="subsection" title="16.2.1 systemctl">
+<link href="ch-systemd.en.html#s-s-systemd-journalctl" rel="subsection" title="16.2.2 journalctl">
+<link href="ch-systemd.en.html#s-s-systemd-runlevel" rel="subsection" title="16.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.en.html#s-virt-lxc-creation" rel="subsection" title="18.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-intro"></a></p>
+<hr>
+
+<p>
+[ <a href="index.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ 1 ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-bas.en.html">next</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Chapter 1 - Introdução
+</h1>
+
+<hr>
+
+<p>
+Bem vindo ao guia <em>Foca GNU/Linux</em>.  O nome <em>FOCA</em> significa
+<em>FO</em>nte de <em>C</em>onsulta e <em>A</em>prendizado.  Este guia é
+dividido em 3 níveis de aprendizado e versão que esta lendo agora contém:
+</p>
+<ul>
+<li>
+<p>
+Iniciante
+</p>
+</li>
+</ul>
+
+<p>
+Entre o conteúdo do guia, você encontrará:
+</p>
+<ul>
+<li>
+<p>
+Textos explicativos falando sobre o sistema <code>GNU/Linux</code>, seus
+comandos, como manusear arquivos, diretórios, etc.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Explicações iniciais sobre as partes básicas do computador e periféricos
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Comandos e Programas equivalentes entre o <code>DOS</code>/<code>Windows</code>
+e o <code>GNU/Linux</code>
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Todos os materiais contidos na versão iniciante são ideais para quem está
+tendo o primeiro contato com computadores e/ou com o <code>Linux</code>.  A
+linguagem usada é simples com o objetivo de explicar claramente o
+funcionamento de cada comando e evitando, sempre que possível, termos
+técnicos
+</p>
+</li>
+</ul>
+
+<p>
+Para melhor organização, o guia foi divido em 3 versões: <em>Iniciante</em>,
+<em>Intermediário</em> e <em>Avançado</em>.  Sendo que a versão
+<em>Iniciante</em> é voltada para o usuário que não tem <samp>nenhuma</samp>
+experiência no <code>GNU/Linux</code>.  A última versão deste guia pode ser
+encontrada em: <code><a href="http://www.guiafoca.org">Página Oficial do guia
+Foca GNU/Linux</a></code>.
+</p>
+
+<p>
+Caso tiver alguma sugestão, correção, crítica para a melhoria deste guia,
+envie um e-mail para <code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>.
+</p>
+
+<p>
+O <em>Foca GNU/Linux</em> é atualizado freqüentemente, por este motivo
+recomenda-se que preencha a ficha do aviso de atualizações na página web em
+<code><a href="http://www.guiafoca.org">Página Oficial do guia Foca
+GNU/Linux</a></code> no fim da página principal.  Após preencher a ficha do
+aviso de atualizações, você receberá um e-mail sobre o lançamento de novas
+versões do guia e o que foi modificado, desta forma você poderá decidir em
+copia-la caso a nova versão contenha modificações que considera importantes.
+</p>
+
+<p>
+Tenho recebido elegios de pessoas do Brasil (e de paises de fora também)
+elogiando o trabalho e a qualidade da documentação.  Agradeço a todos pelo
+apoio, tenham certeza que este trabalho é desenvolvido pensando em repassar um
+pouco do conhecimento que adquiri ao começar o uso do GNU/Linux.
+</p>
+
+<p>
+Também venho recebendo muitos e-mails de pessoas que passaram na prova LPI
+niveis 1 e 2 após estudar usando o guia Foca GNU/Linux.  Fico bastante feliz
+por saber disso, pois nunca tive a intenção de tornar o guia uma referência
+livre para estudo da LPI e hoje é usado para estudo desta difícil
+certificação que aborda comandos, serviços, configurações, segurança,
+empacotamento, criptografia, etc.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-palavras">1.1 Antes de começar</h2>
+
+<p>
+Os capítulos <em>Introdução</em> e <em>básico</em> contém explicações
+teóricas sobre o computador, <code>GNU/Linux</code>, etc., você pode pular
+este capítulos caso já conheça estas explicações ou se desejar partir para
+a prática e quiser vê-los mais tarde, se lhe interessar.
+</p>
+
+<p>
+Se você já é um usuário de linha de comandos do <code>DOS</code> ou do
+<code>Windows</code>, recomenda-se ler <a href="ch-d-l.en.html">Para quem esta
+migrando (ou pensando em migrar) do DOS/Windows para o Linux, Chapter 3</a>.
+Lá serão encontradas comparações de comandos e programas
+<code>DOS/Windows</code> e <code>GNU/Linux</code>.
+</p>
+
+<p>
+Para quem está começando, muita teoria pode atrapalhar o aprendizado, é mais
+produtivo ver na prática o que o computador faz e depois porque ele faz isto.
+Mesmo assim, recomenda-se ler estes capítulos pois seu conteúdo pode ser
+útil...
+</p>
+
+<p>
+Abaixo seguem algumas dicas para um bom começo:
+</p>
+<ul>
+<li>
+<p>
+Recomenda-se que faça a leitura deste guia e pratique imediatamente o que
+aprendeu.  Isto facilita o entendimento do programa/comando/configuração.
+</p>
+</li>
+<li>
+<p>
+É preciso ter interesse em aprender.  Se você tiver vontade em aprender algo,
+você terá menos dificuldade do que em algo que não gosta e estará se
+obrigando a aprender.
+</p>
+</li>
+<li>
+<p>
+Decorar não adianta, pelo contrário, só atrapalha no aprendizado.  Você
+precisa entender o que o comando faz, deste modo você estará estimulando e
+desenvolvendo sua interpretação, e entenderá melhor o assunto (talvez até
+me de uma força para melhorar o guia ;-)
+</p>
+</li>
+<li>
+<p>
+Curiosidade também é importante.  Você talvez possa estar procurando um
+comando que mostre os arquivos que contém um certo texto, e isto fará você
+chegar até o comando <code>grep</code>, depois você conhecerá suas opções,
+etc.
+</p>
+</li>
+<li>
+<p>
+Não desanime vendo outras pessoas que sabem mais que você, lembre-se que
+ninguém nasce sabendo :-).  Uma pessoa pode ter mais experiência em um
+assunto no sistema como compilação de programas, configuração, etc., e
+você pode ter mais interesse em redes.
+</p>
+</li>
+<li>
+<p>
+Ninguém pode saber tudo da noite para o dia, não procure saber TUDO sobre o
+sistema de uma só vez, senão não entenderá NADA.  Caso tenha dúvidas sobre
+o sistema, procure ler novamente a seção do guia, e caso ainda não tenha
+entendido procure ajuda nas página de manual (veja <a
+href="ch-ajuda.en.html#s-ajuda-man">Páginas de Manual, Section 15.1</a>), ou
+nas redes sociais (veja <a href="ch-ajuda.en.html#s-ajuda-redes-sociais">Redes
+sociais, Section 15.11.2</a> nas listas de discussão (veja <a
+href="ch-ajuda.en.html#s-ajuda-listas">Listas de discussão, Section
+15.11.3</a>) ou envie uma mensagem para <code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>.
+</p>
+</li>
+<li>
+<p>
+Certamente você buscará documentos na Internet que falem sobre algum assunto
+que este guia ainda não explica.  Muito cuidado!  O <code>GNU/Linux</code> é
+um sistema que cresce muito rapidamente, a cada semana uma nova versão é
+lançada, novos recursos são adicionados, seria maravilhoso se a
+documentação fosse atualizada com a mesma freqüência.
+</p>
+<p>
+Infelizmente a atualização da documentação não segue o mesmo ritmo
+(principalmente aqui no Brasil).  É comum você encontrar na Internet
+documentos da época quando o kernel estava na versão 2.2.30, 2.4.8, 2.6.28,
+etc.  Estes documentos são úteis para pessoas que por algum motivo necessitam
+operar com versões antigas do Kernel Linux, mas pode trazer problemas ou
+causar má impressão do <code>GNU/Linux</code> em outras pessoas.
+</p>
+<p>
+Por exemplo, você pode esbarrar pela Internet com um documento que diz que o
+Kernel não tem suporte aos &quot;nomes extensos&quot; da VFAT (Windows 95),
+isto é verdade para kernels anteriores ao 2.0.31, mas as versões mais novas
+que a 2.0.31 reconhecem sem problemas os nomes extensos da partição Windows
+VFAT.  [<a href="footnotes.en.html#f1" name="fr1">1</a>]
+</p>
+<p>
+Uma pessoa desavisada pode ter receio de instalar o <code>GNU/Linux</code> em
+uma mesma máquina com Windows por causa de um documento como este.  Para
+evitar problemas deste tipo, verifique a data de atualização do documento, se
+verificar que o documento está obsoleto, contacte o autor original e peça
+para que ele retire aquela seção na próxima versão que será lançada.
+</p>
+</li>
+<li>
+<p>
+O <code>GNU/Linux</code> é considerado um sistema mais difícil do que os
+outros, mas isto é porque ele requer que a pessoa realmente aprenda e conheça
+computadores e seus periféricos antes de fazer qualquer coisa (principalmente
+se você é um técnico em manutenção, redes, instalações, etc., e deseja
+oferecer suporte profissional a este sistema).
+</p>
+<p>
+Você conhecerá mais sobre computadores, redes, hardware, software, discos,
+saberá avaliar os problemas e a buscar a melhor solução, enfim as
+possibilidades de crescimento neste sistema operacional depende do
+conhecimento, interesse e capacidade de cada um.
+</p>
+</li>
+<li>
+<p>
+A interface gráfica existe, mas os melhores recursos e flexibilidade estão na
+linha de comando.  Você pode ter certeza que o aprendizado no
+<code>GNU/Linux</code> ajudará a ter sucesso e menos dificuldade em usar
+qualquer outro sistema operacional.
+</p>
+</li>
+<li>
+<p>
+Peça ajuda a outros usuários do <code>GNU/Linux</code> quando estiver em
+dúvida ou não souber fazer alguma coisa no sistema.  Você pode entrar em
+contato diretamente com outros usuários, através de listas de discussão
+(veja <a href="ch-ajuda.en.html#s-ajuda-listas">Listas de discussão, Section
+15.11.3</a>) ou através de grupos de ajuda em redes sociais (veja <a
+href="ch-ajuda.en.html#s-ajuda-redes-sociais">Redes sociais, Section
+15.11.2</a>).
+</p>
+</li>
+</ul>
+
+<p>
+Boa Sorte e bem vindo ao <code>GNU/Linux</code>!
+</p>
+
+<p>
+Gleydson (<code><a
+href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code>).
+</p>
+
+<hr>
+
+<h2 id="s-introducao-requisitos">1.2 Pré-requisitos para a utilização deste guia</h2>
+
+<p>
+É assumido que você já tenha seu <code>GNU/Linux</code> instalado e
+funcionando.
+</p>
+
+<p>
+Este guia não cobre a instalação do sistema.  Para detalhes sobre
+instalação, consulte a documentação que acompanha sua distribuição
+<code>GNU/Linux</code>.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-so">1.3 Sistema Operacional</h2>
+
+<p>
+O <em>Sistema Operacional</em> é o conjunto de programas que fazem a interface
+do usuário e seus programas com o computador.  Ele é responsável pelo
+gerenciamento de recursos e periféricos (como memória, discos, arquivos,
+impressoras, CD-ROMs, etc.), interpretação de mensagens e a execução de
+programas.
+</p>
+
+<p>
+No <code>GNU/Linux</code> o Kernel <em>Linux</em> mais o conjunto de
+ferramentas <em>GNU</em> compõem o Sistema Operacional.  O kernel (que é a
+base principal de um sistema operacional), poderá ser construído de acordo
+com a configuração do computador e dos periféricos que possui.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-linux">1.4 O Linux</h2>
+
+<p>
+O <code>Linux</code> é um sistema operacional criado em 1991 por <em>Linus
+Torvalds</em> na universidade de Helsinki na Finlândia.  É um kernel de
+código aberto distribuído gratuitamente pela Internet.  Seu código fonte é
+liberado como <em>Free Software</em> (software livre), sob licença GPLv2.  O
+aviso de copyright do kernel feito por Linus descreve detalhadamente isto e
+mesmo ele não pode fechar o sistema para que seja usado apenas comercialmente.
+</p>
+
+<p>
+Isto quer dizer que você não precisa pagar nada para usar o Linux, e não é
+crime fazer cópias para instalar em outros computadores, nós inclusive
+incentivamos você a fazer isto.  Ser um sistema de código aberto pode
+explicar a performance, estabilidade e velocidade em que novos recursos são
+adicionados ao sistema.
+</p>
+
+<p>
+O requisito mínimo para rodar o <code>GNU/Linux</code> depende do kernel que
+será usado:
+</p>
+<ul>
+<li>
+<p>
+<samp>2.2.x</samp> - Computador 386 SX com 2 MB de memória
+</p>
+</li>
+<li>
+<p>
+<samp>2.4.x</samp> - Computador 386 SX com 4 MB de memória
+</p>
+</li>
+<li>
+<p>
+<samp>2.6.x</samp> - Computador 486 DX com no mínimo 8 MB de memória
+</p>
+</li>
+<li>
+<p>
+<samp>3.x</samp> - Computador 486 DX com no mínimo 8 MB de memória
+</p>
+</li>
+<li>
+<p>
+<samp>4.x</samp> - Computador 486 DX com no mínimo 8 MB de memória
+</p>
+</li>
+</ul>
+
+<p>
+Esse requisito mínimo não significa ter um sistema Desktop completo, mas um
+sistema GNU/Linux básico funcionando com console.
+</p>
+
+<p>
+Para espaço em disco é requerido 500 MB para uma instalação básica usando
+modo texto com suporte a rede.  Claro que não é considerada a execução de
+ambiente gráfico ou serviços de rede em produção, que neste caso é exigido
+mais memória RAM e espaço em disco para armazenamento de dados de programas e
+usuários.  [<a href="footnotes.en.html#f2" name="fr2">2</a>]
+</p>
+
+<p>
+O sistema segue o padrão <em>POSIX</em> que é o mesmo usado por sistemas
+<em>UNIX</em> e suas variantes.  Assim, aprendendo o <code>Linux</code> você
+não encontrará muita dificuldade em operar um sistema do tipo <code>UNIX,
+FreeBSD, HPUX, SunOS,</code> etc., bastando apenas aprender alguns detalhes
+encontrados em cada sistema.  Apesar disso o Linux não é derivado do Unix,
+assim sendo o GNU/Linux um clone do Unix que teve como base o sistema
+operacional Minix.  [<a href="footnotes.en.html#f3" name="fr3">3</a>]
+</p>
+
+<p>
+O código fonte aberto permite que qualquer pessoa veja como o sistema funciona
+(útil para aprendizado), corrija algum problema ou faça alguma sugestão
+sobre sua melhoria.  Esse é um dos motivos de seu rápido crescimento, do
+aumento da compatibilidade de periféricos (como novas placas sendo suportadas
+logo após seu lançamento), de novas funcionalidades e de sua estabilidade.
+</p>
+
+<p>
+Outro ponto em que Linux se destaca é o suporte que oferece à placas de
+vídeo, CD/DVD-RWs, BluRay e outros tipos de dispositivos de última geração
+e mais antigos (a maioria deles já ultrapassados e sendo completamente
+suportados pelo sistema operacional).  Este é um ponto forte para empresas que
+desejam manter seus parques computacionais em funcionamento e pretendem
+investir em avanços tecnológicos com as máquinas que possui, alterando o
+paradigma da obsolecência programada (ou forçada).
+</p>
+
+<p>
+O <code>Linux</code> é desenvolvido por milhares de pessoas espalhadas pelo
+mundo, sendo sua maioria funcionários de grandes empresas como RedHat e IBM,
+cada uma fazendo sua contribuição ou mantendo alguma parte do kernel
+gratuitamente.  <em>Linus Torvalds</em> ainda trabalha em seu desenvolvimento e
+na coordenação dos grupos de trabalho do kernel, mas passa a maior parte de
+seu tempo organizando as contribuições e aprovando novos trechos de código.
+</p>
+
+<p>
+O suporte ao sistema também se destaca como sendo o mais eficiente e rápido
+do que qualquer programa comercial disponível no mercado.  Existem milhares de
+consultores e empresas especializadas no suporte e treinamento espalhados ao
+redor do mundo.  Outra opção de suporte é através da comunidade Linux:
+você pode se inscrever em uma lista de discussão ou grupo em redes socias e
+relatar sua dúvida ou alguma falha, e sua mensagem será vista por centenas de
+usuários na Internet e algum irá te ajudar ou avisará as pessoas
+responsáveis sobre a falha encontrada para devida correção.  Para detalhes,
+veja <a href="ch-ajuda.en.html#s-ajuda-listas">Listas de discussão, Section
+15.11.3</a>.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-linux-carac">1.4.1 Algumas Características do GNU/Linux</h3>
+
+<ul>
+<li>
+<p>
+É livre e desenvolvido voluntariamente por programadores experientes, hackers,
+e contribuidores espalhados ao redor do mundo que tem como objetivo a
+contribuição para a melhoria e crescimento deste sistema operacional.
+</p>
+<p>
+Muitos deles estavam cansados do excesso de propaganda (Marketing) e baixa
+qualidade de sistemas comerciais existentes.
+</p>
+</li>
+<li>
+<p>
+Também recebe apoio de grandes empresas como IBM, Oracle, HP, etc.  para seu
+desenvolvimento.
+</p>
+</li>
+<li>
+<p>
+Convivem sem nenhum tipo de conflito com outros sistemas operacionais (com o
+<code>DOS</code>, <code>Windows</code>, <code>OS/2</code>, ou mesmo os
+<code>BSDs</code>) no mesmo computador.
+</p>
+</li>
+<li>
+<p>
+Multitarefa.
+</p>
+</li>
+<li>
+<p>
+Escalonamento com possibilidade de uso de parâmetro de tempo real (missão
+crítica).
+</p>
+</li>
+<li>
+<p>
+Multiusuários.
+</p>
+</li>
+<li>
+<p>
+Suporte a nomes extensos de arquivos e diretórios (255 caracteres).
+</p>
+</li>
+<li>
+<p>
+Conectividade com outros tipos de plataformas como <em>Apple/MacOSX,
+Oracle/Solaris, Windows, DOS, etc</em>.
+</p>
+</li>
+<li>
+<p>
+Suporte a diferente tipos de hardware como <em>Sparc, Alpha, PowerPC, ARM,
+ARM64, etc</em>.
+</p>
+</li>
+<li>
+<p>
+Utiliza permissões de acesso a arquivos, diretórios e programas em execução
+na memória RAM.
+</p>
+</li>
+<li>
+<p>
+Proteção entre processos executados na memória RAM e uso de mecanismos de
+proteção como <em>canary</em>[<a href="footnotes.en.html#f4"
+name="fr4">4</a>].
+</p>
+</li>
+<li>
+<p>
+Suporte a mais de 63 terminais virtuais (consoles).
+</p>
+</li>
+<li>
+<p>
+Modularização - O <code>GNU/Linux</code> somente carrega para a memória os
+módulos de kernel referentes ao que é usado durante o processamento,
+liberando totalmente a memória assim que o programa/dispositivo é finalizado.
+</p>
+</li>
+<li>
+<p>
+Devido a modularização, os drivers dos periféricos e recursos do sistema
+podem ser carregados e removidos completamente da memória RAM a qualquer
+momento.  Os drivers (módulos) ocupam pouco espaço quando carregados (cerca
+de 6Kb para a Placa de rede NE 2000, por exemplo).
+</p>
+</li>
+<li>
+<p>
+Suporte nativo a rede e tecnologias de roteamento avançado como: balanceamento
+de carga, IP alias, failover, vlans, bridge, trunking, OSPF, BGP, IPv6, etc.
+</p>
+</li>
+<li>
+<p>
+Não há a necessidade de se reiniciar o sistema após a modificar a
+configuração de qualquer periférico ou parâmetros de rede.  Somente é
+necessário reiniciar o sistema no caso de uma instalação interna de um novo
+periférico, falha em algum hardware (queima do processador, placa mãe, etc.).
+</p>
+</li>
+<li>
+<p>
+Não precisa de um processador potente para funcionar.  O sistema roda bem em
+computadores 486 com 8 MB de memória RAM (sem rodar o sistema gráfico X, que
+é recomendado 128 MB de RAM).  Já pensou no seu desempenho em um Pentium,
+Xeon, ou Athlon?  ;-)
+</p>
+</li>
+<li>
+<p>
+Suporte nativo à múltiplas CPUs, assim processadores como Dual Core, Core
+Duo, Athlon Duo, Quad Core, e Intel Core i[5,6,7] tem seu poder de
+processamento integralmente aproveitado, tanto em 32 ou em 64 bits.
+</p>
+</li>
+<li>
+<p>
+Suporte nativo à dispositivos SATA, PATA, Fiber Channel e SDD.
+</p>
+</li>
+<li>
+<p>
+Suporte nativo à virtualização, onde o <code>GNU/Linux</code> se destaca
+como plataforma preferida para execução de múltiplos sistemas operacionais
+com performance e segurança, principalmente em cloud.
+</p>
+</li>
+<li>
+<p>
+O crescimento e novas versões do sistema não provocam lentidão, pelo
+contrário, a cada nova versão os desenvolvedores procuram buscar maior
+compatibilidade, acrescentar recursos úteis e melhor desempenho do sistema
+(vide os frequentes releases de kernel da versão 4.x).
+</p>
+</li>
+<li>
+<p>
+O <code>GNU/Linux</code> é distribuido livremente e licenciado de acordo com
+os termos da GPL e outras licenças livres como BSD, Mozilla, Apache, etc.
+</p>
+</li>
+<li>
+<p>
+Acessa corretamente discos formatados pelo <code>DOS, Windows, Novell, OS/2,
+NTFS, SunOS, Amiga, Atari, Mac,</code> etc.
+</p>
+</li>
+<li>
+<p>
+O GNU/LINUX NÃO É VULNERÁVEL A VÍRUS!  Devido a separação de privilégios
+entre processos e respeitadas as recomendações padrão de política de
+segurança e uso de contas privilegiadas (como a de root, como será visto
+adiante), programas como vírus tornam-se inúteis pois tem sua ação limitada
+pelas restrições de acesso do sistema de arquivos e execução.
+</p>
+<p>
+Qualquer programa (nocivo ou não) poderá alterar partes do sistema que possui
+permissões (será abordado como alterar permissões e tornar seu sistema mais
+restrito no decorrer do guia).  Frequentemente são criados exploits que tentam
+se aproveitar de falhas existentes em sistemas desatualizados e usá-los para
+causar danos ou até mesmo ataque de negação de serviço, os famosos DDOS.
+<em>Erroneamente</em> este tipo de ataque é classificado como vírus por
+pessoas mal informadas e são resolvidas com sistemas bem mantidos.  Em geral,
+usando uma boa distribuição que tenha um eficiente sistema de atualização e
+bem configurado, você terá 99.9% de sua tranquilidade.
+</p>
+</li>
+<li>
+<p>
+Rede TCP/IP mais rápida que no Windows e tem sua pilha constantemente
+melhorada.  O <code>GNU/Linux</code> tem suporte nativo a redes TCP/IP e não
+depende de uma camada intermediária como o WinSock.  Em acessos via modem a
+Internet, a velocidade de transmissão é 10% maior.
+</p>
+</li>
+<li>
+<p>
+Executa outros sistemas operacionais como <em>Windows</em>, <em>MacOS</em>,
+<em>DOS</em> ou outro sistema <code>Linux</code> através de consagrados
+sistemas de virtualização como <code>Xen</code>, <code>vmware</code>,
+<code>VirtualBox</code> ou emulação como o <code>DOSEMU</code>,
+<code>QEMU</code> (libvirt), e <code>WINE</code>.
+</p>
+</li>
+<li>
+<p>
+Suporte completo e nativo a diversos dispositivos de comunicação via
+infravermelho, Bluetooth, Firewire, USB.  Basta conectar e o seu dispositivo é
+automaticamente reconhecido.  Raramente são necessários drivers externos,
+exceto no caso de dispositivos muito novos que não tenham o suporte ainda
+adicionado no sistema.
+</p>
+</li>
+<li>
+<p>
+Suporte a rede via rádio amador.
+</p>
+</li>
+<li>
+<p>
+Suporte a dispositivos Plug-and-Play.
+</p>
+</li>
+<li>
+<p>
+Suporte nativo a pendrives, dispositivos de armazenamento e cartões de
+memória.
+</p>
+</li>
+<li>
+<p>
+Suporte nativo a dispositivos I2C.
+</p>
+</li>
+<li>
+<p>
+Integração com gerenciamento de energia ACPI e APM.
+</p>
+</li>
+<li>
+<p>
+Dispositivos de rede Wireless.  Tanto com criptografia WEB e WPA PSK.
+</p>
+</li>
+<li>
+<p>
+Vários tipos de firewalls avançados de alta qualidade na detecção de
+tráfego indesejável, dando ao administrador uma excelente ferramenta de
+proteção e controle de sua rede.
+</p>
+</li>
+<li>
+<p>
+Roteamento estático e dinâmico de pacotes.
+</p>
+</li>
+<li>
+<p>
+Ponte entre Redes, proxy arp.
+</p>
+</li>
+<li>
+<p>
+Proxy Tradicional e Transparente.
+</p>
+</li>
+<li>
+<p>
+Possui recursos para atender a mais de um endereço IP na mesma placa de rede,
+sendo muito útil para situações de manutenção em servidores de redes ou
+para a emulação de &quot;múltiplos computadores&quot;.
+</p>
+<p>
+O servidor WEB e FTP podem estar localizados no mesmo computador, mas o
+usuário que se conecta tem a impressão que a rede possui servidores
+diferentes.
+</p>
+</li>
+<li>
+<p>
+Os sistemas de arquivos usados pelo <code>GNU/Linux</code> (<samp>Ext2</samp>,
+<samp>Ext3</samp>, <samp>reiserfs</samp>, <samp>xfs</samp>, <samp>jfs</samp>)
+organiza os arquivos de forma inteligente evitando a fragmentação e fazendo-o
+um poderoso sistema para aplicações multi-usuárias exigentes e gravações
+intensivas.
+</p>
+</li>
+<li>
+<p>
+Permite a montagem de um servidor de publicação Web, E-mail, News, etc.  com
+um baixo custo e alta performance.  O melhor servidor Web do mercado, o
+<code>Apache</code>, é distribuído gratuitamente junto com a maioria das
+distribuições Linux.  O mesmo acontece com o <code>Sendmail</code>.
+</p>
+</li>
+<li>
+<p>
+Por ser um sistema operacional de código aberto, você pode ver o que o
+código fonte (instruções digitadadas pelo programador) faz e adapta-lo as
+suas necessidades ou de sua empresa.  Esta característica é uma segurança a
+mais para empresas sérias e outros que não querem ter seus dados roubados
+(você não sabe o que um sistema sem código fonte faz na realidade enquanto
+esta processando o programa).
+</p>
+</li>
+<li>
+<p>
+Suporte a diversos dispositivos e periféricos disponíveis no mercado, tanto
+os novos como obsoletos.
+</p>
+</li>
+<li>
+<p>
+Pode ser executado em 16 arquiteturas diferentes (Intel, Macintosh, Alpha, Arm,
+etc.) e diversas outras sub-arquiteturas.
+</p>
+</li>
+<li>
+<p>
+Empresas especializadas e consultores especializados no suporte ao sistema
+espalhados por todo o mundo.
+</p>
+</li>
+<li>
+<p>
+Entre muitas outras características que você descobrirá durante o uso do
+sistema (além de poder criar outras, caso seja um administrador avançado ou
+desenvolvedor).
+</p>
+</li>
+</ul>
+
+<p>
+TODOS OS ÍTENS DESCRITOS ACIMA SÃO VERDADEIROS E TESTADOS PARA QUE TIVESSE
+PLENA CERTEZA DE SEU FUNCIONAMENTO.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-distrib">1.5 Distribuições do Linux</h2>
+
+<p>
+Só o kernel <code>GNU/Linux</code> não é suficiente para se ter uma sistema
+funcional, mas é o principal.
+</p>
+
+<p>
+Existem grupos de pessoas, empresas e organizações que decidem
+&quot;distribuir&quot; o Linux junto com outros aplicativos (como por exemplo
+<code>editores gráficos, planilhas, bancos de dados, ambientes de
+programação, formatação de documentos, firewalls, etc</code>).
+</p>
+
+<p>
+Este é o significado essencial de <em>distribuição</em>.  Cada
+distribuição tem sua característica própria, como o sistema de
+instalação, o objetivo, a localização de programas, nomes de arquivos de
+configuração, etc.  A escolha de uma distribuição é pessoal e depende das
+necessidades de cada um.
+</p>
+
+<p>
+Algumas distribuições bastante conhecidas são: <em>Ubuntu, Debian,
+Slackware, Red Hat, Gentoo, Suse</em> todas usando o SO Linux como kernel
+principal (a <code>Debian</code> é uma distribuição independente de kernel e
+pode ser executada sob outros kernels, como o GNU hurd ou o kernel BSD).
+</p>
+
+<p>
+A escolha de sua distribuição deve ser feita com muita atenção, não
+adianta muita coisa perguntar em canais de IRC sobre qual é a melhor
+distribuição, ser levado pelas propagandas, pelo vizinho, etc.  O melhor
+caminho para a escolha da distribuição, acredito eu, seria perguntar as
+características de cada uma e porque essa pessoa gosta dela ao invés de
+perguntar qual é a melhor, porque quem lhe responder isto estará usando uma
+distribuição que se encaixa de acordo com suas necessidade e esta mesma
+distribuição pode não ser a melhor para lhe atender.
+</p>
+
+<p>
+Segue abaixo as características de algumas distribuições seguidas do site
+principal e endereço para download:
+</p>
+<dl>
+<dt><em>Debian</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.debian.org/">http://www.debian.org/</a></code></samp> -
+Distribuição desenvolvida e atualizada através do esforço de voluntários
+espalhados ao redor do mundo, seguindo o estilo de desenvolvimento
+<code>GNU/Linux</code>.  Por este motivo, foi adotada como a distribuição
+oficial do projeto <em>GNU</em>.  Possui suporte a língua Portuguesa, é a
+única que tem suporte a 14 arquiteturas diferentes (i386, IA64, AMD64, Alpha,
+Sparc, PowerPc, Macintosh, Arm, etc.) e aproximadamente 15 sub-arquiteturas.  A
+instalação da distribuição pode ser feita tanto através de Disquetes,
+CD-ROM, Tftp, Ftp, NFS ou através da combinação de vários destes em cada
+etapa de instalação.
+</p>
+
+<p>
+Acompanha mais de 43000 programas distribuídos em forma de pacotes cada um
+destes programas são mantidos e testados pela pessoa ou grupo responsável por
+seu empacotamento.  Os pacotes são divididos em diretórios de acordo com sua
+categoria e gerenciados através de um avançado sistema de gerenciamento de
+pacotes (o apt e o dpkg) facilitando a instalação e atualização de pacotes.
+Possui tanto ferramentas para administração de redes e servidores quanto para
+desktops, estações multimídia, jogos, desenvolvimento, web, etc.
+</p>
+
+<p>
+A atualização da distribuição ou de pacotes individuais pode ser feita
+facilmente através de 2 comandos, não requerendo adquirir um novo CD para
+usar a última versão da distribuição.  É a única distribuição não
+comercial onde todos podem contribuir usando seu conhecimento para o
+desenvolvimento.  Para gerenciar os voluntários, conta com centenas de listas
+de discussão envolvendo determinados desenvolvedores das mais diversas partes
+do mundo.
+</p>
+
+<p>
+São feitos extensivos testes antes do lançamento de cada versão para atingir
+um alto grau de confiabilidade.  As falhas encontradas nos pacotes podem ser
+relatados através de um <em>sistema de tratamento de falhas</em> que encaminha
+a falha encontrada diretamente ao responsável para avaliação e correção.
+Qualquer um pode receber a lista de falhas ou sugestões sobre a distribuição
+cadastrando-se em uma das lista de discussão que tratam especificamente da
+solução de falhas encontradas na distribuição (disponível na página
+principal da distribuição).
+</p>
+
+<p>
+Os pacotes podem ser instalados através de <samp>Tarefas</samp> contendo
+seleções de pacotes de acordo com a utilização do computador (servidor Web,
+desenvolvimento, TeX, jogos, desktop, etc.), <em>Perfis</em> contendo
+seleções de pacotes de acordo com o tipo de usuário (programador, operador,
+etc.), ou através de uma seleção individual de pacotes, garantindo que
+somente os pacotes selecionados serão instalados fazendo uma instalação
+enxuta.
+</p>
+
+<p>
+Existe um time de desenvolvedores com a tarefa específica de monitorar
+atualizações de segurança em serviços (apache, sendmail, e todos os outros
+43000 pacotes) que possam comprometer o servidor, deixando-o vulnerável a
+ataques.  Assim que uma falha é descoberta, é enviado uma alerta (DSA -
+Debian Security Alert) e disponibilizada uma atualização para correção das
+diversas versões da <code>Debian</code>.  Isto é geralmente feito em menos de
+48 horas desde a descoberta da falha até a divulgação da correção.  Como
+quase todas as falhas são descobertas nos programas, este método também pode
+ser usado por administradores de outras distribuições para manterem seu
+sistema seguro e atualizado.
+</p>
+
+<p>
+O suporte ao usuário e desenvolvimento da distribuição são feitos através
+de listas de discussões e canais IRC.  Existem uma lista de consultores
+habilitados a dar suporte e assistência a sistemas Debian ao redor do mundo na
+área consultores do site principal da distribuição.
+</p>
+
+<p>
+<samp><code><a
+href="ftp://ftp.debian.org/">ftp://ftp.debian.org/</a></code></samp> -
+Endereço para download.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>Ubuntu</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.ubuntu.com/">http://www.ubuntu.com/</a></code></samp> -
+Variante da distribuição Debian voltada a interação mais amigável com o
+usuário final e facilidade de instalação.  Atualmente é a melhor para
+usuários que tem o primeiro contato com o Linux.  Conta tanto com a
+instalação do sistema em HD e execução através de Live CD.
+</p>
+
+<p>
+<samp><code><a
+href="http://www.ubuntu.com/getubuntu/download/">http://www.ubuntu.com/getubuntu/download/</a></code></samp>
+- Endereço para download do Ubuntu.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>Slackware</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.slackware.com/">http://www.slackware.com/</a></code></samp> -
+Distribuição desenvolvida por <samp>Patrick Volkerding</samp>, desenvolvida
+para alcançar facilidade de uso e estabilidade como prioridades principais.
+Foi a primeira distribuição a ser lançada no mundo e costuma trazer o que
+há de mais novo enquanto mantém uma certa tradição, provendo simplicidade,
+facilidade de uso e com isso flexibilidade e poder.
+</p>
+
+<p>
+Desde a primeira versão lançada em Abril de 1993, o Projeto <code>Slackware
+Linux</code> tem buscado produzir a distribuição <code>Linux</code> mais
+<samp>UNIX-like</samp>, ou seja, mais parecida com UNIX.  O Slackware segue os
+padrões Linux como o Linux File System Standard, que é um padrão de
+organização de diretórios e arquivos para as distribuições.
+</p>
+
+<p>
+Enquanto as pessoas diziam que a Red Hat era a melhor distribuição para o
+usuário iniciante, o <code>Slackware</code> é o melhor para o usuário mais
+&quot;velho&quot;, ou seja programadores, administradores, etc.
+</p>
+
+<p>
+<samp><code><a
+href="ftp://ftp.slackwarebrasil.org/linux/slackware/">ftp://ftp.slackwarebrasil.org/linux/slackware/</a></code></samp>
+- Ftp da distribuição Slackware.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>SuSE</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.suse.com/">http://www.suse.com/</a></code></samp> -
+Distribuição comercial Alemã com a coordenação sendo feita através dos
+processos administrativos dos desenvolvedores e de seu braço norte-americano.
+O foco da Suse é o usuário com conhecimento técnico no Linux (programador,
+administrador de rede, etc.) e não o usuário iniciante no Linux.
+Preferencialmente a administração deve ser feita usando o <code>Yast</code>,
+mas também pode ser feita manualmente através de alteração dos arquivos de
+configuração.
+</p>
+
+<p>
+Possui suporte as arquiteturas Intel x86 e Alpha.  Sua instalação pode ser
+feita via CD-ROM ou CD-DVD (é a primeira distribuição com instalação
+através de DVD).
+</p>
+
+<p>
+Uma média de 2000 programas acompanham a versão 10 distribuídos em 6
+CD-ROMs.  O sistema de gerenciamento de pacotes é o RPM padronizado.  A
+seleção de pacotes durante a instalação pode ser feita através da
+seleção do perfil de máquina (developer, estação kde, gráficos, estação
+gnome, servidor de rede, etc.) ou através da seleção individual de pacotes.
+</p>
+
+<p>
+A atualização da distribuição pode ser feita através do CD-ROM de uma nova
+versão ou baixando pacotes de <code><a
+href="ftp://ftp.suse.com/">ftp://ftp.suse.com/</a></code>.  Usuários
+registrados ganham direito a suporte de instalação via e-mail.  A base de
+dados de suporte também é excelente e está disponível na web para qualquer
+usuário independente de registro.
+</p>
+
+<p>
+<samp><code><a href="ftp://ftp.suse.com/">ftp://ftp.suse.com/</a></code></samp>
+- Ftp da distribuição SuSE.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>Red Hat Enterprise Linux</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.redhat.com/">http://www.redhat.com/</a></code></samp> -
+Distribuição comercial suportada pela Red Hat e voltada a servidores de
+grandes e medias empresas.  Também conta com uma certificação chamada RHCE
+específica desta distro.
+</p>
+
+<p>
+Ela não está disponível para download, apenas vendida a custos a partir de
+179 dólares (a versão workstation) até 1499 dólares (advanced server).
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>Fedora</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://getfedora.org">http://getfedora.org</a></code></samp> - O Fedora
+Linux é a distribuição de desenvolvimento aberto patrocinada pela RedHat e
+pela comunidade, originada em 2002 e baseada em versão da antiga linha de
+produtos RedHat Linux.  Esta distribuição não é suportada pela Red Hat como
+distribuição oficial (ela suporta apenas a linha Red Hat Enterprise Linux),
+devendo obter suporte através da comunidade ou outros meios.
+</p>
+
+<p>
+A distribuição <samp>Fedora</samp> dá prioridade ao uso do computador como
+estação de trabalho.  Além de contar com uma ampla gama de ferramentas de
+escritório possui funções de servidor e aplicativos para produtividade e
+desenvolvimento de softwares.  Considerado um dos sistemas mais fáceis de
+instalar e utilizar, inclui tradução para portugês do Brasil e suporte às
+plataformas Intel e 64 bits.
+</p>
+
+<p>
+Por basear-se no RedHat.  o Fedora conta com um o <code>up2date</code>, um
+software para manter o sistema atualizado e utiliza pacotes de programas no
+formato RPM, um dos mais comuns.
+</p>
+
+<p>
+O Fedora não é distribuido oficialmente através de mídias ou CDs, se você
+quiser obte-lo terá de procurar distribuidores independentes ou fazer o
+download dos 4 CDs através do site oficial.
+</p>
+
+<p>
+<samp><code><a
+href="http://download.fedora.redhat.com/pub/fedora/linux/core/2/i386/iso/">http://download.fedora.redhat.com/pub/fedora/linux/core/2/i386/iso/</a></code></samp>
+- Download da distribuição Fedora.
+</p>
+</dd>
+</dl>
+<dl>
+<dt><em>Mandriva</em></dt>
+<dd>
+<p>
+<samp><code><a
+href="http://www.mandriva.com/">http://www.mandriva.com/</a></code></samp> -
+Fusão da distribuição francesa <samp>Mandrake</samp> com a distribuição
+brasileira <samp>Conectiva</samp> contendo as características de instalação
+semi-automática através de DVD.  Boa auto-detecção de periféricos,
+inclusive web-cams.
+</p>
+
+<p>
+<samp><code><a
+href="http://www.mandriva.com/">http://www.mandriva.com/</a></code></samp> -
+Download da distribuição.
+</p>
+</dd>
+</dl>
+
+<p>
+Para contato com os grupos de usuários que utilizam estas distribuições,
+veja <a href="ch-ajuda.en.html#s-ajuda-listas">Listas de discussão, Section
+15.11.3</a>.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-software-livre">1.6 Software Livre</h2>
+
+<p>
+(tradução do texto <samp>Linux e o Sistema GNU</samp> de <samp>Richard
+Stallman</samp> obtido no site do CIPSGA: <code><a
+href="http://www.cipsga.org.br/">http://www.cipsga.org.br/</a></code>).  O
+projeto <em>GNU</em> começou em 1983 com o objetivo de desenvolver um sistema
+operacional Unix-like totalmente livre.  <samp>Livre</samp> se refere à
+liberdade, e não ao preço; significa que você está livre para executar,
+distribuir, estudar, mudar e melhorar o software.
+</p>
+
+<p>
+Um sistema Unix-like consiste de muitos programas diferentes.  Nós achamos
+alguns componentes já disponíveis como softwares livres -- por exemplo,
+<code>X Window</code> e <code>TeX</code>.  Obtemos outros componentes ajudando
+a convencer seus desenvolvedores a tornarem eles livres -- por exemplo, o
+Berkeley network utilities.  Outros componentes nós escrevemos especificamente
+para o GNU -- por exemplo, <code>GNU Emacs</code>, o compilador <code>GNU
+C</code>, o <code>GNU C library</code>, <code>Bash</code> e
+<code>Ghostscript</code>.  Os componentes desta última categoria são
+&quot;software GNU&quot;.  O sistema GNU consiste de todas as três categorias
+reunidas.
+</p>
+
+<p>
+O projeto GNU não é somente desenvolvimento e distribuição de alguns
+softwares livres úteis.  O coração do projeto GNU é uma idéia: que
+software deve ser <em>livre</em>, e que a liberdade do usuário vale a pena ser
+defendida.  Se as pessoas têm liberdade mas não a apreciam conscientemente,
+não irão mantê-la por muito tempo.  Se queremos que a liberdade dure,
+precisamos chamar a atenção das pessoas para a liberdade que elas têm em
+programas livres.
+</p>
+
+<p>
+O método do projeto GNU é que programas livres e a idéia da liberdade dos
+usuários ajudam-se mutuamente.  Nós desenvolvemos software GNU, e conforme as
+pessoas encontrem programas GNU ou o sistema GNU e comecem a usá-los, elas
+também pensam sobre a filosofia GNU.  O software mostra que a idéia funciona
+na prática.  Algumas destas pessoas acabam concordando com a idéia, e então
+escrevem mais programas livres.  Então, o software carrega a idéia, dissemina
+a idéia e cresce da idéia.
+</p>
+
+<p>
+Em 1992, nós encontramos ou criamos todos os componentes principais do sistema
+exceto o kernel, que nós estávamos escrevendo.  (Este kernel consiste do
+microkernel Mach mais o GNU HURD.  Atualmente ele está funcionando, mas não
+está preparado para os usuários.  Uma versão alfa deverá estar pronta em
+breve.)
+</p>
+
+<p>
+Então o kernel do Linux tornou-se disponível.  Linux é um kernel livre
+escrito por Linus Torvalds compatível com o Unix.  Ele não foi escrito para o
+projeto GNU, mas o Linux e o quase completo sistema GNU fizeram uma
+combinação útil.  Esta combinação disponibilizou todos os principais
+componentes de um sistema operacional compatível com o Unix, e, com algum
+trabalho, as pessoas o tornaram um sistema funcional.  Foi um sistema GNU
+variante, baseado no kernel do <code>Linux</code>.
+</p>
+
+<p>
+Ironicamente, a popularidade destes sistemas desmerece nosso método de
+comunicar a idéia GNU para as pessoas que usam GNU.  Estes sistemas são
+praticamente iguais ao sistema GNU -- a principal diferença é a escolha do
+kernel.  Porém as pessoas normalmente os chamam de &quot;sistemas Linux (Linux
+systems)&quot;.  A primeira impressão que se tem é a de que um &quot;sistema
+Linux&quot; soa como algo completamente diferente de &quot;sistema GNU&quot;, e
+é isto que a maioria dos usuários pensam que acontece.
+</p>
+
+<p>
+A maioria das introduções para o &quot;sistema Linux&quot; reconhece o papel
+desempenhado pelos componentes de software GNU.  Mas elas não dizem que o
+sistema como um todo é uma variante do sistema GNU que o projeto GNU vem
+compondo por uma década.  Elas não dizem que o objetivo de um sistema
+Unix-like livre como este veio do projeto GNU.  Daí a maioria dos usuários
+não saber estas coisas.
+</p>
+
+<p>
+Como os seres humanos tendem a corrigir as suas primeiras impressões menos do
+que as informações subseqüentes tentam dizer-lhes, estes usuários que
+depois aprendem sobre a relação entre estes sistemas e o projeto GNU ainda
+geralmente o subestima.
+</p>
+
+<p>
+Isto faz com que muitos usuários se identifiquem como uma comunidade separada
+de &quot;usuários de Linux&quot;, distinta da comunidade de usuários GNU.
+Eles usam todos os softwares GNU; de fato, eles usam quase todo o sistema GNU;
+mas eles não pensam neles como usuários GNU, e freqüentemente não pensam
+que a filosofia GNU está relacionada a eles.
+</p>
+
+<p>
+Isto leva a outros problemas também -- mesmo dificultando cooperação com a
+manutenção de programas.  Normalmente quando usuários mudam um programa GNU
+para fazer ele funcionar melhor em um sistema específico, eles mandam a
+mudança para o mantenedor do programa; então eles trabalham com o mantenedor
+explicando a mudança, perguntando por ela, e às vezes reescrevendo-a para
+manter a coerência e mantenebilidade do pacote, para ter o patch instalado.
+</p>
+
+<p>
+Mas as pessoas que pensam nelas como &quot;usuários Linux&quot; tendem a
+lançar uma versão &quot;Linux-only&quot; do programa GNU, e consideram o
+trabalho terminado.  Nós queremos cada e todos os programas GNU que funcionem
+&quot;out of the box&quot; em sistemas baseados em Linux; mas se os usuários
+não ajudarem, este objetivo se torna muito mais difícil de atingir.
+</p>
+
+<p>
+Como deve o projeto GNU lidar com este problema?  O que nós devemos fazer
+agora para disseminar a idéia de que a liberdade para os usuários de
+computador é importante?
+</p>
+
+<p>
+Nós devemos continuar a falar sobre a liberdade de compartilhar e modificar
+software -- e ensinar outros usuários o valor destas liberdades.  Se nós nos
+beneficiamos por ter um sistema operacional livre, faz sentido para nós pensar
+em preservar estas liberdades por um longo tempo.  Se nós nos beneficiamos por
+ter uma variedade de software livres, faz sentido pensar sobre encorajar outras
+pessoas a escrever mais software livre, em vez de software proprietário.
+</p>
+
+<p>
+Nós não devemos aceitar a idéia de duas comunidades separadas para GNU e
+Linux.  Ao contrário, devemos disseminar o entendimento de que &quot;sistemas
+Linux&quot; são variantes do sistema GNU, e que os usuários destes sistemas
+são tanto usuários GNU como usuários Linux (usuários do kernel do Linux).
+Usuários que têm conhecimento disto irão naturalmente dar uma olhada na
+filosofia GNU que fez estes sistemas existirem.
+</p>
+
+<p>
+Eu escrevi este artigo como um meio de fazer isto.  Outra maneira é usar os
+termos &quot;sistema GNU baseado em Linux (Linux-based GNU system)&quot; ou
+&quot;sistema GNU/Linux (GNU/Linux system)&quot;, em vez de &quot;sistema
+Linux&quot;, quando você escreve sobre ou menciona este sistema.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-processamento">1.7 Processamento de Dados</h2>
+
+<p>
+<em>Processamento de Dados</em> é o envio de dados ao computador que serão
+processados e terão um resultado de saída útil.
+</p>
+
+<p>
+Veja também <a href="#s-introducao-disp-e-s">Dispositivos de Entrada e Saída,
+Section 1.14</a>.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-computador">1.8 O Computador</h2>
+
+<p>
+É uma máquina eletrônica que processa e armazena os dados e pode executar
+diversos programas para realizar uma série de tarefas e assim atender a
+necessidade do seu utilizador.  O computador não é uma máquina inteligente,
+ele apenas executa as instruções dos programas que foram escritos pelo
+programador.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-conhecendo">1.9 Conhecendo o Computador</h2>
+
+<p>
+Esta explica para que serve cada botão do painel do computador e monitor de
+vídeo.  Se você já sabe para que cada um serve, recomendo pular esta parte,
+é o BE-A-BA.  :-)
+</p>
+
+<p>
+Todo computador possuem funções que são usados em outros tipos e modelos.
+Você pode ter um modelo de computador e um amigo seu outro tipo e mesmo tendo
+aparência diferente, terão as mesmas funções.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-conhecendo-tipo">1.9.1 Tipos de Gabinete</h3>
+
+<p>
+Quanto ao tipo, o gabinete pode ser <em>Desktop</em>, <em>Mini-torre</em> e
+<em>Torre</em>.
+</p>
+<dl>
+<dt><em>Desktop</em></dt>
+<dd>
+<p>
+É usado na posição <em>Horizontal</em> (como o vídeo cassete).  Sua
+característica é que ocupa pouco espaço em uma mesa, pois pode ser colocado
+sob o monitor.  A desvantagem é que normalmente possui pouco espaço para a
+colocação de novas placas e periféricos.  Outra desvantagem é a dificuldade
+na manutenção deste tipo de equipamento (hardware).
+</p>
+</dd>
+<dt><em>Mini-Torre</em></dt>
+<dd>
+<p>
+É usado na posição <em>Vertical</em> (torre).  É o modelo mais usado.  Sua
+característica é o espaço interno para expansão e manipulação de
+periféricos.  A desvantagem é o espaço ocupado em sua mesa :-).
+</p>
+</dd>
+<dt><em>Torre</em></dt>
+<dd>
+<p>
+Possui as mesmas características do <em>Mini-torre</em>, mas tem uma altura
+maior e mais espaço para colocação de novos periféricos.  Muito usado em
+servidores de rede e placas que requerem uma melhor refrigeração.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h3 id="s-introducao-conhecendo-painel">1.9.2 Painel Frontal</h3>
+
+<p>
+O painel frontal do computador tem os botões que usamos para ligar, desligar,
+e acompanhar o funcionamento do computador.  Abaixo o significado de cada um:
+</p>
+<dl>
+<dt><em>Botão POWER</em></dt>
+<dd>
+<p>
+Liga/Desliga o computador.
+</p>
+</dd>
+<dt><em>Botão TURBO</em></dt>
+<dd>
+<p>
+Se ligado, coloca a placa mãe em operação na velocidade máxima (o padrão).
+Desligado, faz o computador funcionar mais lentamente (depende de cada placa
+mãe).  Deixe sempre o <em>TURBO</em> ligado para seu computador trabalhar na
+velocidade máxima de processamento.
+</p>
+</dd>
+<dt>Botão RESET</dt>
+<dd>
+<p>
+Reinicia o computador.  Quando o computador é reiniciado, uma nova partida é
+feita (é como se nós ligássemos novamente o computador).  Este botão é um
+dos mais usados por usuários <code>Windows</code> dentre os botões
+localizados no painel do microcomputador.  No <code>GNU/Linux</code> é
+raramente usado (com menos freqüência que a tecla <samp>SCROLL LOCK</samp>).
+</p>
+<p>
+É recomendado se pressionar as teclas &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt;
+para reiniciar o computador e o botão <em>RESET</em> somente em último caso,
+pois o &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; avisa ao Linux que o usuário pediu
+para o sistema ser reiniciado assim ele poderá salvar os arquivos, fechar
+programas e tomar outras providências antes de resetar o computador.
+</p>
+</dd>
+<dt>KEYLOCK</dt>
+<dd>
+<p>
+Permite <samp>ligar/desligar</samp> o teclado.  É acionado por uma chave e
+somente na posição &quot;Cadeado Aberto&quot; permite a pessoa usar o teclado
+(usar o computador).  Alguns computadores não possuem KEYLOCK.
+</p>
+</dd>
+<dt>LED POWER</dt>
+<dd>
+<p>
+Led (normalmente verde) no painel do computador que quando aceso, indica que o
+computador está ligado.  O led é um diodo emissor de luz (light emission
+diode) que emite luz fria.
+</p>
+</dd>
+<dt>LED TURBO</dt>
+<dd>
+<p>
+Led (normalmente amarelo) no painel do computador.  Quando esta aceso, indica
+que a chave turbo está ligada e o computador funcionando a toda velocidade.
+</p>
+<p>
+Raramente as placas mãe Pentium e acima usam a chave turbo.  Mesmo que exista
+no gabinete do micro, encontra-se desligada.
+</p>
+</dd>
+<dt>LED HDD</dt>
+<dd>
+<p>
+Led (normalmente vermelho) no painel do computador.  Acende quando o disco
+rígido (ou discos) do computador esta sendo usado.
+</p>
+<p>
+Também acende quando uma unidade de CD-ROM está conectada na placa mãe e for
+usado.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h3 id="s-introducao-conhecendo-monitor">1.9.3 Monitor de Vídeo</h3>
+
+<p>
+O monitor de vídeo se divide em dois tipos:
+</p>
+<ul>
+<li>
+<p>
+<em>Monocromático</em> - Mostra tons de cinza
+</p>
+</li>
+<li>
+<p>
+<em>Policromático</em> - A conhecida tela colorida
+</p>
+</li>
+</ul>
+
+<p>
+Quanto ao padrão do monitor, existem diversos:
+</p>
+<dl>
+<dt><em>CGA</em> - Color Graphics Adapter</dt>
+<dd>
+<p>
+Capacidade de mostrar 4 cores simultâneas em modo gráfico.  Uma das primeiras
+usadas em computadores PCs, com baixa qualidade de imagem, poucos programas
+funcionavam em telas CGA, quase todos em modo texto.  Ficou muito conhecida
+como &quot;tela verde&quot; embora existem modelos CGA preto e branco.
+</p>
+</dd>
+<dt><em>Hércules</em></dt>
+<dd>
+<p>
+Semelhante ao CGA.  Pode mostrar 2 cores simultâneas em modo gráfico.  A
+diferença é que apresenta uma melhor qualidade para a exibição de gráficos
+mas por outro lado, uma grande variedade de programas para monitores CGA não
+funcionam com monitores Hércules por causa de seu modo de vídeo.  Também é
+conhecido por sua imagem <samp>amarela</samp>.
+</p>
+<p>
+Dependendo da placa de vídeo, você pode configurar um monitor Hércules
+monocromático para trabalhar como <em>CGA</em>.
+</p>
+</dd>
+<dt><em>EGA</em> - Enhanced Graphics Adapter</dt>
+<dd>
+<p>
+Capacidade de mostrar 16 cores simultâneas em modo gráfico.  Razoável
+melhora da qualidade gráfica, mais programas rodavam neste tipo de tela.
+Ficou mais conhecida após o lançamento dos computadores 286, mas no Brasil
+ficou pouco conhecida pois logo em seguida foi lançada o padrão VGA.
+</p>
+</dd>
+<dt><em>VGA</em> - Video Graphics Array</dt>
+<dd>
+<p>
+Capacidade de mostrar 256 cores simultâneas.  Boa qualidade gráfica, este
+modelo se mostrava capaz de rodar tanto programas texto como gráficos com
+ótima qualidade de imagem.  Se tornou o padrão mínimo para rodar programas
+em modo gráfico.
+</p>
+</dd>
+<dt><em>SVGA</em> - Super Video Graphics Array</dt>
+<dd>
+<p>
+Atual padrão de mercado, capaz de mostrar até 16 milhões de cores
+simultâneas.  Excelente qualidade gráfica, também capaz de operar
+corretamente em modo texto.
+</p>
+</dd>
+</dl>
+
+<hr>
+
+<h2 id="s-introducao-placamae">1.10 Placa Mãe</h2>
+
+<p>
+É a placa principal do sistema onde estão localizados o Processador, Memória
+RAM, Memória Cache, BIOS, CMOS, RTC, etc.  A placa mãe possui encaixes onde
+são inseridas placas de extensão (para aumentar as funções do computador).
+Estes encaixes são chamados de &quot;<samp>SLOTS</samp>&quot;.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-placamae-outros">1.10.1 Alguns componentes da placa mãe</h3>
+
+<p>
+Abaixo a descrição de alguns tipos de componentes eletrônicos que estão
+presentes na placa mãe.  Não se preocupe se não entender o que eles
+significam agora:
+</p>
+<ul>
+<li>
+<p>
+<samp>RAM</samp> - Memória de Acesso Aleatório (Randomic Access Memory).  É
+uma memória de armazenamento temporário dos programas e depende de uma fonte
+de energia para o armazenamento dos programas.  É uma memória eletrônica
+muito rápida assim os programas de computador são executados nesta memória.
+Seu tamanho é medido em Kilobytes, Megabytes ou Gigabytes.
+</p>
+
+<p>
+Os chips de memória <em>RAM</em> podem ser independentes (usando circuitos
+integrados encaixados em soquetes na placa mãe) ou agrupados placas de 30
+pinos, 72 pinos e 168 pinos.
+</p>
+
+<p>
+Quanto maior o tamanho da memória, mais espaço o programa terá ao ser
+executado.  O tamanho de memória RAM pedido por cada programa varia, o
+<code>GNU/Linux</code> precisa de no mínimo 8 MB de memória RAM para ser
+executado pelo processador.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>PROCESSADOR</samp> - É a parte do computador responsável pelo
+processamentos das instruções matemáticas/lógicas e programas carregados na
+memória <em>RAM</em>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>CO-PROCESSADOR</samp> - Ajuda o Processador principal a processar as
+instruções matemáticas.  É normalmente embutido no Processador principal em
+computadores a partir do <em>486 DX2-66</em>.  Em processadores Pentium e
+superiores, o co-processador é sempre embutido no processador.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>CACHE</samp> - Memória de Armazenamento Auxiliar do Processador.  Possui
+alta velocidade de funcionamento, normalmente a mesma que o processador.  Serve
+para aumentar o desempenho de processamento.  A memória Cache pode ser
+embutida na placa mãe ou encaixada externamente através de módulos L2.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>BIOS</samp> - É a memória <em>ROM</em> que contém as instruções
+básicas para a inicialização do computador, reconhecimento e ativação dos
+periféricos conectados a placa mãe.  As <em>BIOS</em> mais modernas (a partir
+do 286) também trazem um programa que é usado para configurar o computador
+modificando os valores localizados na <em>CMOS</em>.
+</p>
+
+<p>
+As placas controladoras SCSI possuem sua própria <em>BIOS</em> que identificam
+automaticamente os periféricos conectados a ela.  Os seguintes tipos de chips
+podem ser usados para gravar a <em>BIOS</em>:
+</p>
+<ul>
+<li>
+<p>
+<samp>ROM</samp> - Memória Somente para Leitura (Read Only Memory).  Somente
+pode ser lida.  É programada de fábrica através de programação elétrica
+ou química.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>PROM</samp> - Memória Somente para Leitura Programável (Programable
+Read Only Memory) idêntica a <em>ROM</em> mas que pode ser programada apenas
+uma vez por máquinas &quot;Programadoras PROM&quot;.  É também chamada de
+<samp>MASK ROM</samp>.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>EPROM</samp> - Memória semelhante a <em>PROM</em>, mas seu conteúdo
+pode ser apagado através raios ultra-violeta.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>EEPROM</samp> - Memória semelhante a <em>PROM</em>, mas seu conteúdo
+pode ser apagado e regravado.  Também é chamada de <em>Flash</em>.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>CMOS</samp> - É uma memória temporária alimentada por uma Bateria onde
+são lidas/armazenadas as configurações do computador feitas pelo programa
+residente na BIOS.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-introducao-memoria">1.11 Memória do Computador</h2>
+
+<p>
+A memória é a parte do computador que permitem o armazenamento de dados.  A
+memória é dividida em dois tipos: Principal e Auxiliar.  Normalmente quando
+alguém fala em &quot;memória de computador&quot; está se referindo a
+memória &quot;Principal&quot;.  Veja abaixo as descrições de <em>Memória
+Principal</em> e <em>Auxiliar</em>.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-memoria-principal">1.11.1 Memória Principal</h3>
+
+<p>
+É um tipo de memória eletrônica que depende de uma fonte de energia para
+manter os dados armazenados e perde os dados quando a fonte de energia é
+desligada.  A memória <em>RAM</em> do computador (Randomic Access Memory -
+Memória de Acesso aleatório) é o principal exemplo de memória de
+armazenamento Principal.
+</p>
+
+<p>
+Os dados são armazenados em circuitos integrados (&quot;chips&quot;) e
+enquanto você está usando seu computador, a <em>RAM</em> armazena e executa
+seus programas.  Os programas são executados na memória <em>RAM</em> porque a
+memória eletrônica é muito rápida.  As memórias EDO, DIMM, DDR, DDR2, DDR3
+são exemplos de memória <em>RAM</em>.
+</p>
+
+<p>
+Se desligarmos o computador ou ocorrer uma queda de energia, você perderá os
+programas que estiverem em execução ou o trabalho que estiver fazendo.  Por
+esse motivo é necessário o uso de uma memória auxiliar (veja <a
+href="#s-introducao-memoria-auxiliar">Memória Auxiliar, Section 1.11.2</a>).
+</p>
+
+<hr>
+
+<h3 id="s-introducao-memoria-auxiliar">1.11.2 Memória Auxiliar</h3>
+
+<p>
+São dispositivos que NÃO dependem de uma fonte de energia para manter os
+dados armazenados, os dados não são perdidos quando a fonte de energia é
+desligada.  As <em>Memórias Auxiliares</em> são muito mais lentas que as
+<em>Memórias Principais</em> porque utilizam mecanismos mecânicos e
+elétricos (motores e eletroímãs) para funcionar e fazer a leitura/gravação
+dos dados.  Existem também modelos chamados disco de estado sólido (SSD), os
+dados são armazenados em chips eletrônicos ao invés de mecanismos
+mecânicos.
+</p>
+
+<p>
+Um exemplo de dispositivos de armazenamento auxiliar são os pen drives,
+disquetes, cartões SD, discos rígidos, unidades de fita, Zip Drives,
+DVD/CD/BluRay, etc.
+</p>
+
+<p>
+A <em>Memória Auxiliar</em> resolve o problema da perda de dados causado pela
+<em>Memória Principal</em> quando o computador é desligado, desta forma
+podemos ler nossos arquivos e programas da <em>memória Auxiliar</em> e
+copia-los para a <em>Memória Principal</em> (memória RAM) para que possam ser
+novamente usados.
+</p>
+
+<p>
+Um exemplo simples é de quando estiver editando um texto e precisar salva-lo,
+o que você faz é simplesmente salvar os dados da memória <em>RAM</em> que
+estão sendo editados para o disco rígido, desta forma você estará guardando
+seu documento na <em>Memória Auxiliar</em>.
+</p>
+
+<p>
+Este tipo de memória é mais lento que a memória principal, é por este
+motivo que os programas somente são carregados e executados na <em>Memória
+Principal</em>.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-discos">1.12 Discos</h2>
+
+<p>
+Os discos são memórias de armazenamento Auxiliares.  Entre os vários tipos
+de discos existentes, posso citar os Flexíveis, Rígidos, Pen-drives, SSD e
+CDs.  Veja as explicações sobre cada um deles abaixo.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-discos-flexiveis">1.12.1 Discos Flexíveis</h3>
+
+<p>
+São discos usados para armazenar e transportar pequenas quantidades de dados.
+Este tipo de disco é normalmente encontrado no tamanho 3 1/2 (1.44MB)
+polegadas e 5 1/4 polegadas (360Kb ou 1.2MB).  Hoje os discos de 3 1/2 são os
+mais utilizados por terem uma melhor proteção por causa de sua capa plástica
+rígida, maior capacidade e o menor tamanho o que facilita seu transporte.
+</p>
+
+<p>
+Os disquetes são inseridos em um compartimento chamado de &quot;<samp>Unidade
+de Disquetes</samp>&quot; ou &quot;<samp>Drive</samp>&quot; que faz a
+leitura/gravação do disquete.
+</p>
+
+<p>
+Sua característica é a baixa capacidade de armazenamento e baixa velocidade
+no acesso aos dados mas podem ser usados para transportar os dados de um
+computador a outro com grande facilidade.  Os disquetes de computador comuns
+são discos flexíveis.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-discos-rigidos">1.12.2 Disco Rígido</h3>
+
+<p>
+É um disco localizado dentro do computador.  É fabricado com discos de metal
+recompostos por material magnético onde os dados são gravados através de
+cabeças e revestido externamente por uma proteção metálica que é preso ao
+gabinete do computador por parafusos.  Também é chamado de HD (Hard Disk) ou
+Winchester.  É nele que normalmente gravamos e executamos nossos programas
+mais usados.
+</p>
+
+<p>
+Existe também um tipo de disco rígido chamado <em>SSD</em> (disco de estado
+sólido).  A diferença deste disco para o disco rígido comum, é que no SSD
+os dados são armazenados em chips ao invés de disco magnético.
+</p>
+
+<p>
+A característica deste tipo de disco é a alta capacidade de armazenamento de
+dados e alta velocidade no acesso aos dados.
+</p>
+
+<hr>
+
+<h3 id="s-introducao-discos-cd">1.12.3 CD/DVD/BluRay</h3>
+
+<p>
+É um tipo de disco que permite o armazenamento de dados através de um
+<em>compact disc</em> e os dados são lidos através de uma lente ótica.  A
+Unidade de CD é localizada no gabinete do computador e pode ler CDs de
+músicas, arquivos, interativos, etc.  Existem diversos tipos de CDs no
+mercado, entre eles:
+</p>
+<ul>
+<li>
+<p>
+<samp>CD-R</samp> - CD gravável, pode ser gravado apenas uma vez.  Possui sua
+capacidade de armazenamento entre <samp>600MB</samp> e <samp>740MB</samp>
+dependendo do formato de gravação usado.  Usa um formato lido por todas as
+unidades de CD-ROM disponíveis no mercado.
+</p>
+</li>
+<li>
+<p>
+<samp>CD-RW</samp> - CD regravável, pode ser gravado várias vezes, ter seus
+arquivos apagados, etc.  Seu uso é semelhante ao de um disquete de alta
+capacidade.  Possui capacidade de armazenamento de normalmente
+<samp>640MB</samp> mas isto depende do fabricante.  Usa um formato que é lido
+apenas por unidades leitoras e gravadoras multiseção.
+</p>
+</li>
+<li>
+<p>
+<samp>DVD-ROM</samp> - Alta capacidade de armazenamento.  Pode armazenar até
+8GB de arquivos ou programas quando usado em dual layer.  <samp>BluRay</samp> -
+Alta capacidade de armazenamento.  Pode armazenar mais de 50GB de arquivos ou
+programas quando usado em dual layer.  É um tipo de CD muito novo no mercado e
+ainda em desenvolvimento.  É lido somente por unidades próprias para este
+tipo de disco.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-introducao-cuidados">1.13 Cuidados Básicos com o Computador</h2>
+
+<p>
+Abaixo uma lista de cuidados básicos para garantir uma melhor conservação e
+funcionamento de seu computador.
+</p>
+<ul>
+<li>
+<p>
+Não deixe seu computador em locais expostos a umidade ou sol.  O mesmo se
+aplica a mídias como pen-drives, gavetas de HD, cartões de memória etc.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Limpe o Gabinete e o Monitor com um pano levemente umedecido em água com
+sabão neutro ou solução de limpeza apropriada para micros.  Não use
+Álcool, querosene, acetona ou qualquer outro tipo de produto abrasivo.  O uso
+de um destes podem estragar o gabinete de seu computador e se um destes
+produtos atingir a parte interna pode causar problemas nas placas ou até um
+incêndio!
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Não retire o Pino central da tomada do computador, ele não veio sobrando e
+tem utilidade!  Este pino é ligado a carcaça do computador (chassis) e deve
+ser ligado ao terra de sua rede elétrica.  As descargas elétricas vindas da
+fonte e componentes do micro são feitas no chassis e se este pino for retirado
+você poderá tomar choques ao tocar em alguma parte metálica do micro e
+queimar componentes sensíveis como o disco rígido, placa mãe, etc.
+</p>
+
+<p>
+Se estiver em dúvida consulte um eletricista de confiança.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Não instale seu computador muito próximo de campos magnéticos com
+televisores, aparelhos de som, motores, etc.  Estes aparelhos geram ruídos
+elétricos e/ou magnéticos que podem prejudicar o bom funcionamento de seu
+micro.  OBS: As caixas de som de kits multimídia possuem os ímãs revestidos
+de metais em seus auto-falantes para não causar nenhuma interferência ao
+computador.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Não use a bandeja da unidade de CD/DVD como porta copos!
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Não coloque objetos dentro da unidade de disquetes.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Antes de desligar seu computador, utilize o comando <samp>&quot;shutdown -h
+now&quot;</samp> (ou seus sinonimos, como <samp>&quot;halt&quot;</samp>,
+<samp>poweroff</samp>) para desligar corretamente o computador.  Este comando
+finaliza adequadamente os programas, salva os dados, desmontar os sistemas de
+arquivos <code>GNU/Linux</code>.  Para detalhes veja <a
+href="#s-introducao-desligando">Desligando o computador, Section 1.16</a>.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-introducao-disp-e-s">1.14 Dispositivos de Entrada e Saída</h2>
+<ul>
+<li>
+<p>
+<samp>Entrada</samp> - Permite a comunicação do usuário com o computador.
+São dispositivos que <samp>enviam</samp> dados ao computador para
+processamento.  Exemplos: Teclado, mouse, touch screen, caneta ótica, scanner.
+</p>
+
+<p>
+O dispositivo de entrada padrão (stdin) em sistemas <code>GNU/Linux</code> é
+o teclado.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Saída</samp> - Permite a comunicação do computador com o usuário.
+São dispositivos que permitem o usuário visualizar o resultado do
+processamento enviado ao computador.  Exemplos: Monitor, Impressora, Plotter,
+som.
+</p>
+
+<p>
+O dispositivo de saída padrão (stdout) em sistemas <code>GNU/Linux</code> é
+o Monitor.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="s-introducao-ligando">1.15 Ligando o computador</h2>
+
+<p>
+Para ligar o computador pressione o botão <em>POWER</em> ou <em>I/O</em>
+localizado em seu painel frontal do micro.
+</p>
+
+<p>
+Imediatamente entrará em funcionamento um programa residente na memória
+<em>ROM</em> (Read Only Memory - memória somente para leitura) da placa mãe
+que fará os testes iniciais para verificar se os principais dispositivos
+estão funcionando em seu computador (memória RAM, discos, processador, portas
+de impressora, memória cache, etc).
+</p>
+
+<p>
+Quando o ROM termina os testes básicos, ele inicia a procura do setor de boot
+nos discos do computador que será carregado na memória RAM do computador.
+Após carregar o setor de boot, o sistema operacional será iniciado (veja <a
+href="#s-introducao-so">Sistema Operacional, Section 1.3</a>).  O setor de boot
+contém a porção principal usada para iniciar o sistema operacional.
+</p>
+
+<p>
+No <code>GNU/Linux</code>, o setor de boot normalmente é criado por um
+gerenciador de inicialização (um programa que permite escolher qual sistema
+operacional será iniciado).  Deste modo podemos usar mais de um sistema
+operacional no mesmo computador (como o DOS e Linux).  Os gerenciadores de
+inicialização mais usados em sistemas <code>GNU/Linux</code> na plataforma
+Intel X86 são o <code>GRUB</code> e o <code>LILO</code>.
+</p>
+
+<p>
+Caso o ROM não encontre o sistema operacional em nenhum dos discos, ele
+pedirá que seja inserido um disquete contendo o Sistema Operacional para
+partida.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-desligando">1.16 Desligando o computador</h2>
+
+<p>
+Para desligar o computador primeiro digite (como root): <samp>&quot;shutdown -h
+now&quot;</samp>, <samp>&quot;halt&quot;</samp> ou
+<samp>&quot;poweroff&quot;</samp>, o <code>GNU/Linux</code> finalizará os
+programas e gravará os dados em seu disco rígido, quando for mostrada a
+mensagem <samp>&quot;power down&quot;</samp>, pressione o botão <em>POWER</em>
+em seu gabinete para desligar a alimentação de energia do computador.
+</p>
+
+<p>
+<strong>NUNCA</strong> desligue diretamente o computador sem usar o comando
+<code>shutdown</code>, <code>halt</code> ou <code>poweroff</code>, pois podem
+ocorrer perda de dados ou falhas no sistema de arquivos de seu disco rígido
+devido a programas abertos e dados ainda não gravados no disco.
+</p>
+
+<p>
+Salve seus trabalhos para não correr o risco de perde-los durante o
+desligamento do computador.
+</p>
+
+<hr>
+
+<h2 id="s-introducao-reiniciando">1.17 Reiniciando o computador</h2>
+
+<p>
+Reiniciar quer dizer iniciar novamente o sistema.  Não é recomendável
+desligar e ligar constantemente o computador pelo botão <samp>ON/OFF</samp>,
+por este motivo existe recursos para reiniciar o sistema sem desligar o
+computador.  No <code>GNU/Linux</code> você pode usar o comando
+<samp>reboot</samp>, <samp>shutdown -r now</samp> e também pressionar
+simultaneamente as teclas &lt;CTRL&gt; &lt;ALT&gt; &lt;DEL&gt; para reiniciar
+de uma forma segura.
+</p>
+
+<p>
+Observações:
+</p>
+<ul>
+<li>
+<p>
+Salve seus trabalhos para não correr o risco de perde-los durante a
+reinicialização do sistema.
+</p>
+</li>
+<li>
+<p>
+O botão reset do painel frontal do computador também reinicia o computador,
+mas de uma maneira mais forte pois está ligado diretamente aos circuitos da
+placa mãe e o sistema será reiniciado imediatamente, não tendo nenhuma
+chance de finalizar corretamente os programas, gravar os dados da memória no
+disco e desmontar os sistemas de arquivos.  O uso indevido da tecla reset pode
+causar corrompimentos em seus arquivos e perdas.
+</p>
+<p>
+Prefira o método de reinicialização explicado acima e use o botão reset
+somente em último caso.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<p>
+[ <a href="index.en.html">previous</a> ]
+[ <a href="index.en.html#contents">Contents</a> ]
+[ 1 ]
+[ <a href="ch-bas.en.html">2</a> ]
+[ <a href="ch-d-l.en.html">3</a> ]
+[ <a href="ch-disc.en.html">4</a> ]
+[ <a href="ch-run.en.html">5</a> ]
+[ <a href="ch-cmdd.en.html">6</a> ]
+[ <a href="ch-cmd.en.html">7</a> ]
+[ <a href="ch-cmdv.en.html">8</a> ]
+[ <a href="ch-cmdn.en.html">9</a> ]
+[ <a href="ch-cmdc.en.html">10</a> ]
+[ <a href="ch-perm.en.html">11</a> ]
+[ <a href="ch-redir.en.html">12</a> ]
+[ <a href="ch-impr.en.html">13</a> ]
+[ <a href="ch-x11.en.html">14</a> ]
+[ <a href="ch-ajuda.en.html">15</a> ]
+[ <a href="ch-systemd.en.html">16</a> ]
+[ <a href="ch-git.en.html">17</a> ]
+[ <a href="ch-virt-intro.en.html">18</a> ]
+[ <a href="ch-apend.en.html">19</a> ]
+[ <a href="ch-bas.en.html">next</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+

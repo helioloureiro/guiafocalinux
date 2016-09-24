@@ -6,9 +6,9 @@ paravirtualização já era usada de forma ampla em sistemas Solaris, com seu
 *adicionar nome*, e em sistemas FreeBSD, com jails.
 <p>
 LXC permite criar máquinas virtuais por paravirtualização do sistema do 
-<i>host</i>.  Em geral os <i>guests</i> seguem o tipo de distro do <i>host</i>, 
+<em>host</em>.  Em geral os <em>guests</em> seguem o tipo de distro do <em>host</em>, 
 sendo então possível rodar Ubuntu e Debian em sistemas baseados em DEB, e 
 RedHat, Suse, OpenSuse e Fedora em sistemas baseados em RPM.  Mas LXC não 
 contém uma forma de criar um guest DEB num host RPM, nem vice-versa.
 
-<sect1 id="virt-lxc-creation">Creating a LXC guest
+<sect1 id="virt-lxc-creation">Criando um convidado LXC
