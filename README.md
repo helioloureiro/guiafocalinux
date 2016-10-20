@@ -12,11 +12,11 @@ Como gerar o guia
 O guia é feito especificamente para ser gerado em Debian, pois faz uso dos templates DTD do Debiandocs.
 Se estiver usando um sistema Debian ou derivado desse, como Ubuntu, basta instalar os pacotes "debiandoc-sgml" e "make".
 
-apt install debiandoc-sgml make
+```apt install debiandoc-sgml make texlive-lang-portuguese```
 
 Os demais pacotes necessários deve ser baixados como dependências.  Para gerar o documento, basta rodar o comando make.
 
-make
+```make```
 
 Não Debian
 ==========
