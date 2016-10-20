@@ -1,6 +1,6 @@
 PACKAGES := index.html
-PACKAGES += index.en.pdf
-PACKAGES += index.en.dvi
+PACKAGES += index.pdf
+PACKAGES += index.dvi
 
 SRC := index.sgml
 SRC += Iniciante/ajuda.sgml
@@ -99,19 +99,35 @@ SRC += Avancado/systemd/systemd-INDEX.sgml
 SRC += Avancado/telnet/telnet-INDEX.sgml
 SRC += Avancado/telnet/telnet-Introducao.sgml
 
+
+# Em caso de erros com o babel e latex,
+# Instale o suporte ao português com (Ubuntu)
+# sudo apt-get install texlive-lang-portuguese
+
+OUTPUT_DIR=output
+INDEX=index.sgml
+COMMON=-l pt_BR.UTF-8
+CHTML=${COMMON} -b ${OUTPUT_DIR} ${INDEX}
+CDVIPDF=${COMMON} -O ${INDEX}
+
 all: $(PACKAGES)
 
-index.html: html 
+index.html: html
 
-html: $(SRC)
-	debiandoc2html -C -l en.UTF-8 -b html index.sgml
-	mv html.html html
+html: $(SRC) output
+	debiandoc2html ${CHTML}
+	mv ${OUTPUT_DIR}.html ${OUTPUT_DIR}/html
 
-index.en.pdf: $(SRC)
-	debiandoc2pdf -C -l en.UTF-8 index.sgml
+index.pdf: $(SRC) output
+	debiandoc2pdf ${CDVIPDF} > ${OUTPUT_DIR}/$@
+	debiandoc2pdf ${CDVIPDF} > ${OUTPUT_DIR}/$@
 
-index.en.dvi: $(SRC)
-	debiandoc2dvi -C -l en.UTF-8 index.sgml
+index.dvi: $(SRC) output
+	debiandoc2dvi ${CDVIPDF} > ${OUTPUT_DIR}/$@
+	debiandoc2dvi ${CDVIPDF} > ${OUTPUT_DIR}/$@
+
+output:
+	mkdir -p output
 
 clean:
-	rm -rf $(PACKAGES)
+	rm -rf output* *.aux *.log *.out *.tex *.toc *.tpt *.log $(PACKAGES)
