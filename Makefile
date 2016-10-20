@@ -105,20 +105,27 @@ SRC += Avancado/telnet/telnet-Introducao.sgml
 # sudo apt-get install texlive-lang-portuguese
 
 
+COMMON=-l pt_BR.UTF-8
+CDVIPDF=${COMMON} -O
+
 all: $(PACKAGES)
 
 index.html: html
 
-html: $(SRC)
-	debiandoc2html -b pt_br -l pt_BR.UTF-8 index.sgml
+html: $(SRC) output
+	debiandoc2html -b output ${COMMON} index.sgml
+	mv output.html output/html
 
-index.pdf: $(SRC)
-	debiandoc2pdf -l pt_BR.UTF-8 index.sgml
-	debiandoc2pdf -l pt_BR.UTF-8 index.sgml
+index.pdf: $(SRC) output
+	debiandoc2pdf ${CDVIPDF} index.sgml > output/$@
+	debiandoc2pdf ${CDVIPDF} index.sgml > output/$@
 
-index.dvi: $(SRC)
-	debiandoc2dvi -l pt_BR.UTF-8  index.sgml
-	debiandoc2dvi -l pt_BR.UTF-8  index.sgml
+index.dvi: $(SRC) output
+	debiandoc2dvi ${CDVIPDF} index.sgml > output/$@
+	debiandoc2dvi ${CDVIPDF} index.sgml > output/$@
+
+output:
+	mkdir -p output
 
 clean:
-	rm -rf pt_br.html/* *.aux *.log *.out *.tex *.toc *.tpt *.log $(PACKAGES)
+	rm -rf output* *.aux *.log *.out *.tex *.toc *.tpt *.log $(PACKAGES)

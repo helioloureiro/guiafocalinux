@@ -4,6 +4,4 @@
 *.tex
 *.toc
 *.tpt
-index.pdf
-index.dvi
-pt_br.html/*
+output/*
