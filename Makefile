@@ -104,25 +104,27 @@ SRC += Avancado/telnet/telnet-Introducao.sgml
 # Instale o suporte ao português com (Ubuntu)
 # sudo apt-get install texlive-lang-portuguese
 
-
+OUTPUT_DIR=output
+INDEX=index.sgml
 COMMON=-l pt_BR.UTF-8
-CDVIPDF=${COMMON} -O
+CHTML=${COMMON} -b ${OUTPUT_DIR} ${INDEX}
+CDVIPDF=${COMMON} -O ${INDEX}
 
 all: $(PACKAGES)
 
 index.html: html
 
 html: $(SRC) output
-	debiandoc2html -b output ${COMMON} index.sgml
-	mv output.html output/html
+	debiandoc2html ${CHTML}
+	mv ${OUTPUT_DIR}.html ${OUTPUT_DIR}/html
 
 index.pdf: $(SRC) output
-	debiandoc2pdf ${CDVIPDF} index.sgml > output/$@
-	debiandoc2pdf ${CDVIPDF} index.sgml > output/$@
+	debiandoc2pdf ${CDVIPDF} > ${OUTPUT_DIR}/$@
+	debiandoc2pdf ${CDVIPDF} > ${OUTPUT_DIR}/$@
 
 index.dvi: $(SRC) output
-	debiandoc2dvi ${CDVIPDF} index.sgml > output/$@
-	debiandoc2dvi ${CDVIPDF} index.sgml > output/$@
+	debiandoc2dvi ${CDVIPDF} > ${OUTPUT_DIR}/$@
+	debiandoc2dvi ${CDVIPDF} > ${OUTPUT_DIR}/$@
 
 output:
 	mkdir -p output
