@@ -1,6 +1,6 @@
 PACKAGES := index.html
-PACKAGES += index.en.pdf
-PACKAGES += index.en.dvi
+PACKAGES += index.pdf
+PACKAGES += index.dvi
 
 SRC := index.sgml
 SRC += Iniciante/ajuda.sgml
@@ -99,19 +99,26 @@ SRC += Avancado/systemd/systemd-INDEX.sgml
 SRC += Avancado/telnet/telnet-INDEX.sgml
 SRC += Avancado/telnet/telnet-Introducao.sgml
 
+
+# Em caso de erros com o babel e latex,
+# Instale o suporte ao português com (Ubuntu)
+# sudo apt-get install texlive-lang-portuguese
+
+
 all: $(PACKAGES)
 
-index.html: html 
+index.html: html
 
 html: $(SRC)
-	debiandoc2html -C -l en.UTF-8 -b html index.sgml
-	mv html.html html
+	debiandoc2html -b pt_br -l pt_BR.UTF-8 index.sgml
 
-index.en.pdf: $(SRC)
-	debiandoc2pdf -C -l en.UTF-8 index.sgml
+index.pdf: $(SRC)
+	debiandoc2pdf -l pt_BR.UTF-8 index.sgml
+	debiandoc2pdf -l pt_BR.UTF-8 index.sgml
 
-index.en.dvi: $(SRC)
-	debiandoc2dvi -C -l en.UTF-8 index.sgml
+index.dvi: $(SRC)
+	debiandoc2dvi -l pt_BR.UTF-8  index.sgml
+	debiandoc2dvi -l pt_BR.UTF-8  index.sgml
 
 clean:
-	rm -rf $(PACKAGES)
+	rm -rf pt_br.html/* *.aux *.log *.out *.tex *.toc *.tpt *.log $(PACKAGES)
