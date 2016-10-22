@@ -4,4 +4,4 @@
 *.tex
 *.toc
 *.tpt
-output/*
+output/index.dvi

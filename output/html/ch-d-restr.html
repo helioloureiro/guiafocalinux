@@ -1,0 +1,3608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Guia Foca GNU/Linux - Restrições de acesso, recursos e serviços</title>
+
+<link href="index.html" rel="start">
+<link href="ch-s-samba.html" rel="prev">
+<link href="ch-d-cripto.html" rel="next">
+<link href="index.html#contents" rel="contents">
+<link href="index.html#copyright" rel="copyright">
+<link href="ch-intro.html" rel="chapter" title="1 Introdução">
+<link href="ch-bas.html" rel="chapter" title="2 Explicações Básicas">
+<link href="ch-hardw.html" rel="chapter" title="3 Hardware">
+<link href="ch-d-l.html" rel="chapter" title="4 Para quem esta migrando (ou pensando em migrar) do DOS/Windows para o Linux">
+<link href="ch-disc.html" rel="chapter" title="5 Discos e Partições">
+<link href="ch-boot.html" rel="chapter" title="6 Gerenciadores de Partida (boot loaders)">
+<link href="ch-run.html" rel="chapter" title="7 Execução de programas">
+<link href="ch-cmdd.html" rel="chapter" title="8 Comandos para manipulação de diretório">
+<link href="ch-cmd.html" rel="chapter" title="9 Comandos para manipulação de Arquivos">
+<link href="ch-cmdv.html" rel="chapter" title="10 Comandos Diversos">
+<link href="ch-cmdn.html" rel="chapter" title="11 Comandos de rede">
+<link href="ch-cmdc.html" rel="chapter" title="12 Comandos para manipulação de contas">
+<link href="ch-perm.html" rel="chapter" title="13 Permissões de acesso a arquivos e diretórios">
+<link href="ch-redir.html" rel="chapter" title="14 Redirecionamentos e Pipe">
+<link href="ch-rede.html" rel="chapter" title="15 Rede">
+<link href="ch-cfgrede.html" rel="chapter" title="16 Configurações especiais de Rede">
+<link href="ch-kern.html" rel="chapter" title="17 Kernel e Módulos">
+<link href="ch-log.html" rel="chapter" title="18 Arquivos e daemons de Log">
+<link href="ch-cpctd.html" rel="chapter" title="19 Compactadores">
+<link href="ch-deb.html" rel="chapter" title="20 A distribuição Debian GNU/Linux">
+<link href="ch-dpkg.html" rel="chapter" title="21 Sistema de gerenciamento de pacotes">
+<link href="ch-pers.html" rel="chapter" title="22 Personalização do Sistema">
+<link href="ch-impr.html" rel="chapter" title="23 Impressão">
+<link href="ch-cfg.html" rel="chapter" title="24 Configuração do sistema">
+<link href="ch-tasks.html" rel="chapter" title="25 Executando tarefas diversas no Linux">
+<link href="ch-compil.html" rel="chapter" title="26 Compilação">
+<link href="ch-manut.html" rel="chapter" title="27 Manutenção do Sistema">
+<link href="ch-etc.html" rel="chapter" title="28 Principais arquivos de configuração do diretório /etc">
+<link href="ch-inter.html" rel="chapter" title="29 Conectando seu computador a Internet">
+<link href="ch-x11.html" rel="chapter" title="30 X Window (ambiente gráfico)">
+<link href="ch-fw-iptables.html" rel="chapter" title="31 Firewall iptables">
+<link href="ch-d-contas.html" rel="chapter" title="32 Gerenciamento de contas e cuidados para a proteção de senhas">
+<link href="ch-s-apache.html" rel="chapter" title="33 Apache">
+<link href="ch-s-ident.html" rel="chapter" title="34 Servidor ident">
+<link href="ch-s-telnet.html" rel="chapter" title="35 Servidor telnet">
+<link href="ch-s-ssh.html" rel="chapter" title="36 Servidor ssh">
+<link href="ch-s-pop3.html" rel="chapter" title="37 Servidor pop3">
+<link href="ch-s-cvs.html" rel="chapter" title="38 CVS">
+<link href="ch-s-samba.html" rel="chapter" title="39 SAMBA">
+<link href="ch-d-restr.html" rel="chapter" title="40 Restrições de acesso, recursos e serviços">
+<link href="ch-d-cripto.html" rel="chapter" title="41 Introdução ao uso de criptografia para transmissão/armazenamento de dados">
+<link href="ch-aplic.html" rel="chapter" title="42 Aplicativos para Linux">
+<link href="ch-ajuda.html" rel="chapter" title="43 Como obter ajuda no sistema">
+<link href="ch-systemd.html" rel="chapter" title="44 SYSTEMD, o novo e controverso sistema de inicialização do Linux">
+<link href="ch-git.html" rel="chapter" title="45 Git, controle de versões">
+<link href="ch-virt-intro.html" rel="chapter" title="46 Virtualização em sistemas GNU/Linux">
+<link href="ch-apend.html" rel="chapter" title="47 Apêndice">
+<link href="ch-intro.html#s-introducao-palavras" rel="section" title="1.1 Antes de começar">
+<link href="ch-intro.html#s-introducao-requisitos" rel="section" title="1.2 Pré-requisitos para a utilização deste guia">
+<link href="ch-intro.html#s-introducao-so" rel="section" title="1.3 Sistema Operacional">
+<link href="ch-intro.html#s-introducao-linux" rel="section" title="1.4 O Linux">
+<link href="ch-intro.html#s-introducao-distrib" rel="section" title="1.5 Distribuições do Linux">
+<link href="ch-intro.html#s-introducao-software-livre" rel="section" title="1.6 Software Livre">
+<link href="ch-intro.html#s-introducao-processamento" rel="section" title="1.7 Processamento de Dados">
+<link href="ch-intro.html#s-introducao-computador" rel="section" title="1.8 O Computador">
+<link href="ch-intro.html#s-introducao-conhecendo" rel="section" title="1.9 Conhecendo o Computador">
+<link href="ch-intro.html#s-introducao-placamae" rel="section" title="1.10 Placa Mãe">
+<link href="ch-intro.html#s-introducao-memoria" rel="section" title="1.11 Memória do Computador">
+<link href="ch-intro.html#s-introducao-discos" rel="section" title="1.12 Discos">
+<link href="ch-intro.html#s-introducao-cuidados" rel="section" title="1.13 Cuidados Básicos com o Computador">
+<link href="ch-intro.html#s-introducao-disp-e-s" rel="section" title="1.14 Dispositivos de Entrada e Saída">
+<link href="ch-intro.html#s-introducao-ligando" rel="section" title="1.15 Ligando o computador">
+<link href="ch-intro.html#s-introducao-desligando" rel="section" title="1.16 Desligando o computador">
+<link href="ch-intro.html#s-introducao-reiniciando" rel="section" title="1.17 Reiniciando o computador">
+<link href="ch-bas.html#s-basico-hardsoft" rel="section" title="2.1 Hardware e Software">
+<link href="ch-bas.html#s-basico-arquivo" rel="section" title="2.2 Arquivos">
+<link href="ch-bas.html#s-basico-diretorio" rel="section" title="2.3 Diretório">
+<link href="ch-bas.html#s-basico-nomeando" rel="section" title="2.4 Nomeando Arquivos e Diretórios">
+<link href="ch-bas.html#s-basico-comandos" rel="section" title="2.5 Comandos">
+<link href="ch-bas.html#s-basico-comandos-externos" rel="section" title="2.6 Comandos Externos">
+<link href="ch-bas.html#s-basico-avisocmd" rel="section" title="2.7 Aviso de comando (Prompt)">
+<link href="ch-bas.html#s-basico-interpcmd" rel="section" title="2.8 Interpretador de comandos">
+<link href="ch-bas.html#s-basico-terminal" rel="section" title="2.9 Terminal Virtual (console)">
+<link href="ch-bas.html#s-basico-login" rel="section" title="2.10 Login">
+<link href="ch-bas.html#s-basico-logout" rel="section" title="2.11 Logout">
+<link href="ch-bas.html#s-basico-coringas" rel="section" title="2.12 Coringas">
+<link href="ch-hardw.html#s-hardw-placas" rel="section" title="3.1 Placa de expansão">
+<link href="ch-hardw.html#s-hardw-nomesdisp" rel="section" title="3.2 Nomes de dispositivos">
+<link href="ch-hardw.html#s-hardw-cfg" rel="section" title="3.3 Configuração de Hardware">
+<link href="ch-hardw.html#s-hardw-metodoscfg" rel="section" title="3.4 Hardwares configuráveis por jumpers, dip-switches, jumperless e Plug-and-Play.">
+<link href="ch-hardw.html#s-hardw-findhw" rel="section" title="3.5 Listando as placas e outros hardwares em um computador">
+<link href="ch-hardw.html#s-hardw-conflitos" rel="section" title="3.6 Conflitos de hardware">
+<link href="ch-hardw.html#s-hard-barramento" rel="section" title="3.7 Barramento">
+<link href="ch-hardw.html#s-hard-onoffboard" rel="section" title="3.8 Placas on-board / off-board">
+<link href="ch-hardw.html#s-hard-forwindows" rel="section" title="3.9 Hardwares específicos ou &quot;For Windows&quot;">
+<link href="ch-hardw.html#s3.10" rel="section" title="3.10 Dispositivos específicos para GNU/Linux">
+<link href="ch-hardw.html#s-hardw-cfgdisp" rel="section" title="3.11 Configurações de Dispositivos">
+<link href="ch-d-l.html#s-d-l-compar" rel="section" title="4.1 Quais as diferenças iniciais">
+<link href="ch-d-l.html#s-d-l-comandos" rel="section" title="4.2 Comandos equivalentes entre DOS/CMD do Windows e o Linux">
+<link href="ch-d-l.html#s-d-l-mtools" rel="section" title="4.3 Usando a sintaxe de comandos DOS no Linux">
+<link href="ch-d-l.html#s-d-l-programas" rel="section" title="4.4 Programas equivalentes entre Windows/DOS e o Linux">
+<link href="ch-disc.html#s-disc-particoes" rel="section" title="5.1 Partições">
+<link href="ch-disc.html#s-disc-formatando" rel="section" title="5.2 Formatando Pen-drives/Disquetes">
+<link href="ch-disc.html#s-disc-pontomontagem" rel="section" title="5.3 Pontos de Montagem">
+<link href="ch-disc.html#s-disc-id" rel="section" title="5.4 Identificação de discos e partições em sistemas Linux">
+<link href="ch-disc.html#s-disc-montagem" rel="section" title="5.5 Montando (acessando) uma partição de disco">
+<link href="ch-disc.html#s-disc-desmontagem" rel="section" title="5.6 Desmontando uma partição de disco">
+<link href="ch-boot.html#s-boot-lilo" rel="section" title="6.1 LILO">
+<link href="ch-boot.html#s-boot-grub" rel="section" title="6.2 GRUB">
+<link href="ch-boot.html#s-boot-kernelparam" rel="section" title="6.3 Parâmetros de inicialização passados ao kernel">
+<link href="ch-boot.html#s-boot-loadlin" rel="section" title="6.4 LOADLIN">
+<link href="ch-boot.html#s-boot-syslinux" rel="section" title="6.5 syslinux">
+<link href="ch-run.html#s-run-prgn" rel="section" title="7.1 Executando um comando/programa">
+<link href="ch-run.html#s-run-path" rel="section" title="7.2 path">
+<link href="ch-run.html#s-run-tipos" rel="section" title="7.3 Tipos de Execução de comandos/programas">
+<link href="ch-run.html#s-run-seq" rel="section" title="7.4 Executando programas em seqüência">
+<link href="ch-run.html#s-run-ps" rel="section" title="7.5 ps">
+<link href="ch-run.html#s-run-top" rel="section" title="7.6 top">
+<link href="ch-run.html#s-run-controle" rel="section" title="7.7 Controle de execução de processos">
+<link href="ch-run.html#s-run-fechando" rel="section" title="7.8 Fechando um programa quando não se sabe como sair">
+<link href="ch-run.html#s-run-reset" rel="section" title="7.9 Eliminando caracteres estranhos">
+<link href="ch-cmdd.html#s-comando-ls" rel="section" title="8.1 ls">
+<link href="ch-cmdd.html#s-comando-cd" rel="section" title="8.2 cd">
+<link href="ch-cmdd.html#s-comando-pwd" rel="section" title="8.3 pwd">
+<link href="ch-cmdd.html#s-comando-mkdir" rel="section" title="8.4 mkdir">
+<link href="ch-cmdd.html#s-comando-rmdir" rel="section" title="8.5 rmdir">
+<link href="ch-cmd.html#s-comandos-cat" rel="section" title="9.1 cat">
+<link href="ch-cmd.html#s-comando-tac" rel="section" title="9.2 tac">
+<link href="ch-cmd.html#s-comando-rm" rel="section" title="9.3 rm">
+<link href="ch-cmd.html#s-comando-cp" rel="section" title="9.4 cp">
+<link href="ch-cmd.html#s-comando-mv" rel="section" title="9.5 mv">
+<link href="ch-cmdv.html#s-cmdv-clear" rel="section" title="10.1 clear">
+<link href="ch-cmdv.html#s-cmdv-date" rel="section" title="10.2 date">
+<link href="ch-cmdv.html#s-cmdv-df" rel="section" title="10.3 df">
+<link href="ch-cmdv.html#s-cmdv-ln" rel="section" title="10.4 ln">
+<link href="ch-cmdv.html#s-cmdv-du" rel="section" title="10.5 du">
+<link href="ch-cmdv.html#s-cmdv-find" rel="section" title="10.6 find">
+<link href="ch-cmdv.html#s-cmdv-free" rel="section" title="10.7 free">
+<link href="ch-cmdv.html#s-cmdv-grep" rel="section" title="10.8 grep">
+<link href="ch-cmdv.html#s-cmdv-head" rel="section" title="10.9 head">
+<link href="ch-cmdv.html#s-cmdv-nl" rel="section" title="10.10 nl">
+<link href="ch-cmdv.html#s-cmdv-more" rel="section" title="10.11 more">
+<link href="ch-cmdv.html#s-cmdv-less" rel="section" title="10.12 less">
+<link href="ch-cmdv.html#s-cmdv-sort" rel="section" title="10.13 sort">
+<link href="ch-cmdv.html#s-cmdv-tail" rel="section" title="10.14 tail">
+<link href="ch-cmdv.html#s-cmdv-time" rel="section" title="10.15 time">
+<link href="ch-cmdv.html#s-cmdv-touch" rel="section" title="10.16 touch">
+<link href="ch-cmdv.html#s-cmdv-uptime" rel="section" title="10.17 uptime">
+<link href="ch-cmdv.html#s-cmdv-dmesg" rel="section" title="10.18 dmesg">
+<link href="ch-cmdv.html#s-cmdv-mesg" rel="section" title="10.19 mesg">
+<link href="ch-cmdv.html#s-cmdv-echo" rel="section" title="10.20 echo">
+<link href="ch-cmdv.html#s-cmdv-su" rel="section" title="10.21 su">
+<link href="ch-cmdv.html#s-cmdv-sync" rel="section" title="10.22 sync">
+<link href="ch-cmdv.html#s-cmdv-uname" rel="section" title="10.23 uname">
+<link href="ch-cmdv.html#s-cmdv-reboot" rel="section" title="10.24 reboot">
+<link href="ch-cmdv.html#s-cmdv-shutdown" rel="section" title="10.25 shutdown">
+<link href="ch-cmdv.html#s-cmdv-wc" rel="section" title="10.26 wc">
+<link href="ch-cmdv.html#s-cmdv-seq" rel="section" title="10.27 seq">
+<link href="ch-cmdn.html#s-cmdn-who" rel="section" title="11.1 who">
+<link href="ch-cmdn.html#s-cmdn-telnet" rel="section" title="11.2 telnet">
+<link href="ch-cmdn.html#s-cmdn-finger" rel="section" title="11.3 finger">
+<link href="ch-cmdn.html#s-cmdn-ftp" rel="section" title="11.4 ftp">
+<link href="ch-cmdn.html#s-cmdn-whoami" rel="section" title="11.5 whoami">
+<link href="ch-cmdn.html#s-cmdn-dnsdomainname" rel="section" title="11.6 dnsdomainname">
+<link href="ch-cmdn.html#s-cmdn-hostname" rel="section" title="11.7 hostname">
+<link href="ch-cmdn.html#s-cmdn-talk" rel="section" title="11.8 talk">
+<link href="ch-cmdc.html#s-cmdc-adduser" rel="section" title="12.1 adduser">
+<link href="ch-cmdc.html#s-cmdc-addgroup" rel="section" title="12.2 addgroup">
+<link href="ch-cmdc.html#s-cmdc-passwd" rel="section" title="12.3 passwd">
+<link href="ch-cmdc.html#s-cmdc-gpasswd" rel="section" title="12.4 gpasswd">
+<link href="ch-cmdc.html#s-cmdc-newgrp" rel="section" title="12.5 newgrp">
+<link href="ch-cmdc.html#s-cmdc-userdel" rel="section" title="12.6 userdel">
+<link href="ch-cmdc.html#s-cmdc-groupdel" rel="section" title="12.7 groupdel">
+<link href="ch-cmdc.html#s-cmdc-sg" rel="section" title="12.8 sg">
+<link href="ch-cmdc.html#s-cmdc-incluirgrupo" rel="section" title="12.9 Adicionando o usuário a um grupo extra">
+<link href="ch-cmdc.html#s-cmdc-chfn" rel="section" title="12.10 chfn">
+<link href="ch-cmdc.html#s-cmdc-id" rel="section" title="12.11 id">
+<link href="ch-cmdc.html#s-cmdc-logname" rel="section" title="12.12 logname">
+<link href="ch-cmdc.html#s-cmdc-users" rel="section" title="12.13 users">
+<link href="ch-cmdc.html#s-cmdc-groups" rel="section" title="12.14 groups">
+<link href="ch-perm.html#s-perm-user-group" rel="section" title="13.1 Donos, Grupos e outros usuários">
+<link href="ch-perm.html#s-perm-tipos" rel="section" title="13.2 Tipos de Permissões de Acesso">
+<link href="ch-perm.html#s-perm-acessando" rel="section" title="13.3 Etapas para acesso a um arquivo/diretório">
+<link href="ch-perm.html#s-perm-exemplo" rel="section" title="13.4 Exemplos práticos de permissões de acesso">
+<link href="ch-perm.html#s-perm-especiais" rel="section" title="13.5 Permissões de Acesso Especiais">
+<link href="ch-perm.html#s-perm-root" rel="section" title="13.6 A conta root">
+<link href="ch-perm.html#s-perm-chmod" rel="section" title="13.7 chmod">
+<link href="ch-perm.html#s-perm-chgrp" rel="section" title="13.8 chgrp">
+<link href="ch-perm.html#s-perm-chown" rel="section" title="13.9 chown">
+<link href="ch-perm.html#s-perm-octal" rel="section" title="13.10 Modo de permissão octal">
+<link href="ch-perm.html#s-perm-umask" rel="section" title="13.11 umask">
+<link href="ch-redir.html#s-redir-maior" rel="section" title="14.1 &gt;">
+<link href="ch-redir.html#s-redir-maior2" rel="section" title="14.2 &gt;&gt;">
+<link href="ch-redir.html#s-redir-menor" rel="section" title="14.3 &lt;">
+<link href="ch-redir.html#s-redir-menor2" rel="section" title="14.4 &lt;&lt;">
+<link href="ch-redir.html#s-redir-pipe" rel="section" title="14.5 | (pipe)">
+<link href="ch-redir.html#s14.6" rel="section" title="14.6 Diferença entre o &quot;|&quot; e o &quot;&gt;&quot;">
+<link href="ch-redir.html#s-redir-tee" rel="section" title="14.7 tee">
+<link href="ch-rede.html#s-rede-oque" rel="section" title="15.1 O que é uma rede">
+<link href="ch-rede.html#s-rede-protocolo" rel="section" title="15.2 Protocolo de Rede">
+<link href="ch-rede.html#s-rede-ip" rel="section" title="15.3 Endereço IP">
+<link href="ch-rede.html#s-rede-interfaces" rel="section" title="15.4 Interface de rede">
+<link href="ch-rede.html#s-rede-rota" rel="section" title="15.5 Roteamento">
+<link href="ch-rede.html#s-rede-dns" rel="section" title="15.6 Resolvedor de nomes (DNS)">
+<link href="ch-rede.html#s-rede-servicos" rel="section" title="15.7 Serviços de Rede">
+<link href="ch-rede.html#s-rede-seg" rel="section" title="15.8 Segurança da Rede e controle de Acesso">
+<link href="ch-rede.html#s-rede-outros" rel="section" title="15.9 Outros arquivos de configuração relacionados com a rede">
+<link href="ch-cfgrede.html#s-cfgrede-ipalias" rel="section" title="16.1 IP Alias">
+<link href="ch-cfgrede.html#s-cfgs-bridge" rel="section" title="16.2 Bridge">
+<link href="ch-cfgrede.html#s-cfgs-plip" rel="section" title="16.3 Conectando dois computadores usando a porta paralela">
+<link href="ch-cfgrede.html#s-cfgs-slattach" rel="section" title="16.4 Conectando dois computadores usando a porta serial">
+<link href="ch-kern.html#s-kern-kernel" rel="section" title="17.1 O Kernel">
+<link href="ch-kern.html#s-kern-modulos" rel="section" title="17.2 Módulos">
+<link href="ch-kern.html#s-kern-suporte" rel="section" title="17.3 Como adicionar suporte a Hardwares e outros dispositivos no kernel">
+<link href="ch-kern.html#s-kern-kmod" rel="section" title="17.4 kmod">
+<link href="ch-kern.html#s-kern-lsmod" rel="section" title="17.5 lsmod">
+<link href="ch-kern.html#s-kern-insmod" rel="section" title="17.6 insmod">
+<link href="ch-kern.html#s-kern-rmmod" rel="section" title="17.7 rmmod">
+<link href="ch-kern.html#s-kern-modprobe" rel="section" title="17.8 modprobe">
+<link href="ch-kern.html#s-kern-depmod" rel="section" title="17.9 depmod">
+<link href="ch-kern.html#s-kern-modconf" rel="section" title="17.10 modconf">
+<link href="ch-kern.html#s-kern-recompilando" rel="section" title="17.11 Recompilando o Kernel">
+<link href="ch-kern.html#s-kern-arquivos" rel="section" title="17.12 Arquivos relacionados com o Kernel e Módulos">
+<link href="ch-kern.html#s-kern-patches" rel="section" title="17.13 Aplicando Patches no kernel">
+<link href="ch-log.html#s18.1" rel="section" title="18.1 Formato do arquivo de log">
+<link href="ch-log.html#s18.2" rel="section" title="18.2 Daemons de log do sistema">
+<link href="ch-log.html#s-log-logger" rel="section" title="18.3 logger">
+<link href="ch-cpctd.html#s-cpctd-oque" rel="section" title="19.1 O que fazem os compactadores/descompactadores?">
+<link href="ch-cpctd.html#s-cpctd-extensoes" rel="section" title="19.2 Extensões de arquivos compactados">
+<link href="ch-cpctd.html#s-cpctd-gzip" rel="section" title="19.3 gzip">
+<link href="ch-cpctd.html#s-cpctd-zip" rel="section" title="19.4 zip">
+<link href="ch-cpctd.html#s-cpctd-unzip" rel="section" title="19.5 unzip">
+<link href="ch-cpctd.html#s-cpctd-tar" rel="section" title="19.6 tar">
+<link href="ch-cpctd.html#s-cpctd-bzip2" rel="section" title="19.7 bzip2">
+<link href="ch-cpctd.html#s-cpctd-rar" rel="section" title="19.8 rar">
+<link href="ch-deb.html#s-deb-obtendo" rel="section" title="20.1 Como obter a Debian">
+<link href="ch-deb.html#s-deb-prgnconfig" rel="section" title="20.2 Programas de configuração">
+<link href="ch-deb.html#s-deb-startup" rel="section" title="20.3 Arquivos de inicialização">
+<link href="ch-deb.html#s-deb-runlevels" rel="section" title="20.4 Níveis de Execução">
+<link href="ch-deb.html#s-deb-rede" rel="section" title="20.5 Rede no sistema Debian">
+<link href="ch-deb.html#s-deb-bts" rel="section" title="20.6 Bug tracking system">
+<link href="ch-deb.html#s-deb-download" rel="section" title="20.7 Onde encontrar a Debian para Download?">
+<link href="ch-dpkg.html#s-dpkg-introducao" rel="section" title="21.1 dpkg">
+<link href="ch-dpkg.html#s-dpkg-apt" rel="section" title="21.2 apt">
+<link href="ch-pers.html#s-pers-varamb" rel="section" title="22.1 Variáveis de Ambientes">
+<link href="ch-pers.html#s-pers-idioma" rel="section" title="22.2 Modificando o Idioma usado em seu sistema">
+<link href="ch-pers.html#s-pers-alias" rel="section" title="22.3 alias">
+<link href="ch-pers.html#s-pers-profile" rel="section" title="22.4 Arquivo /etc/profile">
+<link href="ch-pers.html#s-pers-bashprofile" rel="section" title="22.5 Arquivo .bash_profile">
+<link href="ch-pers.html#s-pers-bashrc" rel="section" title="22.6 Arquivo .bashrc">
+<link href="ch-pers.html#s-pers-hushlogin" rel="section" title="22.7 Arquivo .hushlogin">
+<link href="ch-pers.html#s-pers-environment" rel="section" title="22.8 Arquivo /etc/environment">
+<link href="ch-pers.html#s-pers-conf-skel" rel="section" title="22.9 Diretório /etc/skel">
+<link href="ch-impr.html#s-impr-portas" rel="section" title="23.1 Portas de impressora">
+<link href="ch-impr.html#s-impr-direta" rel="section" title="23.2 Imprimindo diretamente para a porta de impressora">
+<link href="ch-impr.html#s-impr-spool" rel="section" title="23.3 Imprimindo via spool">
+<link href="ch-impr.html#s-impr-graficos" rel="section" title="23.4 Impressão em modo gráfico">
+<link href="ch-impr.html#s-impr-magicfilter" rel="section" title="23.5 Magic Filter">
+<link href="ch-cfg.html#s-cfg-acentuacao" rel="section" title="24.1 Acentuação">
+<link href="ch-tasks.html#s-tasks-cdwriting" rel="section" title="25.1 Gravando CDs e DVDs no Linux">
+<link href="ch-tasks.html#s-tasks-cdwriting-rundivx" rel="section" title="25.2 Executando vídeos DIVX">
+<link href="ch-tasks.html#s-tasks-rundvd" rel="section" title="25.3 Assistindo DVDs">
+<link href="ch-tasks.html#s-tasks-wavtomp3" rel="section" title="25.4 Convertendo músicas no formato wav para mp3">
+<link href="ch-tasks.html#s-tasks-mp3cdr" rel="section" title="25.5 Convertendo músicas do formato mp3 para cdr">
+<link href="ch-compil.html#s-compil-descricao" rel="section" title="26.1 O que é compilação?">
+<link href="ch-compil.html#s-compil-compilador" rel="section" title="26.2 Compilador">
+<link href="ch-manut.html#s-manut-checagem" rel="section" title="27.1 Checagem dos sistemas de arquivos">
+<link href="ch-manut.html#s-manut-checagem-reiserfsck" rel="section" title="27.2 reiserfsck">
+<link href="ch-manut.html#s-manut-checagem-minix" rel="section" title="27.3 fsck.minix">
+<link href="ch-manut.html#s-manut-badblocks" rel="section" title="27.4 badblocks">
+<link href="ch-manut.html#s-manut-defrag" rel="section" title="27.5 defrag">
+<link href="ch-manut.html#s-manut-hdbadblocks" rel="section" title="27.6 Verificando e marcando setores danificados em um HD">
+<link href="ch-manut.html#s-manut-logs-l" rel="section" title="27.7 Limpando arquivos de LOGS">
+<link href="ch-manut.html#s-manut-recpart" rel="section" title="27.8 Recuperando partições apagadas">
+<link href="ch-manut.html#s-manut-senhaperdida" rel="section" title="27.9 Recuperando a senha de root perdida">
+<link href="ch-manut.html#s-manut-tarefas" rel="section" title="27.10 Tarefas automáticas de manutenção do sistema">
+<link href="ch-manut.html#s-manut-cron" rel="section" title="27.11 cron">
+<link href="ch-manut.html#s-manut-at" rel="section" title="27.12 at">
+<link href="ch-etc.html#s-etc-alternatives" rel="section" title="28.1 Diretório /etc/alternatives">
+<link href="ch-etc.html#s-etc-devpts" rel="section" title="28.2 Arquivo /etc/default/devpts">
+<link href="ch-etc.html#s-etc-rcs" rel="section" title="28.3 Arquivo /etc/default/rcS">
+<link href="ch-etc.html#s-etc-config" rel="section" title="28.4 Arquivo /etc/console-tools/config">
+<link href="ch-etc.html#s-etc-menu-methods" rel="section" title="28.5 Diretório /etc/menu-methods">
+<link href="ch-etc.html#s-etc-menu-translate" rel="section" title="28.6 Arquivo /etc/menu-methods/translate_menus">
+<link href="ch-etc.html#s-etc-networks" rel="section" title="28.7 Diretório /etc/network">
+<link href="ch-etc.html#s-etc-network-interfaces" rel="section" title="28.8 Arquivo /etc/network/interfaces">
+<link href="ch-etc.html#s-etc-networks-options" rel="section" title="28.9 Arquivo /etc/networks/options">
+<link href="ch-etc.html#s-etc-pam" rel="section" title="28.10 Diretório /etc/pam.d">
+<link href="ch-etc.html#s-etc-ppp" rel="section" title="28.11 Diretório /etc/ppp">
+<link href="ch-etc.html#s-etc-security" rel="section" title="28.12 Diretório /etc/security">
+<link href="ch-etc.html#s-etc-security-access" rel="section" title="28.13 Arquivo /etc/security/access.conf">
+<link href="ch-etc.html#s-etc-securith-limits" rel="section" title="28.14 Arquivo /etc/security/limits.conf">
+<link href="ch-etc.html#s-etc-crontab" rel="section" title="28.15 Arquivo /etc/crontab">
+<link href="ch-etc.html#s28.16" rel="section" title="28.16 Arquivo /etc/fstab">
+<link href="ch-etc.html#s28.17" rel="section" title="28.17 Arquivo /etc/group">
+<link href="ch-etc.html#s-etc-gshadow" rel="section" title="28.18 Arquivo /etc/gshadow">
+<link href="ch-etc.html#s28.19" rel="section" title="28.19 Arquivo /etc/host.conf">
+<link href="ch-etc.html#s28.20" rel="section" title="28.20 Arquivo /etc/hostname">
+<link href="ch-etc.html#s28.21" rel="section" title="28.21 Arquivo /etc/hosts">
+<link href="ch-etc.html#s28.22" rel="section" title="28.22 Arquivo /etc/hosts.allow">
+<link href="ch-etc.html#s28.23" rel="section" title="28.23 Arquivo /etc/hosts.deny">
+<link href="ch-etc.html#s28.24" rel="section" title="28.24 Arquivo /etc/hosts.equiv">
+<link href="ch-etc.html#s28.25" rel="section" title="28.25 Arquivo /etc/inetd.conf">
+<link href="ch-etc.html#s-etc-inittab" rel="section" title="28.26 Arquivo /etc/inittab">
+<link href="ch-etc.html#s-etc-inputrc" rel="section" title="28.27 Arquivo /etc/inputrc">
+<link href="ch-etc.html#s-etc-issue" rel="section" title="28.28 Arquivo /etc/issue">
+<link href="ch-etc.html#s-etc-issue-n" rel="section" title="28.29 Arquivo /etc/issue.net">
+<link href="ch-etc.html#s28.30" rel="section" title="28.30 Arquivo /etc/lilo.conf">
+<link href="ch-etc.html#s-etc-login-d" rel="section" title="28.31 Arquivo /etc/login.defs">
+<link href="ch-etc.html#s28.32" rel="section" title="28.32 Arquivo /etc/modules">
+<link href="ch-etc.html#s28.33" rel="section" title="28.33 Arquivo /etc/modules.conf">
+<link href="ch-etc.html#s-etc-motd" rel="section" title="28.34 Arquivo /etc/motd">
+<link href="ch-etc.html#s-etc-mtab" rel="section" title="28.35 Arquivo /etc/mtab">
+<link href="ch-etc.html#s28.36" rel="section" title="28.36 Arquivo /etc/networks">
+<link href="ch-etc.html#s-etc-passwd" rel="section" title="28.37 Arquivo /etc/passwd">
+<link href="ch-etc.html#s-etc-printcap" rel="section" title="28.38 Arquivo /etc/printcap">
+<link href="ch-etc.html#s28.39" rel="section" title="28.39 Arquivo /etc/protocols">
+<link href="ch-etc.html#s28.40" rel="section" title="28.40 Arquivo /etc/resolv.conf">
+<link href="ch-etc.html#s-serial-c" rel="section" title="28.41 Arquivo /etc/serial.conf">
+<link href="ch-etc.html#s28.42" rel="section" title="28.42 Arquivo /etc/services">
+<link href="ch-etc.html#s-etc-shadow" rel="section" title="28.43 Arquivo /etc/shadow">
+<link href="ch-etc.html#s-etc-shells" rel="section" title="28.44 Arquivo /etc/shells">
+<link href="ch-etc.html#s-etc-syslog-c" rel="section" title="28.45 Arquivo /etc/syslog.conf">
+<link href="ch-etc.html#s-etc-timezones" rel="section" title="28.46 Arquivo /etc/timezone">
+<link href="ch-inter.html#s-inter-conectando" rel="section" title="29.1 Conectando-se a Internet">
+<link href="ch-inter.html#s-inter-navegando" rel="section" title="29.2 Navegando na Internet">
+<link href="ch-inter.html#s-inter-emails-r" rel="section" title="29.3 Recebimento de E-Mails através do fetchmail">
+<link href="ch-x11.html#s-x11-descricao" rel="section" title="30.1 O que é X Window?">
+<link href="ch-x11.html#s-x11-estrutura" rel="section" title="30.2 A organização do ambiente gráfico X Window">
+<link href="ch-x11.html#s-x11-iniciando" rel="section" title="30.3 Iniciando o X">
+<link href="ch-x11.html#s-x11-servidor" rel="section" title="30.4 Servidor X">
+<link href="ch-fw-iptables.html#s-fw-iptables-intro" rel="section" title="31.1 Introdução">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains" rel="section" title="31.2 Manipulando chains">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras" rel="section" title="31.3 Outras opções do iptables">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat" rel="section" title="31.4 A tabela nat (Network Address Translation) - fazendo nat">
+<link href="ch-fw-iptables.html#s-fw-iptables-mangle" rel="section" title="31.5 A tabela mangle">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod" rel="section" title="31.6 Outros módulos do iptables">
+<link href="ch-fw-iptables.html#s-fw-iptables-path" rel="section" title="31.7 Caminho percorrido pelos pacotes nas tabelas e chains">
+<link href="ch-fw-iptables.html#s-fw-iptables-exemplo" rel="section" title="31.8 Exemplos de configurações do iptables">
+<link href="ch-d-contas.html#s-d-contas-intro" rel="section" title="32.1 Introdução">
+<link href="ch-d-contas.html#s-d-contas-cms" rel="section" title="32.2 Criação, monitoramento e segurança de contas">
+<link href="ch-d-contas.html#s-d-contas-ataques" rel="section" title="32.3 Tipos de ataques mais comuns para se conseguir uma senha.">
+<link href="ch-d-contas.html#s-d-contas-segsenhas" rel="section" title="32.4 Melhorando a segurança das senhas armazenadas em seu sistema">
+<link href="ch-s-apache.html#s-s-apache-intro" rel="section" title="33.1 Introdução">
+<link href="ch-s-apache.html#s-s-apache-port" rel="section" title="33.2 Configurando a porta padrão do Apache">
+<link href="ch-s-apache.html#s-s-apache-adicpagina" rel="section" title="33.3 Adicionando uma página no Apache">
+<link href="ch-s-apache.html#s-s-apache-bindaddress" rel="section" title="33.4 Configurando as interfaces que o Apache atenderá">
+<link href="ch-s-apache.html#s-s-apache-listen" rel="section" title="33.5 Especificando endereços/portas adicionais (a diretiva Listen)">
+<link href="ch-s-apache.html#s-s-apache-acesso" rel="section" title="33.6 Especificando opções/permissões para as páginas">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr" rel="section" title="33.7 Restrições de Acesso">
+<link href="ch-s-apache.html#s-s-apache-errordocument" rel="section" title="33.8 Definindo documentos de erro personalizados">
+<link href="ch-s-apache.html#s-s-apache-dso" rel="section" title="33.9 Módulos DSO">
+<link href="ch-s-apache.html#s-s-apache-log" rel="section" title="33.10 Sistema de Log do Apache">
+<link href="ch-s-apache.html#s-s-apache-proxy" rel="section" title="33.11 Configurando o Apache como servidor proxy">
+<link href="ch-s-apache.html#s-s-apache-vhosts" rel="section" title="33.12 Virtual Hosts">
+<link href="ch-s-apache.html#s-s-apache-ssl" rel="section" title="33.13 Uso de criptografia SSL">
+<link href="ch-s-apache.html#s-s-apache-exemplo" rel="section" title="33.14 Exemplo comentado de um arquivo de configuração do Apache">
+<link href="ch-s-apache.html#s-s-apache-httpcodes" rel="section" title="33.15 Códigos HTTP">
+<link href="ch-s-ident.html#s-s-ident-intro" rel="section" title="34.1 Introdução">
+<link href="ch-s-telnet.html#s-s-telnet-intro" rel="section" title="35.1 Introdução">
+<link href="ch-s-telnet.html#s-s-telnet-access" rel="section" title="35.2 Controle de acesso">
+<link href="ch-s-telnet.html#s-s-telnet-recomend" rel="section" title="35.3 Recomendações">
+<link href="ch-s-telnet.html#s-s-telnet-telnet" rel="section" title="35.4 Fazendo conexões ao servidor telnet">
+<link href="ch-s-ssh.html#s-s-ssh-intro" rel="section" title="36.1 Introdução">
+<link href="ch-s-ssh.html#s-s-ssh-cliente" rel="section" title="36.2 Usando aplicativos clientes">
+<link href="ch-s-ssh.html#s-s-ssh-server" rel="section" title="36.3 Servidor ssh">
+<link href="ch-s-pop3.html#s-s-pop3-intro" rel="section" title="37.1 Introdução">
+<link href="ch-s-cvs.html#s-s-cvs-intro" rel="section" title="38.1 Introdução ao CVS">
+<link href="ch-s-cvs.html#s-s-cvs-d" rel="section" title="38.2 Servidor de CVS - configurando métodos de acesso ao repositório">
+<link href="ch-s-cvs.html#s-s-cvs-p" rel="section" title="38.3 Criando projetos para serem usados no CVS">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot" rel="section" title="38.4 Arquivos administrativos em CVSROOT">
+<link href="ch-s-cvs.html#s-s-cvs-c" rel="section" title="38.5 Clientes de CVS">
+<link href="ch-s-cvs.html#s-s-cvs-exemplo" rel="section" title="38.6 Exemplo de uma seção CVS">
+<link href="ch-s-samba.html#s-s-samba-intro" rel="section" title="39.1 Introdução">
+<link href="ch-s-samba.html#s-s-samba-s" rel="section" title="39.2 Conceitos gerais para a configuração do SAMBA">
+<link href="ch-s-samba.html#s-s-samba-s-a" rel="section" title="39.3 Compartilhamento de arquivos e diretórios">
+<link href="ch-s-samba.html#s-s-samba-wrkgrp" rel="section" title="39.4 Configuração em Grupo de Trabalho">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv" rel="section" title="39.5 Resolução de nomes de máquinas no samba">
+<link href="ch-s-samba.html#s-s-samba-s-timeserver" rel="section" title="39.6 Servidor de data/hora">
+<link href="ch-s-samba.html#s-s-samba-dom" rel="section" title="39.7 Configuração em Domínio">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto" rel="section" title="39.8 Ativando o suporte a senhas criptografadas">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano" rel="section" title="39.9 Ativando o suporte a senhas em texto plano">
+<link href="ch-s-samba.html#s-s-samba-usermap" rel="section" title="39.10 Mapeamento de usuários/grupos em clientes">
+<link href="ch-s-samba.html#s-s-samba-i" rel="section" title="39.11 Compartilhamento de impressão no servidor SAMBA">
+<link href="ch-s-samba.html#s-s-samba-a" rel="section" title="39.12 Controle de acesso ao servidor SAMBA">
+<link href="ch-s-samba.html#s-s-samba-perf" rel="section" title="39.13 Melhorando a performance do compartilhamento/servidor">
+<link href="ch-s-samba.html#s-s-samba-c" rel="section" title="39.14 Configuração de Clientes NetBEUI">
+<link href="ch-s-samba.html#s-s-samba-exemplos" rel="section" title="39.15 Exemplos de configuração do servidor SAMBA">
+<link href="ch-d-restr.html#s-d-restr-bash" rel="section" title="40.1 Limitando recursos no bash">
+<link href="ch-d-restr.html#s-d-restr-pam" rel="section" title="40.2 Limitação de recursos usando PAM">
+<link href="ch-d-restr.html#s-d-restr-grupos" rel="section" title="40.3 Restrições de acesso a programas/diretórios/arquivos usando grupos">
+<link href="ch-d-restr.html#s-d-restr-sudo" rel="section" title="40.4 Dando poderes de root para executar determinados programas">
+<link href="ch-d-restr.html#s-d-restr-su" rel="section" title="40.5 Restringindo o comando su">
+<link href="ch-d-restr.html#s-d-restr-identd" rel="section" title="40.6 Restrições baseadas em usuário/IP">
+<link href="ch-d-restr.html#s-d-restr-ipmac" rel="section" title="40.7 Restrições por MAC Address/IP">
+<link href="ch-d-restr.html#s-d-restr-inetd" rel="section" title="40.8 Desabilitando serviços não usados no Inetd">
+<link href="ch-d-restr.html#s-d-restr-authinseg" rel="section" title="40.9 Evitando o uso de hosts.equiv e .rhosts">
+<link href="ch-d-restr.html#s-d-restr-shutdown" rel="section" title="40.10 Restringindo o uso do shutdown">
+<link href="ch-d-restr.html#s-d-restr-proc" rel="section" title="40.11 Restringindo o acesso ao sistema de arquivos /proc">
+<link href="ch-d-restr.html#s-d-restr-quotas" rel="section" title="40.12 Limitando o uso de espaço em disco (quotas)">
+<link href="ch-d-restr.html#s40.13" rel="section" title="40.13 Suporte a senhas ocultas">
+<link href="ch-d-restr.html#s40.14" rel="section" title="40.14 Suporte a senhas md5">
+<link href="ch-d-restr.html#s-d-restr-hardware" rel="section" title="40.15 Restrições no hardware do sistema">
+<link href="ch-d-cripto.html#s-d-cripto-intro" rel="section" title="41.1 Introdução">
+<link href="ch-d-cripto.html#s-d-cripto-sniffer" rel="section" title="41.2 Sniffer">
+<link href="ch-d-cripto.html#s-d-cripto-alt" rel="section" title="41.3 Alternativas seguras a serviços sem criptografia">
+<link href="ch-d-cripto.html#s-d-cripto-criptofs" rel="section" title="41.4 Sistemas de arquivos criptográfico">
+<link href="ch-d-cripto.html#s-d-cripto-gpg" rel="section" title="41.5 Usando pgp (gpg)para criptografia de arquivos">
+<link href="ch-aplic.html#s-aplic-b" rel="section" title="42.1 Aplicativos Básicos">
+<link href="ch-aplic.html#s42.2" rel="section" title="42.2 Listagem de Aplicativos para GNU/Linux">
+<link href="ch-ajuda.html#s-ajuda-man" rel="section" title="43.1 Páginas de Manual">
+<link href="ch-ajuda.html#s-ajuda-info" rel="section" title="43.2 Info Pages">
+<link href="ch-ajuda.html#s-ajuda-helponline" rel="section" title="43.3 Help on line">
+<link href="ch-ajuda.html#s-ajuda-help" rel="section" title="43.4 help">
+<link href="ch-ajuda.html#s-ajuda-apropos" rel="section" title="43.5 apropos/whatis">
+<link href="ch-ajuda.html#s-ajuda-locate" rel="section" title="43.6 locate">
+<link href="ch-ajuda.html#s-ajuda-which" rel="section" title="43.7 which">
+<link href="ch-ajuda.html#s-ajuda-howto" rel="section" title="43.8 Documentos HOWTO's">
+<link href="ch-ajuda.html#s-ajuda-docs" rel="section" title="43.9 Documentação de Programas">
+<link href="ch-ajuda.html#s-ajuda-faq" rel="section" title="43.10 FAQ">
+<link href="ch-ajuda.html#s-ajuda-internet" rel="section" title="43.11 Internet">
+<link href="ch-ajuda.html#s-ajuda-netiqueta" rel="section" title="43.12 Netiqueta">
+<link href="ch-systemd.html#s-s-systemd-historia" rel="section" title="44.1 Um pouco história sobre o systemd">
+<link href="ch-systemd.html#s-s-systemd-uso" rel="section" title="44.2 Usando o systemd">
+<link href="ch-git.html#s-s-git-historia" rel="section" title="45.1 Sobre o Git">
+<link href="ch-git.html#s-s-git-caracteristicas" rel="section" title="45.2 Características e critérios">
+<link href="ch-git.html#s-s-git-comandos" rel="section" title="45.3 Comandos do Git">
+<link href="ch-virt-intro.html#s-virt-motivos" rel="section" title="46.1 Por que usar virtualização">
+<link href="ch-virt-intro.html#s-virt-tipos" rel="section" title="46.2 Tipos de virtualização">
+<link href="ch-virt-intro.html#s-virt-nomenclatura" rel="section" title="46.3 Nomenclaturas de virtualização">
+<link href="ch-virt-intro.html#s-virt-lxc" rel="section" title="46.4 LXC - Linux Container">
+<link href="ch-apend.html#s-apend-sobre" rel="section" title="47.1 Sobre este guia">
+<link href="ch-apend.html#s-apend-autor" rel="section" title="47.2 Sobre o Autor">
+<link href="ch-apend.html#s-apend-ref" rel="section" title="47.3 Referências de auxílio ao desenvolvimento do guia">
+<link href="ch-apend.html#s-apend-homepage" rel="section" title="47.4 Onde encontrar a versão mais nova do guia?">
+<link href="ch-apend.html#s-apend-colaboradores" rel="section" title="47.5 Colaboradores do Guia">
+<link href="ch-apend.html#s-apend-mr" rel="section" title="47.6 Marcas Registradas">
+<link href="ch-apend.html#s-apend-new" rel="section" title="47.7 Futuras versões">
+<link href="ch-apend.html#s-apend-pgp" rel="section" title="47.8 Chave Pública PGP">
+<link href="ch-intro.html#s-introducao-linux-carac" rel="subsection" title="1.4.1 Algumas Características do GNU/Linux">
+<link href="ch-intro.html#s-introducao-conhecendo-tipo" rel="subsection" title="1.9.1 Tipos de Gabinete">
+<link href="ch-intro.html#s-introducao-conhecendo-painel" rel="subsection" title="1.9.2 Painel Frontal">
+<link href="ch-intro.html#s-introducao-conhecendo-monitor" rel="subsection" title="1.9.3 Monitor de Vídeo">
+<link href="ch-intro.html#s-introducao-placamae-outros" rel="subsection" title="1.10.1 Alguns componentes da placa mãe">
+<link href="ch-intro.html#s-introducao-memoria-principal" rel="subsection" title="1.11.1 Memória Principal">
+<link href="ch-intro.html#s-introducao-memoria-auxiliar" rel="subsection" title="1.11.2 Memória Auxiliar">
+<link href="ch-intro.html#s-introducao-discos-flexiveis" rel="subsection" title="1.12.1 Discos Flexíveis">
+<link href="ch-intro.html#s-introducao-discos-rigidos" rel="subsection" title="1.12.2 Disco Rígido">
+<link href="ch-intro.html#s-introducao-discos-cd" rel="subsection" title="1.12.3 CD/DVD/BluRay">
+<link href="ch-bas.html#s-basico-arquivo-tipos" rel="subsection" title="2.2.1 Extensão de arquivos">
+<link href="ch-bas.html#s-basico-arquivo-tamanho" rel="subsection" title="2.2.2 Tamanho de arquivos">
+<link href="ch-bas.html#s-basico-arquivo-bintext" rel="subsection" title="2.2.3 Arquivo texto e binário">
+<link href="ch-bas.html#s-basico-diretorio-raiz" rel="subsection" title="2.3.1 Diretório Raíz">
+<link href="ch-bas.html#s-basico-diretorio-atual" rel="subsection" title="2.3.2 Diretório atual">
+<link href="ch-bas.html#s-basico-diretorio-home" rel="subsection" title="2.3.3 Diretório home">
+<link href="ch-bas.html#s-basico-diretorio-superior" rel="subsection" title="2.3.4 Diretório Superior">
+<link href="ch-bas.html#s-basico-diretorio-anterior" rel="subsection" title="2.3.5 Diretório Anterior">
+<link href="ch-bas.html#s-basico-diretorio-caminho" rel="subsection" title="2.3.6 Caminho na estrutura de diretórios">
+<link href="ch-bas.html#s-basico-diretorio-exemplo" rel="subsection" title="2.3.7 Exemplo de diretório">
+<link href="ch-bas.html#s-basico-diretorio-estrutura" rel="subsection" title="2.3.8 Estrutura básica de diretórios do Sistema Linux">
+<link href="ch-bas.html#s-basico-comandos-internos" rel="subsection" title="2.5.1 Comandos Internos">
+<link href="ch-hardw.html#s-hardw-cfg-irq" rel="subsection" title="3.3.1 IRQ - Requisição de Interrupção">
+<link href="ch-hardw.html#s3.3.1.1" rel="subsection" title="3.3.1.1 Prioridade das Interrupções">
+<link href="ch-hardw.html#s-hardw-cfg-dma" rel="subsection" title="3.3.2 DMA - Acesso Direto a Memória">
+<link href="ch-hardw.html#s3.3.2.1" rel="subsection" title="3.3.2.1 Conflitos de DMA">
+<link href="ch-hardw.html#s-hardw-cfg-io" rel="subsection" title="3.3.3 I/O - Porta de Entrada/Saída">
+<link href="ch-hardw.html#s-hardw-metodoscfg-jumpers" rel="subsection" title="3.4.1 Jumpers">
+<link href="ch-hardw.html#s-hardw-metodoscfg-dipswitche" rel="subsection" title="3.4.2 Dip-Switches">
+<link href="ch-hardw.html#s-hardw-metodoscfg-jumperless" rel="subsection" title="3.4.3 Jumperless (sem jumper)">
+<link href="ch-hardw.html#s-hardw-metodoscfg-plug-and-play" rel="subsection" title="3.4.4 Plug-and-Play">
+<link href="ch-hardw.html#s-hardw-cfgdisp-rede" rel="subsection" title="3.11.1 Configurando uma placa de rede">
+<link href="ch-hardw.html#s-hardw-cfgdisp-som" rel="subsection" title="3.11.2 Configurando uma placa de SOM no Linux">
+<link href="ch-hardw.html#s-hardw-cfgdisp-som-oss" rel="subsection" title="3.11.2.1 Configurando uma placa de som usando o padrão OSS">
+<link href="ch-hardw.html#s-hardw-cfgdisp-cdwritter" rel="subsection" title="3.11.3 Configurando um gravador de CD/DVD no Linux">
+<link href="ch-hardw.html#s-hardw-cfgdisp-cdwritter-ide" rel="subsection" title="3.11.3.1 Configurando o suporte a um gravador IDE">
+<link href="ch-hardw.html#s-hardw-cfgdisp-cdwritter-scsi" rel="subsection" title="3.11.3.2 Configurando o suporte a um gravador SCSI">
+<link href="ch-hardw.html#s-hardw-cfgdisp-cdwritter-teste" rel="subsection" title="3.11.3.3 Testando o funcionamento">
+<link href="ch-hardw.html#s-hardw-cfgdisp-apm" rel="subsection" title="3.11.4 Configurando o gerenciamento de energia usando o APM">
+<link href="ch-hardw.html#s-hardw-cfgdisp-acpi" rel="subsection" title="3.11.5 Configurando o gerenciamento de energia usando ACPI">
+<link href="ch-hardw.html#s-hardw-cfgdisp-wol" rel="subsection" title="3.11.6 Ativando WakeUP on Lan">
+<link href="ch-d-l.html#s4.2.1" rel="subsection" title="4.2.1 Arquivos de configuração">
+<link href="ch-disc.html#s-disc-formatando-l" rel="subsection" title="5.2.1 Formatando pen-drives para serem usados no Linux">
+<link href="ch-disc.html#s-disc-formatando-d" rel="subsection" title="5.2.2 Formatando pen-drives compatíveis com o Windows">
+<link href="ch-disc.html#s-disc-formatando-g" rel="subsection" title="5.2.3 Programas de Formatação Gráficos">
+<link href="ch-disc.html#s-disc-fstab" rel="subsection" title="5.5.1 fstab">
+<link href="ch-boot.html#s-boot-lilo-cfg" rel="subsection" title="6.1.1 Criando o arquivo de configuração do LILO">
+<link href="ch-boot.html#s-boot-lilo-opcoes" rel="subsection" title="6.1.2 Opções usadas no LILO">
+<link href="ch-boot.html#s-boot-lilo-exemplo" rel="subsection" title="6.1.3 Um exemplo do arquivo de configuração lilo.conf">
+<link href="ch-boot.html#s-boot-grub-part" rel="subsection" title="6.2.1 Como o GRUB trabalha com discos e partições">
+<link href="ch-boot.html#s-boot-grub-install" rel="subsection" title="6.2.2 Instalando o GRUB">
+<link href="ch-boot.html#s-boot-grub-install-mbr" rel="subsection" title="6.2.2.1 No MBR">
+<link href="ch-boot.html#s-boot-grub-install-fd-cmd" rel="subsection" title="6.2.3 No disco flexível (somente linha de comando)">
+<link href="ch-boot.html#s-boot-grub-install-fd-menu" rel="subsection" title="6.2.4 No disco flexível (com interface de menu)">
+<link href="ch-boot.html#s-boot-grub-opcoescfg" rel="subsection" title="6.2.5 Opções do arquivo de configuração">
+<link href="ch-boot.html#s-boot-grub-exemplo" rel="subsection" title="6.2.6 Um exemplo de arquivo de configuração">
+<link href="ch-boot.html#s-boot-grub-cmdline" rel="subsection" title="6.2.7 Usando a linha de comandos do GRUB">
+<link href="ch-boot.html#s-boot-grub-removendo" rel="subsection" title="6.2.8 Removendo o GRUB do MBR">
+<link href="ch-boot.html#s-boot-grub-detalhes" rel="subsection" title="6.2.9 Como obter informações mais detalhadas">
+<link href="ch-boot.html#s-boot-loadlin-opcoes" rel="subsection" title="6.4.1 Opções do LOADLIN">
+<link href="ch-boot.html#s-boot-loadlin-exemplo" rel="subsection" title="6.4.2 Exemplo de inicialização com o LOADLIN">
+<link href="ch-boot.html#s-boot-syslinux-criando" rel="subsection" title="6.5.1 Criando um disquete de inicialização com o syslinux">
+<link href="ch-boot.html#s-boot-syslinux-opcoes" rel="subsection" title="6.5.2 O arquivo SYSLINUX.CFG">
+<link href="ch-boot.html#s-boot-syslinux-formatacao" rel="subsection" title="6.5.3 Formatação dos arquivos de tela do syslinux">
+<link href="ch-run.html#s-run-break" rel="subsection" title="7.7.1 Interrompendo a execução de um processo">
+<link href="ch-run.html#s-run-pausa" rel="subsection" title="7.7.2 Parando momentaneamente a execução de um processo">
+<link href="ch-run.html#s-run-ver-backgrounds" rel="subsection" title="7.7.3 jobs">
+<link href="ch-run.html#s-run-fg" rel="subsection" title="7.7.4 fg">
+<link href="ch-run.html#s-run-bg" rel="subsection" title="7.7.5 bg">
+<link href="ch-run.html#s-run-kill" rel="subsection" title="7.7.6 kill">
+<link href="ch-run.html#s-run-killall" rel="subsection" title="7.7.7 killall">
+<link href="ch-run.html#s-run-killall5" rel="subsection" title="7.7.8 killall5">
+<link href="ch-run.html#s-run-sinais" rel="subsection" title="7.7.9 Sinais do Sistema">
+<link href="ch-perm.html#s-perm-exemplo-a" rel="subsection" title="13.4.1 Exemplo de acesso a um arquivo">
+<link href="ch-perm.html#s-perm-exemplo-d" rel="subsection" title="13.4.2 Exemplo de acesso a um diretório">
+<link href="ch-rede.html#s-rede-ip-classes" rel="subsection" title="15.3.1 Classes de Rede IP">
+<link href="ch-rede.html#s-rede-ip-nova" rel="subsection" title="15.3.2 Para instalar uma máquina usando o Linux em uma rede existente">
+<link href="ch-rede.html#s-rede-ip-privada" rel="subsection" title="15.3.3 Endereços reservados para uso em uma rede Privada">
+<link href="ch-rede.html#s-rede-interfaces-lo" rel="subsection" title="15.4.1 A interface loopback">
+<link href="ch-rede.html#s-rede-interfaces-c" rel="subsection" title="15.4.2 Atribuindo um endereço de rede a uma interface (ifconfig)">
+<link href="ch-rede.html#s-rede-rota-c" rel="subsection" title="15.5.1 Configurando uma rota no Linux">
+<link href="ch-rede.html#s-rede-dns-oque" rel="subsection" title="15.6.1 O que é um nome?">
+<link href="ch-rede.html#s-rede-dns-a" rel="subsection" title="15.6.2 Arquivos de configuração usados na resolução de nomes">
+<link href="ch-rede.html#s-rede-dns-a-resolv" rel="subsection" title="15.6.2.1 /etc/resolv.conf">
+<link href="ch-rede.html#s-rede-dns-a-hostconf" rel="subsection" title="15.6.2.2 /etc/host.conf">
+<link href="ch-rede.html#s-rede-dns-a-hosts" rel="subsection" title="15.6.2.3 /etc/hosts">
+<link href="ch-rede.html#s-rede-dns-a-networks" rel="subsection" title="15.6.2.4 /etc/networks">
+<link href="ch-rede.html#s-rede-dns-servdns" rel="subsection" title="15.6.3 Executando um servidor de nomes">
+<link href="ch-rede.html#s-rede-servicos-daemon" rel="subsection" title="15.7.1 Serviços iniciados como Daemons de rede">
+<link href="ch-rede.html#s-rede-servicos-inetd" rel="subsection" title="15.7.2 Serviços iniciados através do inetd">
+<link href="ch-rede.html#s-rede-servicos-inetd-c" rel="subsection" title="15.7.2.1 /etc/inetd.conf">
+<link href="ch-rede.html#s-rede-seg-ftpusers" rel="subsection" title="15.8.1 /etc/ftpusers">
+<link href="ch-rede.html#s-rede-seg-securetty" rel="subsection" title="15.8.2 /etc/securetty">
+<link href="ch-rede.html#s-rede-seg-tcpd" rel="subsection" title="15.8.3 O mecanismo de controle de acessos tcpd">
+<link href="ch-rede.html#s-rede-seg-tcpd-a" rel="subsection" title="15.8.3.1 /etc/hosts.allow">
+<link href="ch-rede.html#s-rede-seg-tcpd-d" rel="subsection" title="15.8.3.2 /etc/hosts.deny">
+<link href="ch-rede.html#s-rede-seg-tcpd-e" rel="subsection" title="15.8.3.3 /etc/hosts.equiv e /etc/shosts.equiv">
+<link href="ch-rede.html#s-rede-seg-tcpd-v" rel="subsection" title="15.8.3.4 Verificando a segurança do TCPD e a sintaxe dos arquivos">
+<link href="ch-rede.html#s-rede-seg-firewall" rel="subsection" title="15.8.4 Firewall">
+<link href="ch-rede.html#s-rede-outros-services" rel="subsection" title="15.9.1 /etc/services">
+<link href="ch-rede.html#s-rede-outros-protocols" rel="subsection" title="15.9.2 /etc/protocols">
+<link href="ch-cfgrede.html#s-cfgs-bridge-req" rel="subsection" title="16.2.1 Requerimentos para a Instalação">
+<link href="ch-cfgrede.html#s-cfgs-bridge-cfg" rel="subsection" title="16.2.2 Configuração da bridge">
+<link href="ch-cfgrede.html#s-cfgs-bridge-cfgadv" rel="subsection" title="16.2.3 Configurações mais avançadas de bridge">
+<link href="ch-cfgrede.html#s-cfgs-bridge-cfgmanual" rel="subsection" title="16.2.4 Configuração manual da bridge">
+<link href="ch-cfgrede.html#s-cfgs-bridge-fw" rel="subsection" title="16.2.5 Usando o iptables para construir um firewall na máquina da bridge">
+<link href="ch-cfgrede.html#s-cfgs-bridge-filternoip" rel="subsection" title="16.2.6 Filtrando pacotes não IP na bridge">
+<link href="ch-cfgrede.html#s-cfgs-plip-cabo" rel="subsection" title="16.3.1 Construindo um cabo LapLink Paralelo">
+<link href="ch-cfgrede.html#s-cfgs-slattach-cabo" rel="subsection" title="16.4.1 Construindo um cabo LapLink Serial">
+<link href="ch-kern.html#s-kern-arquivos-modules" rel="subsection" title="17.12.1 /etc/modules">
+<link href="ch-kern.html#s-kern-arquivos-modulesconf" rel="subsection" title="17.12.2 modules.conf">
+<link href="ch-log.html#s-log-syslogd" rel="subsection" title="18.2.1 syslogd">
+<link href="ch-log.html#s-log-syslogd-exemplo" rel="subsection" title="18.2.1.1 Arquivo de configuração syslog.conf">
+<link href="ch-log.html#s-log-klogd" rel="subsection" title="18.2.2 klogd">
+<link href="ch-cpctd.html#s-cpctd-tipos" rel="subsection" title="19.1.1 Tipos de compactação">
+<link href="ch-deb.html#s-deb-runlevels-e" rel="subsection" title="20.4.1 Entendendo o funcionamento dos níveis de execução do sistema (runlevels)">
+<link href="ch-dpkg.html#s-dpkg-pacotes" rel="subsection" title="21.1.1 Pacotes">
+<link href="ch-dpkg.html#s-dpkg-instalar" rel="subsection" title="21.1.2 Instalar pacotes">
+<link href="ch-dpkg.html#s-dpkg-dependencias" rel="subsection" title="21.1.3 Dependências">
+<link href="ch-dpkg.html#s-dpkg-l" rel="subsection" title="21.1.4 Listar pacotes existentes no sistema">
+<link href="ch-dpkg.html#s-dpkg-r" rel="subsection" title="21.1.5 Removendo pacotes do sistema">
+<link href="ch-dpkg.html#s-dpkg-purge" rel="subsection" title="21.1.6 Removendo completamente um pacote">
+<link href="ch-dpkg.html#s-dpkg-I" rel="subsection" title="21.1.7 Mostrar descrição do pacote">
+<link href="ch-dpkg.html#s-dpkg-S" rel="subsection" title="21.1.8 Procura de pacotes através do nome de um arquivo">
+<link href="ch-dpkg.html#s-dpkg-s" rel="subsection" title="21.1.9 Status do pacote">
+<link href="ch-dpkg.html#s-dpkg-C" rel="subsection" title="21.1.10 Procurando pacotes com problemas de instalação">
+<link href="ch-dpkg.html#s-dpkg-get-selections" rel="subsection" title="21.1.11 Mostrando a lista de pacotes do sistema">
+<link href="ch-dpkg.html#s-dpkg-set-selections" rel="subsection" title="21.1.12 Obtendo uma lista de pacotes para instalar no sistema">
+<link href="ch-dpkg.html#s-dpkg-configure" rel="subsection" title="21.1.13 Configurando pacotes desconfigurados">
+<link href="ch-dpkg.html#s-dpkg-c" rel="subsection" title="21.1.14 Listando arquivos de um pacote">
+<link href="ch-dpkg.html#s21.2.1" rel="subsection" title="21.2.1 O arquivo /etc/apt/sources.list">
+<link href="ch-dpkg.html#s21.2.1.1" rel="subsection" title="21.2.1.1 Endereços de servidores e mirrors nacionais da Debian">
+<link href="ch-dpkg.html#s21.2.1.2" rel="subsection" title="21.2.1.2 Um modelo de arquivo sources.list">
+<link href="ch-dpkg.html#s21.2.2" rel="subsection" title="21.2.2 O arquivo /etc/apt/apt.conf">
+<link href="ch-dpkg.html#s21.2.3" rel="subsection" title="21.2.3 Copiando a lista de pacotes disponíveis">
+<link href="ch-dpkg.html#s21.2.4" rel="subsection" title="21.2.4 Utilizando CDs oficiais/não-oficiais/terceiros com o apt">
+<link href="ch-dpkg.html#s21.2.5" rel="subsection" title="21.2.5 Instalando novos pacotes">
+<link href="ch-dpkg.html#s21.2.6" rel="subsection" title="21.2.6 Removendo pacotes instalado">
+<link href="ch-dpkg.html#s21.2.7" rel="subsection" title="21.2.7 Atualizando sua distribuição">
+<link href="ch-dpkg.html#s21.2.8" rel="subsection" title="21.2.8 Removendo pacotes baixados pelo apt">
+<link href="ch-dpkg.html#s21.2.9" rel="subsection" title="21.2.9 Procurando por pacotes através da descrição">
+<link href="ch-dpkg.html#s21.2.10" rel="subsection" title="21.2.10 Procurando um pacote que contém determinado arquivo">
+<link href="ch-dpkg.html#s21.2.11" rel="subsection" title="21.2.11 Modos eficazes de compilação do código fonte para a Debian">
+<link href="ch-dpkg.html#s21.2.12" rel="subsection" title="21.2.12 Verificando pacotes corrompidos">
+<link href="ch-dpkg.html#s21.2.13" rel="subsection" title="21.2.13 Corrigindo problemas de dependências e outros erros">
+<link href="ch-impr.html#s-impr-ghostscript" rel="subsection" title="23.4.1 Ghost Script">
+<link href="ch-impr.html#s-impr-magicfilter-i" rel="subsection" title="23.5.1 Instalação e configuração do Magic Filter">
+<link href="ch-impr.html#s-impr-magicfilter-c" rel="subsection" title="23.5.2 Outros detalhes técnicos sobre o Magic Filter">
+<link href="ch-cfg.html#s-cfg-acentuacao-t" rel="subsection" title="24.1.1 Acentuação em modo Texto">
+<link href="ch-cfg.html#s-cfg-acentuacao-g" rel="subsection" title="24.1.2 Acentuação em modo gráfico">
+<link href="ch-tasks.html#s-tasks-cdwriting-data" rel="subsection" title="25.1.1 Gravando CDs / DVDs de dados">
+<link href="ch-tasks.html#s-tasks-cdwriting-audio" rel="subsection" title="25.1.2 Gravando um CD de audio">
+<link href="ch-tasks.html#s-tasks-cdwriting-cdcd" rel="subsection" title="25.1.3 Cópia de CD para CD no mesmo gravador">
+<link href="ch-tasks.html#s-tasks-cdwriting-massivewrite" rel="subsection" title="25.1.4 Gravação massiva de CDs">
+<link href="ch-tasks.html#s-tasks-cdwriting-cdfrommp3" rel="subsection" title="25.1.5 Gravação de CDs diretamente através de arquivos mp3 ou Ogg">
+<link href="ch-tasks.html#s-tasks-cdwriting-backupcd" rel="subsection" title="25.1.6 Backup de dados para 1 ou mais CDs">
+<link href="ch-tasks.html#s-tasks-cdwriting-graphicapps" rel="subsection" title="25.1.7 Aplicações gráficas para gravação de CDs">
+<link href="ch-tasks.html#s-tasks-cdwriting-cover" rel="subsection" title="25.1.8 Criar a capa de frente e verso do CD/DVD">
+<link href="ch-manut.html#s-manut-checagem-ext2" rel="subsection" title="27.1.1 fsck.ext2">
+<link href="ch-manut.html#s-manut-cron-formato" rel="subsection" title="27.11.1 O formato de um arquivo crontab">
+<link href="ch-inter.html#s-inter-conectando-adsl" rel="subsection" title="29.1.1 Conectando através de ADSL">
+<link href="ch-inter.html#s-inter-conectando-ppp" rel="subsection" title="29.1.2 Conectando através de Internet Discada">
+<link href="ch-inter.html#s-inter-procmail" rel="subsection" title="29.3.1 Processamento de mensagens através do procmail">
+<link href="ch-fw-iptables.html#s-fw-iptables-versao" rel="subsection" title="31.1.1 Versão">
+<link href="ch-fw-iptables.html#s-fw-iptables-historia" rel="subsection" title="31.1.2 Um resumo da história do iptables">
+<link href="ch-fw-iptables.html#s-fw-iptables-caracteristicas" rel="subsection" title="31.1.3 Características do firewall iptables">
+<link href="ch-fw-iptables.html#s-fw-iptables-ficha" rel="subsection" title="31.1.4 Ficha técnica">
+<link href="ch-fw-iptables.html#s-fw-iptables-hwreq" rel="subsection" title="31.1.5 Requerimentos">
+<link href="ch-fw-iptables.html#s-fw-iptables-logs" rel="subsection" title="31.1.6 Arquivos de logs criados pelo iptables">
+<link href="ch-fw-iptables.html#s-fw-iptables-install" rel="subsection" title="31.1.7 Instalação">
+<link href="ch-fw-iptables.html#s-fw-iptables-contribuindo" rel="subsection" title="31.1.8 Enviando Correções/Contribuindo com o projeto">
+<link href="ch-fw-iptables.html#s-fw-iptables-oldfw" rel="subsection" title="31.1.9 O que aconteceu com o ipchains e ipfwadm?">
+<link href="ch-fw-iptables.html#s-fw-iptables-tiposfw" rel="subsection" title="31.1.10 Tipos de firewalls">
+<link href="ch-fw-iptables.html#s-fw-iptables-proteger-oque" rel="subsection" title="31.1.11 O que proteger?">
+<link href="ch-fw-iptables.html#s-fw-iptables-regras-oque" rel="subsection" title="31.1.12 O que são regras?">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-oque" rel="subsection" title="31.1.13 O que são chains?">
+<link href="ch-fw-iptables.html#s-fw-iptables-tabelas" rel="subsection" title="31.1.14 O que são tabelas?">
+<link href="ch-fw-iptables.html#s-fw-iptables-supkernel" rel="subsection" title="31.1.15 Habilitando o suporte ao iptables no kernel">
+<link href="ch-fw-iptables.html#s-fw-iptables-proxy" rel="subsection" title="31.1.16 Ligando sua rede interna a Internet">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-A" rel="subsection" title="31.2.1 Adicionando regras - A">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-L" rel="subsection" title="31.2.2 Listando regras - L">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-D" rel="subsection" title="31.2.3 Apagando uma regra - D">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-I" rel="subsection" title="31.2.4 Inserindo uma regra - I">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-R" rel="subsection" title="31.2.5 Substituindo uma regra - R">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-N" rel="subsection" title="31.2.6 Criando um novo chain - N">
+<link href="ch-fw-iptables.html#s31.2.7" rel="subsection" title="31.2.7 Renomeando um chain criado pelo usuário - E">
+<link href="ch-fw-iptables.html#s31.2.8" rel="subsection" title="31.2.8 Listando os nomes de todas as tabelas atuais">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-F" rel="subsection" title="31.2.9 Limpando as regras de um chain - F">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-X" rel="subsection" title="31.2.10 Apagando um chain criado pelo usuário - X">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-Z" rel="subsection" title="31.2.11 Zerando contador de bytes dos chains - Z">
+<link href="ch-fw-iptables.html#s-fw-iptables-chains-P" rel="subsection" title="31.2.12 Especificando a política padrão de um chain - P">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-endOD" rel="subsection" title="31.3.1 Especificando um endereço de origem/destino">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-iface" rel="subsection" title="31.3.2 Especificando a interface de origem/destino">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-proto" rel="subsection" title="31.3.3 Especificando um protocolo">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-proto-p" rel="subsection" title="31.3.3.1 Especificando portas de origem/destino">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-proto-micmp" rel="subsection" title="31.3.3.2 Especificando mensagens do protocolo ICMP">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-proto-syn" rel="subsection" title="31.3.3.3 Especificando pacotes syn">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-fragmentos" rel="subsection" title="31.3.4 Especificando fragmentos">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-excessoes" rel="subsection" title="31.3.5 Especificando uma exceção">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-alvo" rel="subsection" title="31.3.6 Especificando um alvo">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-alvo-REJECT" rel="subsection" title="31.3.6.1 Alvo REJECT">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-alvo-LOG" rel="subsection" title="31.3.6.2 Especificando LOG como alvo">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-alvo-RETURN" rel="subsection" title="31.3.6.3 Especificando RETURN como alvo">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-save-restore" rel="subsection" title="31.3.7 Salvando e Restaurando regras">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-N" rel="subsection" title="31.4.1 Criando um novo chain na tabela NAT">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-fastmasquerade" rel="subsection" title="31.4.2 Fazendo IP masquerading (para os apressados)">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-snat" rel="subsection" title="31.4.3 Fazendo SNAT">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-snat-masquerade" rel="subsection" title="31.4.3.1 Fazendo IP Masquerading">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-dnat" rel="subsection" title="31.4.4 Fazendo DNAT">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-dnat-redir" rel="subsection" title="31.4.4.1 Redirecionamento de portas">
+<link href="ch-fw-iptables.html#s-fw-iptables-nat-monitorando" rel="subsection" title="31.4.5 Monitorando conexões feitas na tabela nat">
+<link href="ch-fw-iptables.html#s-fw-iptables-mangle-TOS" rel="subsection" title="31.5.1 Especificando o tipo de serviço">
+<link href="ch-fw-iptables.html#s-fw-iptables-mangle-TOS-out" rel="subsection" title="31.5.1.1 Especificando o TOS para tráfego de saída">
+<link href="ch-fw-iptables.html#s-fw-iptables-mangle-TOS-in" rel="subsection" title="31.5.1.2 Especificando o TOS para o tráfego de entrada">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-state" rel="subsection" title="31.6.1 Conferindo de acordo com o estado da conexão">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-limit" rel="subsection" title="31.6.2 Limitando o número de vezes que a regra confere">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-limit-ping" rel="subsection" title="31.6.3 Proteção contra ping da morte">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-limit-synflood" rel="subsection" title="31.6.4 Proteção contra syn flood">
+<link href="ch-fw-iptables.html#s-fw-iptables-outras-ipspoof" rel="subsection" title="31.6.5 Proteção contra IP spoofing">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-multiport" rel="subsection" title="31.6.6 Especificando múltiplas portas de origem/destino">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-mac" rel="subsection" title="31.6.7 Especificando o endereço MAC da interface">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-owner" rel="subsection" title="31.6.8 Conferindo com quem criou o pacote">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-string" rel="subsection" title="31.6.9 Conferindo com o conteúdo do pacote">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-ttl" rel="subsection" title="31.6.10 Conferindo com o tempo de vida do pacote">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-rpc" rel="subsection" title="31.6.11 Conferindo com números RPC">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-pkttype" rel="subsection" title="31.6.12 Conferindo com tipo de pacote">
+<link href="ch-fw-iptables.html#s-fw-iptables-mod-length" rel="subsection" title="31.6.13 Conferindo com o tamanho do pacote">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-PingICMPLocal-Local" rel="subsection" title="31.7.1 Ping de 192.168.1.1 para 192.168.1.1">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPLocal-Local" rel="subsection" title="31.7.2 Conexão FTP de 192.168.1.1 para 192.168.1.1">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPLocal-LocalNet" rel="subsection" title="31.7.3 Conexão FTP de 192.168.1.1 para 192.168.1.4">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPLocal-RemoteNet" rel="subsection" title="31.7.4 Conexão FTP de 200.217.29.67 para a máquina ftp.debian.org.br">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-PingICMPLocalNet-Local" rel="subsection" title="31.7.5 Ping de 192.168.1.4 para 192.168.1.1">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPLocalNet-Local" rel="subsection" title="31.7.6 Conexão FTP de 192.168.1.4 para 192.168.1.1">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPLocalNet-RemoteNet" rel="subsection" title="31.7.7 Conexão FTP de 192.168.1.4 para ftp.debian.org.br">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-FtpTCPRemoteNet-Local" rel="subsection" title="31.7.8 Conexão FTP de 200.198.129.162 para 200.217.29.167">
+<link href="ch-fw-iptables.html#s-fw-iptables-path-grafico" rel="subsection" title="31.7.9 Gráfico geral da passagem dos pacotes">
+<link href="ch-fw-iptables.html#s-fw-iptables-exemplo-bloqueio" rel="subsection" title="31.8.1 Bloqueando conexões de fora para sua máquina">
+<link href="ch-fw-iptables.html#s-fw-iptables-exemplo-trojans" rel="subsection" title="31.8.2 Monitorando tentativa de conexão de trojans em sua máquina">
+<link href="ch-fw-iptables.html#s-fw-iptables-exemplo-snat" rel="subsection" title="31.8.3 Conectando sua rede interna a Internet">
+<link href="ch-fw-iptables.html#s-fw-iptables-exemplo-fw" rel="subsection" title="31.8.4 Um exemplo de firewall simples">
+<link href="ch-d-contas.html#s-d-contas-cms-padroes" rel="subsection" title="32.2.1 Definindo valores padrões de restrição">
+<link href="ch-d-contas.html#s-d-contas-cms-senhas" rel="subsection" title="32.2.2 Senhas fáceis de adivinhar e escolha de boas senhas">
+<link href="ch-d-contas.html#s-d-contas-cms-multipasswd" rel="subsection" title="32.2.3 Atualização de senhas de múltiplas contas">
+<link href="ch-d-contas.html#s-d-contas-cms-senharoot" rel="subsection" title="32.2.4 A senha do usuário root">
+<link href="ch-d-contas.html#s-d-contas-ataques-deducao" rel="subsection" title="32.3.1 Dedução">
+<link href="ch-d-contas.html#s-d-contas-ataques-engsocial" rel="subsection" title="32.3.2 Engenharia Social">
+<link href="ch-d-contas.html#s-d-contas-ataques-dicionario" rel="subsection" title="32.3.3 Ataques por dicionário">
+<link href="ch-d-contas.html#s-d-contas-ataques-bruteforce" rel="subsection" title="32.3.4 Brute Force">
+<link href="ch-d-contas.html#s-d-contas-ataques-monteclad" rel="subsection" title="32.3.5 Monitoramento de toques do teclado">
+<link href="ch-d-contas.html#s-d-contas-ataques-loginfalso" rel="subsection" title="32.3.6 Login falso">
+<link href="ch-d-contas.html#s-d-contas-segsenhas-shadow" rel="subsection" title="32.4.1 Shadow Passwords">
+<link href="ch-d-contas.html#s-d-contas-segsenhas-md5" rel="subsection" title="32.4.2 Senhas MD5">
+<link href="ch-s-apache.html#s-s-apache-versao" rel="subsection" title="33.1.1 Versão">
+<link href="ch-s-apache.html#s-s-apache-historia" rel="subsection" title="33.1.2 Um resumo da História do Apache">
+<link href="ch-s-apache.html#s-s-apache-contribuindo" rel="subsection" title="33.1.3 Enviando Correções/Contribuindo com o projeto">
+<link href="ch-s-apache.html#s-s-apache-caracteristicas" rel="subsection" title="33.1.4 Características do Apache">
+<link href="ch-s-apache.html#s-s-apache-ficha" rel="subsection" title="33.1.5 Ficha técnica">
+<link href="ch-s-apache.html#s-s-apache-hwreq" rel="subsection" title="33.1.6 Requerimentos">
+<link href="ch-s-apache.html#s-s-apache-logs" rel="subsection" title="33.1.7 Arquivos de log criados pelo Apache">
+<link href="ch-s-apache.html#s-s-apache-install" rel="subsection" title="33.1.8 Instalação">
+<link href="ch-s-apache.html#s-s-apache-rodando" rel="subsection" title="33.1.9 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-apache.html#s-s-apache-opcoescmd" rel="subsection" title="33.1.10 Opções de linha de comando">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-autor" rel="subsection" title="33.7.1 Autorização">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth" rel="subsection" title="33.7.2 Autenticação">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth-arqsenha" rel="subsection" title="33.7.2.1 Criando um arquivo de Senhas">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth-arqsenha-htpasswd" rel="subsection" title="33.7.2.1.1 htpasswd">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth-arqsenha-htdigest" rel="subsection" title="33.7.2.1.2 htdigest e dbmmanage">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth-usuarios" rel="subsection" title="33.7.2.2 Autenticação através de usuários">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-auth-grupos" rel="subsection" title="33.7.2.3 Autenticação usando grupos">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-autor+auth" rel="subsection" title="33.7.3 Usando autorização e autenticação juntos">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-autor+auth-diferenciado" rel="subsection" title="33.7.3.1 Acesso diferenciado em uma mesma diretiva">
+<link href="ch-s-apache.html#s-s-apache-acesso-restr-htaccess" rel="subsection" title="33.7.4 O arquivo .htaccess">
+<link href="ch-s-apache.html#s-s-apache-acesso-setenvif" rel="subsection" title="33.7.5 Usando a diretiva SetEnvIf com Allow e Deny">
+<link href="ch-s-apache.html#s-s-apache-acesso-limit" rel="subsection" title="33.7.6 A diretiva &lt;Limit&gt;">
+<link href="ch-s-apache.html#s-s-apache-acesso-limitexcept" rel="subsection" title="33.7.7 Diretiva &lt;LimitExcept&gt;">
+<link href="ch-s-apache.html#s-s-apache-log-agentlog" rel="subsection" title="33.10.1 AgentLog">
+<link href="ch-s-apache.html#s-s-apache-log-errorlog" rel="subsection" title="33.10.2 ErrorLog">
+<link href="ch-s-apache.html#s-s-apache-log-customlog" rel="subsection" title="33.10.3 CustomLog">
+<link href="ch-s-apache.html#s-s-apache-log-refererlog" rel="subsection" title="33.10.4 RefererLog">
+<link href="ch-s-apache.html#s-s-apache-log-rewritelog" rel="subsection" title="33.10.5 RewriteLog">
+<link href="ch-s-apache.html#s-s-apache-log-rewriteloglevel" rel="subsection" title="33.10.6 RewriteLogLevel">
+<link href="ch-s-apache.html#s-s-apache-log-scriptlog" rel="subsection" title="33.10.7 ScriptLog">
+<link href="ch-s-apache.html#s-s-apache-log-scriptlogbuffer" rel="subsection" title="33.10.8 ScriptLogBuffer">
+<link href="ch-s-apache.html#s-s-apache-log-scriptloglength" rel="subsection" title="33.10.9 ScriptLogLength">
+<link href="ch-s-apache.html#s-s-apache-log-logformat" rel="subsection" title="33.10.10 LogFormat">
+<link href="ch-s-apache.html#s-s-apache-log-transferlog" rel="subsection" title="33.10.11 TransferLog">
+<link href="ch-s-apache.html#s-s-apache-log-loglevel" rel="subsection" title="33.10.12 LogLevel">
+<link href="ch-s-apache.html#s-s-apache-log-anonylogmail" rel="subsection" title="33.10.13 Anonymous_LogEmail">
+<link href="ch-s-apache.html#s-s-apache-log-cookielog" rel="subsection" title="33.10.14 CookieLog">
+<link href="ch-s-apache.html#s-s-apache-log-webalizer" rel="subsection" title="33.10.15 Relatório gráfico de acesso ao sistema">
+<link href="ch-s-apache.html#s-s-apache-proxy-access" rel="subsection" title="33.11.1 Controlando o acesso ao servidor proxy">
+<link href="ch-s-apache.html#s-s-apache-proxy-redir" rel="subsection" title="33.11.2 Redirecionamento de conexões no Apache">
+<link href="ch-s-apache.html#s-s-apache-vhosts-ip" rel="subsection" title="33.12.1 Virtual hosts baseados em IP">
+<link href="ch-s-apache.html#s-s-apache-vhosts-nome" rel="subsection" title="33.12.2 Virtual hosts baseados em nome">
+<link href="ch-s-apache.html#s-s-apache-vhosts-dnssec" rel="subsection" title="33.12.3 Segurança no uso de IP's em Virtual Hosts">
+<link href="ch-s-apache.html#s-s-apache-ssl-s" rel="subsection" title="33.13.1 Servidor apache com suporte a ssl">
+<link href="ch-s-apache.html#s-s-apache-ssl-instal" rel="subsection" title="33.13.2 Instalando o suporte a módulo SSL no Apache">
+<link href="ch-s-apache.html#s-s-apache-ssl-mkcert" rel="subsection" title="33.13.3 Gerando um certificado digital">
+<link href="ch-s-apache.html#s-s-apache-ssl-exemplo" rel="subsection" title="33.13.4 Exemplo de configuração do módulo mod-ssl">
+<link href="ch-s-apache.html#s-s-apache-ssl-sslreq" rel="subsection" title="33.13.5 Autorizando acesso somente a conexões SSL">
+<link href="ch-s-apache.html#s-s-apache-ssl-inic" rel="subsection" title="33.13.6 Iniciando o servidor Web com suporte a SSL">
+<link href="ch-s-apache.html#s-s-apache-exemplo-httpd" rel="subsection" title="33.14.1 httpd.conf">
+<link href="ch-s-apache.html#s-s-apache-exemplo-srm" rel="subsection" title="33.14.2 srm.conf">
+<link href="ch-s-apache.html#s-s-apache-exemplo-access" rel="subsection" title="33.14.3 access.conf">
+<link href="ch-s-ident.html#s-s-ident-versao" rel="subsection" title="34.1.1 Versão">
+<link href="ch-s-ident.html#s-s-ident-contribuindo" rel="subsection" title="34.1.2 Contribuindo">
+<link href="ch-s-ident.html#s-s-ident-caracteristicas" rel="subsection" title="34.1.3 Características">
+<link href="ch-s-ident.html#s-s-ident-ficha" rel="subsection" title="34.1.4 Ficha técnica">
+<link href="ch-s-ident.html#s-s-ident-hwreq" rel="subsection" title="34.1.5 Requerimentos de Hardware">
+<link href="ch-s-ident.html#s-s-ident-logs" rel="subsection" title="34.1.6 Arquivos de log criados pelo Ident">
+<link href="ch-s-ident.html#s-s-ident-install" rel="subsection" title="34.1.7 Instalação">
+<link href="ch-s-ident.html#s-s-ident-install-inetd" rel="subsection" title="34.1.8 Instalação via Inetd">
+<link href="ch-s-ident.html#s-s-ident-tcpwrappers" rel="subsection" title="34.1.9 Usando tcpwrappers com oidentd">
+<link href="ch-s-ident.html#s-s-ident-rodando" rel="subsection" title="34.1.10 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-ident.html#s-s-ident-opcoescmd" rel="subsection" title="34.1.11 Opções de linha de comando">
+<link href="ch-s-ident.html#s-s-ident-exemplo" rel="subsection" title="34.1.12 Exemplos">
+<link href="ch-s-telnet.html#s-s-telnet-versao" rel="subsection" title="35.1.1 Versão">
+<link href="ch-s-telnet.html#s-s-telnet-caracteristicas" rel="subsection" title="35.1.2 Características">
+<link href="ch-s-telnet.html#s-s-telnet-ficha" rel="subsection" title="35.1.3 Ficha técnica">
+<link href="ch-s-telnet.html#s-s-telnet-hwreq" rel="subsection" title="35.1.4 Requerimentos de Hardware">
+<link href="ch-s-telnet.html#s-s-telnet-logs" rel="subsection" title="35.1.5 Arquivos de log criados pelo servidor telnet">
+<link href="ch-s-telnet.html#s-s-telnet-install" rel="subsection" title="35.1.6 Instalação">
+<link href="ch-s-telnet.html#s-s-telnet-rodando" rel="subsection" title="35.1.7 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-telnet.html#s-s-telnet-opcoescmd" rel="subsection" title="35.1.8 Opções de linha de comando">
+<link href="ch-s-ssh.html#s-s-ssh-versao" rel="subsection" title="36.1.1 Versão">
+<link href="ch-s-ssh.html#s-s-ssh-historia" rel="subsection" title="36.1.2 História">
+<link href="ch-s-ssh.html#s-s-ssh-contribuindo" rel="subsection" title="36.1.3 Contribuindo">
+<link href="ch-s-ssh.html#s-s-ssh-caracteristicas" rel="subsection" title="36.1.4 Características">
+<link href="ch-s-ssh.html#s-s-ssh-ficha" rel="subsection" title="36.1.5 Ficha técnica">
+<link href="ch-s-ssh.html#s-s-ssh-hwreq" rel="subsection" title="36.1.6 Requerimentos de Hardware">
+<link href="ch-s-ssh.html#s-s-ssh-logs" rel="subsection" title="36.1.7 Arquivos de log criados pelo servidor ssh">
+<link href="ch-s-ssh.html#s-s-ssh-install" rel="subsection" title="36.1.8 Instalação do servidor openSSH">
+<link href="ch-s-ssh.html#s-s-ssh-rodando" rel="subsection" title="36.1.9 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-ssh.html#s-s-ssh-opcoescmd" rel="subsection" title="36.1.10 Opções de linha de comando">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-ssh" rel="subsection" title="36.2.1 ssh">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-ssh-Xforward" rel="subsection" title="36.2.1.1 Redirecionamento de conexões do X">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-ssh-win" rel="subsection" title="36.2.1.2 Cliente ssh para Windows">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-scp" rel="subsection" title="36.2.2 scp">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-scp-win" rel="subsection" title="36.2.2.1 Cliente scp para Windows">
+<link href="ch-s-ssh.html#s-s-ssh-cliente-sftp" rel="subsection" title="36.2.3 sftp">
+<link href="ch-s-ssh.html#s-s-ssh-server-sshd" rel="subsection" title="36.3.1 sshd">
+<link href="ch-s-ssh.html#s-s-ssh-acesso" rel="subsection" title="36.3.2 Controle de acesso">
+<link href="ch-s-ssh.html#s-s-ssh-server-rsaauth" rel="subsection" title="36.3.3 Usando autenticação RSA/DSA - chave pública/privada">
+<link href="ch-s-ssh.html#s-s-ssh-server-cmdkey" rel="subsection" title="36.3.4 Execução de comandos específicos usando chaves">
+<link href="ch-s-ssh.html#s-s-ssh-server-gatewayssh" rel="subsection" title="36.3.5 Criando um gateway ssh">
+<link href="ch-s-ssh.html#s-s-ssh-server-proxy" rel="subsection" title="36.3.6 Criando um tunel proxy">
+<link href="ch-s-ssh.html#s-s-ssh-server-protodiff" rel="subsection" title="36.3.7 Diferenças nas versões do protocolo">
+<link href="ch-s-ssh.html#s-s-ssh-server-sshd_config" rel="subsection" title="36.3.8 Exemplo de sshd_config com explicações das diretivas">
+<link href="ch-s-pop3.html#s-s-pop3-versao" rel="subsection" title="37.1.1 Versão">
+<link href="ch-s-pop3.html#s-s-pop3-contribuindo" rel="subsection" title="37.1.2 Contribuindo">
+<link href="ch-s-pop3.html#s-s-pop3-caracteristicas" rel="subsection" title="37.1.3 Características">
+<link href="ch-s-pop3.html#s-s-pop3-ficha" rel="subsection" title="37.1.4 Ficha técnica">
+<link href="ch-s-pop3.html#s-s-pop3-hwreq" rel="subsection" title="37.1.5 Requerimentos de Hardware">
+<link href="ch-s-pop3.html#s-s-pop3-logs" rel="subsection" title="37.1.6 Arquivos de log criados pelo qpopper">
+<link href="ch-s-pop3.html#s-s-pop3-install" rel="subsection" title="37.1.7 Instalação">
+<link href="ch-s-pop3.html#s-s-pop3-rodando" rel="subsection" title="37.1.8 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-pop3.html#s-s-pop3-testando" rel="subsection" title="37.1.9 Teste de acesso no pop3">
+<link href="ch-s-pop3.html#s-s-pop3-opcoescmd" rel="subsection" title="37.1.10 Opções de linha de comando">
+<link href="ch-s-pop3.html#s-s-pop3-boletins" rel="subsection" title="37.1.11 Enviando boletins de mensagens">
+<link href="ch-s-pop3.html#s-s-pop3-quotas" rel="subsection" title="37.1.12 Especificando quotas para as caixas de correio">
+<link href="ch-s-pop3.html#s-s-pop3-restricao" rel="subsection" title="37.1.13 Restringindo acesso ao servidor pop3">
+<link href="ch-s-cvs.html#s-s-cvs-versao" rel="subsection" title="38.1.1 Versão">
+<link href="ch-s-cvs.html#s-s-cvs-historia" rel="subsection" title="38.1.2 História">
+<link href="ch-s-cvs.html#s-s-cvs-contribuindo" rel="subsection" title="38.1.3 Contribuindo com o CVS">
+<link href="ch-s-cvs.html#s-s-cvs-caracteristicas" rel="subsection" title="38.1.4 Características">
+<link href="ch-s-cvs.html#s-s-cvs-ficha" rel="subsection" title="38.1.5 Ficha técnica">
+<link href="ch-s-cvs.html#s-s-cvs-hwreq" rel="subsection" title="38.1.6 Requerimentos de Hardware">
+<link href="ch-s-cvs.html#s-s-cvs-logs" rel="subsection" title="38.1.7 Arquivos de log criados pelo CVS">
+<link href="ch-s-cvs.html#s-s-cvs-install" rel="subsection" title="38.1.8 Instalação">
+<link href="ch-s-cvs.html#s-s-cvs-rodando" rel="subsection" title="38.1.9 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-cvs.html#s-s-cvs-opcoescmd" rel="subsection" title="38.1.10 Opções de linha de comando">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-local" rel="subsection" title="38.2.1 local">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-local-c" rel="subsection" title="38.2.1.1 Configurando o método local">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-fork" rel="subsection" title="38.2.2 fork">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-fork-c" rel="subsection" title="38.2.2.1 Configurando o método fork">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-ext" rel="subsection" title="38.2.3 ext">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-ext-c" rel="subsection" title="38.2.3.1 Configurando o método ext">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-pserver" rel="subsection" title="38.2.4 pserver (password server)">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-pserver-c" rel="subsection" title="38.2.5 Configurando um servidor pserver">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-pserver-c-pserver" rel="subsection" title="38.2.5.1 Ativando o servidor pserver">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-pserver-c-system" rel="subsection" title="38.2.5.2 Servidor pserver usando autenticação do sistema">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-pserver-c-pwrepos" rel="subsection" title="38.2.5.3 Servidor pserver com autenticação própria">
+<link href="ch-s-cvs.html#s-s-cvs-d-metodos-gssapi" rel="subsection" title="38.2.6 gssapi">
+<link href="ch-s-cvs.html#s-s-cvs-p-repos" rel="subsection" title="38.3.1 Repositório">
+<link href="ch-s-cvs.html#s-s-cvs-p-mkrepos" rel="subsection" title="38.3.2 Criando um repositório">
+<link href="ch-s-cvs.html#s-s-cvs-p-login" rel="subsection" title="38.3.3 Logando no servidor de CVS via pserver">
+<link href="ch-s-cvs.html#s-s-cvs-p-logout" rel="subsection" title="38.3.4 Encerrando uma seção de CVS">
+<link href="ch-s-cvs.html#s-s-cvs-p-checkout" rel="subsection" title="38.3.5 Baixando arquivos">
+<link href="ch-s-cvs.html#s-s-cvs-p-import" rel="subsection" title="38.3.6 Adicionando um novo projeto">
+<link href="ch-s-cvs.html#s-s-cvs-p-update" rel="subsection" title="38.3.7 Sincronizando a cópia remota com a cópia local">
+<link href="ch-s-cvs.html#s-s-cvs-p-commit" rel="subsection" title="38.3.8 Enviando as mudanças para o servidor remoto">
+<link href="ch-s-cvs.html#s-s-cvs-p-add" rel="subsection" title="38.3.9 Adicionando um arquivo ao módulo CVS do servidor">
+<link href="ch-s-cvs.html#s-s-cvs-p-add-dir" rel="subsection" title="38.3.10 Adicionando um diretório ao módulo CVS do servidor">
+<link href="ch-s-cvs.html#s-s-cvs-p-remove" rel="subsection" title="38.3.11 Removendo um arquivo do módulo CVS remoto">
+<link href="ch-s-cvs.html#s-s-cvs-p-removed" rel="subsection" title="38.3.12 Removendo um diretório do módulo CVS remoto">
+<link href="ch-s-cvs.html#s-s-cvs-p-release" rel="subsection" title="38.3.13 Dizendo que o módulo atual não está mais em uso">
+<link href="ch-s-cvs.html#s-s-cvs-p-diff" rel="subsection" title="38.3.14 Visualizando diferenças entre versões de um arquivo">
+<link href="ch-s-cvs.html#s-s-cvs-p-status" rel="subsection" title="38.3.15 Visualizando o status de versão de arquivos">
+<link href="ch-s-cvs.html#s-s-cvs-p-utils" rel="subsection" title="38.3.16 Outros utilitários para trabalho no repositório">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-config" rel="subsection" title="38.4.1 config">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-modules" rel="subsection" title="38.4.2 modules">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-cvswrappers" rel="subsection" title="38.4.3 cvswrappers">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-commitinfo" rel="subsection" title="38.4.4 commitinfo">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-verifymsg" rel="subsection" title="38.4.5 verifymsg">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-loginfo" rel="subsection" title="38.4.6 loginfo">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-cvsignore" rel="subsection" title="38.4.7 cvsignore">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-checkoutlist" rel="subsection" title="38.4.8 checkoutlist">
+<link href="ch-s-cvs.html#s-s-cvs-cvsroot-history" rel="subsection" title="38.4.9 history">
+<link href="ch-s-cvs.html#s-s-cvs-c-cvs" rel="subsection" title="38.5.1 cvs">
+<link href="ch-s-cvs.html#s-s-cvs-c-gcvs" rel="subsection" title="38.5.2 gcvs - Linux">
+<link href="ch-s-cvs.html#s-s-cvs-c-wincvs" rel="subsection" title="38.5.3 WinCVS - Windows">
+<link href="ch-s-cvs.html#s-s-cvs-c-maccvs" rel="subsection" title="38.5.4 MacCVS - Macintosh (PPC)">
+<link href="ch-s-cvs.html#s-s-cvs-c-viewcvs" rel="subsection" title="38.5.5 viewcvs">
+<link href="ch-s-samba.html#s-s-samba-versao" rel="subsection" title="39.1.1 Versão documentada">
+<link href="ch-s-samba.html#s-s-samba-historia" rel="subsection" title="39.1.2 História">
+<link href="ch-s-samba.html#s-s-samba-contribuindo" rel="subsection" title="39.1.3 Contribuindo">
+<link href="ch-s-samba.html#s-s-samba-caracteristicas" rel="subsection" title="39.1.4 Características">
+<link href="ch-s-samba.html#s-s-samba-ficha" rel="subsection" title="39.1.5 Ficha técnica">
+<link href="ch-s-samba.html#s-s-samba-hwreq" rel="subsection" title="39.1.6 Requerimentos de Hardware">
+<link href="ch-s-samba.html#s-s-samba-logs" rel="subsection" title="39.1.7 Arquivos de log criados">
+<link href="ch-s-samba.html#s-s-samba-install" rel="subsection" title="39.1.8 Instalação">
+<link href="ch-s-samba.html#s-s-samba-rodando" rel="subsection" title="39.1.9 Iniciando o servidor/reiniciando/recarregando a configuração">
+<link href="ch-s-samba.html#s-s-samba-opcoescmd" rel="subsection" title="39.1.10 Opções de linha de comando">
+<link href="ch-s-samba.html#s-s-samba-nome" rel="subsection" title="39.2.1 Nome de máquina (nome NetBios)">
+<link href="ch-s-samba.html#s-s-samba-workgroup" rel="subsection" title="39.2.2 Grupo de trabalho">
+<link href="ch-s-samba.html#s-s-samba-dominio" rel="subsection" title="39.2.3 Domínio">
+<link href="ch-s-samba.html#s-s-samba-compart" rel="subsection" title="39.2.4 Compartilhamento">
+<link href="ch-s-samba.html#s-s-samba-mapeamento" rel="subsection" title="39.2.5 Mapeamento">
+<link href="ch-s-samba.html#s-s-samba-nmbd" rel="subsection" title="39.2.6 Navegação na Rede e controle de domínio">
+<link href="ch-s-samba.html#s-s-samba-arquivocfg" rel="subsection" title="39.2.7 Arquivo de configuração do samba">
+<link href="ch-s-samba.html#s-s-samba-s-global" rel="subsection" title="39.2.8 Seção [global]">
+<link href="ch-s-samba.html#s-s-samba-s-global-nome" rel="subsection" title="39.2.8.1 Nomes e grupos de trabalho">
+<link href="ch-s-samba.html#s-s-samba-s-global-carac" rel="subsection" title="39.2.8.2 Caracteres e página de código">
+<link href="ch-s-samba.html#s-s-samba-s-global-restrusu" rel="subsection" title="39.2.8.3 Restrições de acesso/mapeamento de usuários">
+<link href="ch-s-samba.html#s-s-samba-s-global-nivelauth" rel="subsection" title="39.2.8.4 Níveis de autenticação">
+<link href="ch-s-samba.html#s-s-samba-s-global-log" rel="subsection" title="39.2.8.5 Log de acessos/serviços">
+<link href="ch-s-samba.html#s-s-samba-s-global-browsing" rel="subsection" title="39.2.8.6 Navegação no servidor/tipo de servidor">
+<link href="ch-s-samba.html#s-s-samba-s-global-outras" rel="subsection" title="39.2.8.7 Outros parâmetros de configuração">
+<link href="ch-s-samba.html#s-s-samba-s-homes" rel="subsection" title="39.2.9 Seção [homes]">
+<link href="ch-s-samba.html#s-s-samba-s-printers" rel="subsection" title="39.2.10 Seção [printers]">
+<link href="ch-s-samba.html#s-s-samba-s-testparm" rel="subsection" title="39.2.11 Buscando problemas na configuração">
+<link href="ch-s-samba.html#s-s-samba-s-oslevel" rel="subsection" title="39.2.12 Níveis de sistema para eleição de rede">
+<link href="ch-s-samba.html#s-s-samba-s-varsubst" rel="subsection" title="39.2.13 Variáveis de substituição">
+<link href="ch-s-samba.html#s-s-samba-s-a-param" rel="subsection" title="39.3.1 Descrição de parâmetros usados em compartilhamento">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv-lmhosts" rel="subsection" title="39.5.1 Arquivo /etc/samba/lmhosts">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv-lmhosts-unix-ex" rel="subsection" title="39.5.1.1 Exemplo de lmhosts do UNIX">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolve-lmhosts-windows-ex" rel="subsection" title="39.5.1.2 Exemplo de lmhosts do Windows">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv-wins" rel="subsection" title="39.5.2 WINS">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv-wins-s" rel="subsection" title="39.5.2.1 Configurando o servidor WINS">
+<link href="ch-s-samba.html#s-s-samba-s-nameresolv-wins-c" rel="subsection" title="39.5.2.2 Configurando o Cliente WINS">
+<link href="ch-s-samba.html#s-s-samba-s-timeserver-s" rel="subsection" title="39.6.1 Configuração do serviço de data/hora no SAMBA">
+<link href="ch-s-samba.html#s-s-samba-s-timeserver-c" rel="subsection" title="39.6.2 Sincronizando a data/hora no Cliente">
+<link href="ch-s-samba.html#s-s-samba-dom-intro" rel="subsection" title="39.7.1 Uma breve introdução a um Domínio de rede">
+<link href="ch-s-samba.html#s-s-samba-dom-lmbrowser" rel="subsection" title="39.7.2 Local Master Browser">
+<link href="ch-s-samba.html#s-s-samba-dom-dmbrowser" rel="subsection" title="39.7.3 Domain Master Browser">
+<link href="ch-s-samba.html#s-s-samba-dom-config" rel="subsection" title="39.7.4 Configurando um servidor PDC no SAMBA">
+<link href="ch-s-samba.html#s-s-samba-dom-contasmac" rel="subsection" title="39.7.5 Contas de máquinas de domínio">
+<link href="ch-s-samba.html#s-s-samba-dom-contasmac-dom-m" rel="subsection" title="39.7.5.1 Criando contas de máquinas manualmente">
+<link href="ch-s-samba.html#s-s-samba-dom-contasmac-dom-a" rel="subsection" title="39.7.5.2 Criando contas de máquinas automaticamente">
+<link href="ch-s-samba.html#s-s-samba-dom-admin" rel="subsection" title="39.7.6 Criando uma conta de administrador de domínio">
+<link href="ch-s-samba.html#s-s-samba-dom-logonscripts" rel="subsection" title="39.7.7 Criando Scripts de logon">
+<link href="ch-s-samba.html#s-s-samba-dom-profiles" rel="subsection" title="39.7.8 Configurando perfis de usuários">
+<link href="ch-s-samba.html#s-s-samba-dom-perm-clientes" rel="subsection" title="39.7.9 Modificações de permissões de acesso pelos clientes do domínio">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-migrando" rel="subsection" title="39.8.1 Migrando de senhas texto plano para criptografadas">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-criando" rel="subsection" title="39.8.2 Adicionando usuários no smbpasswd">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-removendo" rel="subsection" title="39.8.3 Removendo usuários do smbpasswd">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-desabilitando" rel="subsection" title="39.8.4 Desabilitando uma conta no smbpasswd">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-habilitando" rel="subsection" title="39.8.5 Habilitando uma conta no smbpasswd">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-chpasswd" rel="subsection" title="39.8.6 Alterando a senha de um usuário">
+<link href="ch-s-samba.html#s-s-samba-senhas-crypto-nopasswd" rel="subsection" title="39.8.7 Definindo acesso sem senha para o usuário">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c" rel="subsection" title="39.9.1 Configurando o acesso de clientes para uso de senhas em texto plano">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-lanmanager" rel="subsection" title="39.9.1.1 Lan Manager">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-wfw" rel="subsection" title="39.9.1.2 Windows for Workgroups">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-win95a" rel="subsection" title="39.9.1.3 Windows 95 / Windows 95A">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-win95b" rel="subsection" title="39.9.1.4 Windows 95B">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-win98" rel="subsection" title="39.9.1.5 Windows 98/98SE">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-winME" rel="subsection" title="39.9.1.6 Windows ME">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-winNT" rel="subsection" title="39.9.1.7 Windows NT Server/WorkStation">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-win2000" rel="subsection" title="39.9.1.8 Windows 2000">
+<link href="ch-s-samba.html#s-s-samba-senhas-plano-c-linux" rel="subsection" title="39.9.1.9 Linux">
+<link href="ch-s-samba.html#s-s-samba-usermap-w" rel="subsection" title="39.10.1 Mapeamento de usuários/grupos domínio em Windows">
+<link href="ch-s-samba.html#s-s-samba-usermap-l" rel="subsection" title="39.10.2 Mapeamento de usuários/grupos domínio em Linux">
+<link href="ch-s-samba.html#s-s-samba-i-win-linux" rel="subsection" title="39.11.1 Configurando o Linux como um servidor de impressão Windows">
+<link href="ch-s-samba.html#s-s-samba-a-compart" rel="subsection" title="39.12.1 Nível de acesso de usuários conectados ao SAMBA">
+<link href="ch-s-samba.html#s-s-samba-a-restrip" rel="subsection" title="39.12.2 Restringindo o acesso por IP/rede">
+<link href="ch-s-samba.html#s-s-samba-a-restrip-test" rel="subsection" title="39.12.2.1 Testando a restrição de Acesso por IP/Redes">
+<link href="ch-s-samba.html#s-s-samba-a-restrif" rel="subsection" title="39.12.3 Restringindo o acesso por interface de rede">
+<link href="ch-s-samba.html#s-s-samba-a-restrusu" rel="subsection" title="39.12.4 Restringindo o acesso por usuários">
+<link href="ch-s-samba.html#s-s-samba-a-hostsequiv" rel="subsection" title="39.12.5 Evite o uso do parâmetro hosts equiv!">
+<link href="ch-s-samba.html#s-s-asmba-a-nullpasswd" rel="subsection" title="39.12.6 Evite o uso de senhas em branco!">
+<link href="ch-s-samba.html#s-s-samba-a-publico" rel="subsection" title="39.12.7 Criando um compartilhamento para acesso sem senha">
+<link href="ch-s-samba.html#s-s-samba-a-ro" rel="subsection" title="39.12.8 Criando um compartilhamento com acesso somente leitura">
+<link href="ch-s-samba.html#s-s-samba-a-rw" rel="subsection" title="39.12.9 Criando um compartilhamento com acesso leitura/gravação">
+<link href="ch-s-samba.html#s-s-samba-a-restr" rel="subsection" title="39.12.10 Excessão de acesso na permissão padrão de compartilhamento">
+<link href="ch-s-samba.html#s-s-samba-a-ipc-admin" rel="subsection" title="39.12.11 Restringindo o IPC$ e ADMIN$">
+<link href="ch-s-samba.html#s-s-samba-a-invisivel" rel="subsection" title="39.12.12 Criando um compartilhamento invisível">
+<link href="ch-s-samba.html#s-s-samba-a-comandos" rel="subsection" title="39.12.13 Executando comandos antes e após o acesso ao compartilhamento">
+<link href="ch-s-samba.html#s-s-samba-a-public-access" rel="subsection" title="39.12.14 Considerações de segurança com o uso do parâmetro &quot;public = yes&quot;">
+<link href="ch-s-samba.html#s-s-samba-a-passwords" rel="subsection" title="39.12.15 Senhas criptografadas ou em texto puro?">
+<link href="ch-s-samba.html#s-s-samba-a-usernamemap" rel="subsection" title="39.12.16 Mapeamento de nomes de usuários">
+<link href="ch-s-samba.html#s-s-samba-c-wfw-lman" rel="subsection" title="39.14.1 Considerações sobre o Windows for Workgroups e LanManager">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup" rel="subsection" title="39.14.2 Configurando clientes em Grupo de Trabalho">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-w9x" rel="subsection" title="39.14.2.1 Windows 9X">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-wXPHome" rel="subsection" title="39.14.2.2 Windows XP Home Edition">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-wXPprofessional" rel="subsection" title="39.14.2.3 Windows XP Professional Edition">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-wXPServer" rel="subsection" title="39.14.2.4 Windows XP Server Edition">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-NTWorkstation" rel="subsection" title="39.14.2.5 Windows NT WorkStation">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-NTServer" rel="subsection" title="39.14.2.6 Windows NT Server">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-w2kProfessional" rel="subsection" title="39.14.2.7 Windows 2000 Professional">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-w2kServer" rel="subsection" title="39.14.2.8 Windows 2000 Server">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-linux" rel="subsection" title="39.14.2.9 Linux">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-linux-smbmount" rel="subsection" title="39.14.2.9.1 smbmount">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-linux-smbclient" rel="subsection" title="39.14.2.9.2 smbclient">
+<link href="ch-s-samba.html#s-s-samba-c-workgroup-linux-nmblookup" rel="subsection" title="39.14.2.9.3 nmblookup">
+<link href="ch-s-samba.html#s-s-samba-c-dominio" rel="subsection" title="39.14.3 Configurando clientes em Domínio">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-w9x" rel="subsection" title="39.14.3.1 Windows 9X">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-wXPHome" rel="subsection" title="39.14.3.2 Windows XP Home Edition">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-wXPprofessional" rel="subsection" title="39.14.3.3 Windows XP Professional Edition">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-wXPServer" rel="subsection" title="39.14.3.4 Windows XP Server Edition">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-NTWorkstation" rel="subsection" title="39.14.3.5 Windows NT WorkStation">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-NTServer" rel="subsection" title="39.14.3.6 Windows NT Server">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-w2kProfessional" rel="subsection" title="39.14.3.7 Windows 2000 Professional">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-w2kServer" rel="subsection" title="39.14.3.8 Windows 2000 Server">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-linux" rel="subsection" title="39.14.3.9 Linux">
+<link href="ch-s-samba.html#s-s-samba-c-dominio-erros" rel="subsection" title="39.14.4 Erros conhecidos durante o logon do cliente">
+<link href="ch-s-samba.html#s-s-samba-c-graficos" rel="subsection" title="39.14.5 Programas de navegação gráficos">
+<link href="ch-s-samba.html#s-s-samba-c-graficos-linneighborhood" rel="subsection" title="39.14.5.1 linneighborhood">
+<link href="ch-s-samba.html#s-s-samba-c-graficos-tksmb" rel="subsection" title="39.14.5.2 TkSmb">
+<link href="ch-s-samba.html#s-s-samba-c-conf" rel="subsection" title="39.14.6 Cliente de configuração gráficos">
+<link href="ch-s-samba.html#s-s-samba-c-conf-gnosamba" rel="subsection" title="39.14.6.1 gnosamba">
+<link href="ch-s-samba.html#s-s-samba-c-conf-swat" rel="subsection" title="39.14.6.2 swat">
+<link href="ch-s-samba.html#s-s-samba-exemplos-workgroup-p" rel="subsection" title="39.15.1 Grupo de Trabalho com acesso público">
+<link href="ch-s-samba.html#s-s-samba-exemplos-workgroup-u" rel="subsection" title="39.15.2 Grupo de Trabalho com acesso por usuário">
+<link href="ch-s-samba.html#s-s-samba-exemplos-dominio" rel="subsection" title="39.15.3 Domínio">
+<link href="ch-d-restr.html#s-d-restr-bash-readonly" rel="subsection" title="40.1.1 Uso do comando readonly para exportar variáveis">
+<link href="ch-d-restr.html#s-d-restr-homedir" rel="subsection" title="40.1.2 Restrições nos diretórios de usuários e root">
+<link href="ch-d-restr.html#s-d-restr-bash-restricted" rel="subsection" title="40.1.3 Restrições básicas do shell bash com bash -r/--restricted, rbash">
+<link href="ch-d-restr.html#s-d-restr-bash-logoutocioso" rel="subsection" title="40.1.4 Finalizando consoles inativos">
+<link href="ch-d-restr.html#s-d-restr-bash-logging" rel="subsection" title="40.1.5 Desabilitando o registro de comandos digitados">
+<link href="ch-d-restr.html#s-d-restr-bash-desshell" rel="subsection" title="40.1.6 Desabilitando serviços de shell para usuários">
+<link href="ch-d-restr.html#s-d-restr-pam-suporte" rel="subsection" title="40.2.1 Descobrindo se um determinado programa tem suporte a PAM">
+<link href="ch-d-restr.html#s-d-restr-pam-policy" rel="subsection" title="40.2.2 Definindo uma política padrão restritiva">
+<link href="ch-d-restr.html#s-d-restr-pam-login" rel="subsection" title="40.2.3 Restringindo/Bloqueando o login">
+<link href="ch-d-restr.html#s-d-restr-pam-root" rel="subsection" title="40.2.4 Restringindo o acesso a root no su">
+<link href="ch-d-restr.html#s-d-restr-pam-time" rel="subsection" title="40.2.5 Restrições de serviços PAM baseados em dia/hora">
+<link href="ch-d-restr.html#s-d-restr-pam-group" rel="subsection" title="40.2.6 Permitindo acesso a grupos extras">
+<link href="ch-d-restr.html#s-d-restr-pam-limits" rel="subsection" title="40.2.7 Limitação de recursos do shell">
+<link href="ch-d-restr.html#s-d-restr-quotas-install" rel="subsection" title="40.12.1 Instalando o sistema de quotas">
+<link href="ch-d-restr.html#s-d-restr-quotas-editando" rel="subsection" title="40.12.2 Editando quotas de usuários/grupos">
+<link href="ch-d-restr.html#s-d-restr-quotas-mudtodos" rel="subsection" title="40.12.3 Modificando a quota de todos os usuários de uma vez">
+<link href="ch-d-restr.html#s-d-restr-quotas-checando" rel="subsection" title="40.12.4 Verificando a quota disponível ao usuário">
+<link href="ch-d-restr.html#s-d-restr-quotas-todas" rel="subsection" title="40.12.5 Verificando a quota de todos os usuários/grupos do sistema">
+<link href="ch-d-restr.html#s-d-restr-quotas-warn" rel="subsection" title="40.12.6 Avisando usuários sobre o estouro de quota">
+<link href="ch-d-restr.html#s-d-restr-hardware-bios" rel="subsection" title="40.15.1 BIOS do sistema">
+<link href="ch-d-restr.html#s-d-restr-hardware-floppy" rel="subsection" title="40.15.2 Retirada da unidade de disquetes">
+<link href="ch-d-restr.html#s-d-restr-hardware-netboot" rel="subsection" title="40.15.3 Placas de rede com eprom de boot">
+<link href="ch-d-restr.html#s-d-restr-hardware-lilo" rel="subsection" title="40.15.4 Protegendo o LILO">
+<link href="ch-d-restr.html#s-d-restr-hardware-harddisk" rel="subsection" title="40.15.5 Disco rígido">
+<link href="ch-d-cripto.html#s-d-cripto-sniffer-detect" rel="subsection" title="41.2.1 Detectando a presença de sniffers">
+<link href="ch-d-cripto.html#s-d-cripto-http" rel="subsection" title="41.3.1 http">
+<link href="ch-d-cripto.html#s-d-cripto-emails" rel="subsection" title="41.3.2 Transmissão segura de e-mails">
+<link href="ch-d-cripto.html#s-d-cripto-pop3" rel="subsection" title="41.3.3 Servidor pop3">
+<link href="ch-d-cripto.html#s-d-cripto-ftp" rel="subsection" title="41.3.4 Transferência de arquivos">
+<link href="ch-d-cripto.html#s-d-cripto-rlogin" rel="subsection" title="41.3.5 login remoto">
+<link href="ch-d-cripto.html#s-d-cripto-irc" rel="subsection" title="41.3.6 Bate papo via IRC">
+<link href="ch-d-cripto.html#s-d-cripto-icq" rel="subsection" title="41.3.7 Transmissão de mensagens via ICQ">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-pacote" rel="subsection" title="41.5.1 Instalando o PGP">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-criando" rel="subsection" title="41.5.2 Criando um par de chaves pública/privada">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-e" rel="subsection" title="41.5.3 Encriptando dados">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-d" rel="subsection" title="41.5.4 Decriptando dados com o gpg">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-a" rel="subsection" title="41.5.5 Assinando arquivos">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-a-c" rel="subsection" title="41.5.6 Checando assinaturas">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-e" rel="subsection" title="41.5.7 Extraindo sua chave pública do chaveiro">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-a" rel="subsection" title="41.5.8 Adicionando chaves públicas ao seu chaveiro pessoal">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-l" rel="subsection" title="41.5.9 Listando chaves de seu chaveiro">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-d" rel="subsection" title="41.5.10 Apagando chaves de seu chaveiro">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-chpasswd" rel="subsection" title="41.5.11 Mudando sua FraseSenha">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-sign" rel="subsection" title="41.5.12 Assinando uma chave digital">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-sign-l" rel="subsection" title="41.5.13 Listando assinaturas digitais">
+<link href="ch-d-cripto.html#s-d-cripto-gpg-c-sign-guia" rel="subsection" title="41.5.14 Recomendações para a assinatura de chaves gpg">
+<link href="ch-aplic.html#s-aplic-b-editores" rel="subsection" title="42.1.1 Editores de Texto">
+<link href="ch-aplic.html#s-aplic-b-escritorio" rel="subsection" title="42.1.2 Aplicativos para Escritório">
+<link href="ch-aplic.html#s-aplic-b-internet" rel="subsection" title="42.1.3 Internet">
+<link href="ch-aplic.html#s-aplic-b-emuladores" rel="subsection" title="42.1.4 Emuladores">
+<link href="ch-aplic.html#s-aplic-b-utils" rel="subsection" title="42.1.5 Utilitários">
+<link href="ch-aplic.html#s-aplic-b-admin" rel="subsection" title="42.1.6 Administração do Sistema">
+<link href="ch-aplic.html#s-aplic-l-perifericos" rel="subsection" title="42.2.1 Periféricos / Gerenciamento de Hardware">
+<link href="ch-aplic.html#s-aplic-l-internet" rel="subsection" title="42.2.2 Internet">
+<link href="ch-aplic.html#s-aplic-l-conferencia" rel="subsection" title="42.2.3 Conferência de audio/vídeo via Internet/Intranet">
+<link href="ch-aplic.html#s-aplic-l-webhtml" rel="subsection" title="42.2.4 Gerenciamento de WebSites / Linguagem HTML">
+<link href="ch-aplic.html#s-aplic-l-multimidia" rel="subsection" title="42.2.5 Multimídia">
+<link href="ch-aplic.html#s-aplic-l-som" rel="subsection" title="42.2.6 Som">
+<link href="ch-aplic.html#s-aplic-l-comm" rel="subsection" title="42.2.7 Comunicação/Fax">
+<link href="ch-aplic.html#s-aplic-l-x11" rel="subsection" title="42.2.8 X Window">
+<link href="ch-aplic.html#s-aplic-l-edicao" rel="subsection" title="42.2.9 Editoração Gráfica/Visualizadores">
+<link href="ch-aplic.html#s-aplic-l-emul" rel="subsection" title="42.2.10 Emuladores/Ferramentas p/ Interação com outros SO">
+<link href="ch-aplic.html#s-aplic-l-prog" rel="subsection" title="42.2.11 Programação / Bancos de Dados / Acesso a Dados">
+<link href="ch-aplic.html#s-aplic-l-impressao" rel="subsection" title="42.2.12 Impressão">
+<link href="ch-aplic.html#s-aplic-l-texto" rel="subsection" title="42.2.13 Texto">
+<link href="ch-aplic.html#s-aplic-l-kernel" rel="subsection" title="42.2.14 Kernel">
+<link href="ch-aplic.html#s-aplic-l-notebooks" rel="subsection" title="42.2.15 Notebooks">
+<link href="ch-aplic.html#s-aplic-l-cdrec" rel="subsection" title="42.2.16 Gravação de CD/DVD">
+<link href="ch-aplic.html#s-aplic-l-cluster" rel="subsection" title="42.2.17 Computação Paralela/Clusters">
+<link href="ch-aplic.html#s-aplic-l-handhelds" rel="subsection" title="42.2.18 PalmTop / Palm Pilot / Computadores de Mão">
+<link href="ch-aplic.html#s-aplic-l-backup" rel="subsection" title="42.2.19 Backup">
+<link href="ch-aplic.html#s-aplic-l-uteis" rel="subsection" title="42.2.20 Utilitários">
+<link href="ch-aplic.html#s-aplic-l-compactadores" rel="subsection" title="42.2.21 Compactadores/Descompactadores/Arquivadores">
+<link href="ch-aplic.html#s-aplic-l-x10" rel="subsection" title="42.2.22 Dispositivos X-10 (Controle de eletrodomésticos e aparelhos via PC)">
+<link href="ch-aplic.html#s-aplic-l-outros" rel="subsection" title="42.2.23 Outros">
+<link href="ch-ajuda.html#s-ajuda-paginas" rel="subsection" title="43.11.1 Páginas Internet de Referência">
+<link href="ch-ajuda.html#s-ajuda-redes-sociais" rel="subsection" title="43.11.2 Redes sociais">
+<link href="ch-ajuda.html#s-ajuda-listas" rel="subsection" title="43.11.3 Listas de discussão">
+<link href="ch-ajuda.html#s-ajuda-netiqueta-geral" rel="subsection" title="43.12.1 Recomendações Gerais sobre a Comunicação Eletrônica">
+<link href="ch-ajuda.html#s-ajuda-netiqueta-email" rel="subsection" title="43.12.2 Email">
+<link href="ch-ajuda.html#s-ajuda-netiqueta-icq" rel="subsection" title="43.12.3 ICQ/Google Hangout/FaceBook Messenger/WhatsApp/Telegram/Jabber/Skype">
+<link href="ch-ajuda.html#s-ajuda-netiqueta-talk" rel="subsection" title="43.12.4 Talk">
+<link href="ch-ajuda.html#s-ajuda-netiqueta-listas" rel="subsection" title="43.12.5 Listas de Discussão via Email">
+<link href="ch-systemd.html#s-s-systemd-sysvinit" rel="subsection" title="44.1.1 sysvinit">
+<link href="ch-systemd.html#s-s-systemd-upstart" rel="subsection" title="44.1.2 upstart">
+<link href="ch-systemd.html#s-s-systemd-systemd" rel="subsection" title="44.1.3 systemd">
+<link href="ch-systemd.html#s-s-systemd-polemicas" rel="subsection" title="44.1.4 As polêmicas em torno do systemd">
+<link href="ch-systemd.html#s-s-systemd-systemctl" rel="subsection" title="44.2.1 systemctl">
+<link href="ch-systemd.html#s-s-systemd-journalctl" rel="subsection" title="44.2.2 journalctl">
+<link href="ch-systemd.html#s-s-systemd-runlevel" rel="subsection" title="44.2.3 Mudando o runlevel com systemd (ou como dar boot em &quot;single mode&quot;)">
+<link href="ch-virt-intro.html#s-virt-lxc-creation" rel="subsection" title="46.4.1 Criando um convidado LXC">
+
+</head>
+
+<body>
+
+<p><a name="ch-d-restr"></a></p>
+<hr>
+
+<p>
+[ <a href="ch-s-samba.html">anterior</a> ]
+[ <a href="index.html#contents">Conteúdo</a> ]
+[ <a href="ch-intro.html">1</a> ]
+[ <a href="ch-bas.html">2</a> ]
+[ <a href="ch-hardw.html">3</a> ]
+[ <a href="ch-d-l.html">4</a> ]
+[ <a href="ch-disc.html">5</a> ]
+[ <a href="ch-boot.html">6</a> ]
+[ <a href="ch-run.html">7</a> ]
+[ <a href="ch-cmdd.html">8</a> ]
+[ <a href="ch-cmd.html">9</a> ]
+[ <a href="ch-cmdv.html">10</a> ]
+[ <a href="ch-cmdn.html">11</a> ]
+[ <a href="ch-cmdc.html">12</a> ]
+[ <a href="ch-perm.html">13</a> ]
+[ <a href="ch-redir.html">14</a> ]
+[ <a href="ch-rede.html">15</a> ]
+[ <a href="ch-cfgrede.html">16</a> ]
+[ <a href="ch-kern.html">17</a> ]
+[ <a href="ch-log.html">18</a> ]
+[ <a href="ch-cpctd.html">19</a> ]
+[ <a href="ch-deb.html">20</a> ]
+[ <a href="ch-dpkg.html">21</a> ]
+[ <a href="ch-pers.html">22</a> ]
+[ <a href="ch-impr.html">23</a> ]
+[ <a href="ch-cfg.html">24</a> ]
+[ <a href="ch-tasks.html">25</a> ]
+[ <a href="ch-compil.html">26</a> ]
+[ <a href="ch-manut.html">27</a> ]
+[ <a href="ch-etc.html">28</a> ]
+[ <a href="ch-inter.html">29</a> ]
+[ <a href="ch-x11.html">30</a> ]
+[ <a href="ch-fw-iptables.html">31</a> ]
+[ <a href="ch-d-contas.html">32</a> ]
+[ <a href="ch-s-apache.html">33</a> ]
+[ <a href="ch-s-ident.html">34</a> ]
+[ <a href="ch-s-telnet.html">35</a> ]
+[ <a href="ch-s-ssh.html">36</a> ]
+[ <a href="ch-s-pop3.html">37</a> ]
+[ <a href="ch-s-cvs.html">38</a> ]
+[ <a href="ch-s-samba.html">39</a> ]
+[ 40 ]
+[ <a href="ch-d-cripto.html">41</a> ]
+[ <a href="ch-aplic.html">42</a> ]
+[ <a href="ch-ajuda.html">43</a> ]
+[ <a href="ch-systemd.html">44</a> ]
+[ <a href="ch-git.html">45</a> ]
+[ <a href="ch-virt-intro.html">46</a> ]
+[ <a href="ch-apend.html">47</a> ]
+[ <a href="ch-d-cripto.html">próximo</a> ]
+</p>
+
+<hr>
+
+<h1>
+Guia Foca GNU/Linux
+<br>Capítulo 40 - Restrições de acesso, recursos e serviços
+</h1>
+
+<hr>
+
+<p>
+Este capítulo documenta diversos métodos de fazer restrições de contas,
+limitação de acesso interno/externo, de recursos por usuários/grupos, login,
+tempo máximo ocioso, e outros modos para limitar o uso de recursos do sistema.
+Também são descritos métodos para aumentar a segurança do acesso físico a
+seu servidor e maneiras de restringir o uso de serviços disponíveis no
+sistema.
+</p>
+
+<p>
+Se você deseja restringir o acesso de máquinas na rede ou portas específicas
+em sua máquina , veja também <a href="ch-fw-iptables.html">Firewall iptables,
+Capítulo 31</a> .
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-bash">40.1 Limitando recursos no <code>bash</code></h2>
+
+<hr>
+
+<h3 id="s-d-restr-bash-readonly">40.1.1 Uso do comando readonly para exportar variáveis</h3>
+
+<p>
+Variáveis exportadas na forma comum podem ser modificadas a qualquer momento
+pelo usuário, e isso pode trazer problemas de acordo com o tipo de sistema que
+administramos.  A definição da variável como somente leitura (readonly)
+evita a maioria destes problemas:
+</p>
+
+<pre>
+     readonly TESTE=&quot;123&quot;
+</pre>
+
+<p>
+A variável <var>TESTE</var> não poderá ser modificada ou excluída.  Com
+isto o administrador pode &quot;bloquear&quot; a modificação de variáveis
+que controlam o funcionamento de determinados recursos do interpretador de
+comandos (alguns deles serão vistos ainda nesta seção).
+</p>
+
+<p>
+<strong>OBS1:</strong> Algumas variáveis de controle de ambientes ambiente do
+interpretador de comandos já são iniciadas com valores somente leitura (como
+as variáveis <var>EUID</var> e <var>PPID</var>)
+</p>
+
+<p>
+<strong>OBS2:</strong> Variáveis exportadas como somente leitura em shell
+scripts são mantidas até a finalização do script e depois liberadas.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-homedir">40.1.2 Restrições nos diretórios de usuários e root</h3>
+
+<p>
+O controle de acesso a diretórios de usuários é importante quando desejamos
+que outras pessoas não tenham acesso ao diretório de outros usuários,
+violando a privacidade do mesmo e obtendo acesso a partes indesejáveis,
+principalmente do usuário <samp>root</samp>.  É recomendado restringir o
+acesso somente ao <samp>dono</samp> e <samp>grupo</samp> do usuário,
+bloqueando o acesso a outros tipos de usuários:
+</p>
+
+<pre>
+     chmod 2750 /root
+     chmod 2750 /home/usuario
+</pre>
+
+<p>
+O exemplo acima permitirá o acesso do diretório <code>/root</code> e
+<code>/home/usuario</code> somente ao usuário e grupo que pertencem.  Este
+processo pode ser facilitado na criação dos diretórios de usuários em
+<code>/home</code> especificando a variável: <var>DIR_MODE=0750</var> no
+arquivo <code>/etc/adduser.conf</code>.
+</p>
+
+<p>
+<strong>OBS:</strong> Algumas distribuições de <code>Linux</code> garantem o
+acesso livre a diretórios de usuários por padrão pois alguns daemons que
+requerem acesso a diretório de usuários rodam sob outros usuários ao invés
+do root.  Um bom exemplo é a utilização do recurso &quot;UserDir&quot; do
+<code>Apache</code> para servir requisições como
+<code>http://servidor.org/~usuario</code>.
+</p>
+
+<p>
+A restrição de diretório home neste caso bloqueará o acesso do servidor web
+<code>Apache</code> ao diretório <code>/home/usuario/public_html</code>.
+Mesmo assim, uma alternativa para garantir a utilização da restrição é
+incluir o usuário do servidor web <code>Apache</code> (<samp>www-data</samp>)
+no grupo &quot;usuario&quot; (que possui acesso ao diretório
+<code>/home/usuario</code>):
+</p>
+
+<pre>
+     adduser www-data usuario
+</pre>
+
+<p>
+Isto garantirá que o servidor <code>Apache</code> continue servindo as
+requisições dentro do diretório <code>/home/usuario</code>, com acesso
+garantido via grupo.  O mesmo principio pode ser aplicado em outros programas,
+apenas leve em consideração que se um cracker tomar conta do processo que tem
+acesso ao seu diretório home restrito, ele certamente também terá acesso.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-bash-restricted">40.1.3 Restrições básicas do shell bash com bash -r/--restricted, rbash</h3>
+
+<p>
+Quando o <code>bash</code> é iniciado com o parâmetro <samp>-r</samp>,
+<samp>--restricted</samp> ou como <code>rbash</code>, o shell restringe o uso
+dos seguintes recursos em sua seção:
+</p>
+<ul>
+<li>
+<p>
+Usar o comando <code>cd</code> para mudar de diretório.
+</p>
+</li>
+<li>
+<p>
+Definindo, modificar ou apagar a variáveis <var>SHELL</var>, <var>PATH</var>,
+<var>ENV</var>, <var>BASH_ENV</var>.
+</p>
+</li>
+<li>
+<p>
+Nomes de comandos que contém <code>/</code>
+</p>
+</li>
+<li>
+<p>
+Especificar um nome de arquivo contendo uma <code>/</code> como argumento para
+o comando <code>builtin</code> (embutido no interpretador de comandos).
+</p>
+</li>
+<li>
+<p>
+Especificar uma <code>/</code> como argumento a opção <em>-p</em> no comando
+<code>hash</code> (embutido no interpretador de comandos).
+</p>
+</li>
+<li>
+<p>
+Importar a definição de funções do ambiente do shell atual.
+</p>
+</li>
+<li>
+<p>
+Analisar o valor da variável <var>SHELLOPTS</var> do ambiente do shell atual.
+</p>
+</li>
+<li>
+<p>
+Redirecionando a saída padrão usando os operadores de redirecionamento
+<samp>&gt;</samp>, <samp>&gt;|</samp>, <samp>&lt;&gt;</samp>,
+<samp>&gt;&amp;</samp>, <samp>&amp;&gt;</samp>; e <samp>&gt;&gt;</samp>.
+</p>
+</li>
+<li>
+<p>
+Usando o comando embutido <code>exec</code> para substituir o shell por outro
+comando.
+</p>
+</li>
+<li>
+<p>
+Usar as opções <em>-f</em> ou <em>-d</em> com o comando <code>enable</code>
+(embutido no interpretador de comandos).
+</p>
+</li>
+<li>
+<p>
+Especificar a opção <em>-p</em> ao comando interno <code>command</code>.
+</p>
+</li>
+<li>
+<p>
+Desativar o modo restrito com <samp>set +r</samp> ou <samp>set +o
+restricted</samp> *
+</p>
+</li>
+</ul>
+
+<p>
+Estas restrições são ativadas após a leitura dos arquivos de
+inicialização do interpretador de comandos.  O shell restrito desliga as
+restrições quando um shell script é executado.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-bash-logoutocioso">40.1.4 Finalizando consoles inativos</h3>
+
+<p>
+A variável <var>TMOUT</var> determina o tempo de inatividade de um shell para
+que ele seja terminado.
+</p>
+
+<pre>
+     export TMOUT=600
+</pre>
+
+<p>
+Terminará o <code>bash</code> caso nenhum comando seja executado no período
+de 600 segundos (5 minutos).  Veja <a href="#s-d-restr-bash-readonly">Uso do
+comando readonly para exportar variáveis, Seção 40.1.1</a> como complemento.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-bash-logging">40.1.5 Desabilitando o registro de comandos digitados</h3>
+
+<p>
+Todos os comandos que digitamos em uma seção do shell são registrados no
+arquivo <code>~/.bash_history</code>, as seguintes variáveis fazem seu
+controle:
+</p>
+<ul>
+<li>
+<p>
+<var>HISTFILE</var> - Nome do arquivo que armazenará o histórico de comandos.
+O padrão é <code>~/.bash_history</code>.  Caso não seja especificado, os
+comandos não serão gravados após finalizar o shell.
+</p>
+</li>
+<li>
+<p>
+<var>HISTSIZE</var> - Define o número de comandos que o arquivo de histórico
+poderá armazenar, o padrão é 500.
+</p>
+</li>
+<li>
+<p>
+<var>HISTFILESIZE</var> - Define o número máximo de linhas no arquivo de
+histórico.
+</p>
+</li>
+</ul>
+
+<p>
+Se você possui muitos usuários em seu sistema, é recomendado ajustar estas
+variáveis como somente leitura para que o usuário não desative o logging por
+qualquer motivo (veja <a href="#s-d-restr-bash-readonly">Uso do comando
+readonly para exportar variáveis, Seção 40.1.1</a>).
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-bash-desshell">40.1.6 Desabilitando serviços de shell para usuários</h3>
+
+<p>
+Existem casos onde o usuário precisa estar cadastrado no sistema mas não
+precisa ter acesso a uma conta de login válida (como um sistema servidor de
+e-mail ou outros serviços).  Neste caso a desabilitação dos serviços de
+shell aumentará um pouco a segurança do sistema, mesmo conseguindo acesso a
+conta/senha estará impedido de entrar no sistema (pelo menos terá um pouco
+mais dificuldade para conseguir isso).
+</p>
+
+<p>
+Um programa que é muito usado para desabilitar o shell exibindo uma mensagem
+ao usuário que fez a tentativa é o <code>falselogin</code>.  Ele deve ser
+colocado como o &quot;shell padrão&quot; no arquivo <code>/etc/passwd</code> e
+exibirá a mensagem contida no arquivo <code>/etc/falselogin.conf</code> quando
+o login para aquele usuário for tentado.  Esta operação pode ser facilitada
+usando a variável <var>DSHELL=/usr/bin/falselogin</var> no arquivo
+<code>/etc/adduser.conf</code>.
+</p>
+
+<p>
+Uma forma alternativa de desativar o serviço de login de TODOS os usuários
+(exceto o <samp>root</samp> e os já logados no sistema) é criar um arquivo
+chamado <code>/etc/nologin</code> e colocando uma mensagem dentro dele, que
+será exibida quando tentarem efetuar o login no sistema.
+</p>
+
+<p>
+<strong>OBS:</strong> Tome cuidado ao usar esta alternativa, este método deve
+ser usado somente em caso de <strong>EMERGÊNCIA</strong>, as distribuições
+<code>Linux</code> usam este método para bloquear o login de outros usuários
+durante o processo de inicialização, removendo assim que o processo é
+terminado.  Esteja consciente disso.
+</p>
+
+<p>
+Em alguns casos, o uso do PAM pra desabilitar os serviços de login pode ser
+mais adequado (veja <a href="#s-d-restr-pam-login">Restringindo/Bloqueando o
+login, Seção 40.2.3</a>).
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-pam">40.2 Limitação de recursos usando PAM</h2>
+
+<p>
+Plugglable Autentication Modules (Módulos de autenticação plugáveis) são
+um conjunto de bibliotecas usadas para fazer autenticação, gerenciamento de
+contas, controle de recursos dos usuários no sistema, em adição ao
+tradicional sistema de acesso baseado em usuários/grupos.  Este recurso
+permite modificar a forma que um aplicativo autentica e define recursos para o
+usuário sem necessidade de recompilar o aplicativo principal.  Os recursos que
+desejamos controlar restrições via PAM são especificados individualmente por
+serviços nos arquivos correspondentes em <code>/etc/pam.d</code> e então os
+arquivos correspondentes em <code>/etc/security</code> são usados para
+controlar tais restrições.
+</p>
+
+<p>
+Nesta seção assumirei explicações dirigidas aos recursos controlados pelos
+arquivos em <code>/etc/security</code> A maioria das explicações são
+baseadas em testes e nos próprios exemplos dos arquivos de configuração do
+PAM.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-pam-suporte">40.2.1 Descobrindo se um determinado programa tem suporte a PAM</h3>
+
+<p>
+Um método simples de se determinar se um programa binário possui suporte a
+PAM é executando o comando:
+</p>
+
+<pre>
+     ldd [programa]
+</pre>
+
+<p>
+Por exemplo:
+</p>
+
+<pre>
+     ldd /bin/login
+     
+     libcrypt.so.1 =&gt; /lib/libcrypt.so.1 (0x4001c000)
+     libpam.so.0 =&gt; /lib/libpam.so.0 (0x40049000)
+     libpam_misc.so.0 =&gt; /lib/libpam_misc.so.0 (0x40051000)
+     libdl.so.2 =&gt; /lib/libdl.so.2 (0x40054000)
+     libc.so.6 =&gt; /lib/libc.so.6 (0x40058000)
+     /lib/ld-linux.so.2 =&gt; /lib/ld-linux.so.2 (0x40000000)
+</pre>
+
+<p>
+Caso a biblioteca <code>libpam</code> for listada, o programa tem suporte a PAM
+compilado.  Programas que não possuem suporte a PAM deverão ter o código
+fonte modificado inserindo as funções para tratamento dos módulos de
+autenticação.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-pam-policy">40.2.2 Definindo uma política padrão restritiva</h3>
+
+<p>
+A política padrão do PAM é especificado em <code>/etc/pam.d/other</code> e
+define o que acontecerá caso nenhum dos arquivos de controle de serviço em
+<code>/etc/pam.d</code> confiram com o serviço em questão.  Normalmente o
+módulo <code>pam_unix.so</code> é usado para fazer a política padrão, para
+deixar o sistema mais seguro, utilize a seguinte configuração no arquivo
+<code>/etc/pam.d/other</code>:
+</p>
+
+<pre>
+     auth     required       /usr/lib/security/pam_warn.so
+     auth     required       /usr/lib/security/pam_deny.so
+     account  required       /usr/lib/security/pam_deny.so
+     password required       /usr/lib/security/pam_warn.so
+     password required       /usr/lib/security/pam_deny.so
+     session  required       /usr/lib/security/pam_deny.so
+</pre>
+
+<p>
+O módulo <code>pam_deny.so</code> é responsável por fazer o bloqueio, e o
+<code>pam_warn</code> envia avisos ao <code>syslog</code> (facilidade
+<em>auth</em> nível <em>notice</em>) caso serviços módulos PAM que
+necessitem do serviço de autenticação sejam bloqueados (isto não é feito
+automaticamente pelo <code>pam_deny.so</code>).
+</p>
+
+<p>
+<strong>OBS:</strong> Esta configuração poderá causar bloqueio em muitas
+coisas caso possua módulos de autenticação mau configurados.  Esteja certo
+de utilizar o módulo <code>pam_warn.so</code> (antes do
+<code>pam_deny.so</code>) nas diretivas restritivas para entender qual é o
+problema através da análise dos arquivos de logs.
+</p>
+
+<p>
+Mais detalhes sobre a configuração de módulos de autenticação poderão ser
+encontrados no endereço <code><a
+href="ftp://ftp.us.kernel.org/pub/linux/libs/pam/Linux-PAM-html/pam.html">ftp://ftp.us.kernel.org/pub/linux/libs/pam/Linux-PAM-html/pam.html</a></code>
+e <code><a
+href="http://www.kernel.org/pub/linux/libs/pam/pre/doc/rfc86.0.txt.gz">http://www.kernel.org/pub/linux/libs/pam/pre/doc/rfc86.0.txt.gz</a></code>.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-pam-login">40.2.3 Restringindo/Bloqueando o login</h3>
+
+<p>
+Isto é controlado pelo arquivo <code>/etc/security/access.conf</code>.  O
+formato deste arquivo consistem em três campos separados por &quot;:&quot;:
+</p>
+<ul>
+<li>
+<p>
+<samp>Primeiro campo</samp> - Garante (&quot;+&quot;) ou bloqueia
+(&quot;-&quot;) o acesso caso as condições nos outros campos confiram.
+</p>
+</li>
+<li>
+<p>
+<samp>Segundo campo</samp> - Contém o login, grupo.  O formato
+<em>usuário@computador</em> pode ser usado para conferir com usuários que
+acessam de determinadas máquinas.  Caso existam mais de um parâmetro, estes
+devem ser separados usando espaços.  As palavras chave <samp>ALL</samp>
+(todos) e <samp>EXCEPT</samp> (exceção) e console também podem ser usadas.
+</p>
+</li>
+<li>
+<p>
+<samp>Terceiro campo</samp> - Lista de terminais (tty - na forma listada pelo
+<code>ttyname</code>), nomes de máquinas, nomes de domínios (começando com
+&quot;.&quot;), endereços IP ou FQDN, porção de rede (finalizando com um
+&quot;.&quot;).  As palavras chave <samp>ALL</samp> (todos) e
+<samp>LOCAL</samp> (máquinas na mesma rede) também podem ser usadas.
+</p>
+</li>
+</ul>
+
+<p>
+<strong>OBS1:</strong> - A configuração padrão do <code>access.conf</code>
+é garantir o acesso a todos os usuários, através de qualquer lugar
+(permissiva).
+</p>
+
+<p>
+<strong>OBS2:</strong>: Mesmo se existir uma regra autorizando o acesso ao
+usuário, as restantes serão verificadas em busca de uma que bloqueie o acesso
+do usuário.  Se nenhuma regra conferir, o usuário terá acesso garantido.
+</p>
+
+<p>
+<strong>OBS3:</strong> - O nome de grupo somente é checado quando nenhum nome
+de usuário confere com nenhum usuário logado no sistema.
+</p>
+
+<p>
+<strong>OBS4:</strong> - Grupos/usuários NIS podem ser especificados
+precedendo o nome do usuário ou grupo por uma &quot;@&quot;.
+</p>
+
+<p>
+Abaixo uma configuração restrita de <code>/etc/security/access.conf</code>:
+</p>
+
+<pre>
+     #
+     # Desabilita o login de todos os usuários EXCETO o root no terminal tty1
+     -:ALL EXCEPT root:tty1
+     
+     # Permite o login no console de todos os usuários especificados.
+     +:gleydson root:console
+     
+     # Conexões vindas da rede *.debian.org e *.debian.org.br de usuários pertencendo 
+     # ao grupo operadores são consideradas seguras (exceto para o usuário root).
+     +:operadores EXCEPT root: .debian.org .debian.org.br
+     
+     # Qualquer outra tentativa de acesso não definida acima é bloqueada imediatamente.
+     -: ALL: ALL
+</pre>
+
+<hr>
+
+<h3 id="s-d-restr-pam-root">40.2.4 Restringindo o acesso a root no su</h3>
+
+<p>
+A restrição de acesso a usuário <samp>root</samp> pelo PAM funciona
+permitindo que somente alguns usuários que pertençam a um grupo criado pelo
+administrador possam se tornar o superusuário usando o comando
+<code>su</code>.  Esta restrição funciona até mesmo para os usuários que
+possuem a senha correta de root, retornando uma mensagem de login ou senha
+incorretos.  Isto é extremamente útil para restrições de acesso.
+</p>
+
+<p>
+Um outro ponto positivo é caso ocorra um possível acesso não autorizado em
+seu sistema ou um daemon seja corrompido e o atacante cair em um shell, ele
+não poderá obter <samp>root</samp> na máquina pois o UID do daemon
+provavelmente não terá autorização.  A distribuição <code>Debian</code>,
+em especial, possui grupos e nomes de usuários organizados de forma a permitir
+segurança e separação total caso utilize este mecanismo.
+</p>
+
+<p>
+Este recurso se mostra bem eficiente para proteger a integridade da máquina
+até mesmo no comprometimento de máquinas que possui a senha semelhante,
+somente se usado em conjunto com as restrições de acesso de outros serviços
+remotos (como o <code>ssh</code>, <code>ftp</code>, etc).  O guia Foca
+documenta as formas de restrição e seu impacto na segurança da máquina nos
+capítulos do nível Avançado (veja o índice para buscar o capítulo
+correspondente ao que deseja proteger).
+</p>
+
+<p>
+Para configurar esta restrição, siga os seguintes passos:
+</p>
+<ul>
+<li>
+<p>
+Crie um grupo onde os usuários cadastrados terão acesso <samp>root</samp>.
+Por exemplo, <samp>usuarios-su</samp> (ou algo mais discreto).
+</p>
+</li>
+<li>
+<p>
+Edite o arquivo <code>/etc/pam.d/su</code>.  Insira a seguinte linha (caso não
+existir) no arquivo de configuração:
+</p>
+<pre>
+     auth       required   pam_wheel.so group=usuarios-su
+</pre>
+<p>
+O que ela faz é usar o módulo <code>pam_wheel.so</code> requerendo que os
+usuários pertençam ao grupo <code>usuarios-su</code>.  Salve e saia do
+editor.
+</p>
+</li>
+<li>
+<p>
+Ainda como usuário <samp>root</samp>, adicione os usuários que terão acesso
+a root no grupo <code>usuarios-su</code>.  Recomendo que adicione seu usuário
+primeiro, principalmente se estiver fazendo acesso remoto, pois se acontecer
+uma queda no link não ficará sem acesso root por cair na restrição :-)
+</p>
+</li>
+<li>
+<p>
+Tente pegar o <samp>root</samp> com outros usuários que não pertençam ao
+grupo <code>usuarios-su</code> estes simplesmente terão o acesso negado.
+</p>
+</li>
+</ul>
+
+<hr>
+
+<h3 id="s-d-restr-pam-time">40.2.5 Restrições de serviços PAM baseados em dia/hora</h3>
+
+<p>
+Estas restrições são controladas pelo arquivo
+<code>/etc/security/time.conf</code>, a sintaxe deste arquivo é quatro campos
+separados por &quot;;&quot;:
+</p>
+<ul>
+<li>
+<p>
+<samp>Primeiro campo</samp> - Nome do serviço PAM que será controlado (um dos
+serviços contidos em <code>/etc/pam.d</code>).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Segundo campo</samp> - Lista de nomes de terminais que a regra que
+aplicará.  O sinal &quot;&amp;&quot; tem a função <em>and</em>,
+&quot;|&quot; tem a função <em>or</em> e &quot;!&quot; especifica uma
+exceção.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Terceiro campo</samp> - Nome de usuários afetados pela regra.  O sinal
+&quot;&amp;&quot; tem a função <em>and</em>, &quot;|&quot; tem a função
+<em>or</em> e &quot;!&quot; especifica uma exceção.
+</p>
+
+<p>
+<strong>OBS:</strong> O &quot;*&quot; poderá ser usado somente no primeiro,
+segundo ou terceiro campo em uma mesma regra.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Quarto campo</samp> - DiaSemana/faixa-de-horas que a restrição se
+aplicará.  O dia da semana é especificado em duas letras:
+</p>
+<ul>
+<li>
+<p>
+<samp>Mo</samp> - Segunda-feira
+</p>
+</li>
+<li>
+<p>
+<samp>Tu</samp> - Terça-feira
+</p>
+</li>
+<li>
+<p>
+<samp>We</samp> - Quarta-feira
+</p>
+</li>
+<li>
+<p>
+<samp>Th</samp> - Quinta-feira
+</p>
+</li>
+<li>
+<p>
+<samp>Fr</samp> - Sexta-feira
+</p>
+</li>
+<li>
+<p>
+<samp>Sa</samp> - Sábado
+</p>
+</li>
+<li>
+<p>
+<samp>Su</samp> - Domingo
+</p>
+</li>
+<li>
+<p>
+<samp>Wk</samp> - Todos os dias da semana
+</p>
+</li>
+<li>
+<p>
+<samp>Wd</samp> - Somente sábado e domingo (fim de semana)
+</p>
+</li>
+<li>
+<p>
+<samp>Al</samp> - Todos os dias
+</p>
+</li>
+</ul>
+
+<p>
+O sinal &quot;!&quot; especifica uma exceção.  A faixa de horas é
+especificada após o dia no formato HHMM-HHMM.  Por exemplo:
+</p>
+
+<pre>
+     MoTuWe0000-2400 - Segundas, terças e quartas 
+     MoFrSu0800-1900- - Segundas, sextas e domingo das 08:00 da manha as 19:00 da noite.
+     FrFr0500-0600 - Não será realizada na sexta (especificações repetidas são anuladas) 
+                     de 05:00 as 06:00.
+     WkWe0731-1456 - Todos os dias da semana a partir de Quarta de 07:31 da manhã as 
+                     14:56 da tarde.
+     AlMo0000-2400 - Todos os dias da semana, exceto segunda-feira.
+</pre>
+</li>
+</ul>
+
+<p>
+Por padrão o acesso é garantido a todos os usuários.  Abaixo um exemplo de
+restrições usando o <code>/etc/security/time.conf</code>:
+</p>
+
+<pre>
+     # Bloqueia o login do usuário user1 ou user2 em qualquer tty, a restrição 
+     # durante todos os dias de 00:00 as 06:30
+     login;tty*;user1|user2;!Al0000-0630
+     
+     # Bloqueia o acesso do usuário root ao serviço login nos terminais tty* 
+     # (e não nos terminais ttyp*) nos finais de semana.
+     login;tty* &amp; !ttyp*;root;!Wd0000-2400
+     
+     # O usuário 1 não poderá efetuar o login as terças feiras de 00:00 as 06:00
+     login;!tty*;user1;Tu0000-0600
+</pre>
+
+<p>
+<strong>OBS1:</strong> Mesmo se existir uma regra autorizando o acesso ao
+usuário, as restantes serão verificadas em busca de uma que bloqueie o acesso
+do usuário.  Se nenhuma regra conferir, o usuário terá acesso garantido.
+</p>
+
+<p>
+<strong>OBS2:</strong> Quando as restrições de tempo são ativadas no
+<code>/etc/security/time.conf</code>, o daemon <code>logoutd</code> poderá ser
+ativado manualmente (através de <code>/etc/init.d/logoutd</code>) para
+monitora as restrições neste arquivo, forçando o logout de usuário de
+acordo com as configurações do <code>/etc/security/time.conf</code>.  Isto
+ocorrerá automaticamente na próxima vez que iniciar o sistema (a
+distribuição detecta a presença de restrições de tempo no arquivo
+<code>/etc/security/time.conf</code> para decidir se deve ou não carregar este
+daemon).
+</p>
+
+<p>
+Quando não está em execução, os limites de tempo são verificados somente
+no login do usuário, ele poderá ultrapassar este tempo sem ser desconectado
+do sistema.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-pam-group">40.2.6 Permitindo acesso a grupos extras</h3>
+
+<p>
+Este recurso é controlado pelo arquivo <code>/etc/security/group.conf</code>.
+Este arquivo é composto por 5 campos separados por &quot;;&quot; (os 4
+primeiros são os mesmos explicados em <a
+href="#s-d-restr-pam-time">Restrições de serviços PAM baseados em dia/hora,
+Seção 40.2.5</a>.  O 5o campo contém um ou mais grupos (separados por
+espaços ou vírgulas) que serão adicionados aos grupos do usuário quando as
+condições dos campos anteriores conferirem.
+</p>
+
+<p>
+<strong>OBS:</strong> Se o usuário escrever um programa que chama um
+interpretador de comandos e der a permissão SGID (chmod g+s programa), ele
+terá acesso àquele grupo na hora que quiser.  Restrinja o uso de grupos
+somente a usuários de confiança ou crie grupos específicos para evitar
+problemas.
+</p>
+
+<p>
+Exemplo de configuração do arquivo <code>/etc/security/group.conf</code>:
+</p>
+
+<pre>
+     # Permite que o usuário gleydson tenha acesso ao grupo floppy efetuando o login
+     # entre 08:00 da manha e 19:00 da noite
+     login;tty*;gleydson;Al0800-1900;floppy
+     
+     # Todos os usuários podem ter acesso ao grupo games e sound aos sábados e domingos
+     login;tty*;*;SaSu0000-2400;sound games
+     
+     # Todos os usuários podem ter acesso ao grupo games e sound todos os dias 
+     # de 18:00 as 05:00 da manhã (fora do horário de expediente ;-)
+     login;tty*;*;Al1800-0500;sound,games
+     
+     # Backups são permitidos fora do horário de expediente (para não sobrecarregar 
+     # a CPU e evitar o uso excessivo de disco). 
+     login;tty*;gleydson;Al1830-2400;backup
+</pre>
+
+<p>
+<strong>OBS1:</strong> Mesmo que uma regra confira com o usuário, as outras
+também serão verificadas para garantir acesso grupos extras.
+</p>
+
+<p>
+<strong>OBS2:</strong> O padrão na maioria das distribuições é limitar o
+número máximo de grupos do usuário para 32.  Caso precise aumentar este
+limite, será necessário recompilar o kernel (e também a glibc, se
+necessário) para aceitar um número maior modificando a variável
+<var>ngroup</var>.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-pam-limits">40.2.7 Limitação de recursos do shell</h3>
+
+<p>
+Estas restrições são especificadas no arquivo
+<code>/etc/security/limits.conf</code>.  Seu formato consiste em 4 campos
+separados por ou ou mais espaços:
+</p>
+<ul>
+<li>
+<p>
+<samp>Primeiro campo</samp> - Especifica o nome de usuário, um nome de grupo
+(@grupo) ou um &quot;*&quot; especificando que as restrições nos outros
+campos se aplicam a todos os grupos e todos os usuários.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Segundo campo</samp> - Tipo de restrição:
+</p>
+<ul>
+<li>
+<p>
+<samp>soft</samp> - Limite suave de bloqueio.
+</p>
+</li>
+<li>
+<p>
+<samp>hard</samp> - Limite rígido de bloqueio.
+</p>
+</li>
+<li>
+<p>
+<samp>-</samp> - Quando o tipo de restrição não se aplica ao Ítem que
+deseja restringir o acesso.
+</p>
+</li>
+</ul>
+
+<p>
+Quando somente o limite &quot;hard&quot; (rígido) é especificado, o limite
+suave assume o mesmo valor.
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Terceiro campo</samp> - Ítem que deseja restringir o acesso:
+</p>
+<ul>
+<li>
+<p>
+<samp>core</samp> - Limita o tamanho do arquivo core (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>data</samp> - Tamanho máximo de arquivo de dados (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>fsize</samp> - Tamanho máximo de arquivo (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>memlock</samp> - Tamanho máximo do espaço de endereços bloqueado na
+memória (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>nofile</samp> - Número máximo de arquivos abertos
+</p>
+</li>
+<li>
+<p>
+<samp>rss</samp> - Tamanho máximo residente (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>stack</samp> - Tamanho máximo da pilha (KB)
+</p>
+</li>
+<li>
+<p>
+<samp>cpu</samp> - Tempo máximo de uso da CPU (MIN)
+</p>
+</li>
+<li>
+<p>
+<samp>nproc</samp> - Número máximo de processos
+</p>
+</li>
+<li>
+<p>
+<samp>as</samp> - Limite de espaço de endereços
+</p>
+</li>
+<li>
+<p>
+<samp>maxlogins</samp> - Número máximo de logins
+</p>
+</li>
+<li>
+<p>
+<samp>priority</samp> - Prioridade de execução de processos de usuários
+</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+<samp>Quarto campo</samp> - Especifica o valor do campo anterior
+</p>
+</li>
+</ul>
+
+<p>
+Os limites aplicados ao usuário podem ser visualizados através do comando
+<samp>ulimit -S -a</samp> (para listar limites suaves - soft) e <samp>ulimit -H
+-a</samp> (para listar limites rígidos - hard).  Caso o parâmetro <em>-S</em>
+ou <em>-H</em> sejam omitidos, os limites listados serão os suaves (soft).  Um
+exemplo de <code>/etc/security/limits.conf</code> (retirado da distribuição
+<code>Debian GNU/Linux</code>:
+</p>
+
+<pre>
+     *               soft    core            0
+     *               hard    rss             10000
+     @student        hard    nproc           20
+     @faculty        soft    nproc           20
+     @faculty        hard    nproc           50
+     ftp             hard    nproc           0
+     @student        -       maxlogins       4
+     gleydson        -       maxlogins       2
+</pre>
+
+<p>
+<strong>OBS:</strong> Estas permissões passam a ter efeito no momento que o
+usuário se conecta ao sistema, e não quando elas são modificadas no arquivo
+<code>/etc/security/limits.conf</code>.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-grupos">40.3 Restrições de acesso a programas/diretórios/arquivos usando grupos</h2>
+
+<p>
+Usuários podem ter o acesso liberado a diretórios/arquivos execução de
+programas de acordo com o grupo que pertencem.  Este é um recurso valioso na
+administração de sistemas <code>Unix</code> que se bem usado, aumenta as
+restrições de acesso e segurança no acesso/utilização de programas em um
+ambiente de trabalho.  Usuários de sistema tendem a usar o usuário
+<samp>root</samp> para fazer tarefas como conexão com internet, utilização
+da placa de som, modem, etc.  e as vezes nem sabem que isso pode ser feito
+através do mesmo usuário adicionando este a um grupo específico.
+</p>
+
+<p>
+Esta tarefa pode ser feita com o comando <samp>adduser usuário grupo</samp> ou
+editando manualmente os arquivos <code>/etc/group</code> e
+<code>/etc/gshadow</code>.  Podemos ter as seguintes situações facilitadas
+com o uso de grupos:
+</p>
+<ul>
+<li>
+<p>
+Usar a placa de som.  Os dispositivos usados pela placa de som como
+<code>/dev/audio</code>, <code>/dev/dsp</code>, <code>/dev/sndstat</code>, etc.
+normalmente tem permissão leitura/gravação para o usuário <samp>root</samp>
+e grupo <samp>audio</samp> (cheque com o comando <samp>ls -la
+/dev/audio</samp>).  Para autorizar determinados usuários usar a placa de som
+basta adiciona-los neste grupo: <samp>adduser usuario audio</samp>.
+</p>
+</li>
+<li>
+<p>
+Conectar a Internet.  Normalmente o utilitário ppp tem as permissões SUID
+<samp>root</samp> e grupo <samp>dip</samp>.  Adicionamos o usuário a este
+grupo: <samp>adduser usuario dip</samp>.  Agora ele poderá
+conectar/desconectar a internet sem a intervenção do usuário
+<samp>root</samp>.
+</p>
+<p>
+<strong>OBS</strong> Certamente o usuário terá acesso aos arquivos de
+configuração da discagem do <code>ppp</code> e conseqüentemente a senha de
+conexão internet, e esta senha é a mesma usada no e-mail primário do
+provedor (com o mesmo nome da conta).  Esta mesma situação pode acontecer com
+outros programas que autorize o acesso a grupos, é importante que conheça bem
+as permissões do programa e entender se existem riscos.
+</p>
+</li>
+<li>
+<p>
+Utilizar o modem.  Um bom grupo para permitir a utilização do modem é
+<samp>dialout</samp>.  O dispositivo utilizado pelo modem (não seu link) deve
+ter permissões leitura/gravação para o usuário <samp>root</samp> e grupo
+<samp>dialout</samp>.  Cadastrando o usuário neste grupo autorizará a
+utilização do modem: <samp>adduser usuario dialout</samp>.
+</p>
+</li>
+<li>
+<p>
+Permitir que diversos usuários compartilhem um mesmo diretório.  Isto é
+útil quando muitas pessoas estão desenvolvendo um mesmo projeto.  Siga estes
+passos:
+</p>
+<ul>
+<li>
+<p>
+Crie um novo grupo no sistema: <code>groupadd gp1</code>, a opção <em>-g</em>
+permite selecionar manualmente a GID.  Opcionalmente você poderá usar um
+grupo já existente no sistema (veja o arquivo <code>/etc/group</code>).
+</p>
+</li>
+<li>
+<p>
+Crie o diretório que será usado para armazenar os arquivos deste grupo de
+usuários: <code>mkdir projeto1</code>).
+</p>
+</li>
+<li>
+<p>
+Mude o dono/grupo do diretório: <samp>chown root.gp1 projeto1/</samp>
+</p>
+</li>
+<li>
+<p>
+De permissões de leitura/gravação para o dono/grupo do diretório, vamos
+também incluir a permissão SGID para que todos os arquivos criados dentro
+deste diretório pertençam ao mesmo grupo e não ao grupo primário do
+usuário, assim todos os usuários terão acesso: <samp>chmod 2770
+projeto1</samp>
+</p>
+</li>
+<li>
+<p>
+Agora cadastre os usuários que deverão ter acesso ao diretório
+<code>projeto1/</code> no grupo <samp>gp1</samp>, somente estes usuários e o
+root terão acesso ao diretório (permissões 2770).
+</p>
+</li>
+<li>
+<p>
+É interessante também mudar a &quot;umask&quot; do usuário de
+<samp>022</samp> para <samp>002</samp> (ou equivalente) para que os novos
+arquivos criados tenham permissão de leitura/gravação para o grupo
+<samp>gp1</samp>.  Caso contrário, lembre-se de modificar as permissões de
+seus arquivos manualmente.  Um ótimo comando para fazer isso (sem afetar
+diretórios) é: <samp>find .  -type f -user usuario1 -exec chmod 0660 \{\}
+\;</samp>.  Este comando parece estranho mas é excelente!  um <samp>chmod -R
+0660</samp> afetaria até os diretórios, imagine o caos.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+A maioria das distribuições <code>Linux</code> vem com uma boa política de
+grupos para permitir um controle eficaz de recurso.  Se você quer saber quais
+arquivos em seu sistema pertencem a determinado grupo (útil para saber o que o
+usuário terá acesso se adiciona-lo àquele grupo) execute o comando:
+</p>
+
+<pre>
+     find / -group nome_do_grupo
+</pre>
+
+<hr>
+
+<h2 id="s-d-restr-sudo">40.4 Dando poderes de root para executar determinados programas</h2>
+
+<p>
+A ferramenta ideal para isto é o <code>sudo</code>.  Através dela é
+possível permitir um usuário comum executar um comando como <code>root</code>
+e registrar quando isto foi feito.  É possível selecionar os usuários/grupos
+que terão acesso e quais aplicativos que poderão ser usados, estas
+configurações são feitas no arquivo <code>/etc/sudoers</code>.
+</p>
+
+<p>
+Por exemplo, para o usuário &quot;john&quot; usar o comando
+<samp>shutdown</samp> para desligar o computador: <samp>sudo shutdown -h
+now</samp>.
+</p>
+
+<p>
+O <code>sudo</code> é um programa muito completo, tomaria muitos Kilobytes
+neste guia.  Recomendo dar uma lida na página de manual para entender como as
+variáveis do arquivo de configuração funcionam.  Mesmo assim aqui vai um
+exemplo simples deste arquivo para iniciar rapidamente o uso do
+<code>sudo</code>:
+</p>
+
+<pre>
+     # arquivo sudoers.
+     #
+     # Edite este arquivo com o comando 'visudo' como root 
+     # 
+     #
+     
+     # Especificação de máquinas. O primeiro campo (Host_Alias) diz que a variável 
+     # LOCALSERVER será um nome/endereço de máquina
+     Host_Alias	LOCALSERVER=192.168.0.1
+     
+     # Especificação de usuários. O primeiro campo (User_Alias) diz que a variável
+     # NETMASTERS armazenará nomes de usuários
+     User_Alias	NETMASTERS=gleydson, goodboy
+     
+     # Comandos. O primeiro campo (Cmnd_Alias) diz que a variável 
+     # C_REDE contém comandos do sistema. Mais de um parâmetro
+     # deve ser separado por vírgulas
+     Cmnd_Alias	C_REDE=/sbin/ipchains, /sbin/iptables
+     
+     # Padrões que se aplicam aos usuários da variável NETMASTERS. O parâmetro
+     # mail_always sempre envia um e-mail ao root avisando sobre o uso do 
+     # sudo
+     Defaults:NETMASTERS	mail_always
+     
+     # As linha que começam com o nome de usuário ou variável &quot;User_Alias&quot; 
+     # definem o acesso aos recursos. O primeiro campo é o usuário, o segundo
+     # o endereço de acesso (opcionalmente seguido de um sinal &quot;=&quot; para 
+     # especificar opções adicionais) o terceiro o comando ou lista de comandos
+     #
+     # O usuário root não tem restrições
+     root	ALL=(ALL) ALL
+     
+     # Permite que os usuários especificados na variável NETMASTERS 
+     # acessando dos locais em LOCALSERVER utilizem os comandos 
+     # em C_REDE (sem fornecer senha). 
+     NETMASTERS	LOCALSERVER=NOPASSWD: C_REDE
+</pre>
+
+<p>
+Edite este arquivo com o comando <code>visudo</code>, ele faz algumas checagens
+para detectar problemas de configuração.  Para listar os comandos
+disponíveis para o usuário no <code>sudo</code>, utilize a opção
+<samp>-l</samp>, ex: <samp>sudo -l</samp>.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-su">40.5 Restringindo o comando <code>su</code></h2>
+
+<p>
+Restrições de acesso através de grupos, bloqueio de acesso, acesso direto
+sem senha, etc.  podem ser aplicados ao sudo via seu arquivo de configuração
+PAM <code>/etc/pam.d/su</code>.  Abaixo um exemplo explicativo deste arquivo:
+</p>
+
+<pre>
+     # A configuração abaixo requer que o usuário seja membro do 
+     # grupo adm para usar o 'su'. 
+     # auth       required   pam_wheel.so group=adm
+     
+     # Membros do grupo acima não precisam fornecer senha, temos confiança neles.
+     # auth       sufficient pam_wheel.so trust
+     
+     # Usuário que pertencem ao grupo &quot;nosu&quot; nunca deverão ter acesso ao 'su'
+     # auth       required   pam_wheel.so deny group=nosu
+     
+     # O root não precisa fornecer senha ao 'su'
+     auth       sufficient pam_rootok.so
+     
+     # Ativa as restrições PAM de /etc/security/limits.conf
+     session    required   pam_limits.so
+     
+     # Isto ativa as restrições PAM de /etc/security/time.conf no 
+     # comando 'su'
+     account    requisite  pam_time.so
+     
+     # Módulos padrões de autenticação Unix
+     auth       required   pam_unix.so
+     account    required   pam_unix.so
+     session    required   pam_unix.so
+</pre>
+
+<hr>
+
+<h2 id="s-d-restr-identd">40.6 Restrições baseadas em usuário/IP</h2>
+
+<p>
+O serviço <code>identd</code> permite identificar os usuários que estão
+realizando conexões TCP, adicionalmente esta característica é usada por
+programas para fazer restrições para usuários em adição ao endereço de
+origem/destino.  A sintaxe usada nas diretivas de acesso é especificada na
+forma <em>usuário@endereço</em>.  O <a href="ch-s-ident.html">Servidor ident,
+Capítulo 34</a> explica a configuração/utilização/vulnerabilidades e
+recomendações sobre este serviço.
+</p>
+
+<p>
+Diversos programas que possuem controle de acesso baseado em IP's/hosts aceitam
+esta especificação, como o <code>exim</code>, <code>ircd</code>, e o
+conhecido <code>tcpd</code>.
+</p>
+
+<p>
+Segue um exemplo da utilização do <code>identd</code> com o arquivo
+<code>hosts.allow</code>:
+</p>
+
+<pre>
+     # Permite o acesso ao serviço de telnet somente ao usuário gleydson conectando
+     # a partir da máquina com IP 192.168.1.1
+     in.telnetd: gleydson@192.168.1.1
+     
+     # Permite o acesso ao serviço ftp somente ao usuário gleydson conectando de 
+     # qualquer máquina da rede 192.168.1.*
+     in.ftpd: gleydson@192.168.1.
+</pre>
+
+<p>
+Note que a utilização do <code>identd</code> torna a utilização do serviço
+um pouco mais restrita, somente conhecendo os &quot;logins&quot; de quem tem
+acesso ao serviço, um cracker conseguirá ter acesso ao mesmo serviço naquele
+sistema (este é um dos motivos que é recomendado sempre divulgar o mínimo
+detalhes possíveis sobre o sistema para minimizar riscos de ataques).
+</p>
+
+<p>
+Veja mais detalhes sobre o uso do <code>identd</code> em <a
+href="ch-s-ident.html">Servidor ident, Capítulo 34</a>.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-ipmac">40.7 Restrições por MAC Address/IP</h2>
+
+<p>
+Esta proteção oferece uma barreira maior se segurança contra IPs spoofing
+evitando que pessoas mal intencionadas façam um IP spoofing da máquina para
+obter acessos privilegiados que somente o detentor original do MAC/IP teria.
+Recomendo não levar em consideração que isto seja a solução definitiva
+contra IP spoofing, pois é possível falsificar o MAC address de uma interface
+para tomar outra identidade.
+</p>
+
+<p>
+Este método poderá ser aplicado para fornecer um maior laço de confiança
+por hardware entre as máquinas que compõem uma rede de servidores.  Ele
+também evita mesmo que uma máquina configurada de forma errônea tenha acesso
+indevido ao servidor ou em uma situação extrema, se torne o gateway da rede.
+</p>
+
+<p>
+Para restringir as conexões para uma máquina <code>Linux</code> por MAC
+address, utilize o firewall <code>iptables</code>.  Com ele será permitido
+fazer a restrição por serviços, criando uma barreira bastante chata para
+crackers tentarem se conectar a um serviço.  Como referência, leia a seção
+<a href="ch-fw-iptables.html#s-fw-iptables-mod-mac">Especificando o endereço
+MAC da interface, Seção 31.6.7</a>.
+</p>
+
+<p>
+Outra situação é a restrição por par MAC/IP usando o próprio cache arp da
+máquina, usando entradas estáticas de endereços.  Um exemplo deste uso é
+quando você é extremamente paranóico ou quando uma rede que utiliza algum
+método de autenticação baseado no <code>rhosts</code> (como é o caso do
+sistema de backup do <code>Amanda</code>), então é importante dizer para as
+máquinas servidoras, qual o MAC address/IP privilegiado que terá o acesso ao
+usuário para conexão sem senha.
+</p>
+
+<p>
+O local padronizado para definir um MAC estático (e bastante desconhecido da
+maioria dos administradores de sistemas) é o <code>/etc/ethers</code>.  O
+formato deste arquivo é o <samp>MAC Address</samp> e <samp>IP</samp> separados
+por espaço, cada linha com uma nova entrada de MAC Address.  Veja o exemplo:
+</p>
+
+<pre>
+     00:03:47:AA:AA:AB       www.focalinux.org.br
+     00:03:47:BB:AA:BA       www2.focalinux.org.br
+     00:03:47:BB:AA:BB       192.168.0.1
+</pre>
+
+<p>
+Caso não conheça o formato do endereço de MAC Address, os três primeiros 3
+campos definem o fabricante da placa de rede, e os 3 últimos é uma
+identificação única do fabricante para a Placa, ou seja, NENHUMA placa de
+rede fabricada tem o mesmo MAC Address físico.
+</p>
+
+<p>
+Para que o comando <code>arp</code> crie as entradas estáticas no seu cache
+ARP, será necessário executar o comando <samp>arp -f /etc/ethers</samp>.
+Este comando poderá ser colocado em algum script ou diretório de
+inicialização de sua distribuição para que seja executado automaticamente
+(como por exemplo, no <code>/etc/rc.boot</code> da <code>Debian</code>).
+Digitando <samp>arp</samp> você verá as linhas definidas no arquivo
+<code>/etc/ethers</code> marcadas com as opção (flag) <samp>M</samp>
+(manual/permanente).  Outra forma de verificar, é usando o <samp>arp -a
+máquina</samp> ou somente <samp>arp -a</samp>.  As máquinas especificadas
+estaticamente (manualmente) terão o nome <samp>PERM</samp> listados (cache arp
+permanente).
+</p>
+
+<p>
+<strong>OBS:</strong> Como deve ter notado, a restrição por MAC Address
+implica em um aumento no trabalho de gerenciamento das configurações.  Assim,
+planeje-se para que esta tarefa não seja desgastante, crie programas para
+realizar atualizações dinâmicas estudando a estrutura de sua rede e como
+suas máquinas se comunicam para não ter problemas obscuros quando tiver que
+fazer uma simples modificação em uma interface de rede :)
+</p>
+
+<p>
+Uma boa configuração restritiva requer análise sobre os impactos na rede.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-inetd">40.8 Desabilitando serviços não usados no Inetd</h2>
+
+<p>
+Desative todos os serviços que não serão utilizados no arquivo
+<code>/etc/inetd.conf</code>, isto diminui bastante as possibilidades de
+ataques em seu sistema.  Os nomes de serviços são os parâmetros
+especificados na primeira coluna do arquivo <code>/etc/inetd.conf</code> (por
+exemplo, talk, ircd, pop3, auth, smtp).
+</p>
+
+<p>
+Para desativar serviços neste arquivo, ponha o símbolo &quot;#&quot; no
+inicio das linhas que deseja comentar e execute um <samp>killall -HUP
+inetd</samp>.  Alternativamente, o comando <samp>update-inetd</samp> pode ser
+usado para facilitar esta tarefa:
+</p>
+
+<pre>
+     update-inetd --disable finger,talk,time,daytime
+     
+     update-inetd --disable
+</pre>
+
+<p>
+Este comando envia automaticamente o sinal de reinicio (HUP) ao
+<code>inetd</code>.  O serviço poderá ser novamente ativado substituindo a
+opção <em>--disable</em> por <em>--enable</em> ou retirando o trecho
+&quot;#&lt;off&gt;#&quot; no começo da linha do serviço do
+<code>/etc/inetd.conf</code>.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-authinseg">40.9 Evitando o uso de <code>hosts.equiv</code> e <code>.rhosts</code></h2>
+
+<p>
+O arquivo <code>hosts.equiv</code> contém uma lista de usuários
+autorizados/desautorizados que podem fazer uso dos serviços &quot;r*&quot; sem
+fornecer uma senha (como <code>rsh</code>, <code>rcp</code>,
+<code>rexec</code>, etc) , veja <a
+href="ch-rede.html#s-rede-seg-tcpd-e">/etc/hosts.equiv e /etc/shosts.equiv,
+Seção 15.8.3.3</a>.  É muito fácil falsificar um nome de usuário para
+obter acesso aos privilégios de outro usuário usando este recurso.
+</p>
+
+<p>
+Os arquivos <code>~/.rhosts</code>, <code>~/.shosts</code> tem o funcionamento
+parecido com o <code>hosts.equiv</code> mas contém somente dois campos, o
+primeiro especificando o nome do computador (FQDN) e o segundo o nome do
+usuário que tem permissão de acesso sem fornecer senha.  Ele garantirá este
+acesso ao usuário e máquina remota especificada neste arquivo.  Se for
+definido somente o nome do computador, o nome de usuário deverá ser o mesmo
+do local para que o acesso sem senha seja garantido.  É recomendável
+restringir o acesso a estes arquivos somente ao usuário/grupo quando for
+realmente necessário.  Um exemplo de <code>~/.rhosts</code>:
+</p>
+
+<pre>
+     maquina1.dominio.com.br usuario1
+     maquina2.dominio.com.br usuario2
+</pre>
+
+<p>
+O uso destes dois mecanismos e dos serviços &quot;r*&quot; são
+desencorajados!  (o último por usar transferência de dados não
+criptografadas).  Veja <a href="ch-s-ssh.html">Servidor ssh, Capítulo 36</a>
+para uma alternativa melhor.  Utilize estes dois mecanismos somente se deseja
+facilidade no gerenciamento e se sua rede seja absolutamente confiável e a
+segurança de dados não seja prioridade pra você...
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-shutdown">40.10 Restringindo o uso do shutdown</h2>
+
+<p>
+Por padrão todos que tem acesso ao console do sistema podem efetuar o reinicio
+do computador pressionando CTRL+ALT+DEL.  Estas teclas de combinação são
+definidas pela linha
+</p>
+
+<pre>
+     ca:12345:ctrlaltdel:/sbin/shutdown -r now
+</pre>
+
+<p>
+do arquivo <code>/etc/inittab</code>.  A opção <em>-a</em> (access) do
+<code>shutdown</code> restringe isto, permitindo somente o reinicio do sistema
+caso um dos usuários cadastrados no arquivo <code>/etc/shutdown.allow</code>
+estejam logados no console.  Caso nenhum usuário autorizado esteja logado, a
+mensagem <samp>shutdown: no authorized users logged in</samp> é exibida no
+console local.
+</p>
+
+<p>
+O arquivo <code>/etc/shutdown.allow</code> deve conter um usuário por linha e
+32 no máximo.
+</p>
+
+<p>
+A mesma linha do <code>/etc/inittab</code> pode ser modificada para a seguinte:
+</p>
+
+<pre>
+     ca:12345:ctrlaltdel:/sbin/shutdown -a -t5 -r now
+</pre>
+
+<p>
+<strong>OBS:</strong> Se a opção <em>-a</em> seja especificada e o arquivo
+<code>/etc/shutdown.allow</code> não existe, a opção <em>-a</em> é
+ignorada.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-proc">40.11 Restringindo o acesso ao sistema de arquivos /proc</h2>
+
+<p>
+O patch <em>restricted proc fs</em> é um dos melhores para realizar esta
+tarefa.  Restringindo o acesso ao sistema de arquivos <code>/proc</code> evita
+que o usuário normal tenha acesso aos detalhes sobre processos de outros (com
+<samp>ps aux</samp>) ou acesso a detalhes de processos de outros usuários
+existentes nos subdiretórios numéricos (equivalentes a PID) em
+<code>/proc</code>.  Abaixo algumas características do patch <em>restricted
+proc fs</em>:
+</p>
+<ul>
+<li>
+<p>
+É pequeno, rápido e faz poucas modificações no fonte do kernel.
+</p>
+</li>
+<li>
+<p>
+Seu método de funcionamento é baseado nas restrições de dono/grupo (nativas
+de ambiente <code>Unix</code>).
+</p>
+</li>
+<li>
+<p>
+Restringe a visualização de processos só dos usuários.  Adicionalmente
+será especificada uma GID para o diretório <code>/proc</code>, qualquer
+usuário que pertença ao grupo especificado poderá visualizar todos os
+processos e entrar em qualquer diretório do kernel (sem restrições, como se
+não tivesse o patch).
+</p>
+</li>
+<li>
+<p>
+Muito estável e confiável.
+</p>
+</li>
+</ul>
+
+<p>
+Este patch deve ser baixado de <code><a
+href="http://noc.res.cmu.edu/proc">http://noc.res.cmu.edu/proc</a></code>,
+existem versões para os kernels da série 2.2 e 2.4, baixe e aplique o patch,
+na configuração do kernel ative a opção <samp>Restricted Proc fs
+support</samp>.  Compile e instale seu kernel.
+</p>
+
+<p>
+No arquivo <code>/etc/fstab</code> inclua um grupo para a montagem do sistema
+de arquivos <code>/proc</code> (vamos usar o grupo <samp>adm</samp> com a GID
+4):
+</p>
+
+<pre>
+     # /etc/fstab: informações estáticas do sistemas de arquivos.
+     #
+     # &lt;Sist. Arq.&gt;    &lt;Ponto Mont.&gt;  &lt;tipo&gt;  &lt;opções&gt;       &lt;dump&gt; &lt;passo&gt;
+       proc            /proc          proc    defaults,gid=4   0       0
+</pre>
+
+<p>
+Após reiniciar o sistema, execute o comando <samp>ls -lad /proc</samp> note
+que o grupo do diretório <code>/proc</code> será modificado para
+<samp>adm</samp>.  Agora entre como um usuário e execute um <samp>ps
+aux</samp>, somente seus processos serão listados.  Para autorizar um usuário
+específico ver todos os processos (ter acesso novamente ao diretório
+<code>/proc</code>), inclua este no grupo que usou no arquivo
+<code>/etc/fstab</code>:
+</p>
+
+<pre>
+     adduser usuario adm
+</pre>
+
+<p>
+Após efetuar o usuário já estará pertencendo ao grupo <samp>adm</samp>
+(confira digitando <samp>groups</samp>), e poderá ver novamente os processos
+de todos os usuários com o comando <samp>ps aux</samp>.
+</p>
+
+<p>
+<strong>OBS1:</strong> Incluir um usuário no grupo <samp>adm</samp> É
+PERIGOSO, porque este usuário poderá ter acesso a arquivo/diretórios que
+pertençam a este grupo, como os arquivos/diretórios em <code>/var/log</code>.
+Se esta não é sua intenção, crie um grupo independente como
+<samp>restrproc</samp> para controlar quem terá acesso ao diretório
+<code>/proc</code>: <samp>addgroup restrproc</samp>.
+</p>
+
+<p>
+<strong>OBS2:</strong> Se a opção <samp>gid</samp> não for especificada para
+a montagem de <code>/proc</code> no <code>/etc/fstab</code>, o grupo
+<samp>root</samp> será usado como padrão.  NUNCA adicione usuários ao grupo
+<samp>root</samp>, use o método da observação acima para permitir outros
+usuários ver todos os processos em execução.
+</p>
+
+<p>
+<strong>OBS3</strong> Caso o servidor <code>identd</code> esteja sendo usado na
+máquina servidora, será necessário roda-lo com a mesma GID do diretório
+<code>/proc</code> para que continue funcionando.  Se ele é executado como
+daemon, adicione a opção <em>-g GRUPO</em> no script que inicia o serviço em
+<code>/etc/init.d</code> e reinicie o daemon.  Caso ele seja iniciado via
+inetd, faça a seguinte modificação no arquivo <code>/etc/inetd.conf</code>
+(assumindo o uso do <code>oidentd</code>):
+</p>
+
+<pre>
+     #:INFO: Info services
+     auth		stream	tcp	nowait.40	nobody.adm	/usr/sbin/oidentd oidend -q -i -t 40
+</pre>
+
+<p>
+Veja <a href="ch-s-ident.html">Servidor ident, Capítulo 34</a> para detalhes
+sobre este serviço.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-quotas">40.12 Limitando o uso de espaço em disco (quotas)</h2>
+
+<p>
+O sistema de <code>quotas</code> é usado para limitar o espaço em disco
+disponível a usuários/grupo.  O uso de partições independentes para o
+diretório <code>/home</code> e outros montados separadamente não é muito
+eficaz porque muitos usuários serão prejudicados se a partição for
+totalmente ocupada e alguns possuem requerimentos de uso maior do que outros.
+</p>
+
+<p>
+O suporte a <em>Quotas</em> deve estar compilado no kernel (seção
+<em>FileSystems</em>) e o sistema de arquivos deverá ser do tipo <em>ext2</em>
+ou <em>XFS</em> para funcionar.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-install">40.12.1 Instalando o sistema de quotas</h3>
+
+<p>
+Abaixo o passo a passo para a instalação de quotas em seu sistema:
+</p>
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+Recompile seu kernel com suporte a quota.  Habilite a opção &quot;Quota
+support&quot; na seção &quot;FileSystems&quot; na configuração de recursos
+do seu kernel.
+</p>
+</li>
+<li>
+<p>
+Instale o pacote <code>quota</code> no sistema (<samp>apt-get install
+quota</samp>).
+</p>
+</li>
+<li>
+<p>
+Habilite a quota para os sistemas de arquivos que deseja restringir no arquivo
+<code>/etc/fstab</code>:
+</p>
+<pre>
+     /dev/hda1    /boot ext2     defaults                   1  1
+     /dev/hda3    /     ext2     defaults,usrquota          1  2
+     /dev/hda4    /usr  ext2     defaults,grpquota          1  3
+     /dev/hda5    /pub  ext2     defaults,usrquota,grpquota 1  4
+</pre>
+<p>
+O sistema de arquivos <code>/dev/hda1</code> não terá suporte a quota,
+<code>/dev/hda3</code> terá suporte a quotas de usuários (<em>usrquota</em>),
+<code>/dev/hda4</code> terá suporte a quotas de grupos (<em>grpquota</em>) e
+<code>/dev/hda5</code> terá suporte a ambos.  Por padrão é assumido que os
+arquivos de controle de quota estão localizados no ponto de montagem da
+partição com os nomes <code>quota.user</code> e <code>quota.group</code>.
+</p>
+</li>
+<li>
+<p>
+Agora será necessário criar os arquivos <code>quota.user</code> e
+<code>quota.group</code> no ponto de montagem de cada partição <em>ext2</em>
+acima que utilizará o recurso de quotas.  O arquivo <code>quota.user</code>
+controla as quotas de usuários e <code>quota.group</code> controla as quotas
+de grupos.
+</p>
+<ul>
+<li>
+<p>
+Crie um arquivo vazio <code>quota.user</code> em <code>/</code> (terá suporte
+somente a quota de usuários, veja a opção de montagem no
+<code>/etc/fstab</code>): <samp>touch /quota.user</samp> ou <samp>echo -n
+&gt;/quota.user</samp>.
+</p>
+</li>
+<li>
+<p>
+Crie um arquivo vazio <code>quota.group</code> em <code>/usr</code> (terá
+suporte somente a quota de grupos): <samp>touch /usr/quota.group</samp> ou
+<samp>echo -n &gt;/usr/quota.group</samp>.
+</p>
+</li>
+<li>
+<p>
+Crie um arquivo vazio <code>quota.user</code> e <code>quota.group</code> em
+<code>/pub</code> (este sistema de arquivos tem suporte a ambos os tipos de
+quota): <samp>touch /pub/quota.user /pub/quota.group</samp>.
+</p>
+</li>
+</ul>
+<p>
+Por motivos de segurança, as permissões dos arquivos de controle de quota
+<code>quota.user</code> e <code>quota.group</code> devem ser leitura/gravação
+ao usuário <samp>root</samp> e sem permissões para grupo/outros usuários:
+<samp>chmod 0600 /quota.user /quota.group</samp>.
+</p>
+<p>
+<strong>OBS:</strong> Se deseja utilizar o quota versão 1, certifique-se que
+não existem os arquivos chamados <code>aquota.user</code> e
+<code>aquota.group</code> no diretório raíz de sua partição.  Se eles
+estiverem disponíveis, os utilitários de quota utilizarão esta versão como
+padrão, atualmente o kernel 2.4 possui somente suporte a quota versão 1.
+</p>
+<p>
+A versão 2 do quota checa corrompimento dos arquivos de dados de quota e
+trabalha mais rápido em partições grandes.  São necessários patches da
+série &quot;ac&quot; (Alan Cox) para usar a versão 2 do quota.
+</p>
+</li>
+<li>
+<p>
+Entre em modo monousuário <samp>init 1</samp>, desmonte os sistemas de
+arquivos que utilizarão a quota e monte-os novamente (isto serve para ativar
+as opções de quota).  Alternativamente, execute <samp>umount -a</samp> (para
+desmontar todos os sistemas de arquivos) e <samp>mount -a</samp> para remontar
+todos.
+</p>
+<p>
+Se você ativou as quotas para o sistema de arquivos <code>/</code> (como em
+nosso exemplo) será necessário reiniciar o sistema.
+</p>
+</li>
+<li>
+<p>
+O próximo passo é scanear o disco para criar os dados para as partições com
+suporte a quota (ativadas no <code>/etc/fstab</code>):
+</p>
+<pre>
+      quotacheck -augv
+</pre>
+<p>
+O parâmetro <em>-a</em> diz para checar todas as partições com suporte a
+quota no arquivo <code>/etc/mtab</code>, <em>-u</em> para checar quotas de
+usuários, <em>-g</em> para checar grupos e <em>-v</em> para mostrar o
+progresso da checagem da partição.
+</p>
+<p>
+Na primeira execução é mostrado uma mensagem de erro de arquivo
+<code>quota.user</code>/<code>quota.group</code> corrompido, mas isto é normal
+porque o arquivo anterior tem tamanho zero.  Estes nomes também servem para o
+<code>quotacheck</code> &quot;auto-detectar&quot; a versão do sistema de quota
+usada no sistema de arquivos.
+</p>
+<p>
+<strong>OBS:</strong> Certamente será necessário &quot;forçar&quot; a
+remontagem como somente leitura do sistema de arquivos <code>/</code> com a
+opção <em>-m</em> para o <code>quotacheck</code> criar as configurações de
+quota nesta partição.
+</p>
+</li>
+<li>
+<p>
+Agora resta ativar o suporte as quotas de disco em todas as partições
+(<em>-a</em>) com recurso de quota especificado (no <code>/etc/mtab</code>):
+</p>
+<pre>
+      quotaon -augv
+</pre>
+<p>
+As opções possuem o mesmo significado do comando <code>quotacheck</code>.  O
+utilitário <code>quotaoff</code> serve para desativar quotas de usuários e
+usa as mesmas opções do <code>quotaon</code>.  Estes três utilitários
+somente podem ser usados pelo usuário <samp>root</samp>.  As opções de quota
+podem ser especificadas independente para cada sistema de arquivos:
+</p>
+<pre>
+     # Ativa o suporte a quota em /pub (somente grupos de usuários no momento).
+     quotaon -gv /pub
+     
+     # Ativa as quotas de usuários em /pub
+     quotaon -uv /pub
+     
+     # Desativa as quotas de grupos em /pub (deixando somente a de usuários ativa)
+     quotaoff -gv /pub
+</pre>
+</li>
+</ol>
+
+<p>
+A atualização de quotas durante a gravação/exclusão de arquivos é feita
+automaticamente.  O utilitário <code>quotacheck</code> deverá ser executado
+sempre que o sistema de quotas for desativado (por não haver atualização
+automática dos dados de uso de disco) ou quando ocorrerem falhas de disco.
+</p>
+
+<p>
+Na distribuição <code>Debian</code> o <code>quotacheck</code> é disparado
+sempre que necessário após as situações de checagem de disco.  As quotas de
+todas as partições também são ativadas automaticamente pelo script
+<code>/etc/init.d/quota</code> e <code>/etc/init.d/quotarpc</code>.
+</p>
+
+<p>
+Em sistemas que utilizam NFS e possuem sistemas de arquivos exportados em
+<code>/etc/exports</code>, o daemon <code>rpc.rquotad</code> deverá ser
+carregado.  Sua função é fornecer os detalhes de <code>quota</code> dos
+sistemas de arquivos locais exportados para as máquinas clientes.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-editando">40.12.2 Editando quotas de usuários/grupos</h3>
+
+<p>
+O programa <code>edquota</code> é usado pelo <samp>root</samp> para editar as
+quotas de usuários/grupos.  Por padrão, todos os usuários/grupos do sistema
+não possuem quotas.  Sua sintaxe é a seguinte
+</p>
+
+<p>
+<samp>edquota [<em>opções</em>] [<em>usuário/grupo</em>]</samp>
+</p>
+
+<p>
+As opções podem ser:
+</p>
+<dl>
+<dt>-u</dt>
+<dd>
+<p>
+Edita a quota do usuário especificado (esta é a padrão).
+</p>
+</dd>
+</dl>
+<dl>
+<dt>-g</dt>
+<dd>
+<p>
+Edita a quota de grupo especificado.
+</p>
+</dd>
+</dl>
+<dl>
+<dt>-r</dt>
+<dd>
+<p>
+Permite editar a quota de sistemas de arquivos remotos através do daemon
+<code>rpc.rquotad</code>.
+</p>
+</dd>
+</dl>
+<dl>
+<dt>-p [usuário/grupo]</dt>
+<dd>
+<p>
+Usa os valores especificados para o <em>usuário/grupo</em> para definir a nova
+quota, sem necessidade de entrar no modo de edição.
+</p>
+</dd>
+</dl>
+<dl>
+<dt>-t</dt>
+<dd>
+<p>
+Permite modificar o valor de tolerância dos limites que ultrapassam
+<em>soft</em> até que sejam bloqueados.  Durante o tempo de tolerância,
+serão enviados somente avisos sobre a quota ultrapassada sem bloquear
+totalmente a gravação de arquivos (até que o limite <em>hard</em> seja
+atingido ou o tempo de tolerância seja ultrapassado).
+</p>
+</dd>
+</dl>
+
+<p>
+Quando a quota <em>soft</em> do usuário/grupo é estourada, a mensagem
+&quot;warning: user disk quota excedeed&quot; será exibida.  Quando a quota
+<em>hard</em> é ultrapassada, a gravação atual é interrompida e a mensagem
+&quot;write failed, user disk limit reatched&quot; é mostrada ao usuário.
+Nenhuma nova gravação que ultrapasse a quota <em>hard</em> é permitida Por
+exemplo, para modificar a quota do usuário gleydson: <samp>edquota
+gleydson</samp>
+</p>
+
+<pre>
+     Disk quotas for user gleydson (uid 1000): 
+       Filesystem                   blocks       soft       hard     inodes     soft
+         hard
+       /dev/hda5                    504944     500100     600000      10868        15000
+            20000
+</pre>
+
+<p>
+O editor de textos usado poderá ser modificado através da variável
+<var>$EDITOR</var>.  Abaixo a explicação destes campos:
+</p>
+<ul>
+<li>
+<p>
+<samp>Filesystem</samp> - Sistema de arquivos que terá a quota do
+usuário/grupo editada.  As restrições se aplicam individualmente de acordo
+com o sistema de arquivos.
+</p>
+</li>
+<li>
+<p>
+<samp>blocks</samp> - Número máximo de blocos (especificado em Kbytes) que o
+usuário possui atualmente.  O usuário <samp>gleydson</samp> está usando
+atualmente 504944 Kbytes.
+</p>
+<ul>
+<li>
+<p>
+<samp>soft</samp> - Restrição mínima de espaço em disco usado.  Atualmente
+500100 Kb.
+</p>
+</li>
+<li>
+<p>
+<samp>hard</samp> - Limite máximo aceitável de uso em disco para o
+usuário/grupo sendo editado.  600000 Kb atualmente.  O sistema de quotas nunca
+deixará este limite ser ultrapassado.
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>
+<samp>inodes</samp> - Número máximo de arquivos que o usuário possui
+atualmente na partição especificada.  O usuário <samp>gleydson</samp> possui
+atualmente 10868 arquivos na partição <code>/pub</code>.
+</p>
+<ul>
+<li>
+<p>
+<samp>soft</samp> - Restrição mínima de número de arquivos que o
+usuário/grupo possui no disco.  Atualmente em 15.000.
+</p>
+</li>
+<li>
+<p>
+<samp>hard</samp> - Restrição máxima de número de arquivos que o
+usuário/grupo possui no disco.  Atualmente em 20.000.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Para desativar as restrições coloque &quot;0&quot; no campo <em>soft</em> ou
+<em>hard</em>.  Quando o limite <em>soft</em> é atingido, o usuário é
+alertado por ter ultrapassado sua quota com a mensagem &quot;warning: user
+quota excedeed&quot; (quota do usuário excedida).  O programa
+<code>setquota</code> é uma programa não-interativo para edição de quotas
+para ser usado diretamente na linha de comando ou em shell scripts.
+</p>
+
+<p>
+Após ultrapassar o limite <em>soft</em>, começa a contagem do tempo para que
+este passe a valer como limite <em>hard</em> (o máximo aceitável e que nunca
+poderá ser ultrapassado).  O comando <samp>edquota -t</samp> serve para
+modificar estes valores na partição especificada:
+</p>
+
+<pre>
+     Grace period before enforcing soft limits for users: 
+     Time units may be: days, hours, minutes, or seconds
+       Filesystem             Block grace period     Inode grace period
+       /dev/hda5                  2days                  7days
+</pre>
+
+<p>
+Abaixo a explicação destes campos:
+</p>
+<ul>
+<li>
+<p>
+<samp>Filesystem</samp> - Sistema de arquivos que terá o período de
+tolerância modificado.
+</p>
+</li>
+<li>
+<p>
+<samp>Block grade period</samp> - Tempo máximo de tolerância para
+usuários/grupos que ultrapassaram sua quota <em>soft</em> de espaço em disco
+antes de passar a valer como <em>hard</em>.  No exemplo, o usuário tem 2 dias
+para excluir possíveis arquivos ou contactar o administrador para
+redimensionar o tamanho de quota.  O valor padrão é 7 dias.
+</p>
+</li>
+<li>
+<p>
+<samp>Inode grade period</samp> - Tempo máximo de tolerância para
+usuários/grupos que ultrapassaram sua quota <em>soft</em> de número de
+arquivos gravados antes de passar a valer como <em>hard</em>.  No exemplo, o
+usuário tem 7 dias para excluir possíveis arquivos ou contactar o
+administrador para analisar seu tamanho de quota.  O valor padrão é 7 dias.
+</p>
+</li>
+</ul>
+
+<p>
+<strong>OBS1:</strong> - O comando <code>quotacheck</code> deverá ser
+executado na partição sempre que novas restrições/limites forem editados
+com o <code>edquota</code>.  Isto atualiza os arquivos <code>quota.user</code>
+e <code>quota.group</code>.  Lembre-se de desativar o sistema de quotas
+(<samp>quotaoff -ugv /partição</samp>) antes de executar este comando (para
+liberar totalmente a partição, <code>quotacheck</code> remonta a partição
+somente para leitura quando é executado).  Por este motivo é recomendável
+fazer isso em modo monousuário.
+</p>
+
+<p>
+<strong>OBS2:</strong> Quando o limite <em>soft</em> (suave) é excedido, o
+sistema começará a lhe mostrar mensagens alertando a passagem do limite (para
+lhe dar tempo de eliminar arquivos ou não ser pego desprevenido com o bloqueio
+de gravação) porque o limite <em>hard</em> (rígido) nunca poderá ser
+ultrapassado.
+</p>
+
+<p>
+<strong>OBS3:</strong> - O tempo de tolerância restante ao usuário/grupo
+quando a quota é ultrapassada poder ser visualizada com o comando
+<code>quota</code> (veja <a href="#s-d-restr-quotas-checando">Verificando a
+quota disponível ao usuário, Seção 40.12.4</a>).
+</p>
+
+<p>
+<strong>OBS4:</strong> - Quando o usuário exclui seus arquivos e volta a ficar
+abaixo dos limites <em>soft</em> da quota, o tempo de tolerância é resetado
+aos valores padrões (especificados por <samp>edquota -t</samp>.
+</p>
+
+<p>
+<strong>OBS5:</strong> - As quotas de espaço em disco podem ser definidas
+automaticamente para os novos usuários adicionados ao sistema colocando o
+espaço em disco na variável <var>QUOTAUSER=numero</var> do arquivo
+<code>/etc/adduser.conf</code>.  Isto será equivalente a digitar o comando
+<samp>edquota -q QUOTA novo_usuário</samp>.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-mudtodos">40.12.3 Modificando a quota de todos os usuários de uma vez</h3>
+
+<p>
+Editar manualmente a quota de cada usuário é uma tarefa trabalhosa quando se
+está instalando quotas e possui muitos usuários, existe uma maneira mais
+fácil de fazer isso usando o próprio <code>edquota</code> e um usuário com a
+quota já definida.  Por exemplo, instalamos quota em nosso sistema e queremos
+que todos os 300 usuários tenham a quota de usuário de 10MB e de grupo de
+15MB:
+</p>
+<!-- ol type="1" start="1"  -->
+<li>
+<p>
+Criamos um usuário com esta quota usando o <code>edquota</code> (como descrito
+em <a href="#s-d-restr-quotas-editando">Editando quotas de usuários/grupos,
+Seção 40.12.2</a>).  Como exemplo usaremos o usuário
+<samp>teste_user</samp>.  Use o comando <samp>quota teste_user</samp> para
+verificar se as quotas para este usuário está correta.
+</p>
+</li>
+<li>
+<p>
+Criamos um script que modifique a quota padrão de todos os usuários do
+sistema de uma só vez:
+</p>
+<pre>
+     #!/bin/sh
+     cd /home
+     for USUARIO in *
+     do
+     edquota -u ${USUARIO} -p teste_user
+     
+     done
+</pre>
+<p>
+Pronto, verifique a quota de todos os usuários com o comando <samp>repquota
+-a</samp>.
+</p>
+</li>
+</ol>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-checando">40.12.4 Verificando a quota disponível ao usuário</h3>
+
+<p>
+Execute o comando <code>quota</code> mostra os limites de usuários/grupos e a
+tolerância restante antes do limite <em>soft</em> se tornar rígido.  Abaixo
+alguns exemplos descritivos deste comando:
+</p>
+
+<pre>
+     quota
+     
+     Disk quotas for user gleydson (uid 1234): 
+          Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+           /dev/hda5  504944* 500100  600000   00:05   10868       0       0
+</pre>
+
+<p>
+Os campos tem o seguinte significado:
+</p>
+<ul>
+<li>
+<p>
+<samp>Filesystem</samp> - Sistema de arquivos.
+</p>
+</li>
+<li>
+<p>
+<samp>blocks</samp> - Número de blocos usados atualmente na partição (em
+Kb).  O &quot;*&quot; indica que o limite foi ultrapassado.  Atualmente em
+504944.
+</p>
+<ul>
+<li>
+<p>
+<samp>quota</samp> - Limite suave (<em>soft</em>) de espaço na partição que
+o usuário/grupo possui.  Atualmente 500100.  O valor 0 indica que o
+usuário/grupo não possui restrições.
+</p>
+</li>
+<li>
+<p>
+<samp>limit</samp> - Limite máximo (<em>hard</em>) de espaço na partição
+que o usuário/grupo possui.  Atualmente em 600000.  O valor 0 indica que o
+usuário/grupo não possui restrições.
+</p>
+</li>
+<li>
+<p>
+<samp>grace</samp> - Tolerância antes que o limite <em>soft</em> passe a valer
+como <em>hard</em> quando o espaço em disco é ultrapassado.  Este usuário
+tem 5 minutos restantes para que isto ocorra.  Quando o valor <em>soft</em>
+volta a ficar abaixo da quota, a tolerância é resetada.
+</p>
+<p>
+O parâmetro &quot;none&quot; indica que o tempo de tolerância expirou (caso
+existam limitações de quota que foram ultrapassadas) ou que o usuário/grupo
+não possui restrições.  Veja se existe um &quot;*&quot; no campo
+<samp>blocks</samp>.
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>
+<samp>files</samp> - Número máximo de arquivos que usuário/grupo possui
+atualmente na partição.  Um &quot;*' indica que o limite foi ultrapassado.
+Atualmente em 10868.
+</p>
+<ul>
+<li>
+<p>
+<samp>quota</samp> - Limite suave (<em>soft</em>) de número de arquivos na
+partição que o usuário/grupo possui.  Atualmente ilimitado.
+</p>
+</li>
+<li>
+<p>
+<samp>limit</samp> - Limite máximo (<em>hard</em>) de número de arquivos na
+partição que o usuário/grupo possui.  Atualmente ilimitado.
+</p>
+</li>
+<li>
+<p>
+<samp>grace</samp> - Tolerância antes que o limite <em>soft</em> passe a valer
+como <em>hard</em> para o número de arquivos ultrapassados.  Como não existe
+quota para número de arquivos, não existe tolerância.  A tolerância é
+resetada aos valores padrões quando o valor <em>soft</em> volta a ficar abaixo
+da quota.
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+A quota de outros usuários/grupos podem ser visualizadas especificando as
+opções <em>-u</em> (padrão) e <em>-g</em> na linha de comando
+respectivamente.  A opção <em>-v</em> permite visualizar quotas em sistemas
+de arquivos não alocados e <em>-q</em> mostra somente uma mensagem dizendo se
+o usuário está ou não dentro de sua quota:
+</p>
+
+<pre>
+     quota -u usuario
+     
+     quota -uq usuario
+     
+     quota -g users
+</pre>
+
+<p>
+Por motivos de segurança, você não poderá visualizar as quotas de outros
+usuários e grupos que não pertence (exceto para o usuário
+<samp>root</samp>).
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-todas">40.12.5 Verificando a quota de todos os usuários/grupos do sistema</h3>
+
+<p>
+Quando precisamos verificar o uso de quotas de todos os usuários/grupos do
+sistema o <code>quota</code> se torna incômodo e pouco prático.  O comando
+<code>repquota</code> lista está disponível ao administrador para facilitar
+esta tarefa.  Sua listagem é organizada por partições listando dados
+adicionais como <samp>grace time</samp> e aceita as mesmas opções dos
+utilitários <code>quotaon</code> e <code>quotaoff</code>.  Primeiro são
+listados as restrições de usuários e depois de grupos para a partição.
+(tolerância) As opções aceitas por este utilitário tem o mesmo significado
+das opções do <code>quotaon</code> e <code>quotaoff</code>:
+</p>
+
+<pre>
+     repquota -aug
+     
+     *** Report for user quotas on device /dev/hda3
+     Block grace time: 7days; Inode grace time: 7days
+                             Block limits                File limits
+     User            used    soft    hard  grace    used  soft  hard  grace
+     ----------------------------------------------------------------------
+     root      --   29160       0       0   none    9970     0     0   none
+     daemon    --      64       0       0             22     0     0       
+     man       --     944       0       0             65     0     0       
+     mail      --    4960       0       0            823     0     0       
+     news      --       4       0       0              1     0     0       
+     gleydson  --   31032       0       0           6956     0     0       
+     testuser  --      16       0       0              4     0     0       
+     anotheruser --    16       0       0              4     0     0       
+     nobody    --    2344       0       0              2     0     0       
+     
+     *** Report for user quotas on device /dev/hda5
+     Block grace time: 2days; Inode grace time: 7days
+                             Block limits                File limits
+     User            used    soft    hard  grace    used  soft  hard  grace
+     ----------------------------------------------------------------------
+     root      --   16052       0       0   none    6443     0     0   none
+     gleydson  +-    4944  500100  600000   none   10868     0     0       
+     
+     *** Report for group quotas on device /dev/hda5
+     Block grace time: 7days; Inode grace time: 7days
+                             Block limits                File limits
+     Group           used    soft    hard  grace    used  soft  hard  grace
+     ----------------------------------------------------------------------
+     root      --   20308       0       0   none     636     0     0   none
+     src       --   11404       0       0            660     0     0       
+     users     --    1756       0       0           6561     0     0       
+     gleydson  --    3452       0       0           9307     0     0
+</pre>
+
+<p>
+Um sinal de &quot;+-&quot; no segundo campo indica quota ultrapassada ou no
+espaço em disco, &quot;-+' em número de arquivos e &quot;++&quot; em ambos.
+Como vimos acima, o este comando também lista o número de arquivos e bytes
+pertencentes a cada usuário na partição (mesmo não sendo monitorado pelas
+restrições de quota), isto ajuda a monitorar ações suspeitas com a
+excedência de espaço em disco de determinados usuários/grupos do sistema.
+Um exemplo é alguém que esteja fora da quota e abusando de seu usuário/grupo
+para uso excessivo de espaço em disco sem seu conhecimento.
+</p>
+
+<p>
+<strong>OBS:</strong> Este utilitário pode ser executado por qualquer usuário
+no sistema e mostrar o uso de quotas de usuários/grupos que não deveria ter
+acesso.  É recomendado deve ter permissões de leitura/gravação somente para
+o usuário <samp>root</samp> e sem permissões para grupo/outros usuários.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-quotas-warn">40.12.6 Avisando usuários sobre o estouro de quota</h3>
+
+<p>
+Avisos sobre quota ultrapassada podem ser enviadas automaticamente a todos os
+usuários pelo utilitário <code>warnquota</code>.  Ele poderá ser executado
+periodicamente através do <code>cron</code> (por padrão isto é feito
+diariamente na distribuição <code>Debian</code> pelo script
+<code>/etc/cron.daily/quota</code>).  Dados adicionais sobre o envio das
+mensagens devem ser especificados no arquivo <code>/etc/warnquota.conf</code>
+seu formato é o seguinte:
+</p>
+
+<pre>
+     # Programa usado para enviar as mensagens
+     MAIL_CMD 	= &quot;/usr/sbin/sendmail -t&quot;
+     # Campo de origem da mensagem
+     FROM 		= &quot;root@localhost&quot;
+     # but they don't have to be:
+     SUBJECT 	= Quota excedida
+     CC_TO 		= &quot;root@localhost&quot;
+     SUPPORT 	= &quot;root@localhost&quot;
+     PHONE 		= &quot;5555-2525&quot;
+     #
+</pre>
+
+<p>
+O e-mail é enviado aos usuários (e usuários que pertencem a grupos com a
+quota excedida) com o seguinte formato:
+</p>
+
+<pre>
+     From: root@localhost
+     To: gleydson@debian.gms.com.br
+     Cc: root@localhost
+     Reply-To: root@localhost
+     Subject: Quota Excedida
+     Date: Sat, 22 Sep 2001 14:27:38 -0400
+     
+     Hi,
+     
+     We noticed that you are in violation with the quotasystem
+     used on this system. We have found the following violations:
+     
+     
+                             Block limits               File limits
+     Filesystem           used    soft    hard  grace    used  soft  hard  grace
+     /dev/hda5      +-  504944  500100  600000   none   10868     0     0       
+     
+     
+     We hope that you will cleanup before your grace period expires.
+     
+     Basically, this means that the system thinks you are using more disk space
+     on the above partition(s) than you are allowed.  If you do not delete files
+     and get below your quota before the grace period expires, the system will
+     prevent you from creating new files.
+     
+     For additional assistance, please contact us at root@localhost
+     or via phone at 5555-2525.
+</pre>
+
+<hr>
+
+<h2 id="s40.13">40.13 Suporte a senhas ocultas</h2>
+
+<p>
+Veja <a href="ch-d-contas.html#s-d-contas-segsenhas-shadow">Shadow Passwords,
+Seção 32.4.1</a>.
+</p>
+
+<hr>
+
+<h2 id="s40.14">40.14 Suporte a senhas md5</h2>
+
+<p>
+Veja <a href="ch-d-contas.html#s-d-contas-segsenhas-md5">Senhas MD5, Seção
+32.4.2</a>.
+</p>
+
+<hr>
+
+<h2 id="s-d-restr-hardware">40.15 Restrições no hardware do sistema</h2>
+
+<p>
+As restrições descritas aqui são úteis para diminuir as chances de um
+ataque por acesso físico ser realizado com sucesso no sistema que desejamos
+proteger.
+</p>
+
+<p>
+Ter um sistema totalmente seguro é praticamente impossível, mas existem
+diversas maneiras de se dificultar as coisas.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-hardware-bios">40.15.1 BIOS do sistema</h3>
+
+<p>
+Algumas restrições podem ser configuradas na para diminuir as chances de se
+obter acesso <samp>root</samp> (usando métodos conhecidos de recuperação via
+disquete/CD inicializável) ou simplesmente aumentar nossa confiança no
+sistema:
+</p>
+<ul>
+<li>
+<p>
+Coloque uma senha para entrada no Setup da máquina, compartilhe esta senha
+<strong>somente</strong> com as pessoas que tem poder de root (ou seja, pessoal
+de confiança que administra a máquina).
+</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>
+Mude a seqüencia de partida para somente sua unidade de disco rígido que
+contém o sistema operacional.  As BIOS trazem convenções de DOS para
+especificar o método de partida, então <em>Only C</em> quer dizer somente o
+primeiro disco rígido, <em>SCSI</em> tentar dispositivos SCSI primeiro, etc.
+Isso pode variar de acordo com o modelo de sua BIOS.
+</p>
+</li>
+</ul>
+
+<p>
+Com os dois ítens acima qualquer um ficará impedido de inicializar o sistema
+a partir de um disco de recuperação ou entrar no Setup para modificar a ordem
+de procura do sistema operacional para dar a partida via disquetes.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-hardware-floppy">40.15.2 Retirada da unidade de disquetes</h3>
+
+<p>
+Como não é seguro confiar nas restrições de senha da BIOS (qualquer um com
+conhecimentos de hardware e acesso físico a máquina pode abrir o gabinete e
+dar um curto na bateria que mantém os dados na CMOS ou aterrar o pino de sinal
+da CMOS), a retirada da unidade de disquetes é recomendada, isso dificultará
+bastante as coisas.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-hardware-netboot">40.15.3 Placas de rede com eprom de boot</h3>
+
+<p>
+Evite a utilização de placas de rede com recursos de boot via EPROM no
+servidor, um servidor dhcp/bootp/tftp poderá ser configurado sem problemas por
+um cracker na rede (caso a BIOS esteja com a ordem inadequada de procura de
+discos) e o ataque se dar com mais &quot;sofisticação&quot; e rapidez.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-hardware-lilo">40.15.4 Protegendo o LILO</h3>
+
+<p>
+A opção <em>passwd=senha</em> e <em>restricted</em> poderão ser usadas na
+seção da imagem que desejamos proteger.  Respectivamente pedem uma senha para
+a inicialização do sistema e caso argumentos como <em>root=single</em> sejam
+usados para conseguir acesso <samp>root</samp> sem fornecer senha.
+</p>
+
+<p>
+E deixe somente as permissões de acesso ao usuário <samp>root</samp> (caso
+contrário sua senha poderá ser vista por qualquer usuário) e modifique os
+atributos deste arquivo para imutável para que nem mesmo o <samp>root</samp>
+possa modifica-lo: <samp>chattr +i /etc/lilo.conf</samp>.
+</p>
+
+<hr>
+
+<h3 id="s-d-restr-hardware-harddisk">40.15.5 Disco rígido</h3>
+
+<p>
+O disco rígido do servidor poderá se retirado como alternativa para se ter
+acesso aos dados armazenados.  Isto poderá ser dificultado com o uso de lacres
+de disco ou outras maneiras de dificultar mais esta tarefa (mais parafusos,
+armazenamento em partes de difícil manipulação do HD, etc) qualquer coisa
+que possa lhe fazer ganhar tempo e despertar suspeitas para evitar o sucesso
+desta alternativa (ousada).
+</p>
+
+<p>
+Dados importantes ou confidenciais poderão ser armazenados em um sistema de
+arquivos criptografados e serem montados somente pelos administradores que
+possuem acesso físico ao sistema.  O algoritmo <em>Serpent</em> é muito forte
+na proteção de dados além de possuir um ótimo desempenho.  Patches de
+criptografia poderão ser aplicados no kernel para ativação deste recurso
+(veja <a href="ch-d-cripto.html#s-d-cripto-criptofs">Sistemas de arquivos
+criptográfico, Seção 41.4</a>) para detalhes.
+</p>
+
+<p>
+Sensores podem ser ligados na carcaça do HD como forma de disparar um pequeno
+alarme embutido no gabinete do servidor, se você gosta de eletrônica poderá
+montar um destes facilmente para chamar a atenção alimentado por
+fonte/baterias em um circuito de emergência, e poderá acomodar sua caixa em
+uma segunda &quot;carcaça de fonte&quot; apenas para desviar suspeitas.  Um
+circuito interno de câmeras também é uma boa alternativa para monitorar a
+movimentação.
+</p>
+
+<p>
+Esquemas de segurança dependendo do porte da organização e dos dados que se
+desejam proteger deverão ser elaborados e postos em prática.  Todos os
+métodos imagináveis deverão ser considerados de acordo com as possibilidades
+do ambiente.
+</p>
+
+<hr>
+
+<p>
+[ <a href="ch-s-samba.html">anterior</a> ]
+[ <a href="index.html#contents">Conteúdo</a> ]
+[ <a href="ch-intro.html">1</a> ]
+[ <a href="ch-bas.html">2</a> ]
+[ <a href="ch-hardw.html">3</a> ]
+[ <a href="ch-d-l.html">4</a> ]
+[ <a href="ch-disc.html">5</a> ]
+[ <a href="ch-boot.html">6</a> ]
+[ <a href="ch-run.html">7</a> ]
+[ <a href="ch-cmdd.html">8</a> ]
+[ <a href="ch-cmd.html">9</a> ]
+[ <a href="ch-cmdv.html">10</a> ]
+[ <a href="ch-cmdn.html">11</a> ]
+[ <a href="ch-cmdc.html">12</a> ]
+[ <a href="ch-perm.html">13</a> ]
+[ <a href="ch-redir.html">14</a> ]
+[ <a href="ch-rede.html">15</a> ]
+[ <a href="ch-cfgrede.html">16</a> ]
+[ <a href="ch-kern.html">17</a> ]
+[ <a href="ch-log.html">18</a> ]
+[ <a href="ch-cpctd.html">19</a> ]
+[ <a href="ch-deb.html">20</a> ]
+[ <a href="ch-dpkg.html">21</a> ]
+[ <a href="ch-pers.html">22</a> ]
+[ <a href="ch-impr.html">23</a> ]
+[ <a href="ch-cfg.html">24</a> ]
+[ <a href="ch-tasks.html">25</a> ]
+[ <a href="ch-compil.html">26</a> ]
+[ <a href="ch-manut.html">27</a> ]
+[ <a href="ch-etc.html">28</a> ]
+[ <a href="ch-inter.html">29</a> ]
+[ <a href="ch-x11.html">30</a> ]
+[ <a href="ch-fw-iptables.html">31</a> ]
+[ <a href="ch-d-contas.html">32</a> ]
+[ <a href="ch-s-apache.html">33</a> ]
+[ <a href="ch-s-ident.html">34</a> ]
+[ <a href="ch-s-telnet.html">35</a> ]
+[ <a href="ch-s-ssh.html">36</a> ]
+[ <a href="ch-s-pop3.html">37</a> ]
+[ <a href="ch-s-cvs.html">38</a> ]
+[ <a href="ch-s-samba.html">39</a> ]
+[ 40 ]
+[ <a href="ch-d-cripto.html">41</a> ]
+[ <a href="ch-aplic.html">42</a> ]
+[ <a href="ch-ajuda.html">43</a> ]
+[ <a href="ch-systemd.html">44</a> ]
+[ <a href="ch-git.html">45</a> ]
+[ <a href="ch-virt-intro.html">46</a> ]
+[ <a href="ch-apend.html">47</a> ]
+[ <a href="ch-d-cripto.html">próximo</a> ]
+</p>
+
+<hr>
+
+<p>
+Guia Foca GNU/Linux
+</p>
+
+<address>
+Versão 4.22 - domingo, 05 de setembro de 2010<br>
+<br>
+Gleydson Mazioli da Silva <code><a href="mailto:gleydson@guiafoca.org">mailto:gleydson@guiafoca.org</a></code><br>
+<br>
+</address>
+<hr>
+
+</body>
+
+</html>
+
