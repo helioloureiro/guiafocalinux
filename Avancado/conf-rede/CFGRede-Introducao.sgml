@@ -121,7 +121,7 @@ virtual). ]]>
 Uma <em>bridge</em> é uma interface de rede lógica composta por uma ou mais 
 interfaces de rede física operando em nível 2 (enviando pacotes 
 através de <em>MAC adresses</em><![ %CAPJUNTOS [, veja 
-<ref id="rede-camadas">]]>). 
+ref id="rede-camadas"]]>). 
  <p>
 Sua operação é transparente na rede, podendo ser usada como 
 um switch/firewall, estação de monitoração, etc. Aqui descreverei 

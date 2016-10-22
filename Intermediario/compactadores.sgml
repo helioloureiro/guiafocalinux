@@ -186,7 +186,7 @@ Onde:
 Especifica quais arquivos serão compactados pelo <prgn>gzip</prgn>. Caso 
 seja usado um <tt>-</tt>, será assumido a entrada padrão. Curingas podem 
 ser usados para especificar vários arquivos de uma só vez 
-(veja <ref id="basico-curingas">). 
+(veja <ref id="basico-coringas">). 
 
  <tag>Opções</tag>
  <tag>-d, --decompress [arquivo]</tag>  
@@ -279,9 +279,9 @@ Nome do arquivo compactado que será gerado.
 
  <tag>arquivos-origem</tag>
  <item>
-Arquivos/Diretórios que serão compactados. Podem ser usados curingas para 
+Arquivos/Diretórios que serão compactados. Podem ser usados coringas para 
 especificar mais de um arquivo de uma só vez (veja 
-<ref id="basico-curingas">). 
+<ref id="basico-coringas">). 
 
  <tag>opções</tag>
 
@@ -421,7 +421,7 @@ Onde:
 <taglist compact>
  <tag>arquivo.zip</tag>
  <item>
-Nome do arquivo que deseja descompactar. Podem ser usados curingas para 
+Nome do arquivo que deseja descompactar. Podem ser usados coringas para 
 especificar mais de um arquivo para ser descompactado. 
 
  <tag>arquivos-extrair</tag>
@@ -431,7 +431,7 @@ Nome dos arquivos (separados por espaço) que serão descompactados do arquivo
 os arquivos serão descompactados). 
  <p>
 Se for usado <tt>-x arquivos</tt>, os arquivos especificados não serão 
-descompactados. O uso de curingas é permitido.  
+descompactados. O uso de coringas é permitido.  
 
  <tag>-d diretório</tag>
  <item>
@@ -747,7 +747,7 @@ Onde:
 Especifica quais arquivos serão compactados pelo <prgn>bzip2</prgn>. Caso 
 seja usado um <tt>-</tt>, será assumido a entrada padrão. Curingas podem 
 ser usados para especificar vários arquivos de uma só vez 
-(veja <ref id="basico-curingas">). 
+(veja <ref id="basico-coringas">). 
 
  <tag>Opções</tag>
  <tag>-d, --decompress [arquivo]</tag>  
@@ -835,7 +835,7 @@ possui boas versões Shareware e pode ser muito útil em algumas situações. ]]
 
  <tag>arquivos-origem</tag>
  <item>
-Arquivos que serão compactados. Podem ser usados curingas para especificar 
+Arquivos que serão compactados. Podem ser usados coringas para especificar 
 mais de um arquivo.
 
  <tag>ações</tag>
@@ -926,7 +926,7 @@ Inclui sub-diretórios no arquivo compactado
 
  <tag>x [ARQUIVO]</tag>
  <item>
-Processa tudo menos o [ARQUIVO]. Pode ser usados curingas
+Processa tudo menos o [ARQUIVO]. Pode ser usados coringas
 
  <tag>v[TAMANHO]</tag>
  <item>

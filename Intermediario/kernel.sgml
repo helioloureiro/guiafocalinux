@@ -34,7 +34,7 @@ do kernel. ]]>
  <p>
 Após inicializar o sistema, o kernel e seus arquivos podem ser acessados ou 
 modificados através do ponto de montagem <file>/proc</file>. Para detalhes 
-veja <ref id="disc-proc">. 
+veja ref id="disc-proc". 
  <p>
 Caso você tenha um dispositivo (como uma placa de som) que tem suporte no 
 <prgn>GNU/Linux</prgn> mas não funciona veja <ref id="kern-suporte">. 

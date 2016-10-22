@@ -105,7 +105,7 @@ Sep 25 16:54:31 myserver kernel: device eth0 entered promiscuous mode
 </example>
 O <prgn>logcheck</prgn> monitora estas atividades e classificam esta mensagem 
 como prioridade "Violação" (dependendo da configuração dos seus filtros em 
-<file>/etc/logcheck</file>. <![ %CAPJUNTOS [ Veja <ref id="log-uteis-logcheck"> 
+<file>/etc/logcheck</file>. <![ %CAPJUNTOS [ Veja ref id="log-uteis-logcheck" 
 para detalhes sobre este programa. ]]>
 
 <![ %OBS [

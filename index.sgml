@@ -122,45 +122,42 @@ Free Documentation License".
 <toc sect2>
   &introducao;
   &basico;
-  <![ %INTER-AVANC [ &hardware; ]]>
-  <![ %INIC-INTER [ &migrando; ]]>
-  <![ %INIC-INTER [ &discos; ]]>
-  <![ %INTERMEDIARIO [ &bootloaders; ]]>
-  <![ %INIC-INTER [ &run; ]]>
-  <![ %INIC-INTER [ &comandos-diretorio; ]]>
-  <![ %INIC-INTER [ &comandos-arquivo; ]]>
-  <![ %INIC-INTER [ &comandos-diversos; ]]>
-  <![ %INIC-INTER [ &comandos-rede; ]]>
-  <![ %INIC-INTER [ &comandos-contas; ]]>
-  <![ %INIC-INTER [ &permissoes; ]]>
-  <![ %INIC-INTER [ &redir; ]]>
-  <![ %INTER-AVANC [ &rede; ]]>
-  <![ %AVANCADO [ &d-cfgrede1; ]]>
-  <![ %INTERMEDIARIO [ &kernel; ]]>
-  <![ %INTER-AVANC [ &log; ]]>
-  <![ %INTERMEDIARIO [ &compactadores; ]]>
-  <![ %INTER-AVANC [ <![ %DEBIAN [ &debian; ]]> ]]>
-  <![ %INTERMEDIARIO [ <![ %DEBIAN [ &dpkg; ]]> ]]>
-  <![ %INTER-AVANC [ &personalizacao; ]]>
-  &impressao;
-  <![ %INTERMEDIARIO [ &configurando; ]]>
-  <![ %INTERMEDIARIO [ &tasks; ]]>
-  <![ %INTERMEDIARIO [ &compilacao; ]]>
-  <![ %INTERMEDIARIO [ &manutencao; ]]>
-  <![ %INTERMEDIARIO [ &etc; ]]>
-  <![ %INTERMEDIARIO [ &internet; ]]>
-  <![ %INIC-INTER [ &x11; ]]>
+&hardware;
+&migrando;
+&discos; 
+&bootloaders;
+&run;
+&comandos-diretorio;
+&comandos-arquivo;
+&comandos-diversos;
+&comandos-rede;
+&comandos-contas;
+&permissoes;
+&redir;
+&rede;
+&d-cfgrede1;
+&kernel;
+&log;
+&compactadores;
+&debian;
+&dpkg;
+&personalizacao; 
+&impressao;
+&configurando; 
+&tasks;
+&compilacao; 
+&manutencao;
+&etc;
+&internet; 
+&x11;
 
-  <![ %AVANCADO [
  &fw-iptables1; &fw-iptables2; &fw-iptables3; &fw-iptables4; &fw-iptables5; \
               &fw-iptables6; &fw-iptables7; &fw-iptables8;
  &d-contas1; 
  &s-apache1; &s-apache2; &s-apache3; &s-apache4; &s-apache5; &s-apache6; \
               &s-apache7; &s-apache8; &s-apache9; &s-apache10;
-<![ %CONSTRUCAO [ 
-  &s-bind1; 
-  &s-dhcp1; 
- ]]>
+<!-- &s-bind1;  -->
+<!--  &s-dhcp1; -->
  &s-ident1; 
  &s-telnet1;
  &s-ssh1; &s-ssh2; &s-ssh3;
@@ -170,11 +167,10 @@ Free Documentation License".
  &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
  &d-restricoes1;
  &d-cripto1;
-  ]]>
   <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
        de aplicativos de rede que ele contém -->
-  <![ %INTERMEDIARIO [ &aplicativos; ]]>
-  <![ %INIC-INTER [ &ajuda; ]]>
+  &aplicativos;
+  &ajuda; 
   &s-systemd;
   &s-git;
   &s-nginx1; &s-nginx2; &s-nginx3; &s-nginx4; &s-nginx5;
