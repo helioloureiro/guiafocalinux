@@ -151,31 +151,31 @@ Free Documentation License".
 &internet; 
 &x11;
 
- &fw-iptables1; &fw-iptables2; &fw-iptables3; &fw-iptables4; &fw-iptables5; \
+&fw-iptables1; &fw-iptables2; &fw-iptables3; &fw-iptables4; &fw-iptables5; \
               &fw-iptables6; &fw-iptables7; &fw-iptables8;
- &d-contas1; 
- &s-apache1; &s-apache2; &s-apache3; &s-apache4; &s-apache5; &s-apache6; \
+&d-contas1; 
+&s-apache1; &s-apache2; &s-apache3; &s-apache4; &s-apache5; &s-apache6; \
               &s-apache7; &s-apache8; &s-apache9; &s-apache10;
 <!-- &s-bind1;  -->
 <!--  &s-dhcp1; -->
- &s-ident1; 
- &s-telnet1;
- &s-ssh1; &s-ssh2; &s-ssh3;
- &s-pop3-1; 
- &s-cvs1; &s-cvs2; &s-cvs3; &s-cvs4; &s-cvs5; &s-cvs6;
- &s-samba1; &s-samba2; &s-samba3; &s-samba4; &s-samba5; &s-samba6; &s-samba7; \
- &s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
- &d-restricoes1;
- &d-cripto1;
+&s-ident1; 
+&s-telnet1;
+&s-ssh1; &s-ssh2; &s-ssh3;
+&s-pop3-1; 
+&s-cvs1; &s-cvs2; &s-cvs3; &s-cvs4; &s-cvs5; &s-cvs6;
+&s-samba1; &s-samba2; &s-samba3; &s-samba4; &s-samba5; &s-samba6; &s-samba7; \
+&s-samba8; &s-samba9; &s-samba10; &s-samba11; &s-samba12; &s-samba13;
+&d-restricoes1;
+&d-cripto1;
   <!-- Verificar se este capítulo entra na Avançado ou somente a parte 
        de aplicativos de rede que ele contém -->
-  &aplicativos;
-  &ajuda; 
-  &s-systemd;
-  &s-git;
-  &s-nginx1; &s-nginx2; &s-nginx3; &s-nginx4; &s-nginx5;
-  &s-haproxy1; &s-haproxy2;
-  &s-nftables1; &s-nftables2; &s-nftables3; &s-nftables4; &s-nftables5;
-  &s-virtualizacao1; &s-virtualizacao2; &s-virtualizacao3;
-  &apendice;
+ &aplicativos;
+ &ajuda; 
+ &s-systemd;
+ &s-git;
+ &s-nginx1; &s-nginx2; &s-nginx3; &s-nginx4; &s-nginx5;
+ &s-haproxy1; &s-haproxy2;
+ &s-nftables1; &s-nftables2; &s-nftables3; &s-nftables4; &s-nftables5;
+ &s-virtualizacao1; &s-virtualizacao2; &s-virtualizacao3;
+ &apendice;
  </book>

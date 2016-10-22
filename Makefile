@@ -116,6 +116,7 @@ index.html: html
 
 html: $(SRC) output
 	debiandoc2html ${CHTML}
+	if [ -d "${OUTPUT_DIR}/html" ]; then rm -rf ${OUTPUT_DIR}/html; fi
 	mv ${OUTPUT_DIR}.html ${OUTPUT_DIR}/html
 
 index.pdf: $(SRC) output
