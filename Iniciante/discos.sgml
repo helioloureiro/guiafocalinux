@@ -1394,7 +1394,7 @@ forma:
 |    | |
 |    | |_Letra que identifica o disco rígido (a=primeiro, b=segundo, etc...).
 |    |
-|    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, sd=IDE, xt=MFM).
+|    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, hd=IDE, xt=MFM).
 |
 |_Diretório onde são armazenados os dispositivos existentes no sistema.
 </example>
@@ -1406,7 +1406,7 @@ Abaixo algumas identificações de discos e partições em sistemas Linux:
  <item><em>/dev/sda</em> - <tt>Primeiro disco rígido na primeira 
 controladora SATA ou SCSI</tt>.
  <item><em>/dev/sda1</em> - <tt>Primeira partição do primeiro disco rígido 
-SATA ou</tt>.
+SATA ou SCSI</tt>.
  <item><em>/dev/sdb</em> - <tt>Segundo disco rígido na primeira controladora 
 SATA ou SCSI</tt>.
  <item><em>/dev/sdb1</em> - <tt>Primeira partição do segundo disco rígido 
