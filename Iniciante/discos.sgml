@@ -1394,7 +1394,7 @@ forma:
 |    | |
 |    | |_Letra que identifica o disco rígido (a=primeiro, b=segundo, etc...).
 |    |
-|    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, sd=IDE, xt=MFM).
+|    |_Sigla que identifica o tipo do disco rígido (sd=SATA/SCSI, hd=IDE, xt=MFM).
 |
 |_Diretório onde são armazenados os dispositivos existentes no sistema.
 </example>
@@ -1406,7 +1406,7 @@ Abaixo algumas identificações de discos e partições em sistemas Linux:
  <item><em>/dev/sda</em> - <tt>Primeiro disco rígido na primeira 
 controladora SATA ou SCSI</tt>.
  <item><em>/dev/sda1</em> - <tt>Primeira partição do primeiro disco rígido 
-SATA ou</tt>.
+SATA ou SCSI</tt>.
  <item><em>/dev/sdb</em> - <tt>Segundo disco rígido na primeira controladora 
 SATA ou SCSI</tt>.
  <item><em>/dev/sdb1</em> - <tt>Primeira partição do segundo disco rígido 
@@ -1430,7 +1430,7 @@ detectadas como <tt>sdc</tt>, <tt>sdd</tt> e assim por diante.
  <p>
 É importante entender como os discos e partições são identificados no  
 sistema, pois será necessário usar os parâmetros corretos para 
-monta-los.
+montá-los.
 
 
 <sect id="disc-montagem">Montando (acessando) uma partição de disco
@@ -1500,14 +1500,14 @@ Caso for especificada, monta a partição como leitura/gravação. É o padrão.
 Existem muitas outras opções que podem ser usadas com o comando <prgn>mount
 </prgn>, mas aqui procurei somente mostrar o básico para "montar" seus 
 discos e partições no <prgn>GNU/Linux</prgn> (para mais opções, veja a página 
-de manual do <tt>mount</tt>). Caso você digitar <tt>mount</tt> 
+de manual do <tt>mount</tt>). Caso você digite <tt>mount</tt> 
 sem parâmetros, serão mostrados os sistemas de arquivos atualmente montados 
 no sistema. Esta mesma listagem pode ser vista em <file>/etc/mtab</file>.
 <![ %EXEMPLO [ A remontagem de partição também é muito útil, especialmente 
 após reparos nos sistema de arquivos do disco rígido. Veja alguns exemplos 
 de remontagem abaixo. ]]>
  <p>
-É necessário permissões de root para montar partições, a não ser que 
+São necessárias permissões de root para montar partições, a não ser que 
 tenha especificado a opção <tt>user</tt> no arquivo <file>/etc/fstab</file> 
 (veja <ref id="disc-fstab">). 
 
